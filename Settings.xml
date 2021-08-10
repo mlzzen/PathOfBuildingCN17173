@@ -5,9 +5,9 @@
 		<Arg string="Unnamed build"/>
 	</Mode>
 	<Accounts lastAccountName="%E5%85%89%E5%BD%B1%E8%B7%AF%E8%A5%BF%E6%B3%95" lastRealm="PC">
+		<Account accountName="%E5%85%89%E5%BD%B1%E8%B7%AF%E8%A5%BF%E6%B3%95"/>
 		<Account accountName="Mathil"/>
 		<Account accountName="%E5%95%8A%E6%9D%B0%E4%B9%8B%E8%B7%AF"/>
-		<Account accountName="%E5%85%89%E5%BD%B1%E8%B7%AF%E8%A5%BF%E6%B3%95"/>
 	</Accounts>
 	<SharedItems/>
 	<Misc thousandsSeparator="," nodePowerTheme="RED/BLUE" decimalSeparator="." showThousandsSeparators="false" buildSortMode="NAME"/>
