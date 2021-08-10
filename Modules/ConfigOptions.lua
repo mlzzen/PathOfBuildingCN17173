@@ -684,7 +684,7 @@ tooltip="（每个残暴球使玩家有 3% 几率造成三倍伤害，眩晕门�
 { var = "conditionFocused", type = "check", label = "你处于专注期间?", ifCond = "Focused", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Focused", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-{ var = "buffLifetap", type = "check", label = "是否处于血怒效果期间?", ifCond = "Lifetap", apply = function(val, modList, enemyModList)
+{ var = "buffLifetap", type = "check", label = "是否处于赤炼效果期间?", ifCond = "Lifetap", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Lifetap", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 { var = "conditionOnChannelling", type = "check", label = "你是否处于持续吟唱状态?", ifCond = "OnChannelling", tooltip = "当你处于持续吟唱状态时的词缀生效", apply = function(val, modList, enemyModList)
@@ -785,7 +785,10 @@ end },
 		modList:NewMod("Condition:SummonedTotemRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		
 	end },
-	
+{ var = "TotemsSummoned", type = "count", label = "召唤的图腾数量 (如果不是最大值):", ifSkillList = { "法术图腾(辅)", "灼热连接", "弩炮图腾（辅）", "攻城炮台", "火力弩炮", "散射弩炮", "先祖卫士", "先祖战士长", "瓦尔.先祖战士长" }, tooltip = "这也意味着你有召唤图腾\n这个配置会解析'每存在 1 个图腾' 词缀.", apply = function(val, modList, enemyModList)
+		modList:NewMod("TotemsSummoned", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("Condition:HaveTotem", "FLAG", val >= 1, "Config", { type = "Condition", var = "Combat" })
+	end },
 { var = "conditionSummonedGolemInPast8Sec", type = "check", label = "过去 8 秒有召唤过魔像?", ifCond = "SummonedGolemInPast8Sec", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:SummonedGolemInPast8Sec", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
@@ -862,6 +865,9 @@ ifCond = "OnFungalGround",
 	end },
 	
 	
+{ var = "conditionCostLifeRecently", type = "check", label = "你近期有消耗过生命?", ifCond = "CostLifeRecently",  apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:CostLifeRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 { var = "conditionHitRecently", type = "check", label = "你近期有击中过敌人?", ifCond = "HitRecently", tooltip = "如果你的主要技能是自主施放，那么自动认为你近期有击中过\n若有必要，你可以强制修改它.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HitRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
@@ -1044,6 +1050,12 @@ ifCond = "OnFungalGround",
 		modList:NewMod("Condition:UsedMinionSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:UsedSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+{ var = "conditionUsedDashRecently", type = "check", label = "近期有使用冲刺技能?", ifCond = "CastDashRecently", implyCondList = { "UsedTravelSkillRecently", "UsedMovementSkillRecently", "UsedSkillRecently"}, tooltip = "这也意味着你近期有使用过技能.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:CastDashRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("Condition:UsedTravelSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("Condition:UsedMovementSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("Condition:UsedSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 { var = "conditionUsedMovementSkillRecently", type = "check", label = "近期内你有使用过移动技能?", ifCond = "UsedMovementSkillRecently", implyCond = "UsedSkillRecently", tooltip = "这也意味着你近期有使用过技能\n如果你的主要技能是移动技能，那么自动默认你近期内有使用过移动技能,\n如果必要，可以在这里变更.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:UsedMovementSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:UsedSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -1189,11 +1201,11 @@ ifCond = "OnFungalGround",
 	end },
 { var = "conditionEnemyScorched", type = "check", ifFlag = "inflictScorch", label = "敌人被烧灼?", 
 tooltip = "被烧灼的敌人降低元素抗性, 最大 -30%.\n勾选这个选项后可以在下面配置具体的烧灼效果", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("Condition:Scorched", "FLAG", true, "Config", { type = "Condition", var = "Effective" }, { type = "ActorCondition", actor = "enemy", var = "CanInflictScorch" })
+		enemyModList:NewMod("Condition:Scorched", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 { var = "conditionScorchedEffect", type = "count", label = "【烧灼】效果:", ifOption = "conditionEnemyScorched", 
 tooltip = "你可以对敌人造成烧灼的时候可以起作用.", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("ElementalResist", "BASE", -m_min(val, 30), "Config", { type = "Condition", var = "Scorched" }, { type = "ActorCondition", actor = "enemy", var = "CanInflictScorch" })
+		enemyModList:NewMod("ElementalResist", "BASE", -m_min(val, 30), "Config", { type = "Condition", var = "Scorched" })
 	end },
 { var = "conditionEnemyOnScorchedGround", type = "check", label = "敌人在烧灼地面上?", tooltip = "这也意味着敌人被烧灼.", ifEnemyCond = "OnScorchedGround", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Scorched", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
@@ -1216,7 +1228,7 @@ tooltip = "对脆弱的敌人的时提高自己的基础暴击率，最多 +15% 
 	end },
 	{ var = "conditionBrittleEffect", type = "count", label = "【脆弱】效果:", ifOption = "conditionEnemyBrittle",
 	tooltip = "你可以对敌人造成脆弱的时候可以起作用.", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("SelfCritChance", "BASE", m_min(val, 15), "Config", { type = "Condition", var = "Brittle" }, { type = "ActorCondition", actor = "enemy", var = "CanInflictBrittle" })
+		enemyModList:NewMod("SelfCritChance", "BASE", m_min(val, 15), "Config", { type = "Condition", var = "Brittle" })
 	end },
 { var = "conditionEnemyShocked", type = "check", label = "敌人被感电?", tooltip = "启用“对感电敌人什么什么”的词缀,\n这也会让敌人感电承受额外伤害.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Shocked", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
@@ -1277,11 +1289,11 @@ tooltip = "精疲力尽的敌人总伤害额外降低，最多降低 20%.", appl
 	end },
  
  
- { var = "multiplierRuptureStacks", type = "count", label = "# 撕裂层数", ifCond = "CanInflictRupture", tooltip = "【撕裂】持续 3秒\n最多叠加 3 层\n【撕裂】可使目标承受的总流血伤害额外提高 25%，身上的流血消退速度提高 25%", 
+ { var = "multiplierRuptureStacks", type = "count", label = "# 残破层数", ifCond = "CanInflictRupture", tooltip = "【残破】持续 3秒\n最多叠加 3 层\n【残破】可使目标承受的总流血伤害额外提高 25%，身上的流血消退总速度额外提高 25%", 
  apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:RuptureStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
-		enemyModList:NewMod("DamageTaken", "MORE", 25, "撕裂", nil, KeywordFlag.Bleed, { type = "Multiplier", var = "RuptureStack", limit = 3}, { type = "ActorCondition", actor = "enemy", var = "CanInflictRupture" })
-		modList:NewMod("EnemyBleedDuration", "INC", -25, "撕裂", { type = "Multiplier", var = "RuptureStack", limit = 3, actor = "enemy" }, { type = "ActorCondition", var = "CanInflictRupture" })
+		enemyModList:NewMod("DamageTaken", "MORE", 25, "残破", nil, KeywordFlag.Bleed, { type = "Multiplier", var = "RuptureStack", limit = 3}, { type = "ActorCondition", actor = "enemy", var = "CanInflictRupture" })
+		modList:NewMod("EnemyBleedDuration", "INC", -25, "残破", { type = "Multiplier", var = "RuptureStack", limit = 3, actor = "enemy" }, { type = "ActorCondition", var = "CanInflictRupture" })
 	end },
  
 	

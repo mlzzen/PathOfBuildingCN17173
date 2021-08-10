@@ -15,7 +15,7 @@ local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}--这个�
 
 local influenceInfo = itemLib.influenceInfo
 
-local catalystList = {"研磨催化剂","Accelerating", "丰沃催化剂", "灌注催化剂", "内在催化剂", "Noxious","棱光催化剂", "回火催化剂", "猛烈催化剂", "Unstable"}
+local catalystList = {"研磨催化剂","加速催化剂", "丰沃催化剂", "灌注催化剂", "内在催化剂", "有害催化剂","棱光催化剂", "回火催化剂", "猛烈催化剂", "不稳定的催化剂"}
 local catalystTags = {
 	{ "attack" },
 	{ "speed" },
@@ -75,40 +75,51 @@ self.rarity = "传奇"
 	self.quality = nil
 	self.qualityTitle = ''
 	self.rawLines = { }
-	local alltext="" --lucifer
+	--local alltext="" --lucifer
 	for line in string.gmatch(self.raw .. "\r\n", "([^\r\n]*)\r?\n") do
 		line = line:gsub("^%s+",""):gsub("%s+$","")
 		if #line > 0 then
-			alltext=alltext..line.."\r\n" --lucifer
+			--alltext=alltext..line.."\r\n" --lucifer			
 			t_insert(self.rawLines, line)
 		end
 	end
 	local mode = "WIKI"
 	local l = 1
+	
 	if self.rawLines[l] then
-		if self.rawLines[l]:match("^Item Class:") then
-			l = l + 1 -- Item class is already determined by the base type
-		end
-local rarity = self.rawLines[l]:match("^稀 有 度: (.+)")
-		if rarity then
-			mode = "GAME"
-			if colorCodes[rarity:upper()] then
-				self.rarity = rarity:upper()
+		--lucifer
+		for index in ipairs({1,2}) do
+		--lucifer
+			if self.rawLines[l] and self.rawLines[l]:match("^物品类别: (.+)") then
+				l = l + 1 -- Item class is already determined by the base type
 			end
-if self.rarity == "普通" then
-				-- Hack for relics
-				for _, line in ipairs(self.rawLines) do
-					if line == "古藏传奇" then
-						self.rarity = "遗产"
-						break
+			if self.rawLines[l] then 
+				local rarity = self.rawLines[l]:match("^稀 有 度: (.+)")
+				if rarity then
+					mode = "GAME"
+					if colorCodes[rarity:upper()] then
+						self.rarity = rarity:upper()
 					end
+					if self.rarity == "传奇" then
+						-- Hack for relics
+						for _, line in ipairs(self.rawLines) do
+							if line == "古藏传奇" then
+								self.rarity = "遗产"
+								break
+							end
+						end
+					end
+					l = l + 1
 				end
+			
 			end
-			l = l + 1
+			
 		end
 	end
-	if self.rawLines[l] then
+	
+	if self.rawLines[l] then	
 		self.name = self.rawLines[l]
+		
 		l = l + 1
 	end
 	self.namePrefix = ""

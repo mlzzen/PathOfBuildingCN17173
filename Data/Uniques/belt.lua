@@ -251,16 +251,16 @@ replica: true
 你在专注时，冰缓周围敌人，使其行动速度降低 30%
 专注的冷却回复速度提高 (30-50)%
 对冰缓敌人的击中和异常状态伤害提高 (50-70)%
-{variant:1}{crafted}{tags:life}药剂持续期间，每秒回复 (1.0-2.0)% 生命
-{variant:2}{crafted}{tags:jewellery_resistance,chaos}+(8-15)% 火焰与混沌抗性
-{variant:3}{crafted}{tags:jewellery_resistance,chaos}+(8-15)% 冰霜与混沌抗性
-{variant:4}{crafted}{tags:jewellery_resistance,chaos}+(8-15)% 闪电与混沌抗性
-{variant:5}{crafted}{tags:jewellery_attribute}+(6-17) 力量和敏捷
-{variant:6}{crafted}{tags:jewellery_attribute}+(6-17) 敏捷与智慧
-{variant:7}{crafted}{tags:jewellery_attribute}+(6-17) 力量和智慧
-{variant:8}{crafted}陷阱投掷速度提高 (7-12)%
-{variant:9}{crafted}{tags:jewellery_defense}周围有稀有或传奇敌人时，每秒回复 (15-120) 能量护盾
-{variant:10}{crafted}专注时，你的暴击率会特别幸运
+{variant:1}{tags:life}药剂持续期间，每秒回复 3% 生命
+{variant:2}{tags:jewellery_resistance,chaos}+(16-20)% 火焰与混沌抗性
+{variant:3}{tags:jewellery_resistance,chaos}+(16-20)% 冰霜与混沌抗性
+{variant:4}{tags:jewellery_resistance,chaos}+(16-20)% 闪电与混沌抗性
+{variant:5}{tags:jewellery_attribute}+(31-35) 力量和敏捷
+{variant:6}{tags:jewellery_attribute}+(31-35) 敏捷与智慧
+{variant:7}{tags:jewellery_attribute}+(31-35) 力量和智慧
+{variant:8}陷阱投掷速度提高 (14-16)%
+{variant:9}{tags:jewellery_defense}周围有稀有或传奇敌人时，每秒回复 200 能量护盾
+{variant:10}专注时，你的暴击率会特别幸运
 
 ]],
 [[
@@ -497,8 +497,8 @@ replica: true
 {tags:mana}(8-10) 每秒魔力回复
 {variant:1}获得 -40% 火焰、冰霜、闪电抗性
 {variant:3}获得 -(25-15)% 火焰、冰霜、闪电抗性
-{variant:1}−10% 全部抗性上限
-{variant:2}−5% 全部抗性上限
+{variant:1}-10% 全部抗性上限
+{variant:2}-5% 全部抗性上限
 {tags:physical}承受攻击造成的物理伤害 -(50-40)
 {tags:jewellery_defense}没有被点燃，冰冻，感电时，护甲提高 40%
 ]],[[

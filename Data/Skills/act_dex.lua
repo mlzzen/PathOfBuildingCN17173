@@ -4703,14 +4703,7 @@ name = "一次冲击波",
 name = "所有冲击波",
 		},
 	},
-	statMap = {
-		["double_slash_bleeding_damage_+%_final_in_blood_stance"] = {
-			mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Condition", var = "BloodStance" }),
-		},
-		["chance_to_bleed_on_hit_%_chance_in_blood_stance"] = {
-			mod("BleedChance", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "BloodStance" }),
-		},
-	},
+	
 	baseFlags = {
 		attack = true,
 		melee = true,

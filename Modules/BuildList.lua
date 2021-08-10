@@ -63,9 +63,14 @@ self.controls.delete = new("ButtonControl", {"LEFT",self.controls.rename,"RIGHT"
 		self:SortList()
 	end)
 	self.controls.sort:SelByValue(main.buildSortMode, "sortMode")
-	self.controls.buildList = new("BuildListControl", {"TOP",self.anchor,"TOP"}, 0, 50, 640, 0, self)
+	self.controls.buildList = new("BuildListControl", {"TOP",self.anchor,"TOP"}, 0, 75, 640, 0, self)
 	self.controls.buildList.height = function()
-		return main.screenH - 58
+		return main.screenH - 80
+	end
+	self.controls.searchText = new("EditControl", {"TOP",self.anchor,"TOP"}, 0, 25, 640, 20, self.filterBuildList, "搜索", "%c%(%)", 100)
+	self.controls.searchText.enterFunc = function(buf)
+		main.filterBuildList = buf
+		self:BuildList()
 	end
 
 	self:BuildList()
@@ -144,7 +149,13 @@ end
 
 function listMode:BuildList()
 	wipeTable(self.list)
-	local handle = NewFileSearch(main.buildPath..self.subPath.."*.xml")
+	local filterList = main.filterBuildList or ""
+	local handle = nil
+	if filterList ~= "" then
+		handle = NewFileSearch(main.buildPath..self.subPath.."*"..filterList.."*.xml")
+	else
+		handle = NewFileSearch(main.buildPath..self.subPath.."*.xml")
+	end
 	while handle do
 		local fileName = handle:GetFileName()
 		local build = { }

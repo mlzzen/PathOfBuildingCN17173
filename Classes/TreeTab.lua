@@ -133,10 +133,8 @@ self.controls.treeSearch = new("EditControl", {"LEFT",self.controls.export,"RIGH
 		self:TogglePowerReport()
 	end)
 	
-	
-	-- Sets up UI elements and power report calculations
-	self:TogglePowerReport()
 	self.showPowerReport = false
+	 
 self.controls.specConvertText = new("LabelControl", {"BOTTOMLEFT",self.controls.specSelect,"TOPLEFT"}, 0, -14, 0, 16, "^7这是一个旧版本的天赋树，也许无法完整地转换为当前游戏版本.")
 	self.controls.specConvertText.shown = function()
 		return self.showConvert
@@ -188,15 +186,19 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 
 		self.controls.specSelect.y = -24
 		self.controls.specConvertText.y = -16
-		self.controls.powerReportList:SetAnchor("TOPLEFT",self.controls.specSelect,"BOTTOMLEFT",0,self.controls.treeHeatMap.y + self.controls.treeHeatMap.height)
-		self.controls.allocatedNodeToggle:SetAnchor("TOPLEFT",self.controls.powerReportList,"BOTTOMLEFT", 0, 4)
+		if self.controls.powerReportList then			
+			self.controls.powerReportList:SetAnchor("TOPLEFT",self.controls.specSelect,"BOTTOMLEFT",0,self.controls.treeHeatMap.y + self.controls.treeHeatMap.height)
+			self.controls.allocatedNodeToggle:SetAnchor("TOPLEFT",self.controls.powerReportList,"BOTTOMLEFT", 0, 4)
+		end
 	elseif viewPort.x + viewPort.width - (select(1, self.controls.treeSearch:GetPos()) + select(1, self.controls.treeSearch:GetSize())) > (select(1, self.controls.powerReport:GetPos()) + select(1, self.controls.powerReport:GetSize())) - viewPort.x  then
 		twoLineHeight = 0
 		self.controls.treeHeatMap:SetAnchor("LEFT",self.controls.treeSearch,"RIGHT",nil,nil,nil)
 		self.controls.treeHeatMap.y = 0
 		self.controls.treeHeatMap.x = 130
-		self.controls.powerReportList:SetAnchor("TOPLEFT",self.controls.specSelect,"BOTTOMLEFT",0,self.controls.specSelect.height + 4)
-		self.controls.allocatedNodeToggle:SetAnchor("TOPLEFT",self.controls.powerReportList,"TOPRIGHT", 8, 4)
+		if self.controls.powerReportList then
+			self.controls.powerReportList:SetAnchor("TOPLEFT",self.controls.specSelect,"BOTTOMLEFT",0,self.controls.specSelect.height + 4)
+			self.controls.allocatedNodeToggle:SetAnchor("TOPLEFT",self.controls.powerReportList,"TOPRIGHT", 8, 4)
+		end
 	end
 
 	local bottomDrawerHeight = self.showPowerReport and 200 or 0
@@ -235,12 +237,16 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 		self.controls.treeHeatMapStatSelect:SelByValue(self.build.calcsTab.powerStat.stat, "stat")
 	end
 	
-	if self.build.calcsTab.powerStat and self.build.calcsTab.powerStat.stat then
-		self.controls.powerReportList.label = self.build.calcsTab.powerBuilder and "构建报表中..." or "点击可以在天赋树查看"
-	else
-		self.controls.powerReportList.label = "^7\"伤害/防御\" 选项不支持.  请选择一个其它状态进行查看."
+	
+	if self.controls.powerReportList then
+		if self.build.calcsTab.powerStat and self.build.calcsTab.powerStat.stat then
+			self.controls.powerReportList.label = self.build.calcsTab.powerBuilder and "构建报表中..." or "点击可以在天赋树查看"
+		else
+			self.controls.powerReportList.label = "^7\"伤害/防御\" 选项不支持.  请选择一个其它状态进行查看."
+		end
 	end
 	
+	 
 	SetDrawLayer(1)
 
 	SetDrawColor(0.05, 0.05, 0.05)

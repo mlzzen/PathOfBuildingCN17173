@@ -644,9 +644,7 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["global_maximum_added_chaos_damage"] = {
 	mod("ChaosMax", "BASE", nil),
 },
-["support_slashing_damage_+%_final_from_distance"] = {
-	mod("Damage", "MORE", nil, bit.bor(ModFlag.Attack, ModFlag.Melee), 0, { type = "MeleeProximity", ramp = {1,0} }, { type = "Condition", varList = { "UsingSword", "UsingAxe" }}, { type = "Condition", varList = { "UsingClaw", "UsingDagger", "UsingMace" }, neg=true} ),
-},
+
 ["shield_charge_damage_+%_maximum"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{0,0},{60,1}} }),
 },
@@ -754,6 +752,9 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["bleed_on_melee_attack_chance_%"] = {
 	mod("BleedChance", "BASE", nil, ModFlag.Melee),
 },
+["chance_to_bleed_on_hit_%_chance_in_blood_stance"] = {
+	mod("BleedChance", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "BloodStance" }),
+},
 ["faster_bleed_%"] = {
 	mod("BleedFaster", "INC", nil),
 },
@@ -859,6 +860,9 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 },
 ["bleeding_damage_+%"] = {
 	mod("Damage", "INC", nil, 0, KeywordFlag.Bleed),
+},
+["active_skill_bleeding_damage_+%_final_in_blood_stance"] = {
+	mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Condition", var = "BloodStance" }),
 },
 ["base_poison_damage_+%"] = {
 	mod("Damage", "INC", nil, 0, KeywordFlag.Poison),
@@ -1444,10 +1448,7 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["active_skill_minion_movement_velocity_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "MORE", nil) }),
 },
-["minion_life_regeneration_rate_per_minute_%"] = {
-	mod("MinionModifier", "LIST", { mod = mod("LifeRegen", "BASE", nil) }),
-	div = 60,
-},
+
 ["minions_deal_%_of_physical_damage_as_additional_chaos_damage"] = {
 	mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageGainAsChaos", "BASE", nil) }),
 },
@@ -1494,6 +1495,9 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 },
 ["base_life_reservation_+%"] = {
 	mod("LifeReserved", "INC", nil)
+},
+["base_reservation_+%"] = {
+	mod("Reserved", "INC", nil)
 },
 -- Sigil
 ["sigil_attached_target_damage_+%_final"] = {

@@ -592,12 +592,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 			local scale = 1
 			if item and item.type == "Jewel" and item.base.subType == "Abyss" and slot.parentSlot then
-				-- Check if the item in the parent slot has enough Abyssal Sockets
+				-- Check if the item in the parent slot has enough Abyssal Sockets				
 				local parentItem = env.player.itemList[slot.parentSlot.slotName]
 				if not parentItem or parentItem.abyssalSocketCount < slot.slotNum then
 					item = nil
 				else
-					scale = parentItem.socketedJewelEffectModifier
+					scale = parentItem.socketedJewelEffectModifier					
 				end
 			end
 			if slot.nodeId and item and item.type == "Jewel" and item.jewelData and item.jewelData.jewelIncEffectFromClassStart then

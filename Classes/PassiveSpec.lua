@@ -624,7 +624,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 				node.modKey = editedNode.modKey
 				node.icon = editedNode.icon
 				node.spriteId = editedNode.spriteId
-			else
+			elseif conqueredBy.conqueror then
 				if node.type == "Keystone" then
 					local legionNode = legionNodes[conqueredBy.conqueror.type.."_keystone_"..conqueredBy.conqueror.id]
 					self:ReplaceNode(node, legionNode)

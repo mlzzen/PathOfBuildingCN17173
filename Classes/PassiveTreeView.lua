@@ -605,7 +605,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						elseif hoverNode.type == "Socket" and hoverNode.nodesInRadius then
 							-- Hover node is a socket, check if this node falls within its radius and color it accordingly
 						local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(hoverNode.id)
-						local isThreadOfHope = jewel and jewel.jewelRadiusLabel == "Variable"
+					-- lucifer
+					local isThreadOfHope = jewel and (jewel.jewelRadiusLabel == "Variable" or jewel.jewelRadiusLabel == "变量")
+						
 						if isThreadOfHope then
 							-- Jewel in socket is Thread of Hope or similar
 							for index, data in ipairs(build.data.jewelRadius) do
@@ -1012,7 +1014,7 @@ tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 	end
 
 -- Conqueror node editing
-	if node and node.conqueredBy and
+	if node and node.conqueredBy and node.conqueredBy.conqueror and
 			(node.conqueredBy.conqueror.type == "vaal"
 			or node.isNotable) then
 		tooltip:AddSeparator(14)

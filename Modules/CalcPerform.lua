@@ -443,6 +443,8 @@ local function doActorAttribsPoolsConditions(env, actor)
             condList["UsingDagger"] = true
             condList["UsingMace"] = true
             condList["UsingClaw"] = true
+			-- GGG stated that a single Varunastra satisfied requirement for wielding two different weapons
+			condList["WieldingDifferentWeaponTypes"] = true
         end
 		if info.melee then
 			condList["UsingMeleeWeapon"] = true
@@ -465,6 +467,8 @@ local function doActorAttribsPoolsConditions(env, actor)
             condList["UsingDagger"] = true
             condList["UsingMace"] = true
             condList["UsingClaw"] = true
+			-- GGG stated that a single Varunastra satisfied requirement for wielding two different weapons
+			condList["WieldingDifferentWeaponTypes"] = true
         end
 		if info.melee then
 			condList["UsingMeleeWeapon"] = true
@@ -475,10 +479,18 @@ local function doActorAttribsPoolsConditions(env, actor)
 			condList["UsingTwoHandedWeapon"] = true
 		end
 	end
+	
 	if actor.weaponData1.type and actor.weaponData2.type and actor.weaponData1.type ~= "None" then
 		condList["DualWielding"] = true
-		if actor.weaponData1.type == "Claw" and actor.weaponData2.type == "Claw" then
+		if (actor.weaponData1.type == "Claw" or actor.weaponData1.countsAsAll1H) and (actor.weaponData2.type == "Claw" or actor.weaponData2.countsAsAll1H) then
 			condList["DualWieldingClaws"] = true
+		end
+		if (env.data.weaponTypeInfo[actor.weaponData1.type].label or actor.weaponData1.type) ~= (env.data.weaponTypeInfo[actor.weaponData2.type].label or actor.weaponData2.type) then
+			local info1 = env.data.weaponTypeInfo[actor.weaponData1.type]
+			local info2 = env.data.weaponTypeInfo[actor.weaponData2.type]
+			if info1.oneHand and info2.oneHand then
+				condList["WieldingDifferentWeaponTypes"] = true
+			end
 		end
 	end
 	if env.mode_combat then	
@@ -814,6 +826,9 @@ local function doActorMisc(env, actor)
 	if modDB:Flag(nil, "CryWolfMinimumPower") and modDB:Sum("BASE", nil, "WarcryPower") < 10 then
 		modDB:NewMod("WarcryPower", "OVERRIDE", 10, "来自【恶狼哭号】的战吼威力值下限")
 	end
+	if modDB:Flag(nil, "WarcryInfinitePower") then
+		modDB:NewMod("WarcryPower", "OVERRIDE", 999999, "战吼的威力值无限")
+	end
 	output.BloodCharges = m_min(modDB:Override(nil, "BloodCharges") or output.BloodChargesMax, output.BloodChargesMax)
 
 
@@ -902,7 +917,7 @@ modDB:NewMod("MovementSpeed", "INC", effect, "猛攻")
 		if modDB:Flag(nil, "Fanaticism") and actor.mainSkill and actor.mainSkill.skillFlags.selfCast then
 			local effect = m_floor(75 * (1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100))
 			modDB:NewMod("Speed", "MORE", effect, "狂热", ModFlag.Cast)
-			modDB:NewMod("ManaCost", "INC", -effect, "狂热", ModFlag.Cast)
+			modDB:NewMod("Cost", "INC", -effect, "狂热", ModFlag.Cast)
 			modDB:NewMod("AreaOfEffect", "INC", effect, "狂热", ModFlag.Cast)
 		end
 		if modDB:Flag(nil, "UnholyMight") then
@@ -1019,12 +1034,7 @@ modDB:NewMod("ActionSpeed", "INC", -effect, "冰冻")
 			modDB:NewMod("DotMultiplier", "BASE", baseVal,"Amanamu's Gaze", { type = "Multiplier", var = "苍白之凝珠宝", limit = tonumber(maxVal), limitTotal = true , actor = "parent" } ) 
 			
 		end
-		if modDB:Sum("INC", nil, "HypnoticEyeJewelArcaneSurgeEffect") > 0 then
-			local incVal = modDB:Sum("INC", nil, "HypnoticEyeJewelArcaneSurgeEffect")
-			local maxVal = data.misc.HypnoticEyeJewelMaxArcaneSurgeEffect
-			modDB:NewMod("秘术增强Effect", "INC", incVal,"Kurgal's Gaze", { type = "Multiplier", var = "安睡之凝珠宝", limit = tonumber(maxVal), limitTotal = true } ) 
-			 
-		end
+		
 		
 		
 	end	
@@ -1533,17 +1543,28 @@ function calcs.perform(env, avoidCache)
 				
 				pool.Life.baseFlat = pool.Life.baseFlat + pool.Mana.baseFlat
 				pool.Mana.baseFlat = 0
+				activeSkill.skillData["LifeReservationFlatForced"] = activeSkill.skillData["ManaReservationFlatForced"]
+				activeSkill.skillData["ManaReservationFlatForced"] = nil
 				pool.Life.basePercent = pool.Life.basePercent + pool.Mana.basePercent
 				pool.Mana.basePercent = 0
+				activeSkill.skillData["LifeReservationPercentForced"] = activeSkill.skillData["ManaReservationPercentForced"]
+				activeSkill.skillData["ManaReservationPercentForced"] = nil
 			end
 			for name, values in pairs(pool) do
 				values.more = skillModList:More(skillCfg, name.."Reserved", "Reserved")
 				values.inc = skillModList:Sum("INC", skillCfg, name.."Reserved", "Reserved")
-				values.baseFlatVal = m_floor(values.baseFlat * mult)
-				values.basePercentVal = values.basePercent * mult
-
-				values.reservedFlat = m_max(values.baseFlatVal - m_modf(values.baseFlatVal * -m_floor((100 + values.inc) * values.more - 100) / 100), 0)
-				values.reservedPercent = m_max(values.basePercentVal - m_modf(values.basePercentVal * -m_floor((100 + values.inc) * values.more - 100)) / 100, 0)
+				if activeSkill.skillData[name.."ReservationFlatForced"] then
+					values.reservedFlat = activeSkill.skillData[name.."ReservationFlatForced"]
+				else
+					local baseFlatVal = m_floor(values.baseFlat * mult)
+					values.reservedFlat = m_max(baseFlatVal - m_modf(baseFlatVal * -m_floor((100 + values.inc) * values.more - 100) / 100), 0)
+				end
+				if activeSkill.skillData[name.."ReservationPercentForced"] then
+					values.reservedPercent = activeSkill.skillData[name.."ReservationPercentForced"]
+				else
+					local basePercentVal = values.basePercent * mult
+					values.reservedPercent = m_max(basePercentVal - m_modf(basePercentVal * -m_floor((100 + values.inc) * values.more - 100) / 100), 0)
+				end
 				if activeSkill.activeMineCount then
 					values.reservedFlat = values.reservedFlat * activeSkill.activeMineCount
 					values.reservedPercent = values.reservedPercent * activeSkill.activeMineCount
@@ -1699,7 +1720,16 @@ function calcs.perform(env, avoidCache)
 		{ type = "Condition", var = "Chilled" } )
 	end
 
-	-- Combine buffs/debuffs  
+	-- Combine buffs/debuffs 
+		if env.mode_combat then
+			if modDB:Sum("INC", nil, "HypnoticEyeJewelArcaneSurgeEffect") > 0 then
+				local incVal = modDB:Sum("INC", nil, "HypnoticEyeJewelArcaneSurgeEffect")
+				local maxVal = data.misc.HypnoticEyeJewelMaxArcaneSurgeEffect				
+				modDB:NewMod("秘术增强Effect", "INC", incVal,"库加尔的凝视", { type = "Multiplier", var = "安睡之凝珠宝", limit = tonumber(maxVal), limitTotal = true } ) 
+				 
+			end
+		end
+	
 	output.EnemyCurseLimit = modDB:Sum("BASE", nil, "EnemyCurseLimit") + (output.GemCurseLimit or 0)
 
 	local buffs = { }
@@ -1734,7 +1764,9 @@ function calcs.perform(env, avoidCache)
 						modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
 						modDB.conditions["UsedBy"..buff.name:gsub(" ","")] = true
 						local srcList = new("ModList")
+						-- 秘术增强Effect
 						local inc = modStore:Sum("INC", skillCfg, "BuffEffect", "BuffEffectOnSelf", "BuffEffectOnPlayer", buff.name:gsub(" ", "").."Effect")
+						
 						local more = modStore:More(skillCfg, "BuffEffect", "BuffEffectOnSelf")
 						srcList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
 						mergeBuff(srcList, buffs, buff.name)
@@ -1887,7 +1919,7 @@ function calcs.perform(env, avoidCache)
 					if buff.type == "Buff" then
 						if env.mode_buffs and activeSkill.skillData.enable then
 							local skillCfg = buff.activeSkillBuff and skillCfg
-							local modStore = buff.activeSkillBuff and skillModList or env.minion.modDB
+							local modStore = buff.activeSkillBuff and skillModList or castingMinion.modDB
 							if buff.applyAllies then
 								modDB.conditions["AffectedBy"..buff.name] = true
 								modDB.conditions["UsedBy"..buff.name] = true
@@ -2157,21 +2189,21 @@ function calcs.perform(env, avoidCache)
 	for _, activeSkill in ipairs(env.player.activeSkillList) do -- Do another pass on the SkillList to catch effects of buffs, if needed
 		if activeSkill.activeEffect.grantedEffect.name == "枯萎" and activeSkill.skillPart == 2 then
 			local rate = (1 / 0.3) * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "Speed")
-			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env.player, enemyDB)
+			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
 			local maximum = m_min((m_floor(rate * duration) - 1), 19)
 			activeSkill.skillModList:NewMod("Multiplier:枯萎MaxStagesAfterFirst", "BASE", maximum, "Base")
 			activeSkill.skillModList:NewMod("Multiplier:枯萎StageAfterFirst", "BASE", maximum, "Base")
 		end
 		if activeSkill.activeEffect.grantedEffect.name == "忏悔烙印" and activeSkill.skillPart == 2 then
 			local rate = 1 / (activeSkill.skillData.repeatFrequency / (1 + env.player.mainSkill.skillModList:Sum("INC", env.player.mainSkill.skillCfg, "Speed", "BrandActivationFrequency") / 100) / activeSkill.skillModList:More(activeSkill.skillCfg, "BrandActivationFrequency"))
-			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env.player, enemyDB)
+			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
 			local ticks = m_min((m_floor(rate * duration) - 1), 19)
 			activeSkill.skillModList:NewMod("Multiplier:忏悔烙印MaxStagesAfterFirst", "BASE", ticks, "Base")
 			activeSkill.skillModList:NewMod("Multiplier:忏悔烙印StageAfterFirst", "BASE", ticks, "Base")
 		end
 		if activeSkill.activeEffect.grantedEffect.name == "灼热光线" and activeSkill.skillPart == 2 then
 			local rate = (1 / 0.5) * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "Speed")
-			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env.player, enemyDB)
+			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
 			local maximum = m_min((m_floor(rate * duration) - 1), 7)
 			activeSkill.skillModList:NewMod("Multiplier:灼热光线MaxStagesAfterFirst", "BASE", maximum, "Base")
 			activeSkill.skillModList:NewMod("Multiplier:灼热光线StageAfterFirst", "BASE", maximum, "Base")
@@ -2229,6 +2261,7 @@ function calcs.perform(env, avoidCache)
 				env.player.mainSkill.skillData.triggerRate = trigRate
 				env.player.mainSkill.skillData.triggerSource = source
 				env.player.mainSkill.infoMessage = "【卡斯普里怨恨】 触发技能: " .. source.activeEffect.grantedEffect.name
+				env.player.mainSkill.infoMessage2 = ""
 				env.player.mainSkill.infoTrigger = "【卡斯普里怨恨】"
 			end
 		end
@@ -2279,6 +2312,7 @@ function calcs.perform(env, avoidCache)
 				env.player.mainSkill.skillData.triggerRate = trigRate
 				env.player.mainSkill.skillData.triggerSource = source
 				env.player.mainSkill.infoMessage = "【沉默之雷】 触发技能: " .. source.activeEffect.grantedEffect.name
+				env.player.mainSkill.infoMessage2 = ""
 				env.player.mainSkill.infoTrigger = "【沉默之雷】"
 			end
 		end
@@ -2430,6 +2464,7 @@ function calcs.perform(env, avoidCache)
 				env.player.mainSkill.skillData.triggerRate = trigRate
 				env.player.mainSkill.skillData.triggerSource = source
 				env.player.mainSkill.infoMessage = "【奇塔弗之渴望】 触发技能: " .. source.activeEffect.grantedEffect.name
+				env.player.mainSkill.infoMessage2 = ""
 				env.player.mainSkill.infoTrigger = triggerName
 			end
 		end
@@ -2451,15 +2486,14 @@ function calcs.perform(env, avoidCache)
 				if source and spellCount > 0 then
 					break
 				end
-			end
+			end			
 			if not source or spellCount < 1 then
 				env.player.mainSkill.skillData.triggeredByCraft = nil
 				env.player.mainSkill.infoMessage = s_format("未发现 %s 的触发技能", triggerName)
 				env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
 				env.player.mainSkill.infoTrigger = ""
 			else
-				env.player.mainSkill.skillData.triggered = true
-							
+				env.player.mainSkill.skillData.triggered = true							
 
 				output.ActionTriggerRate = getTriggerActionTriggerRate(env.player.mainSkill.skillData.cooldown, env, breakdown)
 				-- Get action trigger rate
@@ -2496,6 +2530,7 @@ function calcs.perform(env, avoidCache)
 				env.player.mainSkill.skillData.triggerRate = output.ServerTriggerRate
 				env.player.mainSkill.skillData.triggerSource = source
 				env.player.mainSkill.infoMessage = "存在 武器-工艺 的触发技能"
+				env.player.mainSkill.infoMessage2 = ""
 				env.player.mainSkill.infoTrigger = triggerName
 				env.player.mainSkill.skillFlags.dontDisplay = true
 			end
@@ -2553,6 +2588,7 @@ function calcs.perform(env, avoidCache)
 				env.player.mainSkill.skillData.triggerRate = output.ServerTriggerRate
 				env.player.mainSkill.skillData.triggerSource = source
 				env.player.mainSkill.infoMessage = "存在 专注 触发技能"
+				env.player.mainSkill.infoMessage2 = ""
 				env.player.mainSkill.infoTrigger = triggerName
 				env.player.mainSkill.skillFlags.dontDisplay = true
 			end
@@ -2615,6 +2651,15 @@ function calcs.perform(env, avoidCache)
 				env.player.mainSkill.infoMessage = triggerName .. " 触发技能: " .. source.activeEffect.grantedEffect.name
 				env.player.mainSkill.infoTrigger = triggerName
 			end
+			if env.player.mainSkill.activeEffect.grantedEffect.name == "审判风暴" then
+			env.player.mainSkill.skillData.triggered = true
+			env.player.mainSkill.skillData.triggerRate = 2.0
+			env.player.mainSkill.skillData.triggerSource = nil
+			elseif env.player.mainSkill.activeEffect.grantedEffect.name == "审判烈焰" then
+				env.player.mainSkill.skillData.triggered = true
+				env.player.mainSkill.skillData.triggerRate = 2.0
+				env.player.mainSkill.skillData.triggerSource = nil
+			end
 		end
 
 		-- Cast On Critical Strike Support (CoC)
@@ -2664,6 +2709,7 @@ function calcs.perform(env, avoidCache)
 				env.player.mainSkill.skillData.triggerRate = trigRate
 				env.player.mainSkill.skillData.triggerSource = source
 				env.player.mainSkill.infoMessage = "CoC 触发技能: " .. source.activeEffect.grantedEffect.name
+				env.player.mainSkill.infoMessage2 = ""
 				env.player.mainSkill.infoTrigger = "CoC"
 			end
 		end
@@ -2713,6 +2759,7 @@ function calcs.perform(env, avoidCache)
 				env.player.mainSkill.skillData.triggerRate = trigRate
 				env.player.mainSkill.skillData.triggerSource = source
 				env.player.mainSkill.infoMessage = "CoMK 触发技能: " .. source.activeEffect.grantedEffect.name
+				env.player.mainSkill.infoMessage2 = ""
 				env.player.mainSkill.infoTrigger = "CoMK"
 			end
 		end
@@ -2748,6 +2795,7 @@ function calcs.perform(env, avoidCache)
 				env.player.mainSkill.skillData.triggerRate = trigRate
 				env.player.mainSkill.skillData.triggerSource = source
 				env.player.mainSkill.infoMessage = "CwC 触发技能: " .. source.activeEffect.grantedEffect.name
+				env.player.mainSkill.infoMessage2 = ""
 				env.player.mainSkill.infoTrigger = "CwC"
 
 				env.player.mainSkill.skillFlags.dontDisplay = true

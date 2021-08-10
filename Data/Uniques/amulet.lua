@@ -43,7 +43,7 @@ replica: true
 {tags:jewellery_elemental,attack}攻击附加 (11-15) - (23-28) 基础冰霜伤害
 {tags:critical}+(23-28)% 攻击和法术暴击伤害加成
 {tags:attack,life}冰霜伤害的 (0.8-1)% 转化为生命偷取
-{tags:mana}憎恨的总魔力保留额外降低 50%
+憎恨的总魔力保留额外降低 50%
 ]],
 [[
 阿兹里圣徽【仿品】
@@ -206,7 +206,7 @@ replica: true
 {tags:life}+(50-70) 最大生命
 {variant:1}每秒 (2.0-3.0) 基础魔力回复
 {variant:2}每秒 (8.0-10.0) 基础魔力回复
-{tags:mana}时空锁链以光环形式施放时，其保留效果降低 100%
+{tags:caster}时空锁链以光环形式施放时，其保留效果降低 100%
 击败稀有或者传奇敌人时，获得【塑界者姿态】，持续 10 秒
 ]],
 [[
@@ -624,11 +624,11 @@ Requires 77
 {variant:3}{tags:jewellery_resistance}+(20-25)% 冰霜抗性
 {variant:4}{tags:jewellery_resistance}+(20-25)% 闪电抗性
 {variant:5}{tags:jewellery_resistance,chaos}+(17-23)% 混沌抗性
-{variant:1}脆弱以光环形式施放时，其保留效果降低 100%
-{variant:2}易燃以光环形式施放时，其保留效果降低 100%
-{variant:3}冻伤以光环形式施放时，其保留效果降低 100%
-{variant:4}导电以光环形式施放时，其保留效果降低 100%
-{variant:5}绝望以光环形式施放时，其保留效果降低 100%
+{variant:1}{tags:caster}脆弱以光环形式施放时，其保留效果降低 100%
+{variant:2}{tags:caster}易燃以光环形式施放时，其保留效果降低 100%
+{variant:3}{tags:caster}冻伤以光环形式施放时，其保留效果降低 100%
+{variant:4}{tags:caster}导电以光环形式施放时，其保留效果降低 100%
+{variant:5}{tags:caster}绝望以光环形式施放时，其保留效果降低 100%
 击败稀有或者传奇敌人时，获得【癫狂】状态 10 秒
 裂界之器
 ]],[[
@@ -833,9 +833,9 @@ Talisman Tier: 2
 {tags:jewellery_attribute}+(16-24) 敏捷和智慧
 {variant:1,2,3}{tags:critical}攻击和法术暴击率提高 100%
 {variant:4}{tags:critical}攻击和法术暴击率提高 (250-350)%
-{variant:1}{tags:critical}−50% 攻击和法术暴击伤害加成
-{variant:2}{tags:critical}−75% 攻击和法术暴击伤害加成
-{variant:3}{tags:critical}−25% 攻击和法术暴击伤害加成
+{variant:1}{tags:critical}-50% 攻击和法术暴击伤害加成
+{variant:2}{tags:critical}-75% 攻击和法术暴击伤害加成
+{variant:3}{tags:critical}-25% 攻击和法术暴击伤害加成
 {tags:life}+(30-50) 最大生命
 {tags:mana}+(30-50) 最大魔力
 晕眩回复和格挡回复提高 40%

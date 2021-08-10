@@ -787,11 +787,11 @@ s_format("/ %.2f ^8(提高/降低 冷却回复速度)", 1 + skillModList:Sum("IN
 		
 	elseif skillData.cooldown then
 	output.Cooldown = calcSkillCooldown(skillModList, skillCfg, skillData)
-	if breakdown then
+	if breakdown then			
 			breakdown.Cooldown = {
---s_format("%.2fs ^8(基础)", skillData.cooldown),
-s_format("%.2fs ^8(基础)", skillData.cooldown + skillModList:Sum("BASE", skillCfg, "CooldownRecovery")),
-s_format("/ %.2f ^8(提高/降低 冷却回复速度)", 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100),
+				s_format("%.2fs ^8(基础)", skillData.cooldown + skillModList:Sum("BASE", skillCfg, "CooldownRecovery")),
+				s_format("/ %.2f ^8(提高/降低 冷却速度)", 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100),
+				s_format("调整为最接近的服务器速率"),
 				s_format("= %.2f秒", output.Cooldown)
 			}
 		end
@@ -4088,10 +4088,13 @@ t_insert(breakdown.DecayDuration, s_format("/ %.2f ^8(更快或较慢 debuff消�
 			local aura = activeSkill.skillTypes[SkillType.Aura] and not activeSkill.skillTypes[SkillType.Mine] and calcLib.mod(skillModList, dotTypeCfg, "AuraEffect")
 			
 			local total = baseVal * (1 + inc/100) * more * (1 + mult/100) * (aura or 1) * effMult
-			if output[damageType.."Dot"] == 0 then
+			if output[damageType.."Dot"] == 0 or output[damageType.."Dot"] == nil then
 				output[damageType.."Dot"] = total
+				output.TotalDotInstance = output.TotalDotInstance + total
+			else
+				output.TotalDotInstance = output.TotalDotInstance + total + (output[damageType.."Dot"] or 0)
 			end
-			output.TotalDotInstance = output.TotalDotInstance + total + (output[damageType.."Dot"] or 0)
+			
 			if breakdown then
 				breakdown[damageType.."Dot"] = { }
 				breakdown.dot(breakdown[damageType.."Dot"], baseVal, inc, more, mult, nil, aura, effMult, total)

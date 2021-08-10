@@ -3262,6 +3262,31 @@ minions["Metadata/Monsters/Maligaro/SecretDesecrateMonster"] = {
 	},
 }
 
+-- Trail Galecaller
+minions["Metadata/Monsters/LeagueUltimatum/Guard/GuardBowColdWeakSpectre"] = {
+	name = "试炼飓风卫",
+	life = 3.06,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.36,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 58,
+	accuracy = 1,
+	weaponType1 = "Bow",
+	skillList = {
+		"UltimatumGuardMeleeCold",
+		"UltimatumGuardConeArrowCold",
+	},
+	modList = {
+	},	
+	modListSP = {
+		
+	},
+}
 
 --lucifer
 

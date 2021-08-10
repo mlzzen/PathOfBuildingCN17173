@@ -2882,10 +2882,10 @@ skills["SupportMultistrike"] = {
 	statDescriptionScope = "gem_stat_descriptions",
 	statMap = {
 		["multistrike_damage_+%_final_on_first_repeat"] = {
-			mod("Damage", "MORE", nil, ModFlag.Melee,0, { type = "Condition", var = "MultistrikeFirstRepeat" }),
+			mod("Damage", "MORE", nil, ModFlag.Attack,0, { type = "Condition", var = "MultistrikeFirstRepeat" }),
 		},
 		["multistrike_damage_+%_final_on_second_repeat"] = {
-			mod("Damage", "MORE", nil, ModFlag.Melee,0, { type = "Condition", var = "MultistrikeSecondRepeat" }),
+			mod("Damage", "MORE", nil, ModFlag.Attack,0, { type = "Condition", var = "MultistrikeSecondRepeat" }),
 		},
 		["support_multiple_attack_damage_+%_final"] = {
 			mod("Damage", "MORE", nil, ModFlag.Attack),
@@ -2975,13 +2975,13 @@ skills["SupportMultistrikePlus"] = {
 	statDescriptionScope = "gem_stat_descriptions",
 	statMap = {
 		["multistrike_damage_+%_final_on_first_repeat"] = {
-			mod("Damage", "MORE", nil, ModFlag.Melee,0, { type = "Condition", var = "MultistrikeFirstRepeat" }),
+			mod("Damage", "MORE", nil, ModFlag.Attack,0, { type = "Condition", var = "MultistrikeFirstRepeat" }),
 		},
 		["multistrike_damage_+%_final_on_second_repeat"] = {
-			mod("Damage", "MORE", nil, ModFlag.Melee,0, { type = "Condition", var = "MultistrikeSecondRepeat" }),
+			mod("Damage", "MORE", nil, ModFlag.Attack,0, { type = "Condition", var = "MultistrikeSecondRepeat" }),
 		},
 		["multistrike_damage_+%_final_on_third_repeat"] = {
-			mod("Damage", "MORE", nil, ModFlag.Melee,0, { type = "Condition", var = "MultistrikeThirdRepeat" }),
+			mod("Damage", "MORE", nil, ModFlag.Attack,0, { type = "Condition", var = "MultistrikeThirdRepeat" }),
 		},
 		["support_multiple_attack_damage_+%_final"] = {
 			mod("Damage", "MORE", nil, ModFlag.Attack),

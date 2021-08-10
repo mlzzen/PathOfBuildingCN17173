@@ -526,8 +526,8 @@ self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls
 	end
 	
 	self.controls.displayItemCatalyst = new("DropDownControl", {"TOPLEFT",self.controls.displayItemInfluence,"BOTTOMLEFT"}, 0, 8, 180, 20,
-		{"不使用催化剂","研磨 (攻击)","Accelerating (速度)","丰沃 (生命和魔力)","灌注 (施法)","内在 (属性)","Noxious (物理&混沌)"
-		,"棱光 (抗性)","回火 (防御)", "猛烈 (元素伤害)","Unstable (暴击)"},
+		{"不使用催化剂","研磨 (攻击)","加速 (速度)","丰沃 (生命和魔力)","灌注 (施法)","内在 (属性)","有害 (物理&混沌)"
+		,"棱光 (抗性)","回火 (防御)", "猛烈 (元素伤害)","不稳定 (暴击)"},
 		function(index, value)
 			self.displayItem.catalyst = index - 1
 			 
@@ -3071,12 +3071,14 @@ tooltip:AddLine(16, "^x7F7F7F插槽: "..line)
 			if item.base.flask.mana then
 				local manaInc = modDB:Sum("INC", nil, "FlaskManaRecovery")
 				local manaRateInc = modDB:Sum("INC", nil, "FlaskManaRecoveryRate")
-				local inst = flaskData.manaInstant * (1 + manaInc / 100) * (1 + effectInc / 100)
-				local grad = flaskData.manaGradual * (1 + manaInc / 100) * (1 + effectInc / 100) * (1 + durInc / 100) * output.ManaRecoveryRateMod
-				--local inst = flaskData.manaTotal * instantPerc / 100 * (1 + manaInc / 100) * (1 + effectInc / 100) * output.ManaRecoveryMod
-				--local grad = flaskData.manaTotal * (1 - instantPerc / 100) * (1 + manaInc / 100) * (1 + effectInc / 100) * (1 + durInc / 100) * output.ManaRecoveryRateMod
+			--	local inst = flaskData.manaInstant * (1 + manaInc / 100) * (1 + effectInc / 100)
+			--	local grad = flaskData.manaGradual * (1 + manaInc / 100) * (1 + effectInc / 100) * (1 + durInc / 100) * output.ManaRecoveryRateMod
+				
+				local inst = flaskData.manaBase * instantPerc / 100 * (1 + manaInc / 100) * (1 + effectInc / 100)
+				local grad = flaskData.manaBase * (1 - instantPerc / 100) * (1 + manaInc / 100) * (1 + effectInc / 100) * (1 + durInc / 100) * output.ManaRecoveryRateMod
+			 
 				local manaDur = flaskData.duration * (1 + durInc / 100) / (1 + rateInc / 100) / (1 + manaRateInc / 100)
-				if inst > 0 and grad > 0 then
+				if inst > 0 and grad > 0 then					
 					t_insert(stats, s_format("^8魔力一共回复: ^7%d ^8(其中 ^7%d^8 立即, 加 ^7%d ^8持续^7 %.2f秒^8)", inst + grad, inst, grad, manaDur))
 				elseif inst + grad ~= flaskData.manaTotal or (inst == 0 and manaDur ~= flaskData.duration) then
 					if inst > 0 then

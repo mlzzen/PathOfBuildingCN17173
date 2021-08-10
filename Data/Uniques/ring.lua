@@ -24,7 +24,7 @@ return {
 有 1 个插槽
 {tags:caster}此物品上的诅咒技能石受到 20 级的 诅咒光环 辅助
 插入技能的诅咒光环也作用于你自身
-{tags:caster,mana}插入的诅咒宝石的保留效果降低 50%
+{tags:caster}插入的诅咒宝石的保留效果降低 50%
 {tags:jewellery_attribute}+(20-30) 智慧
 {tags:caster}你受到的诅咒效果降低 20%
 对抗被诅咒的敌人时，击中和异常状态伤害提高 (15-25)%
@@ -222,7 +222,6 @@ replica: true
 版本: 力量和敏捷
 版本: 敏捷和智慧
 版本: 力量和敏捷
-版本: 非伤害异常效果
 版本: 专注感电敌人
 版本: 狂怒球下限
 版本: 暴击球下限
@@ -230,21 +229,24 @@ replica: true
 固定基底词缀: 1
 有 1 个插槽
 此物品上装备的【光环技能石】等级 +5
-{tags:mana}插入的技能石的保留效果提高 10%
+插入的技能石的保留效果提高 10%
 {tags:jewellery_attribute}+(15-25) 全属性
 {tags:life}每装备 1 个未腐化的物品，获得 15 每秒生命回复
 {tags:mana}每装备 1 个被腐化的物品时，技能的总魔力消耗 -2 
-{variant:1}{crafted}{tags:jewellery_resistance,chaos}+(9-15)% 火焰与混沌抗性
-{variant:2}{crafted}{tags:jewellery_resistance,chaos}+(9-15)% 冰霜与混沌抗性
-{variant:3}{crafted}{tags:jewellery_resistance,chaos}+(9-15)% 闪电与混沌抗性
-{variant:4}{crafted}{tags:jewellery_attribute}+(11-17) 力量和敏捷
-{variant:5}{crafted}{tags:jewellery_attribute}+(11-17) 敏捷与智慧
-{variant:6}{crafted}{tags:jewellery_attribute}+(11-17) 力量和智慧
-{variant:7}{crafted}非伤害型异常状态效果提高 (16-30)%
-{variant:8}{crafted}专注时，使周围敌人感电 (2-4) 秒
-{variant:9}{crafted}+1 狂怒球数量下限
-{variant:10}{crafted}+1 暴击球数量下限
-{variant:11}{crafted}+1 耐力球数量下限
+{variant:1}{tags:jewellery_resistance,chaos}+(16-20)% 火焰与混沌抗性
+{variant:2}{tags:jewellery_resistance,chaos}+(16-20)% 冰霜与混沌抗性
+{variant:3}{tags:jewellery_resistance,chaos}+(16-20)% 闪电与混沌抗性
+{variant:4}{tags:jewellery_attribute}+(31-35) 力量和敏捷
+{variant:5}{tags:jewellery_attribute}+(31-35) 敏捷与智慧
+{variant:6}{tags:jewellery_attribute}+(31-35) 力量和智慧
+{variant:7}专注时，使周围敌人感电 4 秒
+{variant:7}专注的冷却回复速度提高 (5-8)%
+{variant:8}+1 狂怒球数量下限
+{variant:8}击败敌人有 (3-4)% 的几率获得狂怒球
+{variant:9}+1 暴击球数量下限
+{variant:9}击败敌人有 (3-4)% 的几率获得暴击球
+{variant:10}+1 耐力球数量下限
+{variant:10}击败敌人有 (3-4)% 的几率时获得耐力球
 ]],
 [[
 罪恶之环(忆境)
@@ -252,7 +254,7 @@ replica: true
 联盟: 虚空忆境
 Has Alt Variant: true
 版本: 增益效果
-版本: 魔力保留
+版本: 保留降低
 版本: 物理伤害减伤
 版本: 物理伤害
 版本: 纯净哨兵
@@ -263,7 +265,7 @@ Has Alt Variant: true
 {tags:attack,physical}附加 (8-10) - (13-15) 基础物理伤害
 {tags:jewellery_defense}+(350-400) 护甲
 {variant:1}【纯净之捷】的增益效果提高 (40-60)%
-{variant:2}{tags:mana}【纯净之捷】的魔力保留降低 (15-20)%
+{variant:2}纯净之捷的保留效果降低 (15-20)%
 {variant:3}{tags:physical}受到【纯净之捷】影响时，获得额外 4% 物理伤害减免
 {variant:4}{tags:physical}受到【纯净之捷】影响时，物理伤害提高 (40-60)%
 {variant:5}召唤的纯净哨兵伤害提高 (70-100)%
@@ -273,7 +275,7 @@ Has Alt Variant: true
 锻铁戒指
 联盟: 虚空忆境
 版本: 增益效果
-版本: 魔力保留
+版本: 保留降低
 版本: 物理伤害减伤
 版本: 物理伤害
 版本: 纯净哨兵
@@ -284,7 +286,7 @@ Has Alt Variant: true
 {tags:attack,physical}附加 (8-10) - (13-15) 基础物理伤害
 {tags:jewellery_defense}+(350-400) 护甲
 {variant:1}【纯净之捷】的增益效果提高 (40-60)%
-{variant:2}{tags:mana}【纯净之捷】的魔力保留降低 (15-20)%
+{variant:2}纯净之捷的保留效果降低 (15-20)%
 {variant:3}{tags:physical}受到【纯净之捷】影响时，获得额外 4% 物理伤害减免
 {variant:4}{tags:physical}受到【纯净之捷】影响时，物理伤害提高 (40-60)%
 {variant:5}召唤的纯净哨兵伤害提高 (70-100)%
@@ -297,7 +299,7 @@ Has Alt Variant: true
 联盟: 虚空忆境
 Has Alt Variant: true
 版本: 增益效果
-版本: 魔力保留
+版本: 保留降低
 版本: 冰霜抗性
 版本: 冰霜抗性上限
 版本: 冰霜伤害
@@ -308,7 +310,7 @@ Has Alt Variant: true
 {tags:jewellery_elemental}附加 (20-25) - (26-35) 基础冰霜伤害
 {tags:jewellery_resistance}+(20-30)% 冰霜抗性
 {variant:1}【寒冰之捷】的增益效果提高 (40-60)%
-{variant:2}{tags:mana}【寒冰之捷】的魔力保留降低 (15-20)%
+{variant:2}寒冰之捷的保留效果降低 (15-20)%
 {variant:3}{tags:jewellery_resistance}受到【寒冰之捷】影响时，+(50-60)% 冰霜抗性
 {variant:4}{tags:jewellery_resistance}受到【寒冰之捷】影响时，+1% 冰霜抗性上限
 {variant:5}受到【寒冰之捷】影响时，冰霜伤害提高 (40-60)%
@@ -319,7 +321,7 @@ Has Alt Variant: true
 蓝玉戒指
 联盟: 虚空忆境
 版本: 增益效果
-版本: 魔力保留
+版本: 保留降低
 版本: 冰霜抗性
 版本: 冰霜抗性上限
 版本: 冰霜伤害
@@ -330,7 +332,7 @@ Has Alt Variant: true
 {tags:jewellery_elemental}附加 (20-25) - (26-35) 基础冰霜伤害
 {tags:jewellery_resistance}+(20-30)% 冰霜抗性
 {variant:1}【寒冰之捷】的增益效果提高 (40-60)%
-{variant:2}{tags:mana}【寒冰之捷】的魔力保留降低 (15-20)%
+{variant:2}寒冰之捷的保留效果降低 (15-20)%
 {variant:3}{tags:jewellery_resistance}受到【寒冰之捷】影响时，+(50-60)% 冰霜抗性
 {variant:4}{tags:jewellery_resistance}受到【寒冰之捷】影响时，+1% 冰霜抗性上限
 {variant:5}{tags:jewellery_elemental}受到【寒冰之捷】影响时，冰霜伤害提高 (40-60)%
@@ -343,7 +345,7 @@ Has Alt Variant: true
 联盟: 虚空忆境
 Has Alt Variant: true
 版本: 增益效果
-版本: 魔力保留
+版本: 保留降低
 版本: 火焰抗性
 版本: 火焰抗性上限
 版本: 火焰伤害
@@ -354,7 +356,7 @@ Has Alt Variant: true
 {tags:jewellery_elemental}附加 (20-25) - (26-35) 基础火焰伤害
 {tags:jewellery_resistance}+(20-30)% 火焰抗性
 {variant:1}【灰烬之捷】的增益效果提高 (40-60)%
-{variant:2}{tags:mana}【灰烬之捷】的魔力保留降低 (15-20)%
+{variant:2}灰烬之捷的保留效果降低 (15-20)%
 {variant:3}{tags:jewellery_resistance}受到【灰烬之捷】影响时，+(50-60)% 火焰抗性
 {variant:4}{tags:jewellery_resistance}受到【灰烬之捷】影响时，+1% 火焰抗性上限
 {variant:5}{tags:jewellery_elemental}受到【灰烬之捷】影响时，火焰伤害提高 (40-60)%
@@ -365,7 +367,7 @@ Has Alt Variant: true
 红玉戒指
 联盟: 虚空忆境
 版本: 增益效果
-版本: 魔力保留
+版本: 保留降低
 版本: 火焰抗性
 版本: 火焰抗性上限
 版本: 火焰伤害
@@ -376,7 +378,7 @@ Has Alt Variant: true
 {tags:jewellery_elemental}附加 (20-25) - (26-35) 基础火焰伤害
 {tags:jewellery_resistance}+(20-30)% 火焰抗性
 {variant:1}【灰烬之捷】的增益效果提高 (40-60)%
-{variant:2}{tags:mana}【灰烬之捷】的魔力保留降低 (15-20)%
+{variant:2}灰烬之捷的保留效果降低 (15-20)%
 {variant:3}{tags:jewellery_resistance}受到【灰烬之捷】影响时，+(50-60)% 火焰抗性
 {variant:4}{tags:jewellery_resistance}受到【灰烬之捷】影响时，+1% 火焰抗性上限
 {variant:5}{tags:jewellery_elemental}受到【灰烬之捷】影响时，火焰伤害提高 (40-60)%
@@ -389,7 +391,7 @@ Has Alt Variant: true
 联盟: 虚空忆境
 Has Alt Variant: true
 版本: 增益效果
-版本: 魔力保留
+版本: 保留降低
 版本: 混沌抗性
 版本: 混沌伤害
 版本: 苦痛爬行者
@@ -400,7 +402,7 @@ Has Alt Variant: true
 {tags:chaos}附加 (15-20) - (21-30) 基础混沌伤害
 {tags:jewellery_resistance,chaos}+(17-23)% 混沌抗性
 {variant:1}【苦痛之捷】的增益效果提高 (40-60)%
-{variant:2}{tags:mana}【苦痛之捷】的魔力保留降低 (15-20)%
+{variant:2}苦痛之捷的保留效果降低 (15-20)%
 {variant:3}{tags:jewellery_resistance}受到【苦痛之捷】影响时，+(31-43)% 混沌抗性
 {variant:4}{tags:chaos}受到【苦痛之捷】影响时，混沌伤害提高 (40-60)%
 {variant:5}召唤的苦痛爬行者伤害提高 (70-100)%
@@ -410,7 +412,7 @@ Has Alt Variant: true
 紫晶戒指
 联盟: 虚空忆境
 版本: 增益效果
-版本: 魔力保留
+版本: 保留降低
 版本: 混沌抗性
 版本: 混沌伤害
 版本: 苦痛爬行者
@@ -421,7 +423,7 @@ Has Alt Variant: true
 {tags:chaos}附加 (15-20) - (21-30) 基础混沌伤害
 {tags:jewellery_resistance,chaos}+(17-23)% 混沌抗性
 {variant:1}【苦痛之捷】的增益效果提高 (40-60)%
-{variant:2}{tags:mana}【苦痛之捷】的魔力保留降低 (15-20)%
+{variant:2}苦痛之捷的保留效果降低 (15-20)%
 {variant:3}{tags:jewellery_resistance,chaos}受到【苦痛之捷】影响时，+(31-43)% 混沌抗性
 {variant:4}{tags:chaos}受到【苦痛之捷】影响时，混沌伤害提高 (40-60)%
 {variant:5}召唤的苦痛爬行者伤害提高 (70-100)%
@@ -433,7 +435,7 @@ Has Alt Variant: true
 联盟: 虚空忆境
 Has Alt Variant: true
 版本: 增益效果
-版本: 魔力保留
+版本: 保留降低
 版本: 闪电抗性
 版本: 闪电抗性上限
 版本: 闪电伤害
@@ -444,7 +446,7 @@ Has Alt Variant: true
 {tags:jewellery_elemental}附加 1 - (48-60) 基础闪电伤害 
 {tags:jewellery_resistance}+(20-30)% 闪电抗性 
 {variant:1}【闪电之捷】的增益效果提高 (40-60)%
-{variant:2}{tags:mana}【闪电之捷】的魔力保留降低 (15-20)%
+{variant:2}闪电之捷的保留效果降低 (15-20)%
 {variant:3}{tags:jewellery_resistance}受到【闪电之捷】影响时，+(50-60)% 闪电抗性
 {variant:4}{tags:jewellery_resistance}受到【闪电之捷】影响时，+1% 闪电抗性上限
 {variant:5}{tags:jewellery_elemental}受到【闪电之捷】影响时，闪电伤害提高 (40-60)%
@@ -453,7 +455,7 @@ Has Alt Variant: true
 悔恨之环(分裂)
 黄玉戒指
 版本: 增益效果
-版本: 魔力保留
+版本: 保留降低
 版本: 闪电抗性
 版本: 闪电抗性上限
 版本: 闪电伤害
@@ -465,7 +467,7 @@ Has Alt Variant: true
 {tags:jewellery_elemental}附加 1 - (48-60) 基础闪电伤害 
 {tags:jewellery_resistance}+(20-30)% 闪电抗性 
 {variant:1}【闪电之捷】的增益效果提高 (40-60)%
-{variant:2}{tags:mana}【闪电之捷】的魔力保留降低 (15-20)%
+{variant:2}闪电之捷的保留效果降低 (15-20)%
 {variant:3}{tags:jewellery_resistance}受到【闪电之捷】影响时，+(50-60)% 闪电抗性
 {variant:4}{tags:jewellery_resistance}受到【闪电之捷】影响时，+1% 闪电抗性上限
 {variant:5}{tags:jewellery_elemental}受到【闪电之捷】影响时，闪电伤害提高 (40-60)%
@@ -698,7 +700,7 @@ Has Alt Variant: true
 有 1 个插槽
 此物品上装备的【光环技能石】等级 +2
 {variant:1}此物品上的技能石无魔力保留
-{variant:1}{tags:mana}魔力保留提高 40%
+{variant:1}魔力保留提高 40%
 {variant:2}插入的技能石没有保留效果
 {variant:2}技能的保留效果提高 40%
 ]],[[

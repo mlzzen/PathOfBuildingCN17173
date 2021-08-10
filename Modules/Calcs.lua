@@ -382,10 +382,13 @@ function calcs.buildOutput(build, mode)
 		env.enemyConditionsUsed = { }
 		env.enemyMultipliersUsed = { }
 		local function addCond(out, var, mod)
-			if not out[var] then
-				out[var] = { }
+		--lucifer
+			if var ~= nil then
+				if not out[var]  then
+					out[var] = { }
+				end
+				t_insert(out[var], mod)
 			end
-			t_insert(out[var], mod)
 		end
 		local function addCondTag(out, tag, mod)
 			if tag.varList then
