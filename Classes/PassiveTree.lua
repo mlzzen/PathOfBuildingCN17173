@@ -120,10 +120,10 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			-- Migrate to old format			
 			class.classes = class.ascendancies
 		end
-		class.classes[0] = { name = "None" }
+		class.classes[0] = { name = "None" , id = "None"}
 		self.classNameMap[class.name] = classId
 		for ascendClassId, ascendClass in pairs(class.classes) do
-			self.ascendNameMap[ascendClass.name] = {
+			self.ascendNameMap[ascendClass.id] = {
 				classId = classId,
 				class = class,
 				ascendClassId = ascendClassId,
