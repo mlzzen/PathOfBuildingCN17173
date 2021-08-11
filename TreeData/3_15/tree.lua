@@ -10571,7 +10571,7 @@ return {
             ["isNotable"]= true,
             ["ascendancyName"]= "Hierophant",
             ["stats"]= {
-                "你有秘术增强效果时，你身上的非伤害型异常状态降低 50%",
+                "你有秘术增强效果时，你身上的非伤害型异常状态效果降低 50%",
                 "拥有【秘术增强】时范围效果扩大 30%",
                 "拥有【秘术增强】效果时，法术伤害的 0.5% 转化为生命偷取"
             },
@@ -10583,7 +10583,7 @@ return {
             ["orbitIndex"]= 2,
             ["out"]= {},
             ["in"]= {
- "33167"
+                "33167"
             },
         },
         [33167]= {
@@ -15375,7 +15375,7 @@ return {
         },
         [56359]= {
             ["skill"]= 56359,
-            ["name"]= "活力萃取",
+            ["name"]= "惨绝典礼",
             ["icon"]= "Art/2DArt/SkillIcons/passives/CannibalisticRite.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -15385,8 +15385,7 @@ return {
             },
             ["stats"]= {
                 "近期内你若有消耗过生命，则击败敌人时回复 2% 生命",
-                "消耗生命所施放技能的伤害提高 25%",
-                "生命药剂每 3 秒获得 1 充能"
+                "消耗生命所施放技能的伤害提高 25%"
             },
             ["reminderText"]= {
                 "(近期意味着：过去 4 秒)"
@@ -15465,10 +15464,10 @@ return {
         },
         [43833]= {
             ["skill"]= 43833,
-            ["name"]= "Warcry Cooldown Recovery",
+			["name"]= "战吼冷却回复速度",
             ["icon"]= "Art/2DArt/SkillIcons/passives/CooldownWarcryNode1.png",
             ["stats"]= {
-                "12% increased Warcry Cooldown Recovery Rate"
+				"战吼冷却回复速度提高 12%"
             },
             ["group"]= 92,
             ["orbit"]= 2,
@@ -17268,11 +17267,9 @@ return {
             ["stats"]= {
                 "近战武器攻击造成的异常状态伤害提高 12%",
                 "获得护体时，近战物理伤害提高 12%",
-                "你身上的护体效果提高 5%"
             },
             ["reminderText"]= {
                 "（伤害型异常包括：流血、点燃和中毒）",
-                "（【护体】获得承受的击中总伤害额外降低 20%，持续 4 秒）"
             },
             ["group"]= 129,
             ["orbit"]= 2,
@@ -17292,11 +17289,9 @@ return {
             ["stats"]= {
                 "近战武器攻击造成的异常状态伤害提高 14%",
                 "获得护体时，近战物理伤害提高 14%",
-                "你身上的护体效果提高 5%"
             },
             ["reminderText"]= {
                 "（伤害型异常包括：流血、点燃和中毒）",
-                "（【护体】获得承受的击中总伤害额外降低 20%，持续 4 秒）"
             },
             ["group"]= 129,
             ["orbit"]= 2,
@@ -17313,11 +17308,7 @@ return {
             ["name"]= "护体效果和护甲",
             ["icon"]= "Art/2DArt/SkillIcons/passives/FortifyNode.png",
             ["stats"]= {
-                "获得护体时护甲提高 15%",
-                "你身上的护体效果提高 10%"
-            },
-            ["reminderText"]= {
-                "（【护体】获得承受的击中总伤害额外降低 20%，持续 4 秒）"
+                "获得护体时护甲提高 20%",
             },
             ["group"]= 129,
             ["orbit"]= 2,
@@ -17518,7 +17509,7 @@ return {
         },
         [46842]= {
             ["skill"]= 46842,
-            ["name"]= "Arcane Potency",
+            ["name"]= "秘能爆发",
             ["icon"]= "Art/2DArt/SkillIcons/passives/arcanepotency.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -17527,8 +17518,8 @@ return {
                 "SilverOil"
             },
             ["stats"]= {
-                "30% increased Critical Strike Chance for Spells",
-                "+30% to Critical Strike Multiplier for Spells"
+                "法术暴击率提高 30%",
+                "+30% 法术暴击伤害加成"
             },
             ["group"]= 132,
             ["orbit"]= 1,
@@ -17586,7 +17577,7 @@ return {
             ["grantedIntelligence"]= 10,
             ["stats"]= {
                 "近战攻击暴击率提高 25%",
-                "武器造成的伤害穿透 3% 元素抗性",
+                "攻击伤害穿透敌人 3% 的元素抗性",
                 "攻击技能的元素伤害提高 24%",
                 "+10 力量和智慧"
             },
@@ -18168,7 +18159,7 @@ return {
         },
         [49772]= {
             ["skill"]= 49772,
-            ["name"]= "Utmost Might",
+			["name"]= "终极之力",
             ["icon"]= "Art/2DArt/SkillIcons/passives/plusstrength.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -18178,8 +18169,8 @@ return {
             },
             ["grantedStrength"]= 40,
             ["stats"]= {
-                "+40 to Strength",
-                "8% increased Strength"
+				"+40 力量",
+				"力量提高 8%"
             },
             ["group"]= 139,
             ["orbit"]= 1,
@@ -22778,10 +22769,10 @@ return {
         },
         [43057]= {
             ["skill"]= 43057,
-            ["name"]= "Ignite Resistance",
+			["name"]= "点燃抗性",
             ["icon"]= "Art/2DArt/SkillIcons/passives/avoidburning.png",
             ["stats"]= {
-                "30% reduced Ignite Duration on you"
+				"你被点燃的持续时间缩短 30%"
             },
             ["group"]= 219,
             ["orbit"]= 2,
@@ -23509,12 +23500,9 @@ return {
             ["icon"]= "Art/2DArt/SkillIcons/passives/FortifyNode.png",
             ["stats"]= {
                 "护体效果持续时间延长 25%",
-                "你身上的护体效果提高 10%"
+                "护体状态下攻击伤害提高 12%"
             },
-            ["reminderText"]= {
-                "（【护体】获得承受的击中总伤害额外降低 20%，持续 4 秒）"
-            },
-            ["group"]= 236,
+            ["group"]= 239,
             ["orbit"]= 2,
             ["orbitIndex"]= 7,
             ["out"]= {
@@ -24689,7 +24677,7 @@ return {
             ["stats"]= {
                 "最大魔力提高 20%",
                 "防卫技能的持续时间延长 25%",
-                "使用防卫技能时，可在 1 秒内回复 20% 最大魔力"
+                "使用防卫技能时，可在 1 秒内回复 10% 最大魔力"
             },
             ["group"]= 260,
             ["orbit"]= 1,
@@ -25180,8 +25168,7 @@ return {
             },
             ["stats"]= {
                 "魔力回复速度提高 25%",
-                "药剂充能获取提高 15%",
-                "魔力药剂每 3 秒获得 1 次使用机会",
+                "药剂充能获取提高 20%",
                 "使用魔力药剂时也会移除 1 个随机元素异常状态"
             },
             ["reminderText"]= {
@@ -25802,7 +25789,7 @@ return {
             },
             ["stats"]= {
                 "攻击速度提高 5%",
-                "你造成的穿刺伤害压制敌人 10% 总物理伤害减免",
+                "你造成的穿刺伤害压制敌人 15% 总物理伤害减免",
                 "攻击击中时有 15% 几率穿刺敌人",
                 "穿刺的效果提高 5%"
             },
@@ -27520,13 +27507,9 @@ return {
             ["icon"]= "Art/2DArt/SkillIcons/passives/ImapleNode.png",
             ["stats"]= {
                 "攻击速度提高 3%",
-                "你造成的穿刺伤害压制敌人 5% 总物理伤害减免",
                 "穿刺的效果提高 5%"
             },
-            ["reminderText"]= {
-                "（物理伤害减免对抗压制击中时会被降低，但是不能为负数）"
-            },
-            ["group"]= 301,
+            ["group"]= 304,
             ["orbit"]= 1,
             ["orbitIndex"]= 4,
             ["out"]= {
@@ -27568,7 +27551,7 @@ return {
             },
             ["grantedStrength"]= 20,
             ["stats"]= {
-                "你造成的穿刺伤害压制敌人 10% 总物理伤害减免",
+                "你造成的穿刺伤害压制敌人 25% 总物理伤害减免",
                 "攻击击中时有 15% 几率穿刺敌人",
                 "穿刺的效果提高 5%",
                 "+20 力量"
@@ -28265,7 +28248,6 @@ return {
             ["ascendancyName"]= "Elementalist",
             ["stats"]= {
                 "召唤的魔像免疫元素伤害",
-                "每有 1 个召唤的魔像，便有 35% 几率免疫元素异常状态",
                 "每个召唤的魔像可使它们为你提供的增益效果提高 25%",
                 "最多可同时召唤额外 +1 个魔像"
             },
@@ -28492,8 +28474,7 @@ return {
             ["isNotable"]= true,
             ["ascendancyName"]= "Elementalist",
             ["stats"]= {
-                "每个召唤的魔像可使伤害提高 25%",
-                "每个召唤的魔像可使它们为你提供的增益效果提高 25%",
+                "魔像的增益效果提高 100%",
                 "魔像在被击败 4 秒后会被重新召唤",
                 "最多可同时召唤额外 +1 个魔像"
             },
@@ -31326,10 +31307,7 @@ return {
             ["ascendancyName"]= "Champion",
             ["stats"]= {
                 "闪避值与护甲提高 15%",
-                "你身上的护体效果提高 5%"
-            },
-            ["reminderText"]= {
-                "（【护体】获得承受的击中总伤害额外降低 20%，持续 4 秒）"
+                "护体状态下攻击伤害提高 10%"
             },
             ["group"]= 357,
             ["orbit"]= 2,
@@ -31348,7 +31326,7 @@ return {
             ["ascendancyName"]= "Champion",
             ["stats"]= {
                 "闪避值与护甲提高 15%",
-                "你身上的护体效果提高 5%"
+                "护体状态下攻击伤害提高 10%"
             },
             ["group"]= 357,
             ["orbit"]= 4,
@@ -35802,9 +35780,8 @@ return {
             },
             ["stats"]= {
                 "最大魔力提高 15%",
-                "药剂回复的魔力提高 25%",
-                "药剂充能使用降低 10%",
-                "你身上的药剂效果提高 8%"
+                "药剂回复的魔力提高 30%",
+                "魔力药剂每 3 秒获得 1 次使用次数",
             },
             ["group"]= 414,
             ["orbit"]= 1,
@@ -36750,7 +36727,7 @@ return {
                 "OpalescentOil"
             },
             ["stats"]= {
-                "每有 1% 攻击格档率，伤害提高 1%",
+                "每有 5% 攻击格档率，伤害提高 5%",
                 "持盾牌时攻击伤害格挡几率 +3%"
             },
             ["group"]= 435,
@@ -36810,7 +36787,7 @@ return {
             ["stats"]= {
                 "最大生命提高 6%",
                 "药剂回复的生命提高 30%",
-                "你身上的药剂效果提高 8%"
+                "生命药剂每 3 秒获得 1 次使用次数"
             },
             ["group"]= 436,
             ["orbit"]= 1,
@@ -38262,7 +38239,7 @@ return {
         },
         [3184]= {
             ["skill"]= 3184,
-            ["name"]= "冷血传奇",
+            ["name"]= "刽子手",
             ["icon"]= "Art/2DArt/SkillIcons/passives/Slayer/BaneOfLegends.png",
             ["isNotable"]= true,
             ["ascendancyName"]= "Slayer",
@@ -38300,7 +38277,7 @@ return {
         },
         [62817]= {
             ["skill"]= 62817,
-            ["name"]= "猎头者",
+            ["name"]= "传奇灾星",
             ["icon"]= "Art/2DArt/SkillIcons/passives/Slayer/Headman.png",
             ["isNotable"]= true,
             ["ascendancyName"]= "Slayer",
@@ -43773,8 +43750,8 @@ return {
             ["grantedIntelligence"]= 20,
             ["stats"]= {
                 "最大魔力提高 15%",
-                "魔力回复速度提高 20%",
                 "药剂充能获取提高 20%",
+                "你身上的药剂效果提高 10%",
                 "+20 力量和智慧"
             },
             ["group"]= 559,
@@ -43793,7 +43770,6 @@ return {
             ["icon"]= "Art/2DArt/SkillIcons/passives/mana.png",
             ["stats"]= {
                 "最大魔力提高 8%",
-                "你身上的药剂效果提高 5%"
             },
             ["group"]= 559,
             ["orbit"]= 2,
@@ -43810,7 +43786,6 @@ return {
             ["icon"]= "Art/2DArt/SkillIcons/passives/mana.png",
             ["stats"]= {
                 "最大魔力提高 8%",
-                "你身上的药剂效果提高 5%"
             },
             ["group"]= 559,
             ["orbit"]= 2,
@@ -46448,7 +46423,7 @@ return {
         },
         [63921]= {
             ["skill"]= 63921,
-            ["name"]= "Utmost Swiftness",
+			["name"]= "终极之速",
             ["icon"]= "Art/2DArt/SkillIcons/passives/plusdexterity.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -46458,8 +46433,8 @@ return {
             },
             ["grantedDexterity"]= 40,
             ["stats"]= {
-                "+40 to Dexterity",
-                "8% increased Dexterity"
+				"+40 敏捷",
+				"敏捷提高 8%"
             },
             ["group"]= 596,
             ["orbit"]= 1,
@@ -46471,11 +46446,11 @@ return {
         },
         [39447]= {
             ["skill"]= 39447,
-            ["name"]= "Claw Attack Speed and Movement Speed",
+			["name"]= "爪类攻击速度和移动速度",
             ["icon"]= "Art/2DArt/SkillIcons/passives/attackspeedclaw.png",
             ["stats"]= {
-                "3% increased Attack Speed with Claws",
-                "3% increased Movement Speed"
+				"爪类攻击的攻击速度提高 3%",
+				"移动速度提高 3%"
             },
             ["group"]= 597,
             ["orbit"]= 2,
@@ -46489,15 +46464,15 @@ return {
         },
         [37776]= {
             ["skill"]= 37776,
-            ["name"]= "Claw Damage and Attack Speed",
+			["name"]= "爪伤害和攻击速度",
             ["icon"]= "Art/2DArt/SkillIcons/passives/attackspeedclaw.png",
             ["stats"]= {
-                "Claw Attacks deal 8% increased Damage with Hits and Ailments",
-                "3% increased Attack Speed with Claws"
-            },
-            ["reminderText"]= {
-                "(Ailments that deal Damage are Bleeding, Ignited, and Poisoned)"
-            },
+				"爪攻击造成的击中和异常状态伤害提高 8%",
+				"爪类攻击的攻击速度提高 3%"
+			},
+			["reminderText"]= {
+				"（伤害型异常包括：流血、点燃和中毒）"
+			},
             ["group"]= 597,
             ["orbit"]= 2,
             ["orbitIndex"]= 9,
@@ -46521,11 +46496,11 @@ return {
         },
         [44389]= {
             ["skill"]= 44389,
-            ["name"]= "Claw Attack Speed and Movement Speed",
+			["name"]= "爪类攻击速度和移动速度",
             ["icon"]= "Art/2DArt/SkillIcons/passives/attackspeedclaw.png",
             ["stats"]= {
-                "3% increased Attack Speed with Claws",
-                "3% increased Movement Speed"
+				"爪类攻击的攻击速度提高 3%",
+				"移动速度提高 3%"
             },
             ["group"]= 597,
             ["orbit"]= 2,
@@ -46539,7 +46514,7 @@ return {
         },
         [37504]= {
             ["skill"]= 37504,
-            ["name"]= "Claws of the Pride",
+			["name"]= "坚强之爪",
             ["icon"]= "Art/2DArt/SkillIcons/passives/clawsofthepride.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -46548,16 +46523,16 @@ return {
                 "VioletOil"
             },
             ["stats"]= {
-                "Claw Attacks deal 25% increased Damage with Hits and Ailments",
-                "Overwhelm 10% Physical Damage Reduction",
-                "15% increased Attack and Cast Speed if you've used a Movement Skill Recently",
-                "+1 to Melee Strike Range with Claws"
+				"爪攻击造成的击中和异常状态伤害提高 25%",
+				"压制敌人 10% 总物理伤害减免",
+				"近期内你若使用过移动技能，则攻击和施法速度提高 15%",
+				"+1 爪类近战打击距离"
             },
             ["reminderText"]= {
-                "(Ailments that deal Damage are Bleeding, Ignited, and Poisoned)",
-                "(Physical Damage Reduction is lower against Overwhelming Hits, but cannot go negative)",
-                "(Recently refers to the past 4 seconds)",
-                "(Affects Melee Strikes, including the Default Attack. Does not apply to Areas of Effect)"
+				"（伤害型异常包括：流血、点燃和中毒）",
+				"（物理伤害减免对抗压制击中时会被降低，但是不能为负数）",
+				"(近期意味着：过去 4 秒)",
+				"（影响近战打击，包含默认攻击，不影响范围效果）"
             },
             ["group"]= 597,
             ["orbit"]= 2,
@@ -47106,11 +47081,11 @@ return {
         },
         [19919]= {
             ["skill"]= 19919,
-            ["name"]= "Elemental Resistances and Attack Speed with Shields",
+			["name"]= "元素抗性和盾牌攻击速度",
             ["icon"]= "Art/2DArt/SkillIcons/passives/ShieldAttackDamage.png",
             ["stats"]= {
-                "4% increased Attack Speed while holding a Shield",
-                "+4% Elemental Resistances while holding a Shield"
+				"持盾牌时攻击速度提高 4%",
+				"持盾牌时 +4% 元素抗性"
             },
             ["group"]= 611,
             ["orbit"]= 2,
@@ -47124,11 +47099,11 @@ return {
         },
         [62767]= {
             ["skill"]= 62767,
-            ["name"]= "Weapon Elemental Damage and Attack Speed with Shield",
+			["name"]= "持盾武器元素伤害和攻击速度",
             ["icon"]= "Art/2DArt/SkillIcons/passives/ShieldAttackDamage.png",
             ["stats"]= {
-                "3% increased Attack Speed while holding a Shield",
-                "10% increased Elemental Damage with Attack Skills"
+				"持盾牌时攻击速度提高 3%",
+				"攻击技能的元素伤害提高 10%"
             },
             ["group"]= 611,
             ["orbit"]= 2,
@@ -47142,11 +47117,11 @@ return {
         },
         [63138]= {
             ["skill"]= 63138,
-            ["name"]= "Weapon Elemental Damage and Attack Speed with Shield",
+			["name"]= "持盾武器元素伤害和攻击速度",
             ["icon"]= "Art/2DArt/SkillIcons/passives/ShieldAttackDamage.png",
             ["stats"]= {
-                "3% increased Attack Speed while holding a Shield",
-                "10% increased Elemental Damage with Attack Skills"
+				"持盾牌时攻击速度提高 3%",
+				"攻击技能的元素伤害提高 10%"
             },
             ["group"]= 611,
             ["orbit"]= 2,
@@ -47160,14 +47135,14 @@ return {
         },
         [55743]= {
             ["skill"]= 55743,
-            ["name"]= "Elemental Resistance with Shields and Shield Defences",
+			["name"]= "持盾元素抗性和盾牌防御",
             ["icon"]= "Art/2DArt/SkillIcons/passives/ShieldAttackDamage.png",
             ["stats"]= {
-                "+6% Elemental Resistances while holding a Shield",
-                "40% increased Defences from Equipped Shield"
+				"持盾牌时 +6% 元素抗性",
+				"从盾牌获取的防御提高 40%"
             },
             ["reminderText"]= {
-                "(Armour, Evasion Rating and Energy Shield are the standard Defences)"
+				"（防御包含：护甲、闪避和能量护盾）"
             },
             ["group"]= 611,
             ["orbit"]= 2,
@@ -47181,7 +47156,7 @@ return {
         },
         [6967]= {
             ["skill"]= 6967,
-            ["name"]= "Command of the Elements",
+			["name"]= "元素之令",
             ["icon"]= "Art/2DArt/SkillIcons/passives/ShieldAttackDamage.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -47190,13 +47165,13 @@ return {
                 "BlackOil"
             },
             ["stats"]= {
-                "6% increased Attack Speed while holding a Shield",
-                "40% increased Defences from Equipped Shield",
-                "Attack Damage Penetrates 4% of Enemy Elemental Resistances",
-                "24% increased Elemental Damage with Attack Skills"
+				"持盾牌时攻击速度提高 6%",
+				"从盾牌获取的防御提高 40%",
+				"攻击伤害穿透敌人 4% 的元素抗性",
+				"攻击技能的元素伤害提高 24%"
             },
             ["reminderText"]= {
-                "(Armour, Evasion Rating and Energy Shield are the standard Defences)"
+				"（防御包含：护甲、闪避和能量护盾）"
             },
             ["group"]= 611,
             ["orbit"]= 2,
@@ -48475,7 +48450,7 @@ return {
                 "SilverOil"
             },
             ["stats"]= {
-                "武器造成的伤害穿透 6% 元素抗性",
+                "攻击伤害穿透敌人 6% 的元素抗性",
                 "攻击技能的元素伤害提高 20%"
             },
             ["group"]= 636,
@@ -50131,13 +50106,13 @@ return {
         },
         [51420]= {
             ["skill"]= 51420,
-            ["name"]= "Mana Leech",
+			["name"]= "魔力偷取",
             ["icon"]= "Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.png",
             ["stats"]= {
-                "0.4% of Attack Damage Leeched as Mana"
+				"攻击伤害的 0.4% 转化为魔力偷取"
             },
             ["reminderText"]= {
-                "(Leeched Mana is recovered over time. Multiple Leeches can occur simultaneously, up to a maximum rate)"
+				"（偷取的魔力会随着时间逐渐回复，多个偷取实例可以共存，直到达到最大偷取速率）"
             },
             ["group"]= 657,
             ["orbit"]= 1,
@@ -50152,11 +50127,11 @@ return {
         },
         [49481]= {
             ["skill"]= 49481,
-            ["name"]= "Mana Leech",
+			["name"]= "魔力偷取",
             ["icon"]= "Art/2DArt/SkillIcons/passives/ManaLeechThemedNode.png",
             ["stats"]= {
-                "+2 Mana gained for each Enemy hit by your Attacks",
-                "50% increased total Recovery per second from Mana Leech"
+				"你的攻击击中每个敌人会回复 +2 魔力",
+				"从魔力偷取中获得的每秒总恢复量提高 50%"
             },
             ["group"]= 657,
             ["orbit"]= 1,
@@ -50170,7 +50145,7 @@ return {
         },
         [65053]= {
             ["skill"]= 65053,
-            ["name"]= "Essence Sap",
+			["name"]= "灵魂虚空",
             ["icon"]= "Art/2DArt/SkillIcons/passives/minddrinker.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -50179,13 +50154,13 @@ return {
                 "BlackOil"
             },
             ["stats"]= {
-                "0.6% of Attack Damage Leeched as Mana",
-                "25% increased Maximum total Mana Recovery per second from Leech",
-                "+2 Mana gained for each Enemy hit by your Attacks",
-                "50% increased total Recovery per second from Mana Leech"
+				"攻击伤害的 0.6% 转化为魔力偷取",
+				"偷取的每秒最大魔力总恢复量提高 25%",
+				"你的攻击击中每个敌人会回复 +2 魔力",
+				"从魔力偷取中获得的每秒总恢复量提高 50%"
             },
             ["reminderText"]= {
-                "(Leeched Mana is recovered over time. Multiple Leeches can occur simultaneously, up to a maximum rate)"
+				"（偷取的魔力会随着时间逐渐回复，多个偷取实例可以共存，直到达到最大偷取速率）"
             },
             ["group"]= 657,
             ["orbit"]= 1,
@@ -50300,11 +50275,11 @@ return {
         },
         [28548]= {
             ["skill"]= 28548,
-            ["name"]= "Shield Spell Block and Block Recovery",
+            ["name"]= "格挡硬直回复",
             ["icon"]= "Art/2DArt/SkillIcons/passives/shieldrecovery.png",
             ["stats"]= {
-                "+2% Chance to Block Spell Damage while holding a Shield",
-                "40% increased Block Recovery"
+                "持盾牌时有 +2% 的几率格挡法术伤害",
+                "40% 格挡回复提高"
             },
             ["group"]= 659,
             ["orbit"]= 2,
@@ -50317,11 +50292,11 @@ return {
         },
         [37884]= {
             ["skill"]= 37884,
-            ["name"]= "Dual Wield Damage and Block",
+            ["name"]= "双持伤害和格挡",
             ["icon"]= "Art/2DArt/SkillIcons/passives/dualwieldblock.png",
             ["stats"]= {
-                "+3% Chance to Block Attack Damage while Dual Wielding",
-                "Attack Skills deal 8% increased Damage while Dual Wielding"
+				"双持时攻击伤害格挡几率 +3%",
+				"双持时，攻击技能造成的伤害提高 8%"
             },
             ["group"]= 659,
             ["orbit"]= 2,
@@ -50335,10 +50310,10 @@ return {
         },
         [53225]= {
             ["skill"]= 53225,
-            ["name"]= "Dual Wield Attack Speed",
+            ["name"]= "双持攻击速度",
             ["icon"]= "Art/2DArt/SkillIcons/passives/dualwieldspeedint.png",
             ["stats"]= {
-                "4% increased Attack Speed while Dual Wielding"
+                "双持攻击的攻击速度提高 4%"
             },
             ["group"]= 659,
             ["orbit"]= 2,
@@ -50352,7 +50327,7 @@ return {
         },
         [11784]= {
             ["skill"]= 11784,
-            ["name"]= "Gemini",
+            ["name"]= "双灵刃",
             ["icon"]= "Art/2DArt/SkillIcons/passives/gemini.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -50361,10 +50336,10 @@ return {
                 "VioletOil"
             },
             ["stats"]= {
-                "+4% Chance to Block Attack Damage while Dual Wielding",
-                "Attack Skills deal 16% increased Damage while Dual Wielding",
-                "6% increased Attack Speed while Dual Wielding",
-                "12% increased Accuracy Rating while Dual Wielding"
+				"双持时攻击伤害格挡几率 +4%",
+				"双持时，攻击技能造成的伤害提高 16%",
+				"双持攻击的攻击速度提高 6%",
+				"双持攻击的命中值提高 12%"
             },
             ["group"]= 659,
             ["orbit"]= 2,
@@ -50376,14 +50351,14 @@ return {
         },
         [15021]= {
             ["skill"]= 15021,
-            ["name"]= "Shield Block and Shield Defences",
+            ["name"]= "盾牌防御",
             ["icon"]= "Art/2DArt/SkillIcons/passives/blockstr.png",
             ["stats"]= {
-                "40% increased Defences from Equipped Shield",
-                "+2% Chance to Block Attack Damage while holding a Shield"
+                "从盾牌获取的防御提高 40%",
+                "持盾牌时攻击伤害格挡几率 +2%"
             },
             ["reminderText"]= {
-                "(Armour, Evasion Rating and Energy Shield are the standard Defences)"
+                "（防御包含：护甲、闪避和能量护盾）"
             },
             ["group"]= 659,
             ["orbit"]= 2,
@@ -50397,7 +50372,7 @@ return {
         },
         [65308]= {
             ["skill"]= 65308,
-            ["name"]= "Deflection",
+            ["name"]= "雄心重盾",
             ["icon"]= "Art/2DArt/SkillIcons/passives/barricade.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -50406,13 +50381,13 @@ return {
                 "OpalescentOil"
             },
             ["stats"]= {
-                "+4% Chance to Block Spell Damage while holding a Shield",
-                "40% increased Defences from Equipped Shield",
-                "+8% Chance to Block Projectile Attack Damage",
-                "+4% Chance to Block Attack Damage while holding a Shield"
+                "持盾牌时有 4% 的几率格挡法术伤害",
+                "从盾牌获取的防御提高 40%",
+                "+8% 对投射物伤害格挡几率",
+                "持盾牌时攻击格挡几率 +4%"
             },
             ["reminderText"]= {
-                "(Armour, Evasion Rating and Energy Shield are the standard Defences)"
+                "（防御包含：护甲、闪避和能量护盾）"
             },
             ["group"]= 659,
             ["orbit"]= 2,
@@ -50424,14 +50399,14 @@ return {
         },
         [64769]= {
             ["skill"]= 64769,
-            ["name"]= "Attack Speed and Poison Chance",
+			["name"]= "攻击速度和中毒几率",
             ["icon"]= "Art/2DArt/SkillIcons/passives/AttackPoisonNode.png",
             ["stats"]= {
-                "3% increased Attack Speed",
-                "10% chance to Poison on Hit with Attacks"
+				"攻击速度提高 3%",
+				"攻击击中时有 10% 几率使目标中毒"
             },
             ["reminderText"]= {
-                "(Poison deals Chaos Damage over time, based on the base Physical and Chaos Damage of the Skill. Multiple instances of Poison stack)"
+				"(中毒造成持续混沌伤害，基础伤害基于技能的物理和混沌伤害。多个中毒实例可以叠加)"
             },
             ["group"]= 660,
             ["orbit"]= 2,
@@ -50446,11 +50421,11 @@ return {
         },
         [23449]= {
             ["skill"]= 23449,
-            ["name"]= "Poison Damage",
+			["name"]= "中毒伤害",
             ["icon"]= "Art/2DArt/SkillIcons/passives/AttackPoisonNode.png",
             ["stats"]= {
-                "+4% to Damage over Time Multiplier for Poison",
-                "8% increased Damage with Poison"
+				"+4% 烈毒持续伤害加成",
+				"中毒伤害提高 8%"
             },
             ["group"]= 660,
             ["orbit"]= 2,
@@ -50464,11 +50439,11 @@ return {
         },
         [36849]= {
             ["skill"]= 36849,
-            ["name"]= "Attack Speed and Poison Duration",
+			["name"]= "攻击速度和烈毒持续时间",
             ["icon"]= "Art/2DArt/SkillIcons/passives/AttackPoisonNode.png",
             ["stats"]= {
-                "4% increased Attack Speed",
-                "10% increased Poison Duration"
+				"攻击速度提高 4%",
+				"中毒持续时间延长 10%"
             },
             ["group"]= 660,
             ["orbit"]= 2,
@@ -50482,7 +50457,7 @@ return {
         },
         [7263]= {
             ["skill"]= 7263,
-            ["name"]= "Swift Venoms",
+			["name"]= "迅速致毒",
             ["icon"]= "Art/2DArt/SkillIcons/passives/AttackPoisonNotable.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -50491,15 +50466,15 @@ return {
                 "GoldenOil"
             },
             ["stats"]= {
-                "+8% to Damage over Time Multiplier for Poison",
-                "8% increased Attack Speed",
-                "10% chance to Poison on Hit with Attacks",
-                "16% increased Damage with Poison",
-                "Poisons you inflict deal Damage 5% faster"
+				"+8% 烈毒持续伤害加成",
+				"攻击速度提高 8%",
+				"攻击击中时有 10% 几率使目标中毒",
+				"中毒伤害提高 16%",
+				"你造成的烈毒的伤害生效速度加快 5%"
             },
             ["reminderText"]= {
-                "(Poison deals Chaos Damage over time, based on the base Physical and Chaos Damage of the Skill. Multiple instances of Poison stack)",
-                "(They will deal the same total damage over a shorter duration)"
+				"(中毒造成持续混沌伤害，基础伤害基于技能的物理和混沌伤害。多个中毒实例可以叠加)",
+				"（他们会在一段时间内造成相同的伤害）"
             },
             ["group"]= 660,
             ["orbit"]= 2,
@@ -50672,13 +50647,13 @@ return {
         },
         [11811]= {
             ["skill"]= 11811,
-            ["name"]= "Poison Chance",
+			["name"]= "中毒几率",
             ["icon"]= "Art/2DArt/SkillIcons/passives/Poison.png",
             ["stats"]= {
-                "15% chance to Poison on Hit"
+				"击中时有 15% 几率使目标中毒"
             },
             ["reminderText"]= {
-                "(Poison deals Chaos Damage over time, based on the base Physical and Chaos Damage of the Skill. Multiple instances of Poison stack)"
+				"(中毒造成持续混沌伤害，基础伤害基于技能的物理和混沌伤害。多个中毒实例可以叠加)"
             },
             ["group"]= 663,
             ["orbit"]= 2,
@@ -50692,11 +50667,11 @@ return {
         },
         [20127]= {
             ["skill"]= 20127,
-            ["name"]= "Poison Damage and Duration",
+			["name"]= "中毒伤害和持续时间",
             ["icon"]= "Art/2DArt/SkillIcons/passives/Poison.png",
             ["stats"]= {
-                "5% increased Poison Duration",
-                "10% increased Damage with Poison"
+				"中毒持续时间延长 5%",
+				"中毒伤害提高 10%"
             },
             ["group"]= 663,
             ["orbit"]= 2,
@@ -50710,14 +50685,14 @@ return {
         },
         [1648]= {
             ["skill"]= 1648,
-            ["name"]= "Poison Damage and Chance",
+			["name"]= "中毒伤害和几率",
             ["icon"]= "Art/2DArt/SkillIcons/passives/Poison.png",
             ["stats"]= {
-                "10% chance to Poison on Hit",
-                "15% increased Damage with Poison"
+				"击中时有 10% 几率使目标中毒",
+				"中毒伤害提高 15%"
             },
             ["reminderText"]= {
-                "(Poison deals Chaos Damage over time, based on the base Physical and Chaos Damage of the Skill. Multiple instances of Poison stack)"
+				"(中毒造成持续混沌伤害，基础伤害基于技能的物理和混沌伤害。多个中毒实例可以叠加)"
             },
             ["group"]= 663,
             ["orbit"]= 2,
@@ -50743,7 +50718,7 @@ return {
         },
         [31359]= {
             ["skill"]= 31359,
-            ["name"]= "Fatal Toxins",
+            ["name"]= "致命之毒",
             ["icon"]= "Art/2DArt/SkillIcons/passives/Poison.png",
             ["isNotable"]= true,
             ["recipe"]= {
@@ -50752,10 +50727,10 @@ return {
                 "SilverOil"
             },
             ["stats"]= {
-                "+10% to Damage over Time Multiplier for Poison",
-                "+10% to Chaos Resistance",
-                "10% increased Poison Duration",
-                "30% increased Damage with Poison"
+				"+10% 烈毒持续伤害加成",
+				"+10% 混沌抗性",
+				"中毒持续时间延长 10%",
+				"中毒伤害提高 30%"
             },
             ["group"]= 663,
             ["orbit"]= 2,
@@ -50768,11 +50743,11 @@ return {
         },
         [37785]= {
             ["skill"]= 37785,
-            ["name"]= "Poison Damage and Duration",
+			["name"]= "中毒伤害和持续时间",
             ["icon"]= "Art/2DArt/SkillIcons/passives/Poison.png",
             ["stats"]= {
-                "5% increased Poison Duration",
-                "10% increased Damage with Poison"
+				"中毒持续时间延长 5%",
+				"中毒伤害提高 10%"
             },
             ["group"]= 663,
             ["orbit"]= 2,
@@ -50786,11 +50761,11 @@ return {
         },
         [38520]= {
             ["skill"]= 38520,
-            ["name"]= "Claw Accuracy and Critical Strike Multiplier",
+            ["name"]= "爪类命中值和暴击伤害加成",
             ["icon"]= "Art/2DArt/SkillIcons/passives/clawmasterydex.png",
             ["stats"]= {
-                "6% increased Accuracy Rating with Claws",
-                "+10% to Critical Strike Multiplier with Claws"
+                "6% 爪类攻击的命中值提高",
+                "爪类攻击 +10% 暴击伤害加成"
             },
             ["group"]= 664,
             ["orbit"]= 2,
@@ -51620,14 +51595,14 @@ return {
         },
         [54922]= {
             ["skill"]= 54922,
-            ["name"]= "Arrow Dancing",
+			["name"]= "箭矢闪跃",
             ["icon"]= "Art/2DArt/SkillIcons/passives/KeystoneArrowDodging.png",
             ["isKeystone"]= true,
             ["stats"]= {
-                "40% more chance to Evade Projectile Attacks\n20% less chance to Evade Melee Attacks"
+				"对投射物攻击的总闪避率额外提高 40%\n对近战攻击的总闪避率额外降低 20%\n"
             },
             ["flavourText"]= {
-                "Let the whistling of arrows and stones be your music."
+				"Let the whistling of arrows and stones be your music."
             },
             ["group"]= 683,
             ["orbit"]= 0,
@@ -52092,7 +52067,7 @@ return {
                 "SilverOil"
             },
             ["stats"]= {
-                "武器造成的伤害穿透 5% 元素抗性",
+                "攻击伤害穿透敌人 5% 的元素抗性",
                 "药剂持续期间，元素伤害提高 20%",
                 "攻击技能的元素伤害提高 20%"
             },
@@ -53479,7 +53454,7 @@ return {
             ["isNotable"]= true,
             ["ascendancyName"]= "Assassin",
             ["stats"]= {
-                "你暴击造成的中毒总伤害额外提高 50%",
+                "你暴击造成的中毒总伤害额外提高 25%",
                 "每对敌人造成一层中毒效果，便附加 +0.5% 攻击和法术基础暴击率，最多 +2.0%"
             },
             ["group"]= 711,
@@ -53516,9 +53491,8 @@ return {
             ["isNotable"]= true,
             ["ascendancyName"]= "Assassin",
             ["stats"]= {
-                "+30% 烈毒持续伤害加成",
                 "击中时有 40% 几率使目标中毒",
-                "近期你每造成一层中毒效果，中毒持续时间便延长 5%",
+                "近期你每造成一层中毒效果，中毒持续时间便延长 5%，最多可延长 100%",
                 "你击败的敌人身上每层中毒效果，使你回复 0.5% 生命"
             },
             ["reminderText"]= {
@@ -53899,8 +53873,8 @@ return {
             ["isNotable"]= true,
             ["ascendancyName"]= "Pathfinder",
             ["stats"]= {
-                "在药剂生效期间，你造成的中毒总伤害有 30% 几率额外提高 100%",
-                "在药剂持续期间，击败中毒的敌人时，可使周围敌人中毒"
+                "在药剂持续期间，击败中毒的敌人时，可使周围敌人中毒",
+                "在药剂生效期间，你造成的中毒总伤害有 20% 几率额外提高 100%",
             },
             ["group"]= 713,
             ["orbit"]= 3,
@@ -54032,12 +54006,10 @@ return {
             ["isNotable"]= true,
             ["ascendancyName"]= "Pathfinder",
             ["stats"]= {
-                "药剂持续期间，免疫元素异常状态",
-                "药剂持续期间，元素伤害提高 40%",
+                "药剂持续期间，驱散元素异常状态",
                 "药剂持续期间，有 20% 几率冰冻，感电和点燃敌人"
             },
             ["reminderText"]= {
-                "(元素异常为 点燃、烧灼、冰缓、冰冻、脆弱、感电和精疲力尽)",
                 "(冰冻降低敌人的动作速度到 0，阻止他们行动。基础持续时间基于击中造成的冰霜伤害)",
                 "(感电提高目标承受的伤害，最高提高 50%，具体提高数值由目标承受的闪电伤害决定，感电持续2秒)",
                 "（点燃造成火焰持续伤害，基础伤害基于技能造成的基础火焰伤害，持续4秒）"
@@ -54856,7 +54828,7 @@ return {
             ["icon"]= "Art/2DArt/SkillIcons/passives/Raider/IncreasedMovementSpeed.png",
             ["stats"]= {
                 "闪避值提高 15%",
-                "移动速度提高 4%"
+                "元素伤害提高 10%"
             },
             ["group"]= 721,
             ["orbit"]= 4,
@@ -54875,7 +54847,7 @@ return {
             ["isNotable"]= true,
             ["ascendancyName"]= "Raider",
             ["stats"]= {
-                "在【迷踪】状态时免疫元素异常状态",
+                "迷踪状态下，有 50% 的几率避免元素异常状态",
                 "【迷踪】状态下，附近的敌人获得火焰、冰霜、闪电曝露，并使它们的抗性 -20%",
                 "【迷踪】状态下，周围敌人的总命中值额外降低 20%"
             },
@@ -55043,7 +55015,7 @@ return {
             ["icon"]= "Art/2DArt/SkillIcons/passives/Raider/IncreasedMovementSpeed.png",
             ["stats"]= {
                 "闪避值提高 15%",
-                "移动速度提高 4%"
+                "元素伤害提高 10%"
             },
             ["group"]= 721,
             ["orbit"]= 2,
