@@ -306,10 +306,14 @@ function PassiveSpecClass:SelectAscendClass(ascendClassId)
 	self.curAscendClassId = ascendClassId
 	local ascendClass = self.curClass.classes[ascendClassId] or self.curClass.classes[0]
 	self.curAscendClass = ascendClass
+	-- Echo28: 为了支持中文, ascendClass.name → ascendClass.id
+	-- self.curAscendClassName = ascendClass.id
 	self.curAscendClassName = ascendClass.name
 
 	-- Deallocate any allocated ascendancy nodes that don't belong to the new ascendancy class
 	for id, node in pairs(self.allocNodes) do
+		-- Echo28: 为了支持中文, ascendClass.name → ascendClass.id
+		-- if node.ascendancyName and node.ascendancyName ~= ascendClass.id then
 		if node.ascendancyName and node.ascendancyName ~= ascendClass.name then
 			node.alloc = false
 			self.allocNodes[id] = nil

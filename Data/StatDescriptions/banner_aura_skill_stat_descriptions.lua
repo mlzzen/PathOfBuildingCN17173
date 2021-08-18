@@ -3,23 +3,32 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]=1,
 							[2]="#"
 						}
 					},
-					text="放置之后，旗帜持续 {0} 秒"
+					text="你和周围友军的护甲和闪避值提高 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="你和周围友军的护甲和闪避值降低 {0}%"
 				}
 			}
 		},
-		name="buff_duration",
+		name="evasion_and_physical_damage_reduction_rating_incr",
 		stats={
-			[1]="buff_effect_duration"
+			[1]="evasion_and_physical_damage_reduction_rating_+%"
 		}
 	},
 	[2]={
@@ -28,26 +37,30 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
-					text="当持有旗帜时穿刺一名敌人，你便获得 1 阶，每秒最多 5 阶"
+					text="周围敌人的暴击率提高 {0}%"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
-					text="깃발을 들고 있는 동안 적을 꿰뚫으면 1단계 획득, 1초마다 최대 5단계 획득"
+					text="周围敌人的暴击率降低 {0}%"
 				}
 			}
 		},
-		name="banner_add_stage_on_impale",
+		name="armour_evasion_banner_crit_chance",
 		stats={
-			[1]="banner_add_stage_on_impale"
+			[1]="armour_evasion_banner_critical_strike_chance_+%"
 		}
 	},
 	[3]={
@@ -56,92 +69,11 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="当持有旗帜时击败一名敌人，你便获得 1 阶"
-				}
-			}
-		},
-		name="banner_add_stage_on_kill",
-		stats={
-			[1]="banner_add_stage_on_kill"
-		}
-	},
-	[4]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="每阶放置旗帜的基础持续时间 {0:+d} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="每阶放置旗帜的基础持续时间 {0:+d} 秒"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="단계 하나당 깃발 배치 지속시간 {0:+d}초"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="단계 하나당 깃발 배치 지속시간 {0:+d}초"
-				}
-			}
-		},
-		name="banner_stage_duration",
-		stats={
-			[1]="banner_additional_base_duration_per_stage_ms"
-		}
-	},
-	[5]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
-					limit={
-						[1]={
 							[1]=1,
 							[2]="#"
 						}
 					},
-					text="放置后，每阶可使效果区域扩大 {0}%"
+					text="周围敌人的命中值总增 {0}%"
 				},
 				[2]={
 					[1]={
@@ -154,194 +86,7 @@ return {
 							[2]=-1
 						}
 					},
-					text="放置后，每阶可使效果区域缩小 {0}%"
-				}
-			}
-		},
-		name="banner_stage_aoe",
-		stats={
-			[1]="banner_area_of_effect_+%_per_stage"
-		}
-	},
-	[6]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="放置后，每阶可使光环效果提高 {0}%"
-				},
-				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="放置后，每阶可使光环效果降低 {0}%"
-				}
-			}
-		},
-		name="banner_stage_aura_effect",
-		stats={
-			[1]="banner_buff_effect_+%_per_stage"
-		}
-	},
-	[7]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="放置之后，基础持续时间 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="배치 후 기본 지속시간 {0}초"
-				}
-			}
-		},
-		name="base_duration_identifier",
-		stats={
-			[1]="base_skill_effect_duration",
-			[2]="quality_display_base_duration_is_quality"
-		}
-	},
-	[8]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextAdrenaline"
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="放置旗帜时，每阶可获得肾上腺素 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextAdrenaline"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="放置旗帜时，每阶可获得肾上腺素 {0} 秒"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextAdrenaline"
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="깃발 배치 중 단계 하나당 {0}초 동안 아드레날린 획득"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextAdrenaline"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="깃발 배치 중 단계 하나당 {0}초 동안 아드레날린 획득"
-				}
-			}
-		},
-		name="war_banner_adrenaline",
-		stats={
-			[1]="bloodstained_banner_adrenaline_duration_per_stage_ms"
-		}
-	},
-	[9]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="周围敌人的命中值提高 {0}%"
-				},
-				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="周围敌人的命中值降低 {0}%"
+					text="周围敌人的命中值总降 {0}%"
 				}
 			}
 		},
@@ -350,7 +95,7 @@ return {
 			[1]="puresteel_banner_accuracy_rating_+%_final"
 		}
 	},
-	[10]={
+	[4]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -382,7 +127,81 @@ return {
 			[1]="puresteel_banner_damage_+%_final"
 		}
 	},
-	[11]={
+	[5]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="你携带旗帜时，穿刺敌人可累积 1 层，每秒可累积最多 5 层"
+				}
+			}
+		},
+		name="banner_add_stage_on_impale",
+		stats={
+			[1]="banner_add_stage_on_impale"
+		}
+	},
+	[6]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						}
+					},
+					text="周围有敌人时，每 {0} 秒累积 1 层"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="周围有敌人时，每 {0} 秒累积 1 层"
+				}
+			}
+		},
+		name="banner_add_stage_every_x_milliseconds_while_enemies_nearby",
+		stats={
+			[1]="banner_add_stage_every_x_milliseconds_while_enemies_nearby"
+		}
+	},
+	[7]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="你携带旗帜时，你消灭敌人可累积 1 层"
+				}
+			}
+		},
+		name="banner_add_stage_on_kill",
+		stats={
+			[1]="banner_add_stage_on_kill"
+		}
+	},
+	[8]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -392,7 +211,7 @@ return {
 					},
 					[2]={
 						k="reminderstring",
-						v="ReminderTextFortifyNoDuration"
+						v="ReminderTextAdrenaline"
 					},
 					limit={
 						[1]={
@@ -400,7 +219,7 @@ return {
 							[2]=1000
 						}
 					},
-					text="放置旗帜后每层获得 {0} 秒 护体效果"
+					text="放置旗帜时，每层获得 {0} 秒肾上腺素"
 				},
 				[2]={
 					[1]={
@@ -409,7 +228,7 @@ return {
 					},
 					[2]={
 						k="reminderstring",
-						v="ReminderTextFortifyNoDuration"
+						v="ReminderTextAdrenaline"
 					},
 					limit={
 						[1]={
@@ -417,50 +236,16 @@ return {
 							[2]="#"
 						}
 					},
-					text="放置旗帜后每层获得 {0} 秒 护体效果"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextFortifyNoDuration"
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="깃발 배치 시 단계 하나당 {0}초 동안 방어 상승을 획득"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextFortifyNoDuration"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="깃발 배치 시 단계 하나당 {0}초 동안 방어 상승을 획득"
+					text="放置旗帜时，每层获得{0} 秒肾上腺素"
 				}
 			}
 		},
-		name="dread_banner_fortify",
+		name="war_banner_adrenaline",
 		stats={
-			[1]="puresteel_banner_fortify_duration_per_stage_ms"
+			[1]="bloodstained_banner_adrenaline_duration_per_stage_ms"
 		}
 	},
-	[12]={
+	[9]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -470,7 +255,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="每一阶使【护体】效果提高 {0}%"
+					text="每层使护体效果提高 {0}%"
 				},
 				[2]={
 					[1]={
@@ -483,7 +268,7 @@ return {
 							[2]=-1
 						}
 					},
-					text="每一阶使【护体】效果降低 {0}%"
+					text="每层使护体效果降低 {0}%"
 				}
 			}
 		},
@@ -492,18 +277,305 @@ return {
 			[1]="puresteel_banner_fortify_effect_+%_per_stage"
 		}
 	},
-	["banner_add_stage_on_impale"]=2,
-	["banner_add_stage_on_kill"]=3,
-	["banner_additional_base_duration_per_stage_ms"]=4,
-	["banner_area_of_effect_+%_per_stage"]=5,
-	["banner_buff_effect_+%_per_stage"]=6,
-	["base_skill_effect_duration"]=7,
+	[10]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextFortifyNoDuration"
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						}
+					},
+					text="放置旗帜时每层获得 {0} 秒护体效果"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextFortifyNoDuration"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="放置旗帜时，每层获得 {0} 秒护体效果"
+				}
+			}
+		},
+		name="dread_banner_fortify",
+		stats={
+			[1]="puresteel_banner_fortify_duration_per_stage_ms"
+		}
+	},
+	[11]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="放置旗帜时，每层嘲讽周围敌人 {0} 秒"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="放置旗帜时，每层嘲讽周围敌人 {0} 秒"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					[2]={
+						k="negate",
+						v=2
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						},
+						[2]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="放置旗帜时，每层嘲讽周围敌人 {0} 秒\n被这样嘲讽的敌人造成的伤害总降 {1}%"
+				},
+				[4]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					[2]={
+						k="negate",
+						v=2
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="放置旗帜时，嘲讽周围敌人 {0} 秒\n被这样嘲讽的敌人造成的伤害总降 {1}%"
+				}
+			}
+		},
+		name="armour_evasion_banner_super_taunt",
+		stats={
+			[1]="armour_evasion_banner_super_taunt_duration_per_stage_ms",
+			[2]="armour_evasion_banner_taunted_enemies_damage_+%_final"
+		}
+	},
+	[12]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="放置后，基础持续时间为 {0} 秒"
+				}
+			}
+		},
+		name="base_duration_identifier",
+		stats={
+			[1]="base_skill_effect_duration",
+			[2]="quality_display_base_duration_is_quality"
+		}
+	},
+	[13]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="放置后，旗帜存在 {0} 秒"
+				}
+			}
+		},
+		name="buff_duration",
+		stats={
+			[1]="buff_effect_duration"
+		}
+	},
+	[14]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						}
+					},
+					text="每层使旗帜放置的基础持续时间 {0:+d} 秒"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="每层使旗帜放置的基础持续时间 {0:+d} 秒"
+				}
+			}
+		},
+		name="banner_stage_duration",
+		stats={
+			[1]="banner_additional_base_duration_per_stage_ms"
+		}
+	},
+	[15]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="放置后，每层使效果区域扩大 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="放置后，每层使效果区域缩小 {0}%"
+				}
+			}
+		},
+		name="banner_stage_aoe",
+		stats={
+			[1]="banner_area_of_effect_+%_per_stage"
+		}
+	},
+	[16]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="放置后，每层使光环效果提高 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="放置后，每层使光环效果降低 {0}%"
+				}
+			}
+		},
+		name="banner_stage_aura_effect",
+		stats={
+			[1]="banner_buff_effect_+%_per_stage"
+		}
+	},
+	["armour_evasion_banner_critical_strike_chance_+%"]=2,
+	["armour_evasion_banner_super_taunt_duration_per_stage_ms"]=11,
+	["armour_evasion_banner_taunted_enemies_damage_+%_final"]=11,
+	["banner_add_stage_every_x_milliseconds_while_enemies_nearby"]=6,
+	["banner_add_stage_on_impale"]=5,
+	["banner_add_stage_on_kill"]=7,
+	["banner_additional_base_duration_per_stage_ms"]=14,
+	["banner_area_of_effect_+%_per_stage"]=15,
+	["banner_buff_effect_+%_per_stage"]=16,
+	["base_skill_effect_duration"]=12,
 	["bloodstained_banner_adrenaline_duration_per_stage_ms"]=8,
-	["buff_effect_duration"]=1,
+	["buff_effect_duration"]=13,
+	["evasion_and_physical_damage_reduction_rating_+%"]=1,
 	parent="aura_skill_stat_descriptions",
-	["puresteel_banner_accuracy_rating_+%_final"]=9,
-	["puresteel_banner_damage_+%_final"]=10,
-	["puresteel_banner_fortify_duration_per_stage_ms"]=11,
-	["puresteel_banner_fortify_effect_+%_per_stage"]=12,
-	["quality_display_base_duration_is_quality"]=7
+	["puresteel_banner_accuracy_rating_+%_final"]=3,
+	["puresteel_banner_damage_+%_final"]=4,
+	["puresteel_banner_fortify_duration_per_stage_ms"]=10,
+	["puresteel_banner_fortify_effect_+%_per_stage"]=9,
+	["quality_display_base_duration_is_quality"]=12
 }

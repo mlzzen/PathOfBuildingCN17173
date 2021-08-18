@@ -161,7 +161,7 @@ return {
 	flag("BloodMagicReserved"),
 },
 ["base_skill_cost_life_instead_of_mana"] = {
-	flag("BloodMagicCost"),
+	flag("CostLifeInsteadOfMana"),
 },
 ["base_active_skill_totem_level"] = {
 	skill("totemLevel", nil),
@@ -262,9 +262,6 @@ return {
 ["base_spell_cast_time_ms_override"] = {
 	skill("castTimeOverride", nil),
 	div = 1000,
-},
-["active_skill_additive_spell_damage_modifiers_apply_to_attack_damage_at_%_value"] = {
-	skill("spellDamageAppliesToAttackAtPercentValue", nil),
 },
 --
 -- Defensive modifiers
@@ -403,7 +400,33 @@ return {
 ["aura_effect_+%"] = {
 	mod("AuraEffect", "INC", nil),
 },
-
+["elusive_effect_+%"] = {
+	mod("ElusiveEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
+},
+["cannot_be_stunned_while_leeching"] = {
+	mod("AvoidStun", "BASE", 100, { type = "Condition", var = "Leeching"}),
+},
+["base_avoid_stun_%"] = {
+	mod("AvoidStun", "BASE", nil),
+},
+["base_immune_to_shock"] = {
+	mod("AvoidShock", "BASE", 100),
+},
+["base_immune_to_chill"] = {
+	mod("AvoidChill", "BASE", 100),
+},
+["base_immune_to_freeze"] = {
+	mod("AvoidFreeze", "BASE", 100),
+},
+["base_immune_to_ignite"] = {
+	mod("AvoidIgnite", "BASE", 100),
+},
+["avoid_interruption_while_using_this_skill_%"] = {
+	mod("AvoidInterruptStun", "BASE", nil)
+},
+["life_leech_does_not_stop_at_full_life"] = {
+	flag("CanLeechLifeOnFullLife"),
+},
 --
 -- Offensive modifiers
 --
@@ -466,6 +489,9 @@ return {
 ["critical_strike_multiplier_+_per_power_charge"] = {
 	mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Multiplier", var = "PowerCharge" }),
 },
+["critical_multiplier_+%_per_100_max_es_on_shield"] = {
+	mod("CritMultiplier", "BASE", nil, 0, 0, { type = "PerStat", div = 100, stat = "EnergyShieldOnWeapon 2" }),
+},
 ["damage_+%_per_endurance_charge"] = {
 	mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "EnduranceCharge" }),
 },
@@ -501,22 +527,24 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["secondary_skill_effect_duration_+%"] = {
 	mod("SecondaryDuration", "INC", nil),
 },
-
+["active_skill_quality_duration_+%_final"] = {
+	mod("Duration", "MORE", nil),
+},
 ["fortify_duration_+%"] = {
 	mod("FortifyDuration", "INC", nil),
 },
-["skill_effect_and_damaging_ailment_duration_+%"] = {
-	mod("SkillAndDamagingAilmentDuration", "INC", nil),
+["support_swift_affliction_skill_effect_and_damaging_ailment_duration_+%_final"] = {
+	mod("SkillAndDamagingAilmentDuration", "MORE", nil),
 },
 ["base_bleed_duration_+%"] = {
 	mod("BleedDuration", "INC", nil),
 },
-["active_skill_quality_duration_+%_final"] = {
-	mod("Duration", "INC", nil),
-},
 -- Damage
 ["damage_+%"] = {
 	mod("Damage", "INC", nil),
+},
+["chance_for_extra_damage_roll_%"] = {
+	mod("LuckyHitsChance", "BASE", nil)
 },
 ["chance_to_deal_double_damage_%"] = {
 	mod("DoubleDamageChance", "BASE", nil)
@@ -644,7 +672,12 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["global_maximum_added_chaos_damage"] = {
 	mod("ChaosMax", "BASE", nil),
 },
-
+["added_damage_+%_final"] = {
+	mod("AddedDamage", "MORE", nil),
+},
+["active_skill_added_damage_+%_final"] = {
+	mod("AddedDamage", "MORE", nil),
+},
 ["shield_charge_damage_+%_maximum"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "DistanceRamp", ramp = {{0,0},{60,1}} }),
 },
@@ -687,6 +720,9 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 },
 ["fire_damage_%_to_add_as_chaos"] = {
 	mod("FireDamageGainAsChaos", "BASE", nil),
+},
+["lightning_damage_%_to_add_as_chaos"] = {
+	mod("LightningDamageGainAsChaos", "BASE", nil),
 },
 ["base_physical_damage_%_to_convert_to_lightning"] = {
 	mod("PhysicalDamageConvertToLightning", "BASE", nil),
@@ -737,9 +773,7 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 	mod("SkillFireDamageConvertToChaos", "BASE", nil),
 },
 ["skill_convert_%_physical_damage_to_random_element"] = {
-	mod("PhysicalDamageConvertToFire", "BASE", nil, 0, 0, { type = "Condition", var = "PhysicsRandomElementFire" }),
-  mod("PhysicalDamageConvertToCold", "BASE", nil, 0, 0, { type = "Condition", var = "PhysicsRandomElementCold" }),
-  mod("PhysicalDamageConvertToLightning", "BASE", nil, 0, 0, { type = "Condition", var = "PhysicsRandomElementLightning" }),
+	mod("PhysicalDamageConvertToRandom", "BASE", nil)
 },
 -- Ailments
 ["bleed_on_hit_with_attacks_%"] = {
@@ -770,10 +804,6 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 },
 ["base_chance_to_ignite_%"] = {
 	mod("EnemyIgniteChance", "BASE", nil),
-},
-["always_ignite"] = {
-	mod("EnemyIgniteChance", "BASE", 100),
-		 
 },
 
 ["base_chance_to_shock_%"] = {
@@ -807,6 +837,14 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 },
 ["shock_effect_+%"] = {
 	mod("EnemyShockEffect", "INC", nil),
+},
+["non_damaging_ailment_effect_+%"] = {
+	mod("EnemyChillEffect", "INC", nil),
+	mod("EnemyShockEffect", "INC", nil),
+	mod("EnemyFreezeEffect", "INC", nil),
+	mod("EnemyScorchEffect", "INC", nil),
+	mod("EnemyBrittleEffect", "INC", nil),
+	mod("EnemySapEffect", "INC", nil),
 },
 ["lightning_ailment_effect_+%"] = {
 	mod("EnemyShockEffect", "INC", nil),
@@ -849,6 +887,9 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 	mod("EnemyShockDuration", "INC", nil), 
 	mod("EnemyChillDuration", "INC", nil), 
 	mod("EnemyFreezeDuration", "INC", nil),
+	mod("EnemyScorchDuration", "INC", nil),
+	mod("EnemyBrittleDuration", "INC", nil),
+	mod("EnemySapDuration", "INC", nil),
 },
 ["base_all_ailment_duration_+%"] = {
 	mod("EnemyBleedDuration", "INC", nil), 
@@ -857,6 +898,9 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 	mod("EnemyShockDuration", "INC", nil), 
 	mod("EnemyChillDuration", "INC", nil), 
 	mod("EnemyFreezeDuration", "INC", nil),
+	mod("EnemyScorchDuration", "INC", nil),
+	mod("EnemyBrittleDuration", "INC", nil),
+	mod("EnemySapDuration", "INC", nil),
 },
 ["bleeding_damage_+%"] = {
 	mod("Damage", "INC", nil, 0, KeywordFlag.Bleed),
@@ -873,7 +917,9 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["poison_dot_multiplier_+"] = {
 	mod("DotMultiplier", "BASE", nil, 0, KeywordFlag.Poison),
 },
-
+["dot_multiplier_+"] = {
+	mod("DotMultiplier", "BASE", nil),
+},
 ["fire_dot_multiplier_+"] = {
 	mod("FireDotMultiplier", "BASE", nil),
 },
@@ -930,13 +976,6 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["base_deal_no_chaos_damage"] = {
 	flag("DealNoChaos"),
 },
-["base_deal_no_damage"] = {
-	flag("DealNoPhysical"), 
-	flag("DealNoFire"), 
-	flag("DealNoCold"), 
-	flag("DealNoLightning"),
-	flag("DealNoChaos"),
-},
 
 
 
@@ -945,12 +984,12 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 	mod("EnemyPhysicalDamageReduction", "BASE", nil),
 	mult = -1,
 },
-["impale_phys_reduction_%_penalty"] = {
-	mod("EnemyImpalePhysicalDamageReduction", "BASE", nil),
-	mult = -1,
-},
 ["base_stun_threshold_reduction_+%"] = {
 	mod("EnemyStunThreshold", "INC", nil),
+	mult = -1,
+},
+["impale_phys_reduction_%_penalty"] = {
+	mod("EnemyImpalePhysicalDamageReduction", "BASE", nil),
 	mult = -1,
 },
 ["base_stun_duration_+%"] = {
@@ -1000,6 +1039,9 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["always_pierce"] = {
 	flag("PierceAllTargets"),
 },
+["cannot_pierce"] = {
+	flag("CannotPierce"),
+},
 ["base_number_of_additional_arrows"] = {
 	mod("ProjectileCount", "BASE", nil),
 },
@@ -1021,6 +1063,14 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 },
 ["projectiles_always_pierce_you"] = {
 	flag("AlwaysPierceSelf"),
+},
+["projectiles_fork"] = {
+	flag("ForkOnce"),
+	mod("ForkCountMax", "BASE", nil),
+},
+["number_of_additional_forks_base"] = {
+	flag("ForkTwice"),
+	mod("ForkCountMax", "BASE", nil),
 },
 ["active_skill_returning_projectile_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "ReturningProjectile" }),
@@ -1158,11 +1208,11 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["accuracy_rating_+%"] = {
 	mod("Accuracy", "INC", nil),
 },
+["accuracy_rating_+%_when_on_low_life"] = {
+	mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "LowLife"})
+},
 ["attack_damage_+%"] = {
 	mod("Damage", "INC", nil, ModFlag.Attack),
-},
-["attack_damage_+%_DIY_Buff"] = {
-	mod("Damage", "INC", nil, ModFlag.Attack,0,{ type = "GlobalEffect", effectType = "Buff" }),
 },
 ["elemental_damage_with_attack_skills_+%"] = {
 	mod("ElementalDamage", "INC", nil, 0, KeywordFlag.Attack),
@@ -1244,7 +1294,7 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
     mod("ImpaleChance", "BASE", nil, 0, KeywordFlag.Spell)
 },
 ["impale_debuff_effect_+%"] = {
-    mod("ImpaleEffect", "INC", nil, 0, 0)
+	mod("ImpaleEffect", "INC", nil)
 },
 --
 -- Spell modifiers
@@ -1330,6 +1380,10 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["mine_throwing_speed_+%_per_frenzy_charge"] = {
 	mod("MineLayingSpeed", "INC", nil, 0, 0, { type = "Multiplier", var = "FrenzyCharge" }),
 },
+["remote_mined_by_support"] = {
+	flag("ManaCostGainAsReservation"),
+	flag("LifeCostGainAsReservation"),
+},
 -- Totem
 ["totem_damage_+%"] = {
 	mod("Damage", "INC", nil, 0, KeywordFlag.Totem),
@@ -1349,9 +1403,6 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["summon_totem_cast_speed_+%"] = {
 	mod("TotemPlacementSpeed", "INC", nil),
 },
-["totems_regenerate_%_life_per_second"] = {
-	mod("LifeRegenPercent", "BASE", nil, 0, KeywordFlag.Totem),
-},
 ["totems_regenerate_%_life_per_minute"] = {
     mod("LifeRegenPercent", "BASE", nil, 0, KeywordFlag.Totem),
     div = 60,
@@ -1365,6 +1416,9 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 },
 ["minion_melee_damage_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, ModFlag.Melee) }),
+},
+["active_skill_minion_bleeding_damage_+%_final"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed) }),
 },
 ["minion_maximum_life_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Life", "INC", nil) }),
@@ -1382,13 +1436,17 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 	mod("MinionModifier", "LIST", { mod = mod("ElementalResist", "BASE", nil) }),
 },
 ["minion_elemental_resistance_30%"] = {
-	mod("MinionModifier", "LIST", { mod = mod("ElementalResist", "BASE", 30) }),
+	mod("MinionModifier", "LIST", { mod = mod("ElementalResist", "BASE", nil) }),
+	value=30
 },
 ["base_minion_duration_+%"] = {
 	mod("Duration", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.CreateMinion }),
 },
 ["minion_skill_area_of_effect_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("AreaOfEffect", "INC", nil) }),
+},
+["minion_additional_physical_damage_reduction_%"] = {
+	mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageReduction", "BASE", nil) }),
 },
 ["summon_fire_resistance_+"] = {
 	mod("MinionModifier", "LIST", { mod = mod("FireResist", "BASE", nil) }),
@@ -1403,11 +1461,11 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 	mod("MinionModifier", "LIST", { mod = mod("ElementalResistMax", "BASE", nil) }),
 },
 ["minion_cooldown_recovery_+%"] = {
-	mod("MinionModifier", "LIST", {mod = mod("CooldownRecovery", "INC", nil)})
+	mod("MinionModifier", "LIST", {mod = mod("CooldownRecovery", "INC", nil)}),
 },
 ["minion_life_regeneration_rate_per_minute_%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("LifeRegenPercent", "BASE", nil) }),
-	div = 60
+	div = 60,
 },
 ["base_number_of_zombies_allowed"] = {
 	mod("ActiveZombieLimit", "BASE", nil),
@@ -1420,6 +1478,9 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 },
 ["base_number_of_golems_allowed"] = {
 	mod("ActiveGolemLimit", "BASE", nil),
+},
+["base_number_of_champions_of_light_allowed"] = {
+	mod("ActiveSentinelOfPurityLimit", "BASE", nil),
 },
 ["base_number_of_spectres_allowed"] = {
 	mod("ActiveSpectreLimit", "BASE", nil),
@@ -1442,13 +1503,19 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["active_skill_minion_life_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
 },
+["support_minion_damage_minion_life_+%_final"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
+},
 ["active_skill_minion_energy_shield_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("EnergyShield", "MORE", nil) }),
 },
 ["active_skill_minion_movement_velocity_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "MORE", nil) }),
 },
-
+["minion_life_regeneration_rate_per_minute_%"] = {
+	mod("MinionModifier", "LIST", { mod = mod("LifeRegen", "BASE", nil) }),
+	div = 60,
+},
 ["minions_deal_%_of_physical_damage_as_additional_chaos_damage"] = {
 	mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageGainAsChaos", "BASE", nil) }),
 },
@@ -1499,11 +1566,10 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 ["base_reservation_+%"] = {
 	mod("Reserved", "INC", nil)
 },
--- Sigil
-["sigil_attached_target_damage_+%_final"] = {
-	mod("Damage", "MORE", nil, 0, 0,  { type = "MultiplierThreshold", var = "BrandsAttachedToEnemy", threshold = 1 }),
-},
 -- Brand
+["sigil_attached_target_damage_+%_final"] = {
+	mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "BrandsAttachedToEnemy", threshold = 1 }),
+},
 ["base_number_of_sigils_allowed_per_target"] = {
 	mod("BrandsAttachedLimit", "BASE", nil)
 },
@@ -1528,39 +1594,6 @@ mod("CritMultiplier", "BASE", nil, 0, 0, { type = "Condition", var = "Elusive" }
 },
 ["channelled_skill_damage_+%"] = {
 	mod("Damage", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Channelled }),
-},
-
-["elusive_effect_+%"] = {
-	mod("ElusiveEffectOnSelf", "INC", nil),
-},
-["cannot_be_stunned_while_leeching"] = {
-	mod("AvoidStun", "BASE", 100, { type = "Condition", var = "Leeching"}),
-},
-["base_avoid_stun_%"] = {
-	mod("AvoidStun", "BASE", nil),
-},
-["base_immune_to_shock"] = {
-	mod("AvoidShock", "BASE", 100),
-},
-["base_immune_to_chill"] = {
-	mod("AvoidChill", "BASE", 100),
-},
-["base_immune_to_freeze"] = {
-	mod("AvoidFreeze", "BASE", 100),
-},
-["base_immune_to_ignite"] = {
-	mod("AvoidIgnite", "BASE", 100),
-},
-["avoid_interruption_while_using_this_skill_%"] = {
-	mod("AvoidInterruptStun", "BASE", nil)
-},
-["life_leech_does_not_stop_at_full_life"] = {
-	flag("CanLeechLifeOnFullLife"),
-},
-
-["base_mana_reservation_+%"] = {
-	mod("ManaReserved", "INC", nil),
-	
 },
 ["snipe_triggered_skill_hit_damage_+%_final_per_stage"] = {
 	mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Multiplier", var = "狙击Stage" }),

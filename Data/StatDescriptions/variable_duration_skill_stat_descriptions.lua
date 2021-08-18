@@ -63,36 +63,6 @@ return {
 						}
 					},
 					text="此技能和伤害性异常状态时间缩短 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="이 스킬 및 피해를 주는 상태 이상 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="이 스킬 및 피해를 주는 상태 이상 지속시간 {0}% 감소"
 				}
 			}
 		},

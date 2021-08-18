@@ -69,7 +69,7 @@ itemBases["月光石戒指"] = {
 itemBases["紫晶戒指"] = {
 	type = "Ring",
 	tags = { ring = true, default = true, },
-	implicit = "+(9-13)% 混沌抗性",
+	implicit = "+(17-23)% 混沌抗性",
 	implicitModTypes = { { "chaos", "resistance" }, },
 	req = { level = 30, },
 }

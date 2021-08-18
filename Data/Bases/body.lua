@@ -109,7 +109,7 @@ itemBases["庄严之铠"] = {
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { ArmourBase = 530, MovementPenalty = 5, },
-	req = { level = 53, str = 144, },
+	req = { level = 53, str = 145, },
 }
 itemBases["金耀之铠"] = {
 	type = "Body Armour",
@@ -264,7 +264,7 @@ itemBases["死神之装"] = {
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EvasionBase = 530, MovementPenalty = 3, },
-	req = { level = 53, dex = 144, },
+	req = { level = 53, dex = 145, },
 }
 itemBases["鲨皮之衣"] = {
 	type = "Body Armour",
@@ -419,7 +419,7 @@ itemBases["灭世法衣"] = {
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShieldBase = 104, MovementPenalty = 3, },
-	req = { level = 53, int = 144, },
+	req = { level = 53, int = 145, },
 }
 itemBases["智者之袍"] = {
 	type = "Body Armour",

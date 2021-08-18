@@ -2041,6 +2041,8 @@ local specialModList = {
 	["药剂持续期间，攻击格挡率提高 ([%+%-]?%d+)%%"] = function(num) return {  mod("BlockChance", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
 	["药剂持续期间，法术伤害格挡几率提高 ([%+%-]?%d+)%%"] = function(num) return {  mod("SpellBlockChance", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
 	["药剂持续期间，法术格挡率提高 ([%+%-]?%d+)%%"] = function(num) return {  mod("SpellBlockChance", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
+	["药剂生效期间，攻击伤害格挡几率 ([%+%-]?%d+)%%"] = function(num) return {  mod("BlockChance", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
+	["药剂生效期间，法术伤害格挡率 ([%+%-]?%d+)%%"] = function(num) return {  mod("SpellBlockChance", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
 	["每个暴击球可使法术格挡几率提高 ([%+%-]?%d+)%%"] = function(num) return {  mod("SpellBlockChance", "BASE", num, { type = "Multiplier", var = "PowerCharge" })  } end,
 	["每有 (%d+) 点力量，攻击伤害格挡几率额外 ([%+%-]?%d+)%%"] = function(_,num1,num2) return {  mod("BlockChance", "BASE", tonumber(num2),{ type = "PerStat", stat = "Str", div = tonumber(num1) })  } end,
 	["持长杖时，攻击格挡率提高 (%d+)%%"] = function(num) return {  mod("BlockChance", "BASE", num,{ type = "Condition", var = "UsingStaff" })  } end,
@@ -2362,7 +2364,7 @@ local specialModList = {
 	["对感电敌人造成伤害的 ([%d%.]+)%% 转化为生命偷取"]= function(num) return {  mod("DamageLifeLeech", "BASE", num,{ type = "ActorCondition", actor = "enemy", var = "Shocked" })  } end,
 	["对感电敌人的暴击几率提高 (%d+)%%"]= function(num) return {  mod("CritChance", "INC", num,{ type = "ActorCondition", actor = "enemy", var = "Shocked" })  } end,
 	["对感电目标的暴击率提高 (%d+)%%"]= function(num) return {  mod("CritChance", "INC", num,{ type = "ActorCondition", actor = "enemy", var = "Shocked" })  } end,
-	["你击中造成的感电，必定会使对方所承受伤害提高至少 (%d+)%%"] = function(num) return {
+	["你击中造成的感电效果始终使承受的伤害提高至少 (%d+)%%"] = function(num) return {
 	mod("ShockBase", "BASE", num)
 	} end,
 	["药剂持续期间，使周围的敌人感电，他们受到的伤害提高 (%d+)%%"]  = function(num) return { mod("EnemyModifier", "LIST", { mod =
@@ -3204,7 +3206,7 @@ local specialModList = {
 	["你技能的光环可使你和周围友军的攻击和施法速度提高 ([%d%.]+)%%"]= function(num) return {  mod("ExtraAuraEffect", "LIST", { mod =  mod("Speed", "INC", num,{ type = "GlobalEffect", effectType = "ExtraAuraEffect" }) }) } end,
 	["你技能的光环可使你和周围友方的物理伤害减免提高 %+([%d%.]+)%%"]= function(num) return {  mod("ExtraAuraEffect", "LIST", { mod =  mod("PhysicalDamageReduction", "BASE", num,{ type = "GlobalEffect", effectType = "ExtraAuraEffect" }) }) } end,
 	["你技能的光环给你和周围队友每秒回复 ([%d%.]+)%% 生命"]= function(num) return {  mod("ExtraAuraEffect", "LIST", { mod =  mod("LifeRegenPercent", "BASE", num,{ type = "GlobalEffect", effectType = "ExtraAuraEffect" }) }) } end,
-	["你和周围友军 %+([%d%.]+)%% 元素抗性"]= function(num) return {  mod("ExtraAura", "LIST", { mod =  mod("ElementalResist", "BASE", num) }) } end,
+	["你和周围友军的元素抗性 %+([%d%.]+)%%"]= function(num) return {  mod("ExtraAura", "LIST", { mod =  mod("ElementalResist", "BASE", num) }) } end,
 	["你和周围友军的魔力再生率提高 ([%d%.]+)%%"]= function(num) return {  mod("ExtraAura", "LIST", { mod =  mod("ManaRegen", "INC", num) }) } end,
 	["【召唤愤怒狂灵】的生命提高 (%d+)%%"]= function(num) return {   mod("MinionModifier", "LIST", { mod = mod("Life", "INC", num) }, { type = "SkillName", skillName = "召唤愤怒狂灵" })  } end,
 	["愤怒狂灵的最大生命提高 (%d+)%%"]= function(num) return {   mod("MinionModifier", "LIST", { mod = mod("Life", "INC", num) }, { type = "SkillName", skillName = "召唤愤怒狂灵" })  } end,
@@ -4029,7 +4031,7 @@ local specialModList = {
 	["优先使用能量护盾代替魔力消耗"] = { },
 	["周围每个灵枢使你和周围队友每秒回复 ([%d%.]+)%% 能量护盾，每秒最多 ([%d%.]+)%%"] = function(num, _, limit) return { mod("ExtraAura", "LIST", { mod = mod("EnergyShieldRegenPercent", "BASE", num) }, { type = "Multiplier", var = "NearbyCorpse", limit = tonumber(limit), limitTotal = true }) } end,
 	["周围每个灵枢使你和周围队友每秒回复 (%d+) 魔力，最多每秒 (%d+) 点"] = function(num, _, limit) return { mod("ExtraAura", "LIST", { mod = mod("ManaRegen", "BASE", num) }, { type = "Multiplier", var = "NearbyCorpse", limit = tonumber(limit), limitTotal = true }) } end,
-	["召唤生物的最大生命总值额外提高 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", num) })  } end,
+	["召唤生物的最大生命总值总增 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", num) })  } end,
 	["近期内你若有吞噬 1 个灵柩，你和你的召唤生物的范围效果提高 (%d+)%%"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "Condition", var = "ConsumedCorpseRecently" }), mod("MinionModifier", "LIST", { mod = mod("AreaOfEffect", "INC", num) }, { type = "Condition", var = "ConsumedCorpseRecently" }) } end,
 	["当周围有至少 1 个灵柩，你与周围友军的总伤害额外提高 (%d+)%%"] = function(num) return { mod("ExtraAura", "LIST", { mod = mod("Damage", "MORE", num) }, { type = "MultiplierThreshold", var = "NearbyCorpse", threshold = 1 }) } end,
 	["近期内，你或你的召唤生物每击败一个敌人则每秒回复你 (%d+)%% 能量护盾，每秒最多 (%d+)%%"] = function( _, num1,limit)  return { mod("EnergyShieldRegenPercent", "BASE", tonumber(num1), { type = "Multiplier", varList = {"EnemyKilledRecently","EnemyKilledByMinionsRecently"}, limit = tonumber(limit), limitTotal = true })   } end,
@@ -4282,7 +4284,7 @@ local specialModList = {
 	{ type = "Condition", var = "BeenHitRecently"})  } end,
 	["投射物对发射的初始目标伤害提高 (%d+)%%，随着距离的提高逐渐降低到 0%%"]
 	= function(num) return { mod("Damage", "INC", num, nil, ModFlag.Projectile, { type = "DistanceRamp", ramp = {{35,1},{70,0}} }) } end,
-	["你和周围友军每秒回复 ([%d%.]+)%% 最大生命"] = function(num) return { mod("ExtraAura", "LIST", { mod = mod("LifeRegenPercent", "BASE", num) }) } end,
+	["你和周围友军每秒回复 ([%d%.]+)%% 生命"] = function(num) return { mod("ExtraAura", "LIST", { mod = mod("LifeRegenPercent", "BASE", num) }) } end,
 	["被你造成中毒的敌人 (%-%d+)%% 混沌抗性"] = function(num) return {
 	mod("EnemyModifier", "LIST", { mod = mod("ChaosResist", "BASE", num) },
 	{ type = "ActorCondition", actor = "enemy", var = "Poisoned"}) } end,
@@ -4552,7 +4554,7 @@ local specialModList = {
 	["战吼立即施放"] = { flag("InstantWarcry") },
 	-- Exerted Attacks
 	["战吼增助的攻击伤害提高 (%d+)%%"] = function(num) return { mod("ExertIncrease", "INC", num, nil, ModFlag.Attack, 0) } end,
-	["若近期战吼有献祭怒火，被战吼增助的攻击总伤害额外提高 (%d+)%%"] = function(num) return { mod("ExertIncrease", "MORE", num, nil, ModFlag.Attack, 0) } end,
+	["若战吼在近期内献祭过怒火，则增助攻击的伤害总增 (%d+)%%"] = function(num) return { mod("ExertIncrease", "MORE", num, nil, ModFlag.Attack, 0) } end,
 	["被战吼增助的攻击有 (%d+)%% 几率造成双倍伤害"] = function(num) return { mod("ExertDoubleDamageChance", "BASE", num, nil, ModFlag.Attack, 0) } end,
 	["被战吼增助的攻击有 (%d+)%% 的几率造成双倍伤害"] = function(num) return { mod("ExertDoubleDamageChance", "BASE", num, nil, ModFlag.Attack, 0) } end,
 	["你应用到敌人身上的非诅咒光环效果提高 (%d+)%%"] = function(num) return {
@@ -4602,6 +4604,9 @@ local specialModList = {
 	} end,
 	["(%d+)%% 的几率以双倍护甲进行防御"] = function(num) return { mod("DoubleArmourChance", "BASE", num ) } end,
 	["召唤生物在满血时有 (%d+)%% 的几率造成双倍伤害"] = function(num) return { mod("MinionModifier", "LIST",
+	{ mod = mod("DoubleDamageChance", "BASE", num,{ type = "Condition", var = "FullLife" }) }) ,
+	} end,
+	["召唤生物在满血时，有 (%d+)%% 的几率造成双倍伤害"] = function(num) return { mod("MinionModifier", "LIST",
 	{ mod = mod("DoubleDamageChance", "BASE", num,{ type = "Condition", var = "FullLife" }) }) ,
 	} end,
 	["你在专注时，冰缓周围敌人，使其行动速度降低 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("Condition:Chilled", "FLAG", true) },{ type = "Condition", var = "Focused" }) } end,
@@ -5118,7 +5123,9 @@ local specialModList = {
 	["召唤生物持续时间延长 (%d+)%%"] = function(num) return { mod("Duration", "INC", num,{ type = "SkillType", skillType = SkillType.CreateMinion }) } end,
 	["力量属性对近战攻击和投射物的攻击物理伤害均会加成"] = { flag("IronGrip") }, 
 	["总混沌伤害额外提高 (%d+)%%"] = function(num) return { mod("ChaosDamage", "MORE", num) } end,
+	["总混沌伤害总增 (%d+)%%"] = function(num) return { mod("ChaosDamage", "MORE", num) } end,
 	["总冰霜伤害额外提高 (%d+)%%"] = function(num) return { mod("ColdDamage", "MORE", num) } end,
+	["总冰霜伤害总增 (%d+)%%"] = function(num) return { mod("ColdDamage", "MORE", num) } end,
 	["暴击造成流血时也会造成撕裂"] = function() return {
 			flag("Condition:CanInflictRupture", { type = "Condition", neg = true, var = "NeverCrit"}),
 			mod("Dummy", "DUMMY", 1, { type = "Condition", var = "CanInflictRupture" }), -- Make the Configuration option appear
@@ -5148,14 +5155,14 @@ local specialModList = {
 	 }end,
 	["被你点燃的敌人承受的点燃伤害由火焰伤害替换为混沌伤害"] = { flag("IgniteToChaos") },
 	["被你点燃的敌人承受混沌伤害来代替火焰伤害"] = { flag("IgniteToChaos") },
-	["你施加的曝露可使敌人 (%-?%d+)%% 对应被影响的抗性"] = function(num) return { mod("ExtraExposure", "BASE", num) } end,
-	["若近期你有施加曝露,则每秒回复 (%d+)%% 最大魔力"] = function(num) return { 
+	["你施加的曝露效果会使受影响的抗性额外 (%-?%d+)%%"] = function(num) return { mod("ExtraExposure", "BASE", num) } end,
+	["若近期内你施加过曝露效果，则每秒再生 (%d+)%% 魔力"] = function(num) return { 
 	mod("ManaRegenPercent", "BASE", num,{ type = "Condition", var = "AppliedExposureRecently" }) } end,
-	["击中传奇敌人时获得汇聚效果，每 %d+ 秒可触发一次"] = { 
+	["你击中传奇敌人时获得汇聚效果，每 %d+ 秒触发一次"] = { 
 			flag("Condition:CanGainConvergence"),
 			mod("Dummy", "DUMMY", 1, { type = "Condition", var = "CanGainConvergence" }) -- Dummy mod so it appears on config tab
 		},
-	["若你没有获得汇聚，则范围效果扩大 (%d+)%%"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "Condition", neg = true, var = "Convergence" }) } end,
+	["你没有汇聚效果时，效果区域扩大 (%d+)%%"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "Condition", neg = true, var = "Convergence" }) } end,
 	["战斗法师"] = { flag("WeaponDamageAppliesToSpells"), mod("ImprovedWeaponDamageAppliesToSpells", "INC", 100) },
 	["达到狂热球上限时获得持续 4 秒的狂热效果"] =function() return {
 	flag("Condition:CanGainFanaticism"),
@@ -5172,29 +5179,29 @@ local specialModList = {
 	["过去 8 秒，每次施放的非立即施法法术可使你的攻击总伤害额外提高 (%d+)%%，最多提高 (%d+)%%"] = function(num, _, max) return { 
 			mod("Damage", "MORE", num, nil, ModFlag.Attack, { type = "Multiplier", var = "CastLast8Seconds", limit = max, limitTotal = true}),	
 		} end,
-	["若你的最高伤害类型是火焰，则你击中造成的总点燃伤害额外提高 (%d+)%%"] = function(num) return { mod("Damage", "MORE", num, nil, 0, KeywordFlag.Ignite, { type = "Condition", var = "FireIsHighestDamageType" } ) } end,
-		["若你的最高伤害类型是冰霜，则你击中造成的总冰霜异常效果额外提高 (%d+)%%"] = function(num) return { mod("EnemyChillEffect", "MORE", num, { type = "Condition", var = "ColdIsHighestDamageType" } ) } end,
-		["若你的最高伤害类型是闪电，则你击中造成的闪电异常效果额外提高 (%d+)%%"] = function(num) return { mod("EnemyShockEffect", "MORE", num, { type = "Condition", var = "LightningIsHighestDamageType" } ) } end,
-		["你的击中必定造成点燃"] = { mod("EnemyIgniteChance", "BASE", 100) },
-		["你的击中必定造成感电"] = { mod("EnemyShockChance", "BASE", 100) },
-		["所有的伤害类型都可以造成造成点燃"] = {
-			flag("PhysicalCanIgnite"),
-			flag("ColdCanIgnite"),
-			flag("LightningCanIgnite"),
-			flag("ChaosCanIgnite")
+	["若你击中的最高伤害类型为火焰，则你施加的点燃伤害总增 (%d+)%%"] = function(num) return { mod("Damage", "MORE", num, nil, 0, KeywordFlag.Ignite, { type = "Condition", var = "FireIsHighestDamageType" } ) } end,
+	["若你击中的最高伤害类型为冰霜，则你施加的总冰霜异常状态效果总增 (%d+)%%"] = function(num) return { mod("EnemyChillEffect", "MORE", num, { type = "Condition", var = "ColdIsHighestDamageType" } ) } end,
+	["若你击中的最高伤害类型为闪电，则你施加的总闪电异常状态效果总增 (%d+)%%"] = function(num) return { mod("EnemyShockEffect", "MORE", num, { type = "Condition", var = "LightningIsHighestDamageType" } ) } end,
+	["你的击中始终具有点燃效果"] = { mod("EnemyIgniteChance", "BASE", 100) },
+	["你的击中始终具有感电效果"] = { mod("EnemyShockChance", "BASE", 100) },
+	["所有伤害均可点燃"] = {
+		flag("PhysicalCanIgnite"),
+		flag("ColdCanIgnite"),
+		flag("LightningCanIgnite"),
+		flag("ChaosCanIgnite")
+	},
+	["所有击中的伤害都有冰缓效果"] = {
+		flag("PhysicalCanChill"),
+		flag("FireCanChill"),
+		flag("LightningCanChill"),
+		flag("ChaosCanChill")
 		},
-		["所有的伤害类型都可以造成冰缓"] = {
-			flag("PhysicalCanChill"),
-			flag("FireCanChill"),
-			flag("LightningCanChill"),
-			flag("ChaosCanChill")
-		},
-		["所有的伤害类型都可以造成感电"] = {
-			flag("PhysicalCanShock"),
-			flag("FireCanShock"),
-			flag("ColdCanShock"),
-			flag("ChaosCanShock")
-		},	
+	["所有伤害均可感电"] = {
+		flag("PhysicalCanShock"),
+		flag("FireCanShock"),
+		flag("ColdCanShock"),
+		flag("ChaosCanShock")
+	},	
 	["你使用技能时获得热情牺牲效果，每秒造成等于其魔力消耗 %d+%% 的物理伤害"] = {
 			flag("Condition:SacrificialZeal"),
 		},
@@ -5842,14 +5849,14 @@ local specialModList = {
 			mod("LifeRegenPercent", "BASE", num, { type = "PerStat", stat = "TotemsSummoned" }),
 			mod("LifeRegenPercent", "BASE", num, { type = "PerStat", stat = "TotemsSummoned" }, 0, KeywordFlag.Totem),
 		} end,
-	["每拥有一个图腾可让你和图腾每秒回复 ([%d%.]+)%% 生命"] = function (num) return {
+	["每个召唤的图腾都使你和你的图腾每秒回复 ([%d%.]+)%% 生命"] = function (num) return {
 			mod("LifeRegenPercent", "BASE", num, { type = "PerStat", stat = "TotemsSummoned" }),
 			mod("LifeRegenPercent", "BASE", num, { type = "PerStat", stat = "TotemsSummoned" }, 0, KeywordFlag.Totem),
 		} end,
-	["每存在 1 个图腾，总伤害额外提高 ([%d%.]+)%%"] = function (num) return { 
+	["每个召唤的图腾都使伤害总增 ([%d%.]+)%%"] = function (num) return { 
 			mod("Damage", "MORE", num, { type = "PerStat", stat = "TotemsSummoned" }),
 		} end,	
-	["每个图腾使你每秒回复 ([%d%.]+)%% 魔力"] = function (num) return { 
+	["每个召唤的图腾使你每秒回复 ([%d%.]+)%% 魔力"] = function (num) return { 
 			mod("ManaRegenPercent", "BASE", num, { type = "PerStat", stat = "TotemsSummoned" }),
 		} end,	
 	["所有魔卫复苏技能石等级 %+(%d+)"] = function(num)  return { mod("GemProperty", "LIST",  {  keyword =FuckSkillActivityCnName('魔卫复苏'), key = "level", value = num }) } end,
@@ -6030,6 +6037,7 @@ minus = -tonumber(minus)
 		mod("NonChaosDamageGainAsChaos", "BASE", num, { type = "Condition", var = "KilledRecently" }, { type = "Multiplier", var = "CurseOnEnemy" }), 
 	} end,
 	["拥有能量护盾时无法被晕眩"] = { mod("AvoidStun", "BASE", 100, { type = "Condition", var = "HaveEnergyShield" }) }, --备注：cannot be stunned while you have energy shield
+	["每有 1 个召唤生物，便获得 1% 额外物理伤害减免，最多 (%d+)%%"] = function(num) return { mod("PhysicalDamageReduction", "BASE", num, { type = "Multiplier", var = "SummonedMinion", limit = tonumber(num), limitTotal = true })  } end,
 	-- Pathfinder
 	["always poison on hit while using a flask"] = { mod("PoisonChance", "BASE", 100, { type = "Condition", var = "UsingFlask" }) },
 	["poisons you inflict during any flask effect have (%d+)%% chance to deal (%d+)%% more damage"] = function(num, _, more) return { mod("Damage", "MORE", tonumber(more) * num / 100, nil, 0, KeywordFlag.Poison, { type = "Condition", var = "UsingFlask" }) } end,

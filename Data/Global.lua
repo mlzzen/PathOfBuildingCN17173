@@ -47,10 +47,13 @@ colorCodes = {
 	ELDER = "^xAA77CC",
 	FRACTURED = "^xA29160",
 	CRUSADER = "^xE22F1F",
-REDEEMER = "^xAAB7B8",
-HUNTER = "^xB4FB7E",
-WARLORD = "^xF4E46A",
-	
+	REDEEMER = "^xAAB7B8",
+	HUNTER = "^xB4FB7E",
+	WARLORD = "^xF4E46A",
+	ADJUDICATOR = "^xE9F831",
+	BASILISK = "^x00CB3A",
+	EYRIE = "^xAAB7B8",
+
 }
 colorCodes.STRENGTH = colorCodes.MARAUDER
 colorCodes.DEXTERITY = colorCodes.RANGER
@@ -81,6 +84,7 @@ ModFlag.Staff =		 0x00200000
 ModFlag.Sword =		 0x00400000
 ModFlag.Wand =		 0x00800000
 ModFlag.Unarmed =	 0x01000000
+ModFlag.Fishing =	 0x02000000
 -- Weapon classes
 ModFlag.WeaponMelee =0x02000000
 ModFlag.WeaponRanged=0x04000000
@@ -123,6 +127,22 @@ KeywordFlag.ChaosDot =	0x10000000
 ---The default behavior for KeywordFlags is to match *any* of the specified flags.
 ---Including the "MatchAll" flag when creating a mod will cause *all* flags to be matched rather than any.
 KeywordFlag.MatchAll =	0x40000000
+
+-- Helper function to compare KeywordFlags
+local band = bit.band
+local MatchAllMask = bit.bnot(KeywordFlag.MatchAll)
+---@param keywordFlags number The KeywordFlags to be compared to.
+---@param modKeywordFlags number The KeywordFlags stored in the mod.
+---@return boolean Whether the KeywordFlags in the mod are satified.
+function MatchKeywordFlags(keywordFlags, modKeywordFlags)
+	local matchAll = band(modKeywordFlags, KeywordFlag.MatchAll) ~= 0
+	modKeywordFlags = band(modKeywordFlags, MatchAllMask)
+	keywordFlags = band(keywordFlags, MatchAllMask)
+	if matchAll then
+		return band(keywordFlags, modKeywordFlags) == modKeywordFlags
+	end
+	return modKeywordFlags == 0 or band(keywordFlags, modKeywordFlags) ~= 0
+end
 
 -- Active skill types, used in ActiveSkills.dat and GrantedEffects.dat
 -- Had to reverse engineer this, not sure what all of the values mean
@@ -241,14 +261,19 @@ Attack = 1,
 	Aegis = 110,
 	Orb = 111,
 	Type112 = 112,
-	 
+
+	Prismatic = 113, -- means elements cannot repeat
+	Type114 = 114,
+	Arcane = 115, -- means it is reliant on amount of mana spent
+	Type116 = 116,
+	CantEquipWeapon = 117,
 	--SkillCanBarrage = 97, --Skill can be supported by Barrage Support
 --	SkillCanSequentialProj = 98, --Skill can receive the Sequential Projectiles bonus from Barrage Support
 }
 GlobalCache = { 
 	cachedData = { MAIN = {}, CALCS = {}, CALCULATOR = {}, CACHE = {}, },
 	deleteGroup = { },
-	
+
 	excludeFullDpsList = { },
 	dontUseCache = nil,
 	useFullDPS = false,

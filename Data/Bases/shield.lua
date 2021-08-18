@@ -10,7 +10,7 @@ itemBases["朽木塔盾"] = {
 	tags = { str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
 	armour = { BlockChance = 24, ArmourBase = 9, MovementPenalty = 3, },
-	req = { str = 10, },
+	req = { str = 11, },
 }
 itemBases["斑驳塔盾"] = {
 	type = "Shield",
@@ -40,7 +40,7 @@ itemBases["松木塔盾"] = {
 	implicit = "+(20-30) 最大生命",
 	implicitModTypes = { { "resource", "life" }, },
 	armour = { BlockChance = 25, ArmourBase = 108, MovementPenalty = 3, },
-	req = { level = 17, str = 46, },
+	req = { level = 17, str = 47, },
 }
 itemBases["铜锻塔盾"] = {
 	type = "Shield",
@@ -491,7 +491,7 @@ itemBases["魂相魔盾"] = {
 	implicit = "法术伤害提高 (10-15)%",
 	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
 	armour = { BlockChance = 23, EnergyShieldBase = 39, MovementPenalty = 3, },
-	req = { level = 49, int = 118, },
+	req = { level = 49, int = 119, },
 }
 itemBases["暗金魔盾"] = {
 	type = "Shield",
@@ -590,7 +590,7 @@ itemBases["朽木圆盾"] = {
 	implicit = "格挡回复提高 60%",
 	implicitModTypes = { { "block" }, },
 	armour = { BlockChance = 23, ArmourBase = 13, EvasionBase = 13, MovementPenalty = 3, },
-	req = { level = 5, str = 10, dex = 10, },
+	req = { level = 5, str = 11, dex = 11, },
 }
 itemBases["杉木圆盾"] = {
 	type = "Shield",
@@ -610,7 +610,7 @@ itemBases["铆钉圆盾"] = {
 	implicit = "格挡回复提高 60%",
 	implicitModTypes = { { "block" }, },
 	armour = { BlockChance = 26, ArmourBase = 46, EvasionBase = 46, MovementPenalty = 3, },
-	req = { level = 20, str = 28, dex = 28, },
+	req = { level = 20, str = 29, dex = 29, },
 }
 itemBases["炽红圆盾"] = {
 	type = "Shield",
@@ -649,7 +649,7 @@ itemBases["尖刺圆盾"] = {
 	implicit = "格挡回复提高 60%",
 	implicitModTypes = { { "block" }, },
 	armour = { BlockChance = 26, ArmourBase = 102, EvasionBase = 102, MovementPenalty = 3, },
-	req = { level = 45, str = 58, dex = 58, },
+	req = { level = 45, str = 59, dex = 59, },
 }
 itemBases["绯红圆盾"] = {
 	type = "Shield",
@@ -737,7 +737,7 @@ itemBases["强化鸢盾"] = {
 	tags = { str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
 	armour = { BlockChance = 26, ArmourBase = 65, EnergyShieldBase = 14, MovementPenalty = 3, },
-	req = { level = 20, str = 28, int = 28, },
+	req = { level = 20, str = 29, int = 29, },
 }
 itemBases["层板鸢盾"] = {
 	type = "Shield",
@@ -767,7 +767,7 @@ itemBases["刻文鸢盾"] = {
 	implicit = "+4% 所有元素抗性",
 	implicitModTypes = { { "elemental", "resistance" }, },
 	armour = { BlockChance = 24, ArmourBase = 127, EnergyShieldBase = 25, MovementPenalty = 3, },
-	req = { level = 40, str = 52, int = 52, },
+	req = { level = 40, str = 53, int = 53, },
 }
 itemBases["冷钢鸢盾"] = {
 	type = "Shield",
@@ -796,7 +796,7 @@ itemBases["天使鸢盾"] = {
 	implicit = "+12% 所有元素抗性",
 	implicitModTypes = { { "elemental", "resistance" }, },
 	armour = { BlockChance = 22, ArmourBase = 124, EnergyShieldBase = 24, MovementPenalty = 3, },
-	req = { level = 55, str = 70, int = 70, },
+	req = { level = 55, str = 71, int = 71, },
 }
 itemBases["圣记鸢盾"] = {
 	type = "Shield",
@@ -846,7 +846,7 @@ itemBases["尖木刺盾"] = {
 	implicit = "2% 的几率躲避攻击击中",
 	implicitModTypes = { { "dodge" }, },
 	armour = { BlockChance = 24, EvasionBase = 13, EnergyShieldBase = 4, MovementPenalty = 3, },
-	req = { level = 5, dex = 10, int = 10, },
+	req = { level = 5, dex = 11, int = 11, },
 }
 itemBases["朽木刺盾"] = {
 	type = "Shield",
@@ -866,7 +866,7 @@ itemBases["合金刺盾"] = {
 	implicit = "2% 的几率躲避法术击中",
 	implicitModTypes = { { "dodge" }, },
 	armour = { BlockChance = 25, EvasionBase = 56, EnergyShieldBase = 12, MovementPenalty = 3, },
-	req = { level = 20, dex = 28, int = 28, },
+	req = { level = 20, dex = 29, int = 29, },
 }
 itemBases["冷芒刺盾"] = {
 	type = "Shield",
@@ -906,7 +906,7 @@ itemBases["复合刺盾"] = {
 	implicit = "2% 的几率躲避法术击中",
 	implicitModTypes = { { "dodge" }, },
 	armour = { BlockChance = 25, EvasionBase = 122, EnergyShieldBase = 24, MovementPenalty = 3, },
-	req = { level = 45, dex = 58, int = 58, },
+	req = { level = 45, dex = 59, int = 59, },
 }
 itemBases["光辉刺盾"] = {
 	type = "Shield",

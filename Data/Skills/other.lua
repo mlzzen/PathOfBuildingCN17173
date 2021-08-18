@@ -5,399 +5,6 @@
 -- Skill data (c) Grinding Gear Games
 --
 local skills, mod, flag, skill = ...
-
-skills["Melee"] = {
-	name = "默认攻击",
-	hidden = true,
-	color = 4,
-	baseEffectiveness = 0,
-	description = "对你的敌人无情痛击.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, [SkillType.Melee] = true, [SkillType.SkillCanVolley] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1,
-	baseFlags = {
-		attack = true,
-		melee = true,
-		projectile = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"skill_can_fire_arrows",
-		"skill_can_fire_wand_projectiles",
-	},
-	levels = {
-		[1] = { 1, 1, levelRequirement = 1, statInterpolation = { 1, 1, }, cost = { }, },
-	},
-}
-skills["MeleeUseContactPoint"] = {
-	name = "默认攻击",
-	hidden = true,
-	color = 4,
-	baseEffectiveness = 0,
-	description = "对你的敌人无情痛击.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, [SkillType.Melee] = true, [SkillType.SkillCanVolley] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1,
-	baseFlags = {
-		attack = true,
-		melee = true,
-		projectile = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"skill_can_fire_arrows",
-		"skill_can_fire_wand_projectiles",
-		"use_scaled_contact_offset",
-		"projectile_uses_contact_position",
-	},
-	levels = {
-		[1] = { levelRequirement = 1, statInterpolation = { }, cost = { }, },
-	},
-}
-skills["GemDetonateMines"] = {
-	name = "引爆地雷",
-	color = 4,
-	description = "引爆一个地雷，启动传爆序列。它将持续引爆周围的地雷。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.Triggerable] = true, [SkillType.Instant] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0,
-	baseFlags = {
-		spell = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-		Default = {
-			{ "mine_detonation_speed_+%", 1 },
-		},
-		Alternate1 = {
-			{ "detonate_mines_recover_permyriad_of_life_per_mine_detonated", 1 },
-		},
-	},
-	stats = {
-		"display_mine_deontation_mechanics_detonation_speed_+%_final_per_sequence_mine",
-		"base_deal_no_damage",
-	},
-	levels = {
-		[1] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
-		[2] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
-		[3] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
-		[4] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
-		[5] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
-		[6] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
-		[7] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
-		[8] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
-		[9] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
-		[10] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["Portal"] = {
-	name = "时空之门",
-	color = 4,
-	baseEffectiveness = 0,
-	description = "开启一个连接城镇的时空之门.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.Triggerable] = true, [SkillType.Type27] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 2.5,
-	baseFlags = {
-		spell = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-		Default = {
-			{ "base_cast_speed_+%", 3 },
-		},
-		Alternate1 = {
-			{ "portal_alternate_destination_chance_permyriad", 1 },
-		},
-	},
-	stats = {
-		"base_deal_no_damage",
-	},
-	levels = {
-		[1] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[2] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[3] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[4] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[5] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[6] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[7] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[8] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[9] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[10] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-	},
-}
-skills["VaalBreach"] = {
-	name = "瓦尔.裂隙",
-	color = 4,
-	baseEffectiveness = 0,
-	description = "创造一个裂隙, 使你能够遭遇裂隙中强大的敌人. ",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.Type27] = true, [SkillType.Vaal] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 2.5,
-	baseFlags = {
-		spell = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-		Default = {
-			{ "base_cast_speed_+%", 3 },
-		},
-	},
-	stats = {
-		"base_deal_no_damage",
-		"display_vaal_breach_no_drops_xp",
-		"cannot_cancel_skill_before_contact_point",
-	},
-	levels = {
-		[1] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[2] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[3] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[4] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[5] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[6] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[7] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[8] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[9] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-		[10] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
-	},
-}
-skills["BrandDetonate"] = {
-	name = "烙印喷涌",
-	hidden = true,
-	color = 3,
-	baseEffectiveness = 6.5999999046326,
-	incrementalEffectiveness = 0.03999999910593,
-	description = "使你在目标区域附近的烙印超载，让它们更快激活，也更快耗尽。被超载的烙印耗尽时对一片区域造成伤害。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.PhysicalSkill] = true, [SkillType.Hit] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.SpellCanRepeat] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanMine] = true, [SkillType.SkillCanTotem] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0.6,
-	fromItem = true,
-	baseFlags = {
-		spell = true,
-		area = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"spell_minimum_base_physical_damage",
-		"spell_maximum_base_physical_damage",
-		"brand_detonate_faster_activation_%_per_second",
-		"brand_detonate_faster_duration_%_per_second",
-		"display_brand_deonate_tag_conversion",
-	},
-	levels = {
-		[20] = { 0.80000001192093, 1.2000000476837, 35, 150, damageEffectiveness = 5.1, cooldown = 1.5, critChance = 5, levelRequirement = 70, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 20, }, },
-	},
-}
-skills["EmbraceMadness"] = {
-	name = "疯狂之拥",
-	hidden = true,
-	color = 4,
-	description = "获得【疯狂荣光】。重复使用该技能会移除【疯狂荣光】和它施加的【触动】减益效果。在冷却时间结束后可以再次使用【疯狂之拥】。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Instant] = true, [SkillType.SecondWindSupport] = true, [SkillType.ManaCostReserved] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0,
-	cannotBeSupported = true,
-	fromItem = true,
-	baseFlags = {
-		spell = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"embrace_madness_amount_of_cooldown_to_gain_ms",
-		"glorious_madness_timer_ms",
-	},
-	levels = {
-		[1] = { 8000, 1000, cooldown = 1, levelRequirement = 1, statInterpolation = { 1, 1, }, cost = { }, },
-	},
-}
-skills["CreateSmokeCloud"] = {
-	name = "战争迷雾",
-	hidden = true,
-	color = 4,
-	description = "在一个区域内创建一片烟雾，处于其中的敌人将被致盲。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.SecondWindSupport] = true, [SkillType.Triggered] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1,
-	fromItem = true,
-	baseFlags = {
-		spell = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"base_skill_effect_duration",
-		"chance_to_cast_when_your_trap_is_triggered_%",
-	},
-	levels = {
-		[20] = { 3000, 100, cooldown = 1, levelRequirement = 65, statInterpolation = { 1, 1, }, cost = { }, },
-	},
-}
-skills["VolatileDeadChaos"] = {
-	name = "尾随之疮",
-	hidden = true,
-	color = 2,
-	baseEffectiveness = 3,
-	incrementalEffectiveness = 0.0337999984622,
-	description = "目标附近的灵柩爆炸造成小范围伤害，并召唤一个自动追踪敌人的火球，可以造成较大范围的法术伤害。灵柩爆炸造成的伤害无法被法术伤害词缀加成，并且无法被反射。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Area] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.ChaosSkill] = true, [SkillType.SpellCanCascade] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.SecondWindSupport] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Triggered] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0.8,
-	fromItem = true,
-	statMap = {
-		["volatile_dead_core_explosion_radius_+"] = {
-			skill("radius", "BASE", nil),
-		},
-	},
-	baseFlags = {
-		spell = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"spell_minimum_base_chaos_damage",
-		"spell_maximum_base_chaos_damage",
-		"volatile_dead_base_number_of_corpses_to_consume",
-		"corpse_explosion_monster_life_%_chaos",
-		"volatile_dead_core_explosion_radius_+",
-		"volatile_dead_max_cores_allowed",
-		"chance_to_cast_on_kill_%",
-		"is_area_damage",
-		"base_skill_show_average_damage_instead_of_dps",
-		"spell_uncastable_if_triggerable",
-	},
-	levels = {
-		[15] = { 0.80000001192093, 1.2000000476837, 1, 9, 13, 10, 100, damageEffectiveness = 1.4, cooldown = 2, critChance = 5, levelRequirement = 59, statInterpolation = { 3, 3, 1, 1, 1, 1, 1, }, cost = { Mana = 23, }, },
-	},
-}
-skills["SummonMirageChieftain"] = {
-	name = "塔赫亚神选",
-	hidden = true,
-	color = 1,
-	description = "你使用猛击技能时会触发该技能，召唤一个蜃影酋长，它在消失前会使用一次猛击技能。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Instant] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0,
-	fromTree = true,
-	baseFlags = {
-		spell = true,
-		duration = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"trigger_on_slam_%_chance",
-		"skill_used_by_mirage_chieftain_damage_+%_final",
-		"spell_uncastable_if_triggerable",
-	},
-	levels = {
-		[20] = { 100, 50, levelRequirement = 1, duration = 3, cooldown = 2, statInterpolation = { 1, 1, }, cost = { }, },
-	},
-}
-skills["SupportUniqueMjolnerLightningSpellsCastOnHit"] = {
-name = "沉默之雷",
-	hidden = true,
-	color = 4,
-	support = true,
-	requireSkillTypes = { SkillType.Spell, SkillType.LightningSkill, SkillType.Triggerable, SkillType.AND, SkillType.AND, },
-	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
-	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	statMap = {
-		["triggered_spell_spell_damage_+%"] = {
-			mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "SkillIsTriggered" }),
-		},
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"triggered_spell_spell_damage_+%",
-		"unique_mjolner_lightning_spells_triggered",
-		"socketed_triggered_skills_use_weapon_attack_time_for_pvp_scaling",
-	},
-	levels = {
-		[1] = { 100, cooldown = 0.15, levelRequirement = 0, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["SupportAuraDuration"] = {
-name = "祝福",
-	hidden = true,
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.CanHaveBlessing, },
-	addSkillTypes = { SkillType.Duration, },
-	excludeSkillTypes = { SkillType.Totem, },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	statMap = {
-		["support_aura_duration_base_buff_duration"] = {
-			skill("auraDuration", nil),
-			div = 1000,
-		},
-		["support_aura_duration_base_reserve_duration"] = {
-			skill("reserveDuration", nil),
-			div = 1000,
-		},
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"support_aura_duration_base_buff_duration",
-		"support_aura_duration_base_reserve_duration",
-		"non_curse_aura_effect_+%",
-		"base_spell_cast_time_ms_override",
-	},
-	levels = {
-		[25] = { 11400, 200, 12, 500, levelRequirement = 80, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
-	},
-}
-skills["SupportUniqueCosprisMaliceColdSpellsCastOnMeleeCriticalStrike"] = {
-name = "卡普里的意志",
-	hidden = true,
-	color = 4,
-	support = true,
-	requireSkillTypes = { SkillType.Spell, SkillType.ColdSkill, SkillType.Triggerable, SkillType.AND, SkillType.AND, },
-	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
-	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"unique_cospris_malice_cold_spells_triggered",
-		"socketed_triggered_skills_use_weapon_attack_time_for_pvp_scaling",
-	},
-	levels = {
-		[1] = { cooldown = 0.15, levelRequirement = 1, statInterpolation = { }, cost = { }, },
-	},
-}
 skills["RepeatingShockwave"] = {
 	name = "重复冲击波",
 	hidden = true,
@@ -429,42 +36,78 @@ skills["RepeatingShockwave"] = {
 		[7] = { 50, 75, 10, critChance = 5, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
 	},
 }
-skills["BoneArmour"] = {
-	name = "骨制战甲",
+skills["AnimateGuardianWeapon"] = {
+	name = "幻化守卫武器",
 	hidden = true,
-	color = 3,
-	baseEffectiveness = 10,
-	incrementalEffectiveness = 0.029999999329448,
-	description = "给你和你的每个召唤生物施加一个增益效果，在其耗尽之前替你承受部分敌人的击中伤害。该增益效果还免疫流血。和其它防卫技能共用冷却时间。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Instant] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.GuardSkill] = true, [SkillType.Minion] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "buff_skill_stat_descriptions",
-	castTime = 0,
-	fromTree = true,
+	color = 2,
+	description = "操纵一把你幻化守卫的主手武器来为你作战。",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Triggered] = true, [SkillType.CreatesMinion] = true, [SkillType.PhysicalSkill] = true, },
+	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, [SkillType.MinionProjectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.AnimateWeapon] = true, },
+	statDescriptionScope = "minion_spell_skill_stat_descriptions",
+	castTime = 0.8,
+	fromItem = true,
+	minionHasItemSet = true,
+	minionUses = {
+		["Weapon 1"] = true,
+	},
+	minionList = {
+		"AnimatedWeapon",
+	},
 	statMap = {
-		["quick_guard_damage_absorbed_%"] = {
-			mod("GuardAbsorbRate", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Guard" }),
+		["active_skill_damage_+%_final"] = {
+			mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
 		},
-		["quick_guard_damage_absorb_limit"] = {
-			mod("GuardAbsorbLimit", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Guard", unscalable = true }),
+		["attack_minimum_added_physical_damage"] = {
+			mod("MinionModifier", "LIST", { mod = mod("PhysicalMin", "BASE", nil, 0, KeywordFlag.Attack) }),
+		},
+		["attack_maximum_added_physical_damage"] = {
+			mod("MinionModifier", "LIST", { mod = mod("PhysicalMax", "BASE", nil, 0, KeywordFlag.Attack) }),
 		},
 	},
 	baseFlags = {
-		duration = true,
 		spell = true,
+		minion = true,
+		duration = true,
 	},
 	baseMods = {
-		mod("AvoidBleed", "BASE", 100, 0, 0, { type = "GlobalEffect", effectType = "Guard" }),
 	},
 	qualityStats = {
 	},
 	stats = {
-		"quick_guard_damage_absorbed_%",
-		"quick_guard_damage_absorb_limit",
-		"base_deal_no_damage",
-		"display_this_skill_cooldown_does_not_recover_during_buff",
+		"chance_to_trigger_on_animate_weapon_kill_%",
+		"active_skill_minion_damage_+%_final",
+		"active_skill_minion_attack_speed_+%_final",
+		"base_skill_effect_duration",
+		"attack_minimum_added_physical_damage",
+		"attack_maximum_added_physical_damage",
+		"number_of_animated_weapons_allowed",
+		"chance_to_trigger_on_animate_guardian_kill_%",
 	},
 	levels = {
-		[20] = { 70, 1, levelRequirement = 70, duration = 3, cooldown = 3, statInterpolation = { 1, 3, }, cost = { }, },
+		[18] = { 10, 0, 0, 20000, 108, 159, 13, cooldown = 0.05, levelRequirement = 64, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[20] = { 100, 0, 0, 20000, 126, 184, 14, cooldown = 0.05, levelRequirement = 70, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+	},
+}
+skills["SupportTriggerSpellOnBowAttack"] = {
+name = "安赛娜丝的优雅之歌",
+	hidden = true,
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
+	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
+	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"skill_has_trigger_from_unique_item",
+		"triggered_skill_uses_main_hand_or_averaged_attack_time_for_pvp_scaling",
+	},
+	levels = {
+		[1] = { 1, cooldown = 0.3, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
 	},
 }
 skills["BirdAspect"] = {
@@ -548,112 +191,6 @@ mod("Speed", "INC", nil, ModFlag.Cast, 0, { type = "GlobalEffect", effectType = 
 		[20] = { 100, 15, 100, 10, 10, 4000, 6000, manaReservationPercent = 25, cooldown = 0.5, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
-skills["CatsStealthTriggeredIntimidatingCry"] = {
-	name = "威吓战吼",
-	hidden = true,
-	color = 1,
-	description = "发出一声战吼，嘲讽周围的敌人，吸引他们攻击，增助随后的攻击。同时提供一个增益效果，使你击中敌人时降低其物理伤害减免。",
-	skillTypes = { [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Warcry] = true, [SkillType.SecondWindSupport] = true, [SkillType.PhysicalSkill] = true, [SkillType.Triggered] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0.25,
-	fromItem = true,
-	statMap = {
-		["skill_empowers_next_x_melee_attacks"] = {
-			mod("IntimidatingExertedAttacks", "BASE", nil),
-		},
-		["intimidating_cry_enemy_phys_reduction_%_penalty_vs_hit_per_5_MP"] = {
-			mod("IntimidatingPDRPer5MP", "BASE", nil),
-		},
-	},
-	baseFlags = {
-		warcry = true,
-		area = true,
-		duration = true,
-	},
-	baseMods = {
-		skill("radius", 60),
-	},
-	qualityStats = {
-	},
-	stats = {
-		"intimidating_cry_enemy_phys_reduction_%_penalty_vs_hit_per_5_MP",
-		"skill_empowers_next_x_melee_attacks",
-		"warcry_speed_+%",
-		"empowered_attack_accuracy_rating_+%",
-		"base_deal_no_damage",
-		"cannot_cancel_skill_before_contact_point",
-		"warcry_count_power_from_enemies",
-		"cast_on_lose_cats_stealth",
-		"intimidating_cry_empowerd_attacks_deal_double_damage_display",
-		"enemies_taunted_by_your_warcies_are_intimidated",
-		"use_intimidating_cry_buff_visual_for_intimidate",
-	},
-	levels = {
-		[20] = { 5, 2, 38, 0, levelRequirement = 70, duration = 4.9, cooldown = 8, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
-	},
-}
-skills["ChannelledSnipe"] = {
-	name = "狙击",
-	hidden = true,
-	color = 2,
-	description = "持续吟唱给弓箭充能，积累层数。释放时，每层都会触发一种链接的弓类技能。这种方式不能触发持续吟唱技能。若没有链接任何技能，又至少积累了一层效果，则该技能会发射它原本的箭矢。无法用于图腾。",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Channelled] = true, },
-	weaponTypes = {
-		["Bow"] = true,
-	},
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1,
-	fromItem = true,
-	initialFunc = function(activeSkill, output)
-		activeSkill.skillData.dpsMultiplier = 1 / math.max(activeSkill.skillModList:Sum("BASE", cfg, "Multiplier:狙击Stage"), 1)
-	end,
-	baseFlags = {
-		attack = true,
-		projectile = true,
-		bow = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"snipe_max_stacks",
-		"override_turn_duration_ms",
-		"snipe_triggered_skill_ailment_damage_+%_final_per_stage",
-		"snipe_triggered_skill_hit_damage_+%_final_per_stage",
-		"skill_can_fire_arrows",
-		"is_snipe_default_projectile",
-		"is_snipe_default_projectile_2",
-	},
-	levels = {
-		[20] = { 6, 100, 120, 165, attackSpeedMultiplier = 80, levelRequirement = 70, statInterpolation = { 1, 1, 1, 1, }, cost = { Mana = 4, }, },
-	},
-}
-skills["ChannelledSnipeSupport"] = {
-name = "狙击吟唱辅助",
-	hidden = true,
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.ProjectileAttack, SkillType.AnimateWeapon, SkillType.OR, SkillType.Triggerable, SkillType.AND, },
-	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
-	excludeSkillTypes = { SkillType.Totem, SkillType.Trap, SkillType.Mine, SkillType.ManaCostReserved, SkillType.Vaal, SkillType.Instant, SkillType.Channelled, },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	baseMods = {
-		flag("TriggeredBySnipe"),
-	},
-	qualityStats = {
-	},
-	stats = {
-		"snipe_triggered_skill_damage_+%_final",
-		"snipe_triggered_skill_ailment_damage_+%_final_per_stage",
-		"snipe_triggered_skill_hit_damage_+%_final_per_stage",
-		"skill_triggered_by_snipe",
-	},
-	levels = {
-		[20] = { 0, 120, 165, cooldown = 0.05, levelRequirement = 0, statInterpolation = { 1, 1, 1, }, cost = { }, },
-	},
-}
 skills["CrabAspect"] = {
 	name = "蟹之势",
 	hidden = true,
@@ -726,6 +263,62 @@ mod("DamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debu
 		[20] = { -30, 5, 6000, 1000, 3, manaReservationPercent = 25, cooldown = 0.5, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
+skills["SupportAuraDuration"] = {
+name = "祝福",
+	hidden = true,
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.CanHaveBlessing, },
+	addSkillTypes = { SkillType.Duration, },
+	excludeSkillTypes = { SkillType.Totem, },
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	statMap = {
+		["support_aura_duration_base_buff_duration"] = {
+			skill("auraDuration", nil),
+			div = 1000,
+		},
+		["support_aura_duration_base_reserve_duration"] = {
+			skill("reserveDuration", nil),
+			div = 1000,
+		},
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"support_aura_duration_base_buff_duration",
+		"support_aura_duration_base_reserve_duration",
+		"non_curse_aura_effect_+%",
+		"base_spell_cast_time_ms_override",
+	},
+	levels = {
+		[25] = { 11400, 200, 12, 500, levelRequirement = 80, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
+	},
+}
+skills["SupportBloodMagicUniquePrismGuardian"] = {
+	name = "血魔法",
+	hidden = true,
+	color = 1,
+	support = true,
+	requireSkillTypes = { },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"base_skill_reserve_life_instead_of_mana",
+		"base_skill_cost_life_instead_of_mana",
+	},
+	levels = {
+		[1] = { levelRequirement = 0, statInterpolation = { }, cost = { }, },
+	},
+}
 skills["BloodOffering"] = {
 	name = "血脉奉献",
 	hidden = true,
@@ -760,7 +353,94 @@ skills["BloodOffering"] = {
 		"base_deal_no_damage",
 	},
 	levels = {
+		[1] = { 5000, 1000, 20, 35, 10, 50, levelRequirement = 12, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
 		[15] = { 5000, 1000, 20, 35, 10, 50, levelRequirement = 12, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
+	},
+}
+skills["BloodSacramentUnique"] = {
+	name = "赤色誓言",
+	hidden = true,
+	color = 4,
+	baseEffectiveness = 4.8000001907349,
+	description = "吟唱该技能会不断保留生命，为你身下的印记灌注力量。施放印记会根据保留的生命量造成物理伤害。不能被图腾施放。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Area] = true, [SkillType.Channelled] = true, [SkillType.AreaSpell] = true, [SkillType.ManaCostReserved] = true, [SkillType.PhysicalSkill] = true, [SkillType.NovaSpell] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0.24,
+	fromItem = true,
+	initialFunc = function(activeSkill, output)
+		local lifeReservedPercent = activeSkill.skillData["LifeReservedPercent"] or 3
+		local lifeReserved = activeSkill.skillData["LifeReservedBase"]
+activeSkill.skillModList:NewMod("Multiplier:ChannelledLifeReservedPercentPerStage", "BASE", lifeReservedPercent, "赤色誓言")
+activeSkill.skillModList:NewMod("Multiplier:ChannelledLifeReservedPerStage", "BASE", lifeReserved, "赤色誓言")
+	end,
+	statMap = {
+		["flameblast_hundred_times_radius_+_per_1%_life_reserved"] = {
+skill("radiusExtra", nil, { type = "Multiplier", var = "ChannelledLifeReservedPercentPerStage" }, { type = "Multiplier", var = "赤色誓言Stage" }),
+			div = 100,
+		},
+		["flameblast_damage_+%_final_per_10_life_reserved"] = {
+mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ChannelledLifeReservedPerStage", div = 10 }, { type = "ModFlagOr", modFlags = bit.bor(ModFlag.Hit, ModFlag.Ailment) }, { type = "Multiplier", var = "赤色誓言Stage" }),
+		},
+	},
+	baseFlags = {
+		spell = true,
+		area = true,
+	},
+	baseMods = {
+		skill("radius", 5),
+mod("Multiplier:赤色誓言MaxStages", "BASE", 33),
+	},
+	qualityStats = {
+	},
+	stats = {
+		"spell_minimum_base_physical_damage",
+		"spell_maximum_base_physical_damage",
+		"flameblast_hundred_times_radius_+_per_1%_life_reserved",
+		"flameblast_damage_+%_final_per_10_life_reserved",
+		"life_leech_from_any_damage_permyriad",
+		"is_area_damage",
+		"base_skill_show_average_damage_instead_of_dps",
+	},
+	levels = {
+		[1] = { 0.80000001192093, 1.2000000476837, 40, 80, 200, damageEffectiveness = 0.03, lifeReservationPercent = 3, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { }, },
+	},
+}
+skills["BoneArmour"] = {
+	name = "骨制战甲",
+	hidden = true,
+	color = 3,
+	baseEffectiveness = 10,
+	incrementalEffectiveness = 0.029999999329448,
+	description = "给你和你的每个召唤生物施加一个增益效果，在其耗尽之前替你承受部分敌人的击中伤害。该增益效果还免疫流血。和其它防卫技能共用冷却时间。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Instant] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.GuardSkill] = true, [SkillType.Minion] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "buff_skill_stat_descriptions",
+	castTime = 0,
+	fromTree = true,
+	statMap = {
+		["quick_guard_damage_absorbed_%"] = {
+			mod("GuardAbsorbRate", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Guard" }),
+		},
+		["quick_guard_damage_absorb_limit"] = {
+			mod("GuardAbsorbLimit", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Guard", unscalable = true }),
+		},
+	},
+	baseFlags = {
+		duration = true,
+		spell = true,
+	},
+	baseMods = {
+		mod("AvoidBleed", "BASE", 100, 0, 0, { type = "GlobalEffect", effectType = "Guard" }),
+	},
+	qualityStats = {
+	},
+	stats = {
+		"quick_guard_damage_absorbed_%",
+		"quick_guard_damage_absorb_limit",
+		"base_deal_no_damage",
+		"display_this_skill_cooldown_does_not_recover_during_buff",
+	},
+	levels = {
+		[20] = { 70, 1, levelRequirement = 70, duration = 3, cooldown = 3, statInterpolation = { 1, 3, }, cost = { }, },
 	},
 }
 skills["TriggeredBoneNova"] = {
@@ -793,6 +473,36 @@ skills["TriggeredBoneNova"] = {
 		[20] = { 8, 100, 15, cooldown = 0.5, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
 	},
 }
+skills["BrandDetonate"] = {
+	name = "烙印喷涌",
+	hidden = true,
+	color = 3,
+	baseEffectiveness = 6.5999999046326,
+	incrementalEffectiveness = 0.03999999910593,
+	description = "使你在目标区域附近的烙印超载，让它们更快激活，也更快耗尽。被超载的烙印耗尽时对一片区域造成伤害。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.PhysicalSkill] = true, [SkillType.Hit] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.SpellCanRepeat] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanMine] = true, [SkillType.SkillCanTotem] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0.6,
+	fromItem = true,
+	baseFlags = {
+		spell = true,
+		area = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"spell_minimum_base_physical_damage",
+		"spell_maximum_base_physical_damage",
+		"brand_detonate_faster_activation_%_per_second",
+		"brand_detonate_faster_duration_%_per_second",
+		"display_brand_deonate_tag_conversion",
+	},
+	levels = {
+		[20] = { 0.80000001192093, 1.2000000476837, 35, 150, damageEffectiveness = 5.1, cooldown = 1.5, critChance = 5, levelRequirement = 70, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 20, }, },
+	},
+}
 skills["ColdAegis"] = {
 	name = "凝冰守护",
 	hidden = true,
@@ -821,58 +531,6 @@ skills["ColdAegis"] = {
 		[20] = { 1000, 1, 10000, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
 	},
 }
-skills["PhysicalAegis"] = {
-	name = "物理护盾",
-	hidden = true,
-	color = 4,
-	description = "召唤一个守护护盾，在消散前抵挡击中造成的物理伤害。该护盾在一段时间未受到物理伤害后会自动回复满值，或自然消散。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Aegis] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1,
-	cannotBeSupported = true,
-	fromItem = true,
-	baseFlags = {
-		spell = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"aegis_unique_shield_max_value",
-		"active_skill_display_aegis_variation",
-		"aegis_recharge_delay_ms",
-		"cast_on_gain_skill",
-		"spell_uncastable_if_triggerable",
-	},
-	levels = {
-		[20] = { 1000, 4, 10000, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
-	},
-}
-skills["CorpseWalk"] = {
-	name = "灵枢行走",
-	hidden = true,
-	color = 4,
-	description = "你移动时在周围唤起灵枢。",
-	skillTypes = { [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1,
-	fromItem = true,
-	baseFlags = {
-		area = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"cast_on_gain_skill",
-		"spell_uncastable_if_triggerable",
-	},
-	levels = {
-		[20] = { levelRequirement = 60, statInterpolation = { }, cost = { }, },
-	},
-}
 skills["TriggeredConsecrate"] = {
 name = "奉献地面",
 	hidden = true,
@@ -899,6 +557,78 @@ name = "奉献地面",
 	},
 	levels = {
 		[10] = { 5000, 360, 100, cooldown = 5, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
+	},
+}
+skills["CreateFungalGroundOnKill"] = {
+	name = "玷污",
+	hidden = true,
+	color = 4,
+	description = "在目标地点创造一小片真菌地表。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.SecondWindSupport] = true, [SkillType.Triggered] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	fromItem = true,
+	baseFlags = {
+		duration = true,
+		area = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"chance_to_cast_on_kill_%",
+		"base_deal_no_damage",
+		"spell_uncastable_if_triggerable",
+	},
+	levels = {
+		[10] = { 100, levelRequirement = 1, duration = 5, cooldown = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["CorpseWalk"] = {
+	name = "灵枢行走",
+	hidden = true,
+	color = 4,
+	description = "你移动时在周围唤起灵枢。",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	fromItem = true,
+	baseFlags = {
+		area = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"cast_on_gain_skill",
+		"spell_uncastable_if_triggerable",
+	},
+	levels = {
+		[20] = { levelRequirement = 60, statInterpolation = { }, cost = { }, },
+	},
+}
+skills["SupportUniqueCosprisMaliceColdSpellsCastOnMeleeCriticalStrike"] = {
+name = "卡普里的意志",
+	hidden = true,
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.ColdSkill, SkillType.Triggerable, SkillType.AND, SkillType.AND, },
+	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
+	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"unique_cospris_malice_cold_spells_triggered",
+		"socketed_triggered_skills_use_weapon_attack_time_for_pvp_scaling",
+	},
+	levels = {
+		[1] = { cooldown = 0.15, levelRequirement = 1, statInterpolation = { }, cost = { }, },
 	},
 }
 skills["TriggeredSummonLesserShrine"] = {
@@ -1070,12 +800,105 @@ name = "召唤生物爆炸",
 		[20] = { 0.80000001192093, 1.2000000476837, 13, 10, 40, 40, 40, 13, critChance = 6, levelRequirement = 70, statInterpolation = { 3, 3, 1, 1, 1, 1, 1, 1, }, cost = { Mana = 7, }, },
 	},
 }
+skills["Melee"] = {
+	name = "默认攻击",
+	hidden = true,
+	color = 4,
+	baseEffectiveness = 0,
+	description = "对你的敌人无情痛击.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, [SkillType.Melee] = true, [SkillType.SkillCanVolley] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	baseFlags = {
+		attack = true,
+		melee = true,
+		projectile = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+	},
+	levels = {
+		[1] = { 1, 1, levelRequirement = 1, statInterpolation = { 1, 1, }, cost = { }, },
+	},
+}
+
+
+skills["MeleeUseContactPoint"] = {
+	name = "默认攻击",
+	hidden = true,
+	color = 4,
+	baseEffectiveness = 0,
+	description = "对你的敌人无情痛击.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, [SkillType.Melee] = true, [SkillType.SkillCanVolley] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	baseFlags = {
+		attack = true,
+		melee = true,
+		projectile = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"use_scaled_contact_offset",
+		"projectile_uses_contact_position",
+	},
+	levels = {
+		[1] = { levelRequirement = 1, statInterpolation = { }, cost = { }, },
+	},
+}
+skills["GemDetonateMines"] = {
+	name = "引爆地雷",
+	color = 4,
+	description = "引爆一个地雷，启动传爆序列。它将持续引爆周围的地雷。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.Triggerable] = true, [SkillType.Instant] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0,
+	baseFlags = {
+		spell = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+		Default = {
+			{ "mine_detonation_speed_+%", 1 },
+		},
+		Alternate1 = {
+			{ "detonate_mines_recover_permyriad_of_life_per_mine_detonated", 1 },
+		},
+	},
+	stats = {
+		"display_mine_deontation_mechanics_detonation_speed_+%_final_per_sequence_mine",
+		"base_deal_no_damage",
+	},
+	levels = {
+		[1] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
+		[2] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
+		[3] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
+		[4] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
+		[5] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
+		[6] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
+		[7] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
+		[8] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
+		[9] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
+		[10] = { 10, cooldown = 0.2, levelRequirement = 8, statInterpolation = { 1, }, cost = { }, },
+	},
+}
 skills["TouchOfGod"] = {
 	name = "多里亚尼之触",
 	hidden = true,
 	color = 1,
 	description = "角色以拳头敲击前方的地面, 攻速较慢, 伤害较高. 该攻击能对大范围内的敌人造成闪电伤害, 并有几率对其造成感电效果. 持有武器时无法使用. ",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.LightningSkill] = true, [SkillType.Melee] = true, [SkillType.AttackCanRepeat] = true, [SkillType.SlamSkill] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.LightningSkill] = true, [SkillType.Melee] = true, [SkillType.AttackCanRepeat] = true, [SkillType.SlamSkill] = true, [SkillType.SkillCanTotem] = true, },
 	weaponTypes = {
 		["None"] = true,
 	},
@@ -1166,6 +989,7 @@ skills["ElementalAegis"] = {
 		"spell_uncastable_if_triggerable",
 	},
 	levels = {
+		[1] = { 50, 2, 10000, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
 		[20] = { 1000, 2, 10000, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
 	},
 }
@@ -1193,46 +1017,46 @@ skills["SupportElementalPenetration"] = {
 		"reduce_enemy_elemental_resistance_%",
 	},
 	levels = {
-		[1] = { 13, manaMultiplier = 40, levelRequirement = 31, statInterpolation = { 1, }, cost = { }, },
-		[2] = { 14, manaMultiplier = 40, levelRequirement = 34, statInterpolation = { 1, }, cost = { }, },
-		[3] = { 15, manaMultiplier = 40, levelRequirement = 36, statInterpolation = { 1, }, cost = { }, },
-		[4] = { 16, manaMultiplier = 40, levelRequirement = 38, statInterpolation = { 1, }, cost = { }, },
-		[5] = { 17, manaMultiplier = 40, levelRequirement = 40, statInterpolation = { 1, }, cost = { }, },
-		[6] = { 18, manaMultiplier = 40, levelRequirement = 42, statInterpolation = { 1, }, cost = { }, },
-		[7] = { 19, manaMultiplier = 40, levelRequirement = 44, statInterpolation = { 1, }, cost = { }, },
-		[8] = { 20, manaMultiplier = 40, levelRequirement = 46, statInterpolation = { 1, }, cost = { }, },
-		[9] = { 21, manaMultiplier = 40, levelRequirement = 48, statInterpolation = { 1, }, cost = { }, },
-		[10] = { 22, manaMultiplier = 40, levelRequirement = 50, statInterpolation = { 1, }, cost = { }, },
-		[11] = { 23, manaMultiplier = 40, levelRequirement = 52, statInterpolation = { 1, }, cost = { }, },
-		[12] = { 24, manaMultiplier = 40, levelRequirement = 54, statInterpolation = { 1, }, cost = { }, },
-		[13] = { 25, manaMultiplier = 40, levelRequirement = 56, statInterpolation = { 1, }, cost = { }, },
-		[14] = { 26, manaMultiplier = 40, levelRequirement = 58, statInterpolation = { 1, }, cost = { }, },
-		[15] = { 27, manaMultiplier = 40, levelRequirement = 60, statInterpolation = { 1, }, cost = { }, },
-		[16] = { 28, manaMultiplier = 40, levelRequirement = 62, statInterpolation = { 1, }, cost = { }, },
-		[17] = { 29, manaMultiplier = 40, levelRequirement = 64, statInterpolation = { 1, }, cost = { }, },
-		[18] = { 30, manaMultiplier = 40, levelRequirement = 66, statInterpolation = { 1, }, cost = { }, },
-		[19] = { 31, manaMultiplier = 40, levelRequirement = 68, statInterpolation = { 1, }, cost = { }, },
-		[20] = { 32, manaMultiplier = 40, levelRequirement = 70, statInterpolation = { 1, }, cost = { }, },
-		[21] = { 33, manaMultiplier = 40, levelRequirement = 72, statInterpolation = { 1, }, cost = { }, },
-		[22] = { 34, manaMultiplier = 40, levelRequirement = 74, statInterpolation = { 1, }, cost = { }, },
-		[23] = { 35, manaMultiplier = 40, levelRequirement = 76, statInterpolation = { 1, }, cost = { }, },
-		[24] = { 36, manaMultiplier = 40, levelRequirement = 78, statInterpolation = { 1, }, cost = { }, },
-		[25] = { 37, manaMultiplier = 40, levelRequirement = 80, statInterpolation = { 1, }, cost = { }, },
-		[26] = { 38, manaMultiplier = 40, levelRequirement = 82, statInterpolation = { 1, }, cost = { }, },
-		[27] = { 39, manaMultiplier = 40, levelRequirement = 84, statInterpolation = { 1, }, cost = { }, },
-		[28] = { 40, manaMultiplier = 40, levelRequirement = 86, statInterpolation = { 1, }, cost = { }, },
-		[29] = { 41, manaMultiplier = 40, levelRequirement = 88, statInterpolation = { 1, }, cost = { }, },
-		[30] = { 42, manaMultiplier = 40, levelRequirement = 90, statInterpolation = { 1, }, cost = { }, },
-		[31] = { 42, manaMultiplier = 40, levelRequirement = 91, statInterpolation = { 1, }, cost = { }, },
-		[32] = { 43, manaMultiplier = 40, levelRequirement = 92, statInterpolation = { 1, }, cost = { }, },
-		[33] = { 43, manaMultiplier = 40, levelRequirement = 93, statInterpolation = { 1, }, cost = { }, },
-		[34] = { 44, manaMultiplier = 40, levelRequirement = 94, statInterpolation = { 1, }, cost = { }, },
-		[35] = { 44, manaMultiplier = 40, levelRequirement = 95, statInterpolation = { 1, }, cost = { }, },
-		[36] = { 45, manaMultiplier = 40, levelRequirement = 96, statInterpolation = { 1, }, cost = { }, },
-		[37] = { 45, manaMultiplier = 40, levelRequirement = 97, statInterpolation = { 1, }, cost = { }, },
-		[38] = { 46, manaMultiplier = 40, levelRequirement = 98, statInterpolation = { 1, }, cost = { }, },
-		[39] = { 46, manaMultiplier = 40, levelRequirement = 99, statInterpolation = { 1, }, cost = { }, },
-		[40] = { 47, manaMultiplier = 40, levelRequirement = 100, statInterpolation = { 1, }, cost = { }, },
+		[1] = { 14, manaMultiplier = 30, levelRequirement = 31, statInterpolation = { 1, }, cost = { }, },
+		[2] = { 14, manaMultiplier = 30, levelRequirement = 34, statInterpolation = { 1, }, cost = { }, },
+		[3] = { 15, manaMultiplier = 30, levelRequirement = 36, statInterpolation = { 1, }, cost = { }, },
+		[4] = { 16, manaMultiplier = 30, levelRequirement = 38, statInterpolation = { 1, }, cost = { }, },
+		[5] = { 17, manaMultiplier = 30, levelRequirement = 40, statInterpolation = { 1, }, cost = { }, },
+		[6] = { 17, manaMultiplier = 30, levelRequirement = 42, statInterpolation = { 1, }, cost = { }, },
+		[7] = { 18, manaMultiplier = 30, levelRequirement = 44, statInterpolation = { 1, }, cost = { }, },
+		[8] = { 19, manaMultiplier = 30, levelRequirement = 46, statInterpolation = { 1, }, cost = { }, },
+		[9] = { 20, manaMultiplier = 30, levelRequirement = 48, statInterpolation = { 1, }, cost = { }, },
+		[10] = { 20, manaMultiplier = 30, levelRequirement = 50, statInterpolation = { 1, }, cost = { }, },
+		[11] = { 21, manaMultiplier = 30, levelRequirement = 52, statInterpolation = { 1, }, cost = { }, },
+		[12] = { 22, manaMultiplier = 30, levelRequirement = 54, statInterpolation = { 1, }, cost = { }, },
+		[13] = { 23, manaMultiplier = 30, levelRequirement = 56, statInterpolation = { 1, }, cost = { }, },
+		[14] = { 23, manaMultiplier = 30, levelRequirement = 58, statInterpolation = { 1, }, cost = { }, },
+		[15] = { 24, manaMultiplier = 30, levelRequirement = 60, statInterpolation = { 1, }, cost = { }, },
+		[16] = { 25, manaMultiplier = 30, levelRequirement = 62, statInterpolation = { 1, }, cost = { }, },
+		[17] = { 26, manaMultiplier = 30, levelRequirement = 64, statInterpolation = { 1, }, cost = { }, },
+		[18] = { 26, manaMultiplier = 30, levelRequirement = 66, statInterpolation = { 1, }, cost = { }, },
+		[19] = { 27, manaMultiplier = 30, levelRequirement = 68, statInterpolation = { 1, }, cost = { }, },
+		[20] = { 28, manaMultiplier = 30, levelRequirement = 70, statInterpolation = { 1, }, cost = { }, },
+		[21] = { 29, manaMultiplier = 30, levelRequirement = 72, statInterpolation = { 1, }, cost = { }, },
+		[22] = { 29, manaMultiplier = 30, levelRequirement = 74, statInterpolation = { 1, }, cost = { }, },
+		[23] = { 30, manaMultiplier = 30, levelRequirement = 76, statInterpolation = { 1, }, cost = { }, },
+		[24] = { 31, manaMultiplier = 30, levelRequirement = 78, statInterpolation = { 1, }, cost = { }, },
+		[25] = { 32, manaMultiplier = 30, levelRequirement = 80, statInterpolation = { 1, }, cost = { }, },
+		[26] = { 32, manaMultiplier = 30, levelRequirement = 82, statInterpolation = { 1, }, cost = { }, },
+		[27] = { 33, manaMultiplier = 30, levelRequirement = 84, statInterpolation = { 1, }, cost = { }, },
+		[28] = { 34, manaMultiplier = 30, levelRequirement = 86, statInterpolation = { 1, }, cost = { }, },
+		[29] = { 35, manaMultiplier = 30, levelRequirement = 88, statInterpolation = { 1, }, cost = { }, },
+		[30] = { 35, manaMultiplier = 30, levelRequirement = 90, statInterpolation = { 1, }, cost = { }, },
+		[31] = { 36, manaMultiplier = 30, levelRequirement = 91, statInterpolation = { 1, }, cost = { }, },
+		[32] = { 36, manaMultiplier = 30, levelRequirement = 92, statInterpolation = { 1, }, cost = { }, },
+		[33] = { 36, manaMultiplier = 30, levelRequirement = 93, statInterpolation = { 1, }, cost = { }, },
+		[34] = { 37, manaMultiplier = 30, levelRequirement = 94, statInterpolation = { 1, }, cost = { }, },
+		[35] = { 37, manaMultiplier = 30, levelRequirement = 95, statInterpolation = { 1, }, cost = { }, },
+		[36] = { 38, manaMultiplier = 30, levelRequirement = 96, statInterpolation = { 1, }, cost = { }, },
+		[37] = { 38, manaMultiplier = 30, levelRequirement = 97, statInterpolation = { 1, }, cost = { }, },
+		[38] = { 38, manaMultiplier = 30, levelRequirement = 98, statInterpolation = { 1, }, cost = { }, },
+		[39] = { 39, manaMultiplier = 30, levelRequirement = 99, statInterpolation = { 1, }, cost = { }, },
+		[40] = { 39, manaMultiplier = 30, levelRequirement = 100, statInterpolation = { 1, }, cost = { }, },
 	},
 }
 skills["OnHitWhileCursedTriggeredCurseNova"] = {
@@ -1283,6 +1107,32 @@ name = "转化为闪电",
 	},
 	levels = {
 		[20] = { 0.80000001192093, 1.2000000476837, 16, 100, 100, 3000, critChance = 7, cooldown = 1, levelRequirement = 70, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+	},
+}
+
+skills["EmbraceMadness"] = {
+	name = "疯狂之拥",
+	hidden = true,
+	color = 4,
+	description = "获得【疯狂荣光】。重复使用该技能会移除【疯狂荣光】和它施加的【触动】减益效果。在冷却时间结束后可以再次使用【疯狂之拥】。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Instant] = true, [SkillType.SecondWindSupport] = true, [SkillType.ManaCostReserved] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0,
+	cannotBeSupported = true,
+	fromItem = true,
+	baseFlags = {
+		spell = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"embrace_madness_amount_of_cooldown_to_gain_ms",
+		"glorious_madness_timer_ms",
+	},
+	levels = {
+		[1] = { 8000, 1000, cooldown = 1, levelRequirement = 1, statInterpolation = { 1, 1, }, cost = { }, },
 	},
 }
 skills["Envy"] = {
@@ -1366,7 +1216,7 @@ skills["FireBurstOnHit"] = {
 	name = "火焰爆破",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 3.4000000953674,
+	baseEffectiveness = 2.5,
 	incrementalEffectiveness = 0.043999999761581,
 	description = "喷发出一道火焰, 造成火焰伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Hit] = true, [SkillType.FireSkill] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.AreaSpell] = true, },
@@ -1378,6 +1228,7 @@ skills["FireBurstOnHit"] = {
 		area = true,
 	},
 	baseMods = {
+		skill("radius", 24),
 	},
 	qualityStats = {
 	},
@@ -1389,67 +1240,137 @@ skills["FireBurstOnHit"] = {
 		"spell_uncastable_if_triggerable",
 	},
 	levels = {
-		[1] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 1, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[2] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 2, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[3] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 4, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[4] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 7, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[5] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 11, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[6] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 16, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[7] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 20, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[8] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 24, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[9] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 28, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[10] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 32, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[11] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 36, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[12] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 40, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[13] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 44, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[14] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 48, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[15] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 52, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[16] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 56, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[17] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 60, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[18] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 64, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[19] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 67, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[20] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 70, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[21] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 72, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[22] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 74, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[23] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 76, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[24] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 78, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[25] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 80, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[26] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 82, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[27] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 84, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[28] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 86, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[29] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 88, statInterpolation = { 3, 3, 1, }, cost = { }, },
-		[30] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 3.4, cooldown = 1, critChance = 6, levelRequirement = 90, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[1] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 1, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[2] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 2, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[3] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 4, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[4] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 7, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[5] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 11, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[6] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 16, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[7] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 20, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[8] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 24, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[9] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 28, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[10] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 32, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[11] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 36, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[12] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 40, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[13] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 44, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[14] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 48, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[15] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 52, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[16] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 56, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[17] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 60, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[18] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 64, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[19] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 67, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[20] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 70, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[21] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 72, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[22] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 74, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[23] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 76, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[24] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 78, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[25] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 80, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[26] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 82, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[27] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 84, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[28] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 86, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[29] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 88, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[30] = { 0.80000001192093, 1.2000000476837, 100, damageEffectiveness = 2.5, cooldown = 1.5, critChance = 6, levelRequirement = 90, statInterpolation = { 3, 3, 1, }, cost = { }, },
 	},
 }
-skills["SupportGreaterSpellEcho"] = {
-name = "高等施法回响",
+skills["AtziriUniqueStaffFlameblast"] = {
+	name = "审判烈焰",
 	hidden = true,
 	color = 3,
-	support = true,
-	requireSkillTypes = { SkillType.SpellCanRepeat, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Totem, SkillType.Trap, SkillType.Mine, SkillType.Triggered, SkillType.ManaCostReserved, SkillType.Vaal, SkillType.Instant, SkillType.CreatesMirageWarrior, SkillType.CreatesMinion, SkillType.NOT, SkillType.AND, },
-	statDescriptionScope = "gem_stat_descriptions",
+	baseEffectiveness = 4.9499998092651,
+	incrementalEffectiveness = 0.048000000417233,
+	description = "同时在你所在位置和目标地点产生印记，它们根据施法速度生长，随后爆炸，造成火焰伤害，不能被多重范围施法辅助。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.FireSkill] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0.8,
 	fromItem = true,
-	statMap = {
-		["support_greater_spell_echo_area_of_effect_+%_per_repeat"] = {
-			mod("AreaOfEffect", "INC", nil),
-		},
+	baseFlags = {
 	},
 	baseMods = {
-		flag("Condition:HaveGreaterSpellEcho"),
-		mod("Damage", "MORE", 35, ModFlag.Spell, 0, { type = "Condition", var = "HaveSpellEcho", neg = true }, { type = "Condition", var = "HaveBladeVortex", neg = true }),
-		mod("Damage", "MORE", 52, ModFlag.Spell, 0, { type = "Condition", var = "HaveSpellEcho" }, { type = "Condition", var = "HaveBladeVortex", neg = true }),
 	},
 	qualityStats = {
 	},
 	stats = {
-		"base_spell_repeat_count",
-		"support_greater_spell_echo_spell_damage_+%_final_per_repeat",
-		"support_greater_spell_echo_area_of_effect_+%_per_repeat",
+		"spell_minimum_base_fire_damage",
+		"spell_maximum_base_fire_damage",
+		"base_chance_to_ignite_%",
+		"base_reduce_enemy_fire_resistance_%",
+		"is_area_damage",
+		"base_skill_show_average_damage_instead_of_dps",
+		"skill_has_trigger_from_unique_item",
 	},
 	levels = {
-		[30] = { 2, 35, 50, manaMultiplier = 50, levelRequirement = 90, statInterpolation = { 1, 1, 1, }, cost = { }, },
+		[20] = { 0.80000001192093, 1.2000000476837, 50, 25, critChance = 6, duration = 2, cooldown = 1.5, damageEffectiveness = 6.5, levelRequirement = 70, statInterpolation = { 3, 3, 1, 1, }, cost = { }, },
+	},
+}
+skills["Focus"] = {
+	name = "专注",
+	hidden = true,
+	color = 2,
+	description = "凝聚能量，使你获得专注状态。",
+	skillTypes = { [SkillType.Buff] = true, [SkillType.Spell] = true, [SkillType.Instant] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0,
+	cannotBeSupported = true,
+	baseFlags = {
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"base_skill_effect_duration",
+		"base_skill_is_instant",
+		"fixed_skill_effect_duration",
+		"display_skill_fixed_duration_buff",
+		"display_this_skill_cooldown_does_not_recover_during_buff",
+	},
+	levels = {
+		[1] = { 4000, cooldown = 8, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["SupportTriggerSpellFromHelmet"] = {
+name = "专注",
+	hidden = true,
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
+	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
+	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"skill_triggered_when_you_focus_chance_%",
+	},
+	levels = {
+		[1] = { 100, cooldown = 0.25, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["CreateSmokeCloud"] = {
+	name = "战争迷雾",
+	hidden = true,
+	color = 4,
+	description = "在一个区域内创建一片烟雾，处于其中的敌人将被致盲。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.SecondWindSupport] = true, [SkillType.Triggered] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	fromItem = true,
+	baseFlags = {
+		spell = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"base_skill_effect_duration",
+		"chance_to_cast_when_your_trap_is_triggered_%",
+	},
+	levels = {
+		[20] = { 3000, 100, cooldown = 1, levelRequirement = 65, statInterpolation = { 1, 1, }, cost = { }, },
 	},
 }
 skills["VaalAuraElementalDamageHealing"] = {
@@ -1482,6 +1403,73 @@ skills["VaalAuraElementalDamageHealing"] = {
 	levels = {
 		[1] = { 5000, cooldown = 0.5, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
 		[20] = { 5000, cooldown = 0.5, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+
+skills["GoreShockwave"] = {
+	name = "涂炭震波",
+	hidden = true,
+	color = 1,
+	description = "对一片区域造成攻击伤害。",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Hit] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Melee] = true, },
+	weaponTypes = {
+		["Two Handed Axe"] = true,
+	},
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	fromItem = true,
+	preDamageFunc = function(activeSkill, output)
+		activeSkill.skillData.timeOverride = output.Cooldown
+	end,
+	baseFlags = {
+		attack = true,
+		area = true,
+		melee = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"active_skill_base_radius_+",
+		"base_cooldown_speed_+%",
+		"attack_trigger_on_melee_hit_with_atleast_150_strength_%",
+		"is_area_damage",
+	},
+	levels = {
+		[1] = { 1, 0, 100, damageEffectiveness = 1.6, cooldown = 1, baseMultiplier = 1.6, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
+		[5] = { 2, 8, 100, damageEffectiveness = 1.81, cooldown = 1, baseMultiplier = 1.81, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
+	},
+}
+skills["SupportGreaterSpellEcho"] = {
+name = "高等施法回响",
+	hidden = true,
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.SpellCanRepeat, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Totem, SkillType.Trap, SkillType.Mine, SkillType.Triggered, SkillType.ManaCostReserved, SkillType.Vaal, SkillType.Instant, SkillType.CreatesMirageWarrior, SkillType.CreatesMinion, SkillType.NOT, SkillType.AND, },
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	statMap = {
+		["support_greater_spell_echo_area_of_effect_+%_per_repeat"] = {
+			mod("AreaOfEffect", "INC", nil),
+		},
+	},
+	baseMods = {
+		flag("Condition:HaveGreaterSpellEcho"),
+		mod("Damage", "MORE", 30, ModFlag.Spell, 0, { type = "Condition", var = "HaveSpellEcho", neg = true }, { type = "Condition", var = "HaveBladeVortex", neg = true }),
+		mod("Damage", "MORE", 45, ModFlag.Spell, 0, { type = "Condition", var = "HaveSpellEcho" }, { type = "Condition", var = "HaveBladeVortex", neg = true }),
+	},
+	qualityStats = {
+	},
+	stats = {
+		"base_spell_repeat_count",
+		"support_greater_spell_echo_spell_damage_+%_final_per_repeat",
+		"support_greater_spell_echo_area_of_effect_+%_per_repeat",
+	},
+	levels = {
+		[30] = { 2, 30, 50, manaMultiplier = 50, levelRequirement = 90, statInterpolation = { 1, 1, 1, }, cost = { }, },
 	},
 }
 skills["IcestormUniqueStaff12"] = {
@@ -1520,7 +1508,7 @@ skills["IcestormUniqueStaff12"] = {
 		"skill_is_ice_storm",
 	},
 	levels = {
-		[1] = { 2, 4, 1000, 200, 450, 500, 100, 5, damageEffectiveness = 0.6, critChance = 6, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, 1, }, cost = { Mana = 22, }, },
+		[1] = { 3, 5, 1000, 200, 450, 500, 100, 5, damageEffectiveness = 0.6, critChance = 6, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, 1, }, cost = { Mana = 22, }, },
 	},
 }
 skills["TriggeredIcicleNova"] = {
@@ -1580,6 +1568,72 @@ skills["MerveilWarp"] = {
 		[20] = { 1500, cooldown = 3, levelRequirement = 1, statInterpolation = { 1, }, cost = { Mana = 20, }, },
 	},
 }
+skills["CatsStealthTriggeredIntimidatingCry"] = {
+	name = "威吓战吼",
+	hidden = true,
+	color = 1,
+	description = "发出一声战吼，嘲讽周围的敌人，吸引他们攻击，增助随后的攻击。同时提供一个增益效果，使你击中敌人时降低其物理伤害减免。",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Warcry] = true, [SkillType.SecondWindSupport] = true, [SkillType.PhysicalSkill] = true, [SkillType.Triggered] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0.25,
+	fromItem = true,
+	statMap = {
+		["skill_empowers_next_x_melee_attacks"] = {
+			mod("IntimidatingExertedAttacks", "BASE", nil),
+		},
+		["intimidating_cry_enemy_phys_reduction_%_penalty_vs_hit_per_5_MP"] = {
+			mod("IntimidatingPDRPer5MP", "BASE", nil),
+		},
+	},
+	baseFlags = {
+		warcry = true,
+		area = true,
+		duration = true,
+	},
+	baseMods = {
+		skill("radius", 60),
+	},
+	qualityStats = {
+	},
+	stats = {
+		"intimidating_cry_enemy_phys_reduction_%_penalty_vs_hit_per_5_MP",
+		"skill_empowers_next_x_melee_attacks",
+		"warcry_speed_+%",
+		"empowered_attack_accuracy_rating_+%",
+		"base_deal_no_damage",
+		"cannot_cancel_skill_before_contact_point",
+		"warcry_count_power_from_enemies",
+		"cast_on_lose_cats_stealth",
+		"intimidating_cry_empowerd_attacks_deal_double_damage_display",
+		"enemies_taunted_by_your_warcies_are_intimidated",
+		"use_intimidating_cry_buff_visual_for_intimidate",
+	},
+	levels = {
+		[20] = { 5, 2, 38, 0, levelRequirement = 70, duration = 4.9, cooldown = 8, statInterpolation = { 1, 1, 1, 1, }, cost = { Mana = 19, }, },
+	},
+}
+skills["SupportCastOnManaSpent"] = {
+name = "奇塔弗之渴望",
+	hidden = true,
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
+	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
+	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"support_cast_on_mana_spent",
+	},
+	levels = {
+		[1] = { cooldown = 0.1, levelRequirement = 1, statInterpolation = { }, cost = { }, },
+	},
+}
+
 skills["LightningAegis"] = {
 	name = "闪电护盾",
 	hidden = true,
@@ -1670,56 +1724,25 @@ skills["LightningSpell"] = {
 		[30] = { 0.5, 1.5, 100, damageEffectiveness = 2, cooldown = 0.2, critChance = 7.5, levelRequirement = 90, statInterpolation = { 3, 3, 1, }, cost = { }, },
 	},
 }
-skills["AnimateGuardianWeapon"] = {
-	name = "幻化守卫武器",
+skills["SupportTriggerBowSkillOnBowAttack"] = {
+name = "马洛尼的技巧",
 	hidden = true,
-	color = 2,
-	description = "操纵一把你幻化守卫的主手武器来为你作战。",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Triggered] = true, [SkillType.CreatesMinion] = true, [SkillType.PhysicalSkill] = true, },
-	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, [SkillType.MinionProjectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.AnimateWeapon] = true, },
-	statDescriptionScope = "minion_spell_skill_stat_descriptions",
-	castTime = 0.8,
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.ProjectileAttack, SkillType.Triggerable, SkillType.AND, },
+	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
+	excludeSkillTypes = { SkillType.Totem, SkillType.Trap, SkillType.Mine, SkillType.Vaal, SkillType.TriggeredGrantedSkill, },
+	statDescriptionScope = "gem_stat_descriptions",
 	fromItem = true,
-	minionHasItemSet = true,
-	minionUses = {
-		["Weapon 1"] = true,
-	},
-	minionList = {
-		"AnimatedWeapon",
-	},
-	statMap = {
-		["active_skill_damage_+%_final"] = {
-			mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
-		},
-		["attack_minimum_added_physical_damage"] = {
-			mod("MinionModifier", "LIST", { mod = mod("PhysicalMin", "BASE", nil, 0, KeywordFlag.Attack) }),
-		},
-		["attack_maximum_added_physical_damage"] = {
-			mod("MinionModifier", "LIST", { mod = mod("PhysicalMax", "BASE", nil, 0, KeywordFlag.Attack) }),
-		},
-	},
-	baseFlags = {
-		spell = true,
-		minion = true,
-		duration = true,
-	},
 	baseMods = {
 	},
 	qualityStats = {
 	},
 	stats = {
-		"chance_to_trigger_on_animate_weapon_kill_%",
-		"active_skill_minion_damage_+%_final",
-		"active_skill_minion_attack_speed_+%_final",
-		"base_skill_effect_duration",
-		"attack_minimum_added_physical_damage",
-		"attack_maximum_added_physical_damage",
-		"number_of_animated_weapons_allowed",
-		"chance_to_trigger_on_animate_guardian_kill_%",
+		"skill_has_trigger_from_unique_item",
 	},
 	levels = {
-		[18] = { 10, 0, 0, 20000, 108, 159, 13, cooldown = 0.05, levelRequirement = 64, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
-		[20] = { 100, 0, 0, 20000, 126, 184, 14, cooldown = 0.05, levelRequirement = 70, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 1, cooldown = 1, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
 	},
 }
 skills["UniqueAnimateWeapon"] = {
@@ -1769,6 +1792,33 @@ skills["UniqueAnimateWeapon"] = {
 		[15] = { 1, 25, 110, 100, 30, 25, cooldown = 0.5, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
+skills["SupportUniqueMjolnerLightningSpellsCastOnHit"] = {
+name = "沉默之雷",
+	hidden = true,
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.LightningSkill, SkillType.Triggerable, SkillType.AND, SkillType.AND, },
+	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
+	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	statMap = {
+		["triggered_spell_spell_damage_+%"] = {
+			mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "SkillIsTriggered" }),
+		},
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"unique_mjolner_lightning_spells_triggered",
+		"socketed_triggered_skills_use_weapon_attack_time_for_pvp_scaling",
+	},
+	levels = {
+		[1] = { cooldown = 0.15, levelRequirement = 0, manaMultiplier = -100, statInterpolation = { }, cost = { }, },
+	},
+}
 skills["TriggeredMoltenStrike"] = {
 	name = " 熔岩爆破",
 	hidden = true,
@@ -1799,43 +1849,113 @@ skills["TriggeredMoltenStrike"] = {
 		[16] = { 3, 20, damageEffectiveness = 1.15, cooldown = 0.15, baseMultiplier = 1.15, levelRequirement = 1, statInterpolation = { 1, 1, }, cost = { }, },
 	},
 }
-skills["UniqueMirageWarriors"] = {
-	name = "反射",
+skills["PhysicalAegis"] = {
+	name = "物理护盾",
 	hidden = true,
 	color = 4,
-	description = "使用救世者攻击并造成暴击时，该技能会召唤一个蜃影救世者。召唤的蜃影救世者会使用你在造成暴击时施展的技能。一旦达到他们的召唤上限，你就无法用相同的技能再次召唤他们。",
-	skillTypes = { [SkillType.Duration] = true, },
+	description = "召唤一个守护护盾，在消散前抵挡击中造成的物理伤害。该护盾在一段时间未受到物理伤害后会自动回复满值，或自然消散。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Aegis] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0,
+	castTime = 1,
+	cannotBeSupported = true,
 	fromItem = true,
-	statMap = {
-		["skill_used_by_mirage_warrior_damage_+%_final"] = {
-			mod("SaviourMirageWarriorLessDamage", "BASE", nil),
-		},
-		["maximum_number_of_mirage_warriors"] = {
-			mod("SaviourMirageWarriorMaxCount", "BASE", nil),
-		},
-	},
 	baseFlags = {
 		spell = true,
-		duration = true,
-		minion = true,
 	},
 	baseMods = {
 	},
 	qualityStats = {
 	},
 	stats = {
-		"base_skill_effect_duration",
-		"maximum_number_of_mirage_warriors",
-		"skill_used_by_mirage_warrior_damage_+%_final",
+		"aegis_unique_shield_max_value",
+		"active_skill_display_aegis_variation",
+		"aegis_recharge_delay_ms",
 		"cast_on_gain_skill",
 		"spell_uncastable_if_triggerable",
-		"display_mirage_warriors_no_spirit_strikes",
-		"force_lite_skill_effects",
 	},
 	levels = {
-		[20] = { 10000, 2, -50, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
+		[20] = { 1000, 4, 10000, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
+	},
+}
+skills["SupportTriggerSpellOnAttack"] = {
+name = "诗人之笔",
+	hidden = true,
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
+	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
+	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"skill_has_trigger_from_unique_item",
+		"socketed_triggered_skills_use_weapon_attack_time_for_pvp_scaling",
+	},
+	levels = {
+		[1] = { 1, cooldown = 0.15, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["Portal"] = {
+	name = "时空之门",
+	color = 4,
+	baseEffectiveness = 0,
+	description = "开启一个连接城镇的时空之门.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.Triggerable] = true, [SkillType.Type27] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 2.5,
+	baseFlags = {
+		spell = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+		Default = {
+			{ "base_cast_speed_+%", 3 },
+		},
+		Alternate1 = {
+			{ "portal_alternate_destination_chance_permyriad", 1 },
+		},
+	},
+	stats = {
+		"base_deal_no_damage",
+	},
+	levels = {
+		[1] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[2] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[3] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[4] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[5] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[6] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[7] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[8] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[9] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[10] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+	},
+}
+skills["QueensDemand"] = {
+	name = "女王敕令",
+	hidden = true,
+	color = 4,
+	description = "交替触发审判烈焰和审判风暴",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.SpellCanRepeat] = true, [SkillType.CanRapidFire] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	fromItem = true,
+	baseFlags = {
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"queens_demand_effect",
+	},
+	levels = {
+		[20] = { levelRequirement = 70, statInterpolation = { }, cost = { Mana = 64, }, },
 	},
 }
 skills["TriggeredSummonSpider"] = {
@@ -1884,6 +2004,45 @@ mod("Damage", "INC", nil, 0, KeywordFlag.Poison, { type = "Multiplier", var = "R
 		[1] = { 100, 30000, 20, 2, 12, -85, cooldown = 2, levelRequirement = 75, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
+skills["UniqueMirageWarriors"] = {
+	name = "反射",
+	hidden = true,
+	color = 4,
+	description = "使用救世者攻击并造成暴击时，该技能会召唤一个蜃影救世者。召唤的蜃影救世者会使用你在造成暴击时施展的技能。一旦达到他们的召唤上限，你就无法用相同的技能再次召唤他们。",
+	skillTypes = { [SkillType.Duration] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0,
+	fromItem = true,
+	statMap = {
+		["skill_used_by_mirage_warrior_damage_+%_final"] = {
+			mod("SaviourMirageWarriorLessDamage", "BASE", nil),
+		},
+		["maximum_number_of_mirage_warriors"] = {
+			mod("SaviourMirageWarriorMaxCount", "BASE", nil),
+		},
+	},
+	baseFlags = {
+		spell = true,
+		duration = true,
+		minion = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"base_skill_effect_duration",
+		"maximum_number_of_mirage_warriors",
+		"skill_used_by_mirage_warrior_damage_+%_final",
+		"cast_on_gain_skill",
+		"spell_uncastable_if_triggerable",
+		"display_mirage_warriors_no_spirit_strikes",
+		"force_lite_skill_effects",
+	},
+	levels = {
+		[20] = { 10000, 2, -50, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
+	},
+}
 skills["ShadeForm"] = {
 	name = "暗影姿态",
 	hidden = true,
@@ -1908,6 +2067,52 @@ skills["ShadeForm"] = {
 	},
 	levels = {
 		[20] = { 3000, 100, 20, cooldown = 45, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
+	},
+}
+skills["ShieldShatter"] = {
+	name = "破盾击",
+	hidden = true,
+	color = 1,
+	baseEffectiveness = 0.34000000357628,
+	incrementalEffectiveness = 0.045000001788139,
+	description = "盾牌破碎，根据盾牌品质，对一片区域内的敌人造成物理法术伤害。之后短时间内你都不能格挡，也不能从盾牌中得到防御值，但你的法术附加物理伤害。",
+	skillTypes = { [SkillType.Hit] = true, [SkillType.PhysicalSkill] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.NovaSpell] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Duration] = true, },
+	statDescriptionScope = "buff_skill_stat_descriptions",
+	castTime = 1,
+	fromItem = true,
+	statMap = {
+		["spell_minimum_base_physical_damage_per_shield_quality"] = {
+			skill("PhysicalMin", nil, { type = "Multiplier", var = "QualityOnWeapon 2" }),
+		},
+		["spell_maximum_base_physical_damage_per_shield_quality"] = {
+			skill("PhysicalMax", nil, { type = "Multiplier", var = "QualityOnWeapon 2" }),
+		},
+		["buff_added_spell_minimum_base_physical_damage_per_shield_quality"] = {
+			mod("PhysicalMin", "BASE", nil, ModFlag.Spell, 0, { type = "Multiplier", var = "QualityOnWeapon 2" }, { type = "Condition", var = "BlockedRecently"}, { type = "GlobalEffect", effectType = "Buff"}),
+		},
+		["buff_added_spell_maximum_base_physical_damage_per_shield_quality"] = {
+			mod("PhysicalMax", "BASE", nil, ModFlag.Spell, 0, { type = "Multiplier", var = "QualityOnWeapon 2" }, { type = "Condition", var = "BlockedRecently"}, { type = "GlobalEffect", effectType = "Buff"}),
+		},
+	},
+	baseFlags = {
+		spell = true,
+		area = true,
+	},
+	baseMods = {
+		skill("showAverage", true),
+	},
+	qualityStats = {
+	},
+	stats = {
+		"trigger_on_block_%_chance",
+		"spell_minimum_base_physical_damage_per_shield_quality",
+		"spell_maximum_base_physical_damage_per_shield_quality",
+		"buff_added_spell_minimum_base_physical_damage_per_shield_quality",
+		"buff_added_spell_maximum_base_physical_damage_per_shield_quality",
+	},
+	levels = {
+		[1] = { 100, 0.80000001192093, 1.2000000476837, 1, 2, duration = 4, levelRequirement = 4, statInterpolation = { 1, 3, 3, 1, 1, }, cost = { }, },
+		[20] = { 100, 0.80000001192093, 1.2000000476837, 10, 16, duration = 4, levelRequirement = 70, statInterpolation = { 1, 3, 3, 1, 1, }, cost = { }, },
 	},
 }
 skills["TriggeredShockedGround"] = {
@@ -1937,6 +2142,142 @@ skills["TriggeredShockedGround"] = {
 	},
 	levels = {
 		[10] = { 100, 7, 5000, cooldown = 5, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
+	},
+}
+
+
+
+
+
+
+
+
+skills["ChannelledSnipe"] = {
+	name = "狙击",
+	hidden = true,
+	color = 2,
+	description = "持续吟唱给弓箭充能，积累层数。释放时，每层都会触发一种链接的弓类技能。这种方式不能触发持续吟唱技能。若没有链接任何技能，又至少积累了一层效果，则该技能会发射它原本的箭矢。无法用于图腾。",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Channelled] = true, },
+	weaponTypes = {
+		["Bow"] = true,
+	},
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	fromItem = true,
+	initialFunc = function(activeSkill, output)
+		activeSkill.skillData.dpsMultiplier = 1 / math.max(activeSkill.skillModList:Sum("BASE", cfg, "Multiplier:狙击Stage"), 1)
+	end,
+	baseFlags = {
+		attack = true,
+		projectile = true,
+		bow = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"snipe_max_stacks",
+		"override_turn_duration_ms",
+		"snipe_triggered_skill_ailment_damage_+%_final_per_stage",
+		"snipe_triggered_skill_hit_damage_+%_final_per_stage",
+		"skill_can_fire_arrows",
+		"is_snipe_default_projectile",
+		"is_snipe_default_projectile_2",
+	},
+	levels = {
+		[20] = { 6, 100, 120, 165, attackSpeedMultiplier = 80, levelRequirement = 70, statInterpolation = { 1, 1, 1, 1, }, cost = { Mana = 4, }, },
+	},
+}
+skills["ChannelledSnipeSupport"] = {
+name = "狙击吟唱辅助",
+	hidden = true,
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.ProjectileAttack, SkillType.AnimateWeapon, SkillType.OR, SkillType.Triggerable, SkillType.AND, },
+	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
+	excludeSkillTypes = { SkillType.Totem, SkillType.Trap, SkillType.Mine, SkillType.ManaCostReserved, SkillType.Vaal, SkillType.Instant, SkillType.Channelled, },
+	weaponTypes = {
+		["Bow"] = true,
+	},
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	baseMods = {
+		flag("TriggeredBySnipe"),
+	},
+	qualityStats = {
+	},
+	stats = {
+		"snipe_triggered_skill_damage_+%_final",
+		"snipe_triggered_skill_ailment_damage_+%_final_per_stage",
+		"snipe_triggered_skill_hit_damage_+%_final_per_stage",
+		"skill_triggered_by_snipe",
+	},
+	levels = {
+		[20] = { 0, 120, 165, cooldown = 0.05, levelRequirement = 0, statInterpolation = { 1, 1, 1, }, cost = { }, },
+	},
+}
+skills["SummonEssenceSpirits"] = {
+	name = "幽鬼之灵 ",
+	hidden = true,
+	color = 3,
+	description = "召唤三个不会受到伤害的幽鬼之灵快速冲向并攻击附近的敌人. 敌人无法解除幽鬼之灵, 并且可以穿过幽鬼之灵.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Minion] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.CreatesMinion] = true, },
+	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, },
+	statDescriptionScope = "minion_spell_skill_stat_descriptions",
+	castTime = 1,
+	fromItem = true,
+	minionList = {
+		"SummonedEssenceSpirit",
+	},
+	baseFlags = {
+		spell = true,
+		minion = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"active_skill_minion_added_damage_+%_final",
+		"number_of_monsters_to_summon",
+		"cast_on_gain_skill",
+		"spell_uncastable_if_triggerable",
+		"take_no_actions_while_parent_dead",
+		"minion_dies_when_parent_dies",
+		"minions_cannot_taunt_enemies",
+	},
+	levels = {
+		[1] = { -15, 3, levelRequirement = 1, statInterpolation = { 1, 1, }, cost = { }, },
+		[2] = { -15, 3, levelRequirement = 2, statInterpolation = { 1, 1, }, cost = { }, },
+		[3] = { -15, 3, levelRequirement = 4, statInterpolation = { 1, 1, }, cost = { }, },
+		[4] = { -15, 3, levelRequirement = 7, statInterpolation = { 1, 1, }, cost = { }, },
+		[5] = { -15, 3, levelRequirement = 11, statInterpolation = { 1, 1, }, cost = { }, },
+		[6] = { -15, 3, levelRequirement = 16, statInterpolation = { 1, 1, }, cost = { }, },
+		[7] = { -15, 3, levelRequirement = 20, statInterpolation = { 1, 1, }, cost = { }, },
+		[8] = { -15, 3, levelRequirement = 24, statInterpolation = { 1, 1, }, cost = { }, },
+		[9] = { -15, 3, levelRequirement = 28, statInterpolation = { 1, 1, }, cost = { }, },
+		[10] = { -15, 3, levelRequirement = 32, statInterpolation = { 1, 1, }, cost = { }, },
+		[11] = { -15, 3, levelRequirement = 36, statInterpolation = { 1, 1, }, cost = { }, },
+		[12] = { -15, 3, levelRequirement = 40, statInterpolation = { 1, 1, }, cost = { }, },
+		[13] = { -15, 3, levelRequirement = 44, statInterpolation = { 1, 1, }, cost = { }, },
+		[14] = { -15, 3, levelRequirement = 48, statInterpolation = { 1, 1, }, cost = { }, },
+		[15] = { -15, 3, levelRequirement = 52, statInterpolation = { 1, 1, }, cost = { }, },
+		[16] = { -15, 3, levelRequirement = 56, statInterpolation = { 1, 1, }, cost = { }, },
+		[17] = { -15, 3, levelRequirement = 60, statInterpolation = { 1, 1, }, cost = { }, },
+		[18] = { -15, 3, levelRequirement = 64, statInterpolation = { 1, 1, }, cost = { }, },
+		[19] = { -15, 3, levelRequirement = 67, statInterpolation = { 1, 1, }, cost = { }, },
+		[20] = { -15, 3, levelRequirement = 70, statInterpolation = { 1, 1, }, cost = { }, },
+		[21] = { -15, 3, levelRequirement = 72, statInterpolation = { 1, 1, }, cost = { }, },
+		[22] = { -15, 3, levelRequirement = 74, statInterpolation = { 1, 1, }, cost = { }, },
+		[23] = { -15, 3, levelRequirement = 76, statInterpolation = { 1, 1, }, cost = { }, },
+		[24] = { -15, 3, levelRequirement = 78, statInterpolation = { 1, 1, }, cost = { }, },
+		[25] = { -15, 3, levelRequirement = 80, statInterpolation = { 1, 1, }, cost = { }, },
+		[26] = { -15, 3, levelRequirement = 82, statInterpolation = { 1, 1, }, cost = { }, },
+		[27] = { -15, 3, levelRequirement = 84, statInterpolation = { 1, 1, }, cost = { }, },
+		[28] = { -15, 3, levelRequirement = 86, statInterpolation = { 1, 1, }, cost = { }, },
+		[29] = { -15, 3, levelRequirement = 88, statInterpolation = { 1, 1, }, cost = { }, },
+		[30] = { -15, 3, levelRequirement = 90, statInterpolation = { 1, 1, }, cost = { }, },
 	},
 }
 skills["SpiritBurst"] = {
@@ -1970,6 +2311,45 @@ skills["SpiritBurst"] = {
 	},
 	levels = {
 		[20] = { 100, 0.80000001192093, 1.2000000476837, 6, damageEffectiveness = 1.2, critChance = 6, levelRequirement = 70, statInterpolation = { 1, 3, 3, 1, }, cost = { }, },
+	},
+}
+skills["VolatileDeadChaos"] = {
+	name = "尾随之疮",
+	hidden = true,
+	color = 2,
+	baseEffectiveness = 3,
+	incrementalEffectiveness = 0.0337999984622,
+	description = "目标附近的灵柩爆炸造成小范围伤害，并召唤一个自动追踪敌人的火球，可以造成较大范围的法术伤害。灵柩爆炸造成的伤害无法被法术伤害词缀加成，并且无法被反射。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Area] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.ChaosSkill] = true, [SkillType.SpellCanCascade] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.SecondWindSupport] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Triggered] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0.8,
+	fromItem = true,
+	statMap = {
+		["volatile_dead_core_explosion_radius_+"] = {
+			skill("radius", "BASE", nil),
+		},
+	},
+	baseFlags = {
+		spell = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"spell_minimum_base_chaos_damage",
+		"spell_maximum_base_chaos_damage",
+		"volatile_dead_base_number_of_corpses_to_consume",
+		"corpse_explosion_monster_life_%_chaos",
+		"volatile_dead_core_explosion_radius_+",
+		"volatile_dead_max_cores_allowed",
+		"chance_to_cast_on_kill_%",
+		"is_area_damage",
+		"base_skill_show_average_damage_instead_of_dps",
+		"spell_uncastable_if_triggerable",
+	},
+	levels = {
+		[15] = { 0.80000001192093, 1.2000000476837, 1, 9, 13, 10, 100, damageEffectiveness = 1.4, cooldown = 2, critChance = 5, levelRequirement = 59, statInterpolation = { 3, 3, 1, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
 skills["StormCascadeTriggered"] = {
@@ -2034,39 +2414,38 @@ skills["StormCascadeTriggered"] = {
 		[30] = { 0.80000001192093, 1.2000000476837, 5, 100, 3, 100, critChance = 5, cooldown = 0.25, levelRequirement = 90, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
-skills["HiddenBlade"] = {
-	name = "隐形打击",
+skills["AtziriUniqueStaffStormCall"] = {
+	name = "审判风暴",
 	hidden = true,
-	color = 2,
-	description = "发射一枚螺旋前进的刀刃，对敌人造成武器伤害。它还会以环形方式发射多个投射物。",
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.Triggerable] = true, [SkillType.SkillCanVolley] = true, [SkillType.PhysicalSkill] = true, [SkillType.SecondWindSupport] = true, },
-	weaponTypes = {
-		["Claw"] = true,
-		["One Handed Mace"] = true,
-		["Sceptre"] = true,
-		["Thrusting One Handed Sword"] = true,
-		["One Handed Axe"] = true,
-		["Dagger"] = true,
-		["One Handed Sword"] = true,
-	},
+	color = 3,
+	baseEffectiveness = 5,
+	incrementalEffectiveness = 0.033500000834465,
+	description = "在目标地点周围产生数个印记，它们随后爆炸，造成闪电伤害。不能被多重范围施法辅助。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.LightningSkill] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1,
+	castTime = 0.8,
 	fromItem = true,
 	baseFlags = {
-		attack = true,
-		projectile = true,
 	},
 	baseMods = {
 	},
 	qualityStats = {
 	},
 	stats = {
+		"spell_minimum_base_lightning_damage",
+		"spell_maximum_base_lightning_damage",
+		"base_chance_to_shock_%",
+		"atziri_unique_staff_storm_call_number_of_markers_to_place",
+		"shock_effect_+%",
+		"base_reduce_enemy_lightning_resistance_%",
+		"is_area_damage",
+		"base_skill_show_average_damage_instead_of_dps",
+		"console_skill_dont_chase",
+		"atziri_do_not_gain_skill_charges",
 		"skill_has_trigger_from_unique_item",
-		"projectiles_nova",
-		"base_is_projectile",
 	},
 	levels = {
-		[20] = { damageEffectiveness = 2.5, cooldown = 0.5, baseMultiplier = 2.5, levelRequirement = 70, statInterpolation = { }, cost = { }, },
+		[20] = { 0.69999998807907, 1.2999999523163, 50, 12, 50, 25, critChance = 6, duration = 2, cooldown = 1.5, damageEffectiveness = 2.5, levelRequirement = 70, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
 skills["SummonBeastialRhoa"] = {
@@ -2189,226 +2568,53 @@ skills["SummonBeastialUrsa"] = {
 		[20] = { 0, 1, 30, 13, 70, 1, cooldown = 5, levelRequirement = 70, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { Mana = 30, }, },
 	},
 }
-skills["SummonEssenceSpirits"] = {
-	name = "幽鬼之灵 ",
-	hidden = true,
-	color = 3,
-	description = "召唤三个不会受到伤害的幽鬼之灵快速冲向并攻击附近的敌人. 敌人无法解除幽鬼之灵, 并且可以穿过幽鬼之灵.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Minion] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.CreatesMinion] = true, },
-	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, },
-	statDescriptionScope = "minion_spell_skill_stat_descriptions",
-	castTime = 1,
-	fromItem = true,
-	minionList = {
-		"SummonedEssenceSpirit",
-	},
-	baseFlags = {
-		spell = true,
-		minion = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"active_skill_minion_added_damage_+%_final",
-		"number_of_monsters_to_summon",
-		"cast_on_gain_skill",
-		"spell_uncastable_if_triggerable",
-		"take_no_actions_while_parent_dead",
-		"minion_dies_when_parent_dies",
-		"minions_cannot_taunt_enemies",
-	},
-	levels = {
-		[1] = { -15, 3, levelRequirement = 1, statInterpolation = { 1, 1, }, cost = { }, },
-		[2] = { -15, 3, levelRequirement = 2, statInterpolation = { 1, 1, }, cost = { }, },
-		[3] = { -15, 3, levelRequirement = 4, statInterpolation = { 1, 1, }, cost = { }, },
-		[4] = { -15, 3, levelRequirement = 7, statInterpolation = { 1, 1, }, cost = { }, },
-		[5] = { -15, 3, levelRequirement = 11, statInterpolation = { 1, 1, }, cost = { }, },
-		[6] = { -15, 3, levelRequirement = 16, statInterpolation = { 1, 1, }, cost = { }, },
-		[7] = { -15, 3, levelRequirement = 20, statInterpolation = { 1, 1, }, cost = { }, },
-		[8] = { -15, 3, levelRequirement = 24, statInterpolation = { 1, 1, }, cost = { }, },
-		[9] = { -15, 3, levelRequirement = 28, statInterpolation = { 1, 1, }, cost = { }, },
-		[10] = { -15, 3, levelRequirement = 32, statInterpolation = { 1, 1, }, cost = { }, },
-		[11] = { -15, 3, levelRequirement = 36, statInterpolation = { 1, 1, }, cost = { }, },
-		[12] = { -15, 3, levelRequirement = 40, statInterpolation = { 1, 1, }, cost = { }, },
-		[13] = { -15, 3, levelRequirement = 44, statInterpolation = { 1, 1, }, cost = { }, },
-		[14] = { -15, 3, levelRequirement = 48, statInterpolation = { 1, 1, }, cost = { }, },
-		[15] = { -15, 3, levelRequirement = 52, statInterpolation = { 1, 1, }, cost = { }, },
-		[16] = { -15, 3, levelRequirement = 56, statInterpolation = { 1, 1, }, cost = { }, },
-		[17] = { -15, 3, levelRequirement = 60, statInterpolation = { 1, 1, }, cost = { }, },
-		[18] = { -15, 3, levelRequirement = 64, statInterpolation = { 1, 1, }, cost = { }, },
-		[19] = { -15, 3, levelRequirement = 67, statInterpolation = { 1, 1, }, cost = { }, },
-		[20] = { -15, 3, levelRequirement = 70, statInterpolation = { 1, 1, }, cost = { }, },
-		[21] = { -15, 3, levelRequirement = 72, statInterpolation = { 1, 1, }, cost = { }, },
-		[22] = { -15, 3, levelRequirement = 74, statInterpolation = { 1, 1, }, cost = { }, },
-		[23] = { -15, 3, levelRequirement = 76, statInterpolation = { 1, 1, }, cost = { }, },
-		[24] = { -15, 3, levelRequirement = 78, statInterpolation = { 1, 1, }, cost = { }, },
-		[25] = { -15, 3, levelRequirement = 80, statInterpolation = { 1, 1, }, cost = { }, },
-		[26] = { -15, 3, levelRequirement = 82, statInterpolation = { 1, 1, }, cost = { }, },
-		[27] = { -15, 3, levelRequirement = 84, statInterpolation = { 1, 1, }, cost = { }, },
-		[28] = { -15, 3, levelRequirement = 86, statInterpolation = { 1, 1, }, cost = { }, },
-		[29] = { -15, 3, levelRequirement = 88, statInterpolation = { 1, 1, }, cost = { }, },
-		[30] = { -15, 3, levelRequirement = 90, statInterpolation = { 1, 1, }, cost = { }, },
-	},
-}
-skills["SummonHarbingerOfTheArcane"] = {
-	name = "召唤秘法先驱者",
+skills["CursePillar"] = {
+	name = "召唤德瑞的雕像",
 	hidden = true,
 	color = 4,
-	description = "召唤一个不死的秘法先驱者. 先驱者偶尔会对你施放秘术增强, 额外增加法术总伤害, 施法总速度和魔力回复总速度",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "minion_spell_skill_stat_descriptions",
-	castTime = 1,
-	cannotBeSupported = true,
+	description = "召唤一个德瑞的雕像，该雕像会在一个范围内投射插在德瑞之肤上的所有诅咒技能。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Instant] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0,
 	fromItem = true,
 	baseFlags = {
-		spell = true,
-		minion = true,
+		duration = true,
 	},
 	baseMods = {
 	},
 	qualityStats = {
 	},
 	stats = {
-		"alternate_minion",
-		"display_one_harbinger_allowed",
+		"base_skill_effect_duration",
+		"base_number_of_effigies_allowed",
 	},
 	levels = {
-		[1] = { 0, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+		[20] = { 10000, 3, cooldown = 0.5, levelRequirement = 70, statInterpolation = { 1, 1, }, cost = { }, },
 	},
 }
-skills["SummonHarbingerOfBrutality"] = {
-	name = "召唤残暴先驱者",
+skills["SupportCursePillarTriggerCurses"] = {
+name = "德瑞的雕像",
 	hidden = true,
 	color = 4,
-	description = "召唤一个不死的先驱者。当你周围有稀有或传奇敌人时，它会偶尔给你提供一个增益效果，大幅提高伤害、攻击速度和移动速度，并降低你受到的伤害。",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "minion_spell_skill_stat_descriptions",
-	castTime = 1,
-	cannotBeSupported = true,
+	support = true,
+	requireSkillTypes = { SkillType.AppliesCurse, SkillType.Hex, SkillType.AND, },
+	addSkillTypes = { SkillType.TriggeredGrantedSkill, SkillType.Area, SkillType.Aura, SkillType.AuraDebuff, },
+	excludeSkillTypes = { SkillType.Totem, SkillType.Mine, SkillType.Trap, },
+	ignoreMinionTypes = true,
+	statDescriptionScope = "gem_stat_descriptions",
 	fromItem = true,
-	baseFlags = {
-		spell = true,
-		minion = true,
-	},
 	baseMods = {
+		skill("manaReservationPercent", 0),
 	},
 	qualityStats = {
 	},
 	stats = {
-		"alternate_minion",
-		"display_one_harbinger_allowed",
+		"skill_has_trigger_from_unique_item",
+		"number_of_additional_curses_allowed",
+		"curse_effect_+%",
 	},
 	levels = {
-		[1] = { 5, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["SummonHarbingerOfDirections"] = {
-	name = "召唤射术先驱者",
-	hidden = true,
-	color = 4,
-	description = "召唤一个不死的先驱者。它会对你施放随机增益，附加以下任意一个或全部效果：发射 1 个额外投射物，连锁 +1，投射物穿透 1 个额外目标，或者投射物分裂时额外分裂一次。",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "minion_spell_skill_stat_descriptions",
-	castTime = 1,
-	cannotBeSupported = true,
-	fromItem = true,
-	baseFlags = {
-		spell = true,
-		minion = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"alternate_minion",
-		"display_one_harbinger_allowed",
-	},
-	levels = {
-		[1] = { 3, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["SummonHarbingerOfFocus"] = {
-	name = "召唤不屈先驱者",
-	hidden = true,
-	color = 4,
-	description = "召唤一个不死的不屈先驱者. 在你持续吟唱时, 先驱者偶尔会对你施放一个增益, 减少你受到的伤害, 使你免疫所有晕眩和异常状态.",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "minion_spell_skill_stat_descriptions",
-	castTime = 1,
-	cannotBeSupported = true,
-	fromItem = true,
-	baseFlags = {
-		spell = true,
-		minion = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"alternate_minion",
-		"display_one_harbinger_allowed",
-	},
-	levels = {
-		[1] = { 2, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["SummonHarbingerOfStorms"] = {
-	name = "召唤冰雷先驱者",
-	hidden = true,
-	color = 4,
-	description = "召唤一个不死的冰雷先驱者. 先驱者偶尔会冰缓或感电敌人并连锁到附近的敌人.",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
-	minionSkillTypes = { [SkillType.NonHitChill] = true, },
-	statDescriptionScope = "minion_spell_skill_stat_descriptions",
-	castTime = 1,
-	cannotBeSupported = true,
-	fromItem = true,
-	baseFlags = {
-		spell = true,
-		minion = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"alternate_minion",
-		"display_one_harbinger_allowed",
-	},
-	levels = {
-		[1] = { 4, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["SummonHarbingerOfTime"] = {
-	name = "召唤时空先驱者",
-	hidden = true,
-	color = 4,
-	description = "召唤一个不死的先驱者。它会偶尔对你施放光环，增加你和你周围所有敌我单位的行动速度。",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "minion_spell_skill_stat_descriptions",
-	castTime = 1,
-	cannotBeSupported = true,
-	fromItem = true,
-	baseFlags = {
-		spell = true,
-		minion = true,
-	},
-	baseMods = {
-mod("ActionSpeed", "INC", 20, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "召唤时空先驱者", modCond = "HarbingerOfTime" }),
-		skill("buffMinions", true),
-	},
-	qualityStats = {
-	},
-	stats = {
-		"alternate_minion",
-		"display_one_harbinger_allowed",
-	},
-	levels = {
-		[1] = { 1, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+		[20] = { 1, 12, -25, levelRequirement = 70, statInterpolation = { 1, 1, 1, }, cost = { }, },
 	},
 }
 skills["SummonHarbingerOfTheArcaneUber"] = {
@@ -2570,6 +2776,165 @@ mod("ActionSpeed", "INC", 20, 0, 0, { type = "GlobalEffect", effectType = "Buff"
 		[1] = { 7, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
 	},
 }
+skills["SummonHarbingerOfTheArcane"] = {
+	name = "召唤秘法先驱者",
+	hidden = true,
+	color = 4,
+	description = "召唤一个不死的秘法先驱者. 先驱者偶尔会对你施放秘术增强, 额外增加法术总伤害, 施法总速度和魔力回复总速度",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "minion_spell_skill_stat_descriptions",
+	castTime = 1,
+	cannotBeSupported = true,
+	fromItem = true,
+	baseFlags = {
+		spell = true,
+		minion = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"alternate_minion",
+		"display_one_harbinger_allowed",
+	},
+	levels = {
+		[1] = { 0, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["SummonHarbingerOfBrutality"] = {
+	name = "召唤残暴先驱者",
+	hidden = true,
+	color = 4,
+	description = "召唤一个不死的先驱者。当你周围有稀有或传奇敌人时，它会偶尔给你提供一个增益效果，大幅提高伤害、攻击速度和移动速度，并降低你受到的伤害。",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "minion_spell_skill_stat_descriptions",
+	castTime = 1,
+	cannotBeSupported = true,
+	fromItem = true,
+	baseFlags = {
+		spell = true,
+		minion = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"alternate_minion",
+		"display_one_harbinger_allowed",
+	},
+	levels = {
+		[1] = { 5, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["SummonHarbingerOfDirections"] = {
+	name = "召唤射术先驱者",
+	hidden = true,
+	color = 4,
+	description = "召唤一个不死的先驱者。它会对你施放随机增益，附加以下任意一个或全部效果：发射 1 个额外投射物，连锁 +1，投射物穿透 1 个额外目标，或者投射物分裂时额外分裂一次。",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "minion_spell_skill_stat_descriptions",
+	castTime = 1,
+	cannotBeSupported = true,
+	fromItem = true,
+	baseFlags = {
+		spell = true,
+		minion = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"alternate_minion",
+		"display_one_harbinger_allowed",
+	},
+	levels = {
+		[1] = { 3, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["SummonHarbingerOfFocus"] = {
+	name = "召唤不屈先驱者",
+	hidden = true,
+	color = 4,
+	description = "召唤一个不死的不屈先驱者. 在你持续吟唱时, 先驱者偶尔会对你施放一个增益, 减少你受到的伤害, 使你免疫所有晕眩和异常状态.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "minion_spell_skill_stat_descriptions",
+	castTime = 1,
+	cannotBeSupported = true,
+	fromItem = true,
+	baseFlags = {
+		spell = true,
+		minion = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"alternate_minion",
+		"display_one_harbinger_allowed",
+	},
+	levels = {
+		[1] = { 2, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["SummonHarbingerOfStorms"] = {
+	name = "召唤冰雷先驱者",
+	hidden = true,
+	color = 4,
+	description = "召唤一个不死的冰雷先驱者. 先驱者偶尔会冰缓或感电敌人并连锁到附近的敌人.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
+	minionSkillTypes = { [SkillType.NonHitChill] = true, },
+	statDescriptionScope = "minion_spell_skill_stat_descriptions",
+	castTime = 1,
+	cannotBeSupported = true,
+	fromItem = true,
+	baseFlags = {
+		spell = true,
+		minion = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"alternate_minion",
+		"display_one_harbinger_allowed",
+	},
+	levels = {
+		[1] = { 4, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["SummonHarbingerOfTime"] = {
+	name = "召唤时空先驱者",
+	hidden = true,
+	color = 4,
+	description = "召唤一个不死的先驱者。它会偶尔对你施放光环，增加你和你周围所有敌我单位的行动速度。",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "minion_spell_skill_stat_descriptions",
+	castTime = 1,
+	cannotBeSupported = true,
+	fromItem = true,
+	baseFlags = {
+		spell = true,
+		minion = true,
+	},
+	baseMods = {
+mod("ActionSpeed", "INC", 20, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "召唤时空先驱者", modCond = "HarbingerOfTime" }),
+		skill("buffMinions", true),
+	},
+	qualityStats = {
+	},
+	stats = {
+		"alternate_minion",
+		"display_one_harbinger_allowed",
+	},
+	levels = {
+		[1] = { 1, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
 skills["TriggeredSummonGhostOnKill"] = {
 name = "召唤幻灵",
 	hidden = true,
@@ -2660,7 +3025,7 @@ mod("PhysicalMax", "BASE", nil, 0, KeywordFlag.Attack, { type = "Multiplier", va
 	},
 	levels = {
 		[10] = { 30000, 10, 10, 8, 65, 3, 6, levelRequirement = 55, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
-		[25] = { 30000, 10, 20, 8, 65, 8, 16, levelRequirement = 78, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[25] = { 30000, 10, 20, 8, 65, 8, 16, levelRequirement = 78, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
 skills["SummonTauntingContraption"] = {
@@ -2732,49 +3097,31 @@ name = "召唤异动奇点",
 		[20] = { 20, 8000, 4000, 5, 10, 0.80000001192093, 1.2000000476837, 83.333335195979, cooldown = 2, levelRequirement = 70, statInterpolation = { 1, 1, 1, 1, 1, 3, 3, 3, }, cost = { }, },
 	},
 }
-skills["ShieldShatter"] = {
-	name = "破盾击",
+skills["SummonMirageChieftain"] = {
+	name = "塔赫亚神选",
 	hidden = true,
 	color = 1,
-	baseEffectiveness = 0.34000000357628,
-	incrementalEffectiveness = 0.045000001788139,
-	description = "盾牌破碎，根据盾牌品质，对一片区域内的敌人造成物理法术伤害。之后短时间内你都不能格挡，也不能从盾牌中得到防御值，但你的法术附加物理伤害。",
-	skillTypes = { [SkillType.Hit] = true, [SkillType.PhysicalSkill] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.NovaSpell] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Duration] = true, },
-	statDescriptionScope = "buff_skill_stat_descriptions",
-	castTime = 1,
-	fromItem = true,
-	statMap = {
-		["spell_minimum_base_physical_damage_per_shield_quality"] = {
-			skill("PhysicalMin", nil, { type = "Multiplier", var = "QualityOnWeapon 2" }),
-		},
-		["spell_maximum_base_physical_damage_per_shield_quality"] = {
-			skill("PhysicalMax", nil, { type = "Multiplier", var = "QualityOnWeapon 2" }),
-		},
-		["buff_added_spell_minimum_base_physical_damage_per_shield_quality"] = {
-			mod("PhysicalMin", "BASE", nil, ModFlag.Spell, 0, { type = "Multiplier", var = "QualityOnWeapon 2" }, { type = "Condition", var = "BlockedRecently"}, { type = "GlobalEffect", effectType = "Buff"}),
-		},
-		["buff_added_spell_maximum_base_physical_damage_per_shield_quality"] = {
-			mod("PhysicalMax", "BASE", nil, ModFlag.Spell, 0, { type = "Multiplier", var = "QualityOnWeapon 2" }, { type = "Condition", var = "BlockedRecently"}, { type = "GlobalEffect", effectType = "Buff"}),
-		},
-	},
+	description = "你使用猛击技能时会触发该技能，召唤一个蜃影酋长，它在消失前会使用一次猛击技能。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.Instant] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0,
+	fromTree = true,
 	baseFlags = {
 		spell = true,
-		area = true,
+		duration = true,
 	},
 	baseMods = {
-		skill("showAverage", true),
 	},
 	qualityStats = {
 	},
 	stats = {
-		"trigger_on_block_%_chance",
-		"spell_minimum_base_physical_damage_per_shield_quality",
-		"spell_maximum_base_physical_damage_per_shield_quality",
-		"buff_added_spell_minimum_base_physical_damage_per_shield_quality",
-		"buff_added_spell_maximum_base_physical_damage_per_shield_quality",
+		"trigger_on_slam_%_chance",
+		"skill_used_by_mirage_chieftain_damage_+%_final",
+		"spell_uncastable_if_triggerable",
 	},
 	levels = {
-		[20] = { 100, 0.80000001192093, 1.2000000476837, 10, 16, duration = 4, levelRequirement = 70, statInterpolation = { 1, 3, 3, 1, 1, }, cost = { }, },
+		[1] = { 100, -40, levelRequirement = 1, duration = 3, cooldown = 2, statInterpolation = { 1, 1, }, cost = { }, },
+		[20] = { 100, 50, levelRequirement = 1, duration = 3, cooldown = 2, statInterpolation = { 1, 1, }, cost = { }, },
 	},
 }
 skills["TentacleSmash"] = {
@@ -2801,6 +3148,43 @@ skills["TentacleSmash"] = {
 	},
 	levels = {
 		[20] = { 20, baseMultiplier = 2.5, cooldown = 2, levelRequirement = 70, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["VampiricIcon"] = {
+	name = "鲜血渴求",
+	hidden = true,
+	color = 4,
+	description = "保留部分生命，让你施加的流血效果更强，并根据周围被施加了流血的敌人数量提供生命再生。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.ManaCostReserved] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "debuff_skill_stat_descriptions",
+	castTime = 0,
+    fromItem = true,
+    statMap = {
+		["vampiric_icon_max_bleeding_beam_targets"] = {
+            mod("Multiplier:ThirstForBloodMaxTargets", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" })
+        },
+        ["skill_life_regeneration_per_minute_per_affected_enemy"] = {
+            mod("LifeRegen", "BASE", nil, 0, 0, { type = "Multiplier", var = "NearbyBleedingEnemies", limitVar = "ThirstForBloodMaxTargets" }, { type = "GlobalEffect", effectType = "Buff" }),
+            div = 60,
+        },
+		["vampiric_icon_bleeding_damage_+%_final"] = {
+			mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed, { type = "GlobalEffect", effectType = "Buff" }),
+		},
+	},
+	baseFlags = {
+		spell = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"vampiric_icon_max_bleeding_beam_targets",
+		"skill_life_regeneration_per_minute_per_affected_enemy",
+		"vampiric_icon_bleeding_damage_+%_final",
+	},
+	levels = {
+		[20] = { 5, 24000, 20, lifeReservationPercent = 10, cooldown = 1.2, levelRequirement = 70, statInterpolation = { 1, 1, 1, }, cost = { }, },
 	},
 }
 skills["AvianTornado"] = {
@@ -2839,27 +3223,37 @@ skills["AvianTornado"] = {
 		[20] = { 0.80000001192093, 1.2000000476837, 2500, 100, 25, critChance = 6, levelRequirement = 70, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { }, },
 	},
 }
-skills["VampiricIcon"] = {
-	name = "鲜血渴求",
+skills["SupportTriggerSpellOnSkillUse"] = {
+name = "工艺-触发插槽内的法术",
 	hidden = true,
 	color = 4,
-	description = "保留部分生命，让你施加的流血效果更强，并根据周围被施加了流血的敌人数量提供生命再生。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.ManaCostReserved] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "debuff_skill_stat_descriptions",
-	castTime = 0,
-    fromItem = true,
-    statMap = {
-		["vampiric_icon_max_bleeding_beam_targets"] = {
-            mod("Multiplier:ThirstForBloodMaxTargets", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" })
-        },
-        ["skill_life_regeneration_per_minute_per_affected_enemy"] = {
-            mod("LifeRegen", "BASE", nil, 0, 0, { type = "Multiplier", var = "NearbyBleedingEnemies", limitVar = "ThirstForBloodMaxTargets" }, { type = "GlobalEffect", effectType = "Buff" }),
-            div = 60,
-        },
-		["vampiric_icon_bleeding_damage_+%_final"] = {
-			mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed, { type = "GlobalEffect", effectType = "Buff" }),
-		},
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
+	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
+	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
+	statDescriptionScope = "gem_stat_descriptions",
+	fromItem = true,
+	baseMods = {
 	},
+	qualityStats = {
+	},
+	stats = {
+		"spell_has_trigger_from_crafted_item_mod",
+	},
+	levels = {
+		[1] = { 1, cooldown = 8, levelRequirement = 1, manaMultiplier = 150, statInterpolation = { 1, }, cost = { }, },
+		[2] = { 1, cooldown = 4, levelRequirement = 1, manaMultiplier = 150, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["Unhinge"] = {
+	name = "精神失常",
+	hidden = true,
+	color = 4,
+	description = "从现实中放手。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Instant] = true, [SkillType.Type91] = true, [SkillType.Type92] = true, [SkillType.ManaCostReserved] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 0,
+	fromItem = true,
 	baseFlags = {
 		spell = true,
 	},
@@ -2868,12 +3262,82 @@ skills["VampiricIcon"] = {
 	qualityStats = {
 	},
 	stats = {
-		"vampiric_icon_max_bleeding_beam_targets",
-		"skill_life_regeneration_per_minute_per_affected_enemy",
-		"vampiric_icon_bleeding_damage_+%_final",
+		"display_unhinge_grant_insane",
 	},
 	levels = {
-		[20] = { 5, 24000, 20, lifeReservationPercent = 10, cooldown = 1.2, levelRequirement = 70, statInterpolation = { 1, 1, 1, }, cost = { }, },
+		[20] = { cooldown = 5, levelRequirement = 70, statInterpolation = { }, cost = { }, },
+	},
+}
+skills["HiddenBlade"] = {
+	name = "隐形打击",
+	hidden = true,
+	color = 2,
+	description = "发射一枚螺旋前进的刀刃，对敌人造成武器伤害。它还会以环形方式发射多个投射物。",
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.Triggerable] = true, [SkillType.SkillCanVolley] = true, [SkillType.PhysicalSkill] = true, [SkillType.SecondWindSupport] = true, },
+	weaponTypes = {
+		["Claw"] = true,
+		["One Handed Mace"] = true,
+		["Sceptre"] = true,
+		["Thrusting One Handed Sword"] = true,
+		["One Handed Axe"] = true,
+		["Dagger"] = true,
+		["One Handed Sword"] = true,
+	},
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	fromItem = true,
+	baseFlags = {
+		attack = true,
+		projectile = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"skill_has_trigger_from_unique_item",
+		"projectiles_nova",
+		"base_is_projectile",
+	},
+	levels = {
+		[20] = { damageEffectiveness = 2.5, cooldown = 0.5, baseMultiplier = 2.5, levelRequirement = 70, statInterpolation = { }, cost = { }, },
+	},
+}
+
+skills["VaalBreach"] = {
+	name = "瓦尔.裂隙",
+	color = 4,
+	baseEffectiveness = 0,
+	description = "创造一个裂隙, 使你能够遭遇裂隙中强大的敌人. ",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.Type27] = true, [SkillType.Vaal] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 2.5,
+	baseFlags = {
+		spell = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+		Default = {
+			{ "base_cast_speed_+%", 3 },
+		},
+	},
+	stats = {
+		"base_deal_no_damage",
+		"display_vaal_breach_no_drops_xp",
+		"cannot_cancel_skill_before_contact_point",
+	},
+	levels = {
+		[1] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[2] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[3] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[4] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[5] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[6] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[7] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[8] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[9] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
+		[10] = { levelRequirement = 10, statInterpolation = { }, cost = { }, },
 	},
 }
 skills["VoidGaze"] = {
@@ -2942,414 +3406,6 @@ skills["VoidShot"] = {
 		[20] = { 100, 50, 100, damageEffectiveness = 1.2, baseMultiplier = 1.2, levelRequirement = 70, statInterpolation = { 1, 1, 1, }, cost = { }, },
 	},
 }
-skills["CreateFungalGroundOnKill"] = {
-	name = "玷污",
-	hidden = true,
-	color = 4,
-	description = "在目标地点创造一小片真菌地表。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.SecondWindSupport] = true, [SkillType.Triggered] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1,
-	fromItem = true,
-	baseFlags = {
-		duration = true,
-		area = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"chance_to_cast_on_kill_%",
-		"base_deal_no_damage",
-		"spell_uncastable_if_triggerable",
-	},
-	levels = {
-		[10] = { 100, levelRequirement = 1, duration = 5, cooldown = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["CursePillar"] = {
-	name = "召唤德瑞的雕像",
-	hidden = true,
-	color = 4,
-	description = "召唤一个德瑞的雕像，该雕像会在一个范围内投射插在德瑞之肤上的所有诅咒技能。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Instant] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0,
-	fromItem = true,
-	baseFlags = {
-		duration = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"base_skill_effect_duration",
-		"base_number_of_effigies_allowed",
-	},
-	levels = {
-		[20] = { 10000, 3, cooldown = 0.5, levelRequirement = 70, statInterpolation = { 1, 1, }, cost = { }, },
-	},
-}
-skills["SupportCursePillarTriggerCurses"] = {
-name = "德瑞的雕像",
-	hidden = true,
-	color = 4,
-	support = true,
-	requireSkillTypes = { SkillType.AppliesCurse, SkillType.Hex, SkillType.AND, },
-	addSkillTypes = { SkillType.TriggeredGrantedSkill, SkillType.Area, SkillType.Aura, SkillType.AuraDebuff, },
-	excludeSkillTypes = { SkillType.Totem, SkillType.Mine, SkillType.Trap, },
-	ignoreMinionTypes = true,
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	baseMods = {
-		skill("manaReservationPercent", 0),
-	},
-	qualityStats = {
-	},
-	stats = {
-		"skill_has_trigger_from_unique_item",
-		"number_of_additional_curses_allowed",
-		"curse_effect_+%",
-	},
-	levels = {
-		[20] = { 1, 12, -25, levelRequirement = 70, statInterpolation = { 1, 1, 1, }, cost = { }, },
-	},
-}
-skills["Unhinge"] = {
-	name = "精神失常",
-	hidden = true,
-	color = 4,
-	description = "从现实中放手。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Instant] = true, [SkillType.Type91] = true, [SkillType.Type92] = true, [SkillType.ManaCostReserved] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0,
-	fromItem = true,
-	baseFlags = {
-		spell = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"display_unhinge_grant_insane",
-	},
-	levels = {
-		[20] = { cooldown = 5, levelRequirement = 70, statInterpolation = { }, cost = { }, },
-	},
-}
-skills["SupportTriggerSpellOnAttack"] = {
-name = "诗人之笔",
-	hidden = true,
-	color = 4,
-	support = true,
-	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
-	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
-	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"skill_has_trigger_from_unique_item",
-		"socketed_triggered_skills_use_weapon_attack_time_for_pvp_scaling",
-	},
-	levels = {
-		[1] = { 1, cooldown = 0.15, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["SupportTriggerSpellOnBowAttack"] = {
-name = "安赛娜丝的优雅之歌",
-	hidden = true,
-	color = 4,
-	support = true,
-	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
-	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
-	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"skill_has_trigger_from_unique_item",
-		"triggered_skill_uses_main_hand_or_averaged_attack_time_for_pvp_scaling",
-	},
-	levels = {
-		[1] = { 1, cooldown = 0.3, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["SupportTriggerSpellFromHelmet"] = {
-name = "专注",
-	hidden = true,
-	color = 4,
-	support = true,
-	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
-	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
-	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"skill_triggered_when_you_focus_chance_%",
-	},
-	levels = {
-		[1] = { 100, cooldown = 0.25, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["SupportTriggerSpellOnSkillUse"] = {
-name = "工艺-触发插槽内的法术",
-	hidden = true,
-	color = 4,
-	support = true,
-	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
-	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
-	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"spell_has_trigger_from_crafted_item_mod",
-	},
-	levels = {
-		[1] = { 1, cooldown = 8, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-		[2] = { 1, cooldown = 4, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["SupportTriggerBowSkillOnBowAttack"] = {
-name = "马洛尼的技巧",
-	hidden = true,
-	color = 4,
-	support = true,
-	requireSkillTypes = { SkillType.ProjectileAttack, SkillType.Triggerable, SkillType.AND, },
-	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
-	excludeSkillTypes = { SkillType.Totem, SkillType.Trap, SkillType.Mine, SkillType.Vaal, SkillType.TriggeredGrantedSkill, },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"skill_has_trigger_from_unique_item",
-	},
-	levels = {
-		[1] = { 1, cooldown = 1, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["SupportCastOnManaSpent"] = {
-name = "奇塔弗之渴望",
-	hidden = true,
-	color = 3,
-	support = true,
-	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.AND, },
-	addSkillTypes = { SkillType.Triggered, SkillType.SecondWindSupport, },
-	excludeSkillTypes = { SkillType.Trap, SkillType.Mine, SkillType.Totem, SkillType.Aura, SkillType.TriggeredGrantedSkill, },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"support_cast_on_mana_spent",
-	},
-	levels = {
-		[1] = { cooldown = 0.1, levelRequirement = 1, statInterpolation = { }, cost = { }, },
-	},
-}
-skills["Focus"] = {
-	name = "专注",
-	hidden = true,
-	color = 2,
-	description = "凝聚能量，使你获得专注状态。",
-	skillTypes = { [SkillType.Buff] = true, [SkillType.Spell] = true, [SkillType.Instant] = true, [SkillType.SecondWindSupport] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0,
-	cannotBeSupported = true,
-	baseFlags = {
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"base_skill_effect_duration",
-		"base_skill_is_instant",
-		"fixed_skill_effect_duration",
-		"display_skill_fixed_duration_buff",
-	},
-	levels = {
-		[1] = { 4000, cooldown = 12, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
-	},
-}
-skills["QueensDemand"] = {
-	name = "女王敕令",
-	hidden = true,
-	color = 4,
-	description = "交替触发审判烈焰和审判风暴",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.SpellCanRepeat] = true, [SkillType.CanRapidFire] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1,
-	fromItem = true,
-	baseFlags = {
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"queens_demand_effect",
-	},
-	levels = {
-		[20] = { levelRequirement = 70, statInterpolation = { }, cost = { Mana = 64, }, },
-	},
-}
-skills["AtziriUniqueStaffStormCall"] = {
-	name = "审判风暴",
-	hidden = true,
-	color = 3,
-	baseEffectiveness = 5,
-	incrementalEffectiveness = 0.033500000834465,
-	description = "在目标地点周围产生数个印记，它们随后爆炸，造成闪电伤害。不能被多重范围施法辅助。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.LightningSkill] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0.8,
-	fromItem = true,
-	baseFlags = {
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"spell_minimum_base_lightning_damage",
-		"spell_maximum_base_lightning_damage",
-		"base_chance_to_shock_%",
-		"atziri_unique_staff_storm_call_number_of_markers_to_place",
-		"shock_effect_+%",
-		"base_reduce_enemy_lightning_resistance_%",
-		"is_area_damage",
-		"base_skill_show_average_damage_instead_of_dps",
-		"console_skill_dont_chase",
-		"atziri_do_not_gain_skill_charges",
-		"skill_has_trigger_from_unique_item",
-	},
-	levels = {
-		[20] = { 0.69999998807907, 1.2999999523163, 50, 12, 50, 25, critChance = 6, duration = 2, cooldown = 1.5, damageEffectiveness = 2.5, levelRequirement = 70, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
-	},
-}
-skills["AtziriUniqueStaffFlameblast"] = {
-	name = "审判烈焰",
-	hidden = true,
-	color = 3,
-	baseEffectiveness = 4.9499998092651,
-	incrementalEffectiveness = 0.048000000417233,
-	description = "同时在你所在位置和目标地点产生印记，它们根据施法速度生长，随后爆炸，造成火焰伤害，不能被多重范围施法辅助。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.TriggeredGrantedSkill] = true, [SkillType.FireSkill] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0.8,
-	fromItem = true,
-	baseFlags = {
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"spell_minimum_base_fire_damage",
-		"spell_maximum_base_fire_damage",
-		"base_chance_to_ignite_%",
-		"base_reduce_enemy_fire_resistance_%",
-		"is_area_damage",
-		"base_skill_show_average_damage_instead_of_dps",
-		"skill_has_trigger_from_unique_item",
-	},
-	levels = {
-		[20] = { 0.80000001192093, 1.2000000476837, 50, 25, critChance = 6, duration = 2, cooldown = 1.5, damageEffectiveness = 6.5, levelRequirement = 70, statInterpolation = { 3, 3, 1, 1, }, cost = { }, },
-	},
-}
-skills["BloodSacramentUnique"] = {
-	name = "赤色誓言",
-	hidden = true,
-	color = 4,
-	baseEffectiveness = 4.8000001907349,
-	description = "吟唱该技能会不断保留生命，为你身下的印记灌注力量。施放印记会根据保留的生命量造成物理伤害。不能被图腾施放。",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Area] = true, [SkillType.Channelled] = true, [SkillType.AreaSpell] = true, [SkillType.ManaCostReserved] = true, [SkillType.PhysicalSkill] = true, [SkillType.NovaSpell] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 0.24,
-	fromItem = true,
-	initialFunc = function(activeSkill, output)
-		local lifeReservedPercent = activeSkill.skillData["LifeReservedPercent"] or 3
-		local lifeReserved = activeSkill.skillData["LifeReservedBase"]
-activeSkill.skillModList:NewMod("Multiplier:ChannelledLifeReservedPercentPerStage", "BASE", lifeReservedPercent, "赤色誓言")
-activeSkill.skillModList:NewMod("Multiplier:ChannelledLifeReservedPerStage", "BASE", lifeReserved, "赤色誓言")
-	end,
-	statMap = {
-		["flameblast_hundred_times_radius_+_per_1%_life_reserved"] = {
-skill("radiusExtra", nil, { type = "Multiplier", var = "ChannelledLifeReservedPercentPerStage" }, { type = "Multiplier", var = "赤色誓言Stage" }),
-			div = 100,
-		},
-		["flameblast_damage_+%_final_per_10_life_reserved"] = {
-mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ChannelledLifeReservedPerStage", div = 10 }, { type = "ModFlagOr", modFlags = bit.bor(ModFlag.Hit, ModFlag.Ailment) }, { type = "Multiplier", var = "赤色誓言Stage" }),
-		},
-	},
-	baseFlags = {
-		spell = true,
-		area = true,
-	},
-	baseMods = {
-		skill("radius", 5),
-mod("Multiplier:赤色誓言MaxStages", "BASE", 33),
-	},
-	qualityStats = {
-	},
-	stats = {
-		"spell_minimum_base_physical_damage",
-		"spell_maximum_base_physical_damage",
-		"flameblast_hundred_times_radius_+_per_1%_life_reserved",
-		"flameblast_damage_+%_final_per_10_life_reserved",
-		"life_leech_from_any_damage_permyriad",
-		"is_area_damage",
-		"base_skill_show_average_damage_instead_of_dps",
-	},
-	levels = {
-		[1] = { 0.80000001192093, 1.2000000476837, 40, 80, 200, damageEffectiveness = 0.03, lifeReservationPercent = 3, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { }, },
-	},
-}
-skills["SupportBloodMagicUniquePrismGuardian"] = {
-	name = "血魔法",
-	hidden = true,
-	color = 1,
-	support = true,
-	requireSkillTypes = { },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	statDescriptionScope = "gem_stat_descriptions",
-	fromItem = true,
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"base_skill_reserve_life_instead_of_mana",
-		"base_skill_cost_life_instead_of_mana",
-	},
-	levels = {
-		[1] = { levelRequirement = 0, statInterpolation = { }, cost = { }, },
-	},
-}
 
 
 
@@ -3385,38 +3441,6 @@ skills["FeastOfFlesh"] = {
 	},
 }
 
-skills["GoreShockwave"] = {
-	name = "涂炭震波",
-	hidden = true,
-	color = 1,
-	description = "对一片区域造成攻击伤害。",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Hit] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Melee] = true, },
-	weaponTypes = {
-		["Two Handed Axe"] = true,
-	},
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1,
-	fromItem = true,
-	baseFlags = {
-		attack = true,
-		area = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"active_skill_base_radius_+",
-		"base_cooldown_speed_+%",
-		"attack_trigger_on_melee_hit_with_atleast_150_strength_%",
-		"is_area_damage",
-	},
-	levels = {
-		[1] = { 1, 0, 100, damageEffectiveness = 1.6, cooldown = 1, baseMultiplier = 1.6, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
-		[5] = { 2, 8, 100, damageEffectiveness = 1.81, cooldown = 1, baseMultiplier = 1.81, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
-	},
-}
-
 skills["CastAuraBlinding"] = {
 	name = "失明光环",
 	color = 4,
@@ -3443,6 +3467,42 @@ skills["CastAuraBlinding"] = {
 	levels = {
 		[1] = { 1, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
 		[20] = { 1, levelRequirement = 1, statInterpolation = { 1, }, cost = { }, },
+	},
+}
+skills["UniqueEnchantmentOfInfernoOnCrit"] = {
+	name = "Commandment of Inferno",
+	hidden = true,
+	color = 4,
+	baseEffectiveness = 3.5555999279022,
+	incrementalEffectiveness = 0.035000000149012,
+	description = "Drops a meteor from above on a nearby foe, dealing fire damage in an area around them.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.FireSkill] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.SecondWindSupport] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	cannotBeSupported = true,
+	fromItem = true,
+	baseFlags = {
+		spell = true,
+		area = true,
+		hit = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"spell_minimum_base_fire_damage",
+		"spell_maximum_base_fire_damage",
+		"base_skill_effect_duration",
+		"fire_storm_fireball_delay_ms",
+		"skill_override_pvp_scaling_time_ms",
+		"cast_on_crit_%",
+		"base_skill_show_average_damage_instead_of_dps",
+		"is_area_damage",
+		"damage_cannot_be_reflected",
+	},
+	levels = {
+		[1] = { 2.4000000953674, 3.7999999523163, 2000, 100, 450, 100, critChance = 5, cooldown = 3, levelRequirement = 75, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
 skills["FieryImpactHeistMaceImplicit"] = {

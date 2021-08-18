@@ -389,7 +389,7 @@ itemBases["悲伤面具"] = {
 	subType = "Armour/Evasion",
 	socketLimit = 4,
 	tags = { str_dex_armour = true, not_for_sale = true, helmet = true, armour = true, default = true, },
-	implicit = "-15% 额外物理伤害减伤\n你身上的护体效果提高 (20-25)%\n你被碾压了",
+	implicit = "-15% 额外物理伤害减伤\n你身上的护体效果提高 (10-15)%\n你被碾压了",
 	implicitModTypes = { {  }, {  }, {  }, },
 	armour = { ArmourBase = 42, EvasionBase = 42, },
 	req = { level = 15, str = 20, dex = 20, },
@@ -399,7 +399,7 @@ itemBases["赎罪面具"] = {
 	subType = "Armour/Evasion",
 	socketLimit = 4,
 	tags = { str_dex_armour = true, not_for_sale = true, helmet = true, armour = true, default = true, },
-	implicit = "-15% 额外物理伤害减伤\n你身上的护体效果提高 (20-25)%\n你被碾压了",
+	implicit = "-15% 额外物理伤害减伤\n你身上的护体效果提高 (10-15)%\n你被碾压了",
 	implicitModTypes = { {  }, {  }, {  }, },
 	armour = { ArmourBase = 122, EvasionBase = 122, },
 	req = { level = 45, str = 51, dex = 51, },
@@ -409,7 +409,7 @@ itemBases["忏悔面具"] = {
 	subType = "Armour/Evasion",
 	socketLimit = 4,
 	tags = { str_dex_armour = true, not_for_sale = true, helmet = true, armour = true, default = true, },
-	implicit = "-15% 额外物理伤害减伤\n你身上的护体效果提高 (20-25)%\n你被碾压了",
+	implicit = "-15% 额外物理伤害减伤\n你身上的护体效果提高 (10-15)%\n你被碾压了",
 	implicitModTypes = { {  }, {  }, {  }, },
 	armour = { ArmourBase = 185, EvasionBase = 185, },
 	req = { level = 75, str = 79, dex = 79, },
@@ -674,6 +674,34 @@ itemBases["暴雪之冠"] = {
 	implicitModTypes = { { "elemental_damage", "damage", "elemental", "cold" }, { "elemental_damage", "damage", "elemental", "cold" }, },
 	armour = { EvasionBase = 185, EnergyShieldBase = 36, },
 	req = { level = 75, dex = 79, int = 79, },
+}
+
+itemBases["Runic Helm"] = {
+	type = "Helmet",
+	subType = "Ward",
+	socketLimit = 4,
+	tags = { not_for_sale = true, helmet = true, armour = true, ward_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { WardBase = 34, },
+	req = { level = 25, str = 30, dex = 30, int = 30, },
+}
+itemBases["Runic Crest"] = {
+	type = "Helmet",
+	subType = "Ward",
+	socketLimit = 4,
+	tags = { not_for_sale = true, helmet = true, armour = true, ward_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { WardBase = 81, },
+	req = { level = 49, str = 55, dex = 55, int = 55, },
+}
+itemBases["Runic Crown"] = {
+	type = "Helmet",
+	subType = "Ward",
+	socketLimit = 4,
+	tags = { not_for_sale = true, helmet = true, armour = true, ward_armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { WardBase = 137, },
+	req = { level = 68, str = 66, dex = 66, int = 66, },
 }
 
 itemBases["金黄花环"] = {

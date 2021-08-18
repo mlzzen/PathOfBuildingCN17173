@@ -248,9 +248,9 @@ itemBases["祝福复合药剂"] = {
 itemBases["宝钻药剂"] = {
 	type = "Flask",
 	subType = "Utility",
-	tags = { flask = true, utility_flask = true, critical_utility_flask = true, not_for_sale = true, no_effect_flask_mod = true, default = true, },
+	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 4, chargesUsed = 20, chargesMax = 40, buff = { "幸运的暴击率" }, },
+	flask = { duration = 4, chargesUsed = 20, chargesMax = 40, buff = { "100% increased Global Critical Strike Chance" }, },
 	req = { level = 27, },
 }
 itemBases["红玉药剂"] = {
@@ -258,7 +258,7 @@ itemBases["红玉药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 4, chargesUsed = 30, chargesMax = 60, buff = { "+50% 火焰抗性", "受到的火焰伤害总降 20%" }, },
+	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "+50% 火焰抗性", "受到的火焰伤害总降 20%" }, },
 	req = { level = 18, },
 }
 itemBases["蓝玉药剂"] = {
@@ -266,7 +266,7 @@ itemBases["蓝玉药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 4, chargesUsed = 30, chargesMax = 60, buff = { "+50% 冰霜抗性", "承受的冰霜总伤害降低 20%" }, },
+	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "+50% 冰霜抗性", "承受的冰霜总伤害降低 20%" }, },
 	req = { level = 18, },
 }
 itemBases["黄玉药剂"] = {
@@ -274,7 +274,7 @@ itemBases["黄玉药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 4, chargesUsed = 30, chargesMax = 60, buff = { "+50% 闪电抗性", "受到的闪电伤害总降 20%" }, },
+	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "+50% 闪电抗性", "受到的闪电伤害总降 20%" }, },
 	req = { level = 18, },
 }
 itemBases["坚岩药剂"] = {
@@ -282,7 +282,7 @@ itemBases["坚岩药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 4, chargesUsed = 30, chargesMax = 60, buff = { "+3000 护甲" }, },
+	flask = { duration = 4, chargesUsed = 30, chargesMax = 60, buff = { "+1500 护甲" }, },
 	req = { level = 27, },
 }
 itemBases["水银药剂"] = {
@@ -290,15 +290,15 @@ itemBases["水银药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 4, chargesUsed = 20, chargesMax = 50, buff = { "移动速度提高 40%" }, },
-	req = { },
+	flask = { duration = 4, chargesUsed = 30, chargesMax = 60, buff = { "移动速度提高 40%" }, },
+	req = { level = 4, },
 }
 itemBases["紫晶药剂"] = {
 	type = "Flask",
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 3.5, chargesUsed = 30, chargesMax = 60, buff = { "+35% 混沌抗性" }, },
+	flask = { duration = 4.5, chargesUsed = 35, chargesMax = 65, buff = { "+35% 混沌抗性" }, },
 	req = { level = 18, },
 }
 itemBases["石英药剂"] = {
@@ -306,7 +306,7 @@ itemBases["石英药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 4, chargesUsed = 30, chargesMax = 60, buff = { "10% 的几率躲避攻击击中", "10% 的几率躲避法术击中", "【迷踪】状态" }, },
+	flask = { duration = 4, chargesUsed = 30, chargesMax = 60, buff = { "6% 的几率躲避攻击击中", "6% 的几率躲避法术击中", "【迷踪】状态" }, },
 	req = { level = 27, },
 }
 itemBases["翠玉药剂"] = {
@@ -314,15 +314,16 @@ itemBases["翠玉药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 4, chargesUsed = 30, chargesMax = 60, buff = { "+3000 点闪避值" }, },
+	flask = { duration = 4, chargesUsed = 30, chargesMax = 60, buff = { "+1500 点闪避值" }, },
 	req = { level = 27, },
 }
 itemBases["石化药剂"] = {
 	type = "Flask",
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
-	implicitModTypes = { },
-	flask = { duration = 4.5, chargesUsed = 40, chargesMax = 60, buff = { "15% 额外物理伤害减伤", "受到近战物理伤害的 20% 会反射给攻击者" }, },
+	implicit = "Taunts nearby Enemies on use",
+	implicitModTypes = { { "flask" }, },
+	flask = { duration = 5, chargesUsed = 40, chargesMax = 60, buff = { "20% more Armour" }, },
 	req = { level = 40, },
 }
 itemBases["海蓝药剂"] = {
@@ -331,7 +332,7 @@ itemBases["海蓝药剂"] = {
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicit = "使用时制造冰缓地面",
 	implicitModTypes = { { "flask" }, },
-	flask = { duration = 5, chargesUsed = 15, chargesMax = 40, buff = { "被击中时有 20% 的几率避免冰霜伤害" }, },
+	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "60% reduced Effect of Freeze on you" }, },
 	req = { level = 27, },
 }
 itemBases["迷雾药剂"] = {
@@ -349,7 +350,7 @@ itemBases["硫磺药剂"] = {
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicit = "使用时制造奉献地面",
 	implicitModTypes = { { "flask" }, },
-	flask = { duration = 4, chargesUsed = 20, chargesMax = 60, buff = { "伤害提高 40%" }, },
+	flask = { duration = 5, chargesUsed = 40, chargesMax = 60, buff = { "伤害提高 40%" }, },
 	req = { level = 35, },
 }
 itemBases["真银药剂"] = {
@@ -357,22 +358,39 @@ itemBases["真银药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, no_effect_flask_mod = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 5, chargesUsed = 40, chargesMax = 60, buff = { "猛攻" }, },
-	req = { level = 22, },
+	flask = { duration = 4, chargesUsed = 40, chargesMax = 60, buff = { "猛攻" }, },
+	req = { level = 40, },
 }
 itemBases["灰岩药剂"] = {
 	type = "Flask",
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "+35% 所有元素抗性" }, },
+	flask = { duration = 5.5, chargesUsed = 15, chargesMax = 40, buff = { "+35% 所有元素抗性" }, },
 	req = { level = 8, },
 }
-itemBases["宝钻药剂"] = {
+itemBases["Gold Flask"] = {
 	type = "Flask",
 	subType = "Utility",
-	tags = { flask = true, utility_flask = true, critical_utility_flask = true, not_for_sale = true, no_effect_flask_mod = true, default = true, },
+	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 4, chargesUsed = 20, chargesMax = 40, buff = { "幸运的暴击率" }, },
+	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, buff = { "30% increased Rarity of Items found" }, },
+	req = { level = 22, },
+}
+itemBases["Corundum Flask"] = {
+	type = "Flask",
+	subType = "Utility",
+	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
+	implicitModTypes = { },
+	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "30% increased Stun Threshold" }, },
 	req = { level = 27, },
+}
+itemBases["Iron Flask"] = {
+	type = "Flask",
+	subType = "Utility",
+	tags = { flask = true, utility_flask = true, not_for_sale = true, expedition_flask = true, default = true, },
+	implicit = "Restores Ward on use",
+	implicitModTypes = { { "flask" }, },
+	flask = { duration = 3, chargesUsed = 40, chargesMax = 60, buff = { "+200 to Ward" }, },
+	req = { level = 40, },
 }
