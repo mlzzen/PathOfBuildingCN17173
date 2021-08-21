@@ -42,7 +42,7 @@ luac.out
 Builds/*
 .idea/*
 
-Data/ModCache
+Data/ModCache.lua
 *_pid*.log
 
 Settings.xml
