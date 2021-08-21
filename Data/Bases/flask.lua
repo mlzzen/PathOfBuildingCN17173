@@ -250,7 +250,7 @@ itemBases["宝钻药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 4, chargesUsed = 20, chargesMax = 40, buff = { "100% increased Global Critical Strike Chance" }, },
+	flask = { duration = 4, chargesUsed = 20, chargesMax = 40, buff = { "攻击和法术暴击率提高 100%" }, },
 	req = { level = 27, },
 }
 itemBases["红玉药剂"] = {
@@ -323,7 +323,7 @@ itemBases["石化药剂"] = {
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicit = "Taunts nearby Enemies on use",
 	implicitModTypes = { { "flask" }, },
-	flask = { duration = 5, chargesUsed = 40, chargesMax = 60, buff = { "20% more Armour" }, },
+	flask = { duration = 5, chargesUsed = 40, chargesMax = 60, buff = { "护甲总增 20%" }, },
 	req = { level = 40, },
 }
 itemBases["海蓝药剂"] = {
@@ -332,7 +332,7 @@ itemBases["海蓝药剂"] = {
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicit = "使用时制造冰缓地面",
 	implicitModTypes = { { "flask" }, },
-	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "60% reduced Effect of Freeze on you" }, },
+	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "你身上的冻结效果降低 60%" }, },
 	req = { level = 27, },
 }
 itemBases["迷雾药剂"] = {
