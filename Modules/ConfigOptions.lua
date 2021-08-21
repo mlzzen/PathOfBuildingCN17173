@@ -801,6 +801,9 @@ end },
 { var = "multiplierNearbyCorpse", type = "count", label = "# 附近灵枢数量", ifMult = "NearbyCorpse", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:NearbyCorpse", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
+{ var = "multiplierSummonedMinion", type = "count", label = "# 召唤生物数量", ifMult = "SummonedMinion", apply = function(val, modList, enemyModList)
+	modList:NewMod("Multiplier:SummonedMinion", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+end },
 { var = "conditionAlliesOnFungalGround", type = "check", label = "友军和敌人正在【真菌地表】上?", tooltip = "当你处于【真菌地表】状态时干啥干啥的词缀生效,\n同时也会启用【真菌地表】buff本身:\n在你真菌地表上的友军将获得 10% 的非混沌伤害的额外混沌伤害。\n在你真菌地表上的敌人造成的伤害降低 10%。",
 ifCond = "OnFungalGround",
  apply = function(val, modList, enemyModList)
