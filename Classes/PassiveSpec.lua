@@ -313,8 +313,8 @@ function PassiveSpecClass:SelectAscendClass(ascendClassId)
 	-- Deallocate any allocated ascendancy nodes that don't belong to the new ascendancy class
 	for id, node in pairs(self.allocNodes) do
 		-- Echo28: 为了支持中文, ascendClass.name → ascendClass.id
-		-- if node.ascendancyName and node.ascendancyName ~= ascendClass.id then
-		if node.ascendancyName and node.ascendancyName ~= ascendClass.name then
+		if node.ascendancyName and node.ascendancyName ~= ascendClass.id then
+		-- if node.ascendancyName and node.ascendancyName ~= ascendClass.name then
 			node.alloc = false
 			self.allocNodes[id] = nil
 		end
