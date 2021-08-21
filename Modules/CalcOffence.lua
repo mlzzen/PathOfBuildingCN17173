@@ -3179,7 +3179,7 @@ t_insert(breakdownDPS, "总伤害:")
 						globalBreakdown.PoisonDotMulti = breakdown.critDot(globalOutput.PoisonDotMulti, globalOutput.CritPoisonDotMulti, totalFromHit, totalFromCrit)
 						globalOutput.PoisonDotMulti = (globalOutput.PoisonDotMulti * totalFromHit) + (globalOutput.CritPoisonDotMulti * totalFromCrit)
 					end
-t_insert(breakdown.PoisonDPS, "x 0.20 ^8(中毒每秒造成基础伤害的 20%)")
+t_insert(breakdown.PoisonDPS, "x 0.30 ^8(中毒每秒造成基础伤害的 30%)")
 					t_insert(breakdown.PoisonDPS, s_format("= %.1f", baseVal, 1))
 					breakdown.multiChain(breakdown.PoisonDPS, {
 label = "中毒 DPS:",
