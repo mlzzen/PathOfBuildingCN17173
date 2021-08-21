@@ -2941,7 +2941,7 @@ local specialModList = {
 	["生效期间，瓦尔技能的暴击几率提高 (%d+)%%"]= function(num) return {  mod("CritChance", "INC", num,nil,nil,KeywordFlag.Vaal,{ type = "Condition", var = "UsingFlask" })  } end,
 	["生效期间，瓦尔技能的总伤害额外提高 (%d+)%%"]= function(num) return {  mod("Damage", "MORE", num,nil,nil,KeywordFlag.Vaal,{ type = "Condition", var = "UsingFlask" })  } end,
 	["药剂持续期间，近战物理总伤害额外提高 (%d+)%%"]= function(num) return {  mod("PhysicalDamage", "MORE", num,nil, ModFlag.Melee,{ type = "Condition", var = "UsingFlask" })  } end,
-	["药剂持续期间，近战物理伤害总增 (%d+)%%"]= function(num) return {  mod("PhysicalDamage", "MORE", num,nil, ModFlag.Melee,{ type = "Condition", var = "UsingFlask" })  } end,
+	["生效期间近战物理伤害总增 (%d+)%%"]= function(num) return {  mod("PhysicalDamage", "MORE", num,nil, ModFlag.Melee,{ type = "Condition", var = "UsingFlask" })  } end,
 	["药剂持续期间，物理伤害的 (%d+)%% 转换为闪电伤害"]= function(num) return {  mod("PhysicalDamageConvertToLightning", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
 	["药剂持续期间，闪电伤害的 ([%d%.]+)%% 转化为生命偷取"]= function(num) return {  mod("LightningDamageLifeLeech", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
 	["药剂持续期间，混沌伤害的 ([%d%.]+)%% 会转化为生命偷取"]= function(num) return {  mod("ChaosDamageLifeLeech", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
