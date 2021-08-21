@@ -39,3 +39,10 @@ luac.out
 *.x86_64
 *.hex
 
+Builds/*
+.idea/*
+
+Data/ModCache
+*_pid*.log
+
+Settings.xml
