@@ -7,7 +7,7 @@
 local skills, mod, flag, skill = ...
 
 skills["Absolution"] = {
-	name = "Absolution",
+	name = "赦罪",
 	color = 1,
 	baseEffectiveness = 2.2290999889374,
 	incrementalEffectiveness = 0.035999998450279,
@@ -908,7 +908,7 @@ skills["AnimateArmour"] = {
 	},
 }
 skills["BattlemagesCry"] = {
-	name = "Battlemage's Cry",
+	name = "魔武战号",
 	color = 1,
 	description = "Performs a warcry, taunting nearby enemies to attack the user and exerting subsequent attacks. Grants a buff which boosts critical strike chance and allows attacks to benefit from increases to spell damage.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Warcry] = true, [SkillType.SecondWindSupport] = true, },
@@ -998,7 +998,7 @@ skills["BattlemagesCry"] = {
 	},
 }
 skills["BattlemagesCrySupport"] = {
-	name = "Battlemage's Cry",
+	name = "魔武战号",
 	description = "Supports spell skills, causing them to be triggered. Cannot support skills used by totems, traps, or mines. Vaal skills, channelling skills, and skills with a reservation cannot be triggered.",
 	color = 1,
 	support = true,
@@ -1373,7 +1373,7 @@ mod("AreaOfEffect", "INC", nil, bit.bor(ModFlag.Area, ModFlag.Spell), 0, { type 
 	},
 }
 skills["Boneshatter"] = {
-	name = "Boneshatter",
+	name = "七伤破",
 	color = 1,
 	baseEffectiveness = 0.18279999494553,
 	incrementalEffectiveness = 0.053700000047684,
@@ -1913,7 +1913,7 @@ skills["DecoyTotem"] = {
 	},
 }
 skills["DefianceBanner"] = {
-	name = "Defiance Banner",
+	name = "抗争之旗",
 	color = 1,
 	description = "Casting once reserves mana to carry a banner which increases the armour and evasion of nearby allies, and reduces the critical strike chance of nearby enemies. Gains stages over time while carrying the banner near enemies. Casting the skill again places the banner, ending the mana reservation. Once placed, it becomes more powerful for each stage gained. You cannot have multiple banners at the same time.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.ManaCostReserved] = true, [SkillType.Aura] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.AuraDuration] = true, [SkillType.PhysicalSkill] = true, [SkillType.Banner] = true, [SkillType.Type91] = true, [SkillType.Type92] = true, [SkillType.SecondWindSupport] = true, },
@@ -5331,7 +5331,7 @@ skills["FireImpurity"] = {
 	},
 }
 skills["RageVortex"] = {
-	name = "Rage Vortex",
+	name = "怒火漩涡",
 	color = 1,
 	description = "Spin with a sword or axe to deal damage in an area around you. Sacrifices some rage to send a ragestorm forward. While enemies are inside it, the ragestorm will slow its movement and repeatedly deal attack damage based on your attack speed.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.AttackCanRepeat] = true, },
@@ -6511,7 +6511,7 @@ skills["Bloodreap"] = {
 	},
 }
 skills["ShieldCrush"] = {
-	name = "Shield Crush",
+	name = "盾牌碾压",
 	color = 1,
 	baseEffectiveness = 1.2467000484467,
 	incrementalEffectiveness = 0.033900000154972,

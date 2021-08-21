@@ -251,7 +251,7 @@ skills["SupportAncestralCallPlus"] = {
 	},
 }
 skills["SupportBehead"] = {
-	name = "Behead",
+	name = "斩首（辅）",
 	description = "Supports strike skills.",
 	color = 1,
 	support = true,
@@ -1318,7 +1318,7 @@ skills["SupportMeleeDamageOnFullLife"] = {
 	},
 }
 skills["SupportEarthbreaker"] = {
-	name = "Earthbreaker",
+	name = "裂地之灵（辅）",
 	description = "Supports slam skills, causing them to summon an ancestor totem that uses the skill for you while you're near it. Being near it grants you increased area of effect for melee skills.",
 	color = 1,
 	support = true,

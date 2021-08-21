@@ -7,7 +7,7 @@
 local skills, mod, flag, skill = ...
 
 skills["Ambush"] = {
-	name = "Ambush",
+	name = "伏击",
 	color = 2,
 	description = "Teleports you to a nearby enemy, applying a buff to you for a short duration and blinding the enemy for a secondary duration. Performing a melee attack with a One-Handed Weapon removes the buff to exert that attack.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.MovementSkill] = true, [SkillType.Duration] = true, [SkillType.TravelSkill] = true, [SkillType.Triggerable] = true, [SkillType.SecondWindSupport] = true, [SkillType.Type114] = true, },
@@ -664,7 +664,7 @@ name = "50 飞刃",
 	},
 }
 skills["BladeTrap"] = {
-	name = "Blade Trap",
+	name = "剑刃陷阱",
 	color = 2,
 	description = "Throws a trap which, once triggered, swings two copies of your equipped Dagger, Claw or One Handed Sword around it in a circle, each repeatedly damaging enemies they spin through.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Hit] = true, [SkillType.SkillCanMine] = true, [SkillType.Area] = true, [SkillType.Trap] = true, [SkillType.Area] = true, },
@@ -3342,7 +3342,7 @@ name = "箭矢",
 	},
 }
 skills["ExplosiveConcoction"] = {
-	name = "Explosive Concoction",
+	name = "爆破灵药",
 	color = 2,
 	baseEffectiveness = 2.5408999919891,
 	incrementalEffectiveness = 0.038699999451637,
@@ -6092,7 +6092,7 @@ skills["SnipersMark"] = {
 	},
 }
 skills["StormRain"] = {
-	name = "Storm Rain",
+	name = "暴雨箭",
 	color = 2,
 	description = "Fires an arrow into the air to land at a targeted location, dealing area damage. The arrow sticks in the ground where it lands, and periodically fires a beam of lightning to another arrow near it, dealing area damage between them.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Area] = true, [SkillType.ProjectileDamage] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanMine] = true, [SkillType.Triggerable] = true, [SkillType.FiresArrowsAtTargetLocation] = true, [SkillType.LightningSkill] = true, [SkillType.Type73] = true, [SkillType.Hit] = true, },
@@ -7858,7 +7858,7 @@ skill("radiusLabel", "孢囊范围:"),
 	},
 }
 skills["SpectralHelix"] = {
-	name = "Spectral Helix",
+	name = "灵幻旋斩",
 	color = 2,
 	description = "Throws a spectral copy of your melee weapon. It spins around while flying in a large spiral, damaging enemies in its path, and bouncing if it collides with walls.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, },

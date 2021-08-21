@@ -7541,7 +7541,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemDefianceBanner"] = {
-		name = "Defiance Banner",
+		name = "抗争之旗",
 		grantedEffectId = "DefianceBanner",
 		tags = {
 			strength = true,
@@ -7560,7 +7560,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemVoltaxicBurst"] = {
-		name = "Voltaxic Burst",
+		name = "雷电魔爆",
 		grantedEffectId = "VoltaxicBurst",
 		tags = {
 			intelligence = true,
@@ -7579,7 +7579,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemRageVortex"] = {
-		name = "Rage Vortex",
+		name = "怒火漩涡",
 		grantedEffectId = "RageVortex",
 		tags = {
 			strength = true,
@@ -7596,7 +7596,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemSpectralHelix"] = {
-		name = "Spectral Helix",
+		name = "灵幻旋斩",
 		grantedEffectId = "SpectralHelix",
 		tags = {
 			dexterity = true,
@@ -7611,7 +7611,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemBattlemagesCry"] = {
-		name = "Battlemage's Cry",
+		name = "魔武战号",
 		grantedEffectId = "BattlemagesCry",
 		secondaryGrantedEffectId = "BattlemagesCrySupport",
 		secondaryEffectName = "Battlemage's Cry Support",
@@ -7629,7 +7629,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SupportGemEarthbreaker"] = {
-		name = "Earthbreaker",
+		name = "裂地之灵（辅）",
 		grantedEffectId = "SupportEarthbreaker",
 		tags = {
 			attack = true,
@@ -7647,7 +7647,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemAbsolution"] = {
-		name = "Absolution",
+		name = "赦罪",
 		grantedEffectId = "Absolution",
 		tags = {
 			strength = true,
@@ -7666,7 +7666,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemForbiddenRite"] = {
-		name = "Forbidden Rite",
+		name = "禁断典仪",
 		grantedEffectId = "ForbiddenRite",
 		tags = {
 			intelligence = true,
@@ -7683,7 +7683,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemAmbush"] = {
-		name = "Ambush",
+		name = "伏击",
 		grantedEffectId = "Ambush",
 		tags = {
 			dexterity = true,
@@ -7700,7 +7700,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemManabond"] = {
-		name = "Manabond",
+		name = "缚魔电殛",
 		grantedEffectId = "Manabond",
 		tags = {
 			intelligence = true,
@@ -7717,7 +7717,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemBladeTrap"] = {
-		name = "Blade Trap",
+		name = "剑刃陷阱",
 		grantedEffectId = "BladeTrap",
 		tags = {
 			trap = true,
@@ -7733,7 +7733,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemStormRain"] = {
-		name = "Storm Rain",
+		name = "暴雨箭",
 		grantedEffectId = "StormRain",
 		tags = {
 			dexterity = true,
@@ -7768,7 +7768,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SupportGemFocusedBallista"] = {
-		name = "Focused Ballista",
+		name = "弩炮集火（辅）",
 		grantedEffectId = "SupportFocusedBallista",
 		tags = {
 			projectile = true,
@@ -7783,7 +7783,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemSummonReaper"] = {
-		name = "Summon Reaper",
+		name = "召唤追命死灵",
 		grantedEffectId = "SummonReaper",
 		tags = {
 			intelligence = true,
@@ -7799,7 +7799,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SupportGemBehead"] = {
-		name = "Behead",
+		name = "斩首（辅）",
 		grantedEffectId = "SupportBehead",
 		tags = {
 			strength = true,
@@ -7815,7 +7815,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemBoneshatter"] = {
-		name = "Boneshatter",
+		name = "七伤破",
 		grantedEffectId = "Boneshatter",
 		tags = {
 			strength = true,
@@ -7834,7 +7834,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemExplosiveConcoction"] = {
-		name = "Explosive Concoction",
+		name = "爆破灵药",
 		grantedEffectId = "ExplosiveConcoction",
 		tags = {
 			dexterity = true,
@@ -7853,7 +7853,7 @@ return {
 		defaultLevel = 20,
 	},
 	["Metadata/Items/Gems/SkillGemEyeOfWinter"] = {
-		name = "Eye of Winter",
+		name = "凛冬之眼",
 		grantedEffectId = "EyeOfWinter",
 		tags = {
 			intelligence = true,

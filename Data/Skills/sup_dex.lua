@@ -1837,7 +1837,7 @@ skills["SupportFasterProjectiles"] = {
 	},
 }
 skills["SupportFocusedBallista"] = {
-	name = "Focused Ballista",
+	name = "弩炮集火（辅）",
 	description = "Supports skills that summon ballista totems. Cannot modify the skills of minions.",
 	color = 2,
 	support = true,

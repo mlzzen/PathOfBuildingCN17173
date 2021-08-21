@@ -2931,7 +2931,7 @@ skills["EssenceDrain"] = {
 	},
 }
 skills["EyeOfWinter"] = {
-	name = "Eye of Winter",
+	name = "凛冬之眼",
 	color = 3,
 	baseEffectiveness = 0.55089998245239,
 	incrementalEffectiveness = 0.03830000013113,
@@ -3976,7 +3976,7 @@ skills["FleshOffering"] = {
 	},
 }
 skills["ForbiddenRite"] = {
-	name = "Forbidden Rite",
+	name = "禁断典仪",
 	color = 3,
 	baseEffectiveness = 1.1399999856949,
 	incrementalEffectiveness = 0.039000000804663,
@@ -6512,7 +6512,7 @@ skills["DamageOverTimeAura"] = {
 	},
 }
 skills["Manabond"] = {
-	name = "Manabond",
+	name = "缚魔电殛",
 	color = 3,
 	baseEffectiveness = 2.0627999305725,
 	incrementalEffectiveness = 0.0320999994874,
@@ -9172,7 +9172,7 @@ name = "3 次增强",
 	},
 }
 skills["SummonReaper"] = {
-	name = "Summon Reaper",
+	name = "召唤追命死灵",
 	color = 3,
 	description = "Summons a powerful Reaper which uses a variety of slashing area attacks. The Reaper's presence weakens your other minions, and it will consume them to temporarily empower and heal itself. Using this skill while the Reaper is already summoned causes it to dash to the targeted location and perform a powerful attack.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.PhysicalSkill] = true, [SkillType.SkillCanMine] = true, [SkillType.Minion] = true, [SkillType.CreateMinion] = true, [SkillType.Spell] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.CreatesMinion] = true, [SkillType.SecondWindSupport] = true, },
@@ -10511,7 +10511,7 @@ skills["TempestShield"] = {
 	},
 }
 skills["VoltaxicBurst"] = {
-	name = "Voltaxic Burst",
+	name = "雷电魔爆",
 	color = 3,
 	baseEffectiveness = 2.5072000026703,
 	incrementalEffectiveness = 0.036800000816584,
