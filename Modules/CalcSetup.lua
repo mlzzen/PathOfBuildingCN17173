@@ -56,7 +56,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("BallistaPlacementTime", "BASE", 0.35, "Base")
 	modDB:NewMod("ActiveTotemLimit", "BASE", 1, "Base")
 	modDB:NewMod("LifeRegenPercent", "BASE", 6, "Base", { type = "Condition", var = "OnConsecratedGround" })
-	modDB:NewMod("CritChance", "INC", 100, "Base", 0, { type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" })
+	-- modDB:NewMod("CritChance", "INC", 100, "Base", 0, { type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" })
 	 
 	--modDB:NewMod("DamageTaken", "INC", 50, "Base", { type = "Condition", var = "Shocked" })
 	--modDB:NewMod("HitChance", "MORE", -50, "Base", { type = "Condition", var = "Blinded" })
