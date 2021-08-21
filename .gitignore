@@ -45,4 +45,4 @@ Builds/*
 Data/ModCache.lua
 *_pid*.log
 
-Settings.xml
+./Settings.xml

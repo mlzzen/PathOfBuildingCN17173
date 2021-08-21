@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PoBVersion>
-	<Version number="S15.1.7" platform="win32" branch="master"/>
+	<Version number="S16.0.0" platform="win32" branch="master"/>
 	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/tree-3_7.zip" part="tree-3_7"/>
 	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/" part="program"/>
 	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/tree-3_8.zip" part="tree-3_8"/>
