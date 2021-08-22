@@ -3830,6 +3830,10 @@ local specialModList = {
 	mod("Speed", "MORE", num,nil, ModFlag.Attack,{ type = "Multiplier", var = "ChallengerCharge" }) ,
 	mod("MovementSpeed", "MORE", num,{ type = "Multiplier", var = "ChallengerCharge" })
 	}end,
+	["每个挑战球使总攻击和移动速度总增 (%d+)%%"]= function(num) return {
+	mod("Speed", "MORE", num,nil, ModFlag.Attack,{ type = "Multiplier", var = "ChallengerCharge" }) ,
+	mod("MovementSpeed", "MORE", num,{ type = "Multiplier", var = "ChallengerCharge" })
+	}end,
 	["每个疾电球可使暴击几率降低 (%d+)%%"]= function(num) return {
 	mod("CritChance", "INC", -num,{ type = "Multiplier", var = "BlitzCharge" }) ,
 	}end,
