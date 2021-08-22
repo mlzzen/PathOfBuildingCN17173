@@ -6589,6 +6589,7 @@ minus = -tonumber(minus)
 	["烙印暴击率提高 (%d+)%%"]= function(num) return {  mod("CritChance", "INC", num,{ type = "SkillType", skillType = SkillType.Brand })   } end,
 	["(%d+)%% 烙印暴击伤害加成"]= function(num) return {  mod("CritMultiplier", "BASE", num,{ type = "SkillType", skillType = SkillType.Brand })   } end,
 	["枯萎效果提高"] = function(num) return {  mod("WitherEffect", "INC", num)   } end,
+	["持续混沌伤害提高 %+(%d+)%%"] = function(num) return {  mod("ChaosDamage", "INC", num, nil, ModFlag.ChaosDot)  } end,
 }
 
 for _, name in pairs(data.keystones) do
