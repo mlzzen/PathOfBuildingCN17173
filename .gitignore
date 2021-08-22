@@ -2,7 +2,6 @@ Builds/*
 .idea/*
 .vscode/*
 
-Data/ModCache.lua
 *_pid*.log
 
 ./Settings.xml
