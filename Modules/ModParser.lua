@@ -1504,6 +1504,9 @@ local modTagList = {
 	["若你近期内没有获得暴击球，则"] = { tag = { type = "Condition", var = "GainedPowerChargeRecently", neg = true } },
 	["若你近期内没有获得狂怒球，则"] = { tag = { type = "Condition", var = "GainedFrenzyChargeRecently", neg = true } },
 	["若你近期内有击败敌人，则"] = { tag = { type = "Condition", var = "KilledRecently" } }, 
+	["若你近期内有被击中，则"] = { tag = { type = "Condition", var = "BeenHitRecently" } },
+	["若你近期内被击中，则"] = { tag = { type = "Condition", var = "BeenHitRecently" } },
+	["若你近期内没有击败敌人，则"] = { tag = { type = "Condition", var = "KilledRecently" , neg = true} }, 
 	["若你近期内没有击败敌人，则"] = { tag = { type = "Condition", var = "KilledRecently" , neg = true} }, 
 	["若你近期内打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["若你近期内有打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
@@ -2101,6 +2104,9 @@ local specialModList = {
 	mod("ManaRegenPercent", "BASE", num,{ type = "Condition", var = "BeenHitRecently" } ),
 	} end,
 	["近期内你若有被击中，则每秒回复 ([%d%.]+)%% 生命"] = function(num) return {
+	mod("LifeRegenPercent", "BASE", num,{ type = "Condition", var = "BeenHitRecently" } )
+	} end,
+	["若你近期内有被击中，则每秒回复 ([%d%.]+)%% 生命"] = function(num) return {
 	mod("LifeRegenPercent", "BASE", num,{ type = "Condition", var = "BeenHitRecently" } )
 	} end,
 	["非诅咒类光环的效果提高 (%d+)%%"]= function(num) return {  mod("AuraEffect", "INC", tonumber(num),{ type = "SkillType", skillType = SkillType.Aura }, { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true } )  } end,
@@ -3170,6 +3176,7 @@ local specialModList = {
 	["击中时有 (%d+)%% 的几率施放 (%d+) 级的【(.+)】"]= function( _,chance,num, skill) return triggerExtraSkill(skill, tonumber(num)) end,
 	["药剂持续期间，暴击几率提高 (%d+)%%"]= function(num) return {  mod("CritChance", "INC", tonumber(num),{ type = "Condition", var = "UsingFlask" } )  } end,
 	["近期内你若没有击败过敌人，则伤害穿透 (%d+)%% 元素抗性"]= function(num) return {  mod("ElementalPenetration", "BASE", tonumber(num),{ type = "Condition", var = "KilledRecently", neg = true }  )  } end,
+	["若你近期内没有击败敌人，则伤害会穿透 (%d+)%% 敌人元素抗性"]= function(num) return {  mod("ElementalPenetration", "BASE", tonumber(num),{ type = "Condition", var = "KilledRecently", neg = true }  )  } end,
 	["击中时触发【(.+)】"] = function(_, skill) return triggerExtraSkill(skill, 1, true) end,
 	["击败敌人时触发【(.+)】"] = function(_, skill) return triggerExtraSkill(skill, 1, true) end,
 	["击杀时触发【(.+)】"] = function(_, skill) return triggerExtraSkill(skill, 1, true) end,
@@ -6596,6 +6603,7 @@ minus = -tonumber(minus)
 	["(%d+)%% 烙印暴击伤害加成"]= function(num) return {  mod("CritMultiplier", "BASE", num,{ type = "SkillType", skillType = SkillType.Brand })   } end,
 	["枯萎效果提高"] = function(num) return {  mod("WitherEffect", "INC", num)   } end,
 	["持续混沌伤害提高 %+(%d+)%%"] = function(num) return {  mod("ChaosDamage", "INC", num, nil, ModFlag.ChaosDot)  } end,
+	["若你近期内有施放法术，则魔力回复率提高 (%d+)%%"] = function(num) return {  mod("ManaRecoveryRate", "INC", num, { type = "Condition", var = "CastSpellRecently" }) } end,
 }
 
 for _, name in pairs(data.keystones) do
