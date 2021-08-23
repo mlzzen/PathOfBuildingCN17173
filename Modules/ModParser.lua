@@ -1679,7 +1679,7 @@ local modTagList = {
 	["生命偷取时"] = { tag = { type = "Condition", var = "Leeching" } }, --备注：while leeching
 	["使用药剂时"] = { tag = { type = "Condition", var = "UsingFlask" } }, --备注：while using a flask
 	["during effect"] = { tag = { type = "Condition", var = "UsingFlask" } },
-	["药剂持续期间，"] = { tag = { type = "Condition", var = "UsingFlask" } }, --备注：during flask effect
+	["药剂生效期间，"] = { tag = { type = "Condition", var = "UsingFlask" } }, --备注：during flask effect
 	["药剂持续期间，"] = { tag = { type = "Condition", var = "UsingFlask" } }, --备注：during any flask effect
 	["在奉献地面上时"] = { tag = { type = "Condition", var = "OnConsecratedGround" } }, --备注：while on consecrated ground
 	["在燃烧地面上的"] = { tag = { type = "Condition", var = "OnBurningGround" } }, --备注：on burning ground
