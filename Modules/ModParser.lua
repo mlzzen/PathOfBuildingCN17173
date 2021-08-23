@@ -4171,16 +4171,17 @@ local specialModList = {
 	["对法术伤害的增幅与减益也套用于攻击，等于其数值的 (%d+)%%"] = function(num) return { flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", num) } end,
 	["对法术伤害的增幅与减益也会套用于攻击上，相当于其效果的 (%d+)%%"] = function(num) return { flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", num) } end,
 	["你的光环技能被禁用"] = { flag("DisableSkill", { type = "SkillType", skillType = SkillType.Aura}) },
-	["你身上的捷技能增益的总效果额外提高 (%d+)%%"] = function(num) return {
+	["你禁用光环技能"] = { flag("DisableSkill", { type = "SkillType", skillType = SkillType.Aura}) },
+	["你身上的捷增益总效果总增 (%d+)%%"] = function(num) return {
 	mod("BuffEffect", "MORE", num, { type = "SkillType", skillType = SkillType.Herald }),
 	} end,
-	["捷技能的总击中伤害额外提高 (%d+)%%"] = function(num) return {
+	["捷技能的总击中伤害总增 (%d+)%%"] = function(num) return {
 	mod("Damage", "MORE", num,nil, ModFlag.Hit, { type = "SkillType", skillType = SkillType.Herald }),
 	} end,
-	["捷技能的总持续伤害额外提高 (%d+)%%"] = function(num) return {
+	["捷技能的总持续伤害总增 (%d+)%%"] = function(num) return {
 	mod("Damage", "MORE", num,nil, ModFlag.Dot, { type = "SkillType", skillType = SkillType.Herald }),
 	} end,
-	["捷技能的召唤生物总伤害额外提高 (%d+)%%"]= function(num) return { mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", num )}, { type = "SkillType", skillType = SkillType.Herald })  } end,
+	["捷技能的召唤生物的伤害总增 (%d+)%%"]= function(num) return { mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", num )}, { type = "SkillType", skillType = SkillType.Herald })  } end,
 	["每 (%d+) 智慧使冰霜伤害提高 (%d+)%%"] =function(_,num1,num2) return {  mod("ColdDamage", "INC", tonumber(num2),{ type = "PerStat", stat = "Int", div = tonumber(num1) })  } end,
 	["每 (%d+) 力量使冰霜伤害提高 (%d+)%%"] =function(_,num1,num2) return {  mod("ColdDamage", "INC", tonumber(num2),{ type = "PerStat", stat = "Str", div = tonumber(num1) })  } end,
 	["每 (%d+) 敏捷使冰霜伤害提高 (%d+)%%"] =function(_,num1,num2) return {  mod("ColdDamage", "INC", tonumber(num2),{ type = "PerStat", stat = "Dex", div = tonumber(num1) })  } end,
