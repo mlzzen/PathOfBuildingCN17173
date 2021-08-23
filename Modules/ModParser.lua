@@ -1474,8 +1474,11 @@ local modTagList = {
 		["来自被咒印标记的敌人的"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Marked" } },
 	["若近期内有冰冻过敌人，则"] = { tag = { type = "Condition", var = "FrozenEnemyRecently" } },
 		["若近期内有冰缓过敌人，则"] = { tag = { type = "Condition", var = "ChilledEnemyRecently" } },
+		["若你近期内使敌人冰缓，则"] = { tag = { type = "Condition", var = "ChilledEnemyRecently" } },
 		["若近期内有点燃过敌人，则"] = { tag = { type = "Condition", var = "IgnitedEnemyRecently" } },
+		["若你近期内点燃敌人，则"] = { tag = { type = "Condition", var = "IgnitedEnemyRecently" } },
 		["若近期内有感电过敌人，则"] = { tag = { type = "Condition", var = "ShockedEnemyRecently" } },
+		["若你近期内使敌人感电，则"] = { tag = { type = "Condition", var = "ShockedEnemyRecently" } },
 		["若近期内有晕眩过敌人，则"] = { tag = { type = "Condition", var = "StunnedEnemyRecently" } },
 	["每层凝聚使"] = { tag = { type = "Multiplier", var = "Intensity" } },
 	["若你的耐力球、狂怒球或暴击球总共有 (%d+) 个时，将"] = function(num) return { tag = { type = "MultiplierThreshold", var = "TotalCharges", threshold = num } } end,
@@ -4945,6 +4948,9 @@ local specialModList = {
 	["火焰技能有 (%d+)%% 的几率击中附加火焰曝露"] = function(num) return { mod("FireExposureChance", "BASE", num) } end,
 	["冰霜技能有 (%d+)%% 的几率击中附加冰霜曝露"] = function(num) return { mod("ColdExposureChance", "BASE", num) } end,
 	["闪电技能有 (%d+)%% 的几率击中附加闪电曝露"] = function(num) return { mod("LightningExposureChance", "BASE", num) } end,
+	["火焰技能在击中时有 (%d+)%% 的几率附加【畏火】"] = function(num) return { mod("FireExposureChance", "BASE", num) } end,
+	["冰霜技能有 (%d+)%% 的几率在击中时附加【畏寒】"] = function(num) return { mod("ColdExposureChance", "BASE", num) } end,
+	["闪电技能在击中时有 (%d+)%% 的几率附加【畏电】"] = function(num) return { mod("LightningExposureChance", "BASE", num) } end,
 	["周围敌人有火焰曝露"] = {
 	mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }),
 	},
@@ -6605,6 +6611,8 @@ minus = -tonumber(minus)
 	["枯萎效果提高"] = function(num) return {  mod("WitherEffect", "INC", num)   } end,
 	["持续混沌伤害提高 %+(%d+)%%"] = function(num) return {  mod("ChaosDamage", "INC", num, nil, ModFlag.ChaosDot)  } end,
 	["若你近期内有施放法术，则魔力回复率提高 (%d+)%%"] = function(num) return {  mod("ManaRecoveryRate", "INC", num, { type = "Condition", var = "CastSpellRecently" }) } end,
+	["若你近期内冻结过敌人，则魔力回复速度加快 (%d+)%%"] = function(num) return {  mod("ManaRegen", "INC", num, { type = "Condition", var = "FrozenEnemyRecently" }) } end,
+	["若你近期内使敌人感电，则魔力回复速度加快 (%d+)%%"] = function(num) return {  mod("ManaRegen", "INC", num, { type = "Condition", var = "ShockedEnemyRecently" }) } end,
 }
 
 for _, name in pairs(data.keystones) do
