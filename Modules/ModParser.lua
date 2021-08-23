@@ -908,6 +908,8 @@ local modFlagList = {
 	["爪的"] ={ flags = bor(ModFlag.Claw, ModFlag.Hit) },
 	["锤, 短杖或长杖攻击时，"] = { flags = ModFlag.Hit, tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Mace, ModFlag.Staff) } },
 	["爪或匕首攻击时，"] = { flags = ModFlag.Hit, tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
+	["爪类或匕首的"] = { tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
+	["爪类或匕首"] = { tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
 	["吟唱技能的"] = { tag = { type = "SkillType", skillType = SkillType.Channelled } },
 	["弓技能的"] = { keywordFlags = KeywordFlag.Bow },
 	["魔蛊技能的"] = { tag = { type = "SkillType", skillType = SkillType.Hex } },
@@ -1169,6 +1171,7 @@ local modTagList = {
 	--【中文化程序额外添加开始】
 	["每 (%d+) 点护甲值可使"] = function(num) return { tag = { type = "PerStat", stat = "Armour", div = num } } end, 
 	["持爪或匕首时，"] = { tag = { type = "Condition", varList ={ "UsingClaw", "UsingDagger" } } },
+	["持爪类或匕首时，"] = { tag = { type = "Condition", varList ={ "UsingClaw", "UsingDagger" } } },
 	["持锤, 短杖或长杖时，"] = { tag = { type = "Condition", varList = { "UsingMace", "UsingStaff" } } },
 	["持锤, 短杖或长杖时"] = { tag = { type = "Condition", varList = { "UsingMace", "UsingStaff" } } },
 	["盾牌上每有 (%d+) 能量护盾可获得  "] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num } } end,
@@ -4196,7 +4199,7 @@ local specialModList = {
 	["每 (%d+) 点智慧都使冰霜伤害提高 (%d+)%%"] =function(_,num1,num2) return {  mod("ColdDamage", "INC", tonumber(num2),{ type = "PerStat", stat = "Int", div = tonumber(num1) })  } end,
 	["每 (%d+) 点力量都使冰霜伤害提高 (%d+)%%"] =function(_,num1,num2) return {  mod("ColdDamage", "INC", tonumber(num2),{ type = "PerStat", stat = "Str", div = tonumber(num1) })  } end,
 	["每 (%d+) 点敏捷都使冰霜伤害提高 (%d+)%%"] =function(_,num1,num2) return {  mod("ColdDamage", "INC", tonumber(num2),{ type = "PerStat", stat = "Dex", div = tonumber(num1) })  } end,
-	["持爪或匕首时，攻击技能发射一个额外的投射物"]=  function() return { mod("ExtraSkillMod", "LIST", { mod = mod("ProjectileCount", "BASE", 1,{ type = "SkillType", skillType = SkillType.Attack }) },  { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } ) } end,
+	["持爪类或匕首时，攻击技能发射一个额外投射物"]=  function() return { mod("ExtraSkillMod", "LIST", { mod = mod("ProjectileCount", "BASE", 1,{ type = "SkillType", skillType = SkillType.Attack }) },  { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } ) } end,
 	["爪或匕首攻击时，([%+%-]?%d+)%% 暴击伤害"] = function(num) return {  mod("CritMultiplier", "BASE", num,nil, ModFlag.Hit,{ type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } )  } end,
 	["对被嘲讽敌人, ([%+%-]?%d+)%% 暴击伤害"] = function(num) return { mod("CritMultiplier", "BASE", num,{ type = "ActorCondition", actor = "enemy", var = "Taunted" }) } end,
 	["【两手空空】状态下视为双持"] = function() return {  mod("Condition:DualWielding", "FLAG", true,{ type = "Condition", var = "Unencumbered" })  } end,
@@ -6313,6 +6316,10 @@ minus = -tonumber(minus)
 	["attacks always inflict bleeding while you have cat's stealth"] = { mod("BleedChance", "BASE", 100, nil, ModFlag.Attack, { type = "Condition", var = "AffectedByCat'sStealth" }) },
 	["you have crimson dance while you have cat's stealth"] = { mod("Keystone", "LIST", "Crimson Dance", { type = "Condition", var = "AffectedByCat'sStealth" }) },
 	["you have crimson dance if you have dealt a critical strike recently"] = { mod("Keystone", "LIST", "Crimson Dance", { type = "Condition", var = "CritRecently" }) },
+	-- Impale and Bleed
+	["若击中造成【流血】，则其施加的【穿刺】效果提高 (%d+)%%"] = function(num) return {
+		mod("ImpaleEffectOnBleed", "INC", num, nil, 0, KeywordFlag.Hit)
+	} end,
 	-- Poison
 	["你的火焰伤害会使敌人中毒"] = { flag("FireCanPoison") }, --备注：y?o?u?r? ?fire damage can poison
 	["你的冰霜伤害会使敌人中毒"] = { flag("ColdCanPoison") }, --备注：y?o?u?r? ?cold damage can poison
