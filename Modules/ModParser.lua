@@ -4585,6 +4585,7 @@ local specialModList = {
 	["【迷踪】状态下，周围敌人的总命中值总降 (%d+)%%"] =
 	function(num) return { mod("EnemyModifier", "LIST", { mod = mod("Accuracy", "MORE", -num) }, { type = "Condition", var = "Phasing" } )} end,
 	["暴击造成烧灼、脆弱和精疲力尽"] = { flag("CritAlwaysAltAilments") },
+	["暴击施加灼烧、脆弱、精疲力尽"] = { flag("CritAlwaysAltAilments") },
 	["魔力回复速度的加快和减慢效果也作用与怒火回复速度"] = { flag("ManaRegenToRageRegen") },
 	["魔力再生率的加快和减慢效果也作用与怒火再生速度"] = { flag("ManaRegenToRageRegen") },
 	["魔力再生率的加快和减慢效果改为作用于怒火再生速度"] = { flag("ManaRegenToRageRegen") },

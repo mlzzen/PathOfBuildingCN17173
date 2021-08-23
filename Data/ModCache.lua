@@ -1311,7 +1311,7 @@ c["药剂持续期间，攻击速度提高 15%"]={{[1]={[1]={type="Condition",va
 c["4 每秒生命回复"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=4}},nil}
 c["总冰霜抗性额外降低 50%"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="MORE",value=-50}},nil}
 c["击中时有 10% 几率击退敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackChance",type="BASE",value=10}},nil}
-c["你禁用光环技能"]={nil,"你禁用光环技能 "}
+c["你禁用光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true}},nil}
 c["你身上只能从技能中得到一种恒定光环"]={nil,"你身上只能从技能中得到一种恒定光环 "}
 c["双手近战武器攻击造成的异常状态伤害提高 24%"]={{[1]={flags=301989888,keywordFlags=524288,name="Damage",type="INC",value=24}},nil}
 c["免疫燃烧地面，感电地面和冰缓地面"]={nil,"免疫燃烧地面，感电地面和冰缓地面 "}
@@ -3933,7 +3933,7 @@ c["击中时有 25% 几率造成瘫痪 物理伤害提高 320%"]={{[1]={flags=0,
 c["+15% 地雷暴击伤害加成"]={{[1]={flags=0,keywordFlags=8192,name="CritMultiplier",type="BASE",value=15}},nil}
 c["你所施放诅咒的效果提高 10%"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=10}},nil}
 c["剑类攻击造成的异常状态伤害提高 8%"]={{[1]={flags=4194304,keywordFlags=524288,name="Damage",type="INC",value=8}},nil}
-c["暴击施加灼烧、脆弱、精疲力尽"]={nil,"暴击施加灼烧、脆弱、精疲力尽 "}
+c["暴击施加灼烧、脆弱、精疲力尽"]={{[1]={flags=0,keywordFlags=0,name="CritAlwaysAltAilments",type="FLAG",value=true}},nil}
 c["图腾放置速度提高 100%"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=100}},nil}
 c["攻击附加 29 - 45 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=29},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=45}},nil}
 c["副手暴击率 +10%"]={{[1]={[1]={type="Condition",var="OffHandAttack"},[2]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=10}},nil}
