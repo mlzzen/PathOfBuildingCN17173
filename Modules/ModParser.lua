@@ -1406,6 +1406,7 @@ local modTagList = {
 	["【猛攻】效果持续时，"] = { tag = { type = "Condition", var = "Onslaught" } },
 	["近期内你若晕眩过敌人，则"] = { tag = { type = "Condition", var = "StunnedEnemyRecently" } },	
 	["近期内你若有晕眩敌人，则"] = { tag = { type = "Condition", var = "StunnedEnemyRecently" } },	
+	["若你近期内用双手近战武器使一名敌人眩晕，则"] = { flags = bor(ModFlag.Weapon2H, ModFlag.WeaponMelee), tag = { type = "Condition", var = "StunnedEnemyRecently" } },
 	["近期内你若有击中敌人，"] = { tag = { type = "Condition", var = "HitRecently" } },	
 	["敌人身上每层穿刺效果可以为"] = { tag = { type = "Multiplier", var = "ImpaleStack", actor = "enemy" }},
 	["近期内你若穿刺过敌人，"] = { tag = { type = "Condition", var = "ImpaledRecently" } },
@@ -1601,6 +1602,7 @@ local modTagList = {
 	["with (%d+) or more strength"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end,
 	["with at least (%d+) strength"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end,
 	["至少有 (%d+) 点力量时，"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end, --备注：w?h?i[lf]e? you have at least (%d+) strength
+	["你若至少有 (%d+) 点力量，则"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end, --备注：w?h?i[lf]e? you have at least (%d+) strength
 	["至少有 (%d+) 点敏捷时，"] = function(num) return { tag = { type = "StatThreshold", stat = "Dex", threshold = num } } end, --备注：w?h?i[lf]e? you have at least (%d+) dexterity
 	["至少有 (%d+) 点智慧时，"] = function(num) return { tag = { type = "StatThreshold", stat = "Int", threshold = num } } end, --备注：w?h?i[lf]e? you have at least (%d+) intelligence
 	["at least (%d+) intelligence"] = function(num) return { tag = { type = "StatThreshold", stat = "Int", threshold = num } } end, -- lol
@@ -3562,13 +3564,14 @@ local specialModList = {
 	["【风暴烙印】的伤害会穿透带有烙印敌人闪电抗性的 (%d+)%%"]= function(num) return {  mod("LightningPenetration", "BASE", num,{ type = "Condition", var = "BrandAttachedToEnemy" },{ type = "SkillName", skillName = "风暴烙印" })  } end,
 	["此物品上的技能石获得 ([%d%.]+)%% 物理伤害，并转化为额外闪电伤害"]= function(num) return{ mod("ExtraSkillMod", "LIST", { mod = mod("PhysicalDamageGainAsLightning", "BASE", num) },{ type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["有 (%d+)%% 几率造成双倍伤害"] = function(num) return { mod("DoubleDamageChance", "BASE", num) } end,
+	["若你近期内用双手近战武器造成暴击，则有 (%d+)%% 的几率造成双倍伤害"] = function(num) return { mod("DoubleDamageChance", "BASE", num, { flags = bor(ModFlag.Weapon2H, ModFlag.WeaponMelee), type = "Condition", var = "CritRecently" }) } end,
 	["有 (%d+)%% 几率造成三倍伤害"] = function(num) return { mod("TripleDamageChance", "BASE", num) } end,
 	["有 (%d+)%% 的几率造成双倍伤害"] = function(num) return { mod("DoubleDamageChance", "BASE", num) } end,
 	["有 (%d+)%% 的几率造成三倍伤害"] = function(num) return { mod("TripleDamageChance", "BASE", num) } end,
 	["专注时有 (%d+)%% 几率造成双倍伤害"] = function(num) return { mod("DoubleDamageChance", "BASE", num,{ type = "Condition", var = "Focused" }) } end,
 	["专注时有 (%d+)%% 的几率造成双倍伤害"] = function(num) return { mod("DoubleDamageChance", "BASE", num,{ type = "Condition", var = "Focused" }) } end,
 	["若周围有稀有或传奇敌人，则 %+(%d+)%% 基础暴击伤害加成"] = function(num) return { mod("CritMultiplier", "BASE", num,{ type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }) } end,
-	["对传奇的敌人的击中和异常状态伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,0,bor(KeywordFlag.Hit, KeywordFlag.Ailment) ,{ type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }) } end,
+	["对抗传奇敌人时，击中和异常状态伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,0,bor(KeywordFlag.Hit, KeywordFlag.Ailment) ,{ type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }) } end,
 	["对被诅咒的敌人的击中和异常状态伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,0,bor(KeywordFlag.Hit, KeywordFlag.Ailment) ,{ type = "ActorCondition", actor = "enemy", var = "Cursed" }) } end,
 	["攻击技能的异常状态伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,ModFlag.Ailment,  { type = "SkillType", skillType = SkillType.Attack }) } end,
 	["对传奇的敌人的总伤害额外提高 (%d+)%%"] = function(num) return { mod("Damage", "MORE", num,{ type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }) } end,
