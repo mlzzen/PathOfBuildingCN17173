@@ -1512,6 +1512,7 @@ local modTagList = {
 	["若你近期内有打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["若你近期内没有击败过敌人，则"] = { tag = { type = "Condition", var = "KilledRecently" , neg = true} }, 
 	["若你近期内没有打出暴击，则"] = { tag = { type = "Condition", var = "CritRecently" , neg = true } },
+	["若你近期内没有打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" , neg = true } },
 	--["per (.+) eye jewel affecting you, up to a maximum of %+?(%d+)%%"] = function(type, _, num) return { tag = { type = "Multiplier", var = upperCaseFirstLetter(type) .. "EyeJewel", limit = tonumber(num), limitTotal = true } } end,
 	["每层抗争使"] = { tag = { type = "Multiplier", var = "Defiance" } },
 	["抗争状态下，"] = { tag = { type = "MultiplierThreshold", var = "Defiance", threshold = 1 } },
