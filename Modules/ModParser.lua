@@ -297,6 +297,7 @@ local modNameList = {
 	["近战武器范围"] = "MeleeWeaponRange",
 	["法术伤害"] = {"Damage",  flags = ModFlag.Spell }, 
 	["点燃敌人"] = "EnemyIgniteChance", --备注：to ignite
+	["施加【点燃】"] = "EnemyIgniteChance", --备注：to ignite
 	["力量与敏捷"] = { "Str", "Dex" }, --备注：strength and dexterity
 	["力量与智慧"] = { "Str", "Int" }, --备注：strength and intelligence
 	["敏捷与智慧"] = { "Dex", "Int" }, --备注：dexterity and intelligence
@@ -1319,6 +1320,7 @@ local modTagList = {
 	["在主手时，"] = { tag = { type = "SlotNumber", num = 1 } }, --备注：when in main hand
 	["击中冰缓敌人的"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Chilled" }}, --备注：against chilled  
 	["对被点燃敌人的"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Ignited" }}, 
+	["对抗被【点燃】的敌人时，"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Ignited" }}, 
 	["每 (%d+) 点力量可使"] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end, --备注：per (%d+) strength
 	["你获得【猫之隐匿】时"] = { tag = { type = "Condition", var = "AffectedBy猫之隐匿" } }, --备注：while you have cat's stealth
 	["每 (%d+) 点力量使"] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end, --备注：per (%d+) strength		
@@ -2229,6 +2231,7 @@ local specialModList = {
 	["([%+%-]?%d+)%% 召唤灵体, 魔卫复苏, 召唤魔侍的暴击伤害"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("CritMultiplier", "BASE", num) },{ type = "SkillName", skillNameList = { "召唤灵体", "魔卫复苏", "召唤魔侍" } })  } end,
 	["【召唤魔侍】 (%d+)%% 的物理伤害会转化为混沌伤害"]
 	= function(num) return { mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageConvertToChaos", "BASE", num) }, { type = "SkillName", skillName = "召唤魔侍" }) } end,
+	["【召唤的魔侍】将其  (%d+)%% 物理伤害转化为混沌伤害"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageConvertToChaos", "BASE", num) }, { type = "SkillName", skillName = "召唤魔侍" }) } end,
 	["所有([^\\x00-\\xff]*)石等级 %+(%d+)"] = function( _, type_Cn,num) return { mod("GemProperty", "LIST", {
 	keywordList =  {"active_skill",  type_Cn
 	:gsub("效果区域技能","aoe")
@@ -5189,6 +5192,9 @@ local specialModList = {
 	["使用该武器近战击中时触发 (%d+) 级火烈冲击"]= function(num)return {   mod("ExtraSkill", "LIST", {  skillId ="FieryImpactHeistMaceImplicit", level = tonumber(num), triggered = true})   } end,
 	["召唤生物攻击击中时有 (%d+)%% 几率穿刺目标"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("ImpaleChance", "BASE", num, 0, 0, KeywordFlag.Attack) })  } end,
 	["召唤生物攻击击中时有 (%d+)%% 的几率穿刺目标"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("ImpaleChance", "BASE", num, 0, 0, KeywordFlag.Attack) })  } end,
+	["召唤生物的攻击击中有 (%d+)%% 的几率施加【穿刺】"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("ImpaleChance", "BASE", num, 0, 0, KeywordFlag.Attack) })  } end,
+	["近期内创造的召唤生物攻击和施法速度加快 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
+	["近期内创造的召唤生物移动速度加快 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
 	["近期所召唤的召唤生物的攻击和施法速度提高 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
 	["近期所召唤的召唤生物的移动速度提高 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
 	["被你枯萎的敌人 (%-%d+)%% 所有抗性"]= function(num) return {
