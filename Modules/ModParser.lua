@@ -3809,7 +3809,7 @@ local specialModList = {
 	["无法获得属性加成"] = {
 	flag("NoAttributeBonus"),
 	},
-	["来自斧或剑的攻击击中时获得 %d+ 层怒火，每秒最多获得一层"] = {
+	["斧类或剑类攻击在击中时获得 %d+点【怒火】，每秒只能获得一次"] = {
 	flag("Condition:CanGainRage"),
 	mod("Dummy", "DUMMY", 1, { type = "Condition", var = "CanGainRage" }) -- Make the Configuration option appear
 	},

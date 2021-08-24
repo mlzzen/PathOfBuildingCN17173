@@ -7213,7 +7213,7 @@ c["此物品上装备的【光环技能石】等级 +1"]={{[1]={[1]={slotName="{
 c["攻击技能的闪电伤害提高 12%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=12}},nil}
 c["持弓攻击附加 5 - 10 基础火焰伤害"]={{[1]={flags=131076,keywordFlags=0,name="FireMin",type="BASE",value=5},[2]={flags=131076,keywordFlags=0,name="FireMax",type="BASE",value=10}},nil}
 c["陷阱所使用的技能范围扩大 15%"]={{[1]={flags=0,keywordFlags=4096,name="AreaOfEffect",type="INC",value=15}},nil}
-c["斧类或剑类攻击在击中时获得 1点【怒火】，每秒只能获得一次"]={nil,"斧类或剑类攻击在击中时获得 1点【怒火】，每秒只能获得一次 "}
+c["斧类或剑类攻击在击中时获得 1点【怒火】，每秒只能获得一次"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true},[2]={[1]={type="Condition",var="CanGainRage"},flags=0,keywordFlags=0,name="Dummy",type="DUMMY",value=1}},nil}
 c["其中 1 个增加的天赋为【死亡之愿】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="死亡之愿"}},nil}
 c["每一级在击败敌人时获得 +1 能量护盾"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},"击败敌人时  "}
 c["弓攻击附加 123 - 180 基础冰霜伤害"]={{[1]={flags=131076,keywordFlags=0,name="ColdMin",type="BASE",value=123},[2]={flags=131076,keywordFlags=0,name="ColdMax",type="BASE",value=180}},nil}
