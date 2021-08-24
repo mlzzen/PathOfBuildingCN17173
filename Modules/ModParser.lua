@@ -1122,6 +1122,7 @@ local preFlagList = {
 	["^【复苏的魔卫】打出重击攻击时，"] = { addToMinion = true, tag = { type = "SkillId", skillId = "ZombieSlam" } }, --备注：^raised zombies' slam attack has 
 	["^图腾所使用攻击的"] = { keywordFlags = KeywordFlag.Totem }, --备注：^attacks used by totems have 
 	["^图腾所使用法术的"] = { keywordFlags = KeywordFlag.Totem }, --备注：^spells cast by totems have 
+	["^图腾施放的法术造成的"] = { keywordFlags = KeywordFlag.Totem }, --备注：^spells cast by totems have 
 	["此武器攻击击中"] = { tag = { type = "Condition", var = "{Hand}Attack" } }, --备注：^attacks with this weapon 
 	["此武器的攻击"] = { tag = { type = "Condition", var = "{Hand}Attack" } }, --备注：^attacks with this weapon [hd][ae][va][el] 
 	["^该武器对"] = { flags = ModFlag.Hit, tag = { type = "Condition", var = "{Hand}Attack" } }, --备注：^hits with this weapon [hd][ae][va][el] 
@@ -1741,6 +1742,7 @@ local modTagList = {
 	["近期内你若格挡过法术，则"] = { tag = { type = "Condition", var = "BlockedSpellRecently" } }, --备注：if you[' ]h?a?ve blocked a spell recently
 	["过去 10 秒内你若成功格挡传奇怪物，则"] = { tag = { type = "Condition", var = "BlockedHitFromUniqueEnemyInPast10Sec" } }, --备注：if you[' ]h?a?ve blocked damage from a unique enemy in the past 10 seconds
 	["近期内你若有进行攻击，则"] = { tag = { type = "Condition", var = "AttackedRecently" } }, --备注：if you[' ]h?a?ve attacked recently
+	["若你近期内施放过法术，则"] = { tag = { type = "Condition", var = "CastSpellRecently" } }, --备注：if you[' ]h?a?ve cast a spell recently
 	["近期内你若有施放法术，则"] = { tag = { type = "Condition", var = "CastSpellRecently" } }, --备注：if you[' ]h?a?ve cast a spell recently
 	["近期内你若有消耗灵柩，则"] = { tag = { type = "Condition", var = "ConsumedCorpseRecently" } }, --备注：if you[' ]h?a?ve consumed a corpse recently
 	["若你近期内有消耗灵柩，则"] = { tag = { type = "Condition", var = "ConsumedCorpseRecently" } }, --备注：if you[' ]h?a?ve consumed a corpse recently
@@ -6636,6 +6638,8 @@ minus = -tonumber(minus)
 	["若你近期内有施放法术，则魔力回复率提高 (%d+)%%"] = function(num) return {  mod("ManaRecoveryRate", "INC", num, { type = "Condition", var = "CastSpellRecently" }) } end,
 	["若你近期内冻结过敌人，则魔力回复速度加快 (%d+)%%"] = function(num) return {  mod("ManaRegen", "INC", num, { type = "Condition", var = "FrozenEnemyRecently" }) } end,
 	["若你近期内使敌人感电，则魔力回复速度加快 (%d+)%%"] = function(num) return {  mod("ManaRegen", "INC", num, { type = "Condition", var = "ShockedEnemyRecently" }) } end,
+	["若你近期内诅咒了敌人，则每秒回复 (%d+)%% 能量护盾"] = function(num) return {  mod("EnergyShieldRegenPercent", "BASE", num,{ type = "Condition", var = "CursedEnemyRecently" })  } end,
+	["技能被【释出】辅助时，其封印获取频率提高 (%d+)%%"] = function(num) return { mod("SealGainFrequency", "INC", num) } end,
 }
 
 for _, name in pairs(data.keystones) do

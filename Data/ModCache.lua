@@ -932,7 +932,7 @@ c["晕眩门槛提高 10%"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",t
 c["每 10 点奉献使持续吟唱技能的伤害提高 4%"]={{[1]={[1]={skillType=57,type="SkillType"},[2]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=4}},nil}
 c["暴击球的持续时间延长 15%"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesDuration",type="INC",value=15}},nil}
 c["法术暴击率提高 (35-50)%"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="BASE",value=-50}},"提高 (35)% "}
-c["技能被【释出】辅助时，其封印获取频率提高 30%"]={{},"技能被【释出】辅助时，其封印获取频率 "}
+c["技能被【释出】辅助时，其封印获取频率提高 30%"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=30}},nil}
 c["+60 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=60}},nil}
 c["每个狂怒球可使移动速度提高 5%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=5}},nil}
 c["匕首攻击的暴击率提高 40%"]={{[1]={flags=524292,keywordFlags=0,name="CritChance",type="INC",value=40}},nil}
@@ -2082,7 +2082,7 @@ c["击中稀有或传奇敌人时，有 10% 的几率获得 1 个狂怒球 迷�
 c["靑春永驻"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="青春永驻"}},nil}
 c["击败敌人时有 10% 几率获得不洁之力 3 秒"]={{},"击败敌人时获得不洁之力 3 秒 "}
 c["在【奉献地面】上，你身上的诅咒效果降低 20%"]={{[1]={[1]={type="Condition",var="OnConsecratedGround"},flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=-20}},nil}
-c["技能被【释出】辅助时，其封印获取频率提高 10%"]={{},"技能被【释出】辅助时，其封印获取频率 "}
+c["技能被【释出】辅助时，其封印获取频率提高 10%"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=10}},nil}
 c["冰霜异常状态效果提高 20%"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=20},[2]={flags=0,keywordFlags=0,name="EnemyChillEffect",type="INC",value=20},[3]={flags=0,keywordFlags=0,name="EnemyBrittleEffect",type="INC",value=20}},nil}
 c["插槽内的技能石受到 20 级的 近战击晕获得耐力球 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="EnduranceChargeOnMeleeStun"}}},nil}
 c["对低血敌人，每个狂怒球可使伤害提高 30%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="LowLife"},[2]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
@@ -5171,7 +5171,7 @@ c["闪避值提高 12%"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC"
 c["反射 81 物理伤害给近战攻击者"]={{},nil}
 c["反射 90 物理伤害给近战攻击者"]={{},nil}
 c["若你近期内感电任意敌人，则伤害提高 10%"]={{[1]={[1]={type="Condition",var="ShockedEnemyRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
-c["若你近期内施放过法术，则 +6% 法术伤害格挡几率"]={{[1]={flags=2,keywordFlags=0,name="SpellBlockChance",type="BASE",value=6}},"若你近期内施放过，则   "}
+c["若你近期内施放过法术，则 +6% 法术伤害格挡几率"]={{[1]={[1]={type="Condition",var="CastSpellRecently"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=6}},nil}
 c["冰霜伤害提高 23%"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=23}},nil}
 c["+8% 地雷暴击伤害加成"]={{[1]={flags=0,keywordFlags=8192,name="CritMultiplier",type="BASE",value=8}},nil}
 c["此物品上的技能石受到 12 级的 护体 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=12,skillId="SupportFortify"}}},nil}
@@ -6997,7 +6997,7 @@ c["若你近期内被点燃，则你不会再被点燃 不受燃烧地面影响"
 c["锤类或短杖攻击造成的击中和异常状态伤害提高 10%"]={{[1]={flags=1048576,keywordFlags=786432,name="Damage",type="INC",value=10}},nil}
 c["其中 1 个增加的天赋为【欢欣预兆】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="欢欣预兆"}},nil}
 c["附加 2 - 4 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=2},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=4}},nil}
-c["图腾施放的法术造成的伤害提高 25%"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=25}},"施放的法术造成的 "}
+c["图腾施放的法术造成的伤害提高 25%"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=25}},nil}
 c["捷技能造成的伤害提高 40% 你身上的捷增益效果提高 20%"]={{[1]={[1]={skillType=62,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},"造成的 你身上的捷增益效果提高 20% "}
 c["每个狂怒球可使命中值提高 6%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=6}},nil}
 c["药剂持续期间，每秒受到 300 混沌伤害"]={nil,"药剂持续期间，每秒受到 300 混沌伤害 "}
@@ -9541,7 +9541,7 @@ c["其中 1 个增加的天赋为【暴风雪】"]={{[1]={flags=0,keywordFlags=0
 c["你格挡法术伤害时，用元素要害诅咒敌人，其效果提高 60%，且无视诅咒限制"]={{[1]={flags=0,keywordFlags=2,name="SpellBlockChance",type="INC",value=60}},"你时，用元素要害敌人，其效果，且无视诅咒限制 "}
 c["照亮范围缩小 20%"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-20}},nil}
 c["持握剑类时，+25 最大怒火"]={{[1]={[1]={type="Condition",varList={[1]="UsingSword"}},flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=25}},nil}
-c["若你近期内诅咒了敌人，则每秒回复 1% 能量护盾"]={{},"若你近期内了敌人，则"}
+c["若你近期内诅咒了敌人，则每秒回复 1% 能量护盾"]={{[1]={[1]={type="Condition",var="CursedEnemyRecently"},flags=0,keywordFlags=0,name="EnergyShieldRegenPercent",type="BASE",value=1}},nil}
 c["每 8 秒获得一次【火之化身】，持续 4 秒"]={nil,"每 8 秒获得一次【火之化身】，持续 4 秒 "}
 c["晕眩和格挡回复降低 50%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=-50}},nil}
 c["灵魂牧者"]={{[1]={[1]={neg=true,skillType=42,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=-30}},nil}
