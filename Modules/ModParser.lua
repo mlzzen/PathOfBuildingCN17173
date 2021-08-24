@@ -539,6 +539,7 @@ local modNameList = {
 	["to dodge spell hits"] = "SpellDodgeChance",
 	["to dodge spell damage"] = "SpellDodgeChance",
 	["躲避攻击和法术击中"] = { "AttackDodgeChance", "SpellDodgeChance" }, --备注：to dodge attacks and spells
+	["躲避攻击或法术击中"] = { "AttackDodgeChance", "SpellDodgeChance" }, --备注：to dodge attacks and spells
 	["to dodge attacks and spell damage"] = { "AttackDodgeChance", "SpellDodgeChance" },
 	["to dodge attack and spell hits"] = { "AttackDodgeChance", "SpellDodgeChance" },
 	["to block"] = "BlockChance",
@@ -1506,6 +1507,8 @@ local modTagList = {
 	["理智状态下，"] = { tag = { type = "Condition", var = "SaneInsanity" } },
 	["若过去 8 秒内你造成过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["若你近期内击中敌人，则"] = { tag = { type = "Condition", var = "HitRecently"} },
+	["若你近期内用主手武器击中，则"] = { tag = { type = "Condition", var = "HitRecentlyWithWeapon" } },
+	["若你近期内用副手武器击中，则"] = { tagList = { { type = "Condition", var = "HitRecentlyWithWeapon" }, { type = "Condition", var = "DualWielding" } } },
 	["处于【灌注】状态时，"] = { tag = { type = "Condition", var = "InfusionActive" } },
 	["【灌注】效果下，"] = { tag = { type = "Condition", var = "InfusionActive" } },
 	["若你近期内没有获得暴击球，则"] = { tag = { type = "Condition", var = "GainedPowerChargeRecently", neg = true } },
