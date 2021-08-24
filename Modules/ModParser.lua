@@ -4592,9 +4592,11 @@ local specialModList = {
 	["你有猫之敏捷时，具有猛攻效果"] = { flag("Condition:Onslaught", { type = "Condition", var = "AffectedBy猫之敏捷" }) },
 	["弓技能 ([%+%-]?%d+)%% 持续伤害加成"] = function(num) return { mod("DotMultiplier", "BASE",
 	num, nil,nil,KeywordFlag.Bow ) } end,
+	["弓类技能 ([%+%-]?%d+)%% 持续伤害加成"] = function(num) return { mod("DotMultiplier", "BASE",
+	num, nil,nil,KeywordFlag.Bow ) } end,
 	["弓技能的技能效果延长 (%d+)%%"] = function(num) return { mod("Duration", "INC",
 	num, nil,nil,KeywordFlag.Bow ) } end,
-	["持弓时，异常持续时间延长 (%d+)%%"] = function(num) return {
+	["持弓类时，施加的异常状态持续时间延长 (%d+)%%"] = function(num) return {
 	mod("EnemyShockDuration", "INC", num, { type = "Condition", var = "UsingBow" } ),
 	mod("EnemyFreezeDuration", "INC", num, { type = "Condition", var = "UsingBow" } ),
 	mod("EnemyChillDuration", "INC", num, { type = "Condition", var = "UsingBow" } ),
