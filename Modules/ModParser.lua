@@ -1298,6 +1298,7 @@ local modTagList = {
 	["若你近期内有格挡法术，则"] = { tag = { type = "Condition", var = "BlockedRecently" } }, 
 	["近期内你若有过格挡，则"] = { tag = { type = "Condition", var = "BlockedRecently" } }, 
 	["近期内你若有过格挡，"] = { tag = { type = "Condition", var = "BlockedRecently" } }, 
+	["若你近期内有过格挡，则"] = { tag = { type = "Condition", var = "BlockedRecently" } }, 
 	["每个轮回球可使"] = { tag = { type = "Multiplier", var = "SiphoningCharge" } }, 
 	["每 (%d+) 命中值可使"] = function(num) return { tag = { type = "PerStat", stat = "Accuracy", div = num } } end, 
 	["对致盲的敌人的"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Blinded" }}, --备注：against blinded enemies
@@ -4848,6 +4849,7 @@ local specialModList = {
 	} end,
 	["若近期你没有格挡，则暴击几率提高  (%d+)%%"]= function(num) return {  mod("CritChance", "INC", tonumber(num),{ type = "Condition", var = "BlockedRecently" , neg = true}  )  } end,
 	["若近期你没有格挡，则暴击几率提高 (%d+)%%"]= function(num) return {  mod("CritChance", "INC", tonumber(num),{ type = "Condition", var = "BlockedRecently" , neg = true}  )  } end,
+	["若你近期内没有格挡，则暴击率提高 (%d+)%%"]= function(num) return { mod("CritChance", "INC", tonumber(num),{ type = "Condition", var = "BlockedRecently" , neg = true}  )  } end,
 	["【闪现射击】和【魅影射击】的冷却回复速度提高 (%d+)%%"]= function(num) return {
 	mod("CooldownRecovery", "INC", tonumber(num),{ type = "SkillName", skillName = "闪现射击" }  ),
 	mod("CooldownRecovery", "INC", tonumber(num),{ type = "SkillName", skillName = "魅影射击" }  )
