@@ -4064,7 +4064,7 @@ local specialModList = {
 	["召唤生物获得 %+(%d+)%% 格挡法术伤害率"]= function(num) return {   mod("MinionModifier", "LIST", { mod = mod("SpellBlockChance", "BASE", num) })   } end,
 	["魔像提供的增益效果提高 (%d+)%%"]  = function(num) return { mod("BuffEffect", "INC", num, { type = "SkillType", skillType = SkillType.Golem })   } end,
 	["每 (%d+) 点最大魔力会使法术伤害提高 (%d+)%%，最多 (%d+)%%"] = function(_,num1,num2,num3)return {  mod("Damage", "INC", tonumber(num2), nil,ModFlag.Spell,{ type = "PerStat", stat = "Mana", div = tonumber(num1), limit = tonumber(num3), limitTotal = true  }) } end,
-	["每有 (%d+) 最大魔力，混沌伤害提高 (%d+)%% ，最多提高 (%d+)%%"] = function(_,num1,num2,num3)return {  mod("ChaosDamage", "INC", tonumber(num2), { type = "PerStat", stat = "Mana", div = tonumber(num1), limit = tonumber(num3), limitTotal = true  }) } end,
+	["每 (%d+) 点最大魔力就使混沌伤害提高 (%d+)%%，最多提高 (%d+)%%"] = function(_,num1,num2,num3)return {  mod("ChaosDamage", "INC", tonumber(num2), { type = "PerStat", stat = "Mana", div = tonumber(num1), limit = tonumber(num3), limitTotal = true  }) } end,
 	["每 (%d+) 魔力提高 (%d+)%% 法术伤害，最多 (%d+)%%"] = function(_,num1,num2,num3)return {  mod("Damage", "INC", tonumber(num2), nil,ModFlag.Spell,{ type = "PerStat", stat = "Mana", div = tonumber(num1), limit = tonumber(num3), limitTotal = true  }) } end,
 	["每 (%d+) 生命保留 %+(%d+) 最大能量护盾"] = function( _, num1,num2,limit)  return { mod("EnergyShield", "BASE", tonumber(num2), { type = "PerStat", stat = "LifeReserved", div = tonumber(num1), limit = tonumber(limit), limitTotal = true })   } end,
 	["每 (%d+) 点生命保留 %+(%d+) 最大能量护盾"] = function( _, num1,num2,limit)  return { mod("EnergyShield", "BASE", tonumber(num2), { type = "PerStat", stat = "LifeReserved", div = tonumber(num1), limit = tonumber(limit), limitTotal = true })   } end,
@@ -6640,6 +6640,8 @@ minus = -tonumber(minus)
 	["若你近期内使敌人感电，则魔力回复速度加快 (%d+)%%"] = function(num) return {  mod("ManaRegen", "INC", num, { type = "Condition", var = "ShockedEnemyRecently" }) } end,
 	["若你近期内诅咒了敌人，则每秒回复 (%d+)%% 能量护盾"] = function(num) return {  mod("EnergyShieldRegenPercent", "BASE", num,{ type = "Condition", var = "CursedEnemyRecently" })  } end,
 	["技能被【释出】辅助时，其封印获取频率提高 (%d+)%%"] = function(num) return { mod("SealGainFrequency", "INC", num) } end,
+	["被你缓速的敌人受到的混沌伤害提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("ChaosDamageTaken", "INC", num, { type = "Condition", var = "Hindered" } ) } ) } end,
+
 }
 
 for _, name in pairs(data.keystones) do

@@ -812,7 +812,7 @@ c["该装备的物理伤害提高 155%"]={{[1]={flags=0,keywordFlags=0,name="Phy
 c["无法使用头部装备"]={nil,"无法使用头部装备 "}
 c["近期内你若被击中过，则火焰伤害提高 100%"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=100}},nil}
 c["静止时获得【霸体】"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="Keystone",type="LIST",value="霸体"}},nil}
-c["每 100 点最大魔力就使混沌伤害提高 2%，最多提高 80%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=2}},"每 100 点就使混沌伤害，最多提高 80% "}
+c["每 100 点最大魔力就使混沌伤害提高 2%，最多提高 80%"]={{[1]={[1]={div=100,limit=80,limitTotal=true,stat="Mana",type="PerStat"},flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=2}},nil}
 c["冰霜伤害提高 (25-35)% 伤害穿透 (2-4)% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="BASE",value=-35}},"提高 (25)% 伤害穿透 (2-4)% 冰霜抗性 "}
 c["你造成的烈毒的伤害生效速度加快 20%"]={{[1]={flags=0,keywordFlags=0,name="PoisonFaster",type="INC",value=20}},nil}
 c["插入的技能石同时消耗生命并保留生命而非消耗和保留魔力"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportBloodMagicUniquePrismGuardian"}}},nil}
@@ -9148,7 +9148,7 @@ c["攻击者格挡时反射 4 到 8 物理伤害 30% 法术格挡几率"]={nil,"
 c["攻击附加 1 - 4 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=4}},nil}
 c["攻击有 15% 的几率导致流血"]={{[1]={flags=1,keywordFlags=0,name="BleedChance",type="BASE",value=15}},nil}
 c["从生命偷取中获得的最大总恢复量降低 50%"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechInstance",type="INC",value=-50}},nil}
-c["被你缓速的敌人受到的混沌伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamageTaken",type="INC",value=10}},"被你缓速的敌人 "}
+c["被你缓速的敌人受到的混沌伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Hindered"},flags=0,keywordFlags=0,name="ChaosDamageTaken",type="INC",value=10}}}},nil}
 c["伤害提高 12%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["技能的保留效果降低 8%"]={{[1]={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-8}},nil}
 c["+13% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=13}},nil}
