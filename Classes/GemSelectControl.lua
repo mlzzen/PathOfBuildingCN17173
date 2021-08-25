@@ -541,28 +541,34 @@ self.tooltip:AddLine(16, string.format("^x7F7F7F冷却时间: ^7%.2f 秒", grant
 			self.tooltip:AddLine(16, string.format("^x7F7F7F生命消耗: ^7%d%%", grantedEffectLevel.cost.LifePercent))
 		end
 		if grantedEffectLevel.cooldown then
-self.tooltip:AddLine(16, string.format("^x7F7F7F冷却时间: ^7%.2f 秒", grantedEffectLevel.cooldown))
+			self.tooltip:AddLine(16, string.format("^x7F7F7F冷却时间: ^7%.2f 秒", grantedEffectLevel.cooldown))
+		end
+		if grantedEffectLevel.critChance then
+			self.tooltip:AddLine(16, string.format("^x7F7F7F暴击几率: ^7%.2f%%", grantedEffectLevel.critChance))
 		end
 		if gemInstance.gemData.tags.attack then
 			if grantedEffectLevel.attackSpeedMultiplier then
-self.tooltip:AddLine(16, string.format("^x7F7F7F攻击速度加成: ^7%d%% 基础", grantedEffectLevel.attackSpeedMultiplier + 100))
+				self.tooltip:AddLine(16, string.format("^x7F7F7F攻击速度加成: ^7%d%% 基础", grantedEffectLevel.attackSpeedMultiplier + 100))
+			end
+			if grantedEffectLevel.attackTime then
+				self.tooltip:AddLine(16, string.format("^x7F7F7F攻击时间: ^7%.2f sec", grantedEffectLevel.attackTime / 1000))
+			end
+			if grantedEffectLevel.baseMultiplier then
+				self.tooltip:AddLine(16, string.format("^x7F7F7F攻击伤害: ^7%g%% of base", grantedEffectLevel.baseMultiplier * 100))
 			end
 		else
 			if grantedEffect.castTime > 0 then
-self.tooltip:AddLine(16, string.format("^x7F7F7F施放时间: ^7%.2f 秒", grantedEffect.castTime))
+				self.tooltip:AddLine(16, string.format("^x7F7F7F施放时间: ^7%.2f 秒", grantedEffect.castTime))
 			else
-self.tooltip:AddLine(16, "^x7F7F7F施放时间: ^7瞬发")
-			end
-			if grantedEffectLevel.critChance then
-self.tooltip:AddLine(16, string.format("^x7F7F7F暴击几率: ^7%.2f%%", grantedEffectLevel.critChance))
+				self.tooltip:AddLine(16, "^x7F7F7F施放时间: ^7瞬发")
 			end
 		end
 		if grantedEffectLevel.damageEffectiveness then
-self.tooltip:AddLine(16, string.format("^x7F7F7F伤害效用: ^7%d%%", grantedEffectLevel.damageEffectiveness * 100))
+			self.tooltip:AddLine(16, string.format("^x7F7F7F伤害效用: ^7%d%%", grantedEffectLevel.damageEffectiveness * 100))
 		end
 	end
 	if addReq and displayInstance.quality > 0 then
-self.tooltip:AddLine(16, string.format("^x7F7F7F品质: "..colorCodes.MAGIC.."+%d%%^7%s",
+			self.tooltip:AddLine(16, string.format("^x7F7F7F品质: "..colorCodes.MAGIC.."+%d%%^7%s",
 			gemInstance.quality,
 			(displayInstance.quality > gemInstance.quality) and " ("..colorCodes.MAGIC.."+"..(displayInstance.quality - gemInstance.quality).."^7)" or ""
 		))

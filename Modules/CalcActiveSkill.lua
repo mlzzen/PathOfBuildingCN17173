@@ -430,6 +430,9 @@ activeEffect.grantedEffectLevel = activeGrantedEffect.levels[activeEffect.level]
 	if level.damageMultiplier then
 		skillModList:NewMod("Damage", "MORE", level.damageMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
 	end
+	if level.attackTime then
+		activeSkill.skillData.attackTime = level.attackTime
+	end
 	if level.attackSpeedMultiplier then
 		skillModList:NewMod("Speed", "MORE", level.attackSpeedMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
 	end
