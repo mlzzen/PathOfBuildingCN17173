@@ -6641,7 +6641,8 @@ minus = -tonumber(minus)
 	["若你近期内诅咒了敌人，则每秒回复 (%d+)%% 能量护盾"] = function(num) return {  mod("EnergyShieldRegenPercent", "BASE", num,{ type = "Condition", var = "CursedEnemyRecently" })  } end,
 	["技能被【释出】辅助时，其封印获取频率提高 (%d+)%%"] = function(num) return { mod("SealGainFrequency", "INC", num) } end,
 	["被你缓速的敌人受到的混沌伤害提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("ChaosDamageTaken", "INC", num, { type = "Condition", var = "Hindered" } ) } ) } end,
-
+	["盾牌上每有 (%d+) 点最大能量护盾都使副手暴击率 %+([%d%.]+)%%"] = function(_,es_num,cc_num) return { mod("CritChance", "BASE", cc_num, { type = "Condition", var = "OffHandAttack" },{ type = "SkillType", skillType = SkillType.Attack }, { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = es_num }) } end,	
+	["盾牌上每有 (%d+) 点最大能量护盾都使副手暴击伤害加成 %+([%d%.]+)%%"] = function(_,es_num,cc_num) return { mod("CritMultiplier", "BASE", cc_num, { type = "Condition", var = "OffHandAttack" },{ type = "SkillType", skillType = SkillType.Attack }, { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = es_num }) } end,
 }
 
 for _, name in pairs(data.keystones) do
