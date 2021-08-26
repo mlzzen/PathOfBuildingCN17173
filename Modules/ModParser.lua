@@ -909,6 +909,8 @@ local modFlagList = {
 	["投掷陷阱的"] = { keywordFlags = KeywordFlag.Trap },
 	["爪的"] ={ flags = bor(ModFlag.Claw, ModFlag.Hit) },
 	["锤, 短杖或长杖攻击时，"] = { flags = ModFlag.Hit, tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Mace, ModFlag.Staff) } },
+	["锤类、短杖、长杖的"] = { flags = ModFlag.Hit, tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Mace, ModFlag.Staff) } },
+	["锤类、短杖、长杖攻击造成的"] = { flags = ModFlag.Hit, tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Mace, ModFlag.Staff) } },
 	["爪或匕首攻击时，"] = { flags = ModFlag.Hit, tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
 	["爪类或匕首的"] = { tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
 	["爪类或匕首"] = { tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
@@ -1177,6 +1179,7 @@ local modTagList = {
 	["持爪类或匕首时，"] = { tag = { type = "Condition", varList ={ "UsingClaw", "UsingDagger" } } },
 	["持锤, 短杖或长杖时，"] = { tag = { type = "Condition", varList = { "UsingMace", "UsingStaff" } } },
 	["持锤, 短杖或长杖时"] = { tag = { type = "Condition", varList = { "UsingMace", "UsingStaff" } } },
+	["持锤类、短杖、长杖时，"] = { tag = { type = "Condition", varList = { "UsingMace", "UsingStaff" } } },
 	["盾牌上每有 (%d+) 能量护盾可获得  "] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num } } end,
 	["每 (%d+)%% 的攻击格挡率会使"] = function(num) return { tag = { type = "PerStat", stat = "BlockChance", div = num } } end,
 	["每 (%d+)%% 攻击伤害格挡几率"] = function(num) return { tag = { type = "PerStat", stat = "BlockChance", div = num } } end,
@@ -4158,7 +4161,7 @@ local specialModList = {
 	["若你已经持续吟唱至少 1 秒,则 %+(%d+)%% 暴击伤害"]= function(num) return {  mod("CritMultiplier", "BASE", tonumber(num),{ type = "Condition", var = "OnChannelling" } )  }end,
 	["若你近期内至少持续吟唱 1 秒，则 %+(%d+)%% 暴击伤害加成"]= function(num) return {  mod("CritMultiplier", "BASE", tonumber(num),{ type = "Condition", var = "OnChannelling" } )  }end,
 	["持锤, 短杖或长杖时有 (%d+)%% 几率造成双倍伤害"] = function(num) return {  mod("DoubleDamageChance", "BASE", tonumber(num),{ type = "Condition", varList = { "UsingMace", "UsingStaff" } } )  }end,
-	["持锤, 短杖或长杖时有 (%d+)%% 的几率造成双倍伤害"] = function(num) return {  mod("DoubleDamageChance", "BASE", tonumber(num),{ type = "Condition", varList = { "UsingMace", "UsingStaff" } } )  }end,
+	["持锤类、短杖、长杖时，有 (%d+)%% 的几率造成双倍伤害"] = function(num) return {  mod("DoubleDamageChance", "BASE", tonumber(num),{ type = "Condition", varList = { "UsingMace", "UsingStaff" } } )  }end,
 	["法杖攻击有 (%d+)%% 的物理伤害转换为闪电伤害"] = function(num) return {  mod("PhysicalDamageConvertToLightning", "BASE", num,nil, ModFlag.Wand)  } end,
 	["无法造成点燃，冰缓，冰冻或感电"]  = { flag("CannotFreeze"), flag("CannotChill"),flag("CannotIgnite"),flag("CannotShock") },
 	["攻击投射物必定造成流血和瘫痪，和击退敌人"] =function() return {
@@ -4241,10 +4244,10 @@ local specialModList = {
 	["最近8秒内你若有使用战吼，则获得 (%d+)%% 额外物理伤害减伤"]= function(num) return { mod("PhysicalDamageReduction", "BASE", num, { type = "Condition", var = "UsedWarcryInPast8Seconds" } ) } end,
 	["命中值提高 (%d+)%%"]= function(num) return { mod("Accuracy", "INC", num,{ type = "Global" } ) } end,
 	["近期内你若有使用战吼，([%+%-]?%d+)%% 近战暴击伤害"]= function(num) return { mod("CritMultiplier", "BASE", num,nil,ModFlag.Melee , { type = "Condition", var = "UsedWarcryRecently" } ) } end,
-	["你和周围友军的暴击几率提高 (%d+)%%"] = function(num) return {
+	["你和周围友军的暴击率提高 (%d+)%%"] = function(num) return {
 	mod("ExtraAura", "LIST", { mod =  mod("CritChance", "INC", num) }) ,
 	} end,
-	["你和周围友军 ([%+%-]?%d+)%% 暴击伤害"] = function(num) return {
+	["你和周围友军 ([%+%-]?%d+)%% 暴击伤害加成"] = function(num) return {
 	mod("ExtraAura", "LIST", { mod =  mod("CritMultiplier", "BASE", num) }) ,
 	} end,
 	["旗帜技能的魔力保留降低 (%d+)%% "]=function(num) return {  mod("ManaReserved", "INC", -num,{ type = "SkillName", skillNameList = { "恐怖之旗", "战旗" } } )  } end,
@@ -5749,6 +5752,11 @@ local specialModList = {
 			mod("PhysicalDamageReduction", "BASE", num, { type = "Multiplier", var = "StationarySeconds", limit = tonumber(limit), limitTotal = true }),
 		} end,
 	["静止时，每秒可使范围效果扩大 (%d+)%% ，最多 (%d+)%%"] = function(num, _, limit) return {
+			flag("Condition:Stationary"),
+			mod("Dummy", "DUMMY", 1, { type = "Condition", var = "Stationary" }), -- Make the Configuration option appear 
+			mod("AreaOfEffect", "INC", num, { type = "Multiplier", var = "StationarySeconds", limit = tonumber(limit), limitTotal = true }),
+		} end,
+	["静止时，效果区域每秒扩大 (%d+)%%，最大 (%d+)%%"] = function(num, _, limit) return {
 			flag("Condition:Stationary"),
 			mod("Dummy", "DUMMY", 1, { type = "Condition", var = "Stationary" }), -- Make the Configuration option appear 
 			mod("AreaOfEffect", "INC", num, { type = "Multiplier", var = "StationarySeconds", limit = tonumber(limit), limitTotal = true }),
