@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PoBVersion>
-	<Version number="S16.0.0" platform="win32" branch="master"/>
-	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/tree-3_7.zip" part="tree-3_7"/>
-	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/" part="program"/>
-	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/tree-3_8.zip" part="tree-3_8"/>
-	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/tree-3_10.zip" part="tree-3_10"/>
-	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/tree-3_9.zip" part="tree-3_9"/>
-	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/tree.zip" part="tree"/>
-	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/runtime-win32.zip" part="runtime" platform="win32"/>
-	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/tree-2_6.zip" part="tree-2_6"/>
-	<Source url="https://lucifering.coding.net/p/PathOfBuilding/d/PathOfBuilding/git/raw/{branch}/tree-3_6.zip" part="tree-3_6"/>
+	<Version number="S16.1.0" platform="win32" branch="main"/>
+	<Source url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/tree-3_7.zip" part="tree-3_7"/>
+	<Source url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}" part="program"/>
+	<Source url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}tree-3_8.zip" part="tree-3_8"/>
+	<Source url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}tree-3_10.zip" part="tree-3_10"/>
+	<Source url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}tree-3_9.zip" part="tree-3_9"/>
+	<Source url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}tree.zip" part="tree"/>
+	<Source url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}runtime-win32.zip" part="runtime" platform="win32"/>
+	<Source url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}tree-2_6.zip" part="tree-2_6"/>
+	<Source url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}tree-3_6.zip" part="tree-3_6"/>
 	<File sha1="73508b9d0ab55d973338b2e381a3b5dce9a83b10" name="Classes/ListControl.lua" part="program"/>
 	<File sha1="de316fe9bb9c2be569ebc2244cf10d0383cecb12" name="Data/Uniques/bow.lua" part="program"/>
 	<File sha1="aef484bd71601b7eb38591557780c2e8f51c5c25" name="Data/Bases/bow.lua" part="program"/>

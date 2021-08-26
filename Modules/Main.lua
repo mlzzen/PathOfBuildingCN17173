@@ -152,7 +152,6 @@ self.controls.applyUpdate = new("ButtonControl", {"BOTTOMLEFT",self.anchorMain,"
 	self.controls.applyUpdate.shown = function()
 		return launch.updateAvailable and launch.updateAvailable ~= "none"
 	end
-	--[[
 	self.controls.checkUpdate = new("ButtonControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, 0, -24, 140, 20, "", function()
 		launch:CheckForUpdate()
 	end)
@@ -165,7 +164,6 @@ return launch.updateCheckRunning and launch.updateProgress or "检查更新"
 	self.controls.checkUpdate.enabled = function()
 		return not launch.updateCheckRunning
 	end
-	--]]
 	self.controls.versionLabel = new("LabelControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, 144, -27, 0, 14, "")
 	self.controls.versionLabel.label = function()
 		return "^8Version: "..launch.versionNumber..(launch.versionBranch == "dev" and " (Dev)" or "")
