@@ -1277,7 +1277,7 @@ local modTagList = {
 	["拥有最大数量的狂怒球时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" } }, --备注：while at maximum frenzy charges
 	["近期内你若打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["近期内你若有打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
-	["近期内你若有打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } }, --备注：if you[' ]h?a?ve dealt a critical strike recently
+	["若你近期内造成暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } }, --备注：if you[' ]h?a?ve dealt a critical strike recently
 	["近期内你若打出暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["当不拥有耐力球时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", threshold = 0, upper = true } },
 	["中毒时 "] = { tag = { type = "Condition", var = "Poisoned" } }, 
