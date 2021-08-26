@@ -18,6 +18,7 @@ def update_manifest(version: Optional[str] = None, replace: bool = False):
     :return:
     """
     base_path = pathlib.Path()
+    print("start")
     try:
         manifest = xml.etree.ElementTree.parse(base_path / "manifest.xml")
     except FileNotFoundError:
