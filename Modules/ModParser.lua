@@ -4369,7 +4369,7 @@ local specialModList = {
 	{ mod("MinionModifier", "LIST", { mod =  mod("LifeConvertToEnergyShield", "BASE", tonumber(num2)
 	,{ type = "PerStat", stat = "ChaosResist", div = tonumber(num1) }
 	)  })  } end,
-	["每受到一个捷技能影响，你身上的光环技能的效果提高 (%d+)%%，最多提高 (%d+)%%"] = function(num, _, limit) return {
+	["每有一个影响你的捷效果都使你身上来自技能的光环增益效果提高 (%d+)%%，最多 (%d+)%%"] = function(num, _, limit) return {
 	mod("PurpHarbAuraBuffEffect", "INC", num, { type = "Multiplier", var = "AffectedByHeraldCount" })
 	-- Maximum buff effect is handled in CalcPerform, PurpHarbAuraBuffEffect is capped with a constant there.
 	} end,
@@ -5846,6 +5846,7 @@ local specialModList = {
 	["投掷地雷类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num,{ type = "SkillType", skillType = SkillType.Mine }  )  } end,
 	["诅咒光环类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num, { type = "SkillType", skillType = SkillType.Hex }   )  } end,
 	["旗帜类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num,{ type = "SkillType", skillType = SkillType.Banner }  )  } end,
+	["旗帜技能的保留效果降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num,{ type = "SkillType", skillType = SkillType.Banner }  )  } end,
 	["姿态类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num, { type = "SkillType", skillType = SkillType.StanceSkill } )  } end,
 	["姿态技能的保留效果降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num, { type = "SkillType", skillType = SkillType.StanceSkill } )  } end,
 	["捷技能的保留效果降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num,{ type = "SkillType", skillType = SkillType.Herald }  )  } end,
