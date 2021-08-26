@@ -30,7 +30,7 @@
 	<File name="Classes/EditControl.lua" part="program" sha1="4723c91b72f6b82f4a9a2a7d9aebc68185ed4d73" />
 	<File name="TreeData/ClassesHierophant.png" part="tree" sha1="77b64ca79f2589deb7de554d19918ff3292643e4" />
 	<File name="TreeData/legion/skills-additional-disabled-3.jpg" part="program" sha1="988e3d5a1b489fb8ae4eb3647f32fec689c6eddb" />
-	<File name="Launch.lua" part="program" sha1="6df1399a77a061f791e27761ca47bd5f65ae574e" />
+	<File name="Launch.lua" part="program" sha1="d038d5f861ceaff0188ab7183b574abc44bd18b1" />
 	<File name="TreeData/3_9/skills-3.jpg" part="tree-3_9" sha1="119218595a02d38e11ac331d4920d23f8acc86de" />
 	<File name="TreeData/JewelSocketActiveBlueAlt.png" part="tree" sha1="6a10f1e1eb0400ef81057467fc38cca719b52418" />
 	<File name="TreeData/SilverOil.png" part="tree" sha1="32dc522afeae7a792fa2488d7bc2aeb7d45adf7a" />
@@ -194,7 +194,7 @@
 	<File name="TreeData/PassiveSkillScreenAscendancyMiddle.png" part="tree" sha1="7bad658a6a0140d747c7f403d73b1fe6b8b3939e" />
 	<File name="TreeData/3_14/groups-3.png" part="program" sha1="fe91708e0c16dc1bab7ee3f436914ef7201df9c9" />
 	<File name="Launch.dl" part="program" sha1="04107e43ac3a2a32fe721b5951e0f5904ab50cc6" />
-	<File name="changelog.txt" part="program" sha1="01d461df8ea7bc52881fce866ea02ef2d9c8e107" />
+	<File name="changelog.txt" part="program" sha1="109384fc83335e44e3352923c8d71cc4dea1a3fe" />
 	<File name="Classes/CalcsTab.lua" part="program" sha1="aa1db2762101ec8c1f3f03d8b67b22cb6eead18c" />
 	<File name="Data/Skills/act_dex.lua" part="program" sha1="07278a8e9b5616fd18e17b3b75298086dca295f4" />
 	<File name="TreeData/BackgroundInt.png" part="tree" sha1="b9871a87c189bcc55b4b76c9e1b341f6d3099deb" />
