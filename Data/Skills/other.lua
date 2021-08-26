@@ -2763,7 +2763,7 @@ skills["SummonHarbingerOfTimeUber"] = {
 		minion = true,
 	},
 	baseMods = {
-mod("ActionSpeed", "INC", 20, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "召唤高等时空先驱者", modCond = "GreaterHarbingerOfTime" }),
+mod("ActionSpeed", "INC", 10, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "召唤高等时空先驱者", modCond = "GreaterHarbingerOfTime" }),
 		skill("buffMinions", true),
 	},
 	qualityStats = {
@@ -2922,7 +2922,7 @@ skills["SummonHarbingerOfTime"] = {
 		minion = true,
 	},
 	baseMods = {
-mod("ActionSpeed", "INC", 20, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "召唤时空先驱者", modCond = "HarbingerOfTime" }),
+mod("ActionSpeed", "INC", 10, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "召唤时空先驱者", modCond = "HarbingerOfTime" }),
 		skill("buffMinions", true),
 	},
 	qualityStats = {
@@ -3541,10 +3541,9 @@ skills["FieryImpactHeistMaceImplicit"] = {
 		"is_area_damage",
 		"skill_has_trigger_from_unique_item",
 	},
-	statInterpolation = { 1, },
 	levels = {
-		[10] = { 60, damageEffectiveness = 2, cooldown = 2, baseMultiplier = 2, levelRequirement = 30, },
-		[15] = { 60, damageEffectiveness = 2.5, cooldown = 2, baseMultiplier = 2.5, levelRequirement = 50, },
-		[20] = { 60, damageEffectiveness = 3, cooldown = 2, baseMultiplier = 3, levelRequirement = 70, },
+		[10] = { 60, damageEffectiveness = 2, cooldown = 2, baseMultiplier = 2, levelRequirement = 30, statInterpolation = { 1, }, cost = { }, },
+		[15] = { 60, damageEffectiveness = 2.5, cooldown = 2, baseMultiplier = 2.5, levelRequirement = 50, statInterpolation = { 1, }, cost = { }, },
+		[20] = { 60, damageEffectiveness = 3, cooldown = 2, baseMultiplier = 3, levelRequirement = 70, statInterpolation = { 1, }, cost = { }, },
 	},
 }
