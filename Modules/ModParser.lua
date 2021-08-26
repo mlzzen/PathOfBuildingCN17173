@@ -718,6 +718,7 @@ local modNameList = {
 	["近战物理伤害"] = { "PhysicalDamage", flags = ModFlag.Melee }, --备注：melee physical damage
 	["投射物伤害"] = { "Damage", flags = ModFlag.Projectile }, --备注：projectile damage
 	["投射物攻击伤害"] = { "Damage", flags = bor(ModFlag.Projectile, ModFlag.Attack) }, --备注：projectile attack damage
+	["对周围敌人的投射物击中伤害"] = { "Damage", flags = bor(ModFlag.Projectile), keywordFlags = KeywordFlag.Hit },
 	["bow damage"] = { "Damage", flags = ModFlag.Bow },
 	["damage with arrow hits"] = { "Damage", flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["wand damage"] = { "Damage", flags = ModFlag.Wand },
@@ -974,6 +975,7 @@ local modFlagList = {
 	["近战攻击击中后"] = { flags = ModFlag.Melee }, --备注：on melee hit
 	["击中"] = { keywordFlags = KeywordFlag.Hit }, --备注：with hits
 	["击中和异常状态"] = { keywordFlags = bor(KeywordFlag.Hit, KeywordFlag.Ailment) }, --备注：with hits and ailments
+	["with hits against nearby enemies"] = { keywordFlags = KeywordFlag.Hit },
 	["with ailments"] = { flags = ModFlag.Ailment },
 	["攻击技能造成的异常状态"] = { flags = ModFlag.Ailment, keywordFlags = KeywordFlag.Attack }, --备注：with ailments from attack skills
 	["中毒"] = { keywordFlags = KeywordFlag.Poison }, --备注：with poison
@@ -6652,6 +6654,7 @@ minus = -tonumber(minus)
 	["被你缓速的敌人受到的混沌伤害提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("ChaosDamageTaken", "INC", num, { type = "Condition", var = "Hindered" } ) } ) } end,
 	["盾牌上每有 (%d+) 点最大能量护盾都使副手暴击率 %+([%d%.]+)%%"] = function(_,es_num,cc_num) return { mod("CritChance", "BASE", cc_num, { type = "Condition", var = "OffHandAttack" },{ type = "SkillType", skillType = SkillType.Attack }, { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = es_num }) } end,	
 	["盾牌上每有 (%d+) 点最大能量护盾都使副手暴击伤害加成 %+([%d%.]+)%%"] = function(_,es_num,cc_num) return { mod("CritMultiplier", "BASE", cc_num, { type = "Condition", var = "OffHandAttack" },{ type = "SkillType", skillType = SkillType.Attack }, { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = es_num }) } end,
+	["每次剩余连锁都使投射物的击中和异常状态伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,0,bor(KeywordFlag.Hit, KeywordFlag.Ailment) , { type = "PerStat", stat = "ChainRemaining" }) } end,
 }
 
 for _, name in pairs(data.keystones) do

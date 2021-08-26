@@ -855,7 +855,7 @@ c["你击败的被点燃敌人将会被歼灭"]={nil,"你击败的被点燃敌�
 c["插入技能的诅咒光环也作用于你自身"]={nil,"插入技能的诅咒光环也作用于你自身 "}
 c["物理伤害提高 24%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=24}},nil}
 c["魔蛊区域结束时，区域中的魔蛊直接获得最大灭能。"]={nil,"魔蛊区域结束时，区域中的魔蛊直接获得最大灭能。 "}
-c["对周围敌人的投射物击中伤害提高 35%"]={{[1]={flags=0,keywordFlags=262144,name="ProjectileCount",type="INC",value=35}},"对周围敌人的伤害 "}
+c["对周围敌人的投射物击中伤害提高 35%"]={{[1]={flags=1024,keywordFlags=262144,name="Damage",type="INC",value=35}},nil}
 c["若你近期内有击败敌人，则效果区域扩大 5%，最多 50%"]={{[1]={[1]={limit=50,limitTotal=true,type="Multiplier",var="EnemyKilledRecently"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value="5"}},nil}
 c["受到魔侍的伤害提高 10%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},"受到 "}
 c["+4% 火焰持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="FireDotMultiplier",type="BASE",value=4}},nil}
@@ -8284,7 +8284,7 @@ c["攻击和法术无法被闪避"]={{[1]={[1]={type="Condition",var="{Hand}Atta
 c["当你施放法术时，献祭所有魔力，获得等同于献祭魔力 25% 的附加最大闪电伤害，持续 4 秒"]={{[1]={[1]={div=4,stat="ManaUnreserved",type="PerStat"},flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=1}},nil}
 c["暴走状态结束时失去所有耐力球"]={nil,"暴走状态结束时失去所有耐力球 "}
 c["击中你的敌人有 10% 的几率获得一个耐力球， 狂怒球或暴击球"]={{},"你的敌人获得一个耐力球， 狂怒球或暴击球 "}
-c["每次剩余连锁都使投射物的击中和异常状态伤害提高 15%"]={{[1]={flags=0,keywordFlags=786432,name="ProjectileCount",type="INC",value=15}},"每次剩余连锁都使的伤害 "}
+c["每次剩余连锁都使投射物的击中和异常状态伤害提高 15%"]={{[1]={[1]={stat="ChainRemaining",type="PerStat"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=15}},nil}
 c["此物品上的技能石受到 1 级的 异常爆发 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportAilments"}}},nil}
 c["插槽内的技能石被等级 1 的【箭之新星】辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportArrowNova"}}},nil}
 c["闪电异常效果提高 30%"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockEffect",type="INC",value=30},[2]={flags=0,keywordFlags=0,name="EnemySapEffect",type="INC",value=30}},nil}
