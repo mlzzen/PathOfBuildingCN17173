@@ -785,7 +785,7 @@ local modNameList = {
 	["属性需求"] = { "StrRequirement", "DexRequirement", "IntRequirement" }, --备注：attribute requirements
 	["插槽内的珠宝效果"] = "SocketedJewelEffect", --备注：effect of socketed jewels
 	-- Flask modifiers
-	-- ["效果"] = "FlaskEffect", --备注：effect
+	["效果"] = "FlaskEffect", --备注：effect
 	["effect of flasks"] = "FlaskEffect",
 	["药剂效果"] = "FlaskEffect", --备注：effect of flasks on you
 	["回复量"] = "FlaskRecovery", --备注：amount recovered
