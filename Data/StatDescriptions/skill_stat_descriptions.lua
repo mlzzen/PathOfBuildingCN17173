@@ -10717,6 +10717,30 @@ return {
 	},
 	[345]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="被击中时，受到的火焰伤害总增 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="被击中时，受到的火焰伤害总降 {0}%"
+				}
+			}
 		},
 		name="arctic_armour_fire_damage",
 		stats={
