@@ -176,10 +176,10 @@ return {
 					icon = "Art/2DArt/SkillIcons/passives/ChaosDamageOverTimeNode.png",
 					masteryIcon = "Art/2DArt/SkillIcons/passives/AltChaosDamageMastery.png",
 					tag = "affliction_chaos_damage_over_time_multiplier",
-					stats = { "持续混沌伤害提高 +12%" },
+					stats = { "持续混沌伤害提高 12%" },
 					enchant = {
 						"其中 1 个增加的天赋为【珠宝槽】",
-						"增加的小天赋获得：持续混沌伤害提高 +12%",
+						"增加的小天赋获得：持续混沌伤害提高 12%",
 					},
 				},
 				["affliction_physical_damage_over_time_multiplier"] = {
@@ -187,10 +187,10 @@ return {
 					icon = "Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.png",
 					masteryIcon = "Art/2DArt/SkillIcons/passives/AltBloodMastery.png",
 					tag = "affliction_physical_damage_over_time_multiplier",
-					stats = { "持续物理伤害提高 +12%" },
+					stats = { "持续物理伤害提高 12%" },
 					enchant = {
 						"其中 1 个增加的天赋为【珠宝槽】",
-						"增加的小天赋获得：持续物理伤害提高 +12%",
+						"增加的小天赋获得：持续物理伤害提高 12%",
 					},
 				},
 				["affliction_cold_damage_over_time_multiplier"] = {
@@ -198,10 +198,10 @@ return {
 					icon = "Art/2DArt/SkillIcons/passives/ColdDamageOverTimeNode.png",
 					masteryIcon = "Art/2DArt/SkillIcons/passives/AltColdDamageMastery.png",
 					tag = "affliction_cold_damage_over_time_multiplier",
-					stats = { "持续冰霜伤害提高 +12%" },
+					stats = { "持续冰霜伤害提高 12%" },
 					enchant = {
 						"其中 1 个增加的天赋为【珠宝槽】",
-						"增加的小天赋获得：持续冰霜伤害提高 +12%",
+						"增加的小天赋获得：持续冰霜伤害提高 12%",
 					},
 				},
 				["affliction_damage_over_time_multiplier"] = {
@@ -209,10 +209,10 @@ return {
 					icon = "Art/2DArt/SkillIcons/passives/DamageOverTimeNode.png",
 					masteryIcon = "Art/2DArt/SkillIcons/passives/AltDamageOverTimeMultiplierMastery.png",
 					tag = "affliction_damage_over_time_multiplier",
-					stats = { "持续伤害效果提高 +10%" },
+					stats = { "持续伤害效果提高 10%" },
 					enchant = {
 						"其中 1 个增加的天赋为【珠宝槽】",
-						"增加的小天赋获得：持续伤害效果提高 +10%",
+						"增加的小天赋获得：持续伤害效果提高 10%",
 					},
 				},
 				["affliction_effect_of_non-damaging_ailments"] = {
