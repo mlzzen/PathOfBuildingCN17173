@@ -6668,6 +6668,8 @@ minus = -tonumber(minus)
 	["盾牌上每有 (%d+) 点最大能量护盾都使副手暴击率 %+([%d%.]+)%%"] = function(_,es_num,cc_num) return { mod("CritChance", "BASE", cc_num, { type = "Condition", var = "OffHandAttack" },{ type = "SkillType", skillType = SkillType.Attack }, { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = es_num }) } end,	
 	["盾牌上每有 (%d+) 点最大能量护盾都使副手暴击伤害加成 %+([%d%.]+)%%"] = function(_,es_num,cc_num) return { mod("CritMultiplier", "BASE", cc_num, { type = "Condition", var = "OffHandAttack" },{ type = "SkillType", skillType = SkillType.Attack }, { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = es_num }) } end,
 	["每次剩余连锁都使投射物的击中和异常状态伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,0,bor(KeywordFlag.Hit, KeywordFlag.Ailment) , { type = "PerStat", stat = "ChainRemaining" }) } end,
+	["(.+)的诅咒效果提高 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("CurseEffect", "INC", num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
+	["【(.+)】的诅咒效果提高 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("CurseEffect", "INC", num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
 }
 
 for _, name in pairs(data.keystones) do
