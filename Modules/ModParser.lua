@@ -4224,7 +4224,7 @@ local specialModList = {
 	["对被嘲讽敌人, ([%+%-]?%d+)%% 暴击伤害"] = function(num) return { mod("CritMultiplier", "BASE", num,{ type = "ActorCondition", actor = "enemy", var = "Taunted" }) } end,
 	["你在无负重状态下视为双持武器"] = function() return {  mod("Condition:DualWielding", "FLAG", true,{ type = "Condition", var = "Unencumbered" })  } end,
 	["你在无负重状态下近战技能的攻击速度总增 (%d+)%%"] =function(num) return {  mod("Speed", "MORE", tonumber(num),nil,ModFlag.Attack,{ type = "Condition", var = "Unencumbered" })  } end,
-	["你在无负重状态下每 (%d+) 点敏捷都使近战技能附加 (%d+) 到 (%d+) 点物理攻击伤害"] =function(_,num1,num2,num3) return {  mod("PhysicalMax", "BASE", tonumber(num3),{ type = "PerStat", stat = "Dex", div = tonumber(num1) },{ type = "Condition", var = "Unencumbered" }),
+	["你在无负重状态下每 (%d+) 点敏捷都使近战技能附加 (%d+) 到 (%d+) 点物理伤害"] =function(_,num1,num2,num3) return {  mod("PhysicalMax", "BASE", tonumber(num3),{ type = "PerStat", stat = "Dex", div = tonumber(num1) },{ type = "Condition", var = "Unencumbered" }),
 	mod("PhysicalMin", "BASE", tonumber(num2),{ type = "PerStat", stat = "Dex", div = tonumber(num1) },{ type = "Condition", var = "Unencumbered" }),  } end,
 	["受到你诅咒的敌人承受的伤害提高 (%d+)%%"] = function(num) return { mod("AffectedByCurseMod", "LIST", { mod = mod("DamageTaken", "INC", num) }) } end,
 	["每保留有 1 次连锁，则投射物伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num, nil, ModFlag.Projectile, { type = "PerStat", stat = "ChainRemaining" }) } end,
@@ -7280,8 +7280,12 @@ local jewelThresholdFuncs = {
 	
 	
 	["范围内敏捷和力量总计 40 点时，【元素打击】和【狂野打击】的总闪电伤害额外降低 50%"] =getThreshold({"Dex","Str"}, "LightningDamage", "MORE", -50, { type = "SkillName", skillNameList = { "元素打击", "野性打击" }}),
-	["范围内智慧和敏捷总计 40 点时，【元素打击】和【狂野打击】的总火焰伤害额外降低 50%"] =getThreshold({"Dex","Str"}, "FireDamage", "MORE", -50, { type = "SkillName", skillNameList = { "元素打击", "野性打击" }}),
-	["范围内力量和智慧总计 40 点时，【元素打击】和【狂野打击】的总冰霜伤害额外降低 50%"] =getThreshold({"Dex","Str"}, "ColdDamage", "MORE", -50, { type = "SkillName", skillNameList = { "元素打击", "野性打击" }}),
+	["范围内智慧和敏捷总计 40 点时，【元素打击】和【狂野打击】的总火焰伤害额外降低 50%"] =getThreshold({"Int","Dex"}, "FireDamage", "MORE", -50, { type = "SkillName", skillNameList = { "元素打击", "野性打击" }}),
+	["范围内力量和智慧总计 40 点时，【元素打击】和【狂野打击】的总冰霜伤害额外降低 50%"] =getThreshold({"Str","Int"}, "ColdDamage", "MORE", -50, { type = "SkillName", skillNameList = { "元素打击", "野性打击" }}),
+	["若范围内含有 40 点智慧，造成的枯萎效果持续 2 秒"] = getThreshold({"Int"}, "Dummy", "DUMMY", 1, { type = "Condition", var = "CanWither" }, { type = "SkillName", skillName = "枯萎" } , flag("Condition:CanWither")),
+	["范围内配置的敏捷和力量总计 40 点时，虹光技能的闪电伤害总降 50%"] =getThreshold({"Dex","Str"}, "LightningDamage", "MORE", -50, { type = "SkillType",  skillType = SkillType.Prismatic}),
+	["范围内配置的智慧和敏捷总计 40 点时，虹光技能的火焰伤害总降 50%"] =getThreshold({"Int","Dex"}, "FireDamage", "MORE", -50, { type = "SkillType",  skillType = SkillType.Prismatic}),
+	["范围内配置的智慧和力量总计 40 点时，虹光技能的冰霜伤害总降 50%"] =getThreshold({"Str","Int"}, "ColdDamage", "MORE", -50, { type = "SkillType",  skillType = SkillType.Prismatic}),
 	["若范围内含有 40 点智慧，造成的枯萎效果持续 2 秒"] = getThreshold({"Int"}, "Dummy", "DUMMY", 1, { type = "Condition", var = "CanWither" }, { type = "SkillName", skillName = "枯萎" } , flag("Condition:CanWither")),
 	
 	
