@@ -989,61 +989,67 @@ t_insert(breakdown.DurationSecondary, s_format("/ %.2f ^8(debuff更快或更慢�
 		["ManaPercent"] = "mana",
 		["LifePercent"] = "life",
 	}
+	-- First pass to calculate base costs.  Used for cost conversion (e.g. Petrified Blood)
+	for resource, name in pairs(names) do
+		local base = skillModList:Sum("BASE", skillCfg, resource.."CostBase")
+		local cost = base + (activeSkill.activeEffect.grantedEffectLevel.cost[resource] or 0)
+		if resource == "Mana" and skillData.baseManaCostIsAtLeastPercentUnreservedMana then
+			cost = m_max(cost, m_floor((output.ManaUnreserved or 0) * skillData.baseManaCostIsAtLeastPercentUnreservedMana / 100))
+		end
+		output[resource.."Cost"] = cost
+	end
+	if skillModList:Flag(skillCfg, "CostLifeInsteadOfMana") then
+		output["LifeCost"] = output["LifeCost"] + output["ManaCost"]
+		output["ManaCost"] = 0
+	end
+	if skillModList:Sum("BASE", skillCfg, "ManaCostAsLifeCost") then
+		output["LifeCost"] = output["LifeCost"] + output["ManaCost"] * skillModList:Sum("BASE", skillCfg, "ManaCostAsLifeCost") / 100
+	end
 	for resource, name in pairs(names) do
 		local percent = resource == "ManaPercent" or resource == "LifePercent"
-		if isTriggered or activeSkill.activeEffect.grantedEffect.triggered then
-			output[resource.."Cost"] = 0
-		else
-			do
-				local mult = m_floor(skillModList:More(skillCfg, "SupportManaMultiplier") * 100 + 0.0001) / 100
-				local more = m_floor(skillModList:More(skillCfg, resource.."Cost", "Cost") * 100 + 0.0001) / 100
-				local inc = skillModList:Sum("INC", skillCfg, resource.."Cost", "Cost")
-				local base = skillModList:Sum("BASE", skillCfg, resource.."CostBase")
-				local total = skillModList:Sum("BASE", skillCfg, resource.."Cost")
-				local cost = base + (activeSkill.activeEffect.grantedEffectLevel.cost[resource] or 0)				
-				if resource == "Mana" and skillData.baseManaCostIsAtLeastPercentUnreservedMana then
-					cost = m_max(cost, m_floor((output.ManaUnreserved or 0) * skillData.baseManaCostIsAtLeastPercentUnreservedMana / 100))
-				end
-				output[resource.."Cost"] = m_floor(cost * mult)
-				output[resource.."Cost"] = m_floor(m_abs(inc / 100) * output[resource.."Cost"]) * (inc >= 0 and 1 or -1) + output[resource.."Cost"]
-				output[resource.."Cost"] = m_floor(m_abs(more - 1) * output[resource.."Cost"]) * (more >= 1 and 1 or -1) + output[resource.."Cost"]
-				output[resource.."Cost"] = m_max(0, m_floor(output[resource.."Cost"] + total))
-				if resource == "Mana" and skillFlags.totem then
-					local reservedFlat = activeSkill.skillData.manaReservationFlat or activeSkill.activeEffect.grantedEffectLevel.manaReservationFlat or 0
-					output[resource.."Cost"] = output[resource.."Cost"] + reservedFlat
-					local reservedPercent = activeSkill.skillData.manaReservationPercent or activeSkill.activeEffect.grantedEffectLevel.manaReservationPercent or 0
-					if reservedPercent ~= 0 then
-						skillModList:NewMod("ManaPercentCostBase", "BASE", reservedPercent, "图腾 保留")
-					end
-				end
-				if resource == "Life" and skillFlags.totem then
-					local reservedFlat = activeSkill.skillData.lifeReservationFlat or activeSkill.activeEffect.grantedEffectLevel.lifeReservationFlat or 0
-					output[resource.."Cost"] = output[resource.."Cost"] + reservedFlat
-					local reservedPercent = activeSkill.skillData.lifeReservationPercent or activeSkill.activeEffect.grantedEffectLevel.lifeReservationPercent or 0
-					if reservedPercent ~= 0 then
-						skillModList:NewMod("LifePercentCostBase", "BASE", reservedPercent, "图腾 保留")
-					end
-				end
-				if breakdown and output[resource.."Cost"] ~= cost then
-					breakdown[resource.."Cost"] = {
-						s_format("%d"..(percent and "%%" or "").." ^8(基础 "..name.." 消耗)", cost)
-					}
-					if mult ~= 1 then
-						t_insert(breakdown[resource.."Cost"], s_format("x %.2f ^8(消耗 加成)", mult))
-					end
-					if inc ~= 0 then
-						t_insert(breakdown[resource.."Cost"], s_format("x %.2f ^8(提高/降低 "..name.." 消耗)", 1 + inc/100))
-					end	
-					if more ~= 1 then
-						t_insert(breakdown[resource.."Cost"], s_format("x %.2f ^8(额外总提高/降低 "..name.." 消耗)", more))
-					end	
-					if total ~= 0 then
-						t_insert(breakdown[resource.."Cost"], s_format("- %d ^8(- "..name.." 消耗)", -total))
-					end
-					t_insert(breakdown[resource.."Cost"], s_format("= %d"..(percent and "%%" or ""), output[resource.."Cost"]))
+		output[resource.."Cost"] = output[resource.."Cost"] * (activeSkill.skillData.triggerCostMultiplier or 1)
+		do
+			local mult = m_floor(skillModList:More(skillCfg, "SupportManaMultiplier") * 100 + 0.0001) / 100
+			local more, inc
+			if percent then
+				more = m_floor(skillModList:More(skillCfg, resource.."Cost", resource:gsub("Percent", "").."Cost", "Cost") * 100 + 0.0001) / 100
+				inc = skillModList:Sum("INC", skillCfg, resource.."Cost", resource:gsub("Percent", "").."Cost", "Cost")
+			else
+				more = m_floor(skillModList:More(skillCfg, resource.."Cost", "Cost") * 100 + 0.0001) / 100
+				inc = skillModList:Sum("INC", skillCfg, resource.."Cost", "Cost")
+			end
+			local total = skillModList:Sum("BASE", skillCfg, resource.."Cost")
+			local baseCost = output[resource.."Cost"]
+			output[resource.."Cost"] = m_floor(output[resource.."Cost"] * mult)
+			output[resource.."Cost"] = m_floor(m_abs(inc / 100) * output[resource.."Cost"]) * (inc >= 0 and 1 or -1) + output[resource.."Cost"]
+			output[resource.."Cost"] = m_floor(m_abs(more - 1) * output[resource.."Cost"]) * (more >= 1 and 1 or -1) + output[resource.."Cost"]
+			output[resource.."Cost"] = m_max(0, m_floor(output[resource.."Cost"] + total))
+			if skillFlags.totem then
+				local reservedFlat = activeSkill.skillData[name.."ReservationFlat"] or activeSkill.activeEffect.grantedEffectLevel[name.."ReservationFlat"] or 0
+				output[resource.."Cost"] = output[resource.."Cost"] + reservedFlat
+				local reservedPercent = activeSkill.skillData[name.."ReservationPercent"] or activeSkill.activeEffect.grantedEffectLevel[name.."ReservationPercent"] or 0
+				if reservedPercent ~= 0 then
+					skillModList:NewMod(resource.."PercentCostBase", "BASE", reservedPercent, "图腾 保留")
 				end
 			end
-			
+			if breakdown and output[resource.."Cost"] ~= baseCost then
+				breakdown[resource.."Cost"] = {
+					s_format("%.2f"..(percent and "%%" or "").." ^8(基础 "..name.." 消耗)", baseCost)
+				}
+				if mult ~= 1 then
+					t_insert(breakdown[resource.."Cost"], s_format("x %.2f ^8(消耗 加成)", mult))
+				end
+				if inc ~= 0 then
+					t_insert(breakdown[resource.."Cost"], s_format("x %.2f ^8(提高/降低 "..name.." 消耗)", 1 + inc/100))
+				end
+				if more ~= 1 then
+					t_insert(breakdown[resource.."Cost"], s_format("x %.2f ^8(总增/总降 "..name.." 消耗)", more))
+				end
+				if total ~= 0 then
+					t_insert(breakdown[resource.."Cost"], s_format("- %d ^8(- "..name.." 消耗)", -total))
+				end
+				t_insert(breakdown[resource.."Cost"], s_format("= %d"..(percent and "%%" or ""), output[resource.."Cost"]))
+			end
 		end
 	end
 
