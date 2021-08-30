@@ -3726,7 +3726,7 @@ local specialModList = {
 	mod("ElementalDamage", "MORE", 50, { type = "Condition", var = "Divinity" }),
 	mod("ElementalDamageTaken", "MORE", -20, { type = "Condition", var = "Divinity" }),
 	},
-	["当你发射箭矢时，会消耗 1 个虚空之矢来触发 (%d+) 级的【虚空射击】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId ="VoidShot", level = num, triggered = true})   } end,
+	["你使用非触发型技能发射箭矢时，消耗一枚【虚空之矢】可以触发 (%d+) 级的【虚空射击】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId ="VoidShot", level = num, triggered = true})   } end,
 	["追忆词缀"] = { mod("Multiplier:SynthesisedItem", "BASE", 1) },
 	["【定罪波】的特效会使元素抗性 ([%+%-]?%d+)%%"]	= function(num) return {
 	mod("EnemyModifier", "LIST", { mod = mod("FireResist", "BASE", num,{ type = "GlobalEffect", effectType = "Debuff", effectName = "Fire Exposure", effectCond = "WaveOfConvictionFireExposureActive" }) }, { type = "Condition", var = "WaveOfConvictionFireExposureActive" }),
