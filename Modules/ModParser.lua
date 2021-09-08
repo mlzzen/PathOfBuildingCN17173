@@ -329,6 +329,7 @@ local modNameList = {
 	["持续火焰伤害加成"] = "FireDotMultiplier",
 	["持续混沌伤害加成"] = "ChaosDotMultiplier",
 	["持续伤害加成"] = "DotMultiplier",
+	["中毒持续伤害加成"] = {"DotMultiplier", KeywordFlag.Poison},
 	["物理持续伤害加成"] = "PhysicalDotMultiplier",
 	["火焰持续伤害加成"] = "FireDotMultiplier",
 	["混沌持续伤害加成"] = "ChaosDotMultiplier",
@@ -727,6 +728,7 @@ local modNameList = {
 	["sword physical damage"] = { "PhysicalDamage", flags = ModFlag.Sword },
 	["持续伤害效果"] = { "Damage", flags = ModFlag.Dot }, --备注：damage over time
 	["物理持续伤害"] = { "PhysicalDamage", keywordFlags = KeywordFlag.PhysicalDot }, --备注：physical damage over time
+	["持续物理伤害"] = { "PhysicalDamage", keywordFlags = KeywordFlag.PhysicalDot }, --备注：physical damage over time
 	["燃烧伤害"] = { "FireDamage", keywordFlags = KeywordFlag.FireDot }, --备注：burning damage
 	["点燃伤害"] = { "Damage", keywordFlags = KeywordFlag.Ignite }, --备注：damage with ignite
 	["damage with ignites"] = { "Damage", keywordFlags = KeywordFlag.Ignite },
@@ -979,7 +981,9 @@ local modFlagList = {
 	["with ailments"] = { flags = ModFlag.Ailment },
 	["攻击技能造成的异常状态"] = { flags = ModFlag.Ailment, keywordFlags = KeywordFlag.Attack }, --备注：with ailments from attack skills
 	["中毒"] = { keywordFlags = KeywordFlag.Poison }, --备注：with poison
+	["【中毒】"] = { keywordFlags = KeywordFlag.Poison }, --备注：with poison
 	["流血"] = { keywordFlags = KeywordFlag.Bleed }, --备注：with bleeding
+	["【流血】"] = { keywordFlags = KeywordFlag.Bleed }, --备注：with bleeding
 	["范围"] = { flags = ModFlag.Area }, --备注：area
 	["地雷"] = { keywordFlags = KeywordFlag.Mine }, --备注：mine
 	["with mines"] = { keywordFlags = KeywordFlag.Mine },
@@ -1282,6 +1286,7 @@ local modTagList = {
 	["拥有最大数量的狂怒球时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" } }, --备注：while at maximum frenzy charges
 	["近期内你若打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["近期内你若有打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
+	["你若近期内造成暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["若你近期内造成暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } }, --备注：if you[' ]h?a?ve dealt a critical strike recently
 	["近期内你若打出暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["当不拥有耐力球时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", threshold = 0, upper = true } },
@@ -1539,7 +1544,10 @@ local modTagList = {
 	["用生命施放技能时，其"] = { tag = { type = "StatThreshold", stat = "LifeCost", threshold = 1 } },
 	["对流血的敌人，"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Bleeding" } }, 
 	["对中毒的敌人，"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Poisoned" } }, 
+	["你对流血的敌人施加的"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Bleeding" } }, 
+	["你对中毒敌人施加的"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Poisoned" } }, 
 	["对瘫痪的敌人造成的"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Maimed" } }, 
+	["你对瘫痪敌人施加的"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Maimed" } }, 
 	["对抗【瘫痪】的敌人时，"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Maimed" } }, 
 	["双持两种不同类型的武器时，"] = { tag = { type = "Condition", var = "WieldingDifferentWeaponTypes" } },
 	["若双持不同类型的武器，则"] = { tag = { type = "Condition", var = "WieldingDifferentWeaponTypes" } },
@@ -4178,6 +4186,7 @@ local specialModList = {
 	["投射物无法穿透, 分裂或连锁"]  = { flag("CannotPierce", nil, ModFlag.Projectile), flag("CannotFork", nil, ModFlag.Projectile),flag("CannotChain", nil, ModFlag.Projectile) },
 	["若近期有击败敌人，则每秒回复 (%d+)%% 能量护盾"] = function(num) return {  mod("EnergyShieldRegenPercent", "BASE", num,{ type = "Condition", var = "KilledRecently" })  } end,
 	["你若近期内击败过敌人，则每秒回复 (%d+)%% 能量护盾"] = function(num) return {  mod("EnergyShieldRegenPercent", "BASE", num,{ type = "Condition", var = "KilledRecently" })  } end,
+	["若你近期内击败过敌人，则每秒回复 (%d+)%% 能量护盾"] = function(num) return {  mod("EnergyShieldRegenPercent", "BASE", num,{ type = "Condition", var = "KilledRecently" })  } end,
 	["每个聚光之石都使暴击率提高 (%d+)%%"] = function(num) return {
 	mod("CritChance", "INC", num, { type = "Multiplier", var = "GrandSpectrum" }),
 	mod("Multiplier:GrandSpectrum", "BASE", 1)
@@ -4736,7 +4745,7 @@ local specialModList = {
 	["你在专注时，冰缓周围敌人，使其行动速度降低 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("Condition:Chilled", "FLAG", true) },{ type = "Condition", var = "Focused" }) } end,
 	["击中被感电的敌人时，冰霜伤害提高 (%d+)%%"] = function(num) return { mod("ColdDamage", "INC", num,nil,0,KeywordFlag.Hit,{ type = "ActorCondition", actor = "enemy", var = "Shocked" } ) } end,
 	["对抗被【冰缓】的敌人时，击中的闪电伤害提高 (%d+)%%"] = function(num) return { mod("LightningDamage", "INC", num,nil,0,KeywordFlag.Hit,{ type = "ActorCondition", actor = "enemy", var = "Chilled" } ) } end,
-	["玩家使用药剂回复的生命和魔力提高 (%d+)%%"] = function(num) return {
+	["药剂的生命和魔力恢复加快 (%d+)%%"] = function(num) return {
 	mod("FlaskLifeRecovery", "INC", num ),
 	mod("FlaskManaRecovery", "INC", num )
 	} end,
@@ -6004,7 +6013,7 @@ local specialModList = {
 	mod("AvoidFrozen", "BASE", 100)  ,
 	mod("AvoidIgnite", "BASE", 100)  ,
 	} end,
-	["近期内你若有消耗过生命，则 ([%+%-]?%d+)%% 物理持续伤害加成"] = function(num) return {  mod("PhysicalDotMultiplier", "BASE", num,{ type = "Condition", var = "CostLifeRecently" } )  } end,
+	["若你近期消耗过生命，则持续物理伤害加成 ([%+%-]?%d+)%%"] = function(num) return {  mod("PhysicalDotMultiplier", "BASE", num,{ type = "Condition", var = "CostLifeRecently" } )  } end,
 	["你使用技能时触发一个插入的法术，它有 4 秒冷却时间"] = { mod("ExtraSupport", "LIST", { skillId = "SupportTriggerSpellOnSkillUse", level = 2 }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 	["你使用技能时触发一个插入的法术，它有 8 秒冷却时间"] = { mod("ExtraSupport", "LIST", { skillId = "SupportTriggerSpellOnSkillUse", level = 1 }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 	["弓类攻击发射 (%d+) 支额外箭矢"] = function(num) return {  mod("ProjectileCount", "BASE", num, nil, ModFlag.Bow )  } end,
