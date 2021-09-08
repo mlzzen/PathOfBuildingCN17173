@@ -3004,6 +3004,7 @@ local specialModList = {
 	["近期内你若使用过移动技能，则每秒回复 (%d+) 魔力"]= function(num) return {  mod("ManaRegen", "BASE", num, { type = "Condition", var = "UsedMovementSkillRecently" })  } end,
 	["技能可以额外发射 (%d+) 个投射物"]= function(num) return {  mod("ProjectileCount", "BASE", num)  } end,
 	["技能会发射 (%d+) 枚额外投射物"]= function(num) return {  mod("ProjectileCount", "BASE", num)  } end,
+	["技能会发射一枚额外投射物"]= function() return {  mod("ProjectileCount", "BASE", 1)  } end,
 	["近期内你若被击中，技能可以额外发射 (%d+) 个投射物"]= function(num) return {  mod("ProjectileCount", "BASE", num, { type = "Condition", var = "BeenHitRecently" })  } end,
 	["武器上的每个红色插槽使物理伤害提高 (%d+)%%"]= function(num) return {  mod("PhysicalDamage", "INC", num,nil, ModFlag.Weapon, { type = "Multiplier", var = "RedSocketIn{SlotName}" })  } end,
 	["每个绿色插槽会使全局攻击速度提高 (%d+)%%"]= function(num) return {  mod("Speed", "INC", num,nil, ModFlag.Attack, { type = "Global" }, { type = "Multiplier", var = "GreenSocketIn{SlotName}" })  } end,
