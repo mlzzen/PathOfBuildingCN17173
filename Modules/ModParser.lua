@@ -4705,6 +4705,7 @@ local specialModList = {
 	},
 	["免疫致盲"] = { mod("AvoidBlind", "BASE", 100) },
 	["目盲不会影响你的命中率"] = { flag("IgnoreBlindHitChance") },
+	["目盲不影响你的击中率"] = { flag("IgnoreBlindHitChance") },
 	["你的暴击有 (%d+)%% 几率造成双倍伤害"] = function(num) return { mod("DoubleDamageChanceOnCrit", "BASE", num) } end,
 	["你的暴击有 (%d+)%% 的几率造成双倍伤害"] = function(num) return { mod("DoubleDamageChanceOnCrit", "BASE", num) } end,
 	["暴击有 (%d+)%% 的几率造成双倍伤害"] = function(num) return { mod("DoubleDamageChanceOnCrit", "BASE", num) } end,
