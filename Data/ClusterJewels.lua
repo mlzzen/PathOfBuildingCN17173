@@ -187,10 +187,10 @@ return {
 					icon = "Art/2DArt/SkillIcons/passives/PhysicalDamageOverTimeNode.png",
 					masteryIcon = "Art/2DArt/SkillIcons/passives/AltBloodMastery.png",
 					tag = "affliction_physical_damage_over_time_multiplier",
-					stats = { "持续物理伤害提高 12%" },
+					stats = { "物理持续伤害效果提高 12%" },
 					enchant = {
 						"其中 1 个增加的天赋为【珠宝槽】",
-						"增加的小天赋获得：持续物理伤害提高 12%",
+						"增加的小天赋获得：物理持续伤害效果提高 12%",
 					},
 				},
 				["affliction_cold_damage_over_time_multiplier"] = {
@@ -198,10 +198,10 @@ return {
 					icon = "Art/2DArt/SkillIcons/passives/ColdDamageOverTimeNode.png",
 					masteryIcon = "Art/2DArt/SkillIcons/passives/AltColdDamageMastery.png",
 					tag = "affliction_cold_damage_over_time_multiplier",
-					stats = { "持续冰霜伤害提高 12%" },
+					stats = { "冰霜持续伤害效果提高 12%" },
 					enchant = {
 						"其中 1 个增加的天赋为【珠宝槽】",
-						"增加的小天赋获得：持续冰霜伤害提高 12%",
+						"增加的小天赋获得：冰霜持续伤害效果提高 12% ",
 					},
 				},
 				["affliction_damage_over_time_multiplier"] = {
