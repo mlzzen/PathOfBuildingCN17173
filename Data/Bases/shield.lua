@@ -321,7 +321,7 @@ itemBases["钢木轻盾"] = {
 	implicit = "移动速度提高 3%",
 	implicitModTypes = { { "speed" }, },
 	armour = { BlockChance = 26, EvasionBase = 280, MovementPenalty = 3, },
-	req = { level = 57, dex = 136, },
+	req = { level = 57, dex = 137, },
 }
 itemBases["漆彩轻盾"] = {
 	type = "Shield",
@@ -412,7 +412,7 @@ itemBases["紫衫魔盾"] = {
 	implicit = "法术伤害提高 (5-10)%",
 	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
 	armour = { BlockChance = 24, EnergyShieldBase = 9, MovementPenalty = 3, },
-	req = { level = 9, int = 28, },
+	req = { level = 9, int = 29, },
 }
 itemBases["骨制魔盾"] = {
 	type = "Shield",
@@ -451,7 +451,7 @@ itemBases["铜锻魔盾"] = {
 	tags = { focus = true, int_armour = true, armour = true, default = true, shield = true, },
 	implicitModTypes = { },
 	armour = { BlockChance = 25, EnergyShieldBase = 33, MovementPenalty = 3, },
-	req = { level = 33, int = 82, },
+	req = { level = 33, int = 83, },
 }
 itemBases["桃木魔盾"] = {
 	type = "Shield",
@@ -471,7 +471,7 @@ itemBases["象牙魔盾"] = {
 	implicit = "法术伤害提高 (15-20)%",
 	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
 	armour = { BlockChance = 22, EnergyShieldBase = 33, MovementPenalty = 3, },
-	req = { level = 41, int = 100, },
+	req = { level = 41, int = 101, },
 }
 itemBases["远古魔盾"] = {
 	type = "Shield",
@@ -786,7 +786,7 @@ itemBases["合板鸢盾"] = {
 	implicit = "+8% 所有元素抗性",
 	implicitModTypes = { { "elemental", "resistance" }, },
 	armour = { BlockChance = 24, ArmourBase = 113, EnergyShieldBase = 22, MovementPenalty = 3, },
-	req = { level = 50, str = 64, int = 64, },
+	req = { level = 50, str = 65, int = 65, },
 }
 itemBases["天使鸢盾"] = {
 	type = "Shield",

@@ -676,7 +676,7 @@ itemBases["暴雪之冠"] = {
 	req = { level = 75, dex = 79, int = 79, },
 }
 
-itemBases["Runic Helm"] = {
+itemBases["符文头盔"] = {
 	type = "Helmet",
 	subType = "Ward",
 	socketLimit = 4,
@@ -685,7 +685,7 @@ itemBases["Runic Helm"] = {
 	armour = { WardBase = 34, },
 	req = { level = 25, str = 30, dex = 30, int = 30, },
 }
-itemBases["Runic Crest"] = {
+itemBases["符文之冠"] = {
 	type = "Helmet",
 	subType = "Ward",
 	socketLimit = 4,
@@ -694,7 +694,7 @@ itemBases["Runic Crest"] = {
 	armour = { WardBase = 81, },
 	req = { level = 49, str = 55, dex = 55, int = 55, },
 }
-itemBases["Runic Crown"] = {
+itemBases["符文王冠"] = {
 	type = "Helmet",
 	subType = "Ward",
 	socketLimit = 4,

@@ -9,7 +9,7 @@ local skills, mod, flag, skill = ...
 skills["Ambush"] = {
 	name = "伏击",
 	color = 2,
-	description = "Teleports you to a nearby enemy, applying a buff to you for a short duration and blinding the enemy for a secondary duration. Performing a melee attack with a One-Handed Weapon removes the buff to exert that attack.",
+	description = "将你传送到敌人周围，并在短时间内施加一个增益效果。施展近战攻击会移除该增益效果，并增助这次攻击。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.MovementSkill] = true, [SkillType.Duration] = true, [SkillType.TravelSkill] = true, [SkillType.Triggerable] = true, [SkillType.SecondWindSupport] = true, [SkillType.Type114] = true, },
 	statDescriptionScope = "secondary_debuff_skill_stat_descriptions",
 	castTime = 0.3,
@@ -592,7 +592,7 @@ name = "50 飞刃",
 		area = true,
 	},
 	baseMods = {
-		skill("radius", 18),
+		skill("radius", 14),
 		skill("dpsMultiplier", 1, { type = "SkillPart", skillPart = 1 }),
 		skill("dpsMultiplier", 3, { type = "SkillPart", skillPart = 2 }),
 		skill("dpsMultiplier", 6, { type = "SkillPart", skillPart = 3 }),
@@ -666,7 +666,7 @@ name = "50 飞刃",
 skills["BladeTrap"] = {
 	name = "剑刃陷阱",
 	color = 2,
-	description = "Throws a trap which, once triggered, swings two copies of your equipped Dagger, Claw or One Handed Sword around it in a circle, each repeatedly damaging enemies they spin through.",
+	description = "投掷一个陷阱，触发时旋转挥舞你装备的两把匕首、爪类或单手剑的副本，反复不断对它范围内的敌人造成伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Hit] = true, [SkillType.SkillCanMine] = true, [SkillType.Area] = true, [SkillType.Trap] = true, [SkillType.Area] = true, },
 	weaponTypes = {
 		["Thrusting One Handed Sword"] = true,
@@ -1347,10 +1347,10 @@ skills["BlinkArrow"] = {
 	},
 }
 skills["BloodRage"] = {
-	name = "鲜血狂怒",
+	name = "狂野怒火",
 	color = 2,
 	baseEffectiveness = 0,
-	description = "使用后将会给予角色时间内一个物理攻击增益. 此增益会对角色增加攻击速度以及给予额外的生命偷取. 击败任意敌人将会重置此增益的时间, 且获得一个狂怒球.",
+	description = "增加一个持续造成物理伤害的增益效果，同时提高生命偷取效果。消灭敌人会刷新该增益效果的持续时间，并提供一个狂怒球。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.SkillCanTotem] = true, [SkillType.Triggerable] = true, [SkillType.Instant] = true, [SkillType.PhysicalSkill] = true, [SkillType.SecondWindSupport] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
@@ -3126,7 +3126,7 @@ skills["EtherealKnives"] = {
 	color = 2,
 	baseEffectiveness = 2.184700012207,
 	incrementalEffectiveness = 0.037399999797344,
-	description = "向前依弧形射出数支匕首, 对敌人造成物理伤害.",
+	description = "向前依弧形射出数支匕首，对敌人造成物理伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.PhysicalSkill] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.6,
@@ -3346,7 +3346,7 @@ skills["ExplosiveConcoction"] = {
 	color = 2,
 	baseEffectiveness = 2.5408999919891,
 	incrementalEffectiveness = 0.038699999451637,
-	description = "Throws an explosive bottle that deals unarmed attack damage in an area. Can consume charges from your Ruby, Sapphire, and Topaz flasks to add further damage. Requires an empty main hand, and no off-hand weapon.",
+	description = "投掷一个爆炸瓶，在一片区域内造成徒手攻击伤害。可以消耗红玉药剂、黄玉药剂、蓝玉药剂的充能来进一步增加伤害。需要空出主手，也不能持握副手武器。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.FireSkill] = true, [SkillType.ColdSkill] = true, [SkillType.LightningSkill] = true, [SkillType.Hit] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.CantEquipWeapon] = true, },
 	weaponTypes = {
 		["None"] = true,
@@ -3679,7 +3679,7 @@ skills["FlamethrowerTrap"] = {
 			{ "base_cooldown_speed_+%", 3 },
 		},
 		Alternate2 = {
-			{ "base_cast_speed_+%", 1 },
+			{ "trap_throwing_speed_+%", 1 },
 		},
 	},
 	stats = {
@@ -4128,7 +4128,7 @@ name = "扇形区域",
 skills["Grace"] = {
 	name = "优雅",
 	color = 2,
-	description = "施放一个光环, 使你与受光环影响友军获得额外的闪避.",
+	description = "施放一个光环，使你与受光环影响友军获得额外的闪避.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.ManaCostReserved] = true, [SkillType.Type27] = true, [SkillType.SkillCanTotem] = true, [SkillType.Aura] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.CanHaveBlessing] = true, [SkillType.Type91] = true, [SkillType.Type92] = true, [SkillType.SecondWindSupport] = true, },
 	statDescriptionScope = "aura_skill_stat_descriptions",
 	castTime = 0,
@@ -4216,7 +4216,7 @@ skills["Grace"] = {
 skills["VaalGrace"] = {
 	name = "瓦尔.优雅",
 	color = 2,
-	description = "施放一个短暂的光环, 使你与受光环影响友军获得躲避法术与攻击的能力.",
+	description = "施放一个短暂的光环，使你与受光环影响友军获得躲避法术与攻击的能力.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.SkillCanTotem] = true, [SkillType.Type27] = true, [SkillType.Duration] = true, [SkillType.Vaal] = true, [SkillType.Aura] = true, [SkillType.AreaSpell] = true, [SkillType.Instant] = true, [SkillType.Type91] = true, [SkillType.Type92] = true, [SkillType.SecondWindSupport] = true, },
 	statDescriptionScope = "aura_skill_stat_descriptions",
 	castTime = 0,
@@ -4483,7 +4483,7 @@ skills["Hatred"] = {
 	color = 2,
 	baseEffectiveness = 1.5,
 	incrementalEffectiveness = 0.025000000372529,
-	description = "施放一个光环, 使你与受光环影响友军获得额外冰霜伤害.",
+	description = "施放一个光环，使你与受光环影响友军获得额外冰霜伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.ManaCostReserved] = true, [SkillType.Type27] = true, [SkillType.SkillCanTotem] = true, [SkillType.Aura] = true, [SkillType.ColdSkill] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.CanHaveBlessing] = true, [SkillType.Type91] = true, [SkillType.Type92] = true, [SkillType.SecondWindSupport] = true, },
 	statDescriptionScope = "aura_skill_stat_descriptions",
 	castTime = 0,
@@ -5921,7 +5921,7 @@ skills["PoachersMark"] = {
 skills["AccuracyAndCritsAura"] = {
 	name = "精准",
 	color = 2,
-	description = "施放一个光环, 使你与受光环影响友军获得命中和暴击几率。",
+	description = "施放一个光环，使你与受光环影响友军获得命中和暴击几率。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.ManaCostReserved] = true, [SkillType.Type27] = true, [SkillType.SkillCanTotem] = true, [SkillType.Aura] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.CanHaveBlessing] = true, [SkillType.Type91] = true, [SkillType.Type92] = true, [SkillType.SecondWindSupport] = true, },
 	statDescriptionScope = "aura_skill_stat_descriptions",
 	castTime = 0,
@@ -6094,7 +6094,7 @@ skills["SnipersMark"] = {
 skills["StormRain"] = {
 	name = "暴雨箭",
 	color = 2,
-	description = "Fires an arrow into the air to land at a targeted location, dealing area damage. The arrow sticks in the ground where it lands, and periodically fires a beam of lightning to another arrow near it, dealing area damage between them.",
+	description = "朝天射出一支箭矢落在目标地点，造成区域伤害。箭矢会刺入大地，定期朝周围的其它箭矢发射一道闪电束，在彼此之间造成区域伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Area] = true, [SkillType.ProjectileDamage] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanMine] = true, [SkillType.Triggerable] = true, [SkillType.FiresArrowsAtTargetLocation] = true, [SkillType.LightningSkill] = true, [SkillType.Type73] = true, [SkillType.Hit] = true, },
 	weaponTypes = {
 		["Bow"] = true,
@@ -6298,7 +6298,7 @@ skills["Puncture"] = {
 skills["ColdResistAura"] = {
 	name = "冰霜净化",
 	color = 2,
-	description = "施放一个光环, 使你与受光环影响的友军获得额外的冰霜抗性.",
+	description = "施放一个光环，使你与受光环影响的友军获得额外的冰霜抗性.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.ManaCostReserved] = true, [SkillType.Type27] = true, [SkillType.SkillCanTotem] = true, [SkillType.Aura] = true, [SkillType.ColdSkill] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.CanHaveBlessing] = true, [SkillType.Type91] = true, [SkillType.Type92] = true, [SkillType.SecondWindSupport] = true, },
 	statDescriptionScope = "aura_skill_stat_descriptions",
 	castTime = 0,
@@ -7669,7 +7669,7 @@ skills["ThrownWeapon"] = {
 skills["VaalThrownWeapon"] = {
 	name = "瓦尔.灵体投掷",
 	color = 2,
-	description = "使用念能力复制一把手中的近战武器, 并将此灵体投掷出去. 此灵体将会以你为圆心螺旋状的飞行出去, 对所有碰触到的敌人造成伤害.",
+	description = "复制数把手中的近战武器，把它们投掷出去。它们飞出后会以回旋形式返回，伤害沿途路径上的敌人。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Vaal] = true, },
 	weaponTypes = {
 		["One Handed Mace"] = true,
@@ -7860,7 +7860,7 @@ skill("radiusLabel", "孢囊范围:"),
 skills["SpectralHelix"] = {
 	name = "灵幻旋斩",
 	color = 2,
-	description = "Throws a spectral copy of your melee weapon. It spins around while flying in a large spiral, damaging enemies in its path, and bouncing if it collides with walls.",
+	description = "复制一把手中的近战武器并投掷出去。它会盘旋飞出，形成一个巨大的螺旋，对路径上所有敌人造成伤害。如果碰到墙壁会回弹。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, },
 	weaponTypes = {
 		["One Handed Mace"] = true,
@@ -8878,7 +8878,7 @@ skills["WhirlingBlades"] = {
 skills["WildStrike"] = {
 	name = "野性打击",
 	color = 2,
-	description = "使用近战武器打击敌人，将物理伤害转换为随机的元素伤害。根据转换成的元素释放出猛烈的爆炸、弧动的闪电箭或冰霜波。",
+	description = "使用近战武器打击敌人，将物理伤害转换为随机的元素伤害。根据转换成的元素释放出猛烈的爆炸、弧动的闪电箭或冰霜波。它不会连续两次选择相同的元素。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, [SkillType.Melee] = true, [SkillType.LightningSkill] = true, [SkillType.ColdSkill] = true, [SkillType.FireSkill] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Chaining] = true, [SkillType.ProjectileAttack] = true, [SkillType.FiresProjectilesFromSecondaryLocation] = true, [SkillType.Prismatic] = true, },
 	weaponTypes = {
 		["One Handed Mace"] = true,

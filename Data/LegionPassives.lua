@@ -214,7 +214,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "攻击与法术暴击率提高 80%", 
+				[1] = "暴击率提高 80%", 
 			}, 
 			["dn"] = "完美处决", 
 			["isJewelSocket"] = false, 
@@ -316,8 +316,8 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "无法使用生命偷取的恢复效果", 
-				[2] = "生命偷取的每秒恢复效果每 2% 使受到的总伤害额外降低 1%", 
+				[1] = "如偷取的生命恢复效果不能立即生效，则不可应用", 
+				[2] = "每秒从偷取获得的效果中，每 2% 使承受的伤害总降 1% ", 
 			}, 
 			["dn"] = "鲜血之力", 
 			["isJewelSocket"] = false, 
@@ -1843,9 +1843,9 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "近期内你若没有被击中，则总承受的伤害额外降低 20%", 
-				[2] = "近期内你若没有被击中，则总闪避值额外降低 40%", 
-				[3] = "近期内你若有被击中，则总闪避值额外提高 20%", 
+				[1] = "近期内如果没有被击中，则承受的伤害总降 20%", 
+				[2] = "近期内如果没有被击中，则闪避值总降 40%", 
+				[3] = "如果近期内被击中，则闪避值总增20%", 
 			}, 
 			["dn"] = "风舞者", 
 			["isJewelSocket"] = false, 
@@ -3732,7 +3732,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "攻击与法术暴击率提高 (7-14)%", 
+				[1] = "暴击率提高 (7-14)%", 
 			}, 
 			["dn"] = "暴击率", 
 			["isJewelSocket"] = false, 
@@ -4343,7 +4343,7 @@ return {
 			["not"] = true, 
 			["sd"] = {
 				[1] = "最大能量护盾提高 (8-12)%", 
-				[2] = "能量护盾的充能速度提高 (10-15)%", 
+				[2] = "能量护盾的回复速度提高 (10-15)%", 
 			}, 
 			["dn"] = "能量之学", 
 			["isJewelSocket"] = false, 
@@ -4916,7 +4916,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "每有一个空药水栏都每 5 秒获得 4 次药剂充能", 
+				[1] = "每有一个空药水栏都每隔 5 秒获得 4 次药剂充能", 
 			}, 
 			["dn"] = "叛徒", 
 			["isJewelSocket"] = false, 
@@ -5824,7 +5824,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "攻击与法术暴击率提高 25%", 
+				[1] = "暴击率提高 25%", 
 			}, 
 			["id"] = "maraketh_notable_add_global_crit_chance", 
 			["dn"] = "Add Global Crit Chance", 
@@ -6258,7 +6258,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "攻击与法术暴击率提高 (7-14)%", 
+				[1] = "暴击率提高 (7-14)%", 
 			}, 
 			["id"] = "vaal_small_critical_strike_chance", 
 			["dn"] = "Critical Strike Chance", 
@@ -6489,14 +6489,14 @@ return {
 		}, 
 		["maraketh_notable_add_flask_effect"] = {
 			["stats"] = {
-				["non_unique_flask_effect_+%"] = {
-					["max"] = 8, 
-					["min"] = 8, 
+				["gain_alchemists_genius_on_flask_use_%"] = {
+					["max"] = 25, 
+					["min"] = 25, 
 					["fmt"] = "d", 
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "你身上的非传奇药剂效果提高 8%", 
+				[1] = "你使用药剂时有 25% 的几率获得炼金奇才效果", 
 			}, 
 			["id"] = "maraketh_notable_add_flask_effect", 
 			["dn"] = "Add Flask Effect", 
@@ -6868,13 +6868,13 @@ return {
 		["karui_notable_add_fortify_effect"] = {
 			["stats"] = {
 				["fortify_effect_on_self_+%"] = {
-					["max"] = 10, 
-					["min"] = 10, 
+					["max"] = 5, 
+					["min"] = 5, 
 					["fmt"] = "d", 
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "你身上的护体效果提高 10%", 
+				[1] = "你身上的护体效果提高 5%", 
 			}, 
 			["id"] = "karui_notable_add_fortify_effect", 
 			["dn"] = "Add Fortify Effect", 
