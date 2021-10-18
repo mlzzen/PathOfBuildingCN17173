@@ -1728,6 +1728,13 @@ function calcs.perform(env, avoidCache)
 		{ type = "Condition", var = "Chilled" } )
 	end
 
+	-- Deal with Consecrated Ground
+	if modDB:Flag(nil, "Condition:OnConsecratedGround") then
+		local effect = 1 + modDB:Sum("INC", nil, "ConsecratedGroundEffect") / 100
+		modDB:NewMod("LifeRegenPercent", "BASE", 5 * effect, "Consecrated Ground")
+		modDB:NewMod("CurseEffectOnSelf", "INC", -50 * effect, "Consecrated Ground")
+	end
+
 	-- Combine buffs/debuffs 
 		if env.mode_combat then
 			if modDB:Sum("INC", nil, "HypnoticEyeJewelArcaneSurgeEffect") > 0 then
@@ -2946,7 +2953,14 @@ function calcs.perform(env, avoidCache)
 			
 		end
 	end
+
 	
+	-- Handle consecrated ground effects on enemies
+	if enemyDB:Flag(nil, "Condition:OnConsecratedGround") then
+		local effect = 1 + modDB:Sum("INC", nil, "ConsecratedGroundEffect") / 100
+		enemyDB:NewMod("DamageTaken", "INC", enemyDB:Sum("INC", nil, "DamageTakenConsecratedGround") * effect, "Consecrated Ground")
+	end
+
 
 	-- Defence/offence calculations
 	calcs.defence(env, env.player)
