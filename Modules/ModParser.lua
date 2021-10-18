@@ -6684,6 +6684,9 @@ minus = -tonumber(minus)
 	["每次剩余连锁都使投射物的击中和异常状态伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,0,bor(KeywordFlag.Hit, KeywordFlag.Ailment) , { type = "PerStat", stat = "ChainRemaining" }) } end,
 	["(.+)的诅咒效果提高 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("CurseEffect", "INC", num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
 	["【(.+)】的诅咒效果提高 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("CurseEffect", "INC", num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
+
+	-- 3.16
+	["可以有 (%d+) 个额外附魔词缀"] = { },
 }
 
 for _, name in pairs(data.keystones) do

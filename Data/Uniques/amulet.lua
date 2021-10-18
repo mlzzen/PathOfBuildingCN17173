@@ -1118,4 +1118,13 @@ Talisman Tier: 2
 周围友军击中造成的伤害特别幸运
 {tags:speed}移动速度提高 (5-8)%
 ]],
+[[
+Stranglegasp
+黑曜护身符
+联盟: 寄生菌潮
+等级需求: 52
+固定基底词缀: 1
+{tags:jewellery_attribute}+(10-16) 全属性
+可以有 3 个额外附魔词缀
+]],
 }
