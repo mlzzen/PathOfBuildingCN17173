@@ -2191,7 +2191,7 @@ t_insert(breakdown[damageType], s_format("x %.2f ^8(【无情一击】加成)", 
 								end
 							end
 							
-							resist = m_min(resist, 75)
+							resist = m_max(m_min(resist, data.misc.EnemyMaxResist), data.misc.ResistFloor)
 						end
 						if skillFlags.projectile then
 							takenInc = takenInc + enemyDB:Sum("INC", nil, "ProjectileDamageTaken")
