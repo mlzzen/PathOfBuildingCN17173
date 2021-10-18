@@ -140,13 +140,17 @@ replica: true
 [[
 厄运护符
 黄晶护身符
+版本: 3.16.0以前
+版本: 当前
 等级需求: 48
 固定基底词缀: 1
 {tags:jewellery_attribute}+(16-24) 力量和敏捷
 {tags:jewellery_attribute}+(30-40) 智慧
 {tags:jewellery_resistance,chaos}+(23-31)% 混沌抗性
-你所施放诅咒的效果提高 (10-15)%
-你技能的非诅咒类光环效果提高 (10-15)%
+{variant:1}{tags:caster}你所施放诅咒的效果提高 (10-15)%
+{variant:2}{tags:caster}你所施放诅咒的效果提高 (5-10)%
+{variant:1}你技能的非诅咒类光环效果提高 (10-15)%
+{variant:2}你技能的非诅咒类光环效果提高 (5-10)%
 被击中时，有 10% 的伤害优先由你的幽魂承受
 ]],
 [[

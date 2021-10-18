@@ -69,6 +69,8 @@ replica: true
 [[
 德瑞的魔具【仿品】
 海灵戒指
+版本: 3.16.0以前
+版本: 当前
 等级需求: 5
 联盟: 夺宝奇兵
 replica: true
@@ -78,7 +80,8 @@ replica: true
 {tags:jewellery_resistance}+5% 所有元素抗性
 {tags:mana}击败敌人回复 +5 魔力
 可以对敌人施放 -1 个额外诅咒
-你所施放诅咒的效果提高 (25-35)%
+{variant:1}{tags:caster}你所施放诅咒的效果提高 (25-35)%
+{variant:2}{tags:caster}你所施放诅咒的效果提高 (15-25)%
 ]],
 [[
 余烬之痕【仿品】
@@ -675,21 +678,23 @@ Has Alt Variant: true
 红玉戒指
 版本: 3.0.0以前
 版本: 3.9.0以前
+版本: 3.16.0以前
 版本: 当前
 等级需求: 16
 固定基底词缀: 1
 {tags:jewellery_resistance}+(20-30)% 火焰抗性
 {variant:1}{tags:jewellery_elemental}火焰伤害提高 (15-25)%
-{variant:2,3}{tags:jewellery_elemental}火焰伤害提高 (30-40)%
+{variant:2,3,4}{tags:jewellery_elemental}火焰伤害提高 (30-40)%
 {tags:caster,speed}施法速度提高 (5-10)%
 {variant:1}{tags:jewellery_elemental}火焰伤害击中时有 5% 几率点燃敌人
-{variant:2,3}{tags:jewellery_elemental}火焰伤害击中时有 10% 几率点燃敌人
+{variant:2,3,4}{tags:jewellery_elemental}火焰伤害击中时有 10% 几率点燃敌人
 {variant:1}你可以对单一敌人造成最多 300 个点燃状态
 {variant:2,3}你可以对敌人造成额外 1 个点燃效果
 {variant:1}你的暴击不造成额外暴击伤害
 {variant:1}燃烧总伤害额外降低 80%
 {variant:2}{tags:jewellery_elemental}被点燃敌人的燃烧减缓 65%
 {variant:3}{tags:jewellery_elemental}被点燃敌人的燃烧减缓 50%
+{variant:3}{tags:jewellery_elemental}燃烧总伤害额外降低 40%
 ]],[[
 菁华蠕虫
 潜能之戒
