@@ -125,7 +125,7 @@ itemBases["魔角法杖"] = {
 	tags = { onehand = true, wand = true, weapon = true, ranged = true, one_hand_weapon = true, default = true, },
 	implicit = "法术伤害提高 (31-35)%",
 	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
-	weapon = { PhysicalMin = 38, PhysicalMax = 70, CritChanceBase = 7, AttackRateBase = 1.2, Range = 120, },
+	weapon = { PhysicalMin = 38, PhysicalMax = 71, CritChanceBase = 7, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 56, int = 179, },
 }
 itemBases["魔性法杖"] = {
@@ -134,7 +134,7 @@ itemBases["魔性法杖"] = {
 	tags = { onehand = true, wand = true, weapon = true, ranged = true, one_hand_weapon = true, default = true, },
 	implicit = "法术伤害提高 (33-37)%",
 	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
-	weapon = { PhysicalMin = 28, PhysicalMax = 53, CritChanceBase = 7, AttackRateBase = 1.5, Range = 120, },
+	weapon = { PhysicalMin = 29, PhysicalMax = 53, CritChanceBase = 7, AttackRateBase = 1.5, Range = 120, },
 	req = { level = 59, int = 188, },
 }
 itemBases["灵石法杖"] = {

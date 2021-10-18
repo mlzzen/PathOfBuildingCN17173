@@ -321,7 +321,7 @@ itemBases["石化药剂"] = {
 	type = "Flask",
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
-	implicit = "Taunts nearby Enemies on use",
+	implicit = "使用时嘲讽周围敌人",
 	implicitModTypes = { { "flask" }, },
 	flask = { duration = 5, chargesUsed = 40, chargesMax = 60, buff = { "护甲总增 20%" }, },
 	req = { level = 40, },
@@ -330,25 +330,25 @@ itemBases["海蓝药剂"] = {
 	type = "Flask",
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
-	implicit = "使用时制造冰缓地面",
+	implicit = "使用时产生冰缓地面",
 	implicitModTypes = { { "flask" }, },
-	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "你身上的冻结效果降低 60%" }, },
+	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "減少 60% 你身上的冰冻效果" }, },
 	req = { level = 27, },
 }
 itemBases["迷雾药剂"] = {
 	type = "Flask",
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
-	implicit = "使用时制造一团烟雾",
+	implicit = "使用时产生一片烟雾",
 	implicitModTypes = { { "flask" }, },
-	flask = { duration = 5, chargesUsed = 10, chargesMax = 30, buff = { "闪避值提高 100%" }, },
-	req = { level = 14, },
+	flask = { duration = 5, chargesUsed = 40, chargesMax = 60, buff = { "闪避值总增 20%" }, },
+	req = { level = 40, },
 }
 itemBases["硫磺药剂"] = {
 	type = "Flask",
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
-	implicit = "使用时制造奉献地面",
+	implicit = "使用时产生奉献地面",
 	implicitModTypes = { { "flask" }, },
 	flask = { duration = 5, chargesUsed = 40, chargesMax = 60, buff = { "伤害提高 40%" }, },
 	req = { level = 35, },
@@ -369,28 +369,28 @@ itemBases["灰岩药剂"] = {
 	flask = { duration = 5.5, chargesUsed = 15, chargesMax = 40, buff = { "+35% 所有元素抗性" }, },
 	req = { level = 8, },
 }
-itemBases["Gold Flask"] = {
+itemBases["黄金药剂"] = {
 	type = "Flask",
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, buff = { "30% increased Rarity of Items found" }, },
+	flask = { duration = 3, chargesUsed = 60, chargesMax = 80, buff = { "物品稀有度提高 30%" }, },
 	req = { level = 22, },
 }
-itemBases["Corundum Flask"] = {
+itemBases["刚玉药剂"] = {
 	type = "Flask",
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "30% increased Stun Threshold" }, },
+	flask = { duration = 5, chargesUsed = 20, chargesMax = 50, buff = { "晕眩门槛提高 30%" }, },
 	req = { level = 27, },
 }
-itemBases["Iron Flask"] = {
+itemBases["坚铁药剂"] = {
 	type = "Flask",
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, expedition_flask = true, default = true, },
-	implicit = "Restores Ward on use",
+	implicit = "使用时恢复结界",
 	implicitModTypes = { { "flask" }, },
-	flask = { duration = 3, chargesUsed = 40, chargesMax = 60, buff = { "+200 to Ward" }, },
+	flask = { duration = 3, chargesUsed = 40, chargesMax = 60, buff = { "结界 +200" }, },
 	req = { level = 40, },
 }

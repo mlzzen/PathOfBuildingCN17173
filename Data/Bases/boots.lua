@@ -586,7 +586,7 @@ itemBases["暗影者长靴"] = {
 	armour = { EvasionBase = 185, EnergyShieldBase = 17, },
 	req = { level = 69, dex = 82, int = 42, },
 }
-itemBases["逃亡者"] = {
+itemBases["逃亡之靴"] = {
 	type = "Boots",
 	subType = "Evasion/Energy Shield",
 	socketLimit = 4,
@@ -671,7 +671,7 @@ itemBases["异色鞋(火冰)"] = {
 	req = { level = 70, str = 62, dex = 62, },
 }
 
-itemBases["Runic Greaves"] = {
+itemBases["符文胫甲"] = {
 	type = "Boots",
 	subType = "Ward",
 	socketLimit = 4,
@@ -680,7 +680,7 @@ itemBases["Runic Greaves"] = {
 	armour = { WardBase = 20, },
 	req = { level = 24, str = 20, dex = 20, int = 20, },
 }
-itemBases["Runic Sollerets"] = {
+itemBases["符文护腿"] = {
 	type = "Boots",
 	subType = "Ward",
 	socketLimit = 4,
@@ -689,7 +689,7 @@ itemBases["Runic Sollerets"] = {
 	armour = { WardBase = 52, },
 	req = { level = 48, str = 37, dex = 37, int = 37, },
 }
-itemBases["Runic Sabatons"] = {
+itemBases["符文战靴"] = {
 	type = "Boots",
 	subType = "Ward",
 	socketLimit = 4,
@@ -697,4 +697,14 @@ itemBases["Runic Sabatons"] = {
 	implicitModTypes = { },
 	armour = { WardBase = 85, },
 	req = { level = 69, str = 46, dex = 46, int = 46, },
+}
+
+itemBases["黄金缠鞋"] = {
+	type = "Boots",
+	socketLimit = 4,
+	tags = { boots = true, not_for_sale = true, armour = true, demigods = true, default = true, },
+	implicit = "+(8-16)% 所有元素抗性",
+	implicitModTypes = { { "elemental", "resistance" }, },
+	armour = { },
+	req = { level = 12, },
 }

@@ -19,6 +19,42 @@ return {
 						}
 					},
 					text="召唤生物可投掷最多 {0} 个额外陷阱"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Lacaios Arremessam até 1 Armadilha adicional"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Lacaios Arremessam até {0} Armadilhas adicionais"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환수가 덫 최대 1개 추가 투척"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 덫 최대 {0}개 추가 투척"
 				}
 			}
 		},
@@ -83,6 +119,114 @@ return {
 						}
 					},
 					text="召唤生物同时可多放置 {0} 个陷阱"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Приспешники могут установить дополнительную ловушку"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники могут устанавливать дополнительных ловушек: {0}"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="มิเนียน สามารถมี กับดัก วางไว้พร้อมกันได้เพิ่มเติม 1 อัน"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียน สามารถมี กับดัก วางไว้พร้อมกันได้เพิ่มเติม {0} อัน"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Los Esbirros pueden tener una Trampa adicional colocada a la vez"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros pueden tener {0} Trampas adicionales colocadas a la vez"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Les Créatures peuvent avoir un Piège supplémentaire placé à la fois"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures peuvent avoir {0} Pièges supplémentaires placés à la fois"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Erlaubt Kreaturen gleichzeitige Platzierung einer zusätzlichen Falle"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Erlaubt Kreaturen gleichzeitige Platzierung {0} zusätzlicher Fallen"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환수가 한 번에 덫 1개 추가 설치"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 한 번에 덫 {0}개 추가 설치"
 				}
 			}
 		},
@@ -111,6 +255,114 @@ return {
 						}
 					},
 					text="召唤生物同时可多放置 {0} 个地雷"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Приспешники могут установить дополнительную мину"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники могут устанавливать дополнительных мин: {0}"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="มิเนียน สามารถวาง ทุ่นระเบิด ได้พร้อมกันเพิ่มเติม 1 ลูก"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียน สามารถวาง ทุ่นระเบิด ได้พร้อมกันเพิ่มเติม {0} ลูก"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Los Esbirros pueden tener una Mina adicional colocada a la vez"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros pueden tener {0} Minas adicionales colocadas a la vez"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Les Créatures peuvent avoir une Mine supplémentaire placée à la fois"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures peuvent avoir {0} Mines supplémentaires placées à la fois"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Erlaubt Kreaturen gleichzeitige Platzierung einer zusätzlichen Mine"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Erlaubt Kreaturen gleichzeitige Platzierung {0} zusätzlicher Minen"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환수가 한 번에 지뢰 1개 추가 설치"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 한 번에 지뢰 {0}개 추가 설치"
 				}
 			}
 		},
@@ -130,6 +382,60 @@ return {
 						}
 					},
 					text="陷阱投掷至随机处"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Бросает ловушки в случайное место"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="กับดักจะถูกโยนแบบสุ่ม"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Las Trampas se lanzan aleatoriamente"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Pièges sont jetés aléatoirement"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Fallen werden zufällig geworfen"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="덫이 무작위로 투척됨"
 				}
 			}
 		},
@@ -162,6 +468,138 @@ return {
 						}
 					},
 					text="召唤生物的施法速度降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเร็วในการร่าย ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเร็วในการร่าย ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% повышение скорости сотворения чар"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% снижение скорости сотворения чар"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Vitesse d'incantation"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Vitesse d'incantation"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Lanzamiento aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Lanzamiento reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhte Zaubergeschwindigkeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerte Zaubergeschwindigkeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 시전 속도 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 시전 속도 {0}% 감소"
 				}
 			}
 		},
@@ -194,6 +632,138 @@ return {
 						}
 					},
 					text="召唤生物的总施法速度总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเร็วในการร่าย ของมิเนียน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเร็วในการร่าย ของมิเนียน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Скорость сотворения чар приспешниками на {0}% больше"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Скорость сотворения чар приспешниками на {0}% меньше"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Vitesse d'incantation"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Vitesse d'incantation"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0}% más Velocidad de Lanzamiento de Hechizos"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen {0}% menos Velocidad de Lanzamiento de Hechizos"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% mehr Zaubergeschwindigkeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% weniger Zaubergeschwindigkeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 시전 속도 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 시전 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -226,6 +796,138 @@ return {
 						}
 					},
 					text="召唤生物的攻击速度降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเร็วในการโจมตี ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเร็วในการโจมตี ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% повышение скорости атаки"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% снижение скорости атаки"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Vitesse d'attaque"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Vitesse d'Attaque"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Ataque aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Ataque reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhte Angriffsgeschwindigkeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerte Angriffsgeschwindigkeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 공격 속도 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 공격 속도 {0}% 감소"
 				}
 			}
 		},
@@ -258,6 +960,138 @@ return {
 						}
 					},
 					text="召唤生物的命中值降低 {0}"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="ค่า ความแม่นยำ ของมิเนียนเพิ่มอีก {0:+d}"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ค่า ความแม่นยำ ของมิเนียนลด {0:+d}"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники получают {0} дополнительной меткости"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники теряют {0} меткости"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0} de Score de Précision supplémentaire"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures perdent {0} de Score de Précision"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros tienen {0} de precisión adicional"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los esbirros pierden {0} de precisión"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0} zusätzliche Treffgenauigkeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verlieren {0} Treffgenauigkeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 정확도 {0} 추가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 정확도 {0} 상실"
 				}
 			}
 		},
@@ -290,6 +1124,138 @@ return {
 						}
 					},
 					text="召唤生物的总命中值降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความแม่นยำ ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความแม่นยำ ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% повышение меткости"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% снижение меткости"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation du Score de Précision"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction du Score de Précision"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Precisión aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Precisión reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhte Treffgenauigkeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerte Treffgenauigkeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 정확도 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 정확도 {0}% 감소"
 				}
 			}
 		},
@@ -322,6 +1288,50 @@ return {
 						}
 					},
 					text="召唤生物的暴击率降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios possuem {0}% de aumento da Chance de Acerto Crítico"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios possuem {0}% de redução da Chance de Acerto Crítico"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 치명타 확률 {0}% 증가"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 치명타 확률 {0}% 감소"
 				}
 			}
 		},
@@ -354,6 +1364,28 @@ return {
 						}
 					},
 					text="召唤生物的暴击率总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios têm {0}% mais Chance de Golpe Crítico"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios têm {0}% menos Chance de Golpe Crítico"
 				}
 			}
 		},
@@ -373,6 +1405,60 @@ return {
 						}
 					},
 					text="召唤生物获得 {0:+d}% 暴击伤害加成"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียน มี ตัวคูณคริติคอล {0:+d}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0:+d}% множитель критического удара"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0:+d}% de Multiplicador de Golpe Crítico"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0:+d}% au Multiplicateur de coup critique"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0:+d}% zu Multiplikator für kritische Treffer"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수의 치명타 피해 배율 {0:+d}%"
 				}
 			}
 		},
@@ -392,6 +1478,60 @@ return {
 						}
 					},
 					text="每击中一个敌人，召唤生物获得 {0} 生命回复"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะได้รับพลังชีวิต {0} เมื่อโจมตีศัตรู"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники получают {0} здоровья за удар по каждому врагу"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures gagnent {0} de Vie pour chaque Ennemi qu'elles Touchent"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros ganan {0} de Vida por cada enemigo que Golpean"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen erhalten {0} Leben für jeden getroffenen Gegner"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="명중한 적 하나당 소환수가 생명력 {0} 획득"
 				}
 			}
 		},
@@ -419,6 +1559,108 @@ return {
 						}
 					},
 					text="召唤生物获得 {0}% 生命偷取"
+				},
+				[2]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน ดูด {0}% ของความเสียหายไปเป็น พลังชีวิต"
+				},
+				[3]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники похищают {0}% от урона в виде здоровья"
+				},
+				[4]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% de leurs Dégâts qui Drainent de la Vie"
+				},
+				[5]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros Absorben {0}% del Daño como Vida"
+				},
+				[6]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen rauben {0}% des Schadens als Leben"
+				},
+				[7]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 피해의 {0}%를 생명력으로 흡수"
 				}
 			}
 		},
@@ -446,6 +1688,23 @@ return {
 						}
 					},
 					text="召唤生物造成伤害的 {0}% 转化为能量护盾偷取"
+				},
+				[2]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextEnergyShieldLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 피해의 {0}%를 에너지 보호막으로 흡수"
 				}
 			}
 		},
@@ -482,6 +1741,110 @@ return {
 						}
 					},
 					text="召唤生物击中时会击退敌人"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextKnockback"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Los Esbirros tienen {0}% de probabilidad de Empujar a los Enemigos con cada Golpe"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextKnockback"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros Empujan a los Enemigos con cada Golpe"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextKnockback"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Les Créatures ont {0}% de chances supplémentaires de Repousser les Ennemis au Toucher"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextKnockback"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Les Créatures Repoussent les Ennemis au Toucher"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextKnockback"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Kreaturen haben eine zusätzliche {0}% Chance, Gegner bei Treffer zurückzustoßen"
+				},
+				[8]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextKnockback"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Kreaturen stoßen Gegner bei Treffer zurück"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextKnockback"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="명중 시 소환수가 적을 밀어낼 확률 {0}% 추가"
+				},
+				[10]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextKnockback"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="명중 시 소환수가 적을 밀어냄"
 				}
 			}
 		},
@@ -514,6 +1877,138 @@ return {
 						}
 					},
 					text="召唤生物的击退距离缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มระยะการผลัก ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดระยะการผลัก ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение дистанции отбрасывания"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение дистанции отбрасывания"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Distance de Repoussement"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Distance de Repoussement"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Distancia de Empuje aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Distancia de Empuje reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhte Rückstoßdistanz"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerte Rückstoßdistanz"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 밀어내기 거리 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 밀어내기 거리 {0}% 감소"
 				}
 			}
 		},
@@ -554,6 +2049,186 @@ return {
 						}
 					},
 					text="召唤生物使敌人晕眩门槛提高 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนลดโอกาส Stun ของศัตรูลง {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนเพิ่มโอกาส Stun ของศัตรูลง {0}%"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% снижение порога оглушения врагов"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники получают {0}% повышение порога оглушения врагов"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction du Seuil d'Étourdissement de l'Ennemi"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation du Seuil d'Étourdissement de l'Ennemi"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen el Umbral de Aturdimiento Enemigo reducido un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen el Umbral de Aturdimiento Enemigo aumentado un {0}%"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% verringerte Betäubungsschwelle bei Gegnern"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% erhöhte Betäubungsschwelle bei Gegnern"
+				},
+				[13]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 적 기절 한계치 {0}% 감소"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStunThreshold"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 적 기절 한계치 {0}% 증가"
 				}
 			}
 		},
@@ -586,6 +2261,138 @@ return {
 						}
 					},
 					text="被此召唤生物击败的怪物，其物品稀有度降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มไอเทมหายากที่ดรอปจากศัตรู ที่ถูกสังหารโดยมิเนียนขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดไอเทมหายากที่ดรอปจากศัตรู ที่ถูกสังหารโดยมิเนียนลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% повышение редкости предметов, выпадающих с врагов, убитых вашими приспешниками"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% снижение редкости предметов, выпадающих с врагов, убитых вашими приспешниками"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% d'Augmentation de la Rareté des Objets cédés par les Ennemis Tués par les Créatures"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% de Réduction de la Rareté des Objets cédés par les Ennemis Tués par les Créatures"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Rareza de Objetos Raros Arrojados por enemigos Asesinados por Esbirros aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Rareza de Objetos Raros Arrojados por enemigos Asesinados por Esbirros reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% erhöhte Seltenheit fallen gelassener Gegenstände von Gegnern, die durch Kreaturen getötet wurden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% verringerte Seltenheit fallen gelassener Gegenstände von Gegnern, die durch Kreaturen getötet wurden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 처치한 적이 떨어뜨리는 아이템 희귀도 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 처치한 적이 떨어뜨리는 아이템 희귀도 {0}% 감소"
 				}
 			}
 		},
@@ -618,6 +2425,138 @@ return {
 						}
 					},
 					text="被此召唤生物击败的怪物降低 {0}% 物品掉落数量"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มจำนวนไอเทมดรอปจากศัตรูที่ถูกสังหารโดยมิเนียนขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดจำนวนไอเทมดรอปจากศัตรูที่ถูกสังหารโดยมิเนียนลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% увеличение количества предметов, выпадающих с врагов, убитых вашими приспешниками"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% уменьшение количества предметов, выпадающих с врагов, убитых вашими приспешниками"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% d'Augmentation de la Quantité d'Objets cédés par les Ennemis Tués par les Créatures"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% de Réduction de la Quantité d'Objets cédés par les Ennemis Tués par les Créatures"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Cantidad de Objetos Raros Arrojados por enemigos Asesinados por Esbirros aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Cantidad de Objetos Raros Arrojados por enemigos Asesinados por Esbirros reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% erhöhte Menge fallen gelassener Gegenstände von Gegnern, die durch Kreaturen getötet wurden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% verringerte Menge fallen gelassener Gegenstände von Gegnern, die durch Kreaturen getötet wurden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 처치한 적이 떨어뜨리는 아이템 수량 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 처치한 적이 떨어뜨리는 아이템 수량 {0}% 감소"
 				}
 			}
 		},
@@ -662,6 +2601,244 @@ return {
 						}
 					},
 					text="召唤生物有 {0}% 的几率冰冻敌人"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะสร้างสถานะ แช่แข็ง ต่อศัตรู เสมอ"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="มิเนียน จะสร้างสถานะ แช่แข็ง ต่อศัตรู เสมอ"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="มิเนียน มีโอกาส {0}% ที่จะสร้างสถานะ แช่แข็ง ต่อศัตรู"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники всегда замораживают врагов"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Приспешники имеют {0}% шанс заморозить врагов"
+				},
+				[8]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures Gèlent toujours les Ennemis"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Les Créatures ont {0}% de chances de Geler les Ennemis"
+				},
+				[10]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros siempre Congelan Enemigos"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Los Esbirros tienen {0}% de probabilidad de Congelar enemigos"
+				},
+				[12]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen frieren Gegner immer ein"
+				},
+				[13]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Kreaturen frieren Gegner immer ein"
+				},
+				[14]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Kreaturen haben {0}% Chance, Gegner einzufrieren"
+				},
+				[15]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 항상 동결 유발"
+				},
+				[16]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="소환수가 {0}%의 확률로 적 동결 유발"
 				}
 			}
 		},
@@ -686,6 +2863,84 @@ return {
 						}
 					},
 					text="召唤生物有 {0}% 的几率使敌人感电"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextShock"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนมีโอกาส {0}% ที่จะสร้างสถานะ ช็อค ต่อศัตรู"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextShock"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% шанс наложить шок на врагов"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextShock"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% de chances d'Électrocuter les Ennemis"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextShock"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0}% de probabilidad de Electrocutar enemigos"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextShock"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% Chance, Gegner zu schocken"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextShock"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 {0}%의 확률로 적 감전 유발"
 				}
 			}
 		},
@@ -709,6 +2964,84 @@ return {
 						}
 					},
 					text="召唤生物的火焰伤害有 {0}% 的几率点燃敌人"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIgnite"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนมีโอกาสจะทำให้ศัตรูลุกไหม้ {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIgnite"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% шанс поджечь врагов"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIgnite"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% de chances d'Embraser les Ennemis"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIgnite"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0}% de probabilidad de Quemar enemigos"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIgnite"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% Chance, Gegner zu entzünden"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIgnite"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 {0}%의 확률로 적 점화 유발"
 				}
 			}
 		},
@@ -728,6 +3061,60 @@ return {
 						}
 					},
 					text="召唤生物被击中时有 {0}% 的几率使敌人逃跑"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มีโอกาส {0}% ที่จะทำให้มอนสเตอร์ หลบหนี เมื่อปะทะ"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% шанс испугать врагов"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% de chances de faire fuir les Monstres au Toucher"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0}% de probabilidad de causar que los Monstruos Huyan al ser Golpeados"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% Chance, Gegner bei Treffer in die Flucht zu schlagen"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수는 피격 시 {0}%의 확률로 몬스터를 도망치게 함"
 				}
 			}
 		},
@@ -760,6 +3147,50 @@ return {
 						}
 					},
 					text="召唤生物的效果区域缩小 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios possuem Efeito em Área aumentado em {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios possuem Efeito em Área reduzido em {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 효과 범위 {0}% 증가"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 효과 범위 {0}% 감소"
 				}
 			}
 		},
@@ -792,6 +3223,50 @@ return {
 						}
 					},
 					text="召唤生物的效果区域总面积额外缩小 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios possuem {0}% mais Efeito em Área"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios possuem {0}% menos Efeito em Área"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 효과 범위 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 효과 범위 {0}% 감폭"
 				}
 			}
 		},
@@ -824,6 +3299,28 @@ return {
 						}
 					},
 					text="召唤生物的光环范围缩小 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 오라 효과 범위 {0}% 증가"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 오라 효과 범위 {0}% 감소"
 				}
 			}
 		},
@@ -856,6 +3353,138 @@ return {
 						}
 					},
 					text="召唤生物的光环效果降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มผลออร่า ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดผลออร่า ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% усиление эффекта их аур"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% ослабление эффекта их аур"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de l'Effet de leurs Auras"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de l'Effet de leurs Auras"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen el efecto de sus Auras aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen el efecto de sus Auras reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhte Wirkung ihrer Auren"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerte Wirkung ihrer Auren"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 오라 효과 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 오라 효과 {0}% 감소"
 				}
 			}
 		},
@@ -888,6 +3517,138 @@ return {
 						}
 					},
 					text="召唤生物的投射物速度降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเร็วกระสุน ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเร็วกระสุน ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% повышение скорости снарядов"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% снижение скорости снарядов"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Vitesse des Projectiles"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Vitesse des Projectiles"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Proyectiles aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Proyectiles reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhte Projektilgeschwindigkeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerte Projektilgeschwindigkeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 투사체 속도 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 투사체 속도 {0}% 감소"
 				}
 			}
 		},
@@ -916,6 +3677,114 @@ return {
 						}
 					},
 					text="召唤生物发射 {0} 个额外投射物"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="มิเนียน ยิงกระสุนเพิ่มขึ้น {0} ลูก"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="มิเนียน ยิงกระสุนเพิ่มขึ้น {0} ลูก"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Приспешники выпускают дополнительных снарядов: {0}"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Приспешники выпускают дополнительных снарядов: {0}"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Les Créatures tirent {0} Projectile supplémentaire"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Les Créatures tirent {0} Projectiles supplémentaires"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Los Esbirros disparan {0} Proyectil adicional"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros disparan {0} Proyectiles adicionales"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Kreaturen feuern {0} zusätzliches Projektil"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Kreaturen feuern {0} zusätzliche Projektile"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환수가 추가 투사체 {0}개 발사"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소환수가 추가 투사체 {0}개 발사"
 				}
 			}
 		},
@@ -948,6 +3817,138 @@ return {
 						}
 					},
 					text="召唤生物使敌人晕眩的时间缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มึระยะเวลาของสถานะ มึนงง ที่สร้างต่อศัตรู เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มึระยะเวลาของสถานะ มึนงง ที่สร้างต่อศัตรู ลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение длительности оглушения врагов"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение длительности оглушения врагов"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Cratures ont {0}% d'Augmentation de la Durée de l'Étourdissement sur les Ennemis"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Cratures ont {0}% de Réduction de la Durée de l'Étourdissement sur les Ennemis"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Duración de Aturdimiento en enemigos aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Duración de Aturdimiento en enemigos reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% verlängerte Betäubungsdauer bei Gegnern"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verkürzte Betäubungsdauer bei Gegnern"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 적에게 적용하는 기절 지속시간 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 적에게 적용하는 기절 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -980,6 +3981,28 @@ return {
 						}
 					},
 					text="召唤生物的冰缓效果降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios tem Efeito Resfriante aumentado em {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios tem Efeito Resfriante reduzido em {0}%"
 				}
 			}
 		},
@@ -1012,6 +4035,28 @@ return {
 						}
 					},
 					text="召唤生物的感电效果降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios têm Efeito Eletrizante aumentado em {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios têm Efeito Eletrizante reduzido em {0}%"
 				}
 			}
 		},
@@ -1044,6 +4089,138 @@ return {
 						}
 					},
 					text="召唤生物点燃敌人的持续时间缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มึระยะเวลาของสถานะ ลุกไหม้ ที่สร้างต่อศัตรู เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มึระยะเวลาของสถานะ ลุกไหม้ ที่สร้างต่อศัตรู ลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение длительности поджога врагов"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение длительности поджога врагов"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Durée de l'Embrasement sur les Ennemis"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Durée de l'Embrasement sur les Ennemis"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Duración de Quemadura en enemigos aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Duración de Quemadura en enemigos reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% verlängerte Brenndauer bei Gegnern"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verkürzte Brenndauer bei Gegnern"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 적에게 적용하는 점화 지속시간 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 적에게 적용하는 점화 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -1076,6 +4253,138 @@ return {
 						}
 					},
 					text="召唤生物使敌人冰缓的时间缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มึระยะเวลาของสถานะ หนาวเย็น ที่สร้างต่อศัตรู เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มึระยะเวลาของสถานะ หนาวเย็น ที่สร้างต่อศัตรู ลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение длительности охлаждения врагов"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение длительности охлаждения врагов"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Durée de la Frigorification sur les Ennemis"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Durée de la Frigorification sur les Ennemis"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Duración de Escarchamiento en enemigos aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Duración de Escarchamiento en enemigos reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% verlängerte Unterkühlungsdauer bei Gegnern"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verkürzte Unterkühlungsdauer bei Gegnern"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 적에게 적용하는 냉각 지속시간 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 적에게 적용하는 냉각 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -1108,6 +4417,138 @@ return {
 						}
 					},
 					text="召唤生物使敌人冰冻的时间缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มึระยะเวลาของสถานะ แช่แข็ง ที่สร้างต่อศัตรู เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มึระยะเวลาของสถานะ แช่แข็ง ที่สร้างต่อศัตรู ลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение длительности заморозки врагов"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение длительности заморозки врагов"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Durée du Gel sur les Ennemis"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Durée du Gel sur les Ennemis"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Duración de Congelamiento en enemigos aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Duración de Congelamiento en enemigos reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% verlängerte Einfrierungsdauer bei Gegnern"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verkürzte Einfrierungsdauer bei Gegnern"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 적에게 적용하는 동결 지속시간 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 적에게 적용하는 동결 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -1140,6 +4581,138 @@ return {
 						}
 					},
 					text="召唤生物对敌人造成的感电状态时间缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มึระยะเวลาของสถานะ ช็อค ที่สร้างต่อศัตรู เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มีระยะเวลาของสถานะ ช็อค ที่สร้างต่อศัตรู ลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение длительности шока врагов"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение длительности шока врагов"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Durée de l'Électrocution sur les Ennemis"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Durée de l'Électrocution sur les Ennemis"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Duración de Electrocución en enemigos aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Duración de Electrocución en enemigos reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% verlängerte Schockdauer bei Gegnern"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verkürzte Schockdauer bei Gegnern"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 적에게 적용하는 감전 지속시간 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 적에게 적용하는 감전 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -1163,6 +4736,19 @@ return {
 						}
 					},
 					text="召唤生物造成的元素异常状态，也会影响到其他附近的敌人"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextElementalStatusAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수에 의해 발생하는 원소 상태 이상이 주변의 적에게도 확산"
 				}
 			}
 		},
@@ -1182,6 +4768,15 @@ return {
 						}
 					},
 					text="召唤生物造成的点燃效果会扩散至附近的敌人"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수에 의해 발생하는 점화가 주변의 다른 적에게도 확산"
 				}
 			}
 		},
@@ -1272,6 +4867,246 @@ return {
 						}
 					},
 					text="召唤生物不能导致流血"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBleeding"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Los Ataques de los Esbirros tienen {0}% de probabilidad de causar Sangrado"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBleeding"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Los Ataques de los Esbirros causan Sangrado"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBleeding"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Los Ataques de los Esbirros causan Sangrado"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						},
+						[3]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros no pueden causar Sangrado"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBleeding"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Les Attaques des Créatures ont {0}% de chances de causer le Saignement"
+				},
+				[10]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBleeding"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Les Attaques des Créatures causent le Saignement"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBleeding"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Les Attaques des Créatures causent le Saignement"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						},
+						[3]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Attaques des Créatures ne peuvent causer le Saignement"
+				},
+				[13]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBleeding"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="소환수의 공격이 {0}% 확률로 출혈 유발"
+				},
+				[14]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBleeding"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="소환수의 공격 시 출혈 유발"
+				},
+				[15]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBleeding"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="소환수의 공격 시 출혈 유발"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						},
+						[3]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수는 출혈 유발 불가"
 				}
 			}
 		},
@@ -1306,6 +5141,138 @@ return {
 						}
 					},
 					text="召唤生物造成的近战物理伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย กายภาพ ประชิด อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย กายภาพ ประชิด อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше физического урона в ближнем бою"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше физического урона в ближнем бою"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts physiques"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts physiques"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Físico Cuerpo a Cuerpo"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Físico Cuerpo a Cuerpo"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr physischen Nahkampfschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger physischen Nahkampfschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 근접 물리 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 근접 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1338,6 +5305,50 @@ return {
 						}
 					},
 					text="召唤生物的近战攻击击中后，所造成的流血和中毒伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts avec le Saignement et le Poison infligés en Touchant en mêlée"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts avec le Saignement et le Poison infligés en Touchant en mêlée"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 근접 명중에 의한 출혈 및 중독 피해 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 근접 명중에 의한 출혈 및 중독 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1377,6 +5388,126 @@ return {
 						}
 					},
 					text="召唤生物在低血状态下伤害总降 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนสร้างความเสียหาย เพิ่มขึ้น อีก {0}% ขณะพวกมันมี พลังชีวิตเหลือน้อย"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนสร้างความเสียหาย ลดลง อีก {0}% ขณะพวกมัน พลังชีวิตเหลือน้อย"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 낮은 생명력 상태일 때 주는 피해 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 낮은 생명력 상태일 때 주는 피해 {0}% 감폭"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона при малом количестве их здоровья"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона при малом количестве их здоровья"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物瀕血時造成 {0}% 更多傷害"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物瀕血時造成 {0}% 更少傷害"
 				}
 			}
 		},
@@ -1409,6 +5540,50 @@ return {
 						}
 					},
 					text="满血时，召唤生物的攻击技能伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts avec les Aptitudes d'Attaque lorsque leur Vie est Pleine"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts avec les Aptitudes d'Attaque lorsque leur Vie est Pleine"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="생명력이 최대일 때 소환수가 주는 공격 스킬의 피해 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="생명력이 최대일 때 소환수가 주는 공격 스킬의 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1441,6 +5616,116 @@ return {
 						}
 					},
 					text="召唤生物的攻击技能伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน สร้างความเสียหายเพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน สร้างความเสียหายลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño de Ataques aumentado un {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño de Ataques reducido un {0}%"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts d'attaque"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts d'attaque"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Angriffsschaden"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Angriffsschaden"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 공격 피해 {0}% 증가"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 공격 피해 {0}% 감소"
 				}
 			}
 		},
@@ -1473,6 +5758,138 @@ return {
 						}
 					},
 					text="召唤生物造成的物理伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย กายภาพ ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย กายภาพ ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение физического урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение физического урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts physiques"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts physiques"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño Físico aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño Físico reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten physischen Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten physischen Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 감소"
 				}
 			}
 		},
@@ -1505,6 +5922,138 @@ return {
 						}
 					},
 					text="召唤生物造成的物理伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย กายภาพ อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย กายภาพ อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше физического урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше физического урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts physiques"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts physiques"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Físico"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Físico"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr physischen Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger physischen Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1537,6 +6086,138 @@ return {
 						}
 					},
 					text="召唤生物造成的元素伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย ธาตุ อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย ธาตุ อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона от стихий"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона от стихий"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts élémentaires"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts élémentaires"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Elemental"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Elemental"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Elementarschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Elementarschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 원소 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 원소 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1569,6 +6250,138 @@ return {
 						}
 					},
 					text="召唤生物造成的投射物伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย กระสุน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย กระสุน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона снарядами"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона снарядами"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts des Projectiles"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts des Projectiles"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros infligen un {0}% más de daño con proyectiles"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los esbirros infligen un {0}% menos de daño con proyectiles"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Projektilschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Projektilschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1601,6 +6414,138 @@ return {
 						}
 					},
 					text="召唤生物造成的投射物伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย กระสุน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย กระสุน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона снарядами"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона снарядами"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts des Projectiles"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts des Projectiles"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros infligen un {0}% más de daño con proyectiles"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los esbirros infligen un {0}% menos de daño con proyectiles"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Projektilschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Projektilschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1633,6 +6578,138 @@ return {
 						}
 					},
 					text="召唤生物的范围伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย พื้นที่ อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย พื้นที่ อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона по области"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона по области"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts de Zone"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts de Zone"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño en Área"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño en Área"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Flächenschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Flächenschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 범위 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 범위 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1656,6 +6733,97 @@ return {
 						}
 					},
 					text="召唤生物的攻击额外造成 {0} - {1} 物理伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的攻擊額外造成 {0} 至 {1} 物理傷害"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Атаки приспешников наносят от {0} до {1} дополнительного физического урона"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="เสริมความเสียหาย กายภาพ {0} ถึง {1} ให้การโจมตีของมิเนียน"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Ataques de Esbirros infligen {0} a {1} de Daño Físico adicional"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Attaques des Créatures infligent {0} à {1} Dégâts physiques supplémentaires"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Angriffe von Kreaturen verursachen {0} bis {1} zusätzlichen physischen Schaden"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수의 공격으로 주는 물리 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -1708,6 +6876,97 @@ return {
 						}
 					},
 					text="召唤生物额外造成 {0} - {1} 冰霜伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物額外造成 {0} 至 {1} 冰冷傷害"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят от {0} до {1} дополнительного урона от холода"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="เสริมความเสียหาย น้ำแข็ง {0} ถึง {1} ให้มิเนียน"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0} a {1} de Daño de Hielo adicional"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Attaques des Créatures infligent {0} à {1} Dégâts de froid supplémentaires"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0} bis {1} zusätzlichen Kälteschaden"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 냉기 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -1732,6 +6991,97 @@ return {
 						}
 					},
 					text="召唤生物额外造成 {0} - {1} 闪电伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物額外造成 {0} 至 {1} 閃電傷害"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят от {0} до {1} дополнительного урона от молнии"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="เสริมความเสียหาย สายฟ้า {0} ถึง {1} ให้มิเนียน"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0} a {1} de Daño de Rayo adicional"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Attaques des Créatures infligent {0} à {1} Dégâts de foudre supplémentaires"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0} bis {1} zusätzlichen Blitzschaden"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 번개 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -1756,6 +7106,97 @@ return {
 						}
 					},
 					text="召唤生物额外造成 {0} - {1} 混沌伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物額外造成 {0} 至 {1} 混沌傷害"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят от {0} до {1} дополнительного урона хаосом"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="เสริมความเสียหาย เคออส {0} ถึง {1} ให้มิเนียน"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0} a {1} de Daño de Caos adicional"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Attaques des Créatures infligent {0} à {1} Dégâts de chaos supplémentaires"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0} bis {1} zusätzlichen Chaosschaden"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 카오스 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -1789,6 +7230,138 @@ return {
 						}
 					},
 					text="召唤生物的近战物理伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย โจมตีประชิด กายภาพ ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย โจมตีประชิด กายภาพ ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение физического урона от атак ближнего боя"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение физического урона от атак ближнего боя"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts physiques avec les Attaques de mêlée"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts physiques avec les Attaques de mêlée"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño Físico con Ataques Cuerpo a Cuerpo aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño Físico con Ataques Cuerpo a Cuerpo reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten physischen Schaden mit Nahkampfangriffen"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten physischen Schaden mit Nahkampfangriffen"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 근접 공격 물리 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 근접 공격 물리 피해 {0}% 감소"
 				}
 			}
 		},
@@ -1808,6 +7381,60 @@ return {
 						}
 					},
 					text="召唤生物的 {0}% 物理伤害转化为额外火焰伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะนำ {0}% ของความเสียหาย กายภาพของพวกมัน ไปเสริมเป็น ไฟ"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят {0}% от их физического урона в виде дополнительного урона от огня"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures Rajoutent {0}% de leur Dégâts physiques sous forme de Dégâts de feu"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% de su Daño Físico como Daño Extra de Fuego"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% ihres physischen Schadens als extra Feuerschaden"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 물리 피해의 {0}%를 추가 화염 피해로 줌"
 				}
 			}
 		},
@@ -1827,6 +7454,60 @@ return {
 						}
 					},
 					text="召唤生物的 {0}% 冰霜伤害转化为火焰伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="จะเปลี่ยน {0}% ของความเสียหายทางน้ำแข็งของมิเนียนเป็นความเสียหายทางไฟ"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% урона от холода приспешников становится уроном от огня"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures Convertissent {0}% de leurs Dégâts de froid en Dégâts de feu"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% del Daño de Hielo de los Esbirros se convierte en Daño de Fuego"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% des Kälteschadens von Kreaturen in Feuerschaden umgewandelt"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수 냉기 피해의 {0}%를 화염 피해로 전환"
 				}
 			}
 		},
@@ -1846,6 +7527,15 @@ return {
 						}
 					},
 					text="召唤生物造成额外混沌伤害，其数值等同于物理伤害的 {0}%"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 물리 피해의 {0}%를 추가 카오스 피해로 줌"
 				}
 			}
 		},
@@ -1865,6 +7555,60 @@ return {
 						}
 					},
 					text="召唤生物的 {0}% 物理伤害转化为额外闪电伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะนำ {0}% ของความเสียหาย กายภาพของพวกมัน ไปเสริมเป็น สายฟ้า"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят {0}% от их физического урона в виде дополнительного урона от молнии"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures Rajoutent {0}% de leur Dégâts physiques sous forme de Dégâts de foudre"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% del Daño Físico como Daño Extra de Rayo"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% des physischen Schadens als extra Blitzschaden"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 물리 피해의 {0}%를 추가 번개 피해로 줌"
 				}
 			}
 		},
@@ -1884,6 +7628,60 @@ return {
 						}
 					},
 					text="将召唤生物 {0}% 的物理伤害转化为闪电伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="จะเปลี่ยน {0}% ของความเสียหายทางกายภาพของมิเนียนเป็นความเสียหายทางสายฟ้า"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% физического урона приспешников становится уроном от молнии"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures Convertissent {0}% de leurs Dégâts physiques en Dégâts de foudre"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% del Daño Físico de los Esbirros se convierte en Daño de Rayo"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% des physischen Schadens von Kreaturen in Blitzschaden umgewandelt"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수 물리 피해의 {0}%를 번개 피해로 전환"
 				}
 			}
 		},
@@ -1916,6 +7714,138 @@ return {
 						}
 					},
 					text="召唤生物的伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหายของ มิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหายของ มิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de Dégâts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감소"
 				}
 			}
 		},
@@ -1948,6 +7878,138 @@ return {
 						}
 					},
 					text="召唤生物的火焰伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะสร้างความเสียหายทางไฟเพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนจะสร้างความเสียหายทางไฟลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение урона от огня"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение урона от огня"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts de feu"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts de feu"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño de Fuego aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño de Fuego reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Feuerschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Feuerschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 화염 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 화염 피해 {0}% 감소"
 				}
 			}
 		},
@@ -1980,6 +8042,138 @@ return {
 						}
 					},
 					text="召唤生物的冰霜伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะสร้างความเสียหายทางน้ำแข็งเพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนจะสร้างความเสียหายทางน้ำแข็งลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение урона от холода"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение урона от холода"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts de froid"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts de froid"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño de Hielo aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño de Hielo reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Kälteschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Kälteschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 냉기 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 냉기 피해 {0}% 감소"
 				}
 			}
 		},
@@ -2012,6 +8206,138 @@ return {
 						}
 					},
 					text="召唤生物的闪电伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะสร้างความเสียหายทางสายฟ้าเพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนจะสร้างความเสียหายทางสายฟ้าลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение урона от молнии"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение урона от молнии"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts de foudre"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts de foudre"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño de Rayo aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño de Rayo reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Blitzschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Blitzschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 번개 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 번개 피해 {0}% 감소"
 				}
 			}
 		},
@@ -2044,6 +8370,138 @@ return {
 						}
 					},
 					text="召唤生物的混沌伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย เคออส ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย เคออส ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят увеличенный на {0}% урон хаосом"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят уменьшенный на {0}% урон хаосом"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts de chaos"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts de chaos"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño de Caos aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño de Caos reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Chaosschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Chaosschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 카오스 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 카오스 피해 {0}% 감소"
 				}
 			}
 		},
@@ -2076,6 +8534,28 @@ return {
 						}
 					},
 					text="召唤生物的攻击技能会使元素伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 공격 스킬의 원소 피해 {0}% 증폭"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 공격 스킬의 원소 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2108,6 +8588,138 @@ return {
 						}
 					},
 					text="召唤生物的武器元素伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะสร้างความเสียหายทางธาตุจากอาวุธเพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนจะสร้างความเสียหายทางธาตุจากอาวุธลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение урона от стихий оружием"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение урона от стихий оружием"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts élémentaires avec les Armes"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts élémentaires avec les Armes"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño Elemental con Armas aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño Elemental con Armas reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Elementarschaden mit Waffen"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Elementarschaden mit Waffen"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 무기 사용 시 원소 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 무기 사용 시 원소 피해 {0}% 감소"
 				}
 			}
 		},
@@ -2140,6 +8752,138 @@ return {
 						}
 					},
 					text="召唤生物的元素伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนสร้างความเสียหายจากธาตุเพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนสร้างความเสียหายจากธาตุลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят увеличенный на {0}% урон от стихий"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят уменьшенный на {0}% урон от стихий"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros infligen daño elemental aumentado un {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los esbirros infligen daño elemental reducido un {0}%"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="les Créatures ont {0}% d'Augmentation des Dégâts élémentaires"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="les Créatures ont {0}% de Réduction des Dégâts élémentaires"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Elementarschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Elementarschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 원소 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 원소 피해 {0}% 감소"
 				}
 			}
 		},
@@ -2172,6 +8916,138 @@ return {
 						}
 					},
 					text="召唤生物的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย มิเนียน อีก {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย มิเนียน อีก {0}%"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2204,6 +9080,138 @@ return {
 						}
 					},
 					text="召唤生物的法术伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน สร้างความเสียหาย เวท เพิ่มขึ้น อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน สร้างความเสียหาย เวท ลดลง อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона от чар"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона от чар"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño de Hechizos"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño de Hechizos"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts des Sorts"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts des Sorts"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Zauberschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Zauberschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 주문 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 주문 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2236,6 +9244,94 @@ return {
 						}
 					},
 					text="召唤生物的法术伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多法術傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少法術"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño de Hechizos"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño de Hechizos"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts des Sorts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts des Sorts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 주문 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 주문 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2268,6 +9364,116 @@ return {
 						}
 					},
 					text="召唤生物的法术伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят увеличенный на {0}% урон от чар"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят уменьшенный на {0}% урон от чар"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño de Hechizos aumentado un {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño de Hechizos reducido un {0}%"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts des Sorts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts des Sorts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Zauberschaden"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Zauberschaden"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 주문 피해 {0}% 증가"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 주문 피해 {0}% 감소"
 				}
 			}
 		},
@@ -2308,6 +9514,36 @@ return {
 						}
 					},
 					text="对异常状态下的敌人，召唤生物的伤害总降 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 상태 이상 피해 {0}% 증폭"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 상태 이상 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2340,6 +9576,94 @@ return {
 						}
 					},
 					text="召唤生物击中时伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物擊中時造成 {0}% 更多傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物擊中時造成 {0}% 更少傷害"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño con Golpes"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño con Golpes"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts au Toucher"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts au Toucher"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 적 명중 시 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 적 명중 시 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2372,6 +9696,28 @@ return {
 						}
 					},
 					text="召唤生物的火焰伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 화염 피해 {0}% 증폭"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 화염 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2404,6 +9750,94 @@ return {
 						}
 					},
 					text="召唤生物的击中伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物擊中時造成 {0}% 更多傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物擊中時造成 {0}% 更少傷害"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño con Golpes"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño con Golpes"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts au Toucher"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts au Toucher"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 적 명중 시 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 적 명중 시 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2436,6 +9870,116 @@ return {
 						}
 					},
 					text="召唤生物造成的点燃伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะ เพิ่มความเสียหาย ลุกไหม้ อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนจะ ลดความเสียหาย ลุกไหม้ อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多點燃傷害"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少點燃傷害"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros infligen un {0}% más de daño con quemadura"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los esbirros infligen un {0}% menos de daño con quemadura"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts avec l'Embrasement"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts avec l'Embrasement"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 점화 피해 {0}% 증폭"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 점화 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2468,6 +10012,138 @@ return {
 						}
 					},
 					text="召唤生物造成的持续性伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนสร้าง Damage over Time เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนสร้าง Damage over Time ลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше постепенного урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше постепенного урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Degenerativo"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Degenerativo"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts sur la durée"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts sur la durée"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Schaden über Zeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Schaden über Zeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 지속 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 지속 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2500,6 +10176,94 @@ return {
 						}
 					},
 					text="召唤生物造成的持续性伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多持續傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少持續傷害"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Degenerativo"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Degenerativo"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts sur la durée"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts sur la durée"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 지속 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 지속 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2540,6 +10304,96 @@ return {
 						}
 					},
 					text="敌人每有一层中毒状态，召唤生物击中时的伤害便总降{0}%，最多 {1}"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño con Golpes por cada Veneno en el Enemigo, hasta {1}"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño con Golpes por cada Veneno en el Enemigo, hasta {1}"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts au Toucher pour chaque Empoisonnement sur l'Ennemi, jusqu'à {1}"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts au Toucher pour chaque Empoisonnement sur l'Ennemi, jusqu'à {1}"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 중독된 적 하나당 명중 시 피해 {0}% 증폭, 최대 {1}"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 중독된 적 하나당 명중 시 피해 {0}% 감폭, 최대 {1}"
 				}
 			}
 		},
@@ -2573,6 +10427,94 @@ return {
 						}
 					},
 					text="召唤生物造成的中毒伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño con Veneno"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño con Veneno"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多中毒傷害"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少中毒傷害"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts avec le Poison"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts avec le Poison"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 중독 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 중독 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2605,6 +10547,138 @@ return {
 						}
 					},
 					text="召唤生物造成的中毒伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Schaden mit Gift"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Schaden mit Gift"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะ เพิ่มความเสียหาย พิษ อีก {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนจะ ลดความเสียหาย พิษ อีก {0}%"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多中毒傷害"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少中毒傷害"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño con Veneno"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño con Veneno"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts avec le Poison"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts avec le Poison"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 중독 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 중독 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2637,6 +10711,138 @@ return {
 						}
 					},
 					text="召唤生物造成的持续伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนสร้าง Damage over Time เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนสร้าง Damage over Time ลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят увеличенный на {0}% постепенный урон"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят уменьшенный на {0}% постепенный урон"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño Degenerativo aumentado un {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño Degenerativo reducido un {0}%"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts sur la durée"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts sur la durée"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Schaden über Zeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Schaden über Zeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 지속 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 지속 피해 {0}% 감소"
 				}
 			}
 		},
@@ -2669,6 +10875,138 @@ return {
 						}
 					},
 					text="召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย มิเนียน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย มิเนียน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2701,6 +11039,50 @@ return {
 						}
 					},
 					text="召唤生物造成的物理伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam {0}% mais Dano Físico"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios causam {0}% menos Dano Físico"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2729,6 +11111,150 @@ return {
 						}
 					},
 					text="最多召唤 {0} 个魔卫"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Maximal {0} erweckter Zombie"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Maximal {0} erweckte Zombies"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Максимум {0} поднятый зомби"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Максимум {0} поднятых зомби"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Votre nombre maximum de Zombies Réanimés est de {0}"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Votre nombre maximum de Zombies Réanimés est de {0}"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Máximo de {0} Zumbi Erguido"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Máximo de {0} Zumbis Erguidos"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환한 좀비 최대 {0}마리"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소환한 좀비 최대 {0}마리"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="ปลุก ซอมบี้ ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="ปลุก ซอมบี้ ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="殭屍復甦上限 {0}"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="殭屍復甦上限 {0}"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Número máximo de Zombis que puedes levantar: {0}"
+				},
+				[18]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Número máximo de Zombis que puedes levantar: {0}"
 				}
 			}
 		},
@@ -2757,6 +11283,150 @@ return {
 						}
 					},
 					text="最多召唤 {0} 个灵体"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Maximal {0} erweckter Schemen"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Maximal {0} erweckte Schemen"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Максимум {0} сотворённый призрак"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Максимум {0} сотворённых призрака(-ов)"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Votre nombre maximum de Spectres Réanimés est de {0}"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Votre nombre maximum de Spectres Réanimés est de {0}"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Máximo de {0} Espectro Erguido"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Máximo de {0} Espectros Erguidos"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환한 망령 최대 {0}마리"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소환한 망령 최대 {0}마리"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="ปลุก วิญญาณ ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="ปลุก วิญญาณ ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="喚醒幽魂上限 {0}"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="喚醒幽魂上限 {0}"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Número máximo de Espectros que puedes levantar: {0}"
+				},
+				[18]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Número máximo de Espectros que puedes levantar: {0}"
 				}
 			}
 		},
@@ -2785,6 +11455,78 @@ return {
 						}
 					},
 					text="最多召唤 {0} 个愤怒狂灵"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="อัญเชิญ Raging Spirit ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="อัญเชิญ Raging Spirit ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Máximo de Espírito Furioso Convocado: {0}"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Máximo de Espíritos Furiosos Convocados: {0}"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="{0} Esprit enragé d'Invoqué au maximum"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="{0} Esprits enragés d'Invoqués au maximum"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환된 격노의 유령 최대치 {0}"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소환된 격노의 유령 최대치 {0}"
 				}
 			}
 		},
@@ -2813,6 +11555,150 @@ return {
 						}
 					},
 					text="最多幻化{0} 个幻灵武器"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Maximal {0} beseelte Waffe"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Maximal {0} beseelte Waffen"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Максимум {0} оживлённое оружие"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Максимум {0} оживлённых оружия(-ий)"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Votre nombre maximum d'Armes animées est de {0}"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Votre nombre maximum d'Armes animées est de {0}"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Máximo de {0} Arma Animada"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Máximo de {0} Armas Animadas"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="기동된 무기 최대 {0}개"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="기동된 무기 최대 {0}개"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="ปลุกเสก อาวุธ ได้พร้อมกันสูงสุด {0} ชิ้น"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="ปลุกเสก อาวุธ ได้พร้อมกันสูงสุด {0} ชิ้น"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="幻靈武器上限 {0}"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="幻靈武器上限 {0}"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Número máximo de Armas animadas: {0}"
+				},
+				[18]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Número máximo de Armas animadas: {0}"
 				}
 			}
 		},
@@ -2841,6 +11727,150 @@ return {
 						}
 					},
 					text="最多召唤 {0} 个兽化召唤生物"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Maximal {0} beschworene Bestienkreatur"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Maximal {0} beschworene Bestienkreatur"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Максимум {0} призванный приспешник-зверь"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Максимум {0} призванный приспешник-зверь"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Votre nombre maximum de Créatures bestiales Invoquées est de {0}"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Votre nombre maximum de Créatures bestiales Invoquées est de {0}"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Máximo de {0} Lacaio Bestial Convocado"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Máximo de {0} Lacaios Bestiais Convocados"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환된 흉포한 소환수 최대 {0}마리"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소환된 흉포한 소환수 최대 {0}마리"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="อัญเชิญ Bestial Minion ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="อัญเชิญ Bestial Minion ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="召喚野獸召喚物上限 {0}"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="召喚野獸召喚物上限 {0}"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Número máximo de esbirros bestiales que puedes invocar: {0}"
+				},
+				[18]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Número máximo de esbirros bestiales que puedes invocar: {0}"
 				}
 			}
 		},
@@ -2860,6 +11890,78 @@ return {
 						}
 					},
 					text="最多召唤 1 个先驱者"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Maximal 1 beschworener Vorbote"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Максимум 1 призванный Предвестник"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Votre nombre maximum de Précurseurs Invoqués est de 1"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Máximo de 1 Emissário Convocado"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환된 선구자 최대 1마리"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="อัญเชิญ Harbinger ได้พร้อมกันสูงสุด 1 ตน"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚神諭上限 1"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Número máximo de Heraldos que puedes invocar: 1"
 				}
 			}
 		},
@@ -2888,6 +11990,150 @@ return {
 						}
 					},
 					text="最多召唤 {0} 个魔像"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Maximal {0} beschworener Golem"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Maximal {0} beschworene Golems"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Максимум {0} призванный голем"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Максимум {0} призванных голема(-ов)"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Votre nombre maximum de Golems Invoqués est de {0}"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Votre nombre maximum de Golems Invoqués est de {0}"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Máximo de {0} Golem Convocado"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Máximo de {0} Golens Convocados"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환된 골렘 최대 {0}마리"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소환된 골렘 최대 {0}마리"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="อัญเชิญ โกเลม ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="อัญเชิญ โกเลม ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="召喚魔像上限 {0}"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="召喚魔像上限 {0}"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Número máximo de gólems que puedes invocar: {0}"
+				},
+				[18]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Número máximo de gólems que puedes invocar: {0}"
 				}
 			}
 		},
@@ -2935,6 +12181,60 @@ return {
 						}
 					},
 					text="召唤生物拥有 {0} 最大生命"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะมีพลังชีวิตสูงสุด {0}"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Максимальное здоровье приспешников равно {0}"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0} de Vie maximale"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0} de Vida máxima"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0} maximales Leben"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 최대 생명력 {0}"
 				}
 			}
 		},
@@ -2963,6 +12263,150 @@ return {
 						}
 					},
 					text="最多召唤 {0} 个魔侍"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Maximal {0} beschworenes Skelett"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Maximal {0} beschworene Skelette"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Максимум {0} сотворённый скелет"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Максимум {0} сотворённый скелет"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Votre nombre maximum de Squelettes Invoqués est de {0}"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Votre nombre maximum de Squelettes Invoqués est de {0}"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Máximo de {0} Esqueleto Convocado"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Máximo de {0} Esqueletos Convocados"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환된 해골 최대 {0}마리"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소환된 해골 최대 {0}마리"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="อัญเชิญ โครงกระดูก ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="อัญเชิญ โครงกระดูก ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Número máximo de esqueletos que puedes invocar: {0}"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Número máximo de esqueletos que puedes invocar: {0}"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="召喚骷髏上限 {0}"
+				},
+				[18]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="召喚骷髏上限 {0}"
 				}
 			}
 		},
@@ -2991,6 +12435,150 @@ return {
 						}
 					},
 					text="最多召唤 {0} 个蜘蛛"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Maximal {0} erweckte Spinnen"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Maximal {0} erweckte Spinnen"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Максимум {0} призванных паука(-ов)"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Максимум {0} призванных паука(-ов)"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Votre nombre maximum d'Araignées Réanimées est de {0}"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Votre nombre maximum d'Araignées Réanimées est de {0}"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Máximo de {0} Aranha Erguida"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Máximo de {0} Aranhas Erguidas"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소생한 거미 최대 {0}마리"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소생한 거미 최대 {0}마리"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="ปลุก แมงมุม ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="ปลุก แมงมุม ได้พร้อมกันสูงสุด {0} ตัว"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="召喚蜘蛛上限 {0}"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="召喚蜘蛛上限 {0}"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Número máximo de Arañas que puedes reanimar: {0}"
+				},
+				[18]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Número máximo de Arañas que puedes reanimar: {0}"
 				}
 			}
 		},
@@ -3019,6 +12607,114 @@ return {
 						}
 					},
 					text="召唤 {0} 个魔侍战士"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="อัญเชิญ โครงกระดูกนักรบ {0} ตัว"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="อัญเชิญ โครงกระดูกนักรบ {0} ตัว"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Призывает скелетов-воинов: {0} "
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Призывает скелетов-воинов: {0} "
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Invoque {0} Guerrier Squelette"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Invoque {0} Guerriers Squelettes"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Invoca {0} Esqueleto Guerrero a la vez"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Invoca {0} Esqueletos Guerreros a la vez"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Beschwört {0} Skelettkrieger"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Beschwört {0} Skelettkrieger"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="해골 전사 {0}마리 소환"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="해골 전사 {0}마리 소환"
 				}
 			}
 		},
@@ -3047,6 +12743,114 @@ return {
 						}
 					},
 					text="召唤 {0} 个魔侍弓箭手"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="อัญเชิญ นักธนูโครงกระดูก {0} ตัว"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="อัญเชิญ นักธนูโครงกระดูก {0} ตัว"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Призывает скелетов-лучников: {0} "
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Призывает скелетов-лучников: {0} "
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Invoque {0} Archer Squelette"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Invoque {0} Archers Squelettes"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Invoca {0} Esqueleto Arquero a la vez"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Invoca {0} Esqueletos Arqueros a la vez"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Beschwört {0} Skelettbogenschützen"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Beschwört {0} Skelettbogenschützen"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="해골 궁수 {0}마리 소환"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="해골 궁수 {0}마리 소환"
 				}
 			}
 		},
@@ -3075,6 +12879,114 @@ return {
 						}
 					},
 					text="召唤 {0} 个魔侍法师"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="อัญเชิญ นักเวทโครงกระดูก {0} ตัว"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="อัญเชิญ นักเวทโครงกระดูก {0} ตัว"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Призывает скелетов-магов: {0}"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Призывает скелетов-магов: {0}"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Invoque {0} Mage Squelette"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Invoque {0} Mages Squelettes"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Invoca {0} Esqueleto Mago a la vez"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Invoca {0} Esqueletos Magos a la vez"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Beschwört {0} Skelettmagier"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Beschwört {0} Skelettmagier"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="해골 마법사 {0}마리 소환"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="해골 마법사 {0}마리 소환"
 				}
 			}
 		},
@@ -3103,6 +13015,114 @@ return {
 						}
 					},
 					text="召唤 {0} 个魔侍将军"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="อัญเชิญ นายพลโครงกระดูก {0} ตัว"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="อัญเชิญ นายพลโครงกระดูก {0} ตัว"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Призывает скелетов-генералов: {0} "
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Призывает скелетов-генералов: {0} "
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Invoque {0} Général Squelette"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Invoque {0} Généraux Squelettes"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Invoca {0} Esqueleto General a la vez"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Invoca {0} Esqueletos Generales a la vez"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Beschwört {0} Skelettgeneral"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Beschwört {0} Skelettgeneräle"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="해골 장군 {0}마리 소환"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="해골 장군 {0}마리 소환"
 				}
 			}
 		},
@@ -3126,6 +13146,84 @@ return {
 						}
 					},
 					text="召唤生物带有【终结】效果"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCullingStrike"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนมี Culling Strike"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCullingStrike"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют эффект Добивание"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCullingStrike"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont Coup de grâce"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCullingStrike"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Golpe de Gracia"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCullingStrike"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben Todesstoß"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCullingStrike"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 마무리 타격 가능"
 				}
 			}
 		},
@@ -3145,6 +13243,60 @@ return {
 						}
 					},
 					text="召唤生物带有【零点射击】效果"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียนมี Point Blank"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют эффект Стрельба в упор"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont À bout portant"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Quemarropa"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben 'Aus nächster Nähe'"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 근접 사격"
 				}
 			}
 		},
@@ -3168,6 +13320,84 @@ return {
 						}
 					},
 					text="召唤生物击中时有 {0}% 的几率使敌人致盲"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBlind"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะมีโอกาสที่จะทำให้ศัตรูติดสถานะตาบอดเมื่อถูกโจมตี {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBlind"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% шанс ослепить врагов при нанесении удара"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBlind"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% de chances d'Aveugler les Ennemis au Toucher"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBlind"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0}% de probabilidad de Cegar enemigos con cada Golpe"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBlind"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% Chance, Gegner bei Treffer zu blenden"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBlind"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 명중 시 {0}%의 확률로 적 실명 유발"
 				}
 			}
 		},
@@ -3200,6 +13430,138 @@ return {
 						}
 					},
 					text="召唤生物造成的致盲时间缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มระยะเวลาตาบอด ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดระยะเวลาตาบอด ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение длительности ослепления врагов"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение длительности ослепления врагов"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Durée de l'Aveuglement"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Durée de l'Aveuglement"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen duración de Ceguera aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen duración de Ceguera reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% verlängerte Blenddauer"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verkürzte Blenddauer"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 실명 지속시간 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 실명 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -3219,6 +13581,60 @@ return {
 						}
 					},
 					text="召唤生物穿透 {0}% 火焰抗性"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน เจาะต้านทาน ไฟ {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники пробивают {0}% сопротивления огню"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% de Pénétration de Résistance au feu"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros Penetran {0}% de Resistencia al Fuego"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen durchdringen {0}% Feuerwiderstand"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 화염 저항 {0}% 관통"
 				}
 			}
 		},
@@ -3238,6 +13654,60 @@ return {
 						}
 					},
 					text="召唤生物穿透 {0}% 冰霜抗性"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน เจาะต้านทาน น้ำแข็ง {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники пробивают {0}% сопротивления холоду"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% de Pénétration de Résistance au froid"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros Penetran {0}% de Resistencia al Hielo"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen durchdringen {0}% Kältewiderstand"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 냉기 저항 {0}% 관통"
 				}
 			}
 		},
@@ -3257,6 +13727,24 @@ return {
 						}
 					},
 					text="召唤生物穿透 {0}% 元素抗性"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios Penetram {0}% das Resistências Elementais"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 {0}%의 원소 저항 관통"
 				}
 			}
 		},
@@ -3276,6 +13764,60 @@ return {
 						}
 					},
 					text="召唤生物穿透 {0}% 闪电抗性"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน เจาะต้านทาน สายฟ้า {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники пробивают {0}% сопротивления молнии"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% de Pénétration de Résistance à la foudre"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros Penetran {0}% de Resistencia al Rayo"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen durchdringen {0}% Blitzwiderstand"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 번개 저항 {0}% 관통"
 				}
 			}
 		},
@@ -3295,6 +13837,51 @@ return {
 						}
 					},
 					text="召唤生物的技能可以连锁弹射 {0:+d} 次"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Las habilidades de los esbirros se encadenan {0:+d} veces"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="สกิลของมิเนียน ชิ่ง {0:+d} ครั้ง"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的技能連鎖 {0:+d} 次"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Habilidades dos Lacaios Ricocheteiam {0:+d} Vezes"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수의 스킬 연쇄 {0:+d}회"
 				}
 			}
 		},
@@ -3541,6 +14128,384 @@ return {
 						}
 					},
 					text="召唤生物的投射物会返回"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						},
+						[4]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="召喚物的投射物有 {3}% 機率從最終目標返回你"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						},
+						[4]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="召喚物的投射物從最終目標返回你"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=1,
+							[2]=99
+						},
+						[4]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="召喚物的投射物有 {2}% 機率返回你"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=100,
+							[2]="#"
+						},
+						[4]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的投射物返回你"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=1,
+							[2]=99
+						},
+						[4]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="召喚物的投射物有 {2}% 機率返回你，+{3}% 機率從最終目標"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=1,
+							[2]=99
+						},
+						[4]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="召喚物的投射物從最終目標返回你，並有 {2}% 機率在最終距離返回"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]="!",
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]="#",
+							[2]="#"
+						},
+						[4]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的投射物從最終目標返回你"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]="!",
+							[2]=0
+						},
+						[3]={
+							[1]="#",
+							[2]="#"
+						},
+						[4]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的投射物從最終距離返回你"
+				},
+				[18]={
+					limit={
+						[1]={
+							[1]="!",
+							[2]=0
+						},
+						[2]={
+							[1]="!",
+							[2]=0
+						},
+						[3]={
+							[1]="#",
+							[2]="#"
+						},
+						[4]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的投射物返回你"
+				},
+				[19]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						},
+						[4]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="กระสุนจากมิเนียน มีโอกาส {3}% ที่จะกลับมาหาพวกมันเมื่อมันปะทะเป้าหมายสุดท้ายแล้ว"
+				},
+				[20]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=0,
+							[2]=0
+						},
+						[4]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="กระสุนจากมิเนียน จะกลับมาหาพวกมันเมื่อมันปะทะเป้าหมายสุดท้ายแล้ว"
+				},
+				[21]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=1,
+							[2]=99
+						},
+						[4]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="กระสุนจากมิเนียน มีโอกาส {2}% ที่จะกลับมาหาพวกมัน"
+				},
+				[22]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=100,
+							[2]="#"
+						},
+						[4]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="กระสุนจากมิเนียน กลับมาหาพวกมัน"
+				},
+				[23]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=1,
+							[2]=99
+						},
+						[4]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="กระสุนจากมิเนียน มีโอกาส {2}% ที่จะกลับมาหาพวกมัน มีโอกาส +{3}% เมื่อมันปะทะเป้าหมายสุดท้ายแล้ว"
+				},
+				[24]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]=1,
+							[2]=99
+						},
+						[4]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="กระสุนจากมิเนียน จะกลับมาหาพวกมันเมื่อมันปะทะเป้าหมายสุดท้ายแล้ว และมีโอกาส {2}% ที่จะกลับมาหาพวกมันเมื่อถึงปลายทางของมันแล้ว"
+				},
+				[25]={
+					limit={
+						[1]={
+							[1]="!",
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						},
+						[3]={
+							[1]="#",
+							[2]="#"
+						},
+						[4]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="กระสุนจากมิเนียน จะกลับมาหาพวกมันเมื่อมันปะทะเป้าหมายสุดท้ายแล้ว"
+				},
+				[26]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]="!",
+							[2]=0
+						},
+						[3]={
+							[1]="#",
+							[2]="#"
+						},
+						[4]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="กระสุนจากมิเนียน จะกลับมาหาพวกมันเมื่อมันถึงปลายทางของมันแล้ว"
+				},
+				[27]={
+					limit={
+						[1]={
+							[1]="!",
+							[2]=0
+						},
+						[2]={
+							[1]="!",
+							[2]=0
+						},
+						[3]={
+							[1]="#",
+							[2]="#"
+						},
+						[4]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="กระสุนจากมิเนียน กลับมาหาพวกมัน"
 				}
 			}
 		},
@@ -3582,6 +14547,60 @@ return {
 						}
 					},
 					text="召唤生物的近战攻击技能可额外重复 {0} 次"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะโจมตีระยะประชิดซ้ำ {0} ครั้ง"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Атаки ближнего боя приспешников повторяются ещё {0} раз(-а)"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Attaques de mêlée des Créatures se répètent {0} fois de plus"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Ataques Cuerpo a Cuerpo de los Esbirros se repiten {0} veces adicionales"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Nahkampfangriffe von Kreaturen wiederholen sich {0} zusätzliche Male"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수의 근접 공격 {0}회 추가 반복"
 				}
 			}
 		},
@@ -3610,6 +14629,114 @@ return {
 						}
 					},
 					text="召唤生物的法术可额外重复 {0} 次"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="เวทของมิเนียน ทำงานซ้ำเพิ่มเติม 1 ครั้ง"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="เวทของมิเนียน ทำงานซ้ำเพิ่มเติม {0} ครั้ง"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Чары приспешников повторяются ещё раз"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Чары приспешников повторяются ещё {0} раз(-а)"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Les Sorts des Créatures se répètent une fois de plus"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Les Sorts des Créatures se répètent {0} fois de plus"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Los Hechizos de los Esbirros se Repiten una vez adicional"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Los Hechizos de los Esbirros se Repiten {0} veces adicionales"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Zauber von Kreaturen wiederholt sich ein zusätzliches Mal"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Zauber von Kreaturen wiederholen sich {0} zusätzliche Male"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환수의 주문 1회 추가 반복"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소환수의 주문 {0}회 추가 반복"
 				}
 			}
 		},
@@ -3642,6 +14769,94 @@ return {
 						}
 					},
 					text="召唤生物的凌厉效果持续时间缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios têm Duração da Crueldade aumentada em {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios têm Duração da Crueldade reduzida em {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de Durée de l'Effet de Cruauté"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de Durée de l'Effet de Cruauté"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros tienen duración de Crueldad aumentada un {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los esbirros tienen duración de Crueldad reducida un {0}%"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物增加 {0}% 殘酷的持續時間"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物減少 {0}% 殘酷的持續時間"
 				}
 			}
 		},
@@ -3670,6 +14885,114 @@ return {
 						}
 					},
 					text="召唤生物暴击时会获得暴击球"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="มิเนียน มีโอกาส {0}% ที่จะได้รับ Power Charge เมื่อทำคริติคอล"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="มิเนียน ได้รับ Power Charge เมื่อทำคริติคอล"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Приспешники имеют {0}% шанс получить заряд энергии при нанесении критического удара"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Приспешники получают заряд энергии при нанесении критического удара"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Les Créatures ont {0}% de chances de générer une Charge de pouvoir sur un Coup critique"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Les Créatures génèrent une Charge de pouvoir sur un Coup critique"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Los Esbirros tienen {0}% de probabilidad de ganar una Carga de Poder con Golpes Críticos"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros ganan una Carga de Poder con Golpes Críticos"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Kreaturen haben {0}% Chance, bei kritischem Treffer eine Energie-Ladung zu erzeugen"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Kreaturen erzeugen eine Energie-Ladung bei kritischem Treffer"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="소환수가 치명타 명중 시 {0}%의 확률로 권능 충전 획득"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수가 치명타 명중 시 권능 충전 획득"
 				}
 			}
 		},
@@ -3702,6 +15025,138 @@ return {
 						}
 					},
 					text="召唤生物的近战攻击速度总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มีความเร็วในการโจมตี เพิ่มขึ้น อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มีความเร็วในการโจมตี ลดลง อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Скорость атаки ближнего боя приспешников на {0}% больше"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Скорость атаки ближнего боя приспешников на {0}% меньше"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Vitesse d'attaque en mêlée"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Vitesse d'attaque en mêlée"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0}% más Velocidad de Ataque Cuerpo a Cuerpo"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen {0}% menos Velocidad de Ataque Cuerpo a Cuerpo"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verfügen über {0}% mehr Nahkampf-Angriffsgeschwindigkeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verfügen über {0}% weniger Nahkampf-Angriffsgeschwindigkeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 근접 공격 속도 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 근접 공격 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -3734,6 +15189,138 @@ return {
 						}
 					},
 					text="召唤生物的攻击伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย โจมตี อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย โจมตี อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона атаками"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона атаками"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts d'attaque"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts d'attaque"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño de Ataques"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño de Ataques"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Angriffsschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Angriffsschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 공격 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 공격 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -3766,6 +15353,138 @@ return {
 						}
 					},
 					text="召唤生物造成的燃烧伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหายไฟไหม้ ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหายไฟไหม้ ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение урона от горения"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение урона от горения"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts de brûlure"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts de brûlure"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Daño de Incendio aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Daño de Incendio reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhten Brandschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerten Brandschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 화상 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 화상 피해 {0}% 감소"
 				}
 			}
 		},
@@ -3798,6 +15517,138 @@ return {
 						}
 					},
 					text="召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย มิเนียน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย มิเนียน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -3830,6 +15681,138 @@ return {
 						}
 					},
 					text="召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย มิเนียน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย มิเนียน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -3862,6 +15845,138 @@ return {
 						}
 					},
 					text="召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย มิเนียน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย มิเนียน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -3894,6 +16009,138 @@ return {
 						}
 					},
 					text="召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย มิเนียน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย มิเนียน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -3926,6 +16173,138 @@ return {
 						}
 					},
 					text="召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย มิเนียน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย มิเนียน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -3958,6 +16337,138 @@ return {
 						}
 					},
 					text="召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย มิเนียน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย มิเนียน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Schaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Schaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -3990,6 +16501,94 @@ return {
 						}
 					},
 					text="召唤生物的击中伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多擊中傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少擊中傷害"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона от ударов"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона от ударов"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts au Toucher"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts au Toucher"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 적 명중 시 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 적 명중 시 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4022,6 +16621,138 @@ return {
 						}
 					},
 					text="召唤生物造成的投射物伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย กระสุน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย กระสุน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона снарядами"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона снарядами"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts des Projectiles"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts des Projectiles"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros infligen un {0}% más de daño con proyectiles"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los esbirros infligen un {0}% menos de daño con proyectiles"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Projektilschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Projektilschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4054,6 +16785,138 @@ return {
 						}
 					},
 					text="召唤生物造成的投射物伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย กระสุน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย กระสุน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона снарядами"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона снарядами"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts des Projectiles"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts des Projectiles"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros infligen un {0}% más de daño con proyectiles"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los esbirros infligen un {0}% menos de daño con proyectiles"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Projektilschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Projektilschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4103,6 +16966,123 @@ return {
 						}
 					},
 					text="召唤生物近战命中并晕眩敌人时，获得 1 个耐力球"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=99
+						}
+					},
+					text="Lacaios possuem {1}% de chance de receber uma Carga de Tolerância ao Atordoar um Inimigo com um Acerto Corpo a Corpo"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Lacaios recebem uma Carga de Tolerância ao Atordoar um Inimigo com um Acerto Corpo a Corpo"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Lacaios recebem uma Carga de Tolerância ao Atordoar um Inimigo com um Acerto Corpo a Corpo"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=99
+						}
+					},
+					text="當召喚物用近戰擊中暈眩敵人時，有 {1}% 機率獲得 1 顆耐力球"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="當召喚物用近戰擊中暈眩敵人時，獲得 1 顆耐力球"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="當召喚物用近戰擊中暈眩敵人時，獲得 1 顆耐力球"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=0,
+							[2]=99
+						}
+					},
+					text="소환수가 근접 명중으로 적을 기절시킬 경우 {1}%의 확률로 인내 충전 획득"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=0,
+							[2]=0
+						},
+						[2]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수가 근접 명중으로 적을 기절시킬 경우 인내 충전 획득"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 근접 명중으로 적을 기절시킬 경우 인내 충전 획득"
 				}
 			}
 		},
@@ -4136,6 +17116,138 @@ return {
 						}
 					},
 					text="召唤生物的移动速度降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเร็วในการเคลื่อนที่ ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเร็วในการเคลื่อนที่ ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% повышение скорости передвижения"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% снижение скорости передвижения"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Vitesse de déplacement"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Vitesse de déplacement"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Movimiento aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Movimiento reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhte Bewegungsgeschwindigkeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerte Bewegungsgeschwindigkeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 이동 속도 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 이동 속도 {0}% 감소"
 				}
 			}
 		},
@@ -4168,6 +17280,138 @@ return {
 						}
 					},
 					text="召唤生物的持续时间缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มระยะเวลา ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดระยะเวลา ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение длительности"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение длительности"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de Durée"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de Durée"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Duración aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Duración reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% verlängerte Dauer"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verkürzte Dauer"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 지속시간 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -4208,6 +17452,186 @@ return {
 						}
 					},
 					text="召唤生物低血时，其攻击速度降低 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มีความเร็วในการโจมตี เพิ่มขึ้น {0}% ขณะ พลังชีวิตเหลือน้อย"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มีความเร็วในการโจมตี ลดลง {0}% ขณะ พลังชีวิตเหลือน้อย"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% повышение скорости атаки при малом количестве здоровья"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% снижение скорости атаки при малом количестве здоровья"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de Vitesse d'attaque lorsque leur Vie est Basse"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de Vitesse d'attaque lorsque leur Vie est Basse"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Ataque aumentada un {0}% cuando tienen la Vida Baja"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Ataque reducida un {0}% cuando tienen la Vida Baja"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhte Angriffsgeschwindigkeit bei niedrigem Leben"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerte Angriffsgeschwindigkeit bei niedrigem Leben"
+				},
+				[13]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="낮은 생명력 상태일 때 소환수 공격 속도 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="낮은 생명력 상태일 때 소환수 공격 속도 {0}% 감소"
 				}
 			}
 		},
@@ -4248,6 +17672,186 @@ return {
 						}
 					},
 					text="召唤生物低血时，其施法速度降低 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มีความเร็วในการร่าย เพิ่มขึ้น {0}% ขณะ พลังชีวิตเหลือน้อย"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มีความเร็วในการร่าย ลดลง {0}% ขณะ พลังชีวิตเหลือน้อย"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% повышение скорости сотворения чар при малом количестве здоровья"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% снижение скорость сотворения чар при малом количестве здоровья"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de Vitesse d'incantation lorsque leur Vie est Basse"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de Vitesse d'incantation lorsque leur Vie est Basse"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Lanzamiento de Hechizos aumentada un {0}% cuando tienen la Vida Baja"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Velocidad de Lanzamiento de Hechizos reducida un {0}% cuando tienen la Vida Baja"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhte Zaubergeschwindigkeit bei niedrigem Leben"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerte Zaubergeschwindigkeit bei niedrigem Leben"
+				},
+				[13]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="낮은 생명력 상태일 때 소환수 시전 속도 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="낮은 생명력 상태일 때 소환수 시전 속도 {0}% 감소"
 				}
 			}
 		},
@@ -4280,6 +17884,50 @@ return {
 						}
 					},
 					text="召唤生物的攻击技能在投射物击中后，所造成的流血和中毒伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Attaques des Créatures ont {0}% Davantage de Dégâts avec le Saignement et le Poison infligés au Toucher par des Projectiles"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Attaques des Créatures ont {0}% de Perte de Dégâts avec le Saignement et le Poison infligés au Toucher par des Projectiles"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 공격으로 주는 투사체 적중에 의한 출혈 및 중독 피해 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 공격으로 주는 투사체 적중에 의한 출혈 및 중독 피해 {0}% 증폭"
 				}
 			}
 		},
@@ -4312,6 +17960,138 @@ return {
 						}
 					},
 					text="召唤生物造成的投射物攻击伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย กระสุน โจมตี กายภาพ อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย กระสุน โจมตี กายภาพ อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше физического урона от атак снарядами"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше физического урона от атак снарядами"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts d'attaque avec les Projectiles physiques"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts d'attaque avec les Projectiles physiques"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Físico de Ataque de Proyectiles"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Físico de Ataque de Proyectiles"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr physischen Projektil-Angriffsschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger physischen Projektil-Angriffsschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 물리 투사체 공격 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 물리 투사체 공격 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4344,6 +18124,138 @@ return {
 						}
 					},
 					text="召唤生物的投射物攻击速度总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มีความเร็วในการโจมตี กระสุน เพิ่มขึ้น อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มีความเร็วในการโจมตี กระสุน ลดลง อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют на {0}% больше скорости атаки снарядами"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют на {0}% меньше скорости атаки снарядами"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Vitesse d'attaque avec les Projectiles"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Vitesse d'attaque avec les Projectiles"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0}% más Velocidad de Ataque de Proyectiles"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen {0}% menos Velocidad de Ataque de Proyectiles"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% mehr Projektil-Angriffsgeschwindigkeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% weniger Projektil-Angriffsgeschwindigkeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 투사체 공격 속도 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 투사체 공격 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -4376,6 +18288,138 @@ return {
 						}
 					},
 					text="召唤生物造成的投射物伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนสร้างความเสียหายแบบ Projectile เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนสร้างความเสียหายแบบ Projectile ลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение урона снарядами"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение урона снарядами"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts des Projectiles"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts des Projectiles"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño de Proyectiles aumentado un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño de Proyectiles reducido un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Projektilschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Projektilschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 감소"
 				}
 			}
 		},
@@ -4395,6 +18439,33 @@ return {
 						}
 					},
 					text="召唤生物的技能消耗生命而非魔力"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Умения приспешников расходуют здоровье вместо маны"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的技能消耗生命而非魔力"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="สกิลของ มิเนียน ใช้งาน พลังชีวิต แทน มานา"
 				}
 			}
 		},
@@ -4414,6 +18485,33 @@ return {
 						}
 					},
 					text="召唤生物的技能保留生命而非魔力"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Умения приспешников удерживают здоровье вместо маны"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的技能保留生命而非魔力"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="สกิลของ มิเนียน มีค่าสำรอง พลังชีวิต แทน มานา"
 				}
 			}
 		},
@@ -4433,6 +18531,33 @@ return {
 						}
 					},
 					text="该技能和召唤生物的技能效果需要消耗生命而非魔力"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Это умение и приспешники расходуют здоровье вместо маны для получения эффектов умения"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="此技能和召喚物的技能效果消耗生命而非魔力"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="สกิลนี้กับ มิเนียน จะใช้ พลังชีวิต แทน มานา สำหรับผลของสกิล"
 				}
 			}
 		},
@@ -4465,6 +18590,138 @@ return {
 						}
 					},
 					text="召唤生物对流血敌人造成的近战物理伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนสร้างความเสียหาย กายภาพ เพิ่มขึ้น {0}% ต่อศัตรูที่ติดสถานะ เลือดไหล"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนสร้างความเสียหาย กายภาพ ลดลง {0}% ต่อศัตรูที่ติดสถานะ เลือดไหล"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше физического урона в ближнем бою по истекающим кровью врагам"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше физического урона в ближнем бою по истекающим кровью врагам"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts physiques de mêlée contre les Ennemis qui Saignent"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts physiques de mêlée contre les Ennemis qui Saignent"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Físico Cuerpo a Cuerpo a Enemigos con Sangrado"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Físico Cuerpo a Cuerpo a Enemigos con Sangrado"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr physischen Nahkampfschaden gegen blutende Gegner"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger physischen Nahkampfschaden gegen blutende Gegner"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 출혈 중인 적을 상대로 주는 근접 물리 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 출혈 중인 적을 상대로 주는 근접 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4497,6 +18754,138 @@ return {
 						}
 					},
 					text="召唤生物对流血敌人造成的近战物理伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนสร้างความเสียหาย กายภาพ เพิ่มขึ้น {0}% ต่อศัตรูที่ติดสถานะ เลือดไหล"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนสร้างความเสียหาย กายภาพ ลดลง {0}% ต่อศัตรูที่ติดสถานะ เลือดไหล"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят увеличенный на {0}% урон в ближнем бою по истекающим кровью врагам"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят уменьшенный на {0}% урон в ближнем бою по истекающим кровью врагам"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts physiques de mêlée contre les Ennemis qui Saignent"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts physiques de mêlée contre les Ennemis qui Saignent"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen Daño Cuerpo a Cuerpo aumentado un {0}% a Enemigos con Sangrado"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen Daño Cuerpo a Cuerpo reducido un {0}% a Enemigos con Sangrado"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% erhöhten Nahkampfschaden gegen blutende Gegner"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% verringerten Nahkampfschaden gegen blutende Gegner"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 출혈 중인 적을 상대로 주는 근접 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 출혈 중인 적을 상대로 주는 근접 피해 {0}% 감소"
 				}
 			}
 		},
@@ -4533,6 +18922,162 @@ return {
 						}
 					},
 					text="召唤生物的近战攻击击中时会获得护体效果"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="มิเนียนมีโอกาส {0}% ที่จะได้รับพลังป้องกันเมื่อโจมตีระยะประชิด"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะได้รับพลังป้องกันเมื่อโจมตีระยะประชิด"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Приспешники имеют {0}% шанс получить Укрепление при атаке в ближнем бою"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Приспешники получают Укрепление при атаке в ближнем бою"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Les Créatures ont {0}% de chances gagner Renforcement en Touchant en mêlée"
+				},
+				[8]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Les Créatures gagnent Renforcement en Touchant en mêlée"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Los Esbirros tienen {0}% de probabilidad de Fortificar con Golpes Cuerpo a Cuerpo"
+				},
+				[10]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros ganan Fortificar con Golpes Cuerpo a Cuerpo"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Kreaturen haben {0}% Chance auf Verstärken bei Nahkampftreffer"
+				},
+				[12]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Kreaturen erhalten Verstärken bei Nahkampftreffer"
+				},
+				[13]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="소환수가 근접 명중 시 {0}%의 확률로 방어 상승 보유"
+				},
+				[14]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수가 근접 명중 시 방어 상승 획득"
 				}
 			}
 		},
@@ -4565,6 +19110,182 @@ return {
 						}
 					},
 					text="此技能和召唤生物的地雷投掷速度降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="이 스킬 및 소환수의 지뢰 투척 속도 {0}% 증가"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="이 스킬 및 소환수의 지뢰 투척 속도 {0}% 감소"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Diese Fertigkeit und Kreaturen haben {0}% erhöhte Minen-Wurfgeschwindigkeit"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Diese Fertigkeit und Kreaturen haben {0}% verringerte Minen-Wurfgeschwindigkeit"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="此技能和召喚物增加 {0}% 地雷投擲速度"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="此技能和召喚物減少 {0}% 地雷投擲速度"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Esta Habilidade e Lacaios tem Velocidade de Arremesso de Minas aumentada em {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Esta Habilidade e Lacaios tem Velocidade de Arremesso de Minas reduzida em {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Это умение и приспешники имеют {0}% повышение скорости броска мины"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Это умение и приспешники имеют {0}% снижение скорости броска мины"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Esta Habilidad y los Esbirros tienen Velocidad de Lanzamiento de Minas aumentada un {0}%"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Esta Habilidad y los Esbirros tienen Velocidad de Lanzamiento de Minas reducida un {0}%"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="สกิลนี้และมิเนียน จะเพิ่มความเร็วในการโยนทุ่นระเบิด {0}%"
+				},
+				[16]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="สกิลนี้และมิเนียน จะลดความเร็วในการโยนทุ่นระเบิด {0}%"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Cette Aptitude et vos Créatures ont {0}% d'Augmentation de la Vitesse de jet des Mines"
+				},
+				[18]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Cette Aptitude et vos Créatures ont {0}% de Réduction de la Vitesse de jet des Mines"
 				}
 			}
 		},
@@ -4588,6 +19309,84 @@ return {
 						}
 					},
 					text="召唤生物有 {0:d}% 的几率冰冻被冰缓的敌人"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0:d}% шанс заморозить охлаждённых врагов"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียน มีโอกาส {0:d}% ที่จะสร้างสถานะ แช่แข็ง ต่อศัตรูที่ติดสถานะ หนาวเย็น"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0:d}% de chances de Geler les Ennemis Frigorifiés"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0:d}% de probabilidad de Congelar a los Enemigos Escarchados"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0:d}% Chance, unterkühlte Gegner einzufrieren"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 {0:d}%의 확률로 냉각된 적 동결 유발"
 				}
 			}
 		},
@@ -4628,6 +19427,126 @@ return {
 						}
 					},
 					text="敌人被冰缓时，召唤生物的伤害（击中和异常状态）总降 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物對冰緩的敵人造成 {0}% 更多傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物對冰緩的敵人造成 {0}% 更少傷害"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño con Golpes y Achaques a Enemigos Escarchados"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño con Golpes y Achaques a Enemigos Escarchados"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts au Toucher et avec les Altérations contre les Ennemis Frigorifiés"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts au Toucher et avec les Altérations contre les Ennemis Frigorifiés"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 냉각된 적에 대한 적중 및 상태 이상 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 냉각된 적에 대한 적중 및 상태 이상 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4660,6 +19579,138 @@ return {
 						}
 					},
 					text="陷阱投掷速度降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% ускорение установки ловушки"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% замедление установки ловушки"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเร็วในการโยนกับดักขึ้น {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเร็วในการโยนกับดักลง {0}%"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% d'Augmentation de la Vitesse de jet des Pièges"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% de Réduction de la Vitesse de jet des Pièges"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Velocidad de Lanzamiento de Trampas aumentada un {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Velocidad de Lanzamiento de Trampas reducida un {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% erhöhte Fallen-Wurfgeschwindigkeit"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% verringerte Fallen-Wurfgeschwindigkeit"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="덫 투척 속도 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="덫 투척 속도 {0}% 감소"
 				}
 			}
 		},
@@ -4692,6 +19743,182 @@ return {
 						}
 					},
 					text="地雷投掷速度降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="지뢰 투척 속도 {0}% 증가"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="지뢰 투척 속도 {0}% 감소"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% erhöhte Minen-Wurfgeschwindigkeit"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% verringerte Minen-Wurfgeschwindigkeit"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="增加 {0}% 地雷投擲速度"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="減少 {0}% 地雷投擲速度"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% d'Augmentation de la Vitesse de jet des Mines"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% de Réduction de la Vitesse de jet des Mines"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Velocidade de Arremesso de Minas aumentada em {0}%"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Velocidade de Arremesso de Minas reduzida em {0}%"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% повышение скорости броска мины"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% снижение скорости броска мины"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Velocidad de Lanzamiento de Minas aumentada un {0}%"
+				},
+				[16]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Velocidad de Lanzamiento de Minas reducida un {0}%"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเร็วในการโยนทุ่นระเบิด {0}%"
+				},
+				[18]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเร็วในการโยนทุ่นระเบิด {0}%"
 				}
 			}
 		},
@@ -4724,6 +19951,138 @@ return {
 						}
 					},
 					text="召唤生物造成的陷阱与地雷伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона от ловушек и мин"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона от ловушек и мин"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย กับดักและทุ่นระเบิด อีก {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย กับดักและทุ่นระเบิด อีก {0}%"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts avec les Pièges et les Mines"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts avec les Pièges et les Mines"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño con Trampas y Minas"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño con Trampas y Minas"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Fallen- und Minenschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Fallen- und Minenschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 덫 및 지뢰 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 덫 및 지뢰 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4755,6 +20114,94 @@ return {
 						}
 					},
 					text="召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4787,6 +20234,28 @@ return {
 						}
 					},
 					text="召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 피해 {0}% 증폭"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4819,6 +20288,138 @@ return {
 						}
 					},
 					text="召唤生物造成的混沌伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย เคออส อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย เคออส อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона хаосом"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона хаосом"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño de Caos"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño de Caos"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts de chaos"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts de chaos"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Chaosschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Chaosschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 카오스 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 카오스 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4851,6 +20452,160 @@ return {
 						}
 					},
 					text="召唤生物造成的元素伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam {0}% mais Dano Elemental"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios causam {0}% menos Dano Elemental"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона от стихий"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона от стихий"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย ธาตุ อีก {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย ธาตุ อีก {0}%"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Elemental"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Elemental"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts élémentaires"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts élémentaires"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Elementarschaden"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Elementarschaden"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 원소 피해 {0}% 증폭"
+				},
+				[16]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 원소 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4874,6 +20629,19 @@ return {
 						}
 					},
 					text="召唤生物无法造成元素异常状态"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextElementalStatusAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 원소 상태 이상 유발 불가"
 				}
 			}
 		},
@@ -4897,6 +20665,84 @@ return {
 						}
 					},
 					text="召唤生物击中敌人时会使其中毒"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียน สร้างสถานะ พิษ เมื่อปะทะ"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники отравляют врагов при нанесении удара"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros Envenenan a los Enemigos con cada Golpe"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures Empoisonnent les Ennemis au Toucher"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Kreaturen vergiften Gegner bei Treffer"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 명중 시 적 중독 유발"
 				}
 			}
 		},
@@ -4929,6 +20775,138 @@ return {
 						}
 					},
 					text="召唤生物造成的中毒伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหายพิษ ของมิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหายพิษ ของมิเนียน {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение урона от яда"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение урона от яда"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Daño con Veneno aumentado un {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Daño con Veneno reducido un {0}%"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation des Dégâts avec le Poison"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction des Dégâts avec le Poison"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% erhöhten Schaden mit Gift"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verringerten Schaden mit Gift"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 중독 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 중독 피해 {0}% 감소"
 				}
 			}
 		},
@@ -4961,6 +20939,138 @@ return {
 						}
 					},
 					text="召唤生物造成的中毒持续时间缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มีระยะเวลาสถานะ พิษ เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มีระยะเวลาสถานะ พิษ ลดลง {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% увеличение длительности яда"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют {0}% уменьшение длительности яда"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Duración de Veneno aumentada un {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Duración de Veneno reducida un {0}%"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Durée du Poison"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Durée du Poison"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% verlängerte Giftdauer"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen haben {0}% verkürzte Giftdauer"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 중독 지속시간 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 중독 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -4993,6 +21103,28 @@ return {
 						}
 					},
 					text="召唤生物的近战技能溅射总范围总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 근접 범위 피해 효과 범위 {0}% 증폭"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 근접 범위 피해 효과 범위 {0}% 감폭"
 				}
 			}
 		},
@@ -5012,6 +21144,24 @@ return {
 						}
 					},
 					text="召唤生物每打出 3 次近战攻击，就会触发 1 次【无情一击】"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物每 3 下近戰攻擊造成 1 次殘暴之擊"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수의 공격을 세 번째 사용할 때마다 근접 명중으로 무자비한 맹타 피해를 줌"
 				}
 			}
 		},
@@ -5031,6 +21181,24 @@ return {
 						}
 					},
 					text="召唤生物的【无情一击】会使近战伤害总增 {0}%"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的殘暴之擊造成 {0}% 更多近戰傷害"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수의 무자비한 맹타가 주는 근접 피해 {0}% 증폭"
 				}
 			}
 		},
@@ -5050,6 +21218,24 @@ return {
 						}
 					},
 					text="召唤生物的近战攻击击中时，所触发的【无情一击】会使流血伤害总增 {0}%"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的殘暴之擊造成 {0}% 更多近戰擊中造成的流血傷害"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수의 무자비한 맹타가 근접 명중으로 유발하는 출혈 피해 {0}% 증폭"
 				}
 			}
 		},
@@ -5073,6 +21259,32 @@ return {
 						}
 					},
 					text="召唤生物的【无情一击】有 {0} 秒基础晕眩时间"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物的殘暴之擊有基礎的 {0} 秒暈眩時間"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수의 무자비한 맹타의 기본 기절 지속시간 {0}초"
 				}
 			}
 		},
@@ -5092,6 +21304,15 @@ return {
 						}
 					},
 					text="每种类型的飞掠者最多召唤 {0} 个"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Máximo de {0} Robô Rastejante de cada tipo Convocado"
 				}
 			}
 		},
@@ -5124,6 +21345,72 @@ return {
 						}
 					},
 					text="召唤生物的附加伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют на {0}% больше дополнительного урона"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники имеют на {0}% меньше дополнительного урона"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts ajoutés"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts ajoutés"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 {0}% 증폭된 추가 피해 획득"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 {0}% 감폭된 추가 피해 획득"
 				}
 			}
 		},
@@ -5156,6 +21443,94 @@ return {
 						}
 					},
 					text="召唤生物的总持续时间额外缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="增加召喚物 {0}% 時間 "
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="減少召喚物 {0}% 時間 "
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0}% más Duración"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen {0}% menos Duración"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Durée"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Durée"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 지속시간 {0}% 증폭 "
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 지속시간 {0}% 감폭 "
 				}
 			}
 		},
@@ -5175,6 +21550,15 @@ return {
 						}
 					},
 					text="弓箭的伤害提高和降低也同样作用于召唤生物"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="활 피해 증가 및 감소가 소환수에게도 적용"
 				}
 			}
 		},
@@ -5239,6 +21623,28 @@ return {
 						}
 					},
 					text="召唤生物的攻击和施法速度减慢 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเร็วในการโจมตีและร่ายของ มิเนียน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเร็วในการโจมตีและร่ายของ มิเนียน {0}%"
 				}
 			}
 		},
@@ -5266,6 +21672,142 @@ return {
 						}
 					},
 					text="召唤生物的攻击技能获得 {0}% 魔力偷取"
+				},
+				[2]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 공격 스킬이 피해의 {0}%를 마나로 흡수"
+				},
+				[3]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen-Angriffsfertigkeiten rauben {0}% des Schadens als Mana"
+				},
+				[4]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物的攻擊技能 {0}% 傷害偷取魔力"
+				},
+				[5]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Attaques des Créatures Drainent {0}% de leurs Dégâts sous forme de Mana"
+				},
+				[6]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Habilidades de Ataques de Lacaios Drenam {0}% do Dano como Mana"
+				},
+				[7]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Умения атак приспешников похищают {0}% от урона в виде маны"
+				},
+				[8]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Las Habilidades de Ataque de los Esbirros absorben {0}% de Daño como Maná"
+				},
+				[9]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="สกิลโจมตีของมิเนียน จะดูด {0}% ของความเสียหายเป็น มานา"
 				}
 			}
 		},
@@ -5298,6 +21840,28 @@ return {
 						}
 					},
 					text="召唤生物至少有 20 点怒火时，它们的攻击速度减慢 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มีความเร็วในการโจมตี เพิ่มขึ้น {0}% ขณะที่พวกมันมีความคลั่งอย่างน้อย 20 ระดับ"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มีความเร็วในการโจมตี เพิ่มขึ้น {0}% ขณะที่พวกมันมีความคลั่งอย่างน้อย 20 ระดับ"
 				}
 			}
 		},
@@ -5334,6 +21898,136 @@ return {
 						}
 					},
 					text="召唤生物的攻击击中时总是穿刺敌人"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="소환수의 공격이 명중 시 {0}%의 확률로 적을 꿰뚫음"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수의 공격이 명중 시 항상 적을 꿰뚫음"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="召喚物的攻擊擊中時有 {0}% 機率穿刺敵人"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="召喚物的攻擊擊中時穿刺敵人"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="การโจมตีของมิเนียนจะ มีโอกาส {0}% ที่จะ ทิ่มแทง ศัตรูเมื่อปะทะ"
+				},
+				[8]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="การโจมตีของมิเนียนจะ ทิ่มแทง ศัตรูเมื่อปะทะ"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Ataques de Lacaios tem {0}% de chance de Empalar Inimigos ao Acertar"
+				},
+				[10]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Ataques de Lacaios sempre Empalam Inimigos ao Acertar"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Les Attaques des Créatures ont {0}% de chances d'Empaler les Ennemis au Toucher"
+				},
+				[12]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Les Attaques des Créatures Empalent toujours les Ennemis au Toucher"
 				}
 			}
 		},
@@ -5366,6 +22060,28 @@ return {
 						}
 					},
 					text="召唤生物发射的投射物扩散范围缩小 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="กระสุนที่ยิงจากมิเนียน เพิ่มการกระจายกระสุน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="กระสุนที่ยิงจากมิเนียน ลดการกระจายกระสุน {0}%"
 				}
 			}
 		},
@@ -5406,6 +22122,126 @@ return {
 						}
 					},
 					text="召唤生物会使敌人受到的冰缓、点燃、冰冻和感电状态持续时间缩短 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStatusAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物增加 {0}% 敵人異常狀態時間"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStatusAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物減少 {0}% 敵人異常狀態時間"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStatusAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Duración de Achaques en Enemigos aumentada un {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStatusAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Duración de Achaques en Enemigos reducida un {0}%"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStatusAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Durée des Altérations sur les Ennemis"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStatusAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Durée des Altérations sur les Ennemis"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStatusAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 적에게 적용하는 상태 이상 지속시간 {0}% 증가"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStatusAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 적에게 적용하는 상태 이상 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -5442,6 +22278,84 @@ return {
 						}
 					},
 					text="召唤生物在击中时必定使敌人中毒"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Los Esbirros tienen {0}% de probabilidad de Envenenar con cada Golpe"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros siempre Envenenan con cada Golpe"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Les Créatures ont {0}% de chances d'Empoisonner au Toucher"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Les Créatures Empoisonnent toujours au Toucher"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="소환수의 공격이 명중 시 {0}%의 확률로 적 중독 유발"
+				},
+				[8]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수가 명중 시 항상 중독 유발"
 				}
 			}
 		},
@@ -5461,6 +22375,33 @@ return {
 						}
 					},
 					text="召唤生物无法造成混沌伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros no infligen Daño de Caos"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures d'infligent pas de Dégâts de chaos"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 카오스 피해 없음"
 				}
 			}
 		},
@@ -5497,6 +22438,162 @@ return {
 						}
 					},
 					text="召唤生物击中时施加畏寒"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="소환수가 명중 시 {0}%의 확률로 냉기 노출 유발"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수가 명중 시 냉기 노출 유발"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Les Créatures ont {0}% de chances d'infliger Exposition au froid au Toucher"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Les Créatures infligent Exposition au froid au Toucher"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Lacaios têm {0}% de chance de causarem Exposição ao Gelo ao Acertarem"
+				},
+				[8]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam Exposição ao Gelo ao Acertarem"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Los esbirros tienen un {0}% de probabilidad de aplicar Exposición al hielo con cada golpe"
+				},
+				[10]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Los esbirros aplican Exposición al hielo con cada golpe"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="召喚物擊中時有 {0}% 機率造成冰冷曝曬"
+				},
+				[12]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="召喚物擊中時造成冰冷曝曬"
+				},
+				[13]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="มิเนียน มีโอกาส {0}% ที่จะสร้างสถานะ Cold Exposure เมื่อปะทะ"
+				},
+				[14]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="มีเนียน สร้างสถานะ Cold Exposure เมื่อปะทะ"
 				}
 			}
 		},
@@ -5533,6 +22630,162 @@ return {
 						}
 					},
 					text="召唤生物击中时施加畏火"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="소환수가 명중 시 {0}%의 확률로 화염 노출 유발"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수가 명중 시 화염 노출 유발"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Les Créatures ont {0}% de chances d'infliger Exposition au feu au Toucher"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Les Créatures infligent Exposition au feu au Toucher"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Lacaios têm {0}% de chance de causarem Exposição ao Fogo ao Acertarem"
+				},
+				[8]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam Exposição ao Gelo ao Acertarem"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Los esbirros tienen un {0}% de probabilidad de aplicar Exposición al fuego con cada golpe"
+				},
+				[10]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Los esbirros aplican Exposición al fuego con cada golpe"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="召喚物擊中時有 {0}% 機率造成火焰曝曬"
+				},
+				[12]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="召喚物擊中時造成火焰曝曬"
+				},
+				[13]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="มิเนียน มีโอกาส {0}% ที่จะสร้างสถานะ Fire Exposure เมื่อปะทะ"
+				},
+				[14]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="มีเนียน สร้างสถานะ Fire Exposure เมื่อปะทะ"
 				}
 			}
 		},
@@ -5569,6 +22822,162 @@ return {
 						}
 					},
 					text="召唤生物击中时施加畏电"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="소환수가 명중 시 {0}%의 확률로 번개 노출 유발"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수가 명중 시 번개 노출 유발"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Les Créatures ont {0}% de chances d'infliger Exposition à la foudre au Toucher"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Les Créatures infligent Exposition à la foudre au Toucher"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Lacaios têm {0}% de chance de causarem Exposição ao Raio ao Acertarem"
+				},
+				[8]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam Exposição ao Gelo ao Acertarem"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Los esbirros tienen un {0}% de probabilidad de aplicar Exposición al rayo con cada golpe"
+				},
+				[10]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Los esbirros aplican Exposición al rayo con cada golpe"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="召喚物擊中時有 {0}% 機率造成閃電曝曬"
+				},
+				[12]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="召喚物擊中時造成閃電曝曬"
+				},
+				[13]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="มิเนียน มีโอกาส {0}% ที่จะสร้างสถานะ Lightning Exposure เมื่อปะทะ"
+				},
+				[14]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningExposure"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="มีเนียน สร้างสถานะ Lightning Exposure เมื่อปะทะ"
 				}
 			}
 		},
@@ -5596,6 +23005,23 @@ return {
 						}
 					},
 					text="召唤生物将混沌伤害的 {0}% 转化为生命偷取"
+				},
+				[2]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะดูด {0}% ของความเสียหาย เคออส ไปเป็นพลังชีวิต"
 				}
 			}
 		},
@@ -5624,6 +23050,24 @@ return {
 						}
 					},
 					text="当非幻灵召唤生物击中稀有或传奇敌人时召唤 1 个幻灵"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="비-환영 소환수가 희귀 또는 고유 적 명중 시 {0}%의 확률로 환영 1개체 소환"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="비-환영 소환수가 희귀 또는 고유 적 명중 시 환영 1개체 소환"
 				}
 			}
 		},
@@ -5652,6 +23096,132 @@ return {
 						}
 					},
 					text="当非幻灵召唤生物击败敌人时，召唤 1 个幻灵"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="มีโอกาส {0}% ที่จะเสก Phantasm ออกมาหากมิเนียนที่ไม่ใช่ Phantasm สังหารศัตรูได้"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="เสก Phantasm ออกมาหากมิเนียนที่ไม่ใช่ Phantasm สังหารศัตรูได้"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="{0}% шанс призвать фантома, когда приспешники не-фантомы наносят смертельный удар"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Призывает фантома, когда приспешники не-фантомы наносят смертельный удар"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="{0}% Chance, ein Phantasma zu beschwören, wenn Kreaturen (Phantasmen ausgenommen) einen tödlichen Schlag verursachen"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Beschwört ein Phantasma, wenn Kreaturen (Phantasmen ausgenommen) einen tödlichen Schlag verursachen"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="{0}% de chances d'Invoquer une Apparition lorsque vos Créatures\n(autres que des Apparitions) infligent un Coup mortel"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Invoque une Apparition lorsque vos Créatures\n(autres que des Apparitions) infligent un Coup mortel"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="{0}% de probabilidad de Invocar un Fantasma cuando Esbirros que no son Fantasmas infligen un Golpe Mortal"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Invoca un Fantasma cuando Esbirros que no son Fantasmas infligen un Golpe Mortal"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="{0}% de chance de Convocar um Fantasma quando Lacaios Não-Fantasmas causam um Golpe Mortal"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Convoca um Fantasma quando Lacaios Não-Fantasmas causam um Golpe Mortal"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="비-환영 소환수가 최후의 일격 사용 시 {0}%의 확률로 환영 1개체 소환"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="비-환영 소환수가 최후의 일격 사용 시 환영 1개체 소환"
 				}
 			}
 		},
@@ -5756,6 +23326,138 @@ return {
 						}
 					},
 					text="对抗目盲的敌人时，召唤生物的暴击率降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มโอกาสคริติคอลขึ้น {0}% ต่อศัตรูที่ตาบอด"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดโอกาสคริติคอลลง {0}% ต่อศัตรูที่ตาบอด"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% повышение шанса критического удара по ослепленным врагам"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% снижение шанса критического удара по ослепленным врагам"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% d'Augmentation des chances de Coup critique contre les Ennemis Aveuglés"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% de Réduction des chances de Coup critique contre les Ennemis Aveuglés"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% erhöhte kritische Trefferchance gegen geblendete Gegner"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% verringerte kritische Trefferchance gegen geblendete Gegner"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Probabilidad de Golpe Crítico aumentada un {0}% contra Enemigos Cegados"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Probabilidad de Golpe Crítico reducida un {0}% contra Enemigos Cegados"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 실명된 적에 대한 치명타 확률 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 실명된 적에 대한 치명타 확률 {0}% 감소"
 				}
 			}
 		},
@@ -5788,6 +23490,72 @@ return {
 						}
 					},
 					text="召唤生物提供的凌厉效果降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% усиление эффекта Злости, даруемого приспешниками"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% ослабление эффекта Злости, даруемого приспешниками"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="增加 {0}% 召喚物給予的殘酷效果"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="減少 {0}% 召喚物給予的殘酷效果"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มผลของสถานะ อำมหิต จากมิเนียน {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดผลของสถานะ อำมหิต จากมิเนียน {0}%"
 				}
 			}
 		},
@@ -5828,6 +23596,36 @@ return {
 						}
 					},
 					text="敌人身上每种冻结、感电、点燃效果都使召唤生物的击中和异常状态伤害降低 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะสร้างความเสียหาย ปะทะและเจ็บป่วย เพิ่มขึ้น {0}% ตามจำนวนสถานะ แช่แข็ง, ช็อค, ลุกไหม้ บนตัวศัตรู"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะสร้างความเสียหาย ปะทะและเจ็บป่วย ลดลง {0}% ตามจำนวนสถานะ แช่แข็ง, ช็อค, ลุกไหม้ บนตัวศัตรู"
 				}
 			}
 		},
@@ -5860,6 +23658,28 @@ return {
 						}
 					},
 					text="偷取能量护盾时，召唤生物造成的伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="에너지 보호막을 흡수하는 동안 소환수가 주는 피해 {0}% 증가"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="에너지 보호막을 흡수하는 동안 소환수가 주는 피해 {0}% 감소"
 				}
 			}
 		},
@@ -5892,6 +23712,28 @@ return {
 						}
 					},
 					text="此攻击和召唤生物的伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="생명력을 흡수하는 동안 소환수가 주는 피해 {0}% 증가"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="생명력을 흡수하는 동안 소환수가 주는 피해 {0}% 감소"
 				}
 			}
 		},
@@ -5924,6 +23766,28 @@ return {
 						}
 					},
 					text="此攻击和召唤生物的伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="마나를 흡수하는 동안 소환수가 주는 피해 {0}% 증가"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="마나를 흡수하는 동안 소환수가 주는 피해 {0}% 감소"
 				}
 			}
 		},
@@ -5964,6 +23828,36 @@ return {
 						}
 					},
 					text="敌人身上的每个诅咒都使召唤生物的击中和异常状态伤害降低 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย ปะทะและเจ็บป่วย {0}% ต่อจำนวนคำสาปบนตัวศัตรู"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย ปะทะและเจ็บป่วย {0}% ต่อจำนวนคำสาปบนตัวศัตรู"
 				}
 			}
 		},
@@ -5983,6 +23877,15 @@ return {
 						}
 					},
 					text="对抗低血敌人时，召唤生物的击中伤害提高 {0}%"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนสร้างความเสียหาย ปะทะ เพิ่มขึ้น {0}% ต่อศัตรูที่มี พลังชีวิตเหลือน้อย"
 				}
 			}
 		},
@@ -6025,6 +23928,51 @@ return {
 						}
 					},
 					text="召唤生物的攻击击中时附加腐蚀状态，每秒造成 {0} 混沌伤害，持续 8 秒"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen 'Verfall' und damit {0} Chaosschaden pro Sekunde für 8 Sekunden"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物擊中造成腐化，每秒造成 {0} 混沌傷害，持續 8 秒"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros causan Decaimiento con cada Golpe, que inflige {0} de Daño de Caos por segundo durante 8 segundos"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures appliquent Décomposition au Toucher, infligeant {0} Dégâts de chaos par seconde pendant 8 secondes"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 명중 시 부패를 유발하여, 8초 동안 1초마다 {0} 카오스 피해를 줌"
 				}
 			}
 		},
@@ -6044,6 +23992,42 @@ return {
 						}
 					},
 					text="召唤生物无法造成元素伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物無法造成元素傷害"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros no infligen Daño Elemental"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures n'infligent pas de Dégâts élémentaires"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 원소 피해 없음"
 				}
 			}
 		},
@@ -6099,6 +24083,19 @@ return {
 						}
 					},
 					text="冰缓飞掠者的光环会使周围敌人陷入冰缓效果"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextShockNonHitNoDuration"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Aura dos Robôs Rastejantes Resfriantes Resfria Inimigos próximos deles"
 				}
 			}
 		},
@@ -6122,6 +24119,19 @@ return {
 						}
 					},
 					text="感电飞掠者的光环会使周围敌人陷入感电效果"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextShockNonHitNoDuration"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Aura dos Robôs Rastejantes Eletrizantes Eletrizam Inimigos próximos deles"
 				}
 			}
 		},
@@ -6186,6 +24196,28 @@ return {
 						}
 					},
 					text="若敌人的感电来自召唤生物，则它们承受的物理伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="ศัตรูที่ถูก ช็อค จากมิเนียน รับความเสียหาย กายภาพ เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ศัตรูที่ถูก ช็อค จากมิเนียน รับความเสียหาย กายภาพ ลดลง {0}%"
 				}
 			}
 		},
@@ -6209,6 +24241,19 @@ return {
 						}
 					},
 					text="召唤生物压制 {0}% 物理伤害减免"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextOverwhelm"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะ ท่วมท้น การป้องกันกายภาพ {0}%"
 				}
 			}
 		},
@@ -6236,6 +24281,24 @@ return {
 						}
 					},
 					text="以致命一击击败一名至少中毒 5 层的敌人时获得一个狂怒球"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]=99
+						}
+					},
+					text="มิเนียนมีโอกาส {0}% ที่จะได้รับ Frenzy Charge เมื่อลงมือสังหารศัตรูที่มีพิษอย่างน้อย 5 ระดับ"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="มิเนียนได้รับ Frenzy Charge เมื่อลงมือสังหารศัตรูที่มีพิษอย่างน้อย 5 ระดับ"
 				}
 			}
 		},
@@ -6255,6 +24318,24 @@ return {
 						}
 					},
 					text="召唤生物有 {0}% 的几率在致命一击时获得一个暴击球"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物在擊殺之擊時有 {0}% 機率獲得 1 顆暴擊球"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มีโอกาส {0}% ที่จะได้รับ Power Charge เมื่อลงมือสังหาร"
 				}
 			}
 		},
@@ -6278,6 +24359,45 @@ return {
 						}
 					},
 					text="召唤生物击中时获得凌厉效果"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCruelty"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники получают Злость при нанесении удара"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCruelty"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="召喚物擊中時獲得殘酷"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCruelty"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียน ได้รับสถานะ อำมหิต เมื่อปะทะ"
 				}
 			}
 		},
@@ -6297,6 +24417,24 @@ return {
 						}
 					},
 					text="被召唤生物点燃的敌人，其火焰抗性提高 {0:+d}%"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Inimigos Incendiados por Lacaios possuem {0:+d}% de Resistência a Fogo"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수에 의해 점화된 적의 화염 저항 {0:+d}%"
 				}
 			}
 		},
@@ -6329,6 +24467,116 @@ return {
 						}
 					},
 					text="召唤生物的攻击使穿刺效果降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수 공격의 꿰뚫기 효과 {0}% 증가"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수 공격의 꿰뚫기 효과 {0}% 감소"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物的攻擊增加 {0}% 穿刺效果"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物的攻擊減少 {0}% 穿刺效果"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="การโจมตีของมิเนียนจะ เพิ่มผลของการ ทิ่มแทง {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="การโจมตีของมิเนียนจะ ลดผลของการ ทิ่มแทง {0}%"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Ataques dos Lacaios tem seu Efeito de Empalamento aumentado em {0}%"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Ataques dos Lacaios tem seu Efeito de Empalamento reduzido em {0}%"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Attaques des Créatures ont {0}% d'Augmentation de l'Effet de l'Empalement"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Attaques des Créatures ont {0}% de Réduction de l'Effet de l'Empalement"
 				}
 			}
 		},
@@ -6352,6 +24600,58 @@ return {
 						}
 					},
 					text="召唤生物对已穿刺的敌人造成的穿刺伤害压制 {0}% 物理伤害减免"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextOverwhelm"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Dégâts d'Empalement infligés aux Ennemis Empalés vos Créatures Submergent {0}% de la Réduction des Dégâts physiques"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextOverwhelm"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수에게 꿰뚫린 적에게 주는 꿰뚫기 피해가 물리 피해 감소의 {0}% 압도"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextOverwhelm"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="ความเสียหายจากสถานะ ทิ่มแทง ที่สร้างให้กับศัตรูที่ถูกทิ่มแทงจาก มิเนียน จะ ท่วมท้น การป้องกันกายภาพของศัตรู {0}%"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextOverwhelm"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Урон от Прокола, наносимый врагам с эффектом Прокола, наложенным приспешниками, подавляет {0}% уменьшения получаемого физического урона"
 				}
 			}
 		},
@@ -6370,6 +24670,24 @@ return {
 						}
 					},
 					text="召唤生物造成的物理伤害总增 {0}%"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 증폭"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Lacaios causam {0}% mais Dano Físico"
 				}
 			}
 		},
@@ -6444,6 +24762,32 @@ return {
 						}
 					},
 					text="召唤生物击中时施加火焰、冰霜和闪电曝露"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextAll3Exposures"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures infligent Exposition au feu, au froid et à la foudre au Toucher"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextAll3Exposures"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Lacaios Infligem Exposição a Fogo, Gelo e Raio ao Acertarem"
 				}
 			}
 		},
@@ -6463,6 +24807,15 @@ return {
 						}
 					},
 					text="召唤生物近程击中时有 {0}% 的几率击退敌人"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียนมีโอกาส {0}% ที่จะผลักศัตรูออกไปด้วย การปะทะ ใน ระยะใกล้"
 				}
 			}
 		},
@@ -6531,6 +24884,78 @@ return {
 						}
 					},
 					text="召唤生物的攻击必定使敌人瘫痪"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="召喚物攻擊擊中時有 {0}% 機率造成癱瘓"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="召喚物攻擊擊中時造成癱瘓"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Los Ataques de los Esbirros tienen {0}% de probabilidad de Lisiar con cada Golpe"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Los Ataques de los Esbirros siempre Lisian con cada Golpe"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Les Attaques des Créatures ont {0}% de chances de Mutiler au Toucher"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Les Attaques des Créatures Mutilent toujours au Toucher"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="소환수의 공격이 명중 시 {0}%의 확률로 힘줄 절단"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수의 공격이 명중 시 항상 힘줄 절단"
 				}
 			}
 		},
@@ -6563,6 +24988,182 @@ return {
 						}
 					},
 					text="暴击球用于地雷时，每个可使召唤生物的技能暴击率降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Fertigkeiten von Kreaturen haben {0}% erhöhte kritische Trefferchance pro Energie-Ladung, wenn sie von Minen benutzt werden"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Fertigkeiten von Kreaturen haben {0}% verringerte kritische Trefferchance pro Energie-Ladung, wenn sie von Minen benutzt werden"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Умения приспешников имеют {0}% повышение шанса критического удара за заряд энергии, если используются минами"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Умения приспешников имеют {0}% снижение шанса критического удара за заряд энергии, если используются минами"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Aptitudes des Créatures ont {0}% d'Augmentation des Chances de coup critique par Charge de pouvoir si elles sont utilisées par une Mine"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Aptitudes des Créatures ont {0}% de Réduction des Chances de coup critique par Charge de pouvoir si elles sont utilisées par une Mine"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Habilidades de Lacaios tem Chance de Golpe Crítico aumentada em {0}% por Carga de Poder se usada com Minas"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Habilidades de Lacaios tem Chance de Golpe Crítico reduzida em {0}% por Carga de Poder se usada com Minas"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="지뢰에 의해 사용될 시 소환수의 스킬이 권능 충전 하나당 치명타 확률 {0}% 증가"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="지뢰에 의해 사용될 시 소환수의 스킬이 권능 충전 하나당 치명타 확률 {0}% 감소"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="สกิลของมิเนียน จะเพิ่มโอกาสคริติคอล {0}% ต่อหนึ่ง Power Charge หากใช้จากทุ่นระเบิด"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="สกิลของมิเนียน จะลดโอกาสคริติคอล {0}% ต่อหนึ่ง Power Charge หากใช้จากทุ่นระเบิด"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物的技能若被地雷使用，每顆暴擊球增加 {0}% 暴擊率"
+				},
+				[16]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物的技能若被地雷使用，每顆暴擊球減少 {0}% 暴擊率"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Las habilidades de los esbirros tienen su probabilidad de golpe crítico aumentada en un {0}% por Carga de poder si las usan las minas"
+				},
+				[18]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Las habilidades de los esbirros tienen su probabilidad de golpe crítico reducida en un {0}% por Carga de poder si las usan las minas"
 				}
 			}
 		},
@@ -6595,6 +25196,160 @@ return {
 						}
 					},
 					text="每个狂怒球使该技能和召唤生物的地雷投掷速度降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="此技能和召喚物，每顆狂怒球增加 {0}% 地雷投擲速度"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="此技能和召喚物，每顆狂怒球減少 {0}% 地雷投擲速度"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Cette Aptitude et vos Créatures ont {0}% d'Augmentation de la Vitesse de jet des Mines par Charge de frénésie"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Cette Aptitude et vos Créatures ont {0}% de Réduction de la Vitesse de jet des Mines par Charge de frénésie"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Esta Habilidade e Lacaios tem Velocidade de Arremesso de Minas aumentada em {0}% por Carga de Frenesi"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Esta Habilidade e Lacaios tem Velocidade de Arremesso de Minas reduzida em {0}% por Carga de Frenesi"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Это умение и приспешники имеют {0}% повышение скорости броска мины за заряд ярости"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Это умение и приспешники имеют {0}% снижение скорости броска мины за заряд ярости"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Esta Habilidad y los Esbirros tienen Velocidad de Lanzamiento de Minas aumentada un {0}% por cada Carga de Frenesí"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Esta Habilidad y los Esbirros tienen Velocidad de Lanzamiento de Minas reducida un {0}% por cada Carga de Frenesí"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="สกิลนี้และมิเนียน จะเพิ่มความเร็วในการโยนทุ่นระเบิด {0}% ต่อหนึ่ง Frenzy Charge"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="สกิลนี้และมิเนียน จะลดความเร็วในการโยนทุ่นระเบิด {0}% ต่อหนึ่ง Frenzy Charge"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="격분 충전 하나당 이 스킬 및 소환수의 지뢰 투척 속도 {0}% 증가"
+				},
+				[16]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="격분 충전 하나당 이 스킬 및 소환수의 지뢰 투척 속도 {0}% 감소"
 				}
 			}
 		},
@@ -6618,6 +25373,71 @@ return {
 						}
 					},
 					text="每个狂怒球使召唤生物附加 {0} - {1} 基础冰霜伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют от {0} до {1} дополнительного урона от холода за заряд ярости"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียน เสริมความเสียหาย น้ำแข็ง {0} ถึง {1} ต่อจำนวน Frenzy Charge"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen {0} a {1} de Daño de Hielo agregado por cada Carga de Frenesí"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0} à {1} Dégâts de froid supplémentaires par Charge de frénésie"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="격분 충전 하나당 소환수의 냉기 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -6674,6 +25494,110 @@ return {
 						}
 					},
 					text="召唤生物每秒受到等同 {0}% 最大生命的火焰伤害"
+				},
+				[2]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 1초마다 자신의 최대 생명력의 {0}%를 화염 피해로 받음"
+				},
+				[3]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Vos Créatures subissent {0}% de leur Vie maximale sous forme de Dégâts de feu par seconde"
+				},
+				[4]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios sofrem {0}% da Vida máxima como Dano de Fogo por segundo"
+				},
+				[5]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники получают {0}% от их максимума здоровья в виде урона от огня в секунду"
+				},
+				[6]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen erleiden {0}% ihres maximalen Lebens als Feuerschaden pro Sekunde"
+				},
+				[7]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนได้รับความเสียหาย {0}% ของพลังชีวิตของพวกมัน เป็นความเสียหาย ไฟ ต่อวินาที"
+				},
+				[8]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物每秒承受 {0}% 他們最大生命的火焰傷害"
+				},
+				[9]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros reciben el {0}% de su vida máxima como daño de fuego por segundo"
 				}
 			}
 		},
@@ -6702,6 +25626,42 @@ return {
 						}
 					},
 					text="召唤生物击中传奇敌人时，获得一层暴走状态"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="當召喚物擊中傳奇敵人時，有 {0}% 機率獲得一層暴怒"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="當召喚物擊中傳奇敵人時，獲得一層暴怒"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="소환수가 고유 적 명중 시 {0}%의 확률로 광란 처치 1회 획득"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수가 고유 적 명중 시 광란 처치 획득"
 				}
 			}
 		},
@@ -6729,6 +25689,23 @@ return {
 						}
 					},
 					text="召唤生物将元素伤害的 {0}% 转化为生命偷取"
+				},
+				[2]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน ดูดความเสียหาย ธาตุ {0}% เป็นพลังชีวิต"
 				}
 			}
 		},
@@ -6748,6 +25725,15 @@ return {
 						}
 					},
 					text="召唤生物击中回复 {0}% 生命"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน เติม พลังชีวิต {0}% เมื่อปะทะ"
 				}
 			}
 		},
@@ -6766,6 +25752,15 @@ return {
 						}
 					},
 					text="召唤生物无法嘲讽敌人"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 적 도발 불가"
 				}
 			}
 		},
@@ -6785,6 +25780,15 @@ return {
 						}
 					},
 					text="爪类暴击率词缀也套用于召唤生物"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="爪的暴擊詞綴同時套用至召喚物"
 				}
 			}
 		},
@@ -6804,6 +25808,15 @@ return {
 						}
 					},
 					text="爪类暴击伤害加成词缀也套用于召唤生物"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="爪的暴擊加成詞綴同時套用至召喚物"
 				}
 			}
 		},
@@ -6836,6 +25849,28 @@ return {
 						}
 					},
 					text="召唤生物发射的投射物扩散范围缩小 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="กระสุนที่ยิงจากมิเนียน เพิ่มการกระจายกระสุน {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="กระสุนที่ยิงจากมิเนียน ลดการกระจายกระสุน {0}%"
 				}
 			}
 		},
@@ -6868,6 +25903,28 @@ return {
 						}
 					},
 					text="召唤生物的近战攻击每次重复都使效果区域缩小 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="การโจมตีประชิดของมิเนียน มีพื้นที่ส่งผล เพิ่มขึ้น {0}% ต่อการทำงานซ้ำ"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="การโจมตีประชิดของมิเนียน มีพื้นที่ส่งผล ลดลง {0}% ต่อการทำงานซ้ำ"
 				}
 			}
 		},
@@ -7004,6 +26061,126 @@ return {
 						}
 					},
 					text="召唤生物对敌人施加的非伤害性异常状态效果降低 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物對敵人增加 {0}% 非傷害型異常狀態的效果"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物對敵人減少 {0}% 非傷害型異常狀態的效果"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะ เพิ่มผลของสถานะ เจ็บป่วยที่ไม่สร้างความเสียหาย ที่สร้างต่อศัตรู {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนจะ ลดผลของสถานะ เจ็บป่วยที่ไม่สร้างความเสียหาย ที่สร้างต่อศัตรู {0}%"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de l'Effet sur les Ennemis des Altérations n'infligeant pas de Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de l'Effet sur les Ennemis des Altérations n'infligeant pas de Dégâts"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 적에게 적용하는 비-피해 상태 이상 효과 {0}% 증가"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 적에게 적용하는 비-피해 상태 이상 효과 {0}% 감소"
 				}
 			}
 		},
@@ -7064,6 +26241,28 @@ return {
 						}
 					},
 					text="召唤生物的发射点发射点之间的距离减少 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนมีระยะห่างระหว่างตำแหน่งที่ยิง เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนมีระยะห่างระหว่างตำแหน่งที่ยิง ลดลง {0}%"
 				}
 			}
 		},
@@ -7092,6 +26291,132 @@ return {
 						}
 					},
 					text="地雷以敌人为目标引爆时，该技能和召唤生物获得一个狂怒球"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Diese Fertigkeit und Kreaturen haben {0}% Chance, eine Raserei-Ladung zu erhalten, wenn eine Mine von unterstützten\nFertigkeiten mit einem Gegner im Ziel gezündet wird"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="Diese Fertigkeit und Kreaturen erhalten eine Raserei-Ladung, wenn eine Mine von unterstützten\nFertigkeiten mit einem Gegner im Ziel gezündet wird"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Это умение и приспешники имеют {0}% шанс получить заряд ярости, если взрыв мины задел врага"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="Это умение и приспешники получают заряд ярости, если взрыв мины задел врага"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Cette Aptitude et les Créatures ont {0}% de chances de gagner une Charge de frénésie lorsqu'une Mine est activée en ciblant un Ennemi"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="Cette Aptitude et les Créatures gagnent une Charge de frénésie lorsqu'une Mine est activée en ciblant un Ennemi"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="적을 대상으로 지뢰 발동 시 {0}% 확률로 이 스킬 및 소환수가 격분 충전 획득"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="적을 대상으로 지뢰 발동 시 이 스킬 및 소환수가 격분 충전 획득"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="สกิลนี้และมิเนียน มีโอกาส {0}% ที่จะได้รับ Frenzy Charge เมื่อทุ่นระเบิดถูกจุดระเบิดโดยมีศัตรูเป็นเป้าหมาย"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="สกิลนี้และมิเนียน จะได้รับ Frenzy Charge เมื่อทุ่นระเบิดถูกจุดระเบิดโดยมีศัตรูเป็นเป้าหมาย"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="當地雷對敵人引爆時，此技能和召喚物有 {0}% 機率獲得 1 顆狂怒球"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="當地雷對敵人引爆時，此技能和召喚物獲得 1 顆狂怒球"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Esta habilidad y los esbirros tienen un {0}% de probabilidad de ganar una Carga de frenesí cuando una mina se detona tomando a un enemigo como objetivo"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="Esta habilidad y los esbirros ganan una Carga de frenesí cuando una mina se detona tomando a un enemigo como objetivo"
 				}
 			}
 		},
@@ -7120,6 +26445,42 @@ return {
 						}
 					},
 					text="当你的陷阱被敌人触发时，此技能和召唤生物获得 1 个狂怒球"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Essa Habilidade e Lacaios possuem {0}% de chance de receber uma Carga de Frenesi quando sua Armadilha for ativada por um Inimigo"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="Essa Habilidade recebem uma Carga de Frenesi quando sua Armadilha for ativada por um Inimigo"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="자신의 덫이 적에 의해 발동되면 {0}%의 확률로 이 스킬 및 소환수가 격분 충전 획득"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="자신의 덫이 적에 의해 발동되면 이 스킬 및 소환수가 격분 충전 획득"
 				}
 			}
 		},
@@ -7148,6 +26509,132 @@ return {
 						}
 					},
 					text="地雷以敌人为目标引爆时，该技能和召唤生物获得一个暴击球"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Diese Fertigkeit und Kreaturen haben {0}% Chance, eine Energie-Ladung zu erhalten, wenn eine Mine von unterstützten\nFertigkeiten mit einem Gegner im Ziel gezündet wird"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="Diese Fertigkeit und Kreaturen erhalten eine Energie-Ladung, wenn eine Mine von unterstützten\nFertigkeiten mit einem Gegner im Ziel gezündet wird"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Это умение и приспешники имеют {0}% шанс получить заряд энергии, если взрыв мины задел врага"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="Это умение и приспешники получают заряд энергии, если взрыв мины задел врага"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="적을 대상으로 지뢰 발동 시 {0}% 확률로 이 스킬 및 소환수가 권능 충전 획득"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="적을 대상으로 지뢰 발동 시 이 스킬 및 소환수가 권능 충전 획득"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="สกิลนี้และมิเนียน มีโอกาส {0}% ที่จะได้รับ Power Charge เมื่อทุ่นระเบิดถูกจุดระเบิดโดยมีศัตรูเป็นเป้าหมาย"
+				},
+				[10]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="สกิลนี้และมิเนียน จะได้รับ Power Charge เมื่อทุ่นระเบิดถูกจุดระเบิดโดยมีศัตรูเป็นเป้าหมาย"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="當地雷對敵人引爆時，此技能和召喚物有 {0}% 機率獲得 1 顆暴擊球"
+				},
+				[12]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="當地雷對敵人引爆時，此技能和召喚物獲得 1 顆暴擊球"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Cette Aptitude et les Créatures ont {0}% de chances de gagner une Charge de pouvoir lorsqu'une Mine est Activée en ciblant un Ennemi"
+				},
+				[14]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="Cette Aptitude et les Créatures gagnent une Charge de pouvoir lorsqu'une Mine est Activée en ciblant un Ennemi"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Esta habilidad y los esbirros tienen un {0}% de probabilidad de ganar una Carga de poder cuando una mina se detona tomando a un enemigo como objetivo"
+				},
+				[16]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="Esta habilidad y los esbirros ganan una Carga de poder cuando una mina se detona tomando a un enemigo como objetivo"
 				}
 			}
 		},
@@ -7176,6 +26663,42 @@ return {
 						}
 					},
 					text="当你的陷阱被敌人触发时，此技能和召唤生物获得 1 个暴击球"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Essa Habilidade e Lacaios possuem {0}% de chance de receber uma Carga de Poder quando sua Armadilha for ativada por um Inimigo "
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="Essa Habilidade e Lacaios recebem uma Carga de Poder quando sua Armadilha for ativada por um Inimigo"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="자신의 덫이 적에 의해 발동되면 {0}%의 확률로 이 스킬 및 소환수가 권능 충전 획득"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]=100
+						}
+					},
+					text="자신의 덫이 적에 의해 발동되면 이 스킬 및 소환수가 권능 충전 획득"
 				}
 			}
 		},
@@ -7204,6 +26727,42 @@ return {
 						}
 					},
 					text="召唤生的投射物会穿透 {0} 个额外目标"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="召喚物的投射物穿透一個額外目標"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="召喚物的投射物穿透 {0} 個額外目標"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환수의 투사체가 추가 대상 관통"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소환수의 투사체가 추가 대상 {0}개를 관통"
 				}
 			}
 		},
@@ -7232,6 +26791,24 @@ return {
 						}
 					},
 					text="召唤生物发射的投射物不能贯穿敌人"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]=99
+						}
+					},
+					text="กระสุนที่ยิงจาก มิเนียน มีโอกาส {0}% ที่จะไม่ เจาะทะลุ ศัตรู"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="กระสุนที่ยิงจาก มิเนียน ไม่สามารถ เจาะทะลุ ศัตรู ได้"
 				}
 			}
 		},
@@ -7264,6 +26841,28 @@ return {
 						}
 					},
 					text="召唤生物的投射物贯穿伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="กระสุนของมิเนียน ที่เจาะทะลุ สร้างความเสียหาย เพิ่มขึ้น {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="กระสุนของมิเนียน ที่เจาะทะลุ สร้างความเสียหาย ลดลง {0}%"
 				}
 			}
 		},
@@ -7296,6 +26895,50 @@ return {
 						}
 					},
 					text="召唤生物对周围敌人的击中伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物對附近敵人增加 {0}% 投射物擊中傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物對附近敵人減少 {0}% 投射物擊中傷害"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน สร้างความเสียหาย กระสุน ปะทะ เพิ่มขึ้น {0}% ต่อศัตรูที่อยู่ใกล้"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน สร้างความเสียหาย กระสุน ปะทะ ลดลง {0}% ต่อศัตรูที่อยู่ใกล้"
 				}
 			}
 		},
@@ -7315,6 +26958,15 @@ return {
 						}
 					},
 					text="召唤生物发射的投射物贯穿{0} 格内的所有目标"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="กระสุนที่ยิงจาก มิเนียน เจาะทะลุ ทุกเป้าหมายในระยะ {0} หน่วย"
 				}
 			}
 		},
@@ -7338,6 +26990,19 @@ return {
 						}
 					},
 					text="你眩晕敌人时，召唤生物回复 {0}% 生命"
+				},
+				[2]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียน เติม พลังชีวิต {0}% เมื่อคุณทำให้ศัตรูติดสถานะ มึนงง"
 				}
 			}
 		},
@@ -7357,6 +27022,15 @@ return {
 						}
 					},
 					text="召唤生物穿透 {0}% 混沌抗性"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน เจาะต้านทาน เคออส {0}%"
 				}
 			}
 		},
@@ -7397,6 +27071,126 @@ return {
 						}
 					},
 					text="召唤生物技能和异常状态持续时间缩短 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物增加 {0}% 技能持續時間和傷害型異常狀態時間"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物減少 {0}% 技能持續時間和傷害型異常狀態時間"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros tienen Duración de Habilidades y Duración de Achaques Dañinos aumentadas un {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros tienen Duración de Habilidades y Duración de Achaques Dañinos reducidas un {0}%"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% d'Augmentation de la Durée des Aptitudes et des Altérations infligeant des Dégâts"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Réduction de la Durée des Aptitudes et des Altérations infligeant des Dégâts"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 스킬 지속시간 및 피해를 주는 상태 이상 지속 시간{0}% 증가"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 스킬 지속시간 및 피해를 주는 상태 이상 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -7491,6 +27285,28 @@ return {
 						}
 					},
 					text="飞掠者使陷阱和地雷伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Robôs Rastejantes concedem {0}% mais Dano de Armadilhas e Minas"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Robôs Rastejantes concedem {0}% menos Dano de Armadilhas e Minas"
 				}
 			}
 		},
@@ -7514,6 +27330,19 @@ return {
 						}
 					},
 					text="增益效果附加 {0} 至 {1} 点攻击物理伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="增益效果附加 {0} 至 {1} 攻擊物理傷害"
 				}
 			}
 		},
@@ -7547,6 +27376,94 @@ return {
 						}
 					},
 					text="召唤生物造成的物理伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多物理傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少物理傷害"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Físico"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Físico"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts physiques"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts physiques"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7587,6 +27504,186 @@ return {
 						}
 					},
 					text="召唤生物造成的冰缓区域内的敌人，其受到的冰霜持续伤害降低 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Ennemis situés dans les Zones frigorifiantes créées par les Aptitudes des Créatures ont {0}% d'Augmentation des Dégâts de froid sur la durée subis"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Ennemis situés dans les Zones frigorifiantes créées par les Aptitudes des Créatures ont {0}% de Réduction des Dégâts de froid sur la durée subis"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los enemigos sobre las Áreas de Escarcha de las habilidades de los esbirros reciben Daño degenerativo de Hielo aumentado un {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los enemigos sobre las Áreas de Escarcha de las habilidades de los esbirros reciben Daño degenerativo de Hielo reducido un {0}%"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="ศัตรูที่อยู่ใน พื้นที่หนาวเย็น จากสกิลของมิเนียน ได้รับความเสียหาย น้ำแข็ง ต่อเนื่อง เพิ่มขึ้น {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ศัตรูที่อยู่ใน พื้นที่หนาวเย็น จากสกิลของมิเนียน ได้รับความเสียหาย น้ำแข็ง ต่อเนื่อง ลดลง {0}%"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="敵人在召喚物技能製造的冰緩範圍內，增加 {0}% 承受冰冷持續傷害"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="敵人在召喚物技能製造的冰緩範圍內，減少 {0}% 承受冰冷持續傷害"
+				},
+				[11]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Inimigos em Áreas Resfriadas por Habilidades de Lacaios sofrem {0}% de aumento do Dano de Gelo Degenerativo"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Inimigos em Áreas Resfriadas por Habilidades de Lacaios sofrem {0}% de redução do Dano de Gelo Degenerativo"
+				},
+				[13]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 스킬로 발생한 냉각 지역에 있는 적이 받는 지속 냉기 피해 {0}% 증가"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 스킬로 발생한 냉각 지역에 있는 적이 받는 지속 냉기 피해 {0}% 감소"
 				}
 			}
 		},
@@ -7610,6 +27707,110 @@ return {
 						}
 					},
 					text="敌人若位于召唤生物技能所造成的冰缓区域，则在冰缓效果下所受到的冰霜伤害提高"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los enemigos en las Áreas de Escarcha de las habilidades de los esbirros reciben Daño aumentado por el efecto de Escarchamiento"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Dégâts de froid subis par les Ennemis situés dans les Zones frigorifiantes créées par des Créatures sont augmentés en fonction de l'Effet de la Frigorification"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Эффект охлаждения увеличивает урон, получаемый врагами, находящимися в охлажденных областях, созданных умениями приспешников"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Gegner in unterkühlenden Bereichen, die durch Fertigkeiten von Kreaturen erzeugt wurden, erleiden erhöhten Kälteschaden durch den Unterkühlungseffekt"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="ศัตรูที่อยู่ใน พื้นที่หนาวเย็น จากสกิลของมิเนียน ได้รับความเสียหาย น้ำแข็ง เพิ่มขึ้น ตามผลของสถานะ หนาวเย็น"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="敵人在召喚物技能製造的冰緩範圍內，隨著冰緩效果而增加承受冰冷傷害"
+				},
+				[8]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Inimigos em Áreas Resfriadas por Habilidades de Lacaios tem o Dano de Gelo sofrido aumentado pelo Efeito de Resfriamento"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillingArea"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수의 스킬로 발생한 냉각 지역에 있는 적이 냉각 효과로 받는 냉기 피해 증가"
 				}
 			}
 		},
@@ -7642,6 +27843,50 @@ return {
 						}
 					},
 					text="被召唤生物所冰缓的敌人，其受到的冰霜持续伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Inimigos Resfriados por Lacaios sofrem {0}% de aumento do Dano de Gelo Degenerativo"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Inimigos Resfriados por Lacaios sofrem {0}% de redução do Dano de Gelo Degenerativo"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수에 의해 냉각된 적이 받는 지속 냉기 피해 {0}% 증가"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수에 의해 냉각된 적이 받는 지속 냉기 피해 {0}% 감소"
 				}
 			}
 		},
@@ -7661,6 +27906,24 @@ return {
 						}
 					},
 					text="被召唤生物冰缓的敌人，在冰缓效果下所受到的伤害提高"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Inimigos Resfriados por Lacaios tem o Dano de Gelo sofrido aumentado pelo Efeito de Resfriamento"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수에 의해 냉각된 적이 냉각 효과로 받는 냉기 피해 증가"
 				}
 			}
 		},
@@ -7693,6 +27956,28 @@ return {
 						}
 					},
 					text="满能量护盾时，召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="에너지 보호막이 최대일 때 소환수가 주는 피해 {0}% 증폭"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="에너지 보호막이 최대일 때 소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7724,6 +28009,28 @@ return {
 						}
 					},
 					text="偷取能量护盾时，召唤生物造成的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="에너지 보호막을 흡수하는 동안 소환수가 주는 피해 {0}% 증폭"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="에너지 보호막을 흡수하는 동안 소환수가 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7756,6 +28063,50 @@ return {
 						}
 					},
 					text="召唤生物对低血敌人的击中和异常状态伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона от ударов и состояний по врагам с низким уровнем здоровья"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона от ударов и состояний по врагам с низким уровнем здоровья"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios dcausam {0}% mais Dano com Acertos e Afecções contra Inimigos em Vida Baixa"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios dcausam {0}% menos Dano com Acertos e Afecções contra Inimigos em Vida Baixa"
 				}
 			}
 		},
@@ -7779,6 +28130,19 @@ return {
 						}
 					},
 					text="召唤生物通过打击技能用近战武器击中并消灭稀有怪物可以获得它的一个词缀，基础持续时间为 {0} 秒"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds_0dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物使用近戰武器的打擊技能擊殺稀有怪物獲得它其中一個詞綴，有基礎持續時間 {0} 秒"
 				}
 			}
 		},
@@ -7798,6 +28162,33 @@ return {
 						}
 					},
 					text="召唤生物击中一个稀有或传奇怪物时，有 {0}% 的几率恢复所获词缀的持续时间，最多恢复 5 秒"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% шанс обновить длительность дарованного им свойства вплоть до 5 секунд при нанесении удара по редкому или уникальному врагу"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios têm {0}% de chance de renovarem a Duração de seus Modificadores recebidos em até 5 segundos ao Acertarem um Inimigo Raro ou Único"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物擊中稀有或傳奇敵人時，有 {0}% 機率刷新它們獲得詞綴的持續時間，至多 5 秒"
 				}
 			}
 		},
@@ -7830,6 +28221,94 @@ return {
 						}
 					},
 					text="召唤生物在近战击中时造成的异常状态伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物近戰擊中導致的異常狀態造成 {0}% 更多傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物近戰擊中導致的異常狀態造成 {0}% 更少傷害"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts avec les Altérations infligées par des Attaques de mêlée"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts avec les Altérations infligées par des Attaques de mêlée"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam {0}% mais Dano com Afecções causadas por Acertos Corpo a Corpo"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios causam {0}% menos Dano com Afecções causadas por Acertos Corpo a Corpo"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона состояниями от ударов в ближнем бою"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона состояниями от ударов в ближнем бою"
 				}
 			}
 		},
@@ -7893,6 +28372,50 @@ return {
 						}
 					},
 					text="召唤生物造成的投射物伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam {0}% mais Dano de Projéteis"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios causam {0}% menos Dano de Projéteis"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7925,6 +28448,50 @@ return {
 						}
 					},
 					text="召唤生物造成的持续性冰霜伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam {0}% mais Dano de Gelo Degenerativo"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios causam {0}% menos Dano de Gelo Degenerativo"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 지속 냉기 피해 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 지속 냉기 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7957,6 +28524,94 @@ return {
 						}
 					},
 					text="召唤生物造成的物理伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多物理傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少物理傷害"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Físico"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Físico"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts physiques"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts physiques"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7989,6 +28644,94 @@ return {
 						}
 					},
 					text="被召唤生物使敌人瘫痪时，敌人受到的物理伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="敵人被召喚物癱瘓增加 {0}% 承受物理傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="敵人被召喚物癱瘓減少 {0}% 承受物理傷害"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Enemigos Lisiados por Esbirros reciben Daño Físico aumentado un {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Enemigos Lisiados por Esbirros reciben Daño Físico reducido un {0}%"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Ennemis Mutilés par les Créatures ont {0}% d'Augmentation des Dégâts physiques subis"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Ennemis Mutilés par les Créatures ont {0}% de Réduction des Dégâts physiques subis"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수에 의해 힘줄 절단된 적이 받는 물리 피해 {0}% 증가"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수에 의해 힘줄 절단된 적이 받는 물리 피해 {0}% 감소"
 				}
 			}
 		},
@@ -8012,6 +28755,45 @@ return {
 						}
 					},
 					text="召唤生物对燃烧的敌人附加 {0} - {1} 火焰伤害"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0} a {1} de Daño de Fuego añadido a Enemigos Incendiados"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Créatures infligent {0} à {1} Dégâts de feu supplémentaires aux Ennemis qui Brûlent"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 화상 상태의 적에게 주는 화염 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -8045,6 +28827,28 @@ return {
 						}
 					},
 					text="召唤生物对猎物的暴击率降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน มีโอกาสคริติคอล เพิ่มขึ้น {0}% ต่อ เหยื่อ"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน มีโอกาสคริติคอล ลดลง {0}% ต่อ เหยื่อ"
 				}
 			}
 		},
@@ -8064,6 +28868,15 @@ return {
 						}
 					},
 					text="召唤生物对猎物的暴击伤害加成 {0:+d}%"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียนมี ตัวคูณคริติคอล {0:+d}% ต่อ เหยื่อ"
 				}
 			}
 		},
@@ -8096,6 +28909,28 @@ return {
 						}
 					},
 					text="召唤生物对猎物的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน สร้างความเสียหายทางไฟ เพิ่มขึ้น อีก {0}% ต่อเหยื่อ"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน สร้างความเสียหายทางไฟ ลดลง อีก {0}% ต่อเหยื่อ"
 				}
 			}
 		},
@@ -8151,6 +28986,182 @@ return {
 						}
 					},
 					text="召唤生物造成的元素伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 원소 피해 {0}% 증폭"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 원소 피해 {0}% 감폭"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Elementarschaden"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Elementarschaden"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多元素傷害"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少元素傷害"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts élémentaires"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts élémentaires"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam {0}% mais Dano Elemental"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios causam {0}% menos Dano Elemental"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона от стихий"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона от стихий"
+				},
+				[15]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los Esbirros infligen {0}% más Daño Elemental"
+				},
+				[16]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los Esbirros infligen {0}% menos Daño Elemental"
+				},
+				[17]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเสียหาย ธาตุ ของมิเนียน อีก {0}%"
+				},
+				[18]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเสียหาย ธาตุ ของมิเนียน อีก {0}%"
 				}
 			}
 		},
@@ -8170,6 +29181,15 @@ return {
 						}
 					},
 					text="召唤生物始终以猎物为目标"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียน เลือก เหยื่อ เป็นเป้าหมายเสมอหากเป็นไปได้"
 				}
 			}
 		},
@@ -8197,6 +29217,40 @@ return {
 						}
 					},
 					text="召唤生物的击中被格挡时，造成【碾压】，基础持续时间 {0} 秒"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOverpowered"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Lacaios infligem Subjugado por uma Duração base de {0} segundos quando Seus Acertos são Bloqueados"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOverpowered"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수의 공격 명중이 막혔을 시 소환수가 기본 지속시간 {0}초 동안 압도 유발"
 				}
 			}
 		},
@@ -8225,6 +29279,60 @@ return {
 						}
 					},
 					text="召唤生物会从它们身体两侧发射投射物，最多 {0} 个发射点"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="Lacaios também disparam Projéteis de até {0} ponto de cada lado deles"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="Lacaios também disparam Projéteis de até {0} pontos de cada lado deles"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="มิเนียนจะยิงอาวุธระยะไกลจาก {0} จุดข้างตัวเช่นกัน"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะยิงอาวุธระยะไกลจาก {0} จุดข้างตัวเช่นกัน"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="소환수 또한 그들의 양옆 최대 {0}개 지점에서 투사체 발사"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]=2,
+							[2]="#"
+						}
+					},
+					text="소환수 또한 그들의 양옆 최대 {0}개 지점에서 투사체 발사"
 				}
 			}
 		},
@@ -8257,6 +29365,138 @@ return {
 						}
 					},
 					text="召唤生物造成的投射物伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียน จะเพิ่มความเสียหาย กระสุน อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียน จะลดความเสียหาย กระสุน อีก {0}%"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Приспешники наносят на {0}% больше урона снарядами"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Приспешники наносят на {0}% меньше урона снарядами"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts des Projectiles"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts des Projectiles"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros infligen un {0}% más de daño con proyectiles"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los esbirros infligen un {0}% menos de daño con proyectiles"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Kreaturen verursachen {0}% mehr Projektilschaden"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Kreaturen verursachen {0}% weniger Projektilschaden"
+				},
+				[13]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 증폭"
+				},
+				[14]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8289,6 +29529,50 @@ return {
 						}
 					},
 					text="每个暴击球可使召唤生物的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam {0}% mais Dano por Carga de Poder"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios causam {0}% menos Dano por Carga de Poder"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 권능 충전 하나당 주는 피해 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 권능 충전 하나당 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8321,6 +29605,116 @@ return {
 						}
 					},
 					text="召唤生物的效果区域总面积额外缩小 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物有 {0}% 更多範圍效果"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物有 {0}% 更少範圍效果"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 효과 범위 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 효과 범위 {0}% 감폭"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มพื้นที่ส่งผล ของมิเนียน อีก {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดพื้นที่ส่งผล ของมิเนียน อีก {0}%"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios tem {0}% mais Efeito em Área"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios tem {0}% menos Efeito em Área"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Zone d'effet"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Zone d'effet"
 				}
 			}
 		},
@@ -8353,6 +29747,116 @@ return {
 						}
 					},
 					text="召唤生物的攻击速度总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物有 {0}% 更多攻擊速度"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物有 {0}% 更少攻擊速度"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 공격 속도 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 공격 속도 {0}% 감폭"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มความเร็วในการโจมตี ของมิเนียน อีก {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดความเร็วในการโจมตี ของมิเนียน อีก {0}%"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Vitesse d'attaque"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Vitesse d'attaque"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios tem {0}% mais Velocidade de Ataque"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios tem {0}% menos Velocidade de Ataque"
 				}
 			}
 		},
@@ -8385,6 +29889,116 @@ return {
 						}
 					},
 					text="召唤生物的近战范围总伤害降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多近戰範圍傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少近戰範圍傷害"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 근접 범위 피해 {0}% 증폭"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 근접 범위 피해 {0}% 감폭"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะ เพิ่มความเสียหาย พื้นที่ ประชิด อีก {0}%"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนจะ ลดความเสียหาย พื้นที่ ประชิด อีก {0}%"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam {0}% mais Dano Corpo a Corpo em Área"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Lacaios causam {0}% menos Dano Corpo a Corpo em Área"
+				},
+				[11]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts de zone de mêlée"
+				},
+				[12]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts de zone de mêlée"
 				}
 			}
 		},
@@ -8404,6 +30018,24 @@ return {
 						}
 					},
 					text="敌人对抗召唤生物时，格挡攻击伤害或法术伤害的几率 -{0}%"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Inimigos possuem -{0}% de chance de Bloquear o Dano Mágico ou de Ataques de Lacaios"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="적이 -{0}%의 확률로 소환수의 공격 또는 주문 피해를 막아냄"
 				}
 			}
 		},
@@ -8423,6 +30055,24 @@ return {
 						}
 					},
 					text="敌人对抗召唤生物时，躲避攻击击中或法术击中的几率 -{0}%"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Inimigos possuem -{0}% de chance de Esquivar dos Acertos de Ataques ou Magias de Lacaios"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="적이 소환수의 공격 또는 주문 적중을 완벽회피할 확률 -{0}%"
 				}
 			}
 		},
@@ -8455,6 +30105,94 @@ return {
 						}
 					},
 					text="召唤生物的技能总持续时间额外缩短 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="增加召喚物 {0}% 時間 "
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="減少召喚物 {0}% 時間 "
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Los esbirros tienen un {0}% más de duración"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Los esbirros tienen un {0}% menos de duración"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Durée"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Durée"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수의 지속시간 {0}% 증폭 "
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수의 지속시간 {0}% 감폭 "
 				}
 			}
 		},
@@ -8486,6 +30224,111 @@ return {
 						}
 					},
 					text="召唤生物击中传奇敌人时，有 {0}% 的几率获得 {1}  秒猛攻"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=2
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Los esbirros tienen un {0}% de probabilidad de ganar Fervor durante {1} segundos cuando golpean a un enemigo único"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=2
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Приспешники имеют {0}% шанс получить эффект Боевого ража на {1} секунд(-ы) при нанесении удара по уникальному врагу"
+				},
+				[4]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=2
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Lacaios têm {0}% de chance de ganhar Agressividade por {1} segundos quando você Acertar um Inimigo Único"
+				},
+				[5]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=2
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Kreaturen haben {0}% Chance, für {1} Sekunden Ansturm zu erhalten, wenn sie einen einzigartigen Gegner treffen"
+				},
+				[6]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=2
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="มิเนียนมีโอกาส {0}% ที่จะได้รับ Onslaught เป็นเวลา {1} วินาที เมื่อพวกมันปะทะ ศัตรูระดับยูนิค"
 				}
 			}
 		},
@@ -8522,6 +30365,81 @@ return {
 						}
 					},
 					text="召唤生物造成致命一击时，有 {0}% 的几率获得 {2} 秒猛攻"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=3
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						},
+						[3]={
+							[1]="!",
+							[2]=0
+						}
+					},
+					text="Los esbirros tienen un {0}% de probabilidad de ganar Fervor durante {2} segundos al\ninfligir un golpe mortal"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=3
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						},
+						[3]={
+							[1]="!",
+							[2]=0
+						}
+					},
+					text="Les Créatures ont {0}% de chances de gagner Assaut pour {2} secondes en\nInfligeant un Coup mortel"
+				},
+				[4]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=3
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						},
+						[3]={
+							[1]="!",
+							[2]=0
+						}
+					},
+					text="소환수는 최후의 일격으로 피해를 주면 {0}%의 확률로 {2}초 동안\n맹공 획득"
 				}
 			}
 		},
@@ -8574,6 +30492,28 @@ return {
 						}
 					},
 					text="召唤生物最后一次重复的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="การทำงานซ้ำครั้งสุดท้าย ของมิเนียน สร้างความเสียหาย เพิ่มขึ้น อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="การทำงานซ้ำครั้งสุดท้าย ของมิเนียน สร้างความเสียหาย ลดลง อีก {0}%"
 				}
 			}
 		},
@@ -8614,6 +30554,126 @@ return {
 						}
 					},
 					text="召唤生物对冰缓、冰冻、点燃和感电状态的伤害总降 {0}%"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="召喚物造成 {0}% 更多異常狀態傷害"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="召喚物造成 {0}% 更少異常狀態傷害"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="มิเนียนจะทำให้สเตตัสเจ็บป่วยเจ็บหนักขึ้น {0}%"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="มิเนียนจะทำให้สเตตัสเจ็บป่วยเจ็บน้อยลง {0}%"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Les Créatures ont {0}% Davantage de Dégâts avec les Altérations"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Les Créatures ont {0}% de Perte de Dégâts avec les Altérations"
+				},
+				[9]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="소환수가 주는 상태 이상 피해 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="소환수가 주는 상태 이상 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8650,6 +30710,58 @@ return {
 						}
 					},
 					text="召唤生物造成的【死亡凋零】效果基础持续时间为 {0} 秒"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						}
+					},
+					text="Definhamento causado por Lacaios possui uma duração base de {0} segundo"
+				},
+				[4]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Definhamento causado por Lacaios possui uma duração base de {0} segundos"
+				},
+				[5]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						}
+					},
+					text="소환수가 유발한 위축의 기본 지속시간 {0}초"
+				},
+				[6]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="소환수가 유발한 위축의 기본 지속시간 {0}초"
 				}
 			}
 		},
@@ -8669,6 +30781,78 @@ return {
 						}
 					},
 					text="暴击球用于陷阱时，每个可使召唤生物的技能 {0:+d}% 暴击伤害加成"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Fertigkeiten von Kreaturen haben {0:+d}% zu Multiplikator für kritische Treffer pro Energie-Ladung, wenn sie von Minen benutzt werden"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Умения приспешников имеют {0:+d}% к множителю критического удара за заряд энергии, если используются ловушками"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Les Aptitudes des Créatures ont {0:+d}% au Multiplicateur de coup critique par Charge de pouvoir lorsqu'elles sont utilisées par des Pièges"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Habilidades de Lacaios tem {0:+d}% de Multiplicador de Golpe Crítico por Carga de poder quando usadas por Armadilhas"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="덫 설치 시 소환수의 스킬의 권능 충전 하나당 치명타 피해 배율 {0:+d}%"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="สกิลของมิเนียนมี ตัวคูณคริติคอล {0:+d}% ต่อ Power Charge หนึ่งลูกหากใช้ผ่านกับดัก"
+				},
+				[8]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="當召喚物的技能被陷阱使用時，每顆暴擊球 {0:+d}% 暴擊加成"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Las habilidades de los esbirros tienen {0:+d}% al multiplicador de golpe crítico por Carga de poder cuando las usan las trampas"
 				}
 			}
 		},
@@ -8701,6 +30885,50 @@ return {
 						}
 					},
 					text="每个狂怒球可使此技能和召唤生物的陷阱投掷速度降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Essa Habilidade e Lacaios possuem {0}%  de aumento da Velocidade de Arremesso das Armadilhas por Carga de Frenesi"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Essa Habilidade e Lacaios possuem {0}%  de redução da Velocidade de Arremesso das Armadilhas por Carga de Frenesi"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="격분 충전 하나당 이 스킬 및 소환수의 덫 투척 속도 {0}% 증가"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="격분 충전 하나당 이 스킬 및 소환수의 덫 투척 속도 {0}% 감소"
 				}
 			}
 		},
@@ -8737,6 +30965,84 @@ return {
 						}
 					},
 					text="召唤生物击中敌人后造成【死亡凋零】"
+				},
+				[3]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextWithered"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="มิเนียนมีโอกาส {0}% ที่จะสร้างสถานะ Withered ให้ศัตรูเมื่อปะทะ"
+				},
+				[4]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextWithered"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="มิเนียนสร้างสถานะ Withered ให้ศัตรูเมื่อปะทะ"
+				},
+				[5]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextWithered"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="Lacaios possuem {0}% de chance de causar Definhamento ao Acertar"
+				},
+				[6]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextWithered"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="Lacaios causam Definhamento ao Acertar"
+				},
+				[7]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextWithered"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="소환수가 명중 시 {0}%의 확률로 위축 유발"
+				},
+				[8]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextWithered"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="소환수가 명중 시 위축 유발"
 				}
 			}
 		},

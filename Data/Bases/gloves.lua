@@ -598,7 +598,7 @@ itemBases["暗影者护手"] = {
 	req = { level = 67, dex = 51, int = 51, },
 }
 
-itemBases["Runic Gloves"] = {
+itemBases["符文手套"] = {
 	type = "Gloves",
 	subType = "Ward",
 	socketLimit = 4,
@@ -607,7 +607,7 @@ itemBases["Runic Gloves"] = {
 	armour = { WardBase = 20, },
 	req = { level = 24, str = 16, dex = 16, int = 16, },
 }
-itemBases["Runic Gages"] = {
+itemBases["符文笼手"] = {
 	type = "Gloves",
 	subType = "Ward",
 	socketLimit = 4,
@@ -616,7 +616,7 @@ itemBases["Runic Gages"] = {
 	armour = { WardBase = 52, },
 	req = { level = 48, str = 31, dex = 31, int = 31, },
 }
-itemBases["Runic Gauntlets"] = {
+itemBases["符文手甲"] = {
 	type = "Gloves",
 	subType = "Ward",
 	socketLimit = 4,

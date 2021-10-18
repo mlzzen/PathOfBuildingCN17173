@@ -23,6 +23,28 @@ return {
 						}
 					},
 					text="你和周围友军的护甲和闪避值降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="你和附近友方增加 {0}% 護甲和閃避值"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="你和附近友方減少 {0}% 護甲和閃避值"
 				}
 			}
 		},
@@ -55,6 +77,28 @@ return {
 						}
 					},
 					text="周围敌人的暴击率降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Inimigos Próximos têm Chance de Golpe Crítico aumentada em {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Inimigos Próximos têm Chance de Golpe Crítico reduzida em {0}%"
 				}
 			}
 		},
@@ -87,6 +131,94 @@ return {
 						}
 					},
 					text="周围敌人的命中值总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่ม ความแม่นยำ อีก {0}% ให้กับศัตรูที่อยู่ใกล้"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลด ความแม่นยำ อีก {0}% ให้กับศัตรูที่อยู่ใกล้"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="附近敵人有 {0}% 更多命中率"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="附近敵人有 {0}% 更少命中率"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Inimigos Próximos possuem {0}% mais Precisão"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Inimigos Próximos possuem {0}% menos Precisão"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="주변의 적의 정확도 {0}% 증폭"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="주변의 적의 정확도 {0}% 감폭"
 				}
 			}
 		},
@@ -119,6 +251,28 @@ return {
 						}
 					},
 					text="周围敌人的伤害总降 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="ศัตรูที่อยู่ใกล้ สร้างความเสียหาย เพิ่มขึ้น อีก {0}%"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ศัตรูที่อยู่ใกล้ สร้างความเสียหาย ลดลง อีก {0}%"
 				}
 			}
 		},
@@ -138,6 +292,15 @@ return {
 						}
 					},
 					text="你携带旗帜时，穿刺敌人可累积 1 层，每秒可累积最多 5 层"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="깃발을 들고 있는 동안 적을 꿰뚫으면 1단계 획득, 1초마다 최대 5단계 획득"
 				}
 			}
 		},
@@ -174,6 +337,32 @@ return {
 						}
 					},
 					text="周围有敌人时，每 {0} 秒累积 1 层"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						}
+					},
+					text="Ganha 1 Estágio a cada {0} segundo enquanto um Inimigo estiver Próximo"
+				},
+				[4]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Ganha 1 Estágio a cada {0} segundos enquanto um Inimigo estiver Próximo"
 				}
 			}
 		},
@@ -193,6 +382,42 @@ return {
 						}
 					},
 					text="你携带旗帜时，你消灭敌人可累积 1 层"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="ได้รับ 1 สเตจ เมื่อคุณ สังหาร ศัตรูขณะถือธงอยู่"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="當你背著旗幟擊殺敵人時獲得 1 層疊層"
+				},
+				[4]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="Recebe 1 Estágio quando você Matar um Inimigo enquanto carrega o Estandarte"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="깃발을 들고 있는 동안 적 처치 시 1단계 획득"
 				}
 			}
 		},
@@ -237,6 +462,40 @@ return {
 						}
 					},
 					text="放置旗帜时，每层获得{0} 秒肾上腺素"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextAdrenaline"
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						}
+					},
+					text="깃발 배치 중 단계 하나당 {0}초 동안 아드레날린 획득"
+				},
+				[4]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextAdrenaline"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="깃발 배치 중 단계 하나당 {0}초 동안 아드레날린 획득"
 				}
 			}
 		},
@@ -269,6 +528,94 @@ return {
 						}
 					},
 					text="每层使护体效果降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มผลของ Fortify {0}% ต่อหนึ่งสเตจ"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดผลของ Fortify {0}% ต่อหนึ่งสเตจ"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="每層疊層增加 {0}% 護體效果"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="每層疊層減少 {0}% 護體效果"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="{0}% de aumento do efeito de Fortificar por Estágio"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="{0}% de redução do efeito de Fortificar por Estágio"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="단계 하나당 방어 상승 {0}% 증가"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="단계 하나당 방어 상승 {0}% 감소"
 				}
 			}
 		},
@@ -313,6 +660,40 @@ return {
 						}
 					},
 					text="放置旗帜时，每层获得 {0} 秒护体效果"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextFortifyNoDuration"
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						}
+					},
+					text="깃발 배치 시 단계 하나당 {0}초 동안 방어 상승을 획득"
+				},
+				[4]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextFortifyNoDuration"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="깃발 배치 시 단계 하나당 {0}초 동안 방어 상승을 획득"
 				}
 			}
 		},
@@ -399,6 +780,82 @@ return {
 						}
 					},
 					text="放置旗帜时，嘲讽周围敌人 {0} 秒\n被这样嘲讽的敌人造成的伤害总降 {1}%"
+				},
+				[5]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Provoca Inimigos próximos por {0} segundo por Estágio ao Plantar o Estandarte"
+				},
+				[6]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						},
+						[2]={
+							[1]=0,
+							[2]=0
+						}
+					},
+					text="Provoca Inimigos próximos por {0} segundos por Estágio ao Plantar o Estandarte"
+				},
+				[7]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					[2]={
+						k="negate",
+						v=2
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						},
+						[2]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Provoca Inimigos próximos por {0} segundo por Estágio ao Plantar o Estandarte\nInimigos Procados desta forma causam {1}% menos Dano"
+				},
+				[8]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					[2]={
+						k="negate",
+						v=2
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Provoca Inimigos próximos por {0} segundos por Estágio ao Plantar o Estandarte\nInimigos Procados desta forma causam {1}% menos Dano"
 				}
 			}
 		},
@@ -427,6 +884,23 @@ return {
 						}
 					},
 					text="放置后，基础持续时间为 {0} 秒"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="배치 후 기본 지속시간 {0}초"
 				}
 			}
 		},
@@ -451,6 +925,58 @@ return {
 						}
 					},
 					text="放置后，旗帜存在 {0} 秒"
+				},
+				[2]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="ธง คงอยู่ {0} วินาทีเมื่อปัก"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="鬥旗在放置後持續 {0} 秒"
+				},
+				[4]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Estandarte dura {0} segundos após ser plantado"
+				},
+				[5]={
+					[1]={
+						k="milliseconds_to_seconds_2dp",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="깃발 설치 후 {0}초간 지속"
 				}
 			}
 		},
@@ -487,6 +1013,32 @@ return {
 						}
 					},
 					text="每层使旗帜放置的基础持续时间 {0:+d} 秒"
+				},
+				[3]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]=1000,
+							[2]=1000
+						}
+					},
+					text="단계 하나당 깃발 배치 지속시간 {0:+d}초"
+				},
+				[4]={
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="단계 하나당 깃발 배치 지속시간 {0:+d}초"
 				}
 			}
 		},
@@ -519,6 +1071,94 @@ return {
 						}
 					},
 					text="放置后，每层使效果区域缩小 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มพื้นที่ส่งผล {0}% ต่อหนึ่งสเตจขณะปักไว้"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดพื้นที่ส่งผล {0}% ต่อหนึ่งสเตจขณะปักไว้"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="當放置時，每層疊層增加 {0}% 範圍效果"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="當放置時，每層疊層減少 {0}% 範圍效果"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Quando plantado, Efeito em Área aumentado em {0}% por Estágio"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Quando plantado, Efeito em Área reduzido em {0}% por Estágio"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="배치 시 단계 하나당 효과 범위 {0}% 증가"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="배치 시 단계 하나당 효과 범위 {0}% 감소"
 				}
 			}
 		},
@@ -551,6 +1191,94 @@ return {
 						}
 					},
 					text="放置后，每层使光环效果降低 {0}%"
+				},
+				[3]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="เพิ่มผลของออร่า {0}% ต่อหนึ่งสเตจขณะปักไว้"
+				},
+				[4]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="ลดผลของออร่า {0}% ต่อหนึ่งสเตจขณะปักไว้"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="當放置時，每層疊層增加 {0}% 光環效果"
+				},
+				[6]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="當放置時，每層疊層減少 {0}% 光環效果"
+				},
+				[7]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="Quando plantado, {0}% de aumento do efeito de Aura por Estágio"
+				},
+				[8]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="Quando plantado, {0}% de redução do efeito de Aura por Estágio"
+				},
+				[9]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="배치 시 단계 하나당 오라 효과 {0}% 증가"
+				},
+				[10]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="배치 시 단계 하나당 오라 효과 {0}% 감소"
 				}
 			}
 		},

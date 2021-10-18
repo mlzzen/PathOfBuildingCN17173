@@ -1,0 +1,16 @@
+version: '1.0'
+name: pipeline-20211016
+displayName: Auto-Release
+stages:
+  - stage: ''
+    name: stage_name_26
+    displayName: stage_display_name_27
+    steps:
+      - step: ''
+        name: step_name_32
+        displayName: step_display_name_33
+triggers:
+  push:
+    commitMessages:
+      include:
+        - release S*
