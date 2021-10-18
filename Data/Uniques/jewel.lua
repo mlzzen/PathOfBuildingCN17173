@@ -1719,10 +1719,12 @@ Has Alt Variant: true
 征服者的长生
 翠绿珠宝
 版本: 3.0.0以前
+版本: 3.16.0以前
 版本: 当前
 仅限: 1
 {variant:1}3% chance to Avoid Elemental Status Ailments
 {variant:2}3% 几率避免元素异常状态
+{variant:3}10% 几率避免元素异常状态
 药剂回复的生命提高 8%
 2% 几率躲避攻击击中
 ]],[[

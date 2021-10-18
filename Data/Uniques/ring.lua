@@ -766,16 +766,18 @@ Has Alt Variant: true
 基加萨鲁
 黄玉戒指
 版本: 2.6.0以前
+版本: 3.16.0以前
 版本: 当前
 等级需求: 20
 固定基底词缀: 1
 {tags:jewellery_resistance}+(20-30)% 闪电抗性
 {tags:jewellery_attribute}+(10-15) 全属性
 {variant:1}{tags:life}(13-17) 每秒生命回复
-{variant:2}{tags:life}每级获得每秒回复 1 生命
+{variant:2,3}{tags:life}每级获得每秒回复 1 生命
 {tags:mana}魔力回复速度提高 (20-40)%
 {variant:1}{tags:caster}你受到的诅咒效果降低 20%
 {variant:2}{tags:caster}你受到的诅咒效果降低 40%
+{variant:3}{tags:caster}你受到的诅咒效果降低 60%
 ]],[[
 英灵宝环
 锻铁戒指
