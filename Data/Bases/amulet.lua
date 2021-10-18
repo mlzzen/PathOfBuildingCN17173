@@ -403,3 +403,10 @@ itemBases["狼王魔符"] = {
 	implicitModTypes = { },
 	req = { },
 }
+itemBases["Unset Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "有 1 个插槽",
+	implicitModTypes = { { }, },
+	req = { },
+}
