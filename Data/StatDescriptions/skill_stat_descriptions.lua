@@ -6983,7 +6983,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -7010,7 +7010,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="per_minute_to_per_second",
+						k="negate",
 						v=1
 					},
 					limit={
@@ -7061,13 +7061,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="per_minute_to_per_second",
+						k="negate",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="第二型态的暴击率降低 {0}%"
@@ -7083,10 +7083,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -7193,10 +7189,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -7413,10 +7405,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -7696,7 +7684,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每消耗一具灵柩获得 {0} 魔力"
@@ -7794,13 +7782,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="milliseconds_to_seconds_2dp",
+						k="negate",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每层刀刃会使刀刃速率降低 {0}%"
@@ -7831,8 +7819,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="每层刀刃的伤害总降 {0}%"
@@ -7854,7 +7842,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -7890,7 +7878,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -7898,7 +7886,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="per_minute_to_per_second",
+						k="negate",
 						v=1
 					},
 					limit={
@@ -8051,10 +8039,6 @@ return {
 					text="暴击时有 {0}% 的几率获得暴击球"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]=100,
@@ -8144,10 +8128,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextElementalStatusAilments"
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -8930,7 +8910,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -9175,18 +9155,6 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						},
-						[4]={
 							[1]="#",
 							[2]=-1
 						}
@@ -9237,8 +9205,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
+						k="negate",
+						v=1
 					},
 					limit={
 						[1]={
@@ -9323,10 +9291,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -9339,10 +9303,6 @@ return {
 					[1]={
 						k="negate",
 						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -9486,7 +9446,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -9962,7 +9922,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="爆炸会使击中伤害和异常状态伤害总降 {0}%"
@@ -10057,8 +10017,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=100,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="周围每有 1 个敌人，敌人的移动速度便降低 {0}%"
@@ -10077,7 +10037,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=99
+							[2]="#"
 						}
 					},
 					text="闪电新星的伤害总增 {0}%"
@@ -10183,16 +10143,20 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=99
+							[2]="#"
 						}
 					},
 					text="护体效果持续时间延长 {0}%"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
-							[1]=100,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="护体效果持续时间延长缩短 {0}%"
@@ -10320,7 +10284,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=99
+							[2]="#"
 						}
 					},
 					text="魔像会使玩家的伤害提高 {0}%"
@@ -10332,8 +10296,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=100,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="魔像会使玩家的伤害降低 {0}%"
@@ -10352,7 +10316,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=99
+							[2]="#"
 						}
 					},
 					text="魔像会使玩家的攻击和法术暴击率提高 {0}%"
@@ -10364,8 +10328,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=100,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="魔像会使玩家的攻击和法术暴击率降低 {0}%"
@@ -10384,7 +10348,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=99
+							[2]="#"
 						}
 					},
 					text="魔像会使玩家的命中值提高 {0}%"
@@ -10497,7 +10461,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=100,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -10761,7 +10725,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="增益效果在静止时提供：被击中时承受的火焰伤害总增 {0}%"
+					text="被击中时，受到的火焰伤害总增 {0}%"
 				},
 				[2]={
 					[1]={
@@ -10774,7 +10738,7 @@ return {
 							[2]=-1
 						}
 					},
-					text="增益效果在静止时提供：被击中时承受的火焰伤害总降 {0}%"
+					text="被击中时，受到的火焰伤害总降 {0}%"
 				}
 			}
 		},
@@ -11219,10 +11183,6 @@ return {
 						[1]={
 							[1]=1,
 							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
 						}
 					},
 					text="持续伤害效果提高 {0}%"
@@ -11290,7 +11250,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="击中时使其中毒"
@@ -11436,7 +11396,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -11450,7 +11410,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="【大地震击】的冲击波伤害总降 {0}%"
@@ -11557,10 +11517,6 @@ return {
 						[1]={
 							[1]=1,
 							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
 						}
 					},
 					text="在血姿态下近战技能造成的范围伤害总增 {0}%"
@@ -11761,7 +11717,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -11781,7 +11737,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="传染时，{0:+d}% 伤害持续时间加成"
@@ -11829,10 +11785,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -11958,7 +11910,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="返回的投射物贯穿所有目标"
@@ -12068,7 +12020,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -12104,7 +12056,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -12140,18 +12092,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFreeze"
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextShock"
-					},
-					[3]={
-						k="reminderstring",
-						v="ReminderTextIgnite"
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -12407,10 +12347,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -12655,10 +12591,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -12756,7 +12688,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -13109,7 +13041,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="至少 2 个钢刃碎片时，获得一个钢刃结界，最多 6 个\n每个钢刃结界都使投射物攻击伤害的格挡率 {0:+d}%"
@@ -13463,11 +13395,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -13475,7 +13403,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="milliseconds_to_seconds",
+						k="negate",
 						v=1
 					},
 					limit={
@@ -13507,13 +13435,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="milliseconds_to_seconds",
+						k="negate",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="激活射程缩短 {0}%"
@@ -13795,7 +13723,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -14031,10 +13959,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBloodStanceDefault"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -14047,10 +13971,6 @@ return {
 					[1]={
 						k="negate",
 						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextBloodStanceDefault"
 					},
 					limit={
 						[1]={
@@ -14147,10 +14067,6 @@ return {
 						[1]={
 							[1]=100,
 							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
 						}
 					},
 					text="击中穿刺敌人"
@@ -14230,32 +14146,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="感电敌人如同伤害总增 {0}%"
-				},
-				[2]={
 					[1]={
 						k="reminderstring",
 						v="ReminderTextSuperchargedProjectile"
 					},
-					text="击中时获得一个耐力球"
-				}
-			}
-		},
-		name="endurance_on_hit",
-		stats={
-			[1]="add_endurance_charge_on_skill_hit_%"
-		}
-	},
-	[423]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -14326,10 +14220,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -14353,38 +14243,6 @@ return {
 						k="reminderstring",
 						v="ReminderTextShock"
 					},
-					limit={
-						[1]={
-							[1]=-1,
-							[2]=-1
-						}
-					},
-					text="每层凝聚减少 1 枚投射物"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="每层凝聚减少  {0} 枚投射物"
-				}
-			}
-		},
-		name="projectile_intensity_num",
-		stats={
-			[1]="additional_projectiles_per_intensity"
-		}
-	},
-	[429]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -14413,6 +14271,10 @@ return {
 					text="冷却回复速度提高 {0}%"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -14510,10 +14372,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFreeze"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -14594,10 +14452,6 @@ return {
 					[1]={
 						k="reminderstring",
 						v="ReminderTextFireExposure"
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextStunThreshold"
 					},
 					limit={
 						[1]={
@@ -14822,16 +14676,20 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=1
+							[2]="#"
 						}
 					},
 					text="【飞刃风暴】每引爆一枚剑刃，都使总效果区域扩大 {0}%"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="【飞刃风暴】每引爆一枚剑刃，都使总效果区域缩小 {0}%"
@@ -15068,17 +14926,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="divide_by_one_hundred",
+						k="negate",
 						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="飞刃之间的距离减少 {0}%"
@@ -15132,7 +14986,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -15297,28 +15151,9 @@ return {
 			["Simplified Chinese"]={
 				[1]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="冷却回复速度降低 {0}%"
-				}
-			}
-		},
-		name="cooldown_speed_incr",
-		stats={
-			[1]="base_cooldown_speed_+%"
-		}
-	},
-	[470]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -15331,6 +15166,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -15480,7 +15319,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=100,
+							[1]="#",
 							[2]="#"
 						},
 						[2]={
@@ -15507,14 +15346,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -15620,27 +15451,23 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
 					limit={
 						[1]={
-							[1]=1000,
-							[2]=1000
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="每个赤炼球使生命消耗总增 {0}%"
 				},
 				[2]={
 					[1]={
-						k="milliseconds_to_seconds_2dp",
+						k="negate",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每个赤炼球使生命消耗总降 {0}%"
@@ -15778,7 +15605,11 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -15839,10 +15670,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -15975,10 +15802,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLingeringBlades"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -15988,10 +15811,6 @@ return {
 					text="你使用药剂时，有 {0}% 的几率触发该法术"
 				},
 				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLingeringBlades"
-					},
 					limit={
 						[1]={
 							[1]=100,
@@ -16275,7 +16094,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -16295,7 +16114,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="有 {0}% 的几率造成双倍伤害"
@@ -16313,16 +16132,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]="!",
-							[2]=0
 						}
 					},
 					text="有 {0}% 的几率对流血敌人造成双倍伤害"
@@ -16359,16 +16170,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]=1,
 							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=0,
-							[2]=0
 						}
 					},
 					text="投射物分叉时有 {0}% 的几率发射一枚额外投射物"
@@ -16451,7 +16254,7 @@ return {
 					},
 					text="每有一个敌人在该技能区域被击败，你有 {0}% 的几率获得 1 个狂怒球\n若在该技能区域内有敌人，则每秒获得 1 个狂怒球"
 				},
-				[2]={
+				[5]={
 					limit={
 						[1]={
 							[1]=1,
@@ -16587,10 +16390,6 @@ return {
 						[1]={
 							[1]="#",
 							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
 						}
 					},
 					text="该技能施加穿刺时，有 {0}% 的几率施加一次额外穿刺"
@@ -16627,10 +16426,6 @@ return {
 						[1]={
 							[1]=100,
 							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
 						}
 					},
 					text="始终灼烧敌人"
@@ -16795,7 +16590,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -16874,7 +16669,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=99
+							[2]="#"
 						}
 					},
 					text="每有一层，可使最后一波造成 {0}% 伤害"
@@ -16938,7 +16733,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -16952,7 +16747,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="冰缓区域可使移动速度降低 {0}%"
@@ -17174,8 +16969,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]=99
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="冰霜异常状态效果降低 {0}%"
@@ -17193,7 +16988,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -17244,7 +17039,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -17258,7 +17053,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="奉献地面使敌人承受的伤害降低 {0}%"
@@ -17295,7 +17090,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -17328,32 +17123,20 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=99
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=0,
-							[2]=0
+							[2]="#"
 						}
 					},
 					text="被转化的敌人的伤害提高 {0}%"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]=99
-						},
-						[2]={
 							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=0,
-							[2]=0
+							[2]=-1
 						}
 					},
 					text="被转化的敌人的伤害降低 {0}%"
@@ -17371,16 +17154,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]=1,
 							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=0,
-							[2]=0
 						}
 					},
 					text="被转化的敌人击中时有 {0}% 的几率嘲讽敌人 "
@@ -17552,10 +17327,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextScorch"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -17677,27 +17448,23 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextUnnerve"
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=99
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="每个暴击球暴击率提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="reminderstring",
-						v="ReminderTextUnnerve"
+						k="negate",
+						v=1
 					},
 					limit={
 						[1]={
-							[1]=100,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="每个暴击球暴击率降低 {0}%"
@@ -17715,7 +17482,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -17723,8 +17490,14 @@ return {
 				},
 				[2]={
 					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
 					},
 					text="每个启迪球可使暴击率降低 {0}%"
 				}
@@ -17752,10 +17525,6 @@ return {
 						k="negate",
 						v=1
 					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -17777,7 +17546,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -17823,8 +17592,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="reminderstring",
-						v="ReminderTextChilledGround"
+						k="negate",
+						v=1
 					},
 					limit={
 						[1]={
@@ -17887,7 +17656,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -17926,7 +17695,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每阶 {0:+d} 范围"
@@ -18114,7 +17883,7 @@ return {
 				[1]={
 					[1]={
 						k="reminderstring",
-						v="ReminderTextColdAilments"
+						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -18131,7 +17900,7 @@ return {
 					},
 					[2]={
 						k="reminderstring",
-						v="ReminderTextColdAilments"
+						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -18313,7 +18082,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -18332,7 +18101,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -18412,25 +18181,21 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="!",
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="召唤生物受影响时，它们的攻击速度加快 {0}%"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
-							[1]="!",
-							[2]=0
-						},
-						[2]={
-							[1]="!",
-							[2]=0
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="召唤生物受影响时，它们的攻击速度减慢 {0}%"
@@ -18581,7 +18346,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="击中有 {0}% 的几率使敌人疲惫 1 秒"
@@ -18599,7 +18364,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -18807,9 +18572,11 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
 					},
 					text="每层凝聚使波束宽度 {0:+d}\n每层凝聚使总分支角度额外缩小 33%"
 				}
@@ -19002,10 +18769,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -19194,10 +18957,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -19220,10 +18979,6 @@ return {
 					[1]={
 						k="milliseconds_to_seconds_1dp",
 						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -19330,32 +19085,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="milliseconds_to_seconds_1dp",
+						k="negate",
 						v=1
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="提供 {0} 秒迷踪状态"
-				}
-			}
-		},
-		name="dash_grant_phasing_after",
-		stats={
-			[1]="dash_grants_phasing_after_use_ms"
-		}
-	},
-	[603]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
-					limit={
-						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="波束宽度缩小 {0}%"
@@ -19551,8 +19287,14 @@ return {
 				},
 				[2]={
 					[1]={
-						k="reminderstring",
-						v="ReminderTextDebilitate"
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
 					},
 					text="初始猛击的效果区域缩小 {0}%"
 				}
@@ -19569,21 +19311,21 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=100,
-							[2]=100
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="每个启迪球都使总元素伤害总增 {0}%"
 				},
 				[2]={
 					[1]={
-						k="reminderstring",
-						v="ReminderTextDebilitate"
+						k="negate",
+						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每个启迪球都使总元素伤害总降 {0}%"
@@ -19972,7 +19714,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="增益效果的闪避值和护甲降低 {0}%"
@@ -20101,7 +19843,7 @@ return {
 				[3]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						},
 						[2]={
@@ -20126,7 +19868,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="目标身上每支爆炸箭矢都在爆炸时使击中和异常状态伤害总增 {0}%"
@@ -20375,7 +20117,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="光束长度降低 {0}%"
@@ -20412,7 +20154,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -20495,7 +20237,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						},
 						[2]={
@@ -20616,7 +20358,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每层使总效果区域额外缩小 {0}%"
@@ -20678,7 +20420,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -20716,7 +20458,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -20755,7 +20497,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="{0} 股烈焰"
@@ -20978,7 +20720,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=1
+							[2]="#"
 						}
 					},
 					text="传送距离延长 {0}%"
@@ -21093,7 +20835,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -21107,7 +20849,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每个狂怒球使攻击伤害总降 {0}%"
@@ -21125,7 +20867,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -21139,11 +20881,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每个狂怒球使攻击速度总降 {0}%"
@@ -21163,10 +20901,6 @@ return {
 						[1]={
 							[1]=1,
 							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
 						}
 					},
 					text="若附着持续时间消减了 75%，则总激活频率总增 {0}%"
@@ -21195,10 +20929,6 @@ return {
 						[1]={
 							[1]=2,
 							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
 						}
 					},
 					text="可从最多 {0} 个【寒冰弹】投射物炸开"
@@ -21422,15 +21152,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -21626,10 +21348,6 @@ return {
 						[1]={
 							[1]=1,
 							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
 						}
 					},
 					text="你击中传奇敌人时，增益效果有 {0}% 的几率获得一个狂怒球"
@@ -21694,12 +21412,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
 						}
 					},
 					text="击中获得 {0} 点怒火"
@@ -21841,7 +21555,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -21855,7 +21569,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="爆发产生速度减慢 {0}%"
@@ -22597,7 +22311,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -22605,7 +22319,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="divide_by_one_hundred",
+						k="negate",
 						v=1
 					},
 					limit={
@@ -22711,13 +22425,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="milliseconds_to_seconds",
+						k="negate",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="分裂的投射物造成的伤害总降 {0}%"
@@ -22911,10 +22625,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextRage"
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -22942,10 +22652,6 @@ return {
 						[1]={
 							[1]="#",
 							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
 						}
 					},
 					text="击中时施加火焰、冰霜和闪电曝露"
@@ -22969,10 +22675,6 @@ return {
 						[1]={
 							[1]="#",
 							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
 						}
 					},
 					text="灌注提供每秒生命再生 {0}%"
@@ -23104,10 +22806,6 @@ return {
 						[1]={
 							[1]="#",
 							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
 						}
 					},
 					text="近程击中时有 {0}% 的几率击退敌人"
@@ -23147,11 +22845,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
+							[2]=-1
 						}
 					},
 					text="对流血敌人的击中和异常状态总伤害降低 {0}%"
@@ -23247,7 +22941,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="刀簇的投射物目标射程缩小 {0}%"
@@ -23338,7 +23032,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=99
+							[2]="#"
 						}
 					},
 					text="【强力脉冲】会使击中伤害和异常状态伤害总增 {0}%"
@@ -23354,8 +23048,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=100,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="【强力脉冲】会使击中伤害和异常状态伤害总降 {0}%"
@@ -23484,7 +23178,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -23498,7 +23192,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="第一层能量之后，每层能量使击中的爆炸造成的伤害总降 {0}%"
@@ -23630,7 +23324,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -23951,13 +23645,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="per_minute_to_per_second",
+						k="negate",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="暴击球用于地雷时，每个可使该技能的暴击率降低 {0}%"
@@ -24008,7 +23702,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="地雷引爆速度降低 {0}%"
@@ -24026,7 +23720,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -24037,23 +23731,10 @@ return {
 						k="negate",
 						v=1
 					},
-					text="使投射物分裂的词缀改为使其获得改变方向的额外次数"
-				}
-			}
-		},
-		name="zig_zags_from_forks",
-		stats={
-			[1]="kinetic_bolt_forks_apply_to_zig_zags"
-		}
-	},
-	[787]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="被地雷使用时，每个狂怒球都使投射物速度减慢 {0}%"
@@ -24081,10 +23762,6 @@ return {
 					[1]={
 						k="negate",
 						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -24243,10 +23920,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLightningAilments"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -24259,10 +23932,6 @@ return {
 					[1]={
 						k="negate",
 						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLightningAilments"
 					},
 					limit={
 						[1]={
@@ -24314,10 +23983,6 @@ return {
 					[1]={
 						k="negate",
 						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -24380,27 +24045,19 @@ return {
 						[1]={
 							[1]=1,
 							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
 						}
 					},
 					text="召唤生物的冷却回复率提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=2
+						k="negate",
+						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="召唤生物的冷却回复率降低 {0}%"
@@ -24418,7 +24075,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -24553,10 +24210,6 @@ return {
 						k="reminderstring",
 						v="ReminderTextMaximumResistance"
 					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextExpectedPoisonDamage"
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -24592,7 +24245,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="召唤生物的近战伤害降低 {0}%"
@@ -24678,8 +24331,14 @@ return {
 				},
 				[2]={
 					[1]={
-						k="reminderstring",
-						v="ReminderTextSpawnCorpse"
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
 					},
 					text="召唤生物的敌人眩晕门槛提高 {0}%"
 				}
@@ -24697,10 +24356,6 @@ return {
 					[1]={
 						k="milliseconds_to_seconds",
 						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextSpawnCorpse"
 					},
 					limit={
 						[1]={
@@ -24819,7 +24474,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -24917,7 +24572,11 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="该增益将受到伤害的 {0}% 每秒以火焰伤害的形式反射回去，除非该增益效果时间结束或耗尽"
@@ -25296,25 +24955,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="该技能没有消耗"
-				}
-			}
-		},
-		name="no_cost",
-		stats={
-			[1]="no_cost"
-		}
-	},
-	[866]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
 					[1]={
 						k="reminderstring",
 						v="ReminderTextNonDamagingAilments"
@@ -25329,8 +24969,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
+						k="negate",
+						v=1
 					},
 					[2]={
 						k="reminderstring",
@@ -25339,7 +24979,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="对敌人施加的非伤害性异常状态效果降低 {0}%"
@@ -25351,7 +24991,7 @@ return {
 			[1]="non_damaging_ailment_effect_+%"
 		}
 	},
-	[867]={
+	[866]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25370,7 +25010,7 @@ return {
 			[1]="number_of_allowed_firewalls"
 		}
 	},
-	[868]={
+	[867]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25389,7 +25029,7 @@ return {
 			[1]="number_of_allowed_storm_arrows"
 		}
 	},
-	[869]={
+	[868]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25417,7 +25057,7 @@ return {
 			[1]="number_of_champions_of_light_allowed"
 		}
 	},
-	[870]={
+	[869]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25445,7 +25085,7 @@ return {
 			[1]="number_of_corpses_to_consume"
 		}
 	},
-	[871]={
+	[870]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25473,14 +25113,10 @@ return {
 			[1]="base_number_of_effigies_allowed"
 		}
 	},
-	[872]={
+	[871]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -25505,7 +25141,7 @@ return {
 			[1]="number_of_herald_scorpions_allowed"
 		}
 	},
-	[873]={
+	[872]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25533,7 +25169,7 @@ return {
 			[1]="number_of_mirage_archers_allowed"
 		}
 	},
-	[874]={
+	[873]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25561,7 +25197,7 @@ return {
 			[1]="number_of_reapers_allowed"
 		}
 	},
-	[875]={
+	[874]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25589,7 +25225,7 @@ return {
 			[1]="number_of_relics_allowed"
 		}
 	},
-	[876]={
+	[875]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25625,7 +25261,7 @@ return {
 			[1]="orb_of_storms_bolt_frequency_ms"
 		}
 	},
-	[877]={
+	[876]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25653,7 +25289,7 @@ return {
 			[1]="overpowered_effect_+%"
 		}
 	},
-	[878]={
+	[877]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25676,13 +25312,13 @@ return {
 			[1]="overwhelm_%_physical_damage_reduction_while_fortified"
 		}
 	},
-	[879]={
+	[878]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -25696,7 +25332,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="发射点之间的距离减少 {0}%"
@@ -25708,7 +25344,7 @@ return {
 			[1]="parallel_projectile_firing_point_x_dist_+%"
 		}
 	},
-	[880]={
+	[879]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25727,7 +25363,7 @@ return {
 			[1]="penance_brand_additional_descriptions_boolean"
 		}
 	},
-	[881]={
+	[880]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25746,7 +25382,7 @@ return {
 			[1]="penance_brand_base_spread_radius_+"
 		}
 	},
-	[882]={
+	[881]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25774,22 +25410,14 @@ return {
 			[1]="%_chance_to_gain_frenzy_charge_on_mine_detonated_targeting_an_enemy"
 		}
 	},
-	[883]={
+	[882]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]="#",
 							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
 						}
 					},
 					text="当你的陷阱被敌人触发时，有 {0}% 的几率获得 1 个狂怒球"
@@ -25810,7 +25438,7 @@ return {
 			[1]="%_chance_to_gain_frenzy_charge_on_trap_triggered_by_an_enemy"
 		}
 	},
-	[884]={
+	[883]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25838,7 +25466,7 @@ return {
 			[1]="%_chance_to_gain_power_charge_on_mine_detonated_targeting_an_enemy"
 		}
 	},
-	[885]={
+	[884]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25866,13 +25494,13 @@ return {
 			[1]="%_chance_to_gain_power_charge_on_trap_triggered_by_an_enemy"
 		}
 	},
-	[886]={
+	[885]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -25885,14 +25513,14 @@ return {
 			[1]="additional_burning_debuff_%_of_ignite_damage"
 		}
 	},
-	[887]={
+	[886]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="敌人的行动速度每 0.3 秒降低 {0}%"
@@ -25904,18 +25532,18 @@ return {
 			[1]="petrification_statue_target_action_speed_-%"
 		}
 	},
-	[888]={
+	[887]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						},
 						[2]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每个召唤的幻灵都给你【幽影之力】\n每个幽影之力增益效果都使你附加 {0} 到 {1} 点物理法术伤害"
@@ -25928,7 +25556,7 @@ return {
 			[2]="phantasm_grant_buff_maximum_added_physical_damage"
 		}
 	},
-	[889]={
+	[888]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -25944,7 +25572,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你使用技能时，该增益效果有 {0}% 的几率不会重复"
@@ -25956,13 +25584,13 @@ return {
 			[1]="phase_run_%_chance_to_not_replace_buff_on_skill_use"
 		}
 	},
-	[890]={
+	[889]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						},
 						[2]={
@@ -25997,7 +25625,7 @@ return {
 			[2]="phys_cascade_trap_interval_duration_ms"
 		}
 	},
-	[891]={
+	[890]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26016,7 +25644,7 @@ return {
 			[1]="physical_damage_reduction_%_per_crab_aspect_stack"
 		}
 	},
-	[892]={
+	[891]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26048,7 +25676,7 @@ return {
 			[1]="plague_bearer_chaos_damage_taken_+%_while_incubating"
 		}
 	},
-	[893]={
+	[892]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26067,8 +25695,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=2,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="传染时，你的移动速度减慢 {0}%"
@@ -26080,22 +25708,13 @@ return {
 			[1]="plague_bearer_movement_speed_+%_while_infecting"
 		}
 	},
-	[894]={
+	[893]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="最多召唤 {0} 个苦痛爬行者"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=2,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -26108,7 +25727,7 @@ return {
 			[1]="poison_dot_multiplier_+"
 		}
 	},
-	[895]={
+	[894]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26118,16 +25737,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="最多召唤 {0} 个幻影弓手"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=2,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -26140,7 +25750,7 @@ return {
 			[1]="portal_alternate_destination_chance_permyriad"
 		}
 	},
-	[896]={
+	[895]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26168,7 +25778,7 @@ return {
 			[1]="primary_projectile_chain_num"
 		}
 	},
-	[897]={
+	[896]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26204,7 +25814,7 @@ return {
 			[1]="primary_projectile_impale_chance_%"
 		}
 	},
-	[898]={
+	[897]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26240,7 +25850,7 @@ return {
 			[1]="prismatic_rain_beam_frequency_ms"
 		}
 	},
-	[899]={
+	[898]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26272,7 +25882,7 @@ return {
 			[1]="projectile_attack_damage_+%_in_blood_stance"
 		}
 	},
-	[900]={
+	[899]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26301,7 +25911,7 @@ return {
 					},
 					text="投射物击中地表就可分裂"
 				},
-				[2]={
+				[3]={
 					limit={
 						[1]={
 							[1]="!",
@@ -26322,7 +25932,7 @@ return {
 			[2]="projectiles_can_split_from_terrain"
 		}
 	},
-	[901]={
+	[900]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26339,10 +25949,6 @@ return {
 						[1]={
 							[1]=100,
 							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
 						}
 					},
 					text="不能贯穿敌人"
@@ -26354,23 +25960,27 @@ return {
 			[1]="projectile_chance_to_not_pierce_%"
 		}
 	},
-	[902]={
+	[901]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=100,
-							[2]=100
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="贯穿的投射物伤害提高 {0}%"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="贯穿的投射物伤害降低 {0}%"
@@ -26382,35 +25992,27 @@ return {
 			[1]="projectile_damage_+%_if_pierced_enemy"
 		}
 	},
-	[903]={
+	[902]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
 						}
 					},
 					text="每次剩余连锁都使投射物的击中和异常状态伤害提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="milliseconds_to_seconds",
-						v=2
+						k="negate",
+						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每次剩余连锁都使投射物的击中和异常状态伤害降低 {0}%"
@@ -26422,7 +26024,7 @@ return {
 			[1]="projectile_damage_+%_per_remaining_chain"
 		}
 	},
-	[904]={
+	[903]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26441,7 +26043,7 @@ return {
 			[1]="projectile_maximum_range_override"
 		}
 	},
-	[905]={
+	[904]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26473,7 +26075,7 @@ return {
 			[1]="projectile_speed_+%_in_sand_stance"
 		}
 	},
-	[906]={
+	[905]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26505,7 +26107,7 @@ return {
 			[1]="projectile_damage_+%_vs_nearby_enemies"
 		}
 	},
-	[907]={
+	[906]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26524,14 +26126,10 @@ return {
 			[1]="projectiles_pierce_all_targets_in_x_range"
 		}
 	},
-	[908]={
+	[907]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="divide_by_one_hundred_2dp",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]="!",
@@ -26547,14 +26145,14 @@ return {
 			[1]="projectiles_rain"
 		}
 	},
-	[909]={
+	[908]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
 							[1]=1,
-							[2]=1
+							[2]="#"
 						}
 					},
 					text="流血伤害总增 {0}%"
@@ -26579,7 +26177,7 @@ return {
 			[1]="puncture_bleeding_damage_+%_final"
 		}
 	},
-	[910]={
+	[909]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26615,13 +26213,13 @@ return {
 			[1]="puppet_master_duration_ms"
 		}
 	},
-	[911]={
+	[910]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -26634,14 +26232,10 @@ return {
 			[1]="purge_expose_resist_%_matching_highest_element_damage"
 		}
 	},
-	[912]={
+	[911]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]=100,
@@ -26666,7 +26260,7 @@ return {
 			[1]="purifying_flame_%_chance_to_create_consecrated_ground_around_you"
 		}
 	},
-	[913]={
+	[912]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26690,7 +26284,7 @@ return {
 			[2]="quick_guard_damage_absorb_limit"
 		}
 	},
-	[914]={
+	[913]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26709,7 +26303,7 @@ return {
 			[1]="rage_slash_sacrifice_rage_%"
 		}
 	},
-	[915]={
+	[914]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26726,6 +26320,10 @@ return {
 					text="每献祭 {1} 点怒火都使怒火风暴的伤害总增 {0}%"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -26746,7 +26344,7 @@ return {
 			[2]="rage_slash_rage_sacrifice_per_damage_bonus"
 		}
 	},
-	[916]={
+	[915]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26770,7 +26368,7 @@ return {
 			[2]="rage_slash_rage_sacrifice_per_radius_bonus"
 		}
 	},
-	[917]={
+	[916]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26802,7 +26400,7 @@ return {
 			[1]="rage_slash_vortex_attack_speed_+%_final"
 		}
 	},
-	[918]={
+	[917]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26830,7 +26428,7 @@ return {
 			[1]="rage_slash_maximum_vortices"
 		}
 	},
-	[919]={
+	[918]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26850,7 +26448,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="怒火风暴的速度减慢 {0}%"
@@ -26862,7 +26460,7 @@ return {
 			[1]="ragestorm_movement_speed_+%"
 		}
 	},
-	[920]={
+	[919]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26881,7 +26479,7 @@ return {
 			[1]="rain_of_arrows_additional_sequence_chance_%"
 		}
 	},
-	[921]={
+	[920]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26900,7 +26498,7 @@ return {
 			[1]="raised_spectre_level"
 		}
 	},
-	[922]={
+	[921]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26919,7 +26517,7 @@ return {
 			[1]="ranged_attack_totem_only_attacks_when_owner_attacks"
 		}
 	},
-	[923]={
+	[922]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26938,7 +26536,7 @@ return {
 			[1]="reave_additional_max_stacks"
 		}
 	},
-	[924]={
+	[923]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26958,7 +26556,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="烙印的附着范围缩小 {0}%"
@@ -26970,7 +26568,7 @@ return {
 			[1]="recall_sigil_target_search_range_+%"
 		}
 	},
-	[925]={
+	[924]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -26993,7 +26591,7 @@ return {
 			[1]="recover_%_life_when_stunning_an_enemy_permyriad"
 		}
 	},
-	[926]={
+	[925]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27012,7 +26610,7 @@ return {
 			[1]="recover_%_maximum_life_on_cull"
 		}
 	},
-	[927]={
+	[926]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27031,7 +26629,7 @@ return {
 			[1]="reduce_enemy_chaos_resistance_%"
 		}
 	},
-	[928]={
+	[927]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27050,17 +26648,13 @@ return {
 			[1]="refresh_bleeding_duration_on_hit_%_chance"
 		}
 	},
-	[929]={
+	[928]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
 							[2]="#"
 						}
 					},
@@ -27075,10 +26669,6 @@ return {
 						[1]={
 							[1]="#",
 							[2]=-1
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
 						}
 					},
 					text="每次增强符纹都使其总效果区域缩小 {0}%"
@@ -27090,7 +26680,7 @@ return {
 			[1]="rune_paint_area_of_effect_+%_final_per_rune_level"
 		}
 	},
-	[930]={
+	[929]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27122,7 +26712,7 @@ return {
 			[1]="rune_paint_area_of_effect_+%_per_rune_level"
 		}
 	},
-	[931]={
+	[930]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27188,7 +26778,7 @@ return {
 			[2]="quality_display_rune_paint_is_gem"
 		}
 	},
-	[932]={
+	[931]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27206,7 +26796,7 @@ return {
 			[1]="rune_paint_mana_spend_per_rune_upgrade"
 		}
 	},
-	[933]={
+	[932]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27233,7 +26823,7 @@ return {
 			[1]="rune_paint_max_rune_level"
 		}
 	},
-	[934]={
+	[933]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27265,7 +26855,7 @@ return {
 			[1]="sanctify_wave_damage_+%_final"
 		}
 	},
-	[935]={
+	[934]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27297,7 +26887,7 @@ return {
 			[1]="scorpion_minion_attack_speed_+%"
 		}
 	},
-	[936]={
+	[935]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27329,7 +26919,7 @@ return {
 			[1]="scorpion_minion_physical_damage_+%"
 		}
 	},
-	[937]={
+	[936]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27353,7 +26943,7 @@ return {
 			[2]="scorpion_minion_maximum_added_physical_damage"
 		}
 	},
-	[938]={
+	[937]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27385,14 +26975,10 @@ return {
 			[1]="sentinel_minion_cooldown_speed_+%"
 		}
 	},
-	[939]={
+	[938]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -27417,7 +27003,7 @@ return {
 			[1]="shattering_steel_damage_+%_final_scaled_by_projectile_distance_per_ammo_consumed"
 		}
 	},
-	[940]={
+	[939]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27449,7 +27035,7 @@ return {
 			[1]="shield_crush_helmet_enchantment_aoe_+%_final"
 		}
 	},
-	[941]={
+	[940]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27481,13 +27067,13 @@ return {
 			[1]="shock_effect_+%"
 		}
 	},
-	[942]={
+	[941]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -27500,7 +27086,7 @@ return {
 			[1]="shock_nova_ring_chance_to_shock_+%"
 		}
 	},
-	[943]={
+	[942]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27532,7 +27118,7 @@ return {
 			[1]="shock_nova_ring_shocks_as_if_dealing_damage_+%_final"
 		}
 	},
-	[944]={
+	[943]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27564,7 +27150,7 @@ return {
 			[1]="shocked_ground_base_magnitude_override"
 		}
 	},
-	[945]={
+	[944]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27575,7 +27161,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="锥形区域向前产生的速度加快 {0}%"
@@ -27587,13 +27173,13 @@ return {
 			[1]="shrapnel_shot_cone_placement_distance_+"
 		}
 	},
-	[946]={
+	[945]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -27606,14 +27192,14 @@ return {
 			[1]="shrapnel_trap_number_of_secondary_explosions"
 		}
 	},
-	[947]={
+	[946]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="伤害穿透带有烙印敌人火焰抗性的 {0}%"
@@ -27625,13 +27211,13 @@ return {
 			[1]="sigil_attached_target_fire_penetration_%"
 		}
 	},
-	[948]={
+	[947]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -27644,7 +27230,7 @@ return {
 			[1]="sigil_attached_target_lightning_penetration_%"
 		}
 	},
-	[949]={
+	[948]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27655,7 +27241,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="烙印会刷新其解除持续时间，最多 {0} 秒"
@@ -27667,7 +27253,7 @@ return {
 			[1]="sigil_recall_extend_base_secondary_skill_effect_duration"
 		}
 	},
-	[950]={
+	[949]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27690,7 +27276,7 @@ return {
 			[1]="sigil_recall_extend_base_skill_effect_duration"
 		}
 	},
-	[951]={
+	[950]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27700,7 +27286,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -27713,7 +27299,7 @@ return {
 			[1]="skill_angle_+%_in_sand_stance"
 		}
 	},
-	[952]={
+	[951]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27745,7 +27331,7 @@ return {
 			[1]="skill_area_angle_+%"
 		}
 	},
-	[953]={
+	[952]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27758,33 +27344,6 @@ return {
 					text="沙姿态下，总效果区域扩大 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="感电地面会使受到的伤害降低 {0}%"
-				}
-			}
-		},
-		name="shocked_ground_stat_override",
-		stats={
-			[1]="shocked_ground_base_magnitude_override"
-		}
-	},
-	[944]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
-					[1]={
-						k="multiply_by_four",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -27800,7 +27359,7 @@ return {
 			[1]="skill_area_of_effect_+%_final_in_sand_stance"
 		}
 	},
-	[954]={
+	[953]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27832,7 +27391,7 @@ return {
 			[1]="skill_buff_grants_attack_and_cast_speed_+%"
 		}
 	},
-	[955]={
+	[954]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27864,13 +27423,15 @@ return {
 			[1]="skill_code_movement_speed_+%_final"
 		}
 	},
-	[956]={
+	[955]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBloodStanceDefault"
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
 					},
 					text="将物理伤害的 {0}% 转化为一种随机元素"
 				}
@@ -27881,7 +27442,7 @@ return {
 			[1]="skill_convert_%_physical_damage_to_random_element"
 		}
 	},
-	[957]={
+	[956]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27913,7 +27474,7 @@ return {
 			[1]="skill_damage_+%_final_per_chain_from_skill_specific_stat"
 		}
 	},
-	[958]={
+	[957]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27953,7 +27514,7 @@ return {
 			[1]="skill_effect_and_damaging_ailment_duration_+%"
 		}
 	},
-	[959]={
+	[958]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -27976,7 +27537,7 @@ return {
 			[1]="skill_effect_duration_per_100_int"
 		}
 	},
-	[960]={
+	[959]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28008,7 +27569,7 @@ return {
 			[1]="skill_effect_duration_+%_while_dead"
 		}
 	},
-	[961]={
+	[960]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28031,7 +27592,7 @@ return {
 			[1]="skill_grant_elusive_when_used"
 		}
 	},
-	[962]={
+	[961]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28050,13 +27611,13 @@ return {
 			[1]="skill_has_trigger_from_unique_item"
 		}
 	},
-	[963]={
+	[962]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -28069,7 +27630,7 @@ return {
 			[1]="skill_maximum_travel_distance_+%"
 		}
 	},
-	[964]={
+	[963]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28088,14 +27649,14 @@ return {
 			[1]="skill_travel_distance_+%"
 		}
 	},
-	[965]={
+	[964]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="该技能被【狙击】触发"
@@ -28107,14 +27668,10 @@ return {
 			[1]="skill_triggered_by_snipe"
 		}
 	},
-	[966]={
+	[965]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -28124,14 +27681,6 @@ return {
 					text="专注时有 {0}% 的几率触发该法术"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]=100,
@@ -28147,7 +27696,7 @@ return {
 			[1]="skill_triggered_when_you_focus_chance_%"
 		}
 	},
-	[967]={
+	[966]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28179,7 +27728,7 @@ return {
 			[1]="skill_used_by_mirage_chieftain_damage_+%_final"
 		}
 	},
-	[968]={
+	[967]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28190,7 +27739,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="蜃影救世者使用的技能造成的总伤害额外降低 {0}%"
@@ -28202,7 +27751,7 @@ return {
 			[1]="skill_used_by_mirage_warrior_damage_+%_final"
 		}
 	},
-	[969]={
+	[968]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28230,7 +27779,7 @@ return {
 			[1]="slither_wither_stacks"
 		}
 	},
-	[970]={
+	[969]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28249,7 +27798,7 @@ return {
 			[1]="snapping_adder_%_chance_to_retain_projectile_on_release"
 		}
 	},
-	[971]={
+	[970]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28268,7 +27817,7 @@ return {
 			[1]="snipe_max_stacks"
 		}
 	},
-	[972]={
+	[971]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28337,7 +27886,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=100,
+							[1]="#",
 							[2]="#"
 						},
 						[2]={
@@ -28355,7 +27904,7 @@ return {
 			[2]="snipe_triggered_skill_ailment_damage_+%_final_per_stage"
 		}
 	},
-	[973]={
+	[972]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28426,7 +27975,7 @@ return {
 			[2]="snipe_triggered_skill_hit_damage_+%_final_per_stage"
 		}
 	},
-	[974]={
+	[973]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28445,7 +27994,7 @@ return {
 			[1]="soulfeast_chaos_damage_to_self"
 		}
 	},
-	[975]={
+	[974]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28464,7 +28013,7 @@ return {
 			[1]="soulfeast_number_of_secondary_projectiles"
 		}
 	},
-	[976]={
+	[975]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28474,7 +28023,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=2,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -28487,7 +28036,7 @@ return {
 			[1]="spectral_helix_rotations_%"
 		}
 	},
-	[977]={
+	[976]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28515,16 +28064,12 @@ return {
 			[1]="spectral_spiral_weapon_number_of_bounces"
 		}
 	},
-	[978]={
+	[977]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
 							[1]=1,
 							[2]="#"
 						}
@@ -28536,16 +28081,8 @@ return {
 						k="negate",
 						v=1
 					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
 							[1]="#",
 							[2]=-1
 						}
@@ -28559,16 +28096,12 @@ return {
 			[1]="spell_area_damage_+%_in_blood_stance"
 		}
 	},
-	[979]={
+	[978]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
 							[1]=1,
 							[2]="#"
 						}
@@ -28580,16 +28113,8 @@ return {
 						k="negate",
 						v=1
 					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
 							[1]="#",
 							[2]=-1
 						}
@@ -28603,7 +28128,7 @@ return {
 			[1]="spell_area_of_effect_+%_in_sand_stance"
 		}
 	},
-	[980]={
+	[979]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28622,7 +28147,7 @@ return {
 			[1]="spell_cast_time_cannot_be_modified"
 		}
 	},
-	[981]={
+	[980]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28641,7 +28166,7 @@ return {
 			[1]="spell_echo_plus_chance_double_damage_%_final"
 		}
 	},
-	[982]={
+	[981]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28660,7 +28185,7 @@ return {
 			[1]="spell_has_trigger_from_crafted_item_mod"
 		}
 	},
-	[983]={
+	[982]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28684,7 +28209,7 @@ return {
 			[2]="spell_maximum_base_physical_damage_per_shield_quality"
 		}
 	},
-	[984]={
+	[983]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28694,10 +28219,6 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
 							[1]=1,
 							[2]=99
 						}
@@ -28713,10 +28234,6 @@ return {
 						[1]={
 							[1]=100,
 							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]=-1
 						}
 					},
 					text="击中使敌人缓速，使其移动速度减慢 30%"
@@ -28728,7 +28245,7 @@ return {
 			[1]="spells_chance_to_hinder_on_hit_%"
 		}
 	},
-	[985]={
+	[984]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28747,7 +28264,7 @@ return {
 			[1]="spellslinger_mana_reservation"
 		}
 	},
-	[986]={
+	[985]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28775,7 +28292,7 @@ return {
 			[1]="spider_aspect_max_web_count"
 		}
 	},
-	[987]={
+	[986]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28794,7 +28311,7 @@ return {
 			[1]="spike_slam_additional_spike_%_chance"
 		}
 	},
-	[988]={
+	[987]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28826,7 +28343,7 @@ return {
 			[1]="spike_slam_explosion_damage_+%_final"
 		}
 	},
-	[989]={
+	[988]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28858,7 +28375,7 @@ return {
 			[1]="spike_slam_fissure_damage_+%_final"
 		}
 	},
-	[990]={
+	[989]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28890,7 +28407,7 @@ return {
 			[1]="spike_slam_fissure_length_+%"
 		}
 	},
-	[991]={
+	[990]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28918,7 +28435,7 @@ return {
 			[1]="spike_slam_max_spikes"
 		}
 	},
-	[992]={
+	[991]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28933,7 +28450,7 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -28946,7 +28463,7 @@ return {
 			[1]="spike_slam_num_spikes"
 		}
 	},
-	[993]={
+	[992]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -28978,7 +28495,7 @@ return {
 			[1]="spike_slam_spike_damage_+%_final"
 		}
 	},
-	[994]={
+	[993]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29010,7 +28527,7 @@ return {
 			[1]="spiritual_cry_double_movement_velocity_+%"
 		}
 	},
-	[995]={
+	[994]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29042,7 +28559,7 @@ return {
 			[1]="splitting_steel_area_+%_final_after_splitting"
 		}
 	},
-	[996]={
+	[995]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29074,7 +28591,7 @@ return {
 			[1]="static_strike_beam_damage_+%_final"
 		}
 	},
-	[997]={
+	[996]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29106,7 +28623,7 @@ return {
 			[1]="static_strike_beam_damage_+%_final_while_moving"
 		}
 	},
-	[998]={
+	[997]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29125,7 +28642,7 @@ return {
 			[1]="static_strike_number_of_beam_targets"
 		}
 	},
-	[999]={
+	[998]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29157,7 +28674,7 @@ return {
 			[1]="stealth_+%"
 		}
 	},
-	[1000]={
+	[999]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29173,7 +28690,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="最多消耗 {0} 个钢刃碎片"
@@ -29185,7 +28702,7 @@ return {
 			[1]="steel_ammo_consumed_per_use"
 		}
 	},
-	[1001]={
+	[1000]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29213,14 +28730,14 @@ return {
 			[1]="steel_skill_%_chance_to_not_consume_ammo"
 		}
 	},
-	[1002]={
+	[1001]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="反射伤害的效果区域扩大 {0}%"
@@ -29245,7 +28762,7 @@ return {
 			[1]="steel_steal_area_of_effect_+%"
 		}
 	},
-	[1003]={
+	[1002]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29277,7 +28794,7 @@ return {
 			[1]="steel_steal_reflect_damage_+%"
 		}
 	},
-	[1004]={
+	[1003]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29309,13 +28826,13 @@ return {
 			[1]="storm_burst_explosion_area_of_effect_+%"
 		}
 	},
-	[1005]={
+	[1004]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=2,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -29328,7 +28845,7 @@ return {
 			[1]="storm_burst_new_damage_+%_final_per_remaining_teleport_zap"
 		}
 	},
-	[1006]={
+	[1005]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29360,7 +28877,7 @@ return {
 			[1]="storm_burst_zap_area_of_effect_+%"
 		}
 	},
-	[1007]={
+	[1006]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29379,7 +28896,7 @@ return {
 			[1]="storm_call_chance_to_strike_on_cast_%"
 		}
 	},
-	[1008]={
+	[1007]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29395,7 +28912,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每支箭矢可发射 {0} 道波束"
@@ -29407,7 +28924,7 @@ return {
 			[1]="storm_rain_pulse_count"
 		}
 	},
-	[1009]={
+	[1008]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29426,14 +28943,14 @@ return {
 			[1]="summon_mirage_archer_on_hit"
 		}
 	},
-	[1010]={
+	[1009]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="当你使用救世者造成重击，则召唤一名使用该攻击技能的蜃影武士"
@@ -29445,7 +28962,7 @@ return {
 			[1]="summon_mirage_warrior_on_crit"
 		}
 	},
-	[1011]={
+	[1010]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29477,7 +28994,7 @@ return {
 			[1]="summoned_spider_grants_attack_speed_+%"
 		}
 	},
-	[1012]={
+	[1011]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29509,7 +29026,7 @@ return {
 			[1]="summoned_spider_grants_poison_damage_+%"
 		}
 	},
-	[1013]={
+	[1012]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29541,7 +29058,7 @@ return {
 			[1]="sunder_shockwave_area_of_effect_+%"
 		}
 	},
-	[1014]={
+	[1013]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29560,7 +29077,7 @@ return {
 			[1]="sunder_shockwave_limit_per_cascade"
 		}
 	},
-	[1015]={
+	[1014]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29592,7 +29109,7 @@ return {
 			[1]="sunder_wave_area_of_effect_+%"
 		}
 	},
-	[1016]={
+	[1015]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29624,7 +29141,7 @@ return {
 			[1]="sunder_wave_delay_+%"
 		}
 	},
-	[1017]={
+	[1016]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29643,13 +29160,13 @@ return {
 			[1]="sunder_wave_max_steps"
 		}
 	},
-	[1018]={
+	[1017]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -29662,13 +29179,13 @@ return {
 			[1]="sunder_wave_min_steps"
 		}
 	},
-	[1019]={
+	[1018]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -29681,7 +29198,7 @@ return {
 			[1]="sunder_wave_radius_+_per_step"
 		}
 	},
-	[1020]={
+	[1019]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29692,7 +29209,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="有 {0}% 的几率投掷 1 个额外的陷阱或地雷"
@@ -29703,7 +29220,7 @@ return {
 			[1]="support_additional_trap_mine_%_chance_for_1_additional_trap_mine"
 		}
 	},
-	[1021]={
+	[1020]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29725,7 +29242,7 @@ return {
 			[1]="support_additional_trap_mine_%_chance_for_2_additional_trap_mine"
 		}
 	},
-	[1022]={
+	[1021]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29747,7 +29264,7 @@ return {
 			[1]="support_additional_trap_mine_%_chance_for_3_additional_trap_mine"
 		}
 	},
-	[1023]={
+	[1022]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29766,7 +29283,7 @@ return {
 			[1]="support_additional_trap_%_chance_for_1_additional_trap"
 		}
 	},
-	[1024]={
+	[1023]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29789,7 +29306,7 @@ return {
 			[1]="support_aura_duration_buff_duration"
 		}
 	},
-	[1025]={
+	[1024]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29812,7 +29329,7 @@ return {
 			[1]="support_aura_duration_reserve_duration"
 		}
 	},
-	[1026]={
+	[1025]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29823,7 +29340,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=1
+							[2]="#"
 						}
 					},
 					text="后续异常状态伤害总增 {0}%"
@@ -29840,7 +29357,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="后续异常状态伤害总降 {0}%"
@@ -29852,7 +29369,7 @@ return {
 			[1]="support_better_ailments_ailment_damage_+%_final"
 		}
 	},
-	[1027]={
+	[1026]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29879,7 +29396,7 @@ return {
 			[1]="support_blunt_chance_to_trigger_shockwave_on_hit_%"
 		}
 	},
-	[1028]={
+	[1027]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29911,7 +29428,7 @@ return {
 			[1]="support_chance_to_bleed_bleeding_damage_+%_final"
 		}
 	},
-	[1029]={
+	[1028]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29951,7 +29468,7 @@ return {
 			[1]="support_chilling_areas_also_grant_cold_damage_taken_per_minute_+%"
 		}
 	},
-	[1030]={
+	[1029]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -29974,7 +29491,7 @@ return {
 			[1]="support_chilling_areas_also_grant_cold_damage_taken_+%_equal_to_slow_amount"
 		}
 	},
-	[1031]={
+	[1030]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30006,7 +29523,7 @@ return {
 			[1]="support_chills_also_grant_cold_damage_taken_per_minute_+%"
 		}
 	},
-	[1032]={
+	[1031]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30025,7 +29542,7 @@ return {
 			[1]="support_chills_also_grant_cold_damage_taken_+%_equal_to_slow_amount"
 		}
 	},
-	[1033]={
+	[1032]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30066,7 +29583,7 @@ return {
 			[2]="support_debilitate_hit_damage_max_poison_stacks"
 		}
 	},
-	[1034]={
+	[1033]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30098,7 +29615,7 @@ return {
 			[1]="support_energy_shield_leech_damage_+%_while_leeching_energy_shield_final"
 		}
 	},
-	[1035]={
+	[1034]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30121,14 +29638,10 @@ return {
 			[1]="support_executioner_buff_duration_ms"
 		}
 	},
-	[1036]={
+	[1035]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]=1,
@@ -30157,7 +29670,7 @@ return {
 			[1]="support_executioner_damage_vs_enemies_on_low_life_+%_final"
 		}
 	},
-	[1037]={
+	[1036]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30176,7 +29689,7 @@ return {
 			[1]="support_executioner_refresh_stolen_mod_on_hitting_rare_or_unique_monster_chance_%"
 		}
 	},
-	[1038]={
+	[1037]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30208,7 +29721,7 @@ return {
 			[1]="support_focused_ballista_totem_attack_speed_+%_final"
 		}
 	},
-	[1039]={
+	[1038]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30231,7 +29744,7 @@ return {
 			[1]="support_ghost_duration"
 		}
 	},
-	[1040]={
+	[1039]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30263,7 +29776,7 @@ return {
 			[1]="support_greater_spell_echo_area_of_effect_+%_per_repeat"
 		}
 	},
-	[1041]={
+	[1040]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30295,7 +29808,7 @@ return {
 			[1]="support_greater_spell_echo_spell_damage_+%_final_per_repeat"
 		}
 	},
-	[1042]={
+	[1041]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30327,7 +29840,7 @@ return {
 			[1]="support_ignite_prolif_ignite_damage_+%_final"
 		}
 	},
-	[1043]={
+	[1042]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30355,7 +29868,7 @@ return {
 			[1]="support_innervate_chance_to_gain_buff_on_shock_vs_unique_%"
 		}
 	},
-	[1044]={
+	[1043]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30376,19 +29889,6 @@ return {
 						k="milliseconds_to_seconds",
 						v=1
 					},
-					text="你击中稀有或传奇敌人时，有 {0}% 的几率刷新所获词缀的持续时间，最多可恢复 5 秒"
-				}
-			}
-		},
-		name="executioner_refresh_stolen_mod",
-		stats={
-			[1]="support_executioner_refresh_stolen_mod_on_hitting_rare_or_unique_monster_chance_%"
-		}
-	},
-	[1037]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -30404,7 +29904,7 @@ return {
 			[1]="support_lifetap_buff_duration"
 		}
 	},
-	[1045]={
+	[1044]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30423,7 +29923,7 @@ return {
 			[1]="support_lifetap_spent_life_threshold"
 		}
 	},
-	[1046]={
+	[1045]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30455,7 +29955,7 @@ return {
 			[1]="support_maim_chance_physical_damage_+%_final"
 		}
 	},
-	[1047]={
+	[1046]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30487,7 +29987,7 @@ return {
 			[1]="support_maimed_enemies_physical_damage_taken_+%"
 		}
 	},
-	[1048]={
+	[1047]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30518,7 +30018,7 @@ return {
 			[1]="support_minefield_mine_throwing_speed_+%_final"
 		}
 	},
-	[1049]={
+	[1048]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30542,7 +30042,7 @@ return {
 			[2]="global_maximum_added_fire_damage_vs_burning_enemies"
 		}
 	},
-	[1050]={
+	[1049]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30574,7 +30074,7 @@ return {
 			[1]="support_minion_defensive_stance_minion_damage_+%_final_against_enemies_near_you"
 		}
 	},
-	[1051]={
+	[1050]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30606,7 +30106,7 @@ return {
 			[1]="support_minion_defensive_stance_minion_damage_taken_+%_final"
 		}
 	},
-	[1052]={
+	[1051]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30638,7 +30138,7 @@ return {
 			[1]="support_minion_offensive_stance_minion_damage_+%_final_while_you_have_puppet_master"
 		}
 	},
-	[1053]={
+	[1052]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30670,7 +30170,7 @@ return {
 			[1]="support_minion_totem_resistance_elemental_damage_+%_final"
 		}
 	},
-	[1054]={
+	[1053]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30702,7 +30202,7 @@ return {
 			[1]="support_mirage_archer_attack_speed_+%_final"
 		}
 	},
-	[1055]={
+	[1054]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30725,7 +30225,7 @@ return {
 			[1]="support_mirage_archer_duration"
 		}
 	},
-	[1056]={
+	[1055]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30752,7 +30252,7 @@ return {
 			[1]="support_overpowered_duration_ms"
 		}
 	},
-	[1057]={
+	[1056]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30765,10 +30265,6 @@ return {
 					text="还会在你身体两侧发射投射物，最多 {0} 个发射点"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]=2,
@@ -30784,7 +30280,7 @@ return {
 			[1]="support_parallel_projectile_number_of_points_per_side"
 		}
 	},
-	[1058]={
+	[1057]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30816,14 +30312,14 @@ return {
 			[1]="support_power_charge_on_crit_damage_+%_final_per_power_charge"
 		}
 	},
-	[1059]={
+	[1058]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
 							[1]=1,
-							[2]=1
+							[2]="#"
 						}
 					},
 					text="总效果区域扩大 {0}%"
@@ -30833,19 +30329,6 @@ return {
 						k="negate",
 						v=1
 					},
-					text="还会在你身体两侧发射投射物，最多 {0} 个发射点"
-				}
-			}
-		},
-		name="support_parallel_projectiles",
-		stats={
-			[1]="support_parallel_projectile_number_of_points_per_side"
-		}
-	},
-	[1057]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -30861,7 +30344,7 @@ return {
 			[1]="support_pulverise_area_of_effect_+%_final"
 		}
 	},
-	[1060]={
+	[1059]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30869,19 +30352,6 @@ return {
 						k="milliseconds_to_seconds",
 						v=1
 					},
-					text="每个暴击球可使伤害总降 {0}%"
-				}
-			}
-		},
-		name="power_charge_on_crit_damage",
-		stats={
-			[1]="support_power_charge_on_crit_damage_+%_final_per_power_charge"
-		}
-	},
-	[1058]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -30897,7 +30367,7 @@ return {
 			[1]="support_rage_gain_rage_on_melee_hit_cooldown_ms"
 		}
 	},
-	[1061]={
+	[1060]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30916,7 +30386,7 @@ return {
 			[1]="support_reduce_enemy_block_and_spell_block_%"
 		}
 	},
-	[1062]={
+	[1061]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30935,7 +30405,7 @@ return {
 			[1]="support_reduce_enemy_dodge_and_spell_dodge_%"
 		}
 	},
-	[1063]={
+	[1062]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30967,7 +30437,7 @@ return {
 			[1]="support_remote_mine_damage_+%_final_per_mine_detonation_cascade"
 		}
 	},
-	[1064]={
+	[1063]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -30982,7 +30452,11 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="你击中传奇敌人时，有 {0}% 的几率获得 {1}  秒猛攻"
@@ -30995,7 +30469,7 @@ return {
 			[2]="support_scion_onslaught_on_unique_hit_duration_ms"
 		}
 	},
-	[1065]={
+	[1064]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31032,7 +30506,7 @@ return {
 			[3]="virtual_support_scion_onslaught_on_killing_blow_duration_ms"
 		}
 	},
-	[1066]={
+	[1065]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31068,7 +30542,7 @@ return {
 			[1]="support_slashing_buff_duration_ms"
 		}
 	},
-	[1067]={
+	[1066]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31100,7 +30574,7 @@ return {
 			[1]="support_slashing_buff_attack_speed_+%_final_to_grant"
 		}
 	},
-	[1068]={
+	[1067]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31118,7 +30592,7 @@ return {
 			[1]="support_slashing_damage_+%_final_from_distance"
 		}
 	},
-	[1069]={
+	[1068]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31197,7 +30671,7 @@ return {
 			[2]="support_spell_boost_area_of_effect_+%_final_per_charge"
 		}
 	},
-	[1070]={
+	[1069]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31229,7 +30703,7 @@ return {
 			[1]="support_spell_cascade_area_delay_+%"
 		}
 	},
-	[1071]={
+	[1070]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31261,7 +30735,7 @@ return {
 			[1]="support_spell_cascade_area_of_effect_+%_final"
 		}
 	},
-	[1072]={
+	[1071]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31298,7 +30772,7 @@ return {
 			[2]="support_spell_cascade_sideways"
 		}
 	},
-	[1073]={
+	[1072]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31330,7 +30804,7 @@ return {
 			[1]="support_spell_echo_final_repeat_damage_+%_final"
 		}
 	},
-	[1074]={
+	[1073]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31362,7 +30836,7 @@ return {
 			[1]="support_storm_barrier_chaos_damage_+%_final_to_apply"
 		}
 	},
-	[1075]={
+	[1074]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31394,7 +30868,7 @@ return {
 			[1]="support_storm_barrier_cold_damage_+%_final_to_apply"
 		}
 	},
-	[1076]={
+	[1075]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31430,7 +30904,7 @@ return {
 			[1]="support_storm_barrier_damage_buff_duration_ms"
 		}
 	},
-	[1077]={
+	[1076]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31462,7 +30936,7 @@ return {
 			[1]="support_storm_barrier_fire_damage_+%_final_to_apply"
 		}
 	},
-	[1078]={
+	[1077]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31494,7 +30968,7 @@ return {
 			[1]="support_storm_barrier_lightning_damage_+%_final_to_apply"
 		}
 	},
-	[1079]={
+	[1078]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31514,7 +30988,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="【灌注】赋予的物理伤害总降 {0}%"
@@ -31526,7 +31000,7 @@ return {
 			[1]="support_storm_barrier_physical_damage_+%_final_to_apply"
 		}
 	},
-	[1080]={
+	[1079]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31549,7 +31023,7 @@ return {
 			[1]="support_storm_barrier_physical_damage_taken_when_hit_+%_final"
 		}
 	},
-	[1081]={
+	[1080]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31572,7 +31046,7 @@ return {
 			[1]="support_storm_barrier_chaos_damage_taken_+%_final_from_hits_while_channelling"
 		}
 	},
-	[1082]={
+	[1081]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31595,7 +31069,7 @@ return {
 			[1]="support_storm_barrier_cold_damage_taken_+%_final_from_hits_while_channelling"
 		}
 	},
-	[1083]={
+	[1082]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31618,17 +31092,13 @@ return {
 			[1]="support_storm_barrier_fire_damage_taken_+%_final_from_hits_while_channelling"
 		}
 	},
-	[1084]={
+	[1083]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					[1]={
 						k="negate",
 						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -31645,7 +31115,7 @@ return {
 			[1]="support_storm_barrier_lightning_damage_taken_+%_final_from_hits_while_channelling"
 		}
 	},
-	[1085]={
+	[1084]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31685,7 +31155,7 @@ return {
 			[1]="support_swift_affliction_skill_effect_and_damaging_ailment_duration_+%_final"
 		}
 	},
-	[1086]={
+	[1085]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31725,7 +31195,7 @@ return {
 			[1]="support_unbound_ailments_ailment_damage_+%_final"
 		}
 	},
-	[1087]={
+	[1086]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31744,7 +31214,7 @@ return {
 			[1]="supported_skill_can_only_use_axe_and_sword"
 		}
 	},
-	[1088]={
+	[1087]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31763,7 +31233,7 @@ return {
 			[1]="skill_can_only_use_bow"
 		}
 	},
-	[1089]={
+	[1088]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31786,7 +31256,7 @@ return {
 			[1]="supported_skill_can_only_use_dagger_and_claw"
 		}
 	},
-	[1090]={
+	[1089]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31809,7 +31279,7 @@ return {
 			[1]="supported_skill_can_only_use_mace_and_staff"
 		}
 	},
-	[1091]={
+	[1090]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31828,7 +31298,7 @@ return {
 			[1]="skill_can_only_use_non_melee_weapons"
 		}
 	},
-	[1092]={
+	[1091]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31851,7 +31321,7 @@ return {
 			[1]="tectonic_slam_side_crack_additional_chance_1%_per_2_stat_value"
 		}
 	},
-	[1093]={
+	[1092]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31870,7 +31340,7 @@ return {
 			[1]="tectonic_slam_side_crack_additional_chance_%"
 		}
 	},
-	[1094]={
+	[1093]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31889,7 +31359,7 @@ return {
 			[1]="tectonic_slam_side_crack_additional_chance_%_per_endurance_charge"
 		}
 	},
-	[1095]={
+	[1094]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31921,7 +31391,7 @@ return {
 			[1]="tethered_enemies_take_attack_projectile_damage_taken_+%"
 		}
 	},
-	[1096]={
+	[1095]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31953,7 +31423,7 @@ return {
 			[1]="tethered_movement_speed_+%_final_per_rope"
 		}
 	},
-	[1097]={
+	[1096]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -31985,7 +31455,7 @@ return {
 			[1]="tethered_movement_speed_+%_final_per_rope_vs_rare"
 		}
 	},
-	[1098]={
+	[1097]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32017,13 +31487,13 @@ return {
 			[1]="tethered_movement_speed_+%_final_per_rope_vs_unique"
 		}
 	},
-	[1099]={
+	[1098]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -32036,7 +31506,7 @@ return {
 			[1]="tethering_arrow_display_rope_limit"
 		}
 	},
-	[1100]={
+	[1099]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32055,7 +31525,7 @@ return {
 			[1]="totems_explode_on_death_for_%_life_as_physical"
 		}
 	},
-	[1101]={
+	[1100]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32078,7 +31548,7 @@ return {
 			[1]="totems_regenerate_%_life_per_minute"
 		}
 	},
-	[1102]={
+	[1101]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32097,7 +31567,7 @@ return {
 			[1]="trap_critical_strike_multiplier_+_per_power_charge"
 		}
 	},
-	[1103]={
+	[1102]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32129,7 +31599,7 @@ return {
 			[1]="trap_spread_+%"
 		}
 	},
-	[1104]={
+	[1103]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32161,7 +31631,7 @@ return {
 			[1]="trap_throwing_speed_+%_per_frenzy_charge"
 		}
 	},
-	[1105]={
+	[1104]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32193,7 +31663,7 @@ return {
 			[1]="trap_trigger_radius_+%_per_power_charge"
 		}
 	},
-	[1106]={
+	[1105]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32225,31 +31695,10 @@ return {
 			[1]="attack_speed_+%_per_trauma"
 		}
 	},
-	[1107]={
+	[1106]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="milliseconds_to_seconds_1dp",
-						v=2
-					},
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="获得内伤后，每层内伤承受 {2} 点物理伤害"
-				},
-				[2]={
 					[1]={
 						k="milliseconds_to_seconds_1dp",
 						v=2
@@ -32270,7 +31719,7 @@ return {
 					},
 					text="该攻击首次击中敌人获得 1 层内伤\n获得内伤后，每层内伤使你承受{2} 点物理伤害\n内伤持续 {1} 秒"
 				},
-				[3]={
+				[2]={
 					[1]={
 						k="milliseconds_to_seconds_1dp",
 						v=2
@@ -32291,7 +31740,7 @@ return {
 					},
 					text="该攻击首次击中敌人获得 1 层内伤\n获得内伤后，每层内伤使你承受{2} 点物理伤害\n内伤持续 {1} 秒"
 				},
-				[4]={
+				[3]={
 					[1]={
 						k="milliseconds_to_seconds_1dp",
 						v=1
@@ -32312,7 +31761,7 @@ return {
 					},
 					text="该攻击首次击中敌人获得 1 层内伤\n获得内伤后，每层内伤使你承受 {2} 点物理伤害\n内伤持续 {0} 秒"
 				},
-				[5]={
+				[4]={
 					[1]={
 						k="milliseconds_to_seconds_1dp",
 						v=1
@@ -32342,7 +31791,7 @@ return {
 			[3]="trauma_strike_self_damage_per_trauma"
 		}
 	},
-	[1108]={
+	[1107]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32356,7 +31805,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="milliseconds_to_seconds_1dp",
+						k="negate",
 						v=1
 					},
 					limit={
@@ -32374,7 +31823,7 @@ return {
 			[1]="trauma_strike_damage_+%_final_per_trauma"
 		}
 	},
-	[1109]={
+	[1108]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32406,7 +31855,7 @@ return {
 			[1]="trauma_strike_shockwave_area_of_effect_+%_per_100ms_stun_duration_up_to_400%"
 		}
 	},
-	[1110]={
+	[1109]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32434,7 +31883,7 @@ return {
 			[1]="trigger_after_spending_200_mana_%_chance"
 		}
 	},
-	[1111]={
+	[1110]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32466,7 +31915,7 @@ return {
 			[1]="trigger_brand_support_hit_ailment_damage_+%_final_vs_branded_enemy"
 		}
 	},
-	[1112]={
+	[1111]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32494,7 +31943,7 @@ return {
 			[1]="trigger_on_block_%_chance"
 		}
 	},
-	[1113]={
+	[1112]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32522,7 +31971,7 @@ return {
 			[1]="trigger_on_bow_attack_%"
 		}
 	},
-	[1114]={
+	[1113]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32550,7 +31999,7 @@ return {
 			[1]="trigger_on_corpse_consume_%_chance"
 		}
 	},
-	[1115]={
+	[1114]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32578,7 +32027,7 @@ return {
 			[1]="trigger_on_hit_vs_frozen_enemy_%"
 		}
 	},
-	[1116]={
+	[1115]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32606,7 +32055,7 @@ return {
 			[1]="trigger_on_skill_use_%_if_you_have_a_void_arrow"
 		}
 	},
-	[1117]={
+	[1116]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32634,7 +32083,7 @@ return {
 			[1]="trigger_on_slam_%_chance"
 		}
 	},
-	[1118]={
+	[1117]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32653,7 +32102,7 @@ return {
 			[1]="triggered_by_brand_support"
 		}
 	},
-	[1119]={
+	[1118]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32672,7 +32121,7 @@ return {
 			[1]="triggered_by_divine_cry"
 		}
 	},
-	[1120]={
+	[1119]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32691,7 +32140,7 @@ return {
 			[1]="triggered_by_infernal_cry"
 		}
 	},
-	[1121]={
+	[1120]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32710,7 +32159,7 @@ return {
 			[1]="triggered_by_item_buff"
 		}
 	},
-	[1122]={
+	[1121]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32729,14 +32178,14 @@ return {
 			[1]="triggered_by_spiritual_cry"
 		}
 	},
-	[1123]={
+	[1122]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]=99
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="来自被辅助技能的魔蛊结束时，触发该技能"
@@ -32747,7 +32196,7 @@ return {
 			[1]="triggered_vicious_hex_explosion"
 		}
 	},
-	[1124]={
+	[1123]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32779,7 +32228,7 @@ return {
 			[1]="unleash_support_seal_gain_frequency_+%_while_channelling"
 		}
 	},
-	[1125]={
+	[1124]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32811,7 +32260,7 @@ return {
 			[1]="unleash_support_seal_gain_frequency_+%_while_not_channelling"
 		}
 	},
-	[1126]={
+	[1125]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32839,7 +32288,7 @@ return {
 			[1]="upheaval_number_of_spikes"
 		}
 	},
-	[1127]={
+	[1126]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32858,7 +32307,7 @@ return {
 			[1]="vaal_blade_vortex_has_10_spinning_blades"
 		}
 	},
-	[1128]={
+	[1127]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32877,7 +32326,7 @@ return {
 			[1]="vaal_earthquake_maximum_aftershocks"
 		}
 	},
-	[1129]={
+	[1128]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32896,7 +32345,7 @@ return {
 			[1]="vaal_flameblast_radius_+_per_stage"
 		}
 	},
-	[1130]={
+	[1129]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32915,7 +32364,7 @@ return {
 			[1]="vaal_skill_exertable"
 		}
 	},
-	[1131]={
+	[1130]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32951,7 +32400,7 @@ return {
 			[1]="vaal_storm_call_delay_ms"
 		}
 	},
-	[1132]={
+	[1131]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -32983,7 +32432,7 @@ return {
 			[1]="vampiric_icon_bleeding_damage_+%_final"
 		}
 	},
-	[1133]={
+	[1132]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33011,7 +32460,7 @@ return {
 			[1]="virtual_bladefall_number_of_volleys"
 		}
 	},
-	[1134]={
+	[1133]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33030,7 +32479,7 @@ return {
 			[1]="virtual_blood_spears_total_number_of_spears"
 		}
 	},
-	[1135]={
+	[1134]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33049,7 +32498,7 @@ return {
 			[1]="virtual_chill_minimum_slow_%"
 		}
 	},
-	[1136]={
+	[1135]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33068,7 +32517,7 @@ return {
 			[1]="virtual_divine_tempest_number_of_nearby_enemies_to_zap"
 		}
 	},
-	[1137]={
+	[1136]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33078,8 +32527,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1000,
-							[2]=1000
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="风暴每 {0} 秒击中一个敌人"
@@ -33091,7 +32540,7 @@ return {
 			[1]="virtual_herald_of_thunder_bolt_base_frequency"
 		}
 	},
-	[1138]={
+	[1137]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33114,7 +32563,7 @@ return {
 			[1]="virtual_mine_detonation_time_ms"
 		}
 	},
-	[1139]={
+	[1138]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33127,10 +32576,6 @@ return {
 					text="可以施放一个额外诅咒"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]=2,
@@ -33146,7 +32591,7 @@ return {
 			[1]="virtual_number_of_additional_curses_allowed"
 		}
 	},
-	[1140]={
+	[1139]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33183,7 +32628,7 @@ return {
 			[2]="display_hide_projectile_chain_num"
 		}
 	},
-	[1141]={
+	[1140]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33219,7 +32664,7 @@ return {
 			[1]="virtual_onslaught_on_hit_%_chance"
 		}
 	},
-	[1142]={
+	[1141]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33238,7 +32683,7 @@ return {
 			[1]="virtual_regenerate_x_life_over_1_second_on_skill_use_or_trigger"
 		}
 	},
-	[1143]={
+	[1142]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33261,7 +32706,7 @@ return {
 			[1]="virtual_spider_aspect_web_interval_ms"
 		}
 	},
-	[1144]={
+	[1143]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33284,7 +32729,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=2,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -33297,7 +32742,7 @@ return {
 			[1]="virtual_static_strike_base_zap_frequency_ms"
 		}
 	},
-	[1145]={
+	[1144]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33309,10 +32754,6 @@ return {
 						[2]={
 							[1]="#",
 							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
 						}
 					},
 					text="击中受到的伤害在生命和能量护盾承受之前，有 {0}% 优先由该增益效果承受\n该增益效果能承受 {1} 点伤害"
@@ -33325,7 +32766,7 @@ return {
 			[2]="virtual_steelskin_damage_limit"
 		}
 	},
-	[1146]={
+	[1145]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33361,12 +32802,12 @@ return {
 			[1]="virtual_support_storm_barrier_damage_buff_time_threshold_ms"
 		}
 	},
-	[1147]={
+	[1146]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					[1]={
-						k="milliseconds_to_seconds",
+						k="negate",
 						v=1
 					},
 					limit={
@@ -33384,7 +32825,7 @@ return {
 			[1]="virtual_support_storm_barrier_physical_damage_taken_+%_final_from_hits_while_channelling"
 		}
 	},
-	[1148]={
+	[1147]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33403,7 +32844,7 @@ return {
 			[1]="virtual_tectonic_slam_%_chance_to_do_charged_slam"
 		}
 	},
-	[1149]={
+	[1148]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33435,7 +32876,7 @@ return {
 			[1]="virtual_trap_and_mine_throwing_time_+%_final"
 		}
 	},
-	[1150]={
+	[1149]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33446,10 +32887,6 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
 							[2]="#"
 						}
 					},
@@ -33479,7 +32916,7 @@ return {
 			[1]="virulent_arrow_damage_+%_final_per_stage"
 		}
 	},
-	[1151]={
+	[1150]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33498,13 +32935,13 @@ return {
 			[1]="virulent_arrow_maximum_number_of_stacks"
 		}
 	},
-	[1152]={
+	[1151]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -33517,7 +32954,7 @@ return {
 			[1]="virulent_arrow_number_of_pod_projectiles"
 		}
 	},
-	[1153]={
+	[1152]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33549,7 +32986,7 @@ return {
 			[1]="virulent_arrow_pod_projectile_damage_+%_final"
 		}
 	},
-	[1154]={
+	[1153]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33566,10 +33003,6 @@ return {
 						k="negate",
 						v=1
 					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -33585,7 +33018,7 @@ return {
 			[1]="volatile_dead_core_movement_speed_+%"
 		}
 	},
-	[1155]={
+	[1154]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33604,7 +33037,7 @@ return {
 			[1]="volatile_dead_max_cores_allowed"
 		}
 	},
-	[1156]={
+	[1155]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33632,14 +33065,14 @@ return {
 			[1]="volatile_dead_number_of_corpses_to_consume"
 		}
 	},
-	[1157]={
+	[1156]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="在更小的区域里击退并打断敌人"
@@ -33651,7 +33084,7 @@ return {
 			[1]="warcries_knock_back_enemies"
 		}
 	},
-	[1158]={
+	[1157]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33789,7 +33222,7 @@ return {
 			[4]="warcries_have_infinite_power"
 		}
 	},
-	[1159]={
+	[1158]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33808,7 +33241,7 @@ return {
 			[1]="rallying_cry_weapon_damage_%_for_allies_per_5_monster_power"
 		}
 	},
-	[1160]={
+	[1159]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33831,7 +33264,7 @@ return {
 			[1]="seismic_cry_+%_enemy_stun_threshold_per_5_MP"
 		}
 	},
-	[1161]={
+	[1160]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33854,7 +33287,7 @@ return {
 			[1]="intimidating_cry_enemy_phys_reduction_%_penalty_vs_hit_per_5_MP"
 		}
 	},
-	[1162]={
+	[1161]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33866,10 +33299,6 @@ return {
 						[2]={
 							[1]="#",
 							[2]="#"
-						},
-						[4]={
-							[1]=0,
-							[2]=0
 						}
 					},
 					text="每 5 点威力值使增益效果 {0:+d} 护甲值，最多 {1:+d}"
@@ -33882,7 +33311,7 @@ return {
 			[2]="ancestral_cry_max_physical_damage_reduction_rating"
 		}
 	},
-	[1163]={
+	[1162]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33901,7 +33330,7 @@ return {
 			[1]="ancestral_cry_x_melee_range_per_5_monster_power"
 		}
 	},
-	[1164]={
+	[1163]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33924,14 +33353,10 @@ return {
 			[1]="infernal_cry_covered_in_ash_fire_damage_taken_%_per_5_monster_power"
 		}
 	},
-	[1165]={
+	[1164]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOverwhelm"
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -33947,7 +33372,7 @@ return {
 			[1]="endurance_charge_granted_per_X_monster_power_during_endurance_warcry"
 		}
 	},
-	[1166]={
+	[1165]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -33971,7 +33396,7 @@ return {
 			[2]="maximum_number_of_spiritual_cry_warriors"
 		}
 	},
-	[1167]={
+	[1166]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34003,7 +33428,7 @@ return {
 			[1]="divine_cry_critical_strike_chance_+%_per_5_power_up_to_cap%"
 		}
 	},
-	[1168]={
+	[1167]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34022,7 +33447,7 @@ return {
 			[1]="divine_cry_additive_spell_damage_modifiers_apply_to_attack_damage_at_%_value_per_5_power_up_to_150%"
 		}
 	},
-	[1169]={
+	[1168]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34054,7 +33479,7 @@ return {
 			[1]="rallying_cry_buff_effect_on_minions_+%_final"
 		}
 	},
-	[1170]={
+	[1169]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34150,7 +33575,7 @@ return {
 			[2]="skill_empower_limitation_specifier_for_stat_description"
 		}
 	},
-	[1171]={
+	[1170]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34178,7 +33603,7 @@ return {
 			[1]="ancestral_cry_empowered_attacks_strike_X_additional_enemies"
 		}
 	},
-	[1172]={
+	[1171]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34197,7 +33622,7 @@ return {
 			[1]="rallying_cry_damage_+%_final_from_osm_per_nearby_ally"
 		}
 	},
-	[1173]={
+	[1172]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34229,7 +33654,7 @@ return {
 			[1]="seismic_cry_base_slam_skill_damage_+%_final"
 		}
 	},
-	[1174]={
+	[1173]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34261,7 +33686,7 @@ return {
 			[1]="seismic_cry_slam_skill_damage_+%_final_increase_per_repeat"
 		}
 	},
-	[1175]={
+	[1174]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34293,7 +33718,7 @@ return {
 			[1]="seismic_cry_base_slam_skill_area_+%"
 		}
 	},
-	[1176]={
+	[1175]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34325,7 +33750,7 @@ return {
 			[1]="seismic_cry_slam_skill_area_+%_increase_per_repeat"
 		}
 	},
-	[1177]={
+	[1176]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34344,7 +33769,7 @@ return {
 			[1]="display_battlemage_cry_exerted_attacks_trigger_supported_spell"
 		}
 	},
-	[1178]={
+	[1177]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34363,7 +33788,7 @@ return {
 			[1]="infernal_cry_empowered_attacks_trigger_combust_display"
 		}
 	},
-	[1179]={
+	[1178]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34395,7 +33820,7 @@ return {
 			[1]="vanishing_ambush_critical_strike_chance_+%"
 		}
 	},
-	[1180]={
+	[1179]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34414,7 +33839,7 @@ return {
 			[1]="vanishing_ambush_critical_strike_multiplier_+"
 		}
 	},
-	[1181]={
+	[1180]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34433,7 +33858,7 @@ return {
 			[1]="intimidating_cry_empowerd_attacks_deal_double_damage_display"
 		}
 	},
-	[1182]={
+	[1181]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34452,7 +33877,7 @@ return {
 			[1]="warcry_grant_damage_+%_to_exerted_attacks"
 		}
 	},
-	[1183]={
+	[1182]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34488,7 +33913,7 @@ return {
 			[1]="warcry_grant_knockback_%_to_exerted_attacks"
 		}
 	},
-	[1184]={
+	[1183]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34511,7 +33936,7 @@ return {
 			[1]="warcry_grant_overwhelm_%_to_exerted_attacks"
 		}
 	},
-	[1185]={
+	[1184]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34530,7 +33955,7 @@ return {
 			[1]="water_sphere_cold_lightning_exposure_%"
 		}
 	},
-	[1186]={
+	[1185]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34553,7 +33978,7 @@ return {
 			[1]="water_sphere_does_weird_conversion_stuff"
 		}
 	},
-	[1187]={
+	[1186]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34585,7 +34010,7 @@ return {
 			[1]="weapon_trap_rotation_speed_+%"
 		}
 	},
-	[1188]={
+	[1187]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34608,7 +34033,7 @@ return {
 			[1]="weapon_trap_total_rotation_%"
 		}
 	},
-	[1189]={
+	[1188]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34640,7 +34065,7 @@ return {
 			[1]="whirling_blades_evasion_rating_+%_while_moving"
 		}
 	},
-	[1190]={
+	[1189]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34659,13 +34084,13 @@ return {
 			[1]="winter_brand_max_number_of_stages"
 		}
 	},
-	[1191]={
+	[1190]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -34678,7 +34103,7 @@ return {
 			[1]="wither_applies_additional_wither_%"
 		}
 	},
-	[1192]={
+	[1191]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34697,7 +34122,7 @@ return {
 			[1]="wither_chance_to_apply_another_stack_if_hand_cast_%"
 		}
 	},
-	[1193]={
+	[1192]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34733,7 +34158,7 @@ return {
 			[1]="withered_on_hit_chance_%"
 		}
 	},
-	[1194]={
+	[1193]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34761,7 +34186,7 @@ return {
 			[1]="withering_step_chance_to_not_remove_on_skill_use_%"
 		}
 	},
-	[1195]={
+	[1194]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34793,7 +34218,7 @@ return {
 			[1]="you_and_enemy_movement_velocity_+%_while_affected_by_ailment_you_inflicted"
 		}
 	},
-	[1196]={
+	[1195]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34835,7 +34260,7 @@ return {
 			[4]="skill_max_unleash_seals"
 		}
 	},
-	[1197]={
+	[1196]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34867,7 +34292,7 @@ return {
 			[1]="support_spell_rapid_fire_repeat_use_damage_+%_final"
 		}
 	},
-	[1198]={
+	[1197]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34886,7 +34311,7 @@ return {
 			[1]="kinetic_bolt_number_of_zig_zags"
 		}
 	},
-	[1199]={
+	[1198]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -34918,7 +34343,7 @@ return {
 			[1]="cold_projectile_mine_enemy_critical_strike_chance_+%_against_self"
 		}
 	},
-	[1200]={
+	[1199]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
