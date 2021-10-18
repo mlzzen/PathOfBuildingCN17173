@@ -3366,7 +3366,7 @@ s_format("异常计算模式: %s ^8(可以在配置面板修改)", igniteMode ==
 					output.TotalIgniteDPS = output.IgniteDPS * output.TotalIgniteStacks
 				end
 				if breakdown then
-t_insert(breakdown.IgniteDPS, "x 0.5 ^8(点燃每秒造成 50% 伤害)")
+					t_insert(breakdown.IgniteDPS, "x 1.25 ^8(点燃每秒造成 125% 伤害)")
 					t_insert(breakdown.IgniteDPS, s_format("= %.1f", baseVal, 1))
 					breakdown.multiChain(breakdown.IgniteDPS, {
 						label = "Ignite DPS:",
