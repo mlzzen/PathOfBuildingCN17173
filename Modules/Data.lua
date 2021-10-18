@@ -325,6 +325,7 @@ data.misc = { -- magic numbers
 	TemporalChainsEffectCap = 75,
 	PhysicalDamageReductionCap = 90,
 	DamageReductionCap = 90,
+	ResistFloor = -200,
 	MaxResistCap = 90,
 	EvadeChanceCap = 95,
 	DodgeChanceCap = 75,
