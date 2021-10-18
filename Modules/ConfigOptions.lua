@@ -710,7 +710,7 @@ modList:NewMod("LuckyHits", "FLAG", true, "Config", { type = "Condition", varLis
 { type = "SkillName", skillNameList = { "电弧", "瓦尔.电弧" } })
 
 end },
-{ var = "buffElusive", type = "check", label = "你是否处于【灵巧】状态?", tooltip="这个会启用【灵巧】buff (\n·15% 几率躲避攻击伤害 \n·15% 几率躲避法术伤害\n·移动速度提高 30%)\n灵巧效果会随着时间不断削弱，每秒降低 20%\n在已经获得【灵巧】的情况下，无法再次获得【灵巧】)",
+{ var = "buffElusive", type = "check", label = "你是否处于【灵巧】状态?", tooltip="这个会启用【灵巧】buff (\n·15% 的机率避免伤害 \n·移动速度提高 30%)\n灵巧效果会随着时间不断削弱，每秒降低 20%\n在已经获得【灵巧】的情况下，无法再次获得【灵巧】)",
 ifCond = "CanBeElusive", apply = function(val, modList, enemyModList)
 	
 		modList:NewMod("Condition:Elusive", "FLAG", true, "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanBeElusive" })

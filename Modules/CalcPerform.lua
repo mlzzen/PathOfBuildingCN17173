@@ -883,14 +883,18 @@ local function doActorMisc(env, actor)
 			modDB.multipliers["BuffOnSelf"] = (modDB.multipliers["BuffOnSelf"] or 0) + (output.ActivePhantasmLimit or 1) - 1 -- slight hack to not double count the initial buff
 		end
 		if modDB:Flag(nil, "Elusive") then
-			local moveEffect = m_floor(30 * (1 + modDB:Sum("INC", nil, "ElusiveEffectOnSelf", "BuffEffectOnSelf") / 100))
-			local spellDodgeChanceEffect = m_floor(15 * (1 + modDB:Sum("INC", nil, "ElusiveEffectOnSelf", "BuffEffectOnSelf") / 100))
-			local dodgeChanceEffect = m_floor(15 * (1 + modDB:Sum("INC", nil, "ElusiveEffectOnSelf", "BuffEffectOnSelf") / 100))
-			
-modDB:NewMod("MovementSpeed", "INC", moveEffect, "灵巧")
-modDB:NewMod("SpellDodgeChance", "BASE", spellDodgeChanceEffect, "灵巧")
-modDB:NewMod("AttackDodgeChance", "BASE", dodgeChanceEffect, "灵巧")
-
+			local effect = 1 + modDB:Sum("INC", nil, "ElusiveEffect", "BuffEffectOnSelf") / 100
+			-- Override elusive effect if set.			
+			if modDB:Override(nil, "ElusiveEffect") then 
+				effect = m_min(modDB:Override(nil, "ElusiveEffect") / 100, effect)
+			end
+			condList["Elusive"] = true
+			modDB:NewMod("AvoidPhysicalDamageChance", "BASE", m_floor(15 * effect), "Elusive")
+			modDB:NewMod("AvoidLightningDamageChance", "BASE", m_floor(15 * effect), "Elusive")
+			modDB:NewMod("AvoidColdDamageChance", "BASE", m_floor(15 * effect), "Elusive")
+			modDB:NewMod("AvoidFireDamageChance", "BASE", m_floor(15 * effect), "Elusive")
+			modDB:NewMod("AvoidChaosDamageChance", "BASE", m_floor(15 * effect), "Elusive")
+			modDB:NewMod("MovementSpeed", "INC", m_floor(30 * effect), "Elusive")
 
 			modDB.multipliers["BuffOnSelf"] = (modDB.multipliers["BuffOnSelf"] or 0) + 1
 		end
