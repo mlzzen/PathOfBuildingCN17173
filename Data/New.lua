@@ -290,15 +290,15 @@ for name, grantedEffect in pairs(data.skills) do
 end
 table.sort(supports)
 for index, name in ipairs(supports) do
-	table.insert(linesForbiddenShako, "版本: "..name)
-	
+	table.insert(linesForbiddenShako, "版本: "..name.. " (低等级)")
+	table.insert(linesForbiddenShako, "{variant:"..(index * 2 - 1).."}此物品上的技能石受到 (1-10) 级的 "..name.." 辅助")
+	table.insert(linesForbiddenShako, "版本: "..name.. " (高等级)")
+	table.insert(linesForbiddenShako, "{variant:"..(index * 2).."}此物品上的技能石受到 (25-35) 级的 "..name.." 辅助")
 	
 	table.insert(linesForbiddenShakoReplica, "版本: "..name.. " (低等级)")
 	table.insert(linesForbiddenShakoReplica, "{variant:"..(index * 2 - 1).."}此物品上的技能石受到 (1-10) 级的 "..name.." 辅助")
 	table.insert(linesForbiddenShakoReplica, "版本: "..name.. " (高等级)")
 	table.insert(linesForbiddenShakoReplica, "{variant:"..(index * 2).."}此物品上的技能石受到 (25-35) 级的 "..name.." 辅助")
-	
-	table.insert(linesForbiddenShako, "{variant:"..index.."}此物品上的技能石受到 (15-25) 级的 "..name.." 辅助")
 	
 	
 	
