@@ -12308,7 +12308,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="若被冰缓时使用则获得持续 4 秒的免疫冰缓状态\n若被冻结时使用则获得持续 4 秒的免疫冻结状态"
+					text="被冰缓时使用可以在 4 秒内免疫冰缓\n被冻结时使用可以在 4 秒内免疫冻结"
 				}
 			}
 		},
@@ -12344,7 +12344,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="若被感电时使用则获得持续 4 秒的免疫感电状态"
+					text="遭受感电时使用可以在 4 秒内免疫感电"
 				}
 			}
 		},
@@ -13866,7 +13866,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="若中毒时使用则获得持续 4 秒的免疫中毒状态"
+					text="中毒时使用可以在 4 秒内免疫中毒"
 				}
 			}
 		},
@@ -14213,8 +14213,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="药剂生效期间，恶魔造成的伤害提高 {0}%"
@@ -14262,7 +14262,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -14342,7 +14342,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -14396,7 +14396,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -28207,11 +28207,9 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
+					[1]={
+						k="reminderstring",
+						v="ReminderTextMaximumResistance"
 					},
 					text="持盾牌时 {0:+d}% 元素抗性"
 				}
@@ -28308,7 +28306,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="插上 1 个红色技能石时获得 {0:+d}% 火焰抗性"
@@ -28454,7 +28452,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="插上 1 个绿色技能石时获得 {0:+d}% 冰霜抗性"
@@ -28561,7 +28559,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="插上 1 个蓝色技能石时获得 {0:+d}% 闪电抗性"
@@ -30277,6 +30275,14 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextEnergyShieldLeech"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -30376,7 +30382,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -30399,7 +30405,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="偷取的每秒最大能量护盾总恢复量 {0:+d}%"
@@ -30414,6 +30420,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -30555,6 +30565,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="divide_by_twelve",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -30706,6 +30720,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="divide_by_six",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -30776,7 +30794,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="攻击击中每个点燃的敌人会回复 {0:+d} 生命"
@@ -30973,7 +30991,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -31009,7 +31027,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -31027,7 +31045,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -31045,7 +31063,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -31099,7 +31117,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -31117,7 +31135,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -35635,7 +35653,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -36802,6 +36820,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
 					},
 					limit={
 						[1]={
@@ -42679,7 +42701,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -42725,7 +42747,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="最多可同时拥有 {0} 个陷阱"
@@ -42749,11 +42771,9 @@ return {
 					text="最多可同时拥有 {0} 个遥控地雷"
 				},
 				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
+					[1]={
+						k="negate",
+						v=1
 					},
 					text="最多可同时拥有 {0} 个遥控地雷"
 				}
@@ -42907,8 +42927,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=1
 						}
 					},
 					text="与周围玩家分享耐力球"
@@ -42925,7 +42945,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -42943,8 +42963,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=-1,
+							[2]=-1
 						}
 					},
 					text="与周围玩家分享暴击球"
@@ -42966,7 +42986,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-2
 						}
 					},
 					text="击中时有 {0}% 的几率致盲敌人"
@@ -43200,7 +43220,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="无法回复生命"
@@ -43235,7 +43255,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -43290,7 +43310,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="区域扩大 {0}%"
@@ -43305,9 +43325,13 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortify"
+					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -43362,7 +43386,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="区域内有【燃烧地面】"
@@ -43379,7 +43403,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -43424,7 +43448,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="区域内有【冰缓地面】"
@@ -44330,6 +44354,21 @@ return {
 	},
 	[1849]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCurseVulnerability"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家受到脆弱诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_level_X_vulnerability"
@@ -44337,6 +44376,21 @@ return {
 	},
 	[1850]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCurseEnfeeble"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家受到衰弱诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_level_X_enfeeble"
@@ -44344,6 +44398,21 @@ return {
 	},
 	[1851]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCurseTemporalChains"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家受到时空锁链诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_level_X_temporal_chains"
@@ -44351,6 +44420,21 @@ return {
 	},
 	[1852]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCurseElementalWeakness"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家受到元素要害诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_level_X_elemental_weakness"
@@ -44358,6 +44442,21 @@ return {
 	},
 	[1853]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCursePunishment"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家受到惩戒诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_level_X_punishment"
@@ -44365,6 +44464,21 @@ return {
 	},
 	[1854]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCurseFlammability"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家受到易燃诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_level_X_flammability"
@@ -44372,6 +44486,21 @@ return {
 	},
 	[1855]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCurseFrostbite"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家受到冻伤诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_level_X_frostbite"
@@ -44379,6 +44508,21 @@ return {
 	},
 	[1856]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCurseConductivity"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家受到导电诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_level_X_conductivity"
@@ -44386,6 +44530,21 @@ return {
 	},
 	[1857]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCurseDespair"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家受到绝望诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_level_X_despair"
@@ -44393,6 +44552,21 @@ return {
 	},
 	[1858]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCurseSilence"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家受到沉默诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_level_X_silence"
@@ -44454,7 +44628,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="玩家的生命、魔力、能量护盾回复率总降 {0}%"
@@ -44471,7 +44645,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -44482,10 +44656,22 @@ return {
 						k="negate",
 						v=1
 					},
+					text="玩家不会回复生命或魔力"
+				}
+			}
+		},
+		stats={
+			[1]="map_player_no_regeneration"
+		}
+	},
+	[1860]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="玩家的投射物伤害总降 {0}%"
@@ -48762,7 +48948,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -52518,7 +52704,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -53686,8 +53872,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="对低血敌人的击中和异常状态总伤害提高 {0}%"
@@ -53884,7 +54070,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -54303,7 +54489,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -54366,7 +54552,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="被击中时有 {0}% 的几率反击"
@@ -54387,7 +54573,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -54424,7 +54610,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="格挡时每 1 秒回复等同 {0}% 护甲的生命"
@@ -54480,8 +54666,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=2,
+							[2]=2
 						}
 					},
 					text="元素抗性为零"
@@ -54502,8 +54688,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=3,
+							[2]=3
 						}
 					},
 					text="终结燃烧中的敌人"
@@ -54520,8 +54706,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=4,
+							[2]=4
 						}
 					},
 					text="当攻击使怪物点燃时，获得 1 个狂怒球"
@@ -54539,7 +54725,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="每 10 级，伤害提高 {0}%"
@@ -54551,8 +54737,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]=2
 						}
 					},
 					text="每 10 级，伤害降低 {0}%"
@@ -54697,7 +54883,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -54742,7 +54928,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="钓鱼池消耗量降低 {0}%"
@@ -54878,9 +55064,13 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -55384,8 +55574,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1000,
+							[2]=1000
 						}
 					},
 					text="你的冰霜伤害可以造成感电"
@@ -55428,7 +55618,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -55494,8 +55684,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1000,
+							[2]=1000
 						}
 					},
 					text="你的闪电伤害可以造成冰缓"
@@ -55512,7 +55702,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -55534,8 +55724,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1000,
+							[2]=1000
 						}
 					},
 					text="物理伤害可以造成冰缓"
@@ -55556,7 +55746,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -55578,8 +55768,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1000,
+							[2]=1000
 						}
 					},
 					text="你的物理伤害造成感电"
@@ -55600,7 +55790,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -55676,7 +55866,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -55984,11 +56174,9 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
 					},
 					text="你被冰冻时不会被感电"
 				}
@@ -56002,11 +56190,9 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
 					},
 					text="你死亡时给予友军 {0} 个狂怒球"
 				}
@@ -56020,11 +56206,9 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
+					[1]={
+						k="milliseconds_to_seconds",
+						v=1
 					},
 					text="非暴击时获得一个暴击球"
 				}
@@ -56074,11 +56258,9 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
 					},
 					text="召唤生物有{0:+d}% 攻击伤害格挡几率"
 				}
@@ -56284,7 +56466,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -56303,7 +56485,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="召唤生物有 {0:+d}% 混沌抗性"
@@ -56324,7 +56506,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -56391,7 +56573,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="暴击时获得【不洁之力】 4 秒"
@@ -56490,7 +56672,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -56512,8 +56694,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="药剂持续期间，有 {0}% 的几率冰冻"
@@ -56534,7 +56716,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -56628,7 +56810,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="被动物击中时承受 {0:+d} 物理伤害"
@@ -56646,7 +56828,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="此武器攻击造成的元素伤害提高 {0}%"
@@ -56658,8 +56840,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="此武器攻击造成的元素伤害降低 {0}%"
@@ -56824,7 +57006,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="获得等同 {0}% 物理伤害的 1 个随机元素伤害"
@@ -56921,8 +57103,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRampage"
 					},
 					limit={
 						[1]={
@@ -56952,13 +57134,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextBlind"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="被点燃时施法速度降低 {0}%"
@@ -57107,7 +57289,16 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
+							[2]=1
+						}
+					},
+					text="暴击时获得 1 点充能"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -57227,7 +57418,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					limit={
@@ -57351,6 +57542,10 @@ return {
 					},
 					limit={
 						[1]={
+							[1]=100,
+							[2]="#"
+						},
+						[2]={
 							[1]="#",
 							[2]="#"
 						}
@@ -57382,8 +57577,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="对中毒敌人的物理总伤害降低 {0}%"
@@ -57448,14 +57643,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextUnholyMight"
 					},
 					text="攻击和法术暴击率每级降低 {0}%"
 				}
@@ -57471,21 +57664,25 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=1000,
+							[2]=1000
 						}
 					},
 					text="每级的攻击伤害提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextUnholyMight"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每级的攻击伤害降低 {0}%"
@@ -57595,7 +57792,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -57615,6 +57812,18 @@ return {
 						k="milliseconds_to_seconds",
 						v=1
 					},
+					text="伤害穿透 {0}% 火焰抗性"
+				}
+			}
+		},
+		stats={
+			[1]="base_reduce_enemy_fire_resistance_%"
+		}
+	},
+	[2425]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1000,
@@ -57631,6 +57840,24 @@ return {
 					limit={
 						[1]={
 							[1]="#",
+							[2]=-1
+						}
+					},
+					text="你的击中将冰霜抗性视为比实际高 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="base_reduce_enemy_cold_resistance_%"
+		}
+	},
+	[2426]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -57778,7 +58005,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -57905,7 +58132,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -57928,7 +58155,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="你对已穿刺的敌人造成的穿刺伤害压制 {0}% 物理伤害减免"
@@ -57979,6 +58206,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDefences"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -58035,7 +58266,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="格挡时用脆弱诅咒敌人，其效果提高 20%"
@@ -58056,7 +58287,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -58391,7 +58622,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -58439,17 +58670,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
 						k="reminderstring",
 						v="ReminderTextDefences"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你每有 100 点力量，周围友军的防御属性便降低 {0}%"
@@ -58484,7 +58711,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -58498,7 +58725,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你每有 100 点力量，周围友军的智慧便降低 {0}%"
@@ -58515,7 +58742,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -58928,7 +59155,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -58941,8 +59168,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="召唤生物的效果区域缩小 {0}%"
@@ -58989,14 +59216,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
 					},
 					text="耐力球，狂怒球，以及暴击球的持续时间缩短 {0}%"
 				}
@@ -59012,8 +59237,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=1000,
+							[2]=1000
 						}
 					},
 					text="当你的召唤生物死亡时，承受 {0} 点物理伤害"
@@ -59054,23 +59279,27 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBlind"
+					},
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="【猛攻】效果持续时，攻击与施法速度提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextBlind"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="【猛攻】效果持续时，攻击与施法速度降低 {0}%"
@@ -59298,6 +59527,10 @@ return {
 					[1]={
 						k="reminderstring",
 						v="ReminderTextIgnite"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextUnarmed"
 					},
 					limit={
 						[1]={
@@ -59693,7 +59926,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -59754,13 +59987,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextElementalStatusAilments"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="范围内每配置 10 点力量，图腾生命降低 {0}%"
@@ -60017,6 +60250,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowMana"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -60074,6 +60311,10 @@ return {
 					[1]={
 						k="reminderstring",
 						v="ReminderTextElementalStatusAilments"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextAttributes"
 					},
 					limit={
 						[1]={
@@ -60245,7 +60486,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="能量护盾全满时，法术伤害降低 {0}%"
@@ -60515,6 +60756,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextEquippedItems"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -60539,7 +60784,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -60660,7 +60905,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -60674,7 +60919,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="死亡时，伤害降低 {0}%"
@@ -60757,7 +61002,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -60765,8 +61010,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextEquippedItems"
 					},
 					[2]={
 						k="reminderstring",
@@ -60804,7 +61049,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					[2]={
@@ -60814,7 +61059,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每装备一件被腐化的物品，生命偷取的每秒总恢复量降低 {0}%"
@@ -60835,7 +61080,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -60865,8 +61110,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextUnlucky"
 					},
 					[2]={
 						k="reminderstring",
@@ -60926,9 +61171,13 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCursePunishment"
+					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -60936,8 +61185,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextCursePunishment"
 					},
 					limit={
 						[1]={
@@ -60967,13 +61216,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="multiply_by_four",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="阻灵术持续时间缩短 {0}%"
@@ -61057,7 +61306,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -61071,7 +61320,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="召唤图腾的光环技能的消耗降低 {0}%"
@@ -61088,7 +61337,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -61102,7 +61351,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="被腐化技能石获取的经验值降低 {0}%"
@@ -61244,6 +61493,10 @@ return {
 						k="reminderstring",
 						v="ReminderTextUnlucky"
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextUnarmedAttacks"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -61355,6 +61608,10 @@ return {
 						k="multiply_by_four",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextVisibility"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -61375,6 +61632,10 @@ return {
 				[1]={
 					limit={
 						[1]={
+							[1]=1,
+							[2]="#"
+						},
+						[2]={
 							[1]=1,
 							[2]="#"
 						}
@@ -61505,7 +61766,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -61513,13 +61774,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="per_minute_to_per_second",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="击中你时的暴击率降低 {0}%"
@@ -61580,7 +61841,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="击中你的额外暴击几率降低 {0}%"
@@ -61709,7 +61970,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -61717,7 +61978,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="per_minute_to_per_second",
 						v=1
 					},
 					[2]={
@@ -61727,7 +61988,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="空手攻击时，范围内每分配 {0} 点敏捷，近战物理伤害降低 1%"
@@ -61856,14 +62117,32 @@ return {
 						k="negate",
 						v=1
 					},
-					[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="中毒持续总时间额外降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="unique_volkuurs_clutch_poison_duration_+%_final"
+		}
+	},
+	[2611]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
 						k="reminderstring",
 						v="ReminderTextVisibility"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="敌人视野范围缩小 {0}%"
@@ -61959,6 +62238,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -62068,8 +62351,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="范围内每配置 10 点敏捷，移动速度降低 {0}%"
@@ -62297,7 +62580,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -62386,7 +62669,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【天雷之珠】伤害降低 {0}%"
@@ -62411,13 +62694,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="multiplicative_damage_modifier",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="流血伤害降低 {0}%"
@@ -62639,6 +62922,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -62772,6 +63059,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -63092,7 +63383,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="护体状态下伤害降低 {0}%"
@@ -63307,14 +63598,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					text="当你有图腾存在时，伤害降低 {0}%"
 				}
@@ -63364,7 +63649,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
 					},
 					[2]={
@@ -63399,14 +63684,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextTaunt"
 					},
 					text="击中稀有怪和传奇怪伤害降低 {0}%"
 				}
@@ -63598,8 +63877,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="受到你嘲讽的敌人所承受的伤害降低 {0}%"
@@ -63629,8 +63908,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="护体状态下，攻击速度降低 {0}%"
@@ -63690,8 +63969,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="若你近期内被击中但没有受到伤害，则伤害降低 {0}%"
@@ -63716,14 +63995,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					text="过去 10 秒内格挡的每个攻击可使你的物理伤害降低 {0}%"
 				}
@@ -63825,14 +64098,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					text="承受来自致盲敌人的法术伤害降低 {0}%"
 				}
@@ -63878,8 +64145,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					[2]={
 						k="reminderstring",
@@ -63888,7 +64155,11 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="若你近期内没有被击中，则移动速度降低 {0}%"
@@ -64079,6 +64350,10 @@ return {
 				[1]={
 					limit={
 						[1]={
+							[1]=1,
+							[2]="#"
+						},
+						[2]={
 							[1]=1,
 							[2]="#"
 						}
@@ -64351,6 +64626,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="若范围内含有 40 点智慧，火球投射物的爆炸范围将随飞行距离扩大，最多扩大至 {0:+d}"
+				}
+			}
+		},
+		stats={
+			[1]="local_unique_jewel_fireball_base_radius_up_to_+_at_longer_ranges_with_40_int_in_radius"
+		}
+	},
+	[2693]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -64565,14 +64852,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecoup"
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					text="火球投射物爆炸范围将随飞行距离缩小，最多缩小 {0}%"
 				}
@@ -64607,7 +64892,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 {0} 把远程武器"
@@ -64669,7 +64954,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -64683,7 +64968,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若范围内含有 40 点力量，【裂地之击】的角度缩小 {0}%"
@@ -64708,13 +64993,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRampage"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="【裂地之击】的角度缩小 {0}%"
@@ -64932,7 +65217,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="耐力球达到上限时进入暴走状态"
@@ -64968,7 +65253,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="【幻化武器】可以幻化最多 {0} 把远程武器"
@@ -64990,7 +65275,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="你的晕眩门槛将基于魔力的 {0}%，而非生命"
@@ -65046,7 +65331,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -65054,14 +65339,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextPoison"
 					},
 					text="你每控制一个魔侍，召唤生物攻击和施法速度便降低 {0}%"
 				}
@@ -65078,20 +65357,20 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="每控制 1 个魔卫复苏，召唤生物持续时间延长 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextPoison"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="每控制 1 个魔卫复苏，召唤生物持续时间缩短 {0}%"
@@ -65428,20 +65707,20 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="每个狂怒球可使伤害提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextMaim"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=99,
+							[2]=100
 						}
 					},
 					text="每个狂怒球可使伤害降低 {0}%"
@@ -65588,15 +65867,15 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="【猛攻】效果提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextElementalStatusAilments"
 					},
 					[2]={
 						k="reminderstring",
@@ -65604,8 +65883,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="【猛攻】效果降低 {0}%"
@@ -65692,14 +65971,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextPoison"
 					},
 					text="受到的元素伤害降低 {0}%"
 				}
@@ -65716,21 +65989,15 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="受到的陷阱与地雷伤害提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextPoison"
 					},
 					text="受到的陷阱与地雷伤害降低 {0}%"
 				}
@@ -65826,7 +66093,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【猛攻】状态下闪避投射物的几率总降 {0}%"
@@ -65847,7 +66114,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -65908,8 +66175,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -66055,12 +66322,16 @@ return {
 			["Simplified Chinese"]={
 				[1]={
 					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -66082,7 +66353,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -66104,7 +66375,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						},
 						[2]={
@@ -66131,7 +66402,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -66202,7 +66473,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="图腾低血时会爆炸，造成其 {0}% 生命的火焰伤害"
@@ -66223,7 +66494,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -66381,14 +66652,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextLowLife"
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextElementalStatusAilments"
 					},
 					text="过去 10 秒内格挡的每个攻击可使你的移动速度降低 {0}%"
 				}
@@ -66417,8 +66686,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="护体状态下移动速度降低 {0}%"
@@ -66435,7 +66704,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -66448,8 +66717,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="耐力球达到上限时，受到的元素伤害降低 {0}%"
@@ -66551,7 +66820,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="若你近期内有击败敌人，则承受的伤害提高 {0}%"
@@ -66567,8 +66836,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="若你近期内有击败敌人，则承受的伤害降低 {0}%"
@@ -66829,8 +67098,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="对低血敌人的晕眩时间缩短 {0}%"
@@ -66860,8 +67129,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="单手武器的攻击伤害降低 {0}%"
@@ -66886,13 +67155,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextOnslaught"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="双手武器的攻击伤害降低 {0}%"
@@ -66945,7 +67214,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -66981,7 +67250,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -67021,7 +67290,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -67029,13 +67298,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextFortify"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="冰冻时物理伤害减少 {0}%"
@@ -67200,8 +67469,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=1
 						}
 					},
 					text="若范围内至少有 40 点敏捷，则【虚空匕首】将以环状发射投射物"
@@ -67218,7 +67487,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -67236,8 +67505,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=1
 						}
 					},
 					text="若范围内含有 40 点力量，\n则【冰霜之锤】{0}% 的物理伤害会转化为冰霜伤害"
@@ -67254,7 +67523,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -67297,6 +67566,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -67335,8 +67608,8 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="若范围内含有 40 点智慧，则【冰霜脉冲】额外发射 {0} 个投射物"
@@ -67723,6 +67996,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChanceToAvoidDamageMax"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -68448,7 +68725,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -68485,7 +68762,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每有 200 敏捷，攻城炮台 {0:+d} 召唤图腾数量上限"
@@ -68500,9 +68777,13 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextHinder"
+					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						},
 						[2]={
@@ -68574,7 +68855,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="周围敌人有恶语术效果"
@@ -68591,7 +68872,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -69359,6 +69640,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextTaunt"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -69688,6 +69973,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -70274,6 +70563,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -70295,6 +70588,10 @@ return {
 					[1]={
 						k="reminderstring",
 						v="ReminderTextElementalStatusAilments"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -70495,6 +70792,10 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -70571,31 +70872,19 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="击中和异常状态对流血敌人的伤害提高 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="击中和异常状态对流血敌人的伤害降低 {0}%"
@@ -70613,7 +70902,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="击败流血的敌人时产生爆炸，造成等同其 {0}% 最大生命的物理伤害"
@@ -73618,8 +73907,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="元素伤害总降 {0}%"
@@ -73717,7 +74006,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="猛攻"
@@ -73882,8 +74171,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=100,
+							[2]=100
 						}
 					},
 					text="石化"
@@ -73942,6 +74231,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="当你的陷阱被敌人触发时，获得 1 个耐力球"
+				}
+			}
+		},
+		stats={
+			[1]="%_chance_to_gain_endurance_charge_on_trap_triggered_by_an_enemy"
+		}
+	},
+	[3036]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -73961,8 +74262,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="近期你或你的图腾若有击败过敌人，则每击败 1 个，伤害降低 {0}%"
@@ -73977,6 +74278,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextShockNonHit"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -73993,7 +74298,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="当你有图腾存在时，攻击和施法速度降低 {0}%"
@@ -74036,14 +74341,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextFortifyNoDuration"
 					},
 					text="怪物受到的暴击伤害提高 {0}%"
 				}
@@ -74387,8 +74686,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="先祖卫士图腾造成的伤害降低 {0}% "
@@ -76439,6 +76738,10 @@ return {
 				[1]={
 					limit={
 						[1]={
+							[1]=100,
+							[2]="#"
+						},
+						[2]={
 							[1]="#",
 							[2]="#"
 						}
@@ -76457,7 +76760,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -76471,7 +76774,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="魔像体型缩小 {0}%"
@@ -78078,7 +78381,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每个召唤的图腾都使伤害总降 {0}%"
@@ -78103,14 +78406,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					text="每个召唤的图腾都使图腾伤害总降 {0}%"
 				}
@@ -78462,8 +78759,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="对满血敌人的攻击和法术暴击率降低 {0}%"
@@ -78734,7 +79031,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -78938,13 +79235,17 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="per_minute_to_per_second",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextAurasOnlyAffectThingsTheyAffect"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="在你图腾周围，敌人造成的伤害总降 {0}%"
@@ -78961,7 +79262,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -78972,10 +79273,22 @@ return {
 						k="negate",
 						v=1
 					},
+					text="给予你和周围友军等同你 {0}% 生命保留的额外护甲"
+				}
+			}
+		},
+		stats={
+			[1]="guardian_reserved_life_granted_to_you_and_allies_as_armour_%"
+		}
+	},
+	[3216]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="在你图腾周围，敌人承受的物理和火焰伤害降低 {0}%"
@@ -79000,7 +79313,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -79008,7 +79321,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="per_minute_to_per_second",
 						v=1
 					},
 					[2]={
@@ -79021,8 +79334,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="近期内若有放置过陷阱，则陷阱造成的击中和后续异常状态伤害总降 {0}%"
@@ -79069,7 +79382,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="近期内若没有放置过陷阱，则陷阱造成的击中和后续异常状态伤害总降 {0}%"
@@ -79248,7 +79561,11 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="当先祖卫士图腾存在时，攻击速度降低 {0}%"
@@ -84126,9 +84443,13 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFreeze"
+					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -84136,13 +84457,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextFreeze"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="每堆叠一层冲击波，攻击速度便降低 {0}%"
@@ -84296,7 +84617,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -84304,13 +84625,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextShock"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="【烈炎风暴】爆炸范围缩小 {0}%"
@@ -84575,7 +84896,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="【冰川之刺】的 {0}% 物理伤害转换为冰霜伤害"
@@ -86540,7 +86861,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="脆弱以光环形式施放时，其保留效果降低 {0}%"
@@ -86585,6 +86906,14 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
+					[3]={
+						k="reminderstring",
+						v="ReminderTextSavageHit"
 					},
 					limit={
 						[1]={
@@ -86682,6 +87011,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextElementalStatusAilments"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -86694,6 +87027,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextElementalStatusAilments"
 					},
 					limit={
 						[1]={
@@ -86727,7 +87064,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					[2]={
@@ -86737,7 +87074,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="对元素异常状态敌人的暴击率降低 {0}%"
@@ -86754,7 +87091,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -87006,13 +87343,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="per_minute_to_per_second",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你和周围友军的伤害降低 {0}%"
@@ -87039,6 +87376,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -87094,8 +87435,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextSmokeCloud"
 					},
 					[2]={
 						k="reminderstring",
@@ -87103,8 +87444,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="若你近期内有吞噬 1 个灵柩，你和你的召唤生物攻击和施法速度降低 {0}%"
@@ -87225,6 +87566,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -87245,7 +87590,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -87258,8 +87603,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="能量护盾没有全满时伤害降低 {0}%"
@@ -87414,6 +87759,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -88532,7 +88881,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="第二形态的投射物总速度提高 {0}%"
@@ -88544,8 +88893,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="第二形态的投射物总速度降低 {0}%"
@@ -88591,6 +88940,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextConsecratedGround"
 					},
+					text="攻击有额外 {0} 次连锁弹射"
+				}
+			}
+		},
+		stats={
+			[1]="attacks_num_of_additional_chains"
+		}
+	},
+	[3558]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -88669,7 +89030,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -88683,7 +89044,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【爆炸箭矢】的攻击速度降低 {0}%"
@@ -89236,7 +89597,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -89244,13 +89605,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextBlind"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【寒冰弹】施法速度降低 {0}%"
@@ -89289,7 +89650,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -89303,7 +89664,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="寒冰弹持续时间缩短 {0}%"
@@ -89586,6 +89947,14 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
+					[3]={
+						k="reminderstring",
+						v="ReminderTextSavageHit"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -89676,7 +90045,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -89684,8 +90053,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextSavageHit"
 					},
 					[2]={
 						k="reminderstring",
@@ -89698,7 +90067,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若你近期内受到【残暴打击】，则伤害降低 {0}%"
@@ -89715,7 +90084,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -89723,13 +90092,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你被晕眩的时间缩短 {0}%"
@@ -89754,14 +90123,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
 					},
 					text="每 1 个耐力球可使近战伤害減少 {0}%"
 				}
@@ -89796,6 +90163,10 @@ return {
 					[1]={
 						k="reminderstring",
 						v="ReminderTextSavageHit"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
 					},
 					limit={
 						[1]={
@@ -89917,14 +90288,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					text="每个召唤的图腾可使图腾的施法速度降低 {0}%"
 				}
@@ -89951,6 +90316,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -89969,6 +90338,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -90007,7 +90380,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -90162,7 +90535,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="若你近期内有击败被嘲讽的敌人，则护甲和闪避值提高 {0}%"
@@ -90178,8 +90551,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="若你近期内有击败被嘲讽的敌人，则护甲和闪避值降低 {0}%"
@@ -90197,20 +90570,16 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="每比敌人高一级，击中伤害提高 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="每比敌人高一级，击中伤害降低 {0}%"
@@ -90228,7 +90597,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="每个召唤的图腾可使图腾的攻击速度提高 {0}%"
@@ -90240,8 +90609,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="每个召唤的图腾可使图腾的攻击速度降低 {0}%"
@@ -90370,13 +90739,17 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="per_minute_to_per_second",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextEquippedItems"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="每 1 个召唤出的不同魔像可使魔像伤害降低 {0}%"
@@ -90401,13 +90774,17 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextCounterAttack"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="每个召唤出的魔像可使魔像伤害降低 {0}%"
@@ -90499,7 +90876,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="周围敌人每秒受到 {0} 混沌伤害"
@@ -90584,6 +90961,10 @@ return {
 						k="reminderstring",
 						v="ReminderTextPoison"
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextEquippedItems"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -90643,7 +91024,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -90661,7 +91042,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="装备 1 件普通物品时，物品稀有度降低 {0}%"
@@ -90682,7 +91063,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -90700,7 +91081,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="装备 1 件魔法物品时，物品掉落数量降低 {0}%"
@@ -90886,7 +91267,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="若你近期内有击败敌人，则效果区域扩大 {0}%"
@@ -90902,8 +91283,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="若你近期内有击败敌人，则效果区域缩小 {0}%"
@@ -91310,7 +91691,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -91355,6 +91736,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -91467,14 +91852,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
 					},
 					text="每 150 点命中值都使攻击速度减慢 {0}%"
 				}
@@ -91508,7 +91891,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -91516,13 +91899,17 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每 10 秒，效果区域缩小 {0}%，持续 4 秒"
@@ -91689,6 +92076,10 @@ return {
 						[1]={
 							[1]="#",
 							[2]="#"
+						},
+						[2]={
+							[1]=0,
+							[2]=0
 						}
 					},
 					text="攻击技能获得 {0:+d} 召唤弩炮图腾数量上限"
@@ -91762,14 +92153,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="milliseconds_to_seconds",
+						v=2
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextPhasing"
 					},
 					text="你对瘫痪敌人造成的流血伤害总降 {0}%"
 				}
@@ -91789,6 +92178,10 @@ return {
 					},
 					limit={
 						[1]={
+							[1]=100,
+							[2]="#"
+						},
+						[2]={
 							[1]=1,
 							[2]="#"
 						}
@@ -91838,7 +92231,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【护体】状态下，护甲和闪避值降低 {0}%"
@@ -91855,7 +92248,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -91869,7 +92262,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="护体时近战伤害降低 {0}%"
@@ -92172,6 +92565,10 @@ return {
 			["Simplified Chinese"]={
 				[1]={
 					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
@@ -92185,10 +92582,6 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
@@ -92234,7 +92627,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -92270,7 +92663,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -92278,14 +92671,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					text="双持时暴击率降低 {0}%"
 				}
@@ -92355,7 +92742,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -92366,10 +92753,22 @@ return {
 						k="negate",
 						v=1
 					},
+					text="药剂持续期间，伤害穿透 {0}% 元素抗性"
+				}
+			}
+		},
+		stats={
+			[1]="elemental_penetration_%_during_flask_effect"
+		}
+	},
+	[3691]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="受到的反射伤害降低 {0}%"
@@ -93174,7 +93573,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -93188,7 +93587,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每 200 命中值可使攻击造成的投射物伤害降低 {0}%"
@@ -93259,6 +93658,10 @@ return {
 						[1]={
 							[1]="#",
 							[2]="#"
+						},
+						[2]={
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="移动时留下烧灼地面，持续 {0} 秒"
@@ -93309,13 +93712,17 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="reminderstring",
+						v="ReminderTextShockNonHitNoDuration"
+					},
+					[2]={
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="静止时受到的元素伤害降低 {0}%"
@@ -93391,7 +93798,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="移动时受到的物理伤害降低 {0}%"
@@ -93449,7 +93856,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="投射物攻击技能的暴击率降低 {0}%"
@@ -94502,13 +94909,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextIgnite"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="至少有 200 点智慧时，暴击率降低 {0}%"
@@ -94651,11 +95058,9 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
 					},
 					text="该武器对被感电敌人的击中伤害提高 {0}%"
 				},
@@ -94710,7 +95115,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -94732,7 +95137,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -94750,7 +95155,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -94955,8 +95360,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]=99
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="击败敌人后有 {0}% 的几率获得 1 个精神球"
@@ -94964,7 +95369,7 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -95058,8 +95463,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]=99
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="有 {0}% 的几率在击中时获得神圣球"
@@ -95067,7 +95472,7 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -95174,7 +95579,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="每个暴击球使你的【灵巧】效果提高 {0}%"
@@ -95328,7 +95733,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -95453,8 +95858,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="召唤生物的能量护盾延后 {0}% 开始回复"
@@ -95507,7 +95912,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -96145,7 +96550,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -96159,7 +96564,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若你在过去 8 秒内打出过暴击，则命中值降低 {0}%"
@@ -96867,7 +97272,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -96961,7 +97366,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -97247,7 +97652,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -97261,7 +97666,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【苦痛爬行者】的伤害降低 {0}%"
@@ -97426,7 +97831,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -97434,8 +97839,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextPsudoKeystoneTransfigurationOfSoul"
 					},
 					limit={
 						[1]={
@@ -97461,12 +97866,12 @@ return {
 							[2]="#"
 						}
 					},
-					text="激活的先祖图腾使增益效果提高 {0}%"
+					text="先祖图腾激活后，它们提供的增益效果提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextPsudoKeystoneTransfigurationOfBody"
 					},
 					limit={
 						[1]={
@@ -97474,7 +97879,7 @@ return {
 							[2]=-1
 						}
 					},
-					text="激活的先祖图腾使增益效果降低 {0}%"
+					text="先祖图腾激活后，它们提供的增益效果降低 {0}%"
 				}
 			}
 		},
@@ -97496,13 +97901,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextPsudoKeystoneTransfigurationOfMind"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="先祖图腾使激活射程降低 {0}%"
@@ -97622,7 +98027,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -97636,7 +98041,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="静止时，效果区域每秒缩小 {0}%，最小 50%"
@@ -97905,7 +98310,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【电光寒霜】的冰缓区域中移动速度减慢 {0}%"
@@ -97967,7 +98372,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每 12 点力量可使范围伤害降低 {0}%"
@@ -98027,16 +98432,16 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=99
 						}
 					},
 					text="若你近期内使用过终结技，则效果区域扩大 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextCoveredInAshNoDuration"
 					},
 					[2]={
 						k="reminderstring",
@@ -98044,8 +98449,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]=100
 						}
 					},
 					text="若你近期内使用过终结技，则效果区域缩小 {0}%"
@@ -98067,15 +98472,15 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="若你近期内用双手近战武器使一名敌人眩晕，则效果区域扩大 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextCoveredInAsh"
 					},
 					[2]={
 						k="reminderstring",
@@ -98083,8 +98488,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="若你近期内用双手近战武器使一名敌人眩晕，则效果区域缩小 {0}%"
@@ -98101,7 +98506,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -98115,7 +98520,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若你近期内晕眩过敌人，则效果区域缩小 {0}%"
@@ -98136,7 +98541,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -98144,8 +98549,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextArcaneSurge"
 					},
 					[2]={
 						k="reminderstring",
@@ -98154,7 +98559,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若你近期内至少击败 5 名敌人，则效果区域缩小 {0}%"
@@ -98210,7 +98615,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -98218,7 +98623,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					limit={
@@ -98249,13 +98654,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1001,
+							[2]="#"
 						}
 					},
 					text="每个【召唤纯净哨兵】的效果区域缩小 {0}%"
@@ -98384,6 +98789,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -98414,6 +98823,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -98516,6 +98929,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -98546,6 +98963,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -98680,6 +99101,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -98787,6 +99212,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextStaffWarstaff"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -98945,7 +99374,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="静止时护甲降低 {0}%"
@@ -99187,6 +99616,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -99205,6 +99638,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -99309,7 +99746,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -99332,7 +99769,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="攻击技能的异常状态伤害提高 {0}%"
@@ -99348,8 +99785,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="攻击技能的异常状态伤害降低 {0}%"
@@ -99448,7 +99885,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -99456,7 +99893,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds_2dp",
 						v=1
 					},
 					[2]={
@@ -99466,7 +99903,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="持弓时，攻击技能造成的异常状态伤害降低 {0}%"
@@ -99488,14 +99925,14 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="持爪时，攻击技能造成的异常状态伤害提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
 					},
 					[2]={
@@ -99505,7 +99942,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="持爪时，攻击技能造成的异常状态伤害降低 {0}%"
@@ -99861,6 +100298,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -99879,6 +100320,14 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStaffWarstaff"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -99891,6 +100340,14 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
+					[3]={
+						k="reminderstring",
+						v="ReminderTextStaffWarstaff"
 					},
 					limit={
 						[1]={
@@ -99910,6 +100367,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -99922,6 +100383,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -100112,6 +100577,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -100130,6 +100599,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -100142,6 +100615,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -100716,7 +101193,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="攻击暴击率降低 {0}%"
@@ -100790,8 +101267,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -100827,7 +101304,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每 500 点最大魔力会使攻击伤害降低 {0}%"
@@ -100940,6 +101417,14 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextSavageHit"
+					},
+					[3]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -101036,7 +101521,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="持续吟唱时攻击伤害降低 {0}%"
@@ -101115,7 +101600,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -102075,8 +102560,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=1
 						}
 					},
 					text="拥有【猫之隐匿】时，你的攻击必定造成流血"
@@ -102263,6 +102748,10 @@ return {
 				},
 				[2]={
 					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
 						k="reminderstring",
 						v="ReminderTextImpale"
 					},
@@ -102343,13 +102832,17 @@ return {
 			["Simplified Chinese"]={
 				[1]={
 					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
 						k="reminderstring",
 						v="ReminderTextImpale"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="用双手武器击中时，有 {0}% 的几率穿刺敌人"
@@ -102364,6 +102857,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -102424,7 +102921,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="【鸟之力量】的持续时间 {0:+d} 秒"
@@ -102504,7 +103001,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每有 1 个召唤的魔像，便有 {0}% 的几率免疫元素异常状态"
@@ -102519,6 +103016,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -102571,7 +103072,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="你在【灵巧】状态下，有 {0}% 的几率避免元素异常状态"
@@ -102649,7 +103150,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -102761,7 +103262,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -102825,7 +103326,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每有一个影响你的捷增益效果，都使你有 35% 的几率避免眩晕"
@@ -102867,6 +103368,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPhasing"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -102923,7 +103428,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -103157,8 +103662,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="当你承受元素异常状态时，所有击中伤害会传播该异常状态"
@@ -103175,7 +103680,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -103191,10 +103696,14 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIntimidate"
+					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="被击中受到闪电伤害时也套用护甲值"
@@ -103288,7 +103797,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="被格挡的攻击对你造成 {0}% 伤害"
@@ -103358,8 +103867,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="无法获得耐力球"
@@ -103376,7 +103885,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -103439,8 +103948,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="将物理伤害的 {0}% 转化为一种随机元素"
@@ -103711,7 +104220,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="你身上的冻结效果提高 {0}%"
+					text="增加 {0}% 你身上的冰冻效果"
 				},
 				[2]={
 					[1]={
@@ -103724,7 +104233,7 @@ return {
 							[2]=-1
 						}
 					},
-					text="你身上的冻结效果降低 {0}%"
+					text="減少 {0}% 你身上的冰冻效果"
 				}
 			}
 		},
@@ -103756,8 +104265,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="免疫点燃"
@@ -103774,7 +104283,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -103947,7 +104456,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="{0:+d} 纯净哨兵数量上限"
@@ -104016,6 +104525,10 @@ return {
 					text="你的技能可以对敌人附着一个额外烙印"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=2,
@@ -104036,7 +104549,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -104071,7 +104584,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -104174,8 +104687,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="受到【雷霆】影响时，{0}% 的物理伤害转化为闪电伤害"
@@ -104224,7 +104737,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="不受中毒影响"
@@ -104353,20 +104866,16 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="踩中【捕熊陷阱】的敌人受到陷阱或地雷的击中伤害提高 {0}% "
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="踩中【捕熊陷阱】的敌人受到陷阱或地雷的击中伤害降低 {0}%"
@@ -104383,7 +104892,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -104397,7 +104906,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="踩中【捕熊陷阱】的敌人受到陷阱或地雷的击中伤害降低 {0}%"
@@ -104445,7 +104954,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -104484,14 +104993,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextEnergyShieldLeech"
 					},
 					text="【盛怒】的增益效果降低 {0}%"
 				}
@@ -104515,14 +105022,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextEnergyShieldLeech"
 					},
 					text="【盛怒】的怒火衰减速度每秒降低 {0}%"
 				}
@@ -104565,6 +105070,10 @@ return {
 					[1]={
 						k="reminderstring",
 						v="ReminderTextRage"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextEnergyShieldLeech"
 					},
 					limit={
 						[1]={
@@ -104645,10 +105154,14 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextEnergyShieldLeech"
+					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="若你至少有 25 点怒火，战吼献祭 10 点怒火\n若战吼在近期内献祭过怒火，则增助攻击的伤害总降 {0}%"
@@ -104727,7 +105240,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -104741,7 +105254,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【乱剑穿心】的伤害降低 {0}%"
@@ -104758,7 +105271,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -104766,14 +105279,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextColdExposure"
 					},
 					text="【乱剑穿心】的效果区域缩小 {0}%"
 				}
@@ -104790,20 +105297,20 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="【乱剑穿心】引爆其它【徘徊之刃】的范围扩大 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextColdExposure"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="【乱剑穿心】引爆其它【徘徊之刃】范围缩小 {0}%"
@@ -104818,6 +105325,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFireExposure"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -104976,8 +105487,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=100,
+							[2]=100
 						}
 					},
 					text="黄沙剑刃风暴的移动速度提高 {0}%"
@@ -104990,7 +105501,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="黄沙剑刃风暴的移动速度降低 {0}%"
@@ -105065,7 +105576,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -105079,7 +105590,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每个耐力球可使流血伤害降低 {0}%"
@@ -105149,6 +105660,24 @@ return {
 				[1]={
 					limit={
 						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="剑刃陷阱转动次数 {0:+d}"
+				}
+			}
+		},
+		stats={
+			[1]="base_weapon_trap_total_rotation_%"
+		}
+	},
+	[4160]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
 							[1]=1,
 							[2]="#"
 						}
@@ -105189,7 +105718,7 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -105363,8 +105892,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="你的冰霜之塔范围扩大 {0}%"
@@ -105464,8 +105993,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="你的冰霜之塔持续时间提高 {0}%"
@@ -105503,8 +106032,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="你的冰霜之塔发射的冰缓射线使敌人冻结 {0} 秒"
@@ -105583,8 +106112,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="你的赋能之塔施法速度提高 {0}%"
@@ -105645,8 +106174,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]=99
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="你的赋能之塔范围内所有防御塔有 {0}% 的几率造成双倍伤害"
@@ -105654,7 +106183,7 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]=100,
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -105761,7 +106290,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -105792,8 +106321,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="你的火球之塔以环状发射投射物"
@@ -105842,7 +106371,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="你的掷火之塔施法速度提高 {0}%"
@@ -105890,8 +106419,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="你的掷火之塔伤害提高 {0}%"
@@ -105939,8 +106468,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="你的掷火之塔范围扩大 {0}%"
@@ -105988,7 +106517,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -106204,6 +106733,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillNonHitNoDuration"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -106238,7 +106771,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="被【枯萎】技能干扰的敌人受到 {0}% 混沌伤害"
@@ -106284,6 +106817,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextChillNonHitNoDuration"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -106325,13 +106862,17 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextChillNonHitNoDuration"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="你的灌注之塔伤害降低 {0}%"
@@ -106521,7 +107062,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -106567,7 +107108,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="你的陨星之塔总是眩晕敌人"
@@ -107196,7 +107737,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你的闪电之塔伤害降低 {0}%"
@@ -107373,7 +107914,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -107386,8 +107927,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=1
 						}
 					},
 					text="你的窒息之塔效果降低 {0}%"
@@ -107430,13 +107971,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你的窒息之塔伤害降低 {0}%"
@@ -107516,6 +108057,15 @@ return {
 					limit={
 						[1]={
 							[1]=1,
+							[2]=1
+						}
+					},
+					text="你的斥候之塔额外召唤一个生物"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -107671,7 +108221,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你的召唤之塔创造的召唤生物伤害降低 {0}%"
@@ -107751,7 +108301,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="你的召唤之塔召唤 {0} 个额外的生物"
@@ -108137,7 +108687,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="击中冰缓的敌人时有 {0}% 的几率使其致盲"
@@ -108358,7 +108908,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -108510,7 +109060,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【凿击】的伤害降低 {0}%"
@@ -108683,7 +109233,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【亵渎之矛】的伤害降低 {0}%"
@@ -109015,7 +109565,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					[2]={
@@ -109025,7 +109575,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="近期内你每感电 1 个未被感电的敌人，则燃烧伤害降低 {0}%"
@@ -109154,7 +109704,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -110050,10 +110600,22 @@ return {
 						k="negate",
 						v=1
 					},
+					text="若附着持续时间耗减了 75%，则烙印总激活频率额外加快 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="brand_activation_rate_+%_final_during_last_20%_of_active_duration"
+		}
+	},
+	[4326]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="受到【奋锐光环】影响时，施法速度降低{0}%"
@@ -110121,6 +110683,18 @@ return {
 						k="milliseconds_to_seconds_2dp",
 						v=1
 					},
+					text="燃烧箭矢可以对敌人造成 {0} 次额外点燃"
+				}
+			}
+		},
+		stats={
+			[1]="burning_arrow_additional_ignite_stacks"
+		}
+	},
+	[4329]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -110173,6 +110747,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -110296,7 +110874,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -110373,7 +110951,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="持续吟唱时，{0:+d}% 攻击伤害格挡几率"
@@ -110452,7 +111030,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -110583,6 +111161,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -110621,7 +111203,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -111096,8 +111678,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=100,
+							[2]=100
 						}
 					},
 					text="晕眩敌人时有 {0}% 的几率获得 1 个狂怒球"
@@ -111306,6 +111888,10 @@ return {
 					[1]={
 						k="reminderstring",
 						v="ReminderTextUnholyMight"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -111798,8 +112384,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="持续吟唱技能伤害降低 {0}%"
@@ -111824,14 +112410,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					text="每 10 点奉献使持续吟唱技能的伤害降低 {0}%"
 				}
@@ -111933,20 +112513,20 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="受到【苦痛之捷】影响时，混沌伤害提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextCrushed"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="受到【苦痛之捷】影响时，混沌伤害降低 {0}%"
@@ -111963,7 +112543,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -111999,7 +112579,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -112062,7 +112642,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -112129,7 +112709,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -112137,13 +112717,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="攻击技能可使混沌伤害降低 {0}%"
@@ -112160,7 +112740,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -112174,7 +112754,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="法术技能可使混沌伤害降低 {0}%"
@@ -112195,7 +112775,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -112257,13 +112837,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextDoubleArmour"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="混沌技能的范围缩小 {0}%"
@@ -112302,7 +112882,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -112316,7 +112896,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【蓄力疾风闪】的移动速度总降 {0}%"
@@ -112441,7 +113021,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -112454,8 +113034,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="对敌人的冰缓和冰冻持续时间降低 {0}%"
@@ -112523,23 +113103,45 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
+					},
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="冰缓效果提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextOnslaught"
 					},
 					limit={
 						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="击败敌人时获得【猛攻】状态，持续 10 秒"
+				}
+			}
+		},
+		stats={
+			[1]="chance_to_gain_onslaught_on_kill_for_10_seconds_%"
+		}
+	},
+	[4431]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="冰缓效果降低 {0}%"
@@ -112557,7 +113159,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="你暴击施加的冰缓效果提高 {0}%"
@@ -112567,10 +113169,22 @@ return {
 						k="negate",
 						v=1
 					},
+					text="击中稀有或传奇敌人时，会获得 1 个暴击球"
+				}
+			}
+		},
+		stats={
+			[1]="chance_to_gain_power_charge_on_rare_or_unique_enemy_hit_%"
+		}
+	},
+	[4433]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你暴击施加的冰缓效果降低 {0}%"
@@ -112614,15 +113228,15 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="冰缓地面的效果提高 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextUnholyMight"
 					},
 					[2]={
 						k="reminderstring",
@@ -112630,8 +113244,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="冰缓地面的效果降低 {0}%"
@@ -112766,7 +113380,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -112820,7 +113434,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -112869,7 +113483,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -112938,6 +113552,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIntimidate"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -112948,14 +113566,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextIntimidate"
 					},
 					text="【毒蛇鞭击】造成的伤害降低 {0}%"
 				}
@@ -113006,14 +113618,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextChillingArea"
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextSapped"
 					},
 					text="【毒蛇鞭击】投射物速度降低 {0}%"
 				}
@@ -113034,7 +113644,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="冰霜异常状态持续时间延长 {0}%"
@@ -113072,7 +113682,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -113080,8 +113690,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextShock"
 					},
 					[2]={
 						k="reminderstring",
@@ -113090,7 +113700,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你对被感电的敌人施加的冰霜异常状态效果降低 {0}%"
@@ -113111,7 +113721,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -113119,8 +113729,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextUnnerve"
 					},
 					[2]={
 						k="reminderstring",
@@ -113158,8 +113768,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextUnnerve"
 					},
 					[2]={
 						k="reminderstring",
@@ -113167,8 +113777,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="若你击中的最高伤害类型为冰霜，则你施加的总冰霜异常状态效果总降 {0}%"
@@ -113337,8 +113947,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="每个狂怒球可使冰霜伤害降低 {0}%"
@@ -113359,7 +113969,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -113377,7 +113987,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每失去 1% 冰霜抗性，冰霜伤害就降低 {0}%，最多降低 300%"
@@ -113439,7 +114049,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="受到【寒冰之捷】影响时，冰霜伤害降低 {0}%"
@@ -113488,7 +114098,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="受到【寒冰之捷】影响时，{0:+d}% 冰霜抗性"
@@ -113775,7 +114385,7 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -113793,7 +114403,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -113824,7 +114434,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -113859,7 +114469,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -113935,7 +114545,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -114064,8 +114674,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextChillNonHitNoMagnitude"
 					},
 					limit={
 						[1]={
@@ -114088,6 +114698,10 @@ return {
 					[1]={
 						k="reminderstring",
 						v="ReminderTextElementalStatusAilments"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextChilledGround"
 					},
 					limit={
 						[1]={
@@ -114263,7 +114877,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -114322,7 +114936,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="被转化的敌人击中时有 {0}% 的几率嘲讽敌人 "
@@ -114421,6 +115035,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextColdAilments"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -114439,6 +115057,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextColdAilments"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -114451,6 +115073,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextColdAilments"
 					},
 					limit={
 						[1]={
@@ -114482,6 +115108,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextColdAilments"
 					},
 					limit={
 						[1]={
@@ -114517,7 +115147,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【灵体转换】的伤害降低 {0}%"
@@ -114588,7 +115218,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -114599,10 +115229,22 @@ return {
 						k="negate",
 						v=1
 					},
+					text="每 25 点智慧都使冰霜伤害提高 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="cold_damage_+%_per_25_intelligence"
+		}
+	},
+	[4513]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="腐灼热瘟的伤害降低 {0}%"
@@ -114651,6 +115293,10 @@ return {
 					[1]={
 						k="reminderstring",
 						v="ReminderTextCounterAttack"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextMissingResistance"
 					},
 					limit={
 						[1]={
@@ -114778,7 +115424,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -114822,7 +115468,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -114887,6 +115533,10 @@ return {
 						k="reminderstring",
 						v="ReminderTextProfaneGround"
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -114947,8 +115597,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="对感电目标的暴击率提高 {0}%"
@@ -115099,7 +115749,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="疯狂状态下，总暴击率总降 {0}%"
@@ -115358,8 +116008,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextPoison"
 					},
 					limit={
 						[1]={
@@ -115395,7 +116045,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每个疾电球可使暴击率降低 {0}%"
@@ -115457,7 +116107,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每个耐力球可使暴击率降低 {0}%"
@@ -115474,7 +116124,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -115488,7 +116138,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每个狂怒球可使暴击率降低 {0}%"
@@ -115589,7 +116239,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每个激励球可使暴击率降低 {0}%"
@@ -115606,7 +116256,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -115614,13 +116264,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="对抗标记的敌人时，暴击率降低 {0}%"
@@ -115651,7 +116301,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="对抗被嘲讽的敌人时，暴击率降低 {0}%"
@@ -115743,8 +116393,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="双持时法术暴击几率降低 {0}%"
@@ -115813,8 +116463,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="持长杖时，法术暴击几率降低 {0}%"
@@ -116658,7 +117308,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -116701,8 +117351,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextUncappedResist"
 					},
 					[2]={
 						k="reminderstring",
@@ -117353,6 +118003,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -117635,6 +118289,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextStaffWarstaff"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -117690,7 +118348,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -117698,8 +118356,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					[2]={
 						k="reminderstring",
@@ -117708,7 +118366,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若你近期内使用过位移技能，则伤害降低 {0}%"
@@ -117747,7 +118405,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若你近期内有冰冻敌人，则伤害降低 {0}%"
@@ -117772,8 +118430,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -117831,7 +118489,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -117875,13 +118533,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每有 1% 攻击格档率，伤害降低 {0}%"
@@ -117994,14 +118652,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					text="每个耐力球、狂怒球、暴击球都使伤害降低 {0}%"
 				}
@@ -118025,13 +118677,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="你身上每层中毒效果都使伤害降低 {0}%"
@@ -118048,7 +118700,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -118056,13 +118708,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每个暴击球可使伤害降低 {0}%"
@@ -118101,7 +118753,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="近期内你每次使用战吼都使伤害降低 {0}%"
@@ -118118,7 +118770,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -118132,7 +118784,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="对深渊怪物的伤害降低 {0}%"
@@ -118149,7 +118801,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -118157,13 +118809,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextStaffWarstaff"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="击中冰缓敌人的伤害降低 {0}%"
@@ -118180,7 +118832,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -118194,7 +118846,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="对抗魔法怪物时，击中伤害减少 {0}%"
@@ -118211,7 +118863,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -118225,7 +118877,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="对被嘲讽敌人的伤害降低{0}%"
@@ -118242,7 +118894,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -118256,7 +118908,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="能量护盾全满时伤害降低 {0}%"
@@ -118273,7 +118925,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -118281,8 +118933,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRupture"
 					},
 					limit={
 						[1]={
@@ -118312,13 +118964,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextCrushedNoDuration"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="受捷影响时，伤害降低 {0}%"
@@ -118335,7 +118987,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -118343,13 +118995,17 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="reminderstring",
+						v="ReminderTextCrushedNoDuration"
+					},
+					[2]={
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="持续吟唱时，伤害降低 {0}%"
@@ -118535,6 +119191,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextCurseVulnerability"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -118630,8 +119290,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=100,
+							[2]=100
 						}
 					},
 					text="受到【清晰】影响时，受到伤害的 {0}% 伤害优先从魔力扣除"
@@ -118649,7 +119309,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="专注时有{0}% 的伤害优先由魔力承受"
@@ -118670,8 +119330,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=100,
+							[2]=100
 						}
 					},
 					text="被击中时，有 {0}% 的伤害优先由你的幽魂承受"
@@ -118785,7 +119445,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -118808,7 +119468,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="被清晰影响时，将承受伤害的 {0}% 吸纳为魔力"
@@ -119358,7 +120018,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -119395,7 +120055,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="满血时对敌人造成双倍伤害"
@@ -119430,7 +120090,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -119467,7 +120127,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="无法造成非元素伤害"
@@ -119502,7 +120162,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="击中有 {0}% 的几率使敌人疲惫 1 秒"
@@ -119552,6 +120212,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -119726,7 +120390,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -119825,7 +120489,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="坚定没有保留效果"
@@ -119874,7 +120538,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="所有敏捷技能石等级 {0:+d}"
@@ -119922,7 +120586,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -119971,7 +120635,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -120021,7 +120685,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="纪律没有保留效果"
@@ -120070,7 +120734,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="你使用防卫技能时移除流血效果"
@@ -120087,7 +120751,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -120106,7 +120770,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="会出现多波怪物"
@@ -120123,7 +120787,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -120191,7 +120855,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="传奇首领将随着玩家的选择变强"
@@ -120208,7 +120872,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -120227,7 +120891,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="该区域被日耀女神占领"
@@ -120244,7 +120908,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -120263,7 +120927,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="神圣之泉可以祝福腰带"
@@ -120278,6 +120942,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextBloodStanceDefault"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -120287,6 +120955,14 @@ return {
 					text="该区域会出现【伊恩哈尔】"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextBloodStanceDefault"
+					},
 					limit={
 						[1]={
 							[1]=2,
@@ -120304,7 +120980,11 @@ return {
 					},
 					text="该区域会出现【阿尔瓦】"
 				},
-				[4]={
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=4,
@@ -120322,7 +121002,11 @@ return {
 					},
 					text="该区域会出现【尼克】"
 				},
-				[6]={
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=6,
@@ -120331,7 +121015,11 @@ return {
 					},
 					text="该区域会出现【琼】"
 				},
-				[7]={
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=7,
@@ -120353,7 +121041,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="内含额外命运卡，可兑换塑界者和裂界者物品"
@@ -120492,6 +121180,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="被击中时，有 {0}% 的伤害优先由你的幽魂承受"
+				}
+			}
+		},
+		stats={
+			[1]="damage_removed_from_spectres_before_life_or_es_%"
+		}
+	},
+	[4716]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=100,
@@ -120869,7 +121569,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -120886,6 +121586,10 @@ return {
 			["Simplified Chinese"]={
 				[1]={
 					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
 						k="reminderstring",
 						v="ReminderTextIntimidate"
 					},
@@ -120955,7 +121659,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="双持打击时副手武器对周围敌人造成扩散伤害"
@@ -121083,7 +121787,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -121357,6 +122061,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextSlowTimeEffects"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -121401,6 +122109,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextSlowTimeEffects"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -121429,13 +122141,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextDefences"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每 12 点智慧可使元素伤害降低 {0}%"
@@ -121639,7 +122351,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="你的击中造成的元素伤害由最低的抗性来抵抗"
@@ -121912,7 +122624,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -121930,7 +122642,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -121949,7 +122661,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="虹光技能不能选择闪电效果"
@@ -122057,20 +122769,16 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="你和你的召唤生物受到的反射元素伤害提高 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]=2
 						}
 					},
 					text="你和你的召唤生物受到的反射元素伤害降低 {0}%"
@@ -122087,8 +122795,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=3,
+							[2]=3
 						}
 					},
 					text="受到【元素净化】影响时，承受的反射元素伤害提高 {0}%"
@@ -122100,8 +122808,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=4,
+							[2]=4
 						}
 					},
 					text="受到【元素净化】影响时，承受的反射元素伤害减低 {0}%"
@@ -122230,7 +122938,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="元素伤害提高 {0}%，持续 5 秒"
@@ -122246,8 +122954,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="元素伤害降低 {0}%，持续 5 秒"
@@ -122593,6 +123301,10 @@ return {
 						[1]={
 							[1]=1,
 							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="被你击败的敌人会爆炸，造成其 {0}% 生命的物理伤害"
@@ -122646,6 +123358,24 @@ return {
 					limit={
 						[1]={
 							[1]="#",
+							[2]=-1
+						}
+					},
+					text="【恐怖之旗】的光环效果降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="dread_banner_aura_effect_+%"
+		}
+	},
+	[4799]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -122685,7 +123415,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -122770,9 +123500,21 @@ return {
 						k="reminderstring",
 						v="ReminderTextChillNonHitNoDuration"
 					},
+					text="双持打击时主武器造成双倍伤害"
+				}
+			}
+		},
+		stats={
+			[1]="dual_strike_main_hand_deals_double_damage_%"
+		}
+	},
+	[4804]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -123346,6 +124088,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="每个暴击球可使元素伤害降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="elemental_damage_+%_per_power_charge"
+		}
+	},
+	[4824]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -123363,6 +124117,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="每有 1 个六分仪影响该地区，元素伤害便降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="elemental_damage_+%_per_sextant_affecting_area"
+		}
+	},
+	[4825]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -123385,6 +124151,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextLucky"
 					},
+					text="受捷影响时，元素伤害降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="elemental_damage_+%_while_affected_by_a_herald"
+		}
+	},
+	[4826]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -123433,6 +124211,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextUnlucky"
 					},
+					text="元素抗性减少 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="elemental_damage_resistance_+%"
+		}
+	},
+	[4828]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -123586,8 +124376,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="若一个技能至少造成 25% 的火焰伤害，则该伤害的 {0}% 转化为能量护盾"
@@ -123746,7 +124536,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -123781,7 +124571,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -124027,8 +124817,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="【诱捕之箭】的效果区域扩大 {0}%"
@@ -124058,7 +124848,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -124285,8 +125075,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="你在【迷踪】状态下 +{0} 闪避值"
@@ -124353,6 +125143,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="每个耐力球可使伤害总降 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="endurance_charge_on_melee_stun_damage_+%_final_per_endurance_charge"
+		}
+	},
+	[4862]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -124386,7 +125188,7 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -124443,7 +125245,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -124612,7 +125414,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="【烧毁】效果区域扩大 {0}%"
@@ -124673,7 +125475,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -124704,7 +125506,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -124802,7 +125604,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -124833,7 +125635,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -124960,7 +125762,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -124991,7 +125793,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125084,7 +125886,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125139,6 +125941,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextDealsDamageFaster"
 					},
+					text="对抗被你恐吓的敌人时，它们的眩晕持续时间降低缩短 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="enemies_you_intimidate_have_stun_duration_on_self_+%"
+		}
+	},
+	[4894]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -125165,6 +125979,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextDealsDamageFaster"
 					},
+					text="被你瘫痪的敌人受到的持续伤害降低 {0}% reduced Damage Over Time"
+				}
+			}
+		},
+		stats={
+			[1]="enemies_you_maim_have_damage_taken_over_time_+%"
+		}
+	},
+	[4895]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -125368,7 +126194,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125386,7 +126212,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125417,7 +126243,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125448,7 +126274,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125514,7 +126340,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125553,7 +126379,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125588,7 +126414,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125757,7 +126583,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125788,7 +126614,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125819,7 +126645,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125855,7 +126681,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -125890,8 +126716,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="火焰技能在击中时有 {0}% 的几率附加【畏火】"
@@ -125966,7 +126792,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -126065,7 +126891,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="圣焰图腾创造的【奉献地面】可以使敌人承受的伤害提高 {0}%"
@@ -126095,7 +126921,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -126149,7 +126975,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -126180,7 +127006,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -126211,7 +127037,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -126335,8 +127161,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="若你近期造成过暴击，则药剂充能获取率提高 {0}%"
@@ -126463,8 +127289,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="受到【活力】影响时，药剂的生命回复提高 {0}%"
@@ -126530,7 +127356,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -126747,8 +127573,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="专注时，你身上的护体效果提高 {0}%"
@@ -126837,6 +127663,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="非暴击造成的闪电伤害特别幸运"
+				}
+			}
+		},
+		stats={
+			[1]="extra_damage_rolls_with_lightning_damage_on_non_critical_hits"
+		}
+	},
+	[4959]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -126854,6 +127692,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="受到【坚定】影响时，你被暴击时受到的额外伤害降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="extra_damage_taken_from_crit_+%_while_affected_by_determination"
+		}
+	},
+	[4960]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -126923,8 +127773,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="持盾牌时有 {0}% 的几率在击败敌人时获得狂怒球"
@@ -126959,7 +127809,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -126990,7 +127840,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -127244,8 +128094,8 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="消耗总计 200 魔力后获得 {0} 个狂怒球"
@@ -127391,7 +128241,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -127432,6 +128282,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextAdrenaline"
 					},
+					text="移动时受到的火焰伤害降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="fire_damage_taken_+%_while_moving"
+		}
+	},
+	[4987]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -127489,6 +128351,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextAlchemistsGenius"
 					},
+					text="攻击技能的火焰伤害降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="fire_damage_with_attack_skills_+%"
+		}
+	},
+	[4990]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=100,
@@ -127511,6 +128385,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="法术技能的火焰伤害降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="fire_damage_with_spell_skills_+%"
+		}
+	},
+	[4991]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -127669,6 +128555,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextArcaneSurge"
 					},
+					text="【火焰陷阱】造成的燃烧地面持续时间缩短 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="fire_trap_burning_ground_duration_+%"
+		}
+	},
+	[4999]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -127682,6 +128580,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextArcaneSurge"
 					},
+					text="火焰陷阱会扔出最多额外 {0} 个陷阱"
+				}
+			}
+		},
+		stats={
+			[1]="fire_trap_number_of_additional_traps_to_throw"
+		}
+	},
+	[5000]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=100,
@@ -127706,7 +128616,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -127739,6 +128649,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextArcaneSurge"
 					},
+					text="圣焰图腾创造的【奉献地面】可以使敌人承受的伤害降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="flame_totem_consecrated_ground_enemy_damage_taken_+%"
+		}
+	},
+	[5003]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=100,
@@ -127761,6 +128683,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextArcaneSurge"
 					},
+					text="烈焰之墙的伤害降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="flame_wall_damage_+%"
+		}
+	},
+	[5004]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -127805,6 +128739,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextArcaneSurge"
 					},
+					text="【掷火陷阱】的施法速度降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="flamethrower_tower_trap_cast_speed_+%"
+		}
+	},
+	[5006]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -127827,6 +128773,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextArcaneSurge"
 					},
+					text="【掷火陷阱】的冷却回复速度降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="flamethrower_tower_trap_cooldown_speed_+%"
+		}
+	},
+	[5007]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -127847,8 +128805,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="消耗总计 800 点魔力后，效果区域扩大 {0}%，持续 2 秒"
@@ -128040,6 +128998,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextDebilitatingPresence"
 					},
+					text="被标记的敌人使你的药剂充能降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="flask_charges_gained_from_marked_enemy_+%"
+		}
+	},
+	[5014]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -128080,6 +129050,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="受到【活力】影响时，药剂的生命回复降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="flask_life_recovery_+%_while_affected_by_vitality"
+		}
+	},
+	[5016]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -128128,6 +129110,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					text="专注的冷却回复速度降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="focus_cooldown_speed_+%"
+		}
+	},
+	[5019]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=2,
@@ -128279,6 +129273,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextStaffWarstaff"
 					},
+					text="每 10 点力量可使护体持续时间缩短 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="fortify_duration_+%_per_10_strength"
+		}
+	},
+	[5024]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -128299,8 +129305,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="近距离暴击有 {0}% 的几率获得一个狂怒球"
@@ -128443,7 +129449,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="点燃敌人时获得 {0} 秒【她的拥抱】效果"
@@ -128577,7 +129583,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -129067,7 +130073,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="你使用魔力药剂时有 {0}% 的几率获得一个暴击球"
@@ -129338,7 +130344,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -129479,7 +130485,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -129514,7 +130520,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -129532,7 +130538,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -129599,7 +130605,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -129663,7 +130669,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="冰川之刺将物理伤害的 {0}% 视为额外冰霜伤害"
@@ -129716,7 +130722,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -129755,7 +130761,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -129773,7 +130779,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -129956,7 +130962,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="魔像的攻击和施法速度提高 {0}%"
@@ -129986,7 +130992,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -130018,7 +131024,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="每个召唤的魔像可使它们为你提供的增益效果提高 {0}%"
@@ -130132,7 +131138,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -130199,8 +131205,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=99
 						}
 					},
 					text="幻化类召唤生物的近战攻击对周围目标造成的伤害总增 {0}%"
@@ -130249,7 +131255,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="持续物理伤害总增 {0}%"
@@ -130346,7 +131352,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -130377,7 +131383,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -130430,7 +131436,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -130483,7 +131489,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -130915,7 +131921,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -130985,7 +131991,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -131003,7 +132009,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -131031,7 +132037,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="珍宝箱有 {0}% 的几率复制其中的裂隙碎片"
@@ -131057,8 +132063,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=-1,
+							[2]=-1
 						}
 					},
 					text="珍宝箱有 {0}% 的几率复制其中的催化剂"
@@ -131165,7 +132171,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -131220,7 +132226,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="珍宝箱有 {0}% 的几率复制其中的军团裂片"
@@ -131354,7 +132360,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -131381,7 +132387,11 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -131395,7 +132405,11 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="珍宝箱使其中的传奇物品翻倍"
@@ -131412,7 +132426,11 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -131423,10 +132441,23 @@ return {
 						k="negate",
 						v=1
 					},
+					text="对流血敌人附加 {0} - {1} 基础物理伤害"
+				}
+			}
+		},
+		stats={
+			[1]="global_minimum_added_physical_damage_vs_bleeding_enemies",
+			[2]="global_maximum_added_physical_damage_vs_bleeding_enemies"
+		}
+	},
+	[5158]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="珍宝箱有更宝贵的传奇物品"
@@ -131536,13 +132567,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="per_minute_to_per_second",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="击败怪物警报等级提升的速度减慢 {0}%"
@@ -131621,7 +132652,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -131753,6 +132784,10 @@ return {
 					text="封锁后每个侧厅可以解锁 {} 个魔法宝箱"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=2,
@@ -131773,8 +132808,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="无旅行费用"
@@ -131923,13 +132958,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextOnslaught"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="巡逻队承受的伤害降低 {0}%"
@@ -131977,7 +133012,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -131985,13 +133020,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="奖励室怪物承受的伤害降低 {0}%"
@@ -132008,7 +133043,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132022,7 +133057,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="夺宝冒险总费用降低 {0}%"
@@ -132039,7 +133074,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132053,7 +133088,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="旅行报酬降低 {0}%"
@@ -132070,7 +133105,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132097,7 +133132,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132124,7 +133159,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132151,7 +133186,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132178,7 +133213,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132205,7 +133240,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132232,7 +133267,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132259,7 +133294,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132286,7 +133321,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -132448,7 +133483,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -132556,7 +133591,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -132587,7 +133622,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="夺宝冒险中有 {0}% 的几率将掉落的重铸石变为剥离石"
+					text="在夺宝冒险中有 {0}% 几率将掉落的重铸石变为剥离石"
 				},
 				[2]={
 					limit={
@@ -132596,7 +133631,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="夺宝冒险中将掉落的重铸石变为剥离石"
+					text="将夺宝冒险中掉落的重铸石变成剥离石"
 				}
 			}
 		},
@@ -132664,7 +133699,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -132758,8 +133793,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="异常状态词缀的效果降低 {0}%"
@@ -132789,8 +133824,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="属性词缀的效果降低 {0}%"
@@ -132820,8 +133855,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="施法伤害词缀的效果降低 {0}%"
@@ -132851,8 +133886,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="混沌词缀的效果降低 {0}%"
@@ -132944,8 +133979,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="伤害词缀的效果降低 {0}%"
@@ -132969,14 +134004,10 @@ return {
 					text="防御词缀的效果提高 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="防御词缀的效果降低 {0}%"
@@ -133117,7 +134148,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -133130,8 +134161,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="物理词缀的效果降低 {0}%"
@@ -133247,7 +134278,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="有 {0}% 的几率避免被打断"
@@ -133264,7 +134295,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -133524,7 +134555,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -133560,7 +134591,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -133627,7 +134658,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -133694,7 +134725,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -133810,7 +134841,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -133939,7 +134970,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -133970,7 +135001,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -133988,7 +135019,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -134006,7 +135037,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -134867,7 +135898,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -134881,7 +135912,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【闪电之捷】的增益效果降低 {0}%"
@@ -135000,8 +136031,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="魔蛊技能的技能效果持续时间降低 {0}%"
@@ -135047,14 +136078,10 @@ return {
 					text="魔蛊爆炸的伤害提高 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="魔蛊爆炸的伤害降低 {0}%"
@@ -135102,8 +136129,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="魔蛊爆炸的效果区域缩小 {0}%"
@@ -135187,8 +136214,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="技能的魔力消耗总降 {0}%"
@@ -135218,8 +136245,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="技能的魔力保留总降 {0}%"
@@ -135280,8 +136307,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="若敌人被你缓速，则它们的混沌伤害降低 {0}%"
@@ -135350,8 +136377,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="对流血敌人的击中和异常状态伤害降低 {0}%"
@@ -135411,7 +136438,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -135429,7 +136456,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="对冰缓敌人的击中和异常状态伤害降低 {0}%"
@@ -135481,7 +136508,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -135499,7 +136526,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="对抗有异常状态的敌人时，击中和异常状态伤害降低 {0}%"
@@ -136093,8 +137120,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="【虹吸陷阱】的冰缓效果降低 {0}%"
@@ -136142,7 +137169,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -136150,14 +137177,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextVirulence"
 					},
 					text="【虹吸陷阱】的光线连接到你，每有一条其他光线，都会使你承受的伤害降低 {0}%"
 				}
@@ -136183,6 +137204,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextVirulence"
 					},
 					limit={
 						[1]={
@@ -136530,7 +137555,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="你至少有 {0} 点怒火时免疫诅咒"
@@ -136761,7 +137786,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -136772,10 +137797,22 @@ return {
 						k="negate",
 						v=1
 					},
+					text="若你的右戒指栏装备有魔法戒指，则你具有无咒效果"
+				}
+			}
+		},
+		stats={
+			[1]="hexproof_if_right_ring_is_magic_item"
+		}
+	},
+	[5360]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="穿刺的效果降低 {0}%"
@@ -137015,6 +138052,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -137045,6 +138086,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -137283,7 +138328,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -137297,7 +138342,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【灌注】效果降低 {0}%"
@@ -137359,7 +138404,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="激励球持续时间缩短 {0}%"
@@ -137732,20 +138777,16 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="【念动飞箭】的攻击速度加快 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="【念动飞箭】的攻击速度减慢 {0}%"
@@ -137920,7 +138961,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="被帝王迷宫陷阱击中所受到的伤害提高 {0}%\n帝王迷宫陷阱对玩家的持续伤害效果提高 {0}%"
@@ -137933,7 +138974,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="被帝王迷宫陷阱击中所受到的伤害降低 {0}%\n帝王迷宫陷阱对玩家的持续伤害效果降低 {0}%"
@@ -138120,7 +139161,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred_and_negate",
 						v=1
 					},
 					limit={
@@ -138145,6 +139186,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextImpale"
 					},
+					text="免疫燃烧地面，感电地面和冰缓地面"
+				}
+			}
+		},
+		stats={
+			[1]="immune_to_burning_shocks_and_chilled_ground"
+		}
+	},
+	[5409]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -138268,7 +139321,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -138282,7 +139335,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="生命和能量护盾回复率降低 {0}%"
@@ -138303,7 +139356,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -138321,7 +139374,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="近期内若你停止受到持续伤害，则生命和能量护盾回复速度降低 {0}%"
@@ -138369,8 +139422,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="每有 1 个暴击球，生命和能量护盾回复率提高 {0}%"
@@ -138398,6 +139451,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextImpale"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -138496,8 +139553,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="若你近期内没使用生命药剂，则生命药剂每 3 秒获得 {0} 充能"
@@ -138536,7 +139593,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -138572,8 +139629,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="使用终结技时获得 {0} 点生命"
@@ -138664,7 +139721,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -138716,7 +139773,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -138742,7 +139799,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -139040,7 +140097,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="低血时，使用药剂会提高 {0}% 生命回复量"
@@ -139118,7 +140175,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="若你近期内没有击败敌人，则生命回复率提高 {0}%"
@@ -139134,8 +140191,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]=2
 						}
 					},
 					text="若你近期内没有击败敌人，则生命回复率降低 {0}%"
@@ -139152,8 +140209,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=3,
+							[2]=3
 						}
 					},
 					text="受到【活力】影响时，生命回复速度提高 {0}%"
@@ -139165,8 +140222,26 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=4,
+							[2]=4
+						}
+					},
+					text="在帝王迷宫内玩家将被燃烧神殿影响"
+				},
+				[5]={
+					limit={
+						[1]={
+							[1]=5,
+							[2]=5
+						}
+					},
+					text="在帝王迷宫内玩家将被静电神殿影响"
+				},
+				[6]={
+					limit={
+						[1]={
+							[1]=6,
+							[2]=6
 						}
 					},
 					text="受到【活力】影响时，生命回复速度降低 {0}%"
@@ -139187,8 +140262,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=7,
+							[2]=7
 						}
 					},
 					text="若你近期内使敌人眩晕，则每秒再生 {0}% 生命"
@@ -139231,8 +140306,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=9,
+							[2]=9
 						}
 					},
 					text="被防卫技能的增益效果影响时，每秒回复 {0}% 生命"
@@ -139295,6 +140370,9 @@ return {
 						k="per_minute_to_per_second",
 						v=1
 					},
+					text="在帝王迷宫内玩家将被邪法神殿影响"
+				},
+				[16]={
 					limit={
 						[1]={
 							[1]="#",
@@ -139364,7 +140442,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="拥有【鸟之斗魄】时每秒回复 {0} 生命"
@@ -139390,7 +140468,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="若近期内有召唤生物被击败，则每秒回复  {0}% 生命"
@@ -139437,7 +140515,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -139623,10 +140701,22 @@ return {
 						k="per_minute_to_per_second_2dp_if_required",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
+					[3]={
+						k="reminderstring",
+						v="ReminderTextLifeLeech"
+					},
+					[4]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
+					},
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="每有一个复苏的魔卫便使每秒回复 {0}% 生命"
@@ -139792,6 +140882,10 @@ return {
 			["Simplified Chinese"]={
 				[1]={
 					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
 						k="reminderstring",
 						v="ReminderTextLightningAilments"
 					},
@@ -139805,7 +140899,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
 					},
 					[2]={
@@ -139815,7 +140909,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="闪电异常状态持续时间缩短 {0}%"
@@ -139831,6 +140925,10 @@ return {
 			["Simplified Chinese"]={
 				[1]={
 					[1]={
+						k="divide_by_one_hundred",
+						v=1
+					},
+					[2]={
 						k="reminderstring",
 						v="ReminderTextLightningAilments"
 					},
@@ -139844,7 +140942,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
 					},
 					[2]={
@@ -139853,8 +140951,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="你对冰缓敌人施加的闪电异常状态效果降低 {0}%"
@@ -139875,7 +140973,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -139883,7 +140981,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
 					},
 					[2]={
@@ -139893,7 +140991,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="闪电异常状态效果降低 {0}%"
@@ -139914,7 +141012,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -139922,7 +141020,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_one_hundred",
 						v=1
 					},
 					[2]={
@@ -140048,7 +141146,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -140076,6 +141174,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLowLife"
 					},
 					limit={
 						[1]={
@@ -140108,6 +141210,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -140128,7 +141234,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -140151,6 +141257,24 @@ return {
 					limit={
 						[1]={
 							[1]="#",
+							[2]=-1
+						}
+					},
+					text="若你近期内没有击败敌人，则生命回复率降低 {0}%"
+				}
+			}
+		},
+		stats={
+			[1]="life_recovery_rate_+%_if_havent_killed_recently"
+		}
+	},
+	[5505]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -140169,7 +141293,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="被击中时承受 {0:+d} 闪电伤害"
@@ -140215,11 +141339,9 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
 					},
 					text="法术技能的闪电伤害提高 {0}%"
 				},
@@ -140248,7 +141370,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -140370,6 +141492,14 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -140403,7 +141533,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -140443,7 +141573,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -140538,6 +141668,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -140569,6 +141703,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningAilments"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -140578,6 +141716,14 @@ return {
 					text="【电塔陷阱】会攻击一片额外区域"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLightningAilments"
+					},
 					limit={
 						[1]={
 							[1]=2,
@@ -140627,6 +141773,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLightningAilments"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -140722,7 +141872,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -140807,7 +141957,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -140826,7 +141976,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="增加的小天赋还获得：{0:+d} 护甲值"
@@ -140843,7 +141993,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -140862,7 +142012,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="增加的小天赋还获得：吟唱技能的攻击和施法速度加快 {0}%"
@@ -140879,7 +142029,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -140898,7 +142048,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="增加的小天赋还获得：冰霜技能的攻击和施法速度加快 {0}%"
@@ -140915,7 +142065,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -140934,7 +142084,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="增加的小天赋还获得：火焰技能的攻击和施法速度加快 {0}%"
@@ -140951,7 +142101,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -140970,7 +142120,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="增加的小天赋还获得：物理技能的攻击和施法速度加快 {0}%"
@@ -140987,7 +142137,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -141006,7 +142156,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="增加的小天赋还获得：光环技能的效果区域扩大 {0}%"
@@ -141023,7 +142173,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -141042,7 +142192,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="增加的小天赋还获得：{0:+d}% 暴击伤害加成"
@@ -147003,8 +148153,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]=99
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="攻击击中时有 {0}% 的几率穿刺敌人"
@@ -147016,7 +148166,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=100,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -147082,8 +148232,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]=99
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="暴击时有 {0}% 的几率造成流血"
@@ -147095,7 +148245,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=100,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -147259,7 +148409,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -147302,7 +148452,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -147342,7 +148492,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -147360,7 +148510,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若腐化，则攻击和法术暴击几率降低 {0}%"
@@ -147377,7 +148527,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -147469,7 +148619,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -147487,7 +148637,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若腐化，则伤害降低 {0}%"
@@ -147508,7 +148658,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -147526,7 +148676,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若腐化，则承受伤害降低 {0}%"
@@ -147614,14 +148764,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+						k="reminderstring",
+						v="ReminderTextIfItemCorrupted"
 					},
 					text="周围敌人的火焰和冰霜抗性降低 {0}%"
 				}
@@ -147666,6 +148810,10 @@ return {
 						k="milliseconds_to_seconds",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextIfItemCorrupted"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -147697,6 +148845,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextIfItemCorrupted"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -147717,7 +148869,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -147725,8 +148877,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextIntimidate"
 					},
 					limit={
 						[1]={
@@ -148050,14 +149202,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextChillNonHitNoDuration"
 					},
 					text="插入的位移技能的伤害总降 {0}%"
 				}
@@ -148273,7 +149423,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -148281,13 +149431,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="该武器施加的点燃伤害总降 {0}%"
@@ -148440,6 +149590,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextSmallPassives"
 					},
+					text="击中时用插入的魔蛊诅咒敌人"
+				}
+			}
+		},
+		stats={
+			[1]="local_display_curse_enemies_with_socketed_curse_on_hit_%_chance"
+		}
+	},
+	[5935]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -148726,9 +149888,13 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextFortifyNoDuration"
+					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -148736,8 +149902,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextChillNonHitNoDuration"
 					},
 					limit={
 						[1]={
@@ -148767,13 +149933,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextIntimidate"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若范围内至少有 40 点智慧，则熔岩奔涌每次连锁的伤害总降 {0}%"
@@ -148835,7 +150001,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -148849,7 +150015,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若范围内至少有 40 点力量，【熔岩之击】发射的总投射物额外减少 {0}%"
@@ -149122,7 +150288,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -149140,7 +150306,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若腐化，则最大生命降低 {0}%"
@@ -149216,7 +150382,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="若腐化，则移动速度提高 {0}%"
@@ -149232,8 +150398,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="若腐化，则移动速度降低 {0}%"
@@ -149396,7 +150562,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -149410,7 +150576,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="攻击速度总降 {0}%"
@@ -149427,7 +150593,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -149435,13 +150601,17 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="tree_expansion_jewel_passive",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextSmallPassives"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="新星法术的总效果区域缩小 {0}%"
@@ -149714,7 +150884,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -149732,7 +150902,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若腐化，则法术伤害降低 {0}%"
@@ -149789,7 +150959,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -149797,13 +150967,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextMaim"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="范围内每有 10 点未配置的敏捷，便 -{0} 命中值"
@@ -149844,6 +151014,10 @@ return {
 						k="milliseconds_to_seconds",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextManaLeech"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -149862,6 +151036,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIfItemCorrupted"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -149951,6 +151129,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextIfItemCorrupted"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -149971,7 +151153,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -149985,7 +151167,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若范围内含有至少 40 点敏捷，\n【腐蚀箭矢】的击中伤害降低 {0}%"
@@ -150075,20 +151257,20 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="若范围内至少有 40 点智慧，解放的总效果区域额外扩大 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextPoison"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="若范围内至少有 40 点智慧，解放的总效果区域额外缩小 {0}%"
@@ -150121,23 +151303,27 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="若范围内至少有 40 点智慧，解放的伤害总增 {0}%"
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextPoison"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="若范围内至少有 40 点智慧，解放的伤害总降 {0}%"
@@ -150173,7 +151359,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="若范围内至少有 40 点敏捷，\n【双持打击】持握剑类时命中值提高 {0}%"
@@ -150186,7 +151372,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若范围内至少有 40 点敏捷，\n【双持打击】持握剑类时命中值降低 {0}%"
@@ -150341,7 +151527,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="范围内配置的力量和智慧总计 40 点时，虹光技能的冰霜伤害总降 50%"
+					text="范围内配置的智慧和力量总计 40 点时，虹光技能的冰霜伤害总降 50%"
 				}
 			}
 		},
@@ -150560,9 +151746,13 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextArcaneSurge"
+					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -150576,7 +151766,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若范围内含有 40 点敏捷，\n【冰霜之刃】的投射物速度降低 {0}%"
@@ -150620,7 +151810,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -150628,13 +151818,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若范围内含有 40 点智慧，\n【寒冰弹】会每秒降低 {0}% 投射物速度"
@@ -150807,7 +151997,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -150821,7 +152011,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="范围内每配置 10 点力量，则生命回复速度减慢 {0}%"
@@ -150838,7 +152028,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -150852,7 +152042,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="范围内每有 10 点未配置的力量，则生命回复速度减慢 {0}%"
@@ -151012,7 +152202,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -151020,13 +152210,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextIntimidate"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="范围内每有 10 点未配置的智慧，则魔力回复速度减慢 {0}%"
@@ -151101,8 +152291,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]=1
 						}
 					},
 					text="范围内每有 10 点未配置的敏捷，则移动速度减慢 {0}%"
@@ -151119,7 +152309,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -151133,7 +152323,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="范围内的非核心天赋效果降低 {0}%"
@@ -151168,7 +152358,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -151182,7 +152372,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若范围内至少有 40 点敏捷，【电光箭】的范围伤害降低 {0}%"
@@ -151199,7 +152389,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -151209,7 +152399,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="范围内的天赋技能还获得：近战技能的徒手攻击速度减慢 {0}%"
@@ -151290,20 +152480,34 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="范围内配置的敏捷和力量总计 40 点时，【灵盾投掷】连锁弹射的碎片投射物总量额外增加 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
+						}
+					},
+					text="若范围内含有 40 点敏捷，【火焰陷阱】会扔出最多 {0} 个额外陷阱"
+				}
+			}
+		},
+		stats={
+			[1]="local_unique_jewel_fire_trap_number_of_additional_traps_to_throw_with_40_dex_in_radius"
+		}
+	},
+	[6069]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="范围内配置的敏捷和力量总计 40 点时，【灵盾投掷】连锁弹射的碎片投射物总量额外减少 {0}%"
@@ -151343,7 +152547,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="若范围内至少有 40 点智慧，【召唤灵体】击败敌人时有 {0}% 的几率获得 20 秒的噬魂者效果"
@@ -151433,7 +152637,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="用该武器击中时，暴击率为 {0}% "
@@ -151481,6 +152685,24 @@ return {
 		}
 	},
 	[6108]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=20,
+							[2]="#"
+						}
+					},
+					text="若范围内含 40 点敏捷，【冰霜射击】会穿透 {0} 个额外目标"
+				}
+			}
+		},
+		stats={
+			[1]="local_unique_jewel_ice_shot_additional_pierce_per_10_old_with_40_dex_in_radius"
+		}
+	},
+	[6077]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -151627,10 +152849,22 @@ return {
 						k="negate",
 						v=1
 					},
+					text="范围内天赋点附加的闪电抗性同时提高击败敌人时获得暴击球的概率"
+				}
+			}
+		},
+		stats={
+			[1]="local_unique_jewel_lightning_resistance_also_grants_power_charge_on_kill_chance"
+		}
+	},
+	[6083]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="击败魔法怪物后的物品稀有度降低 {0}%"
@@ -151901,7 +153135,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="【致疫打击】的效果区域扩大 {0}%"
@@ -151914,7 +153148,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【致疫打击】的效果区域缩小 {0}%"
@@ -151931,7 +153165,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -151945,7 +153179,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【致疫打击】的伤害降低 {0}%"
@@ -151993,7 +153227,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -152001,13 +153235,31 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextSoulEater"
 					},
 					limit={
 						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="若范围内至少有 40 点智慧，【召唤灵体】击败敌人时有 {0}% 的几率获得 20 秒的噬魂者效果"
+				}
+			}
+		},
+		stats={
+			[1]="local_unique_jewel_spectres_gain_soul_eater_on_kill_%_chance_with_50_int_in_radius"
+		}
+	},
+	[6101]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="吟唱技能的消耗降低 {0}%"
@@ -152038,7 +153290,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="投掷陷阱或地雷的技能消耗降低 {0}%"
@@ -152055,7 +153307,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -152068,8 +153320,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="投掷陷阱的技能消耗降低 {0}%"
@@ -152100,7 +153352,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每 10 点奉献都使技能魔力消耗降低 {0}%"
@@ -152119,6 +153371,18 @@ return {
 						k="per_minute_to_per_second",
 						v=1
 					},
+					text="被击中时失去所有飓风之力"
+				}
+			}
+		},
+		stats={
+			[1]="lose_all_gale_force_when_hit"
+		}
+	},
+	[6110]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -152188,7 +153452,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -152207,7 +153471,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="使用终结技时获得 {0} 点魔力"
@@ -152332,6 +153596,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextMaim"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -152834,7 +154102,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -152852,7 +154120,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若你近期内冻结过敌人，则魔力回复速度减慢 {0}%"
@@ -152873,7 +154141,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -152881,7 +154149,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="per_minute_to_per_second",
 						v=1
 					},
 					[2]={
@@ -152890,8 +154158,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="若你近期内使敌人感电，则魔力回复速度减慢 {0}%"
@@ -153048,13 +154316,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="per_minute_to_per_second",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每 250 点总属性都使技能的保留效果降低 {0}%"
@@ -153370,7 +154638,7 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]=2,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -153737,6 +155005,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -153953,6 +155225,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextLowMana"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -154333,7 +155609,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -154347,7 +155623,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="建造和升级防御塔的费用降低 {0}%"
@@ -154517,7 +155793,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -154531,7 +155807,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="传奇首领的物品掉落数量降低 {0}%"
@@ -154548,8 +155824,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]=1
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="传奇首领会掉落额外 {0} 件传奇物品"
@@ -154557,7 +155833,7 @@ return {
 				[2]={
 					limit={
 						[1]={
-							[1]=2,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -154660,8 +155936,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]=1
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="传奇首领会掉落额外 1 件瓦尔物品"
@@ -154687,7 +155963,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -154701,7 +155977,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="区域内裂隙归属艾许的几率降低 {0}%"
@@ -154718,7 +155994,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -154732,7 +156008,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="区域内裂隙归属托沃的几率降低 {0}%"
@@ -154749,7 +156025,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -154763,7 +156039,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="区域内裂隙归属乌尔尼多的几率降低 {0}%"
@@ -154780,7 +156056,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -154794,7 +156070,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="区域内裂隙归属索伏的几率降低 {0}%"
@@ -155873,20 +157149,16 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="玩家每受到一种中毒属性伤害，则伤害提高 {0}% "
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="玩家每受到一种中毒属性伤害，则伤害降低 {0}% "
@@ -155921,7 +157193,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -155935,7 +157207,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="区域中玩家受到的超越怪物伤害降低 {0}%"
@@ -155952,7 +157224,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -155966,7 +157238,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="玩家静止时，受到的伤害降低 {0}%"
@@ -155983,7 +157255,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -155997,7 +157269,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="玩家静止时，伤害降低 {0}%"
@@ -156072,7 +157344,7 @@ return {
 						},
 						[4]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="该区域吸引鱼"
@@ -156156,7 +157428,7 @@ return {
 						},
 						[4]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="该区域很吸引鱼"
@@ -156240,7 +157512,7 @@ return {
 						},
 						[4]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="该区域非常吸引鱼"
@@ -156645,7 +157917,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="区域可找到的稀有裂界者物品数量提高 {0}%"
@@ -156754,8 +158026,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=1
 						}
 					},
 					text="惊悸迷雾奖励类型：{0}"
@@ -156772,7 +158044,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -156889,7 +158161,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -156975,6 +158247,8 @@ return {
 	},
 	[6331]={
 		lang={
+			["Simplified Chinese"]={
+			}
 		},
 		stats={
 			[1]="map_expedition_common_chest_marker_count_+"
@@ -157009,6 +158283,8 @@ return {
 	},
 	[6333]={
 		lang={
+			["Simplified Chinese"]={
+			}
 		},
 		stats={
 			[1]="map_expedition_epic_chest_marker_count_+"
@@ -157111,7 +158387,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="区域内怪物之印的数量降低 {0}%"
@@ -157214,6 +158490,8 @@ return {
 	},
 	[6342]={
 		lang={
+			["Simplified Chinese"]={
+			}
 		},
 		stats={
 			[1]="map_expedition_uncommon_chest_marker_count_+"
@@ -157221,6 +158499,8 @@ return {
 	},
 	[6343]={
 		lang={
+			["Simplified Chinese"]={
+			}
 		},
 		stats={
 			[1]="map_expedition_vendor_reroll_currency_quantity_+%"
@@ -157259,6 +158539,18 @@ return {
 				[1]={
 					limit={
 						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=1,
+							[2]=20
+						},
+						[3]={
+							[1]=0,
+							[2]=99
+						},
+						[4]={
 							[1]=1,
 							[2]=1
 						}
@@ -157313,6 +158605,18 @@ return {
 				[1]={
 					limit={
 						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=21,
+							[2]=40
+						},
+						[3]={
+							[1]=0,
+							[2]=99
+						},
+						[4]={
 							[1]=1,
 							[2]=1
 						}
@@ -157324,6 +158628,18 @@ return {
 						[1]={
 							[1]="#",
 							[2]="#"
+						},
+						[2]={
+							[1]=21,
+							[2]=40
+						},
+						[3]={
+							[1]=0,
+							[2]=99
+						},
+						[4]={
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="击败的第 1 个【超越首领】会额外掉落 {0} 个传奇物品"
@@ -157390,6 +158706,18 @@ return {
 						[1]={
 							[1]="#",
 							[2]="#"
+						},
+						[2]={
+							[1]=41,
+							[2]=60
+						},
+						[3]={
+							[1]=0,
+							[2]=99
+						},
+						[4]={
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="玩家击败稀有敌人时，获得 {0} 秒【猛攻】状态"
@@ -157424,6 +158752,18 @@ return {
 				[1]={
 					limit={
 						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=61,
+							[2]=80
+						},
+						[3]={
+							[1]=0,
+							[2]=99
+						},
+						[4]={
 							[1]=1,
 							[2]=1
 						}
@@ -157523,6 +158863,18 @@ return {
 				[1]={
 					limit={
 						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=81,
+							[2]=100
+						},
+						[3]={
+							[1]=0,
+							[2]=99
+						},
+						[4]={
 							[1]=1,
 							[2]="#"
 						}
@@ -157567,6 +158919,18 @@ return {
 					},
 					limit={
 						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]=81,
+							[2]=100
+						},
+						[3]={
+							[1]=0,
+							[2]=99
+						},
+						[4]={
 							[1]="#",
 							[2]=-1
 						}
@@ -158177,10 +159541,6 @@ return {
 					text="玩家每有 15 层暴走能量，物品稀有度提高 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -158220,7 +159580,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="伊泽洛的效果区域扩大 {0}%"
@@ -158250,7 +159610,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -158288,10 +159648,6 @@ return {
 					text="伊泽洛的伤害提高 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
 							[1]="#",
@@ -158356,8 +159712,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="帝王迷宫怪物的攻击速度、施法速度、移动速度减慢 {0}%"
@@ -158464,7 +159820,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="超越怪物的物品掉落数量和物品稀有度总增 {0}%"
@@ -158476,8 +159832,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="超越怪物的物品掉落数量和物品稀有度总降 {0}%"
@@ -158594,7 +159950,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="侵略首领的物品掉落总数量和物品总稀有度总增 {0}%"
@@ -158607,7 +159963,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="侵略首领的物品掉落总数量和物品总稀有度总降 {0}%"
@@ -159384,7 +160740,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -159629,7 +160985,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -159660,8 +161016,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]="#",
+							[2]=-1
 						}
 					},
 					text="怪物产生超越传送门的几率提高 {0}%"
@@ -159692,7 +161048,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="对怪物的诅咒效果提高 {0}%"
@@ -159722,8 +161078,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=3,
+							[2]=3
 						}
 					},
 					text="受【罪魂】附身的怪物承受的伤害提高 {0}%"
@@ -159757,8 +161113,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=21,
+							[2]=21
 						}
 					},
 					text="对怪物的非伤害型异常状态效果提高 {0}%"
@@ -159792,8 +161148,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=25,
+							[2]=25
 						}
 					},
 					text="怪物的经验值提高 {0}%"
@@ -159824,7 +161180,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="怪物的命中值提高 {0}%"
@@ -160198,6 +161554,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextScorch"
 					},
+					text="下个区域的神殿受到稀有怪物守护"
+				}
+			}
+		},
+		stats={
+			[1]="map_leaguestone_shrine_monster_rarity_override"
+		}
+	},
+	[6422]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -160211,6 +161579,9 @@ return {
 						k="reminderstring",
 						v="ReminderTextScorch"
 					},
+					text="下个区域会出现至少 1 个回响神殿"
+				},
+				[3]={
 					limit={
 						[1]={
 							[1]=100,
@@ -160232,7 +161603,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="对怪物的诅咒总效果总增 {0}%"
@@ -160366,6 +161737,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextChillNonHitNoDuration"
 					},
+					text="该区域中玩家首次达到 {0} 层【暴走能量】时，会召唤出强大的怪物"
+				}
+			}
+		},
+		stats={
+			[1]="map_leaguestones_spawn_powerful_monster_when_reaching_x_rampage_stacks"
+		}
+	},
+	[6431]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -160386,7 +161769,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -160561,7 +161944,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -160608,6 +161991,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextHinder"
 					},
+					text="区域内发现的灾变首领脏器始终至少有 {0} 个奖励"
+				}
+			}
+		},
+		stats={
+			[1]="map_metamorph_itemised_boss_min_rewards"
+		}
+	},
+	[6443]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=1,
@@ -160621,6 +162016,18 @@ return {
 						k="reminderstring",
 						v="ReminderTextHinder"
 					},
+					text="这些区域会出现额外的【灾变怪物】"
+				}
+			}
+		},
+		stats={
+			[1]="map_metamorphosis_league"
+		}
+	},
+	[6445]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]=100,
@@ -160639,6 +162046,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextOnslaught"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -161077,15 +162488,6 @@ return {
 						}
 					},
 					text="该区域会出现一个额外的【菌潮遭遇战】"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="该区域会出现 {0} 个额外的【菌潮遭遇战】"
 				}
 			}
 		},
@@ -161518,7 +162920,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="玩家在【猛攻】效果下攻击，施法，移动速度提高 {0}%"
@@ -161579,7 +162981,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -161660,7 +163062,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="裂隙怪物对玩家所造成的伤害提高 {0}%"
@@ -161691,7 +163093,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="玩家持有至少 50 层【暴走能量】时，受到的伤害提高 {0}%"
@@ -161753,6 +163155,17 @@ return {
 	},
 	[6535]={
 		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="玩家每隔 10 秒就被一种随机魔蛊诅咒"
+				}
+			}
 		},
 		stats={
 			[1]="map_player_has_random_level_X_curse_every_10_seconds"
@@ -161764,7 +163177,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -161907,7 +163320,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="玩家和怪物受到的混沌伤害提高 {0}%"
@@ -161938,7 +163351,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="玩家和怪物受到的冰霜伤害提高 {0}%"
@@ -161969,7 +163382,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="怪物和玩家的暴击率提高 {0}%"
@@ -162018,7 +163431,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="玩家和怪物每相互施加一个诅咒都使伤害提高 {0}%"
@@ -162067,7 +163480,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="玩家和怪物受到的火焰伤害提高 {0}%"
@@ -162142,7 +163555,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="玩家和怪物受到的闪电伤害提高 {0}%"
@@ -162191,7 +163604,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="玩家和怪物受到的物理伤害提高 {0}%"
@@ -162243,7 +163656,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -162618,7 +164031,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -162829,7 +164242,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -163128,7 +164541,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -163142,7 +164555,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="在区域内驱灵祭坛上献祭怪物提供的贡品减少 {0}%"
@@ -163252,13 +164665,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextPoison"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="【盗贼流放者】的伤害降低 {0}%"
@@ -163375,7 +164788,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="【盗贼流放者】最大生命提高 {0}%"
@@ -163387,7 +164800,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=-1,
 							[2]=-1
 						}
 					},
@@ -163676,20 +165089,16 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="风暴效果的范围扩大 {0}%"
 				},
 				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="风暴效果的范围缩小 {0}%"
@@ -163743,7 +165152,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="保险箱里怪物的掉落物品品质提高 {0}%"
@@ -163890,7 +165299,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -163908,7 +165317,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -164043,7 +165452,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -164376,7 +165785,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -164412,7 +165821,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -164476,7 +165885,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="虚空忆境的魔法怪物给予的经验值提高 {0}%"
@@ -164727,8 +166136,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=3,
+							[2]=3
 						}
 					},
 					text="虚空忆境的怪物掉落的物品数量提高 {0}%"
@@ -164845,7 +166254,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="虚空忆境的怪物给予的经验值提高 {0}%"
@@ -165394,7 +166803,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="虚空忆境的稀有怪物掉落的物品数量提高 {0}%"
@@ -165628,7 +167037,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="风暴效果的范围扩大 {0}%"
@@ -165640,8 +167049,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="风暴效果的范围缩小 {0}%"
@@ -165659,7 +167068,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="该区域的风暴频率提高 {0}%"
@@ -165671,8 +167080,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="该区域的风暴频率降低 {0}%"
@@ -165717,7 +167126,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="【罪魂】持续时间延长 {0}%"
@@ -165729,8 +167138,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="【罪魂】持续时间缩短 {0}%"
@@ -165748,7 +167157,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="【罪魂】移动速度提高 {0}%"
@@ -165760,8 +167169,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="【罪魂】移动速度降低 {0}%"
@@ -165778,8 +167187,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="传奇首领掉落命运卡"
@@ -165832,8 +167241,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="怪物群有 {0}% 的几率晋升为魔法怪物群"
@@ -165886,8 +167295,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=99
 						}
 					},
 					text="虚空忆境的怪物群有 {0}% 的几率晋升为稀有怪物群"
@@ -166238,7 +167647,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="瓦尔容器里的物品数量提高 {0}%"
@@ -166250,8 +167659,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="瓦尔容器里的物品数量降低 {0}%"
@@ -166269,7 +167678,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="瓦尔容器里的物品稀有度提高 {0}%"
@@ -166281,8 +167690,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="瓦尔容器里的物品稀有度降低 {0}%"
@@ -166453,7 +167862,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="咒印技能的技能效果持续时间提高 {0}%"
@@ -166465,8 +167874,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=100,
+							[2]="#"
 						}
 					},
 					text="咒印技能的技能效果持续时间降低 {0}%"
@@ -166484,7 +167893,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="被标记的敌人的命中值提高 {0}%"
@@ -166497,7 +167906,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="被标记的敌人的命中值降低 {0}%"
@@ -166515,7 +167924,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="被标记的敌人承受的伤害提高 {0}%"
@@ -166528,7 +167937,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="被标记的敌人的伤害降低 {0}%"
@@ -166831,7 +168240,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若你近期内受到过残暴打击，则偷取的每秒最大生命总恢复量降低 {0}%"
@@ -167084,7 +168493,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -167098,7 +168507,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="每个影响你的【深渊珠宝】可使最大魔力降低 {0}%"
@@ -167259,7 +168668,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="药剂持续期间，近战伤害提高 {0}%"
@@ -167272,7 +168681,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="药剂持续期间，近战伤害降低 {0}%"
@@ -167294,7 +168703,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="近战位移技能击中时有 {0}% 的几率获得护体效果"
@@ -167330,7 +168739,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="护体时，每 10 点力量可使近战物理伤害提高 {0}%"
@@ -167343,7 +168752,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="护体时，每 10 点力量可使近战物理伤害降低 {0}%"
@@ -167676,7 +169085,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -167698,7 +169107,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -167720,7 +169129,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=2,
 							[2]="#"
 						}
 					},
@@ -167852,7 +169261,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -167860,8 +169269,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					[2]={
 						k="reminderstring",
@@ -167940,7 +169349,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="若你近期内引爆过地雷，则地雷类技能的效果范围降低 {0}%"
@@ -167957,7 +169366,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -167965,8 +169374,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextMaximumResistance"
 					},
 					limit={
 						[1]={
@@ -168201,6 +169610,10 @@ return {
 						k="reminderstring",
 						v="ReminderTextRecently"
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextSpawnCorpse"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -168322,7 +169735,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						},
 						[2]={
@@ -168464,12 +169877,12 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						},
 						[2]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="每个暴击球造成 {0} - {1} 闪电伤害"
@@ -168491,7 +169904,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						},
 						[2]={
@@ -168565,7 +169978,7 @@ return {
 						},
 						[2]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="拥有【鸟之力量】时附加 {0} - {1} 基础闪电伤害"
@@ -168729,7 +170142,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						},
 						[2]={
@@ -168752,7 +170165,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -168768,9 +170181,13 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextMeleeStrikeRange"
+					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -168788,7 +170205,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -168894,6 +170311,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -168906,6 +170327,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -168976,6 +170401,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -169075,14 +170504,12 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
+					[2]={
+						k="reminderstring",
+						v="ReminderTextHinder"
 					},
 					text="你受捷影响时，召唤生物的攻击和施法速度减慢 {0}%"
 				}
@@ -169098,8 +170525,8 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
-							[2]="#"
+							[1]=1000,
+							[2]=1000
 						}
 					},
 					text="召唤生物的攻击击中有 {0}% 的几率击退敌人"
@@ -169114,9 +170541,17 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -169287,7 +170722,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -169305,7 +170740,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -169341,7 +170776,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -169370,6 +170805,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -169715,6 +171154,10 @@ return {
 						[1]={
 							[1]=1,
 							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
 						}
 					},
 					text="召唤生物对中毒的敌人造成伤害的 {0}% 转化为生命偷取"
@@ -169731,6 +171174,10 @@ return {
 				[1]={
 					limit={
 						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
 							[1]="#",
 							[2]="#"
 						}
@@ -169933,6 +171380,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -170008,6 +171459,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -171471,8 +172926,8 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -171564,7 +173019,7 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					limit={
@@ -171595,13 +173050,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="milliseconds_to_seconds",
 						v=1
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你获得【猫之隐匿】时移动速度降低 {0}%"
@@ -171647,10 +173102,14 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIntimidate"
+					},
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="【灌注】效果下，移动速度加快 {0}%"
@@ -171711,7 +173170,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -171742,7 +173201,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -171773,7 +173232,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -171888,7 +173347,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -171911,7 +173370,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]="#"
+							[2]=-1
 						}
 					},
 					text="你受【灰烬之捷】影响时，周围敌人具有【畏火】"
@@ -171969,7 +173428,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="当周围有至少 1 个灵柩，你与周围友军的伤害总增 {0}%"
@@ -172031,7 +173490,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="召唤生物的最大生命总值总增 {0}%"
@@ -172305,7 +173764,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -172559,6 +174018,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
@@ -173065,7 +174528,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -173073,13 +174536,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextBlind"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="总混沌伤害总降 {0}%"
@@ -173110,7 +174573,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="总冰霜伤害总降 {0}%"
@@ -173127,7 +174590,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -173135,13 +174598,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextFireExposure"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="双持两种不同类型的武器时，副手攻击速度减慢 {0}%"
@@ -173343,6 +174806,18 @@ return {
 						k="divide_by_one_hundred",
 						v=1
 					},
+					text="无法点燃、冰缓、冻结、感电"
+				}
+			}
+		},
+		stats={
+			[1]="never_ignite_chill_freeze_shock"
+		}
+	},
+	[6958]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					limit={
 						[1]={
 							[1]="#",
@@ -173385,7 +174860,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -173399,7 +174874,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你身上的总中毒持续时间额外缩短 {0}%"
@@ -173473,13 +174948,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextBlind"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="【忏悔烙印】的施法速度减慢 {0}%"
@@ -173494,6 +174969,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -173506,6 +174985,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -173592,6 +175075,10 @@ return {
 						k="per_minute_to_per_second",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -173623,6 +175110,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -173644,6 +175135,10 @@ return {
 					[1]={
 						k="reminderstring",
 						v="ReminderTextIntimidate"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextNonDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -173754,8 +175249,8 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]="#"
+							[1]=1,
+							[2]=1
 						}
 					},
 					text="若近期内有过格挡，你则获得【迷踪】状态"
@@ -174008,7 +175503,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -174085,7 +175580,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="你被点燃时，将物理伤害的 {0}% 视为一种随机元素额外伤害"
@@ -174121,7 +175616,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=1
 						}
 					},
 					text="至少 150 点奉献时，{0}% 的物理伤害转换为火焰伤害"
@@ -174164,13 +175659,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
+						k="divide_by_two_0dp",
 						v=1
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=2,
+							[2]="#"
 						}
 					},
 					text="每 10 点怒火使物理伤害降低 {0}%"
@@ -174209,7 +175704,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="对点燃敌人的击中物理伤害和异常状态伤害降低 {0}%"
@@ -174337,7 +175832,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -174700,7 +176195,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="你若近期内造成暴击，则持续物理伤害加成 {0:+d}%"
@@ -174721,7 +176216,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]=1,
+							[1]=100,
 							[2]="#"
 						}
 					},
@@ -174739,7 +176234,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -174820,7 +176315,7 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]="#"
+							[2]=99
 						}
 					},
 					text="投射物穿透目标后，投射物对它们的暴击率提高 {0}%"
@@ -175114,6 +176609,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -175126,6 +176625,10 @@ return {
 					[1]={
 						k="negate",
 						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextDamagingAilments"
 					},
 					limit={
 						[1]={
@@ -175278,13 +176781,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你对非中毒敌人施加的【中毒】伤害降低 {0}%"
@@ -175341,7 +176844,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="你身上的中毒效果消失速度减慢 {0}%"
@@ -175398,7 +176901,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -175412,7 +176915,7 @@ return {
 					limit={
 						[1]={
 							[1]="#",
-							[2]=-1
+							[2]="#"
 						}
 					},
 					text="暴击球总持续时间额外缩短 {0}%"
@@ -175429,7 +176932,7 @@ return {
 				[1]={
 					limit={
 						[1]={
-							[1]=1,
+							[1]="#",
 							[2]="#"
 						}
 					},
@@ -175612,13 +177115,13 @@ return {
 				},
 				[2]={
 					[1]={
-						k="negate",
-						v=1
+						k="reminderstring",
+						v="ReminderTextRecently"
 					},
 					limit={
 						[1]={
-							[1]="#",
-							[2]=-1
+							[1]=1,
+							[2]="#"
 						}
 					},
 					text="【尊严】的光环效果降低 {0}%"
@@ -176059,6 +177562,10 @@ return {
 						k="negate",
 						v=1
 					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -176149,6 +177656,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextPoison"
+					},
 					limit={
 						[1]={
 							[1]=10,
@@ -176247,6 +177758,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="divide_by_one_hundred_2dp",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=1,
@@ -176923,6 +178438,10 @@ return {
 					text="召唤的愤怒狂灵击中传奇敌人时有 {0}% 的几率刷新持续时间"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=100,
@@ -177545,7 +179064,7 @@ return {
 					},
 					limit={
 						[1]={
-							[1]="#",
+							[1]=1,
 							[2]="#"
 						}
 					},
@@ -177579,6 +179098,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextInherentRageLoss"
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -177660,6 +179183,10 @@ return {
 					text="有 {0}% 的几率反射敌人的冰缓和冰冻"
 				},
 				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=100,
@@ -177892,6 +179419,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]="#",
@@ -177910,6 +179441,10 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					[1]={
+						k="divide_by_three",
+						v=1
+					},
 					limit={
 						[1]={
 							[1]=1,
