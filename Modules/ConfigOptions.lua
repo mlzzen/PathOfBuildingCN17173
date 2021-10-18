@@ -679,7 +679,9 @@ tooltip="（每个残暴球使玩家有 3% 几率造成三倍伤害，眩晕门�
 	{ var = "minionsOverrideEnduranceCharges", type = "count", label = "召唤生物的耐力球数量 (如果不是最大值的话):", ifFlag = "haveMinion", ifOption = "minionsUseEnduranceCharges", apply = function(val, modList, enemyModList)
 		modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("EnduranceCharges", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" }) }, "Config")
 	end },
-	
+{ var = "multiplierCruelty", type = "count", label = "凌厉效果:", ifMult = "Cruelty", tooltip = "凌厉是一个增益效果，按照击中时造成的伤害量\n使其持续伤害最多总增 50%", apply = function(val, modList, enemyModList)
+	modList:NewMod("Multiplier:Cruelty", "BASE", m_min(val, 50), "Config", { type = "Condition", var = "Combat" })
+end },
 
 { var = "conditionFocused", type = "check", label = "你处于专注期间?", ifCond = "Focused", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Focused", "FLAG", true, "Config", { type = "Condition", var = "Combat" })

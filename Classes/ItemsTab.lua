@@ -512,13 +512,13 @@ self.controls.displayItemShaperElder = new("DropDownControl", {"TOPLEFT",self.co
 		return self.displayItem and self.displayItem.canBeInfluenced
 	end
 	
-self.controls.displayItemEnchant = new("ButtonControl", {"TOPLEFT",self.controls.displayItemInfluence2,"TOPRIGHT",true}, 8, 0, 160,20, "增加附魔...", function()
+	self.controls.displayItemEnchant = new("ButtonControl", {"TOPLEFT",self.controls.displayItemInfluence2,"TOPRIGHT",true}, 8, 0, 160,20, "增加附魔...", function()
 		self:EnchantDisplayItem()
 	end)
 	self.controls.displayItemEnchant.shown = function()
 		return self.displayItem and self.displayItem.enchantments
 	end
-self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemEnchant,"TOPRIGHT",true}, 8, 0, 100, 20, "腐化装备...", function()
+	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemEnchant,"TOPRIGHT",true}, 8, 0, 100, 20, "腐化装备...", function()
 		self:CorruptDisplayItem()
 	end)
 	self.controls.displayItemCorrupt.shown = function()
@@ -832,20 +832,20 @@ self.controls.displayItemAddCustom = new("ButtonControl", {"TOPLEFT",self.contro
 	end)
 	self.controls.displayItemAddCustom.shown = function()
 	
-return self.displayItem.rarity == "魔法" or self.displayItem.rarity == "稀有"
-or self.displayItem.name=='扼息者, 火蝮鳞手套' 	
-	 or self.displayItem.name=='孢囊守卫, 圣者链甲'   or self.displayItem.name=='奔逃之, 暗影之靴'  
-	 or self.displayItem.name=='溃败, 暗影之靴'  
-	 or self.displayItem.name=='溃败【仿品】, 暗影之靴'  
-	 or self.displayItem.name=='嗜寒之冠, 绸缎之兜' 
-	 or self.displayItem.name=='嗜雷之冠, 日耀之冠' 
-	 or self.displayItem.name=='嗜火之冠, 艾兹麦坚盔' 
-	 
-	 or self.displayItem.type == "Amulet" 
-	 
-	 or self.displayItem.base.weapon 
-	 or self.displayItem.type == "Body Armour" 
-	end
+	return self.displayItem.rarity == "魔法" or self.displayItem.rarity == "稀有"
+	or self.displayItem.name=='扼息者, 火蝮鳞手套' 	
+		or self.displayItem.name=='孢囊守卫, 圣者链甲'   or self.displayItem.name=='奔逃之, 暗影之靴'  
+		or self.displayItem.name=='溃败, 暗影之靴'  
+		or self.displayItem.name=='溃败【仿品】, 暗影之靴'  
+		or self.displayItem.name=='嗜寒之冠, 绸缎之兜' 
+		or self.displayItem.name=='嗜雷之冠, 日耀之冠' 
+		or self.displayItem.name=='嗜火之冠, 艾兹麦坚盔' 
+		
+		or self.displayItem.type == "Amulet" 
+		
+		or self.displayItem.base.weapon 
+		or self.displayItem.type == "Body Armour" 
+		end
 
 	-- Section: Modifier Range
 	self.controls.displayItemSectionRange = new("Control", {"TOPLEFT",self.controls.displayItemSectionCustom,"BOTTOMLEFT"}, 0, 0, 0, function()
