@@ -580,7 +580,7 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 				breakdown.LifeRecharge = { }
 				breakdown.multiChain(breakdown.LifeRecharge, {
 					label = "能量护盾充能速率:",
-					base = s_format("%.1f ^8(20%% 每秒)", output.Life * data.misc.EnergyShieldRechargeBase),
+					base = s_format("%.1f ^8(33%% 每秒)", output.Life * data.misc.EnergyShieldRechargeBase),
 					{ "%.2f ^8(提高/降低)", 1 + inc/100 },
 					{ "%.2f ^8(额外提高/降低)", more },
 					total = s_format("= %.1f ^8每秒", recharge),
