@@ -5057,6 +5057,7 @@ local specialModList = {
 	["药剂持续期间具有异能魔力"] = { mod("Keystone", "LIST", "Eldritch Battery", { type = "Condition", var = "UsingFlask" }) },
 	["deal no damage"] = { flag("DealNoLightning"), flag("DealNoCold"), flag("DealNoFire"), flag("DealNoChaos"), flag("DealNoPhysical") },
 	["当不处于低血或低魔状态时，混沌伤害无法穿透能量护盾"] = { flag("ChaosNotBypassEnergyShield", { type = "Condition", varList = { "LowLife", "LowMana" }, neg = true }) },
+	["当不处于低血状态时，混沌伤害无法穿透能量护盾"] = { flag("ChaosNotBypassEnergyShield", { type = "Condition", varList = { "LowLife" }, neg = true }) },
 	["非低血状态时不造成伤害"] = {
 	flag("DealNoLightning", { type = "Condition", var = "LowLife", neg = true }),
 	flag("DealNoCold", { type = "Condition", var = "LowLife", neg = true }),

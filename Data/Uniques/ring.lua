@@ -759,12 +759,16 @@ Has Alt Variant: true
 ]],[[
 冈姆之路
 珊瑚戒指
+版本: 3.16.0以前
+版本: 当前
 源: 由 传奇【冈姆的远见】 使用 预言【国王之道】 升级
 等级需求: 32
 固定基底词缀: 1
 {tags:attack,life}+(20-30) 最大生命
 {tags:jewellery_attribute}+(10-20) 力量
-{tags:attack,life}每个耐力球提高 0.4% 每秒生命回复
+{variant:1}{tags:attack,life}每个耐力球提高 0.4% 每秒生命回复
+{variant:2}{tags:attack,life}每个耐力球提高 0.2% 每秒生命回复
+{variant:2}每个耐力球可使效果区域扩大 2%
 {tags:attack,life}你的攻击击中每个敌人会回复 +(2-4) 生命
 +1 耐力球数量上限
 ]],[[

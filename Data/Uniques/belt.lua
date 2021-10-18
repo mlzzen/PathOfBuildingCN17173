@@ -442,14 +442,18 @@ replica: true
 ]],[[
 流逝之时
 饰布腰带
+版本: 3.16.0以前
+版本: 当前
 联盟: 先驱者
 等级需求: 60
 固定基底词缀: 1
 晕眩回复和格挡回复提高 (15-25)%
 获得【召唤时空先驱者】
 {tags:caster,attack,speed}攻击与施法速度提高 (10-15)%
-{tags:life}生命回复速度提高 (15-20)%
-{tags:jewellery_defense}能量护盾回复速度提高 (15-20)%
+{variant:1}{tags:life}生命回复速度提高 (15-20)%
+{variant:2}{tags:life}生命回复速度提高 (10-15)%
+{variant:1}{tags:jewellery_defense}能量护盾回复速度提高 (15-20)%
+{variant:2}{tags:jewellery_defense}能量护盾回复速度提高 (10-15)%
 冷却回复速度提高 (15-20)%
 你身上的减益效果消失速度提高 (15-20)%
 ]],[[
