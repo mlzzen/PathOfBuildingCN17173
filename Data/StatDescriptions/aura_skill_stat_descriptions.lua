@@ -23,138 +23,6 @@ return {
 						}
 					},
 					text="你与周围友军的物理伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหาย กายภาพ {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเสียหาย กายภาพ {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% увеличение физического урона"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% уменьшение физического урона"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% d'Augmentation des Dégâts physiques"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de Réduction des Dégâts physiques"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis verursachen {0}% erhöhten physischen Schaden"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Ihr und Verbündete im Umkreis verursachen {0}% verringerten physischen Schaden"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan Daño Físico aumentado un {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Tú y tus aliados cercanos ganan Daño Físico reducido un {0}%"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 물리 피해 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들의 물리 피해 {0}% 감소"
 				}
 			}
 		},
@@ -187,138 +55,6 @@ return {
 						}
 					},
 					text="你与周围友军的移动速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้จะ เพิ่มความเร็วในการเคลื่อนที่ {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้จะ ลดความเร็วในการเคลื่อนที่ {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% повышение скорости передвижения"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% снижение скорости передвижения"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% d'Augmentation de la Vitesse de déplacement"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de Réduction de la Vitesse de déplacement"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0}% erhöhte Bewegungsgeschwindigkeit"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0}% verringerte Bewegungsgeschwindigkeit"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan Velocidad de Movimiento aumentada un {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Tú y tus aliados cercanos ganan Velocidad de Movimiento reducida un {0}%"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 이동 속도 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들의 이동 속도 {0}% 감소"
 				}
 			}
 		},
@@ -351,138 +87,6 @@ return {
 						}
 					},
 					text="你与周围友军的攻击速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะมีความเร็วในการโจมตีเพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะมีความเร็วในการโจมตีลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% повышение скорости атаки"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% снижение скорости атаки"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% d'Augmentation de la Vitesse d'attaque"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de Réduction de la Vitesse d'attaque"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0}% erhöhte Angriffsgeschwindigkeit"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0}% verringerte Angriffsgeschwindigkeit"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan Velocidad de Ataque aumentada un {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Tú y tus aliados cercanos ganan Velocidad de Ataque reducida un {0}%"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 공격 속도 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들의 공격 속도 {0}% 감소"
 				}
 			}
 		},
@@ -515,138 +119,6 @@ return {
 						}
 					},
 					text="你与周围友军的施法速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะมีความเร็วในการร่ายเพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะมีความเร็วในการร่ายลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% повышение скорости сотворения чар"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% снижение скорости сотворения чар"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% d'Augmentation de la Vitesse d'incantation"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de réduction de la Vitesse d'incantation"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0}% erhöhte Zaubergeschwindigkeit"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0}% verringerte Zaubergeschwindigkeit"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan Velocidad de Lanzamiento de Hechizos aumentada un {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Tú y tus aliados cercanos ganan Velocidad de Lanzamiento de Hechizos reducida un {0}%"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 시전 속도 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들의 시전 속도 {0}% 감소"
 				}
 			}
 		},
@@ -666,60 +138,6 @@ return {
 						}
 					},
 					text="你与周围友军获得 {0:+d}% 元素抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับ ต้านทาน ทุกธาตุ {0:+d}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0:+d}% к сопротивлению всем стихиям"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0:+d}% à toutes les Résistances élémentaires"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0:+d}% zu allen Elementarwiderständen"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0:+d}% a todas las Resistencias Elementales"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 모든 원소 저항 {0:+d}% 증가"
 				}
 			}
 		},
@@ -743,84 +161,6 @@ return {
 						}
 					},
 					text="你与周围友军每秒回复 {0}% 生命"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ ฟื้นฟู พลังชีวิต {0}% ต่อวินาที"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники регенерируете {0}% здоровья в секунду"
-				},
-				[4]={
-					[1]={
-						k="per_minute_to_per_second_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité Régénérez {0}% de Vie par seconde"
-				},
-				[5]={
-					[1]={
-						k="per_minute_to_per_second_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis regenerieren {0}% Leben pro Sekunde"
-				},
-				[6]={
-					[1]={
-						k="per_minute_to_per_second_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos regeneran {0}% de Vida por segundo"
-				},
-				[7]={
-					[1]={
-						k="per_minute_to_per_second_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 1초마다 생명력의 {0}% 재생"
 				}
 			}
 		},
@@ -844,19 +184,6 @@ return {
 						}
 					},
 					text="你和周围友军每秒再生 {0} 点生命"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ ฟื้นฟู พลังชีวิต {0} ต่อวินาที"
 				}
 			}
 		},
@@ -889,138 +216,6 @@ return {
 						}
 					},
 					text="你与周围友军的命中值降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับความแม่นยำเพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับความแม่นยำลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% повышение меткости"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% снижение меткости"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% d'Augmentation du Score de Précision"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de Réduction du Score de Précision"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0}% erhöhte Treffgenauigkeit"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0}% verringerte Treffgenauigkeit"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan Precisión aumentada un {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Tú y tus aliados cercanos ganan Precisión reducida un {0}%"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 정확도 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들의 정확도 {0}% 감소"
 				}
 			}
 		},
@@ -1053,50 +248,6 @@ return {
 						}
 					},
 					text="你与周围友军的攻击和法术暴击率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Você e aliados próximos recebem {0}% de aumento da Chance de Acerto Crítico"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Você e aliados próximos recebem {0}% de redução da Chance de Acerto Crítico"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 치명타 확률 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들의 치명타 확률 {0}% 감소"
 				}
 			}
 		},
@@ -1116,60 +267,6 @@ return {
 						}
 					},
 					text="你与周围友军的闪避值提高 {0}"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับอัตราการหลบหลีกเพิ่มขึ้น {0}"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0} уклонения"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité gagnez {0} de Score d'Évasion supplémentaire"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0} Ausweichwertung"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0} de Evasión adicional"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 추가 회피 {0} 획득"
 				}
 			}
 		},
@@ -1189,60 +286,6 @@ return {
 						}
 					},
 					text="你与周围友军的总闪避值总增 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับอัตราการหลบหลีกมากขึ้น {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете на {0}% больше уклонения"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% Davantage de Score d'Évasion"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0}% mehr Ausweichwert"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0}% más Evasión"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 {0}% 증폭된 회피 획득"
 				}
 			}
 		},
@@ -1262,60 +305,6 @@ return {
 						}
 					},
 					text="你与周围友军的护甲提高 {0}"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับเกราะเพิ่มขึ้น {0}"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0} брони"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0} d'Armure supplémentaire"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0} Rüstung"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0} de Armadura adicional"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 {0} 방어도 추가 획득"
 				}
 			}
 		},
@@ -1335,60 +324,6 @@ return {
 						}
 					},
 					text="你与周围友军的护甲总增 {0}% "
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับเกราะมากขึ้น {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете на {0}% больше брони"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% Davantage d'Armure"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten {0}% mehr Rüstung"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0}% más Armadura"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 {0}% 증폭된 방어도 획득"
 				}
 			}
 		},
@@ -1408,60 +343,6 @@ return {
 						}
 					},
 					text="你与周围友军的能量护盾提高 {0}"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยุ่ใกล้ๆ จะได้รับโล่พลังงานเพิ่มขึ้น {0}"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0} энергетического щита"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0} de Bouclier d'énergie supplémentaire"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten zusätzlich {0} Energieschild"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0} de Escudo de Energía adicional"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 {0} 추가 에너지 보호막 획득"
 				}
 			}
 		},
@@ -1481,60 +362,6 @@ return {
 						}
 					},
 					text="你与周围友军的闪电抗性提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับความต้านทานทางสายฟ้าเพิ่มขึ้น {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% сопротивления молнии"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de Résistance à la foudre supplémentaire"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten zusätzlich {0}% Blitzwiderstand"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0}% de Resistencia al Rayo adicional"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 {0}% 추가 번개 저항 획득"
 				}
 			}
 		},
@@ -1554,60 +381,6 @@ return {
 						}
 					},
 					text="你与周围友军的火焰抗性提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับความต้านทานทางไฟเพิ่มขึ้น {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% сопротивления огню"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de Résistance au feu supplémentaire"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten zusätzlich {0}% Feuerwiderstand"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0}% de Resistencia al Fuego adicional"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 {0}% 추가 화염 저항 획득"
 				}
 			}
 		},
@@ -1627,60 +400,6 @@ return {
 						}
 					},
 					text="你与周围友军的冰霜抗性提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับความต้านทานทางน้ำแข็งเพิ่มขึ้น {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% сопротивления холоду"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de Résistance au froid supplémentaire"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten zusätzlich {0}% Kältewiderstand"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0}% de Resistencia al Hielo adicional"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 {0}% 추가 냉기 저항 획득"
 				}
 			}
 		},
@@ -1704,84 +423,6 @@ return {
 						}
 					},
 					text="你与周围友军的火焰抗性上限提高 {0}%"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับความต้านทางไฟสูงสุดเพิ่มขึ้น {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% к максимальному сопротивлению огню"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de Résistance au feu maximale supplémentaire"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten zusätzlich {0}% zu maximalem Feuerwiderstand"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0}% de Resistencia al Fuego máxima adicional"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 화염 저항 최대치 {0}% 추가 획득"
 				}
 			}
 		},
@@ -1805,84 +446,6 @@ return {
 						}
 					},
 					text="你与周围友军的冰霜抗性上限提高 {0}%"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับความต้านทางน้ำแข็งสูงสุดเพิ่มขึ้น {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% к максимальному сопротивлению холоду"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de Résistance au froid maximale supplémentaire"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten zusätzlich {0}% zu maximalem Kältewiderstand"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0}% de Resistencia al Hielo máxima adicional"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 냉기 저항 최대치 {0}% 추가 획득"
 				}
 			}
 		},
@@ -1906,84 +469,6 @@ return {
 						}
 					},
 					text="你与周围友军的闪电抗性上限提高 {0}%"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ จะได้รับความต้านทางสายฟ้าสูงสุดเพิ่มขึ้น {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники получаете {0}% к максимальному сопротивлению молнии"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0}% de Résistance à la foudre maximale supplémentaire"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis erhalten zusätzlich {0}% zu maximalem Blitzwiderstand"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0}% de Resistencia al Rayo máxima adicional"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 번개 저항 최대치 {0}% 추가 획득"
 				}
 			}
 		},
@@ -2007,97 +492,6 @@ return {
 						}
 					},
 					text="你和周围友军的攻击额外造成 {0} - {1} 火焰伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="你和周圍友軍的攻擊額外造成 {0} 至 {1} 火焰傷害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники наносите от {0} до {1} дополнительного урона от огня атаками"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เสริมความเสียหาย ไฟ {0} ถึง {1} ให้การโจมตีของคุณและเพื่อนที่อยู่ใกล้"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0} à {1} Dégâts de feu supplémentaires avec les Attaques"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis verursachen {0} bis {1} zusätzlichen Feuerschaden mit Angriffen"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados infligen {0} a {1} de Daño de Fuego adicional con Ataques"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 공격 시 화염 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -2122,97 +516,6 @@ return {
 						}
 					},
 					text="你和周围友军的攻击额外造成 {0} - {1} 闪电伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="你和周圍友軍的攻擊額外造成 {0} 至 {1} 閃電傷害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники наносите от {0} до {1} дополнительного урона от молнии атаками"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เสริมความเสียหาย สายฟ้า {0} ถึง {1} ให้การโจมตีของคุณและเพื่อนที่อยู่ใกล้"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0} à {1} Dégâts de foudre supplémentaires avec les Attaques"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis verursachen zusätzlich {0} bis {1} Blitzschaden mit Angriffen"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos infligen {0} a {1} de Daño de Rayo adicional con Ataques"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 공격 시 번개 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -2233,60 +536,6 @@ return {
 						}
 					},
 					text="你与周围友军额外获得 {0}% 物理伤害，并转化为冰霜伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники наносите {0}% физического урона в виде дополнительного урона от холода"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ นำ {0}% ของความเสียหาย กายภาพ ไปเสริมเป็น น้ำแข็ง"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité Rajoutez {0}% de vos Dégâts physiques sous forme de Dégâts de froid"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis verursachen {0}% des physischen Schadens als extra Kälteschaden"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos ganan {0}% de Daño Físico como Daño de Hielo Extra"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 물리 피해의 {0}%를 냉기 피해로 획득"
 				}
 			}
 		},
@@ -2310,84 +559,6 @@ return {
 						}
 					},
 					text="你与周围友军每秒回复 {0} 魔力"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ ฟื้นฟู มานา {0} ต่อวินาที"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники регенерируете {0} маны в секунду"
-				},
-				[4]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité Régénérez {0} de Mana par seconde"
-				},
-				[5]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis regenerieren {0} Mana pro Sekunde"
-				},
-				[6]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos regeneran {0} de Maná por Segundo"
-				},
-				[7]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 1초마다 마나 {0} 재생"
 				}
 			}
 		},
@@ -2407,60 +578,6 @@ return {
 						}
 					},
 					text="你与周围友军不会因为承受伤害而延迟能量护盾回复的间隔时间"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="การรีชาร์จของโล่พลังงาน ของคุณและเพื่อนที่อยู่ใกล้จะไม่ช้าลงจากความเสียหาย"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Восстановление вашего энергетического щита и ближайших союзников не откладывается с получением урона"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Recharges de votre Bouclier d'énergie et de ceux de vos Alliés proches ne sont pas retardées par les Dégâts"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Eure Energieschild-Wiederaufladung und die Eurer Verbündeten im Umkreis wird durch Schaden nicht verzögert"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="La Recarga del Escudo de Energía tuyo y de tus aliados cercanos no se demora por el Daño recibido"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="피해를 받았을 때 자신 및 주변 동료들의 에너지 보호막 재충전이 지연되지 않음"
 				}
 			}
 		},
@@ -2480,60 +597,6 @@ return {
 						}
 					},
 					text="你与周围友军施放技能时不消耗魔力"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ๆ สามารถใช้สกิลได้โดยไม่เสียมานา"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Умения для вас и ближайших союзников не стоят маны"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vos Aptitudes et celles de vos Alliés ne coûtent pas de Mana"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Eure Fertigkeiten und die Eurer Verbündeten im Umkreis kosten kein Mana"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las Habilidades tuyas y de tus aliados cercanos no Cuestan Maná"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 스킬을 사용하는 데 마나가 소모되지 않음"
 				}
 			}
 		},
@@ -2553,24 +616,6 @@ return {
 						}
 					},
 					text="{0}% 的几率躲避攻击击中"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% de Chance de Esquivar de Acertos"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}%의 확률로 공격 적중 완벽회피"
 				}
 			}
 		},
@@ -2590,24 +635,6 @@ return {
 						}
 					},
 					text="{0}% 的几率躲避法术击中"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% de chance de Esquivar de Magias"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}%의 확률로 주문 적중 완벽회피"
 				}
 			}
 		},
@@ -2627,42 +654,6 @@ return {
 						}
 					},
 					text="将你与周围友军承受的元素伤害转化为回复生命\n你与周围友军无法获得【瓦尔之灵】"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="การรับความเสียหาย ธาตุ จะรักษา พลังชีวิต แทน\nคุณและเพื่อนที่อยู่ใกล้ไม่สามารถรับ วิญญาณวาล์"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="你和附近友方承受元素傷害而不是回復生命\n你和附近友方無法獲得瓦爾靈魂"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Sofrer Dano Elemental cura você e Aliados Próximos ao invés de causar Dano\nVocê e Aliados Próximos não podem receber Almas Vaal"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="원소 피해를 받으면 자신 및 주변 동료들의 치료 효과로 전환됨\n자신 및 주변 동료들이 바알 영혼을 획득할 수 없음"
 				}
 			}
 		},
@@ -2686,97 +677,6 @@ return {
 						}
 					},
 					text="你和周围友军的法术额外造成 {0} - {1} 火焰伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="你和周圍友軍的法術額外造成 {0} 至 {1} 火焰傷害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники наносите от {0} до {1} дополнительного урона от огня чарами"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เสริมความเสียหาย ไฟ {0} ถึง {1} ให้เวทของคุณกับเพื่อนที่อยู่ใกล้"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0} à {1} Dégâts de feu supplémentaires avec les Sorts"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis verursachen {0} bis {1} zusätzlichen Feuerschaden mit Zaubern"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos infligen {0} a {1} de Daño de Fuego adicional con Hechizos"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 주문 사용 시 화염 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -2810,28 +710,6 @@ return {
 						}
 					},
 					text="你与周围友军施放法术时造成的闪电伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 주는 주문 번개 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="주문 사용 시 자신 및 주변 동료들이 주는 번개 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2851,15 +729,6 @@ return {
 						}
 					},
 					text="你和周围友军的命中值 {0:+d}"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 정확도 {0:+d}"
 				}
 			}
 		},
@@ -2883,97 +752,6 @@ return {
 						}
 					},
 					text="你和你周围友军的攻击附加 {0} - {1} 基础混沌伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="你和周圍友軍的攻擊額外造成 {0} 至 {1} 混沌傷害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники наносите от {0} до {1} дополнительного урона хаосом атаками"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เสริมความเสียหาย เคออส {0} ถึง {1} ให้การโจมตีของคุณและเพื่อนที่อยู่ใกล้"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0} à {1} Dégâts de chaos supplémentaires avec les Attaques"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis verursachen {0} bis {1} zusätzlichen Chaosschaden mit Angriffen"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos infligen {0} a {1} de Daño de Caos adicional con Ataques"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 공격 시 카오스 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -3011,110 +789,6 @@ return {
 						}
 					},
 					text="你与周围友军攻击击中时穿刺敌人"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ มีโอกาส {0}% ที่จะทิ่มแทงศัตรู ด้วยการโจมตี"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ ทิ่มแทงศัตรู ด้วยการโจมตี"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="你和附近友方攻擊擊中時，有 {0}% 機率穿刺敵人"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="你和附近友方攻擊擊中時穿刺敵人"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Você e Aliados próximnos possuem {0}% de chance de Empalar Inimigos ao Acertar com Ataques"
-				},
-				[8]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Você e Aliados próximos Empalam ao Acertar com Ataques"
-				},
-				[9]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="자신 및 주변 동료들의 공격이 명중 시 {0}%의 확률로 적을 꿰뚫음"
-				},
-				[10]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 공격이 명중 시 적을 꿰뚫음"
 				}
 			}
 		},
@@ -3147,28 +821,6 @@ return {
 						}
 					},
 					text="你和周围友军的伤害减少 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหาย {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเสียหาย {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
 				}
 			}
 		},
@@ -3188,15 +840,6 @@ return {
 						}
 					},
 					text="你和周围友军有 {0}% 的几率避免元素异常状态"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ มีโอกาส {0}% ที่จะหลีกเลี่ยงสถานะ เจ็บป่วยธาตุ"
 				}
 			}
 		},
@@ -3233,32 +876,6 @@ return {
 						}
 					},
 					text="你和周围友军被击中时，避免混沌伤害"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextChanceToAvoidDamageMax"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ มีโอกาสหลีกเลี่ยง ความเสียหาย เคออส จากการปะทะ {0}%"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextChanceToAvoidDamageMax"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ หลีกเลี่ยง ความเสียหาย เคออส จากการปะทะ"
 				}
 			}
 		},
@@ -3278,15 +895,6 @@ return {
 						}
 					},
 					text="周围敌人有 {0}% 物理伤害减免"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่อยู่ใกล้ ป้องกัน กายภาพ {0}%"
 				}
 			}
 		},
@@ -3319,28 +927,6 @@ return {
 						}
 					},
 					text="你和周围友军的异常状态伤害减少 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหาย เจ็บป่วย {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเสียหาย เจ็บป่วย {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
 				}
 			}
 		},
@@ -3360,15 +946,6 @@ return {
 						}
 					},
 					text="你和周围友军有 {0}% 的几率避免被冻结"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ มีโอกาส {0}% ที่จะหลีกเลี่ยง สถานะ แช่แข็ง"
 				}
 			}
 		},
@@ -3388,15 +965,6 @@ return {
 						}
 					},
 					text="你和周围友军有 {0}% 的几率避免被点燃"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ มีโอกาส {0}% ที่จะหลีกเลี่ยง สถานะ ลุกไหม้"
 				}
 			}
 		},
@@ -3416,15 +984,6 @@ return {
 						}
 					},
 					text="你和周围友军有 {0}% 的几率避免感电效果"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ มีโอกาส {0}% ที่จะหลีกเลี่ยง สถานะ ช็อค"
 				}
 			}
 		},
@@ -3453,24 +1012,6 @@ return {
 						}
 					},
 					text="你和周围友军不能被眩晕"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ มีโอกาส {0}% ที่จะหลีกเลี่ยงสถานะ มึนงง"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ ไม่ติดสถานะ มึนงง"
 				}
 			}
 		},
@@ -3490,15 +1031,6 @@ return {
 						}
 					},
 					text="你和周围友军的暴击伤害加成 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เพิ่มตัวคูณคริติคอล {0:+d}% ให้คุณและเพื่อนที่อยู่ใกล้"
 				}
 			}
 		},
@@ -3518,24 +1050,6 @@ return {
 						}
 					},
 					text="你和周围友军免疫冰缓"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Você e aliados próximos são Imunes à Resfriamento"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 냉각에 면역"
 				}
 			}
 		},
@@ -3555,24 +1069,6 @@ return {
 						}
 					},
 					text="你和周围友军免疫冻结"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Você e aliados próximos são Imunes à Congelamento"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 동결에 면역"
 				}
 			}
 		},
@@ -3592,24 +1088,6 @@ return {
 						}
 					},
 					text="你和周围友军免疫点燃"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Você e aliados próximos são Imunes à Incêndio"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 점화에 면역"
 				}
 			}
 		},
@@ -3629,24 +1107,6 @@ return {
 						}
 					},
 					text="你和周围友军免疫感电"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Você e aliados próximos são Imunes à Eletrização"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 감전에 면역"
 				}
 			}
 		},
@@ -3679,28 +1139,6 @@ return {
 						}
 					},
 					text="你和周围友军的投射物速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเร็วกระสุน {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเร็วกระสุน {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
 				}
 			}
 		},
@@ -3720,15 +1158,6 @@ return {
 						}
 					},
 					text="你和周围友军的伤害穿透 {0}% 冰霜抗性 "
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ เจาะต้านทาน น้ำแข็ง {0}%"
 				}
 			}
 		},
@@ -3748,15 +1177,6 @@ return {
 						}
 					},
 					text="你和周围友军的伤害穿透 {0}% 火焰抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ เจาะต้านทาน ไฟ {0}%"
 				}
 			}
 		},
@@ -3776,15 +1196,6 @@ return {
 						}
 					},
 					text="你和周围友军的伤害穿透 {0}% 闪电抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ เจาะต้านทาน สายฟ้า {0}%"
 				}
 			}
 		},
@@ -3849,28 +1260,6 @@ return {
 						}
 					},
 					text="你和周围友军的燃烧伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหาย ติดไฟ {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเสียหาย ติดไฟ {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
 				}
 			}
 		},
@@ -3903,28 +1292,6 @@ return {
 						}
 					},
 					text="你和周围友军的冰缓和冻结持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณกับเพื่อนที่อยู่ใกล้ มีระยะเวลาของสถานะ หนาวเย็น และ แช่แข็ง เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณกับเพื่อนที่อยู่ใกล้ มีระยะเวลาของสถานะ หนาวเย็น และ แช่แข็ง ลดลง {0}%"
 				}
 			}
 		},
@@ -3957,160 +1324,6 @@ return {
 						}
 					},
 					text="承受的冰霜伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Dano de Gelo sofrido aumentado em {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Dano de Gelo sofrido reduzido em {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ได้รับความเสียหายน้ำแข็งเพิ่มขึ้น {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ได้รับความเสียหายน้ำแข็งลดลง {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% увеличение получаемого урона от холода"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% уменьшение получаемого урона от холода"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% d'Augmentation des Dégâts de froid subis"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% de Réduction des Dégâts de froid subis"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% erhöhter erlittener Kälteschaden"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% verringerter erlittener Kälteschaden"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Daño de Hielo recibido aumentado un {0}%"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Daño de Hielo recibido reducido un {0}%"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="받는 냉기 피해 {0}% 증가"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="받는 냉기 피해 {0}% 감소"
 				}
 			}
 		},
@@ -4198,28 +1411,6 @@ return {
 						}
 					},
 					text="魔力全满时，你和周围友军的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณกับเพื่อนที่อยู่ใกล้ สร้างความเสียหาย เพิ่มขึ้น {0}% ขณะ มานาเต็ม"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณกับเพื่อนที่อยู่ใกล้ สร้างความเสียหาย ลดลง {0}% ขณะ มานาเต็ม"
 				}
 			}
 		},
@@ -4252,28 +1443,6 @@ return {
 						}
 					},
 					text="能量护盾全满时，你和周围友军的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณกับเพื่อนที่อยู่ใกล้ สร้างความเสียหาย เพิ่มขึ้น {0}% ให้คุณและเพื่อนที่อยู่ใกล้ ขณะ โล่พลังงานเต็ม"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณกับเพื่อนที่อยู่ใกล้ สร้างความเสียหาย ลดลง {0}% ให้คุณและเพื่อนที่อยู่ใกล้ ขณะ โล่พลังงานเต็ม"
 				}
 			}
 		},
@@ -4293,15 +1462,6 @@ return {
 						}
 					},
 					text="满血时，你和周围友军的伤害提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหาย {0}% ให้คุณกับเพื่อนของคุณ ขณะ พลังชีวิตเต็ม"
 				}
 			}
 		},
@@ -4334,28 +1494,6 @@ return {
 						}
 					},
 					text="你与周围友军的总持续性伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 주는 지속 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들이 주는 지속 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4387,28 +1525,6 @@ return {
 						}
 					},
 					text="你和周围友军的技能效果持续时间降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 스킬 효과 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들의 스킬 효과 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -4441,28 +1557,6 @@ return {
 						}
 					},
 					text="你和周围友军的能量护盾充能时间延后  {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ จะเริ่มการฟื้นตัวของ โล่พลังงาน ได้เร็วขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ จะเริ่มการฟื้นตัวของ โล่พลังงาน ได้ช้าลง {0}%"
 				}
 			}
 		},
@@ -4495,50 +1589,6 @@ return {
 						}
 					},
 					text="你与周围友军的能量护盾回复速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณ และ เพื่อนที่อยู่ใกล้ จะมีอัตราฟื้นฟู โล่พลังงาน เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณ และ เพื่อนที่อยู่ใกล้ จะมีอัตราฟื้นฟู โล่พลังงาน ลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 에너지 보호막 재충전 속도 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들의 에너지 보호막 재충전 속도 {0}% 감소"
 				}
 			}
 		},
@@ -4558,15 +1608,6 @@ return {
 						}
 					},
 					text="你和周围友军将 {0}% 闪避值视为额外护甲"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ นำ {0}% ของค่าหลบหลีก ไปเสริมเป็น เกราะ"
 				}
 			}
 		},
@@ -4599,138 +1640,6 @@ return {
 						}
 					},
 					text="受到的火焰伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="รับความเสียหายทางไฟเพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="รับความเสียหายทางไฟลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% увеличение получаемого урона от огня"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% уменьшение получаемого урона от огня"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% d'Augmentation des Dégâts de feu subis"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% de Réduction des Dégâts de feu subis"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% erhöhter erlittener Feuerschaden"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% verringerter erlittener Feuerschaden"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Daño de Fuego recibido aumentado un {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Daño de Fuego recibido reducido un {0}%"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="받는 화염 피해 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="받는 화염 피해 {0}% 감소"
 				}
 			}
 		},
@@ -4750,15 +1659,6 @@ return {
 						}
 					},
 					text="你和周围友军的药剂魔力回复效果提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ มีการเติม มานา จากขวดยา เพิ่มขึ้น {0}%"
 				}
 			}
 		},
@@ -4791,28 +1691,6 @@ return {
 						}
 					},
 					text="你与周围友军的冰霜伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 주는 냉기 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들이 주는 냉기 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4831,24 +1709,6 @@ return {
 						}
 					},
 					text="击中周围敌人时无视其冰霜抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Resistência à Gelo de Inimigos Próximos é Ignorada por Acertos"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="명중 시 주변의 적의 냉기 저항 무시"
 				}
 			}
 		},
@@ -4868,24 +1728,6 @@ return {
 						}
 					},
 					text="击中周围敌人时无视其火焰抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Resistência à Fogo de Inimigos Próximos é Ignorada por Acertos"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="명중 시 주변의 적의 화염 저항 무시"
 				}
 			}
 		},
@@ -4905,24 +1747,6 @@ return {
 						}
 					},
 					text="击中周围敌人时无视其闪电抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Resistência à Raio de Inimigos Próximos é Ignorada por Acertos"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="명중 시 주변의 적의 번개 저항 무시"
 				}
 			}
 		},
@@ -4942,15 +1766,6 @@ return {
 						}
 					},
 					text="你和周围友军免疫诅咒"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 저주에 면역"
 				}
 			}
 		},
@@ -4983,94 +1798,6 @@ return {
 						}
 					},
 					text="你和周围友军的穿刺效果降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มผลของ ทิ่มแทง {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดผลของ ทิ่มแทง {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="你和附近友方增加 {0}% 穿刺效果"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="你和附近友方減少 {0}% 穿刺效果"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Você e Aliados próximos possuem {0}% de aumento do Efeito de Empalamento"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Você e Aliados próximos possuem {0}% de redução do Efeito de Empalamento"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 꿰뚫기 효과 {0}% 증가"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들의 꿰뚫기 효과 {0}% 감소"
 				}
 			}
 		},
@@ -5098,23 +1825,6 @@ return {
 						}
 					},
 					text="你和周围友军将 {0}% 物理攻击伤害偷取为生命"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ ดูด {0}% ของความเสียหาย โจมตี กายภาพ ไปเป็น พลังชีวิต"
 				}
 			}
 		},
@@ -5147,116 +1857,6 @@ return {
 						}
 					},
 					text="承受的闪电伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% увеличение получаемого урона от молнии"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% уменьшение получаемого урона от молнии"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% d'Augmentation des Dégâts de foudre subis"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% de Réduction des Dégâts de foudre subis"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% erhöhter erlittener Blitzschaden"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% verringerter erlittener Blitzschaden"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Daño de Rayo recibido aumentado un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Daño de Rayo recibido reducido un {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="받는 번개 피해 {0}% 증가"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="받는 번개 피해 {0}% 감소"
 				}
 			}
 		},
@@ -5289,28 +1889,6 @@ return {
 						}
 					},
 					text="你和周围友军在冰缓地面上时，移动速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณกับเพื่อนที่อยู่ใกล้ มีความเร็วในการเคลื่อนที่ เพิ่มขึ้น {0}% ขณะอยู่บน พื้นหนาวเย็น"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณกับเพื่อนที่อยู่ใกล้ มีความเร็วในการเคลื่อนที่ ลดลง {0}% ขณะอยู่บน พื้นหนาวเย็น"
 				}
 			}
 		},
@@ -5354,42 +1932,6 @@ return {
 						}
 					},
 					text="周围敌人受到的物理伤害提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่อยู่ใกล้ ได้รับความเสียหาย กายภาพ เพิ่มขึ้น {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="附近敵人增加 {0}% 承受物理傷害"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inimigos próximos sofrem Dano Físico aumentado em {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="주변의 적이 받는 물리 피해 {0}% 증가"
 				}
 			}
 		},
@@ -5422,28 +1964,6 @@ return {
 						}
 					},
 					text="你和周围友军的总效果区域额外缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มพื้นที่ส่งผล {0}% ให้คุณกับเพื่อนที่อยู่ใกล้"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดพื้นที่ส่งผล {0}% ให้คุณกับเพื่อนที่อยู่ใกล้"
 				}
 			}
 		},
@@ -5482,15 +2002,6 @@ return {
 						}
 					},
 					text="你和周围友军的伤害穿透 {0}% 混沌抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ เจาะต้านทาน เคออส {0}%"
 				}
 			}
 		},
@@ -5510,15 +2021,6 @@ return {
 						}
 					},
 					text="你和周围友军的伤害穿透 {0}% 元素抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณและเพื่อนที่อยู่ใกล้ เจาะต้านทาน ทุกธาตุ {0}%"
 				}
 			}
 		},
@@ -5538,15 +2040,6 @@ return {
 						}
 					},
 					text="你和周围友军的暴击伤害加成 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เพิ่มตัวคูณคริติคอล {0:+d}% ให้คุณและเพื่อนที่อยู่ใกล้"
 				}
 			}
 		},
@@ -5579,28 +2072,6 @@ return {
 						}
 					},
 					text="你与周围友军的法术暴击几率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들의 주문 치명타 확률 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들의 주문 치명타 확률 {0}% 감소"
 				}
 			}
 		},
@@ -5633,28 +2104,6 @@ return {
 						}
 					},
 					text="你与周围友军的法术伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 주는 주문 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="자신 및 주변 동료들이 주는 주문 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -5677,97 +2126,6 @@ return {
 						}
 					},
 					text="你和你周围友军的法术附加 {0} - {1} 基础混沌伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="你和周圍友軍的法術額外造成 {0} 至 {1} 混沌傷害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Вы и ближайшие союзники наносите от {0} до {1} дополнительного урона хаосом чарами"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เสริมความเสียหาย เคออส {0} ถึง {1} ให้เวทของคุณกับเพื่อนที่อยู่ใกล้"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous et les Alliés à proximité avez {0} à {1} Dégâts de chaos supplémentaires avec les Sorts"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ihr und Verbündete im Umkreis verursachen {0} bis {1} zusätzlichen Chaosschaden mit Zaubern"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Tú y tus aliados cercanos infligen {0} a {1} de Daño de Caos adicional con Hechizos"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="자신 및 주변 동료들이 주문 사용 시 카오스 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -5801,28 +2159,6 @@ return {
 						}
 					},
 					text="你和周围友军的图腾放置速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเร็วในการวางโทเทม {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเร็วในการวางโทเทม {0}% ให้คุณและเพื่อนที่อยู่ใกล้"
 				}
 			}
 		},

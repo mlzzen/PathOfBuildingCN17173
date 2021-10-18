@@ -14,84 +14,6 @@ return {
 						}
 					},
 					text="减益效果持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ดีบัฟ คงอยู่ {0} วินาที"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Длительность отрицательного эффекта: {0} сек."
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="La Penalidad Dura {0} segundos"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="L'Effet néfaste dure {0} secondes"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Schwächung hält {0} Sekunden an"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}초간 디버프 지속"
 				}
 			}
 		},
@@ -860,24 +782,6 @@ return {
 						}
 					},
 					text="将该法术和召唤生物 {0}% 的物理伤害转化为闪电伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Esta Magia e Lacaios Convertem {0}% do Dano Físico para Dano de Raio"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="此法術和召喚物轉化 {0}% 的物理裡傷害至閃電傷害"
 				}
 			}
 		},

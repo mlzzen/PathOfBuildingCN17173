@@ -23,28 +23,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的近战物理伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 근접 물리 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 근접 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -76,50 +54,6 @@ return {
 						}
 					},
 					text="被辅助技能在近战击中时造成的流血和中毒伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts avec le Saignement et le Poison infligés en Touchant en mêlée"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts avec le Saignement et le Poison infligés en Touchant en mêlée"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 근접 명중에 의한 출혈 및 중독 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 근접 명중에 의한 출혈 및 중독 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -138,60 +72,6 @@ return {
 						}
 					},
 					text="被辅助技能以光环形式施放诅咒\n被辅助的诅咒技能被视为光环技能\n被辅助技能施放的魔蛊不会持续获得灭能"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 저주가 오라로 적용\n또한 보조 대상 저주 스킬을 오라 스킬로 간주\n보조 대상 스킬의 사술이 지속적으로 멸망을 획득하지 않음"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées projettent leurs Malédictions sous forme d'Auras\nLes Aptitudes de Malédiction modifiées sont également considérées comme des Aptitudes d'Auras\nLes Calamités des Aptitudes modifiées ne gagnent pas de Fatalité sur la durée"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas aplicam suas Maldições como Auras\nHabilidades de Maldição Suportadas também contam como Habilidades de Aura\nFeitiços de Habilidades Suportadas não ganham Destruição com o tempo"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas aplican sus maldiciones como auras\nLas habilidades de maldición asistidas también cuentan como habilidades de aura\nLos maleficios de las habilidades asistidas no ganan perdición a lo largo del tiempo"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能以光環套用它們的詛咒\n被輔助的技能視為光環技能\n來自被輔助技能的咒術不會隨著時間獲得厄運"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะทำให้เกิดคำสาปออกมาเป็นออร่า\nสกิลคำสาปที่ถูกเสริม จะถูกนับเป็น สกิลออร่า ด้วย\nสาปสะกด จากสกิลที่ถูกเสริมจะไม่เพิ่มระดับ ความหายนะ อย่างต่อเนื่อง"
 				}
 			}
 		},
@@ -223,160 +103,6 @@ return {
 						}
 					},
 					text="被辅助技能的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 較少傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Schaden"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Schaden"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -408,160 +134,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 較少傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Schaden"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Schaden"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -593,138 +165,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น อีก {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Schaden"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Schaden"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -743,33 +183,6 @@ return {
 						}
 					},
 					text="被辅助技能立即施放"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="การใช้ สกิลที่ถูกเสริม จะเกิดขึ้นอย่างฉับพลัน"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Utilizar Habilidades Suportadas é Instantâneo"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 즉시 사용"
 				}
 			}
 		},
@@ -801,50 +214,6 @@ return {
 						}
 					},
 					text="满血时，被辅助的攻击技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes d'Attaque modifiées ont {0}% Davantage de Dégâts tant que votre Vie est Pleine"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes d'Attaque modifiées ont {0}% de Perte de Dégâts tant que votre Vie est Pleine"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="생명력이 최대일 때 보조 대상 공격 스킬로 주는 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="생명력이 최대일 때 보조 대상 공격 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -876,28 +245,6 @@ return {
 						}
 					},
 					text="被辅助的攻击技能造成的元素伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 공격 스킬로 주는 원소 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 공격 스킬로 주는 원소 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -929,160 +276,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的武器元素伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона от стихий оружием"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона от стихий оружием"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多武器元素傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 較少武器元素傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ธาตุจากอาวุธ เพิ่มขึ้น อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ธาตุจากอาวุธ ลดลง อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts élémentaires avec les armes"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts élémentaires avec les armes"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Elementarschaden mit Waffen"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Elementarschaden mit Waffen"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño Elemental con Armas"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño Elemental con Armas"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 무기 원소 피해 {0}% 증폭"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 무기 원소 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1114,160 +307,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的范围伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона по области"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона по области"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多範圍傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 較少範圍傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มความเสียหาย พื้นที่ อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดความเสียหาย พื้นที่ อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts de zone"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts de zone"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Flächenschaden"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Flächenschaden"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño en Área"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño en Área"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 범위 피해 {0}% 증폭"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 범위 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1330,138 +369,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的投射物伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย กระสุน เพิ่มขึ้น อีก {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย กระสุน ลดลง อีก {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts des Projectiles"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts des Projectiles"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Projektilschaden"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Projektilschaden"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño de Proyectiles"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño de Proyectiles"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多投射物傷害"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少投射物傷害"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 증폭"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1524,138 +431,6 @@ return {
 						}
 					},
 					text="被辅助技能的投射物伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย กระสุน เพิ่มขึ้น อีก {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย กระสุน ลดลง อีก {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts des Projectiles"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts des Projectiles"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Projektilschaden"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Projektilschaden"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño de Proyectiles"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño de Proyectiles"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多投射物傷害"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少投射物傷害"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 증폭"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1718,160 +493,6 @@ return {
 						}
 					},
 					text="被辅助的图腾的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 較少傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Schaden"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Schaden"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -1903,28 +524,6 @@ return {
 						}
 					},
 					text="被辅助的法术造成的法术伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 주문 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 주문 피해 {0}% 감소"
 				}
 			}
 		},
@@ -1956,28 +555,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的法术伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 주문 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 주문 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2009,28 +586,6 @@ return {
 						}
 					},
 					text="被辅助的法术造成的法术伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 주문의 주문 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 주문의 주문 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2062,160 +617,6 @@ return {
 						}
 					},
 					text="被辅助的触发类法术造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los Hechizos Activados Asistidos infligen {0}% más Daño"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los Hechizos Activados Asistidos infligen {0}% menos Daño"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные срабатывающие чары наносят на {0}% больше урона"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные срабатывающие чары наносят на {0}% меньше урона"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte ausgelöste Zauber verursachen {0}% mehr Schaden"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte ausgelöste Zauber verursachen {0}% weniger Schaden"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Sorts à déclenchement modifiés ont {0}% Davantage de Dégâts"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Sorts à déclenchement modifiés ont {0}% de Perte de Dégâts"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เวททริกเกอร์ที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น อีก {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="เวททริกเกอร์ที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}%"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的觸發法術造成 {0}% 更多傷害"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的觸發法術造成 {0}% 更少傷害"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 발동형 주문으로 주는 피해 {0}% 증폭"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 발동형 주문으로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2247,72 +648,6 @@ return {
 						}
 					},
 					text="被辅助技能的消耗降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% увеличение расхода ресурсов усиленными умениями"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% уменьшение расхода ресурсов усиленными умениями"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能增加 {0}% 消耗"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能減少 {0}% 消耗"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มค่าใช้งานของสกิลที่ถูกเสริม {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดค่าใช้งานของสกิลที่ถูกเสริม {0}%"
 				}
 			}
 		},
@@ -2344,72 +679,6 @@ return {
 						}
 					},
 					text="被辅助技能的生命消耗降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% увеличение расхода здоровья усиленными умениями"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% уменьшение расхода здоровья усиленными умениями"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能增加 {0}% 生命消耗"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能減少 {0}% 生命消耗"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่ม ค่าใช้งานพลังชีวิต ของสกิลที่ถูกเสริม {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลด ค่าใช้งานพลังชีวิต ของสกิลที่ถูกเสริม {0}%"
 				}
 			}
 		},
@@ -2441,160 +710,6 @@ return {
 						}
 					},
 					text="被辅助技能的魔耗（不包括魔力保留类技能）提高 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% снижение затрат маны"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют {0}% повышение затрат маны"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助技能減少 {0}% 魔力消耗"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助技能增加 {0}% 魔力消耗"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มี ค่าใช้งานมานา ลดลง {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มี ค่าใช้งานมานา เพิ่มขึ้น {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction du Coût en Mana"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation du Coût en Mana"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% verringerte Manakosten"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% erhöhte Manakosten"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen su Coste de Maná reducido un {0}%"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas tienen su Coste de Maná aumentado un {0}%"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 마나 소모 {0}% 감소"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 마나 소모 {0}% 증가"
 				}
 			}
 		},
@@ -2622,132 +737,6 @@ return {
 						}
 					},
 					text="被辅助攻击技能可以额外设置 {0} 个周围的敌人为目标"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Unterstützte Schlag-Fertigkeiten zielen auf {0} zusätzlichen Gegner im Umkreis"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Unterstützte Schlag-Fertigkeiten zielen auf {0} zusätzliche Gegner im Umkreis"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Усиленные умения ударов выбирают целью {0} дополнительного ближайшего врага"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения ударов выбирают целью {0} дополнительных ближайших врагов"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Les Aptitudes modifiées ciblent {0} Ennemi à proximité supplémentaire"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ciblent {0} Ennemis à proximité supplémentaires"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="보조 대상 타격 스킬이 주변 적 {0}명을 추가 대상으로 삼음"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 타격 스킬이 주변 적 {0}명을 추가 대상으로 삼음"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="สกิลฟาดที่ถูกเสริม จะโจมตีศัตรูที่อยู่ใกล้เพิ่มอีก {0} เป้าหมาย"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลฟาดที่ถูกเสริม จะโจมตีศัตรูที่อยู่ใกล้เพิ่มอีก {0} เป้าหมาย"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="被輔助的打擊技能瞄準 {0} 個額外附近敵人"
-				},
-				[14]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的打擊技能瞄準 {0} 個額外附近敵人"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Las habilidades de golpe asistidas se fijan en {0} enemigo cercano adicional"
-				},
-				[16]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las habilidades de golpe asistidas se fijan en {0} enemigos cercanos adicionales"
 				}
 			}
 		},
@@ -2766,51 +755,6 @@ return {
 						}
 					},
 					text="被辅助的打击技能无法以额外的敌人为目标"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes de frappe modifiées ne peuvent pas cibler d'Ennemis supplémentaires"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения ударов не могут выбирать целью дополнительных врагов"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 타격 스킬이 추가 적을 대상으로 삼을 수 없음"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的打擊技能不能瞄準額外目標"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะไม่สามารถมีเป้าหมายเพิ่มได้"
 				}
 			}
 		},
@@ -2860,28 +804,6 @@ return {
 						}
 					},
 					text="被辅助技能的效果区域缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 효과 범위 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 효과 범위 {0}% 감소"
 				}
 			}
 		},
@@ -2913,28 +835,6 @@ return {
 						}
 					},
 					text="被辅助技能的总效果区域额外缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 효과 범위 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 효과 범위 {0}% 감폭"
 				}
 			}
 		},
@@ -2966,28 +866,6 @@ return {
 						}
 					},
 					text="被辅助技能会使死亡时产生的效果区域缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="죽음 상태에서 보조 대상 스킬의 효과 범위 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="죽음 상태에서 보조 대상 스킬의 효과 범위 {0}% 감소"
 				}
 			}
 		},
@@ -3019,28 +897,6 @@ return {
 						}
 					},
 					text="被辅助技能的光环范围缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 오라 효과 범위 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 오라 효과 범위 {0}% 감소"
 				}
 			}
 		},
@@ -3072,28 +928,6 @@ return {
 						}
 					},
 					text="被辅助技能的光环强度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 오라 효과 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 오라 효과 {0}% 감소"
 				}
 			}
 		},
@@ -3125,28 +959,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击和法术总暴击率总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 치명타 확률 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 치명타 확률 {0}% 감폭"
 				}
 			}
 		},
@@ -3165,33 +977,6 @@ return {
 						}
 					},
 					text="被辅助技能消耗生命而非魔力"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения расходуют здоровье вместо маны"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能消耗生命而非魔力"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม ใช้งาน พลังชีวิต แทน มานา"
 				}
 			}
 		},
@@ -3210,33 +995,6 @@ return {
 						}
 					},
 					text="被辅助技能保留生命而非魔力"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения удерживают здоровье вместо маны"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能保留生命而非魔力"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมสำรอง พลังชีวิต แทน มานา"
 				}
 			}
 		},
@@ -3255,33 +1013,6 @@ return {
 						}
 					},
 					text="被辅助技能需要消耗生命而非魔力"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Расходует здоровье вместо маны для получения эффектов усиленных умений"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助技能的效果消耗生命而非魔力"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ใช้ พลังชีวิต แทน มานา สำหรับผลของสกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -3318,24 +1049,6 @@ return {
 						}
 					},
 					text="被辅助技能会将点燃效果扩散给范围 {0} 内的敌人"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="L'Embrasement causé par les Aptitudes modifiées se propage aux autres Ennemis dans un Rayon de {0}"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 발생한 점화가 반경 {0} 이내의 다른 적에게 확산"
 				}
 			}
 		},
@@ -3615,276 +1328,6 @@ return {
 						}
 					},
 					text="被辅助技能连续发射投射物"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						},
-						[4]={
-							[1]=1,
-							[2]="#"
-						},
-						[5]={
-							[1]=0,
-							[2]=0
-						},
-						[6]={
-							[1]=0,
-							[2]=0
-						},
-						[7]={
-							[1]="#",
-							[2]="#"
-						},
-						[8]={
-							[1]="#",
-							[2]="#"
-						},
-						[9]={
-							[1]=0,
-							[2]=0
-						},
-						[10]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Habilidades Suportadas Disparam Projéteis em direções aleatórias"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						},
-						[4]={
-							[1]=1,
-							[2]="#"
-						},
-						[5]={
-							[1]="!",
-							[2]=0
-						},
-						[6]={
-							[1]=0,
-							[2]=0
-						},
-						[7]={
-							[1]="#",
-							[2]="#"
-						},
-						[8]={
-							[1]="#",
-							[2]="#"
-						},
-						[9]={
-							[1]=0,
-							[2]=0
-						},
-						[10]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Habilidades Suportadas Disparam Projéteis em uma espiral"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						},
-						[4]={
-							[1]=1,
-							[2]="#"
-						},
-						[5]={
-							[1]="!",
-							[2]=0
-						},
-						[6]={
-							[1]="!",
-							[2]=0
-						},
-						[7]={
-							[1]="#",
-							[2]="#"
-						},
-						[8]={
-							[1]="#",
-							[2]="#"
-						},
-						[9]={
-							[1]=0,
-							[2]=0
-						},
-						[10]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Habilidades Suportadas Disparam Projéteis em duas espirais espelhadas"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						},
-						[4]={
-							[1]=0,
-							[2]=0
-						},
-						[5]={
-							[1]="#",
-							[2]="#"
-						},
-						[6]={
-							[1]=0,
-							[2]=0
-						},
-						[7]={
-							[1]="!",
-							[2]=0
-						},
-						[8]={
-							[1]="!",
-							[2]=0
-						},
-						[9]={
-							[1]=0,
-							[2]=0
-						},
-						[10]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Habilidades Suportadas Disparam Projéteis em uma espiral"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						},
-						[4]={
-							[1]=0,
-							[2]=0
-						},
-						[5]={
-							[1]="#",
-							[2]="#"
-						},
-						[6]={
-							[1]=0,
-							[2]=0
-						},
-						[7]={
-							[1]="!",
-							[2]=0
-						},
-						[8]={
-							[1]=0,
-							[2]=0
-						},
-						[9]={
-							[1]=0,
-							[2]=0
-						},
-						[10]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Habilidades Suportadas Disparam Projéteis em um círculo"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						},
-						[4]={
-							[1]=0,
-							[2]=0
-						},
-						[5]={
-							[1]="#",
-							[2]="#"
-						},
-						[6]={
-							[1]=0,
-							[2]=0
-						},
-						[7]={
-							[1]=0,
-							[2]=0
-						},
-						[8]={
-							[1]="!",
-							[2]=0
-						},
-						[9]={
-							[1]=0,
-							[2]=0
-						},
-						[10]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Habilidades Suportadas Disparam Projéteis em sequência"
 				}
 			}
 		},
@@ -3916,19 +1359,6 @@ return {
 						}
 					},
 					text="被辅助技能会将冰缓、冰冻、点燃和感电状态扩散至范围 {0} 内的敌人"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextElementalStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 발생한 원소 상태 이상이 반경 {0} 이내의 다른 적에게 확산"
 				}
 			}
 		},
@@ -3947,51 +1377,6 @@ return {
 						}
 					},
 					text="被辅助技能击中生命小于 10% 的敌人时，会将其秒杀"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สังหารศัตรูที่มี พลังชีวิต 10% หรือต่ำกว่าเมื่อปะทะ ด้วยสกิลที่ถูกเสริม"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées Tuent au Toucher les Ennemis ayant 10% de Vie ou moins"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Treffer von unterstützten Fertigkeiten töten Gegner mit 10% oder weniger Leben"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Mata a los Enemigos que tengan 10% de Vida o menos cuando son Golpeados con Habilidades Asistidas"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 적중 시 생명력이 10% 이하인 적 처치"
 				}
 			}
 		},
@@ -4028,15 +1413,6 @@ return {
 						}
 					},
 					text="被辅助技能的投射物攻击伤害可以同样获得力量伤害奖励"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="โบนัสความเสียหายจาก Strength ส่งผลกับความเสียหาย โจมตี กระสุน เช่นเดียวกันสำหรับสกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -4055,15 +1431,6 @@ return {
 						}
 					},
 					text="被辅助技能发所有法术伤害可以同样获得力量伤害奖励"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="โบนัสความเสียหายจาก Strength ส่งผลกับความเสียหาย เวท เช่นเดียวกันสำหรับ สกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -4099,214 +1466,6 @@ return {
 						}
 					},
 					text="投掷 {1} 个遥控地雷，引爆时激活此技能"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="폭발 시 보조 대상 스킬을 사용하는 원격 지뢰 1개 투척"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="폭발 시 보조 대상 스킬을 사용하는 원격 지뢰 {1}개 투척"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Wirft eine Fernmine, die bei Zündung die unterstützte Fertigkeit benutzt"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Wirft {1} Fernminen, die bei Zündung die unterstützte Fertigkeit benutzen"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="投擲 1 個遙控地雷，爆炸時使用被輔助的技能"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="投擲 {1} 個遙控地雷，爆炸時使用被輔助的技能"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Arremessa uma Mina Remota que usa a Habilidade Suportada quando detonada"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Arremessa {1} Minas Remotas que usa a Habilidade Suportada quando detonadas"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Бросает мину, которая использует усиленное умение при взрыве"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Бросает мин, которые используют усиленное умение при взрыве: {1}"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Lanza una Mina Remota que usa la Habilidad Asistida cuando detona"
-				},
-				[14]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Lanza {1} Minas Remotas que usan la Habilidad Asistida cuando detonan"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Permet de jeter une Mine activable qui utilise l'Aptitude modifiée lorsqu'elle explose"
-				},
-				[16]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Permet de jeter {1} Mines activables qui utilisent l'Aptitude modifiée lorsqu'elles explosent"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="ทำการโยนทุ่นระเบิด 1 ลูก ที่จะใช้สกิลที่ถูกเสริมเมื่อทำการจุดระเบิด"
-				},
-				[18]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="ทำการโยนทุ่นระเบิด {1} ลูก ที่จะใช้สกิลที่ถูกเสริมเมื่อทำการจุดระเบิด"
 				}
 			}
 		},
@@ -4335,42 +1494,6 @@ return {
 						}
 					},
 					text="被辅助的陷阱技能会投掷 {0} 个额外陷阱"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Habilidades Suportadas arremessam até 1 Armadilha adicional"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas arremessam até {0} Armadilha adicional"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="보조 대상 스킬로 덫 최대 1개 추가 투척"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 덫 최대 {0}개 추가 투척"
 				}
 			}
 		},
@@ -4538,84 +1661,6 @@ return {
 						}
 					},
 					text="图腾持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="โทเทม คงอยู่ {0} วินาที"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Время существования тотема {0} секунд(-ы)"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Totems durent {0} secondes"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Totem ist {0} Sekunden aktiv"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="El Tótem dura {0} segundos"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 토템 지속"
 				}
 			}
 		},
@@ -4643,24 +1688,6 @@ return {
 						}
 					},
 					text="来自被辅助技能的投射物贯穿 {0} 个额外目标"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="กระสุนจาก สกิลที่ถูกเสริม เจาะทะลุ เพิ่มเติม {0} เป้าหมาย"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="กระสุนจาก สกิลที่ถูกเสริม เจาะทะลุ เพิ่มเติม {0} เป้าหมาย"
 				}
 			}
 		},
@@ -4683,84 +1710,6 @@ return {
 						}
 					},
 					text="陷阱持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="กับดัก คงอยู่ {0} วินาที"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Время существования ловушки {0} секунд(-ы)"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Pièges durent {0} secondes"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Falle ist {0} Sekunden aktiv"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="La Trampa dura {0} segundos"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 덫 지속"
 				}
 			}
 		},
@@ -4783,84 +1732,6 @@ return {
 						}
 					},
 					text="地雷持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ทุ่นระเบิด คงอยู่ {0} วินาที"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Время существования мины {0} секунд(-ы)"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Mines durent {0} secondes"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Mine ist {0} Sekunden aktiv"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="La Mina dura {0} segundos"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 지뢰 지속"
 				}
 			}
 		},
@@ -4883,84 +1754,6 @@ return {
 						}
 					},
 					text="地雷持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ทุ่นระเบิด คงอยู่ {0} วินาที"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Время существования мины {0} секунд(-ы)"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Mines durent {0} secondes"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Mine ist {0} Sekunden aktiv"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="La Mina dura {0} segundos"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 지뢰 지속"
 				}
 			}
 		},
@@ -4997,24 +1790,6 @@ return {
 						}
 					},
 					text="被辅助的技能 {0:+d} 召唤图腾数量上限"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas possuem {0:+d} ao número máximo de Totens Convocados"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환 가능한 토템 최대치 {0:+d}"
 				}
 			}
 		},
@@ -5033,24 +1808,6 @@ return {
 						}
 					},
 					text="被辅助的技能召唤的图腾数量从一个增加为两个"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas Convocam dois Totens ao invés de um"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬을 사용하는 토템을 1개가 아닌 2개를 소환"
 				}
 			}
 		},
@@ -5078,114 +1835,6 @@ return {
 						}
 					},
 					text="最多可同时拥有 {0} 个陷阱"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Можно установить ловушек: {0}"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Можно установить ловушек: {0}"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="สามารถวาง กับดัก ได้พร้อมกันสูงสุด {0} อัน"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สามารถวาง กับดัก ได้พร้อมกันสูงสุด {0} อัน"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Vous pouvez avoir jusqu'à {0} Piège placé à la fois"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous pouvez avoir jusqu'à {0} Pièges placés à la fois"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Erlaubt gleichzeitige Platzierung von {0} Falle"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Erlaubt gleichzeitige Platzierung von {0} Fallen"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Puedes tener hasta {0} Trampa colocada a la vez"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Puedes tener hasta {0} Trampas colocadas a la vez"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="한 번에 덫 최대 {0}개 설치"
-				},
-				[14]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="한 번에 덫 최대 {0}개 설치"
 				}
 			}
 		},
@@ -5213,114 +1862,6 @@ return {
 						}
 					},
 					text="最多可同时拥有 {0} 个遥控地雷"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Можно установить мин: {0}"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Можно установить мин: {0}"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="สามารถวาง ทุ่นระเบิด ได้พร้อมกันสูงสุด {0} ลูก"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สามารถวาง ทุ่นระเบิด ได้พร้อมกันสูงสุด {0} ลูก"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Vous pouvez avoir jusqu'à {0} Mine activable posée à la fois"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous pouvez avoir jusqu'à {0} Mines activables posées à la fois"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Erlaubt gleichzeitige Platzierung von {0} Fernmine"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Erlaubt gleichzeitige Platzierung von {0} Fernminen"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Puedes tener hasta {0} Mina colocada a la vez"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Puedes tener hasta {0} Minas colocadas a la vez"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="한 번에 원격 지뢰 최대 {0}개 설치"
-				},
-				[14]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="한 번에 원격 지뢰 최대 {0}개 설치"
 				}
 			}
 		},
@@ -5352,28 +1893,6 @@ return {
 						}
 					},
 					text="被辅助技能的陷阱持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มระยะเวลาของ กับดัก ของสกิลที่ถูกเสริม {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดระยะเวลาของ กับดัก ของสกิลที่ถูกเสริม {0}%"
 				}
 			}
 		},
@@ -5405,28 +1924,6 @@ return {
 						}
 					},
 					text="被辅助的地雷持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -5449,97 +1946,6 @@ return {
 						}
 					},
 					text="被辅助技能击中时会有 {0}% 的几率致盲敌人"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBlind"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% шанс ослепить врагов при нанесении удара"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBlind"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="輔助的技能擊中時有 {0}% 機率致盲敵人"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBlind"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะสร้างสถานะ ตาบอด ต่อศัตรูเมื่อปะทะ"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBlind"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de chances d'Aveugler les Ennemis au Toucher"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBlind"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% Chance, Gegner bei Treffer zu blenden"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBlind"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen {0}% de probabilidad de Cegar enemigos con cada golpe"
-				},
-				[8]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBlind"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 명중 시 {0}%의 확률로 적 실명 유발"
 				}
 			}
 		},
@@ -5571,160 +1977,6 @@ return {
 						}
 					},
 					text="被辅助技能的致盲持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% увеличение длительности ослепления"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют {0}% уменьшение длительности ослепления"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能增加 {0}% 致盲持續時間"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能減少 {0}% 致盲持續時間"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีระยะเวลาสถานะ ตาบอด เพิ่มขึ้น {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีระยะเวลาสถานะ ตาบอด ลดลง {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation de la Durée de l'Aveuglement"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction de la Durée de l'Aveuglement"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% verlängerte Blenddauer"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% verringerte Blendauer"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen aumentada un {0}% la duración de Ceguera"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas tienen reducida un {0}% la duración de Ceguera"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 실명 지속시간 {0}% 증가"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 실명 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -5756,160 +2008,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击和法术暴击率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% повышение шанса критического удара"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют {0}% снижение шанса критического удара"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能增加 {0}% 暴擊率"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能減少 {0}% 暴擊率"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาสคริติคอล เพิ่มขึ้น {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาสคริติคอล ลดลง {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation des Chances de coup critique"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction des Chances de coup critique"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% erhöhte kritische Trefferchance"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% verringerte kritische Trefferchance"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen aumentada un {0}% la Probabilidad de Golpe Crítico"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas tienen reducida un {0}% la Probabilidad de Golpe Crítico"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 치명타 확률 {0}% 증가"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 치명타 확률 {0}% 감소"
 				}
 			}
 		},
@@ -5941,28 +2039,6 @@ return {
 						}
 					},
 					text="被辅助技能的暴击率总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm {0}% mais Chance de Golpe Crítico"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm {0}% menos Chance de Golpe Crítico"
 				}
 			}
 		},
@@ -5981,69 +2057,6 @@ return {
 						}
 					},
 					text="被辅助技能获得 {0:+d}% 攻击和法术基础暴击伤害加成"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0:+d}% к множителю критического удара"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="輔助的技能增加 {0:+d}% 暴擊加成"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีตัวคูณคริติคอล {0:+d}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0:+d}% au Multiplicateur de coup critique"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0:+d}% zu Multiplikator für kritische Trefferchance"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen {0:+d}% al Multiplicador de Golpe Crítico"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 치명타 피해 배율 {0:+d}%"
 				}
 			}
 		},
@@ -6062,69 +2075,6 @@ return {
 						}
 					},
 					text="被辅助技能可以穿透 {0}% 火焰抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения пробивают {0}% сопротивления огню"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能穿透 {0}% 火焰抗性"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เจาะต้านทาน ไฟ {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Pénétration de Résistance au feu"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten durchdringen {0}% Feuerwiderstand"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas Penetran {0}% de la Resistencia al Fuego"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 화염 저항 {0}% 관통"
 				}
 			}
 		},
@@ -6143,69 +2093,6 @@ return {
 						}
 					},
 					text="被辅助技能可以穿透 {0}% 冰霜抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения пробивают {0}% сопротивления холоду"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能穿透 {0}% 冰冷抗性"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เจาะต้านทาน น้ำแข็ง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Pénétration de Résistance au froid"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten durchdringen {0}% Kältewiderstand"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas Penetran {0}% de la Resistencia al Hielo"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 냉기 저항 {0}% 관통"
 				}
 			}
 		},
@@ -6224,24 +2111,6 @@ return {
 						}
 					},
 					text="被辅助技能可以穿透 {0}% 元素抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas Penetram {0}% das Resistências Elementais"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 {0}%의 원소 저항 관통"
 				}
 			}
 		},
@@ -6260,69 +2129,6 @@ return {
 						}
 					},
 					text="被辅助技能可以穿透 {0}% 闪电抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения пробивают {0}% сопротивления молнии"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能穿透 {0}% 閃電抗性"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เจาะต้านทาน สายฟ้า {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Pénétration de Résistance à la foudre"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten durchdringen {0}% Blitzwiderstand"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas Penetran {0}% de la Resistencia al Rayo"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 번개 저항 {0}% 관통"
 				}
 			}
 		},
@@ -6341,24 +2147,6 @@ return {
 						}
 					},
 					text="被辅助技能可以连锁弹射 {0:+d} 次"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="輔助技能連鎖增加 {0:+d} 次"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 연쇄 {0:+d}회"
 				}
 			}
 		},
@@ -6620,384 +2408,6 @@ return {
 						}
 					},
 					text="来自被辅助技能的投射物会返回"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						},
-						[4]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="來自被輔助技能的投射物有 {3}% 機率從最終目標返回你"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						},
-						[4]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="來自被輔助技能的投射物從最終目標返回你"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=1,
-							[2]=99
-						},
-						[4]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="來自被輔助技能的投射物有 {2}% 機率返回你"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=100,
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="來自被輔助技能的投射物返回你"
-				},
-				[14]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=1,
-							[2]=99
-						},
-						[4]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="來自被輔助技能的投射物有 {2}% 機率返回你，+{3}% 機率從最終目標"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=1,
-							[2]=99
-						},
-						[4]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="來自被輔助技能的投射物從最終目標返回你，並有 {2}% 機率在最終距離返回"
-				},
-				[16]={
-					limit={
-						[1]={
-							[1]="!",
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="來自被輔助技能的投射物從最終目標返回你"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="來自被輔助技能的投射物從最終距離返回你"
-				},
-				[18]={
-					limit={
-						[1]={
-							[1]="!",
-							[2]=0
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="來自被輔助技能的投射物返回你"
-				},
-				[19]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						},
-						[4]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม มีโอกาส {3}% ที่จะกลับมาหาคุณเมื่อมันปะทะเป้าหมายสุดท้ายแล้ว"
-				},
-				[20]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						},
-						[4]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม จะกลับมาหาคุณเมื่อมันปะทะเป้าหมายสุดท้ายแล้ว"
-				},
-				[21]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=1,
-							[2]=99
-						},
-						[4]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม มีโอกาส {2}% ที่จะกลับมาหาคุณ"
-				},
-				[22]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=100,
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม จะกลับมาหาคุณ"
-				},
-				[23]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=1,
-							[2]=99
-						},
-						[4]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม มีโอกาส {2}% ที่จะกลับมาหาคุณ มีโอกาส +{3}% เมื่อมันปะทะเป้าหมายสุดท้ายแล้ว"
-				},
-				[24]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=1,
-							[2]=99
-						},
-						[4]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม จะกลับมาหาคุณเมื่อมันปะทะเป้าหมายสุดท้ายแล้ว และมีโอกาส {2}% ที่จะกลับมาหาคุณเมื่อถึงปลายทางของมันแล้ว"
-				},
-				[25]={
-					limit={
-						[1]={
-							[1]="!",
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม จะกลับมาหาคุณเมื่อมันปะทะกับเป้าหมายสุดท้าย"
-				},
-				[26]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม จะกลับมาหาคุณเมื่อมันถึงปลายทางของมันแล้ว"
-				},
-				[27]={
-					limit={
-						[1]={
-							[1]="!",
-							[2]=0
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม จะกลับมาหาคุณ"
 				}
 			}
 		},
@@ -7032,94 +2442,6 @@ return {
 						}
 					},
 					text="被辅助技能击中后的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона от ударов"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона от ударов"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能造成 {0}% 更多擊中傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能造成 {0}% 更少擊中傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts au Toucher"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts au Toucher"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 명중 시 피해 {0}% 증폭"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬 명중 시 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7151,28 +2473,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7204,50 +2504,6 @@ return {
 						}
 					},
 					text="被辅助技能的投射物伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多投射物傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少投射物傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7279,50 +2535,6 @@ return {
 						}
 					},
 					text="被辅助技能的投射物伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多投射物傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少投射物傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7362,66 +2574,6 @@ return {
 						}
 					},
 					text="被辅助技能击中中毒目标时，每层中毒效果造成的伤害总降 {0}%，最多 {1} 层中毒效果"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts au Toucher pour chaque Poison affectant l'Ennemi, jusqu'à {1}"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts au Toucher pour chaque Poison affectant l'Ennemi, jusqu'à {1}"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 명중 시 적에게 중첩된 중독 하나당 주는 피해 {0}% 증폭, 최대 {1}"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 명중 시 적에게 중첩된 중독 하나당 주는 피해 {0}% 감폭, 최대 {1}"
 				}
 			}
 		},
@@ -7454,50 +2606,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的中毒伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts avec le Poison"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts avec le Poison"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 중독 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 중독 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7529,94 +2637,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的中毒伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย พิษ เพิ่มขึ้น อีก {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย พิษ ลดลง อีก {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能造成 {0}% 更多中毒傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能造成 {0}% 更少中毒傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts avec le Poison"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts avec le Poison"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 중독 피해 {0}% 증폭"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 중독 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7648,50 +2668,6 @@ return {
 						}
 					},
 					text="被辅助技能的投射物伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多投射物傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少投射物傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7723,160 +2699,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的混沌伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона хаосом"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона хаосом"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多混沌傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 較少混沌傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เคออส เพิ่มขึ้น อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เคออส ลดลง อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts de chaos"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts de chaos"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Chaosschaden"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Chaosschaden"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas infligen un {0}% más de daño de caos"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las habilidades asistidas infligen un {0}% menos de daño de caos"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 카오스 피해 {0}% 증폭"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 카오스 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -7908,160 +2730,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的法术伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона от чар"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона от чар"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能造成 {0}% 更多法術傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能造成 {0}% 較少法術傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เวท เพิ่มขึ้น อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เวท ลดลง อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts des Sorts"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts des Sorts"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Zauberschaden"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Zauberschaden"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas infligen un {0}% más de daño de hechizos"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las habilidades asistidas infligen un {0}% menos de daño de hechizos"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 주문 피해 {0}% 증폭"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 주문 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8093,50 +2761,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的法术伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多法術傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少法術傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 주문 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 주문 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8168,160 +2792,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的持续性伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше постепенного урона"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше постепенного урона"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多持續傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 較少持續傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ต่อเนื่อง เพิ่มขึ้น อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ต่อเนื่อง ลดลง อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts sur la durée"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts sur la durée"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Schaden über Zeit"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Schaden über Zeit"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño Degenerativo"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño Degenerativo"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 피해 {0}% 증폭"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8353,50 +2823,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的持续性伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多持續傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少持續傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8428,50 +2854,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8511,66 +2893,6 @@ return {
 						}
 					},
 					text="被辅助技能对异常状态的伤害总降 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能對敵人造成 {0}% 更多異常狀態傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能對敵人造成 {0}% 更少異常狀態傷害"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 상태 이상 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 상태 이상 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8602,50 +2924,6 @@ return {
 						}
 					},
 					text="被辅助技能击中后的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助技能擊中時造成 {0}% 更多傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助技能擊中時造成 {0}% 更少傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 명중 시 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬 명중 시 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8677,50 +2955,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的物理伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多物理傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少物理傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8752,50 +2986,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的火焰伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多火焰傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少火焰傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 화염 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 화염 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8827,50 +3017,6 @@ return {
 						}
 					},
 					text="被辅助技能的击中伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助技能擊中時造成 {0}% 更多傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助技能擊中時造成 {0}% 更少傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 명중 시 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬 명중 시 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8902,50 +3048,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的元素伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多元素傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少元素傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 원소 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 원소 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -8977,94 +3079,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的点燃伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลุกไหม้ เพิ่มขึ้น อีก {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลุกไหม้ ลดลง อีก {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多點燃傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少點燃傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts avec l'Embrasement"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts avec l'Embrasement"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 점화 피해 {0}% 증폭"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 점화 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -9096,50 +3110,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的物理伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多物理傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少物理傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -9189,28 +3159,6 @@ return {
 						}
 					},
 					text="被辅助技能的陷阱和地雷伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 덫 및 지뢰 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 덫 및 지뢰 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -9229,60 +3177,6 @@ return {
 						}
 					},
 					text="被辅助的攻击技能击中每个敌人会回复 {0:+d} 生命"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ได้รับ พลังชีวิต {0:+d} ต่อจำนวนศัตรูที่ถูกปะทะด้วย การโจมตีที่ถูกเสริม"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0:+d} здоровья за каждого врага, поражённого усиленной атакой"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0:+d} de Vie gagnée pour chaque Ennemi Touché par les Attaques modifiées"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Erhaltet {0:+d} Leben für jeden durch unterstützten Angriff getroffenen Gegner"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0:+d} de Vida ganada por cada Enemigo golpeado por Ataques Asistidos"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 공격으로 피격당한 적 하나당 획득하는 생명력 {0:+d}"
 				}
 			}
 		},
@@ -9314,50 +3208,6 @@ return {
 						}
 					},
 					text="被辅助技能对主要目标造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能對主要目標造成 {0}% 更多傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能對主要目標造成 {0}% 更少傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주 대상에게 주는 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주 대상에게 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -9376,15 +3226,6 @@ return {
 						}
 					},
 					text="被辅助的单体近战攻击技能对周围目标造成溅射伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주변 대상에게 범위 피해를 줌"
 				}
 			}
 		},
@@ -9441,241 +3282,6 @@ return {
 						}
 					},
 					text="被辅助技能对周围目标造成的伤害总降 {0}%"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="被輔助的技能對周圍的目標造成 {0}% 更多傷害"
-				},
-				[5]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="被輔助的技能對周圍的目標造成 {0}% 更少傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="被輔助的技能對周圍的目標造成 {0}% 更少傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น อีก {0}% ต่อเป้าหมายรอบตัว"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}% ต่อเป้าหมายรอบตัว"
-				},
-				[9]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}% ต่อเป้าหมายรอบตัว"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño a los objetivos circundantes"
-				},
-				[11]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño a los objetivos circundantes"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño a los objetivos circundantes"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts contre les autres cibles"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts contre les autres cibles"
-				},
-				[15]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts contre les autres cibles"
-				},
-				[16]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="보조 대상 스킬로 주변 대상에게 주는 피해 {0}% 증폭"
-				},
-				[17]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="보조 대상 스킬이 주변 대상에게 주는 피해 {0}% 감폭"
-				},
-				[18]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="보조 대상 스킬이 주변 대상에게 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -9695,24 +3301,6 @@ return {
 						}
 					},
 					text="被辅助的近战攻击技能可额外重复 {0} 次"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="輔助的技能額外重複 {0} 次"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 {0}회 추가 반복"
 				}
 			}
 		},
@@ -9740,42 +3328,6 @@ return {
 						}
 					},
 					text="辅助的法术技能可重复 {0} 次"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="輔助的技能額外重複 1 次"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="輔助的技能額外重複 {0} 次"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="보조 대상 스킬 1회 추가 반복"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 {0}회 추가 반복"
 				}
 			}
 		},
@@ -9807,50 +3359,6 @@ return {
 						}
 					},
 					text="被辅助技能的总施法速度总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能有 {0}% 更多施放速度"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能有 {0}% 更少施放速度"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 시전 속도 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 시전 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -9882,50 +3390,6 @@ return {
 						}
 					},
 					text="被辅助技能的总近战攻击速度总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能有 {0}% 更多近戰攻擊速度"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能有 {0}% 更少近戰攻擊速度"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 근접 공격 속도 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 근접 공격 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -9957,50 +3421,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的攻击伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多攻擊傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少攻擊傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 공격 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 공격 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -10032,28 +3452,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的陷阱伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 덫 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 덫 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -10085,94 +3483,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -10204,138 +3514,6 @@ return {
 						}
 					},
 					text="死亡时伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สร้างความเสียหายมากขึ้น {0}% ขณะตาย"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สร้างความเสียหายน้อยลง {0}% ขณะตาย"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="На {0}% больше урона при смерти"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="На {0}% меньше урона при смерти"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% Davantage de Dégâts pendant que vous êtes Mort(e)"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% de Perte de Dégâts pendant que vous êtes Mort(e)"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% mehr Schaden, solange tot"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% weniger Schaden, solange tot"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% más de daño mientras estés muerto"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% menos de daño mientras estés muerto"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="죽음 상태에서 피해 {0}% 증폭"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="죽음 상태에서 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -10367,28 +3545,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -10407,60 +3563,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤的图腾和召唤生物有 {0:+d}% 火焰抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="โทเทมกับมิเนียนที่ถูกอัญเชิญจาก สกิลที่ถูกเสริม มีต้านทาน ไฟ {0:+d}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Тотемы и приспешники, призванные усиленными умениями, имеют {0:+d}% сопротивления огню"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Totems et les Créatures Invoqués par les Aptitudes modifiées ont\n{0:+d}% à la Résistance au Feu"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Durch unterstützte Fertigkeiten beschworene Totems und Kreaturen haben {0:+d}% Feuerwiderstand"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los Tótems y Esbirros invocados por Habilidades Asistidas tienen {0:+d}% de Resistencia al Fuego"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 토템 및 소환수의 화염 저항 {0:+d}%"
 				}
 			}
 		},
@@ -10479,60 +3581,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤的图腾和召唤生物有 {0:+d}% 冰霜抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="โทเทมกับมิเนียนที่ถูกอัญเชิญจาก สกิลที่ถูกเสริม มีต้านทาน น้ำแข็ง {0:+d}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Тотемы и приспешники, призванные усиленными умениями, имеют {0:+d}% сопротивления холоду"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Totems et les Créatures Invoqués par les Aptitudes modifiées ont\n{0:+d}% à la Résistance au froid"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Durch unterstützte Fertigkeiten beschworene Totems und Kreaturen haben {0:+d}% Kältewiderstand"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los Tótems y Esbirros invocados por Habilidades Asistidas tienen {0:+d}% de Resistencia al Hielo"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 토템 및 소환수의 냉기 저항 {0:+d}%"
 				}
 			}
 		},
@@ -10551,60 +3599,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤的图腾和召唤生物有 {0:+d}% 闪电抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="โทเทมกับมิเนียนที่ถูกอัญเชิญจาก สกิลที่ถูกเสริม มีต้านทาน สายฟ้า {0:+d}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Тотемы и приспешники, призванные усиленными умениями, имеют {0:+d}% сопротивления молнии"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Totems et les Créatures Invoqués par les Aptitudes modifiées ont\n{0:+d}% à la Résistance à la foudre"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Durch unterstützte Fertigkeiten beschworene Totems und Kreaturen haben {0:+d}% Blitzwiderstand"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los Tótems y Esbirros invocados por Habilidades Asistidas tienen {0:+d}% de Resistencia al Rayo"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 토템 및 소환수의 번개 저항 {0:+d}%"
 				}
 			}
 		},
@@ -10632,114 +3626,6 @@ return {
 						}
 					},
 					text="被辅助技能击中时会触发连接的诅咒"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะทำให้ติด คำสาปที่ถูกเสริม เมื่อปะทะ"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม ทำให้ติด คำสาปที่ถูกเสริม เมื่อปะทะ"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Усиленные умения имеют {0}% шанс наложить усиленные проклятия при нанесении удара"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения накладывают усиленные проклятия при нанесении удара"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de chances d'appliquer les Malédictions modifiées au Toucher"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées appliquent les Malédictions modifiées au Toucher"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% Chance, bei Treffer unterstützte Flüche auszulösen"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten lösen bei Treffer unterstützte Flüche aus"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Las Habilidades Asistidas tienen {0}% de probabilidad de aplicar Maldiciones Asistidas con cada Golpe"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas aplican Maldiciones Asistidas con cada Golpe"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬 명중 시 {0}%의 확률로 보조 대상 저주 적용"
-				},
-				[14]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="명중 시 보조 대상 스킬이 보조 대상 저주에 적용"
 				}
 			}
 		},
@@ -10758,15 +3644,6 @@ return {
 						}
 					},
 					text="你不能施放被辅助的诅咒法术"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณไม่สามารถร่ายเวท คำสาปที่ถูกเสริม"
 				}
 			}
 		},
@@ -10794,42 +3671,6 @@ return {
 						}
 					},
 					text="暴击时，被辅助的攻击技能会触发连接的法术"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Les Attaques modifiées ont {0}% de chances de déclencher un Sort modifié lorsque vous infligez un Coup critique à un Ennemi"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Les Attaques modifiées déclenchent un Sort modifié lorsque vous infligez un Coup critique à un Ennemi"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬 치명타 시 {0}%의 확률로 보조 대상 주문 발동"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="적에게 치명타 시 보조 대상 공격으로 보조 대상 주문 발동"
 				}
 			}
 		},
@@ -10857,42 +3698,6 @@ return {
 						}
 					},
 					text="击败敌人时，被辅助的近战攻击技能会触发连接的法术"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Les Attaques de mêlée modifiées ont {0}% de chances de déclencher un Sort modifié en Tuant"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Les Attaques de mêlée modifiées déclenchent un Sort modifié en Tuant"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 근접 스킬로 처치 시 {0}%의 확률로 보조 대상 주문 발동"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="처치 시 보조 대상 근접 공격이 보조 대상 주문을 발동"
 				}
 			}
 		},
@@ -10920,24 +3725,6 @@ return {
 						}
 					},
 					text="被辅助的诅咒技能施放的魔蛊结束时，触发末日爆炸"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="ทริกเกอร์ ระเบิดหายนะ เมื่อ สาปสะกด จาก สกิลคำสาปที่ถูกเสริม จบลง"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="ทริกเกอร์ ระเบิดหายนะ เมื่อ สาปสะกด จาก สกิลคำสาปที่ถูกเสริม จบลง"
 				}
 			}
 		},
@@ -10960,84 +3747,6 @@ return {
 						}
 					},
 					text="无法直接施放被辅助的触发类法术"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="不能直接施放受輔助的觸發法術"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณไม่สามารถร่าย เวทที่ถูกเสริมให้ทริกเกอร์ ได้โดยตรง"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="les Sorts modifiés ne peuvent plus être Lancés directement"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ihr könnt unterstützte auslösbare Zauber nicht selbst zaubern"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="No puedes Lanzar Hechizos Activables Asistidos directamente"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 발동형 주문을 직접 시전할 수 없음"
 				}
 			}
 		},
@@ -11057,24 +3766,6 @@ return {
 						}
 					},
 					text="有 {0}% 的几率在死亡时触发被辅助的非召唤生物法术"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}% de chances de déclencher un Sort modifié qui n'est pas un sort de Créature en Mourant"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="사망 시 {0}%의 확률로 비-소환수 보조 대상 주문 발동"
 				}
 			}
 		},
@@ -11093,24 +3784,6 @@ return {
 						}
 					},
 					text="你被晕眩或格挡晕眩时有 {0}% 的几率触发连接的法术"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}% de chances de déclencher les Sorts modifiés lorsque vous êtes Étourdi, ou\nEn Bloquant un Coup Étourdissant"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="기절하거나 기절 유발 명중을 막아낼 경우,\n{0}%의 확률로 보조 대상 주문 발동"
 				}
 			}
 		},
@@ -11138,60 +3811,6 @@ return {
 						}
 					},
 					text="你用非触发型法杖攻击发射的投射物触发被辅助的法术"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="{0}% Chance, unterstützte Zauber auszulösen, wenn Ihr mit einem nicht ausgelösten Zauberstabangriff Projektile abfeuert"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Löst unterstützte Zauber aus, wenn Ihr mit einem nicht ausgelösten Zauberstabangriff Projektile abfeuert"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="{0}% шанс вызвать срабатывание усиленных умений, когда вы выпускаете снаряды несрабатываемой атакой жезлом"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Вызывает срабатывание усиленных умений, когда вы выпускаете снаряды несрабатываемой атакой жезлом"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="當你從非觸發型法杖攻擊發射投射物時，有 {0}% 機率觸發輔助的法術"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="當你從非觸發型法杖攻擊發射投射物時，觸發輔助的法術"
 				}
 			}
 		},
@@ -11235,74 +3854,6 @@ return {
 						}
 					},
 					text="你累计受到 {2} 点伤害时触发被辅助的法术"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% de chances de déclencher les Sorts modifiés lorsque vous subissez un total de {2} Dégâts"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Déclenche les Sorts modifiés lorsque vous subissez un total de {2} Dégâts"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="총 {2}의 피해를 받았을 시 {0}%의 확률로 보조 대상 주문 발동"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="총 {2}의 피해를 받았을 시 보조 대상 주문 발동"
 				}
 			}
 		},
@@ -11327,45 +3878,6 @@ return {
 						}
 					},
 					text="吟唱被辅助技能过程中，每 {0} 秒触发 1 次被连接的法术"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="引導被輔助的技能時，每 {0} 秒觸發被輔助的法術"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Déclenche un Sort modifié toutes les {0} secondes tant que vous Canalisez les Aptitudes modifiées"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬을 집중 유지하는 동안 {0}초마다 보조 대상 주문 발동"
 				}
 			}
 		},
@@ -11388,84 +3900,6 @@ return {
 						}
 					},
 					text="每秒造成 {0} 基础混沌伤害"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สร้างความเสียหาย เคออส เริ่มต้น {0} ต่อวินาที"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Наносит {0} базового урона хаосом в секунду"
-				},
-				[4]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inflige {0} Dégâts de chaos de base par seconde"
-				},
-				[5]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verursacht {0} Basis-Chaosschaden pro Sekunde"
-				},
-				[6]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inflige {0} de Daño Base de Caos por segundo"
-				},
-				[7]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="1초마다 {0}의 기본 카오스 피해를 줌"
 				}
 			}
 		},
@@ -11488,84 +3922,6 @@ return {
 						}
 					},
 					text="每秒造成 {0} 基础火焰伤害"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สร้างความเสียหาย ไฟ เริ่มต้น {0} ต่อวินาที"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Наносит {0} базового урона от огня в секунду"
-				},
-				[4]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inflige {0} Dégâts de feu de base par seconde"
-				},
-				[5]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verursacht {0} Basis-Feuerschaden pro Sekunde"
-				},
-				[6]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inflige {0} de Daño Base de Fuego por segundo"
-				},
-				[7]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="1초마다 {0}의 기본 화염 피해를 줌"
 				}
 			}
 		},
@@ -11588,45 +3944,6 @@ return {
 						}
 					},
 					text="每秒造成 {0} 点基础物理伤害"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Наносит {0} базового физического урона в секунду"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="每秒造成 {0} 基礎物理傷害"
-				},
-				[4]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สร้างความเสียหาย กายภาพ พื้นฐาน {0} ต่อวินาที"
 				}
 			}
 		},
@@ -11649,19 +3966,6 @@ return {
 						}
 					},
 					text="次要减益效果每秒造成 {0} 点基础火焰伤害"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ผลของดีบัฟรองจะ สร้างความเสียหาย ไฟ พื้นฐาน {0} ต่อวินาที"
 				}
 			}
 		},
@@ -11684,71 +3988,6 @@ return {
 						}
 					},
 					text="每秒造成 {0} 基础冰霜伤害"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สร้างความเสียหาย น้ำแข็ง เริ่มต้น {0} ต่อวินาที"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inflige {0} Dégâts de froid de base par seconde"
-				},
-				[4]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verursacht {0} Basis-Kälteschaden pro Sekunde"
-				},
-				[5]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inflige {0} de Daño Base de Hielo por segundo"
-				},
-				[6]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="1초마다 {0}의 기본 냉기 피해를 줌"
 				}
 			}
 		},
@@ -11780,138 +4019,6 @@ return {
 						}
 					},
 					text="被辅助的诅咒效果降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มผลของคำสาปที่ถูกเสริม {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดผลของคำสาปที่ถูกเสริม {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% усиление эффекта усиленных проклятий"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% ослабление эффекта усиленных проклятий"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% d'Augmentation de L'Effet des Malédictions modifiées"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% de Réduction de L'Effet des Malédictions modifiées"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% erhöhte Wirkung von unterstützten Flüchen"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% verringerte Wirkung von unterstützten Flüchen"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Efecto de las Maldiciones Asistidas aumentado un {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Efecto de las Maldiciones Asistidas reducido un {0}%"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 저주 효과 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 저주 효과 {0}% 감소"
 				}
 			}
 		},
@@ -11943,50 +4050,6 @@ return {
 						}
 					},
 					text="被辅助技能的施法速度总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют на {0}% больше скорости сотворения чар"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют на {0}% меньше скорости сотворения чар"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm {0}% mais Velocidade de Conjuração"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm {0}% menos Velocidade de Conjuração"
 				}
 			}
 		},
@@ -12018,116 +4081,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击速度总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能有 {0}% 更多攻擊速度"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能有 {0}% 更少攻擊速度"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเร็วในการโจมตี เพิ่มขึ้น อีก {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเร็วในการโจมตี ลดลง อีก {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm {0}% mais Velocidade de Ataque"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm {0}% menos Velocidade de Ataque"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Vitesse d'attaque"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Vitesse d'attaque"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 공격 속도 {0}% 증폭"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 공격 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -12154,108 +4107,6 @@ return {
 						}
 					},
 					text="击中敌人时造成流血，持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextBleeding"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สร้างสถานะ เลือดไหล {0} วินาที เมื่อปะทะ"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextBleeding"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Накладывает кровотечение при нанесении удара на {0} секунд"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextBleeding"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Inflige Saignement au Toucher pour {0} secondes"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextBleeding"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Verursacht bei Treffer Bluten für {0} Sekunden"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextBleeding"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Causa Sangrado por {0} segundos con cada Golpe"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextBleeding"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="명중 시 {0}초 동안 출혈 유발"
 				}
 			}
 		},
@@ -12274,60 +4125,6 @@ return {
 						}
 					},
 					text="被辅助的光环对你本人无效"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ออร่าที่ถูกเสริมไม่มีผลต่อคุณ"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные ауры не действуют на вас"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Auras modifiées ne vous affectent plus"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Unterstützte Auren haben keine Wirkung auf Euch"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las Auras Asistidas no te afectan a Ti"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 오라가 자신에게 영향을 주지 않음"
 				}
 			}
 		},
@@ -12359,50 +4156,6 @@ return {
 						}
 					},
 					text="被辅助技能对流血敌人造成的物理伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts physiques de mêlée contre les Ennemis qui Saignent"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts physiques de mêlée contre les Ennemis qui Saignent"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 출혈 중인 적을 상대로 주는 근접 물리 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬이 출혈 중인 적을 상대로 주는 근접 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -12434,50 +4187,6 @@ return {
 						}
 					},
 					text="被辅助技能的投射物总速度总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能有 {0}% 更快投射物速度"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能有 {0}% 更慢投射物速度"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 투사체 속도 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 투사체 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -12509,28 +4218,6 @@ return {
 						}
 					},
 					text="被辅助技能的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -12562,28 +4249,6 @@ return {
 						}
 					},
 					text="被辅助技能的技能效果总持续时间额外缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 스킬 효과 지속시간 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 스킬 효과 지속시간 {0}% 감폭"
 				}
 			}
 		},
@@ -12640,194 +4305,6 @@ return {
 						}
 					},
 					text="被辅助技能的总附着持续时间额外缩短 {0}%"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Durée en étant Liées"
-				},
-				[5]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Durée en étant Liées"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Durée en étant Liées"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="보조 대상 스킬의 부착 지속시간 {0}% 증폭"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="보조 대상 스킬의 부착 지속시간 {0}% 감폭"
-				},
-				[9]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="보조 대상 스킬의 부착 지속시간 {0}% 감폭"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มระยะเวลาที่เกาะได้ {0}%"
-				},
-				[11]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดระยะเวลาที่เกาะได้ {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดระยะเวลาที่เกาะได้ {0}%"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="Длительность прикрепления клейм усиленными умениями на {0}% больше"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="Длительность прикрепления клейм усиленными умениями на {0}% меньше"
-				},
-				[15]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Длительность прикрепления клейм усиленными умениями на {0}% меньше"
 				}
 			}
 		},
@@ -12860,94 +4337,6 @@ return {
 						}
 					},
 					text="被辅助技能的总解除持续时间额外缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Durée en étant Déliées"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Durée en étant Déliées"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 분리 지속시간 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 분리 지속시간 {0}% 감폭"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะมีระยะเวลาที่อยู่บนพื้น เพิ่มขึ้น อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะมีระยะเวลาที่อยู่บนพื้น ลดลง อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Длительность существования клейм без прикрепления от усиленных умений на {0}% больше"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Длительность существования клейм без прикрепления от усиленных умений на {0}% меньше"
 				}
 			}
 		},
@@ -13005,84 +4394,6 @@ return {
 						}
 					},
 					text="被辅助技能击中敌人时会使其中毒"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения отравляют врагов при нанесении удара"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างสถานะ พิษ ต่อศัตรูเมื่อปะทะ"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées Empoisonnent les Ennemis au Toucher"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten vergiften getroffene Gegner"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas envenenan a los enemigos con cada golpe"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="명중 시 보조 대상 스킬로 적 중독 유발"
 				}
 			}
 		},
@@ -13118,58 +4429,6 @@ return {
 						}
 					},
 					text="被辅助技能在击中时会使敌人中毒"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de chances d'Empoisonner au Toucher"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées Empoisonnent toujours au Toucher"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬 명중 시 {0}%의 확률로 중독 유발"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="명중 시 보조 대상 스킬이 항상 중독 유발"
 				}
 			}
 		},
@@ -13205,58 +4464,6 @@ return {
 						}
 					},
 					text="被辅助技能击中敌人后造成【死亡凋零】"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextWithered"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะสร้างสถานะ เหี่ยวเฉา เมื่อปะทะ"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextWithered"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างสถานะ เหี่ยวเฉา เมื่อปะทะ เสมอ"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextWithered"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬 명중 시 {0}%의 확률로 위축 유발"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextWithered"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="명중 시 보조 대상 스킬이 항상 위축 유발"
 				}
 			}
 		},
@@ -13279,19 +4486,6 @@ return {
 						}
 					},
 					text="被辅助技能无法造成点燃、冰冻、冰缓和感电状态"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextElementalStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 원소 상태 이상 유발 불가"
 				}
 			}
 		},
@@ -13314,84 +4508,6 @@ return {
 						}
 					},
 					text="被冰冻时，敌人的冰霜抗性降低 {0}%"
-				},
-				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูสูญเสียต้านทาน น้ำแข็ง {0}% ขณะที่ติดสถานะ แช่แข็ง"
-				},
-				[3]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Враги теряют {0}% сопротивления холоду при заморозке"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Ennemis perdent {0}% de Résistance au froid tant qu'ils sont Gelés"
-				},
-				[5]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Gegner verlieren {0}% Kältewiderstand, solange sie eingefroren sind"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los Enemigos pierden {0}% de Resistencia al Hielo mientras estén Congelados"
-				},
-				[7]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="적이 동결 상태에서 {0}%의 냉기 저항 상실"
 				}
 			}
 		},
@@ -13410,60 +4526,6 @@ return {
 						}
 					},
 					text="【灵巧】效果下，被辅助技能获得 {0:+d}% 暴击伤害加成"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="當靈巧時，被輔助的技能 {0:+d}% 暴擊加成"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0:+d}% de Multiplicateur de coup critique tant que vous êtes Insaisissable"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas tem {0:+d}% de Multiplicador de Golpe Crítico enquanto Elusivo"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0:+d}% к множителю критического удара под действием Неуловимости"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen {0:+d}% al Multiplicador de Golpe Crítico mientras eres Escurridizo"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะตัวคูณคริติคอล {0:+d}% ระหว่างผลของ ลื่นไหล"
 				}
 			}
 		},
@@ -13482,33 +4544,6 @@ return {
 						}
 					},
 					text="用被辅助技能消耗总计 {0} 点魔力后获得秘术增强效果"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Дарует Колдовской выброс после расхода суммарно {0} маны усиленными умениями"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能消耗總 {0} 魔力後，獲得秘能波動"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ได้รับ Arcane Surge หลังจาก ใช้ มานา ไปทั้งหมด {0} แต้ม ด้วยสกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -13544,58 +4579,6 @@ return {
 						}
 					},
 					text="秘术增强提供的法术伤害总增 {0}%\n秘术增强提供的魔力再生率提高 {1}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Éruption arcanique octroie {1}% d'Augmentation de Taux de Régénération de Mana"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Éruption arcanique octroie {0}% Davantage de Dégâts des Sorts\nÉruption arcanique octroie {1}% d'Augmentation de Taux de Régénération de Mana"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Fúria Arcana concede Regeneração de Mana aumentada em {1}%"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Fúria Arcana concede {0}% mais Dano Mágico\nFúria Arcana concede Regeneração de Mana aumentada em {1}%"
 				}
 			}
 		},
@@ -13628,94 +4611,6 @@ return {
 						}
 					},
 					text="被辅助技能提供的凌厉效果的持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Crueldade concedida por Habilidades Suportadas tem Duração aumentada em {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Crueldade concedida por Habilidades Suportadas tem Duração reduzida em {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="L'Effet Cruauté octroyé par les Aptitudes modifiées a {0}% d'Augmentation de Durée"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="L'Effet Cruauté octroyé par les Aptitudes modifiées a {0}% de Réduction de Durée"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="La Crueldad otorgada por las habilidades asistidas tiene duración aumentada un {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="La Crueldad otorgada por las habilidades asistidas tiene duración reducida un {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助技能給予的殘酷增加 {0}% 持續時間"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助技能給予的殘酷減少 {0}% 持續時間"
 				}
 			}
 		},
@@ -13751,110 +4646,6 @@ return {
 						}
 					},
 					text="【秘术增强】持续 {0} 秒"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Arcane Surge คงอยู่ {0} วินาที"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Arcane Surge คงอยู่ {0} วินาที"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="秘能波動持續 {0} 秒"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="秘能波動持續 {0} 秒"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Éruption arcanique Dure {0} seconde"
-				},
-				[8]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Éruption arcanique Dure {0} secondes"
-				},
-				[9]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="{0}초간 비전 쇄도 지속"
-				},
-				[10]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 비전 쇄도 지속"
 				}
 			}
 		},
@@ -13890,214 +4681,6 @@ return {
 						}
 					},
 					text="凌厉的基础持续时间为 {0} 秒"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Crueldade tem Duração Base de {0} segundo"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Crueldade tem Duração Base de {0} segundos"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="잔혹의 기본 지속시간 {0}초"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="잔혹의 기본 지속시간 {0}초"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Cruauté a une Durée de base de {0} seconde"
-				},
-				[8]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Cruauté a une Durée de base de {0} secondes"
-				},
-				[9]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Grausamkeit hat eine Basisdauer von {0} Sekunde"
-				},
-				[10]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Grausamkeit hat eine Basisdauer von {0} Sekunden"
-				},
-				[11]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Crueldad tiene una duración base de {0} segundo"
-				},
-				[12]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Crueldad tiene una duración base de {0} segundos"
-				},
-				[13]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Базовая длительность Злости равна {0} секунде"
-				},
-				[14]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Базовая длительность Злости равна {0} секундам"
-				},
-				[15]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="殘酷有基礎持續時間 {0} 秒"
-				},
-				[16]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="殘酷有基礎持續時間 {0} 秒"
-				},
-				[17]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="สถานะ อำมหิต มีระยะเวลาพื้นฐาน {0} วินาที"
-				},
-				[18]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สถานะ อำมหิต มีระยะเวลาพื้นฐาน {0} วินาที"
 				}
 			}
 		},
@@ -14133,58 +4716,6 @@ return {
 						}
 					},
 					text="【死亡凋零】持续 {0} 秒"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text=" สถานะ เหี่ยวเฉา คงอยู่ {0} วินาที"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text=" สถานะ เหี่ยวเฉา คงอยู่ {0} วินาที"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="{0}초간 위축 지속"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 위축 지속"
 				}
 			}
 		},
@@ -14228,74 +4759,6 @@ return {
 						}
 					},
 					text="【死亡凋零】持续 {0} 秒"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextWithered"
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text=" สถานะ เหี่ยวเฉา คงอยู่ {0} วินาที"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextWithered"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text=" สถานะ เหี่ยวเฉา คงอยู่ {0} วินาที"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextWithered"
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="{0}초간 위축 지속"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextWithered"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 위축 지속"
 				}
 			}
 		},
@@ -14331,58 +4794,6 @@ return {
 						}
 					},
 					text="【秘术增强】持续 {0} 秒"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Éruption arcanique dure {0} seconde"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Éruption arcanique dure {0} secondes"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="{0}초간 비전 쇄도 지속"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 비전 쇄도 지속"
 				}
 			}
 		},
@@ -14418,58 +4829,6 @@ return {
 						}
 					},
 					text="【死亡凋零】持续 {0} 秒"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text=" สถานะ เหี่ยวเฉา คงอยู่ {0} วินาที"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text=" สถานะ เหี่ยวเฉา คงอยู่ {0} วินาที"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="{0}초간 위축 지속"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 위축 지속"
 				}
 			}
 		},
@@ -14488,33 +4847,6 @@ return {
 						}
 					},
 					text="使用被辅助技能击败带有感电状态的怪物时获得【闪电支配】"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Дарует эффект Возбуждение при убийстве поражённого шоком врага усиленными умениями"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Gagnez Innervation en Tuant un Ennemi Électrocuté avec les Aptitudes modifiées"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 감전된 적 처치 시 신경 자극 획득"
 				}
 			}
 		},
@@ -14537,45 +4869,6 @@ return {
 						}
 					},
 					text="【闪电支配】附加  {0} - {1} 基础闪电伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Эффект Возбуждения дарует от {0} до {1} урона от молнии"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Innervation octroie {0} à {1} Dégâts de foudre"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="신경 자극이 {0}~{1}의 번개 피해 제공"
 				}
 			}
 		},
@@ -14612,58 +4905,6 @@ return {
 						}
 					},
 					text="【闪电支配】持续 {0} 秒"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Innervation dure {0} seconde"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Innervation dure {0} secondes"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="{0}초간 신경 자극 지속"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 신경 자극 지속"
 				}
 			}
 		},
@@ -14682,42 +4923,6 @@ return {
 						}
 					},
 					text="每打出 3 次被辅助的近战攻击，就会触发 1 次【无情一击】"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的近戰攻擊每三次觸發一次殘暴之擊"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Каждая третья атака усиленными атаками ближнего боя наносит Беспощадный удар"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Toutes les trois attaques, les Attaques de mêlée modifiées infligent un Coup impitoyable"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 근접 공격으로 세 번째 공격할 때마다 무자비한 맹타 시전"
 				}
 			}
 		},
@@ -14736,33 +4941,6 @@ return {
 						}
 					},
 					text="被辅助技能会使【无情一击】的近战伤害总增 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="殘暴之擊被技能輔助時造成 {0}% 更多近戰傷害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Coups impitoyables avec les Aptitudes modifiées ont {0}% Davantage de Dégâts de mêlée"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 무자비한 맹타 사용 시 근접 피해 {0}% 증폭"
 				}
 			}
 		},
@@ -14781,24 +4959,6 @@ return {
 						}
 					},
 					text="被辅助技能会使【无情一击】在近战击中时的流血伤害总增 {0}% "
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Coups impitoyables avec les Aptitudes modifiées ont {0}% Davantage de Dégâts avec le Saignement infligé en Touchant en mêlée"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 무자비한 맹타가 근접 명중으로 유발하는 출혈 피해 {0}% 증폭"
 				}
 			}
 		},
@@ -14821,45 +4981,6 @@ return {
 						}
 					},
 					text="被辅助技能会使【无情一击】带有 {0} 秒基础晕眩效果"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="殘暴之擊被技能輔助時有基礎 {0} 秒暈眩時間"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Coups impitoyables avec les Aptitudes modifiées ont une Durée d'Étourdissement de base de {0} secondes"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 무자비한 맹타 사용 시 기본 기절 지속시간 {0}초"
 				}
 			}
 		},
@@ -14887,42 +5008,6 @@ return {
 						}
 					},
 					text="当被辅助技能、或被辅助技能召唤的非幻灵召唤生物击败敌人时，召唤 1 个幻灵"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="{0}% de chance de Convocar um Fantasma quando Habilidades Suportadas, ou Lacaios Não Fantasmas de Habilidades Suportadas, causam um Golpe Fatal"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Convoca um Fantasma quando Habilidades Suportadas, ou Lacaios Não Fantasmas de Habilidades Suportadas, causam um Golpe Fatal"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬이, 또는 보조 대상 스킬로 소환된 비-환영 소환수가 최후의 일격 사용 시 {0}%의 확률로 환영 1개체 소환"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이, 또는 보조 대상 스킬로 소환된 비-환영 소환수가 최후의 일격 사용 시 환영 1개체 소환"
 				}
 			}
 		},
@@ -14954,72 +5039,6 @@ return {
 						}
 					},
 					text="被辅助技能对敌人冰缓的效果降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas tienen el efecto del escarchamiento en enemigos aumentado un {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las habilidades asistidas tienen el efecto del escarchamiento en enemigos reducido un {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation de l'Effet de la Frigorification sur les Ennemis"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction de l'Effet de la Frigorification sur les Ennemis"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 냉각 효과 {0}% 증가"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 냉각 효과 {0}% 감소"
 				}
 			}
 		},
@@ -15051,28 +5070,6 @@ return {
 						}
 					},
 					text="被辅助技能对敌人冰缓的持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 냉각 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 냉각 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -15112,66 +5109,6 @@ return {
 						}
 					},
 					text="被辅助技能所冰缓的敌人，其受到的冰霜持续伤害降低 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextChill"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inimigos Resfriados por Habilidades Suportadas sofrem {0}% de aumento do Dano de Gelo Degenerativo"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextChill"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Inimigos Resfriados por Habilidades Suportadas sofrem {0}% de redução do Dano de Gelo Degenerativo"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextChill"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 냉각된 적이 받는 지속 냉기 피해 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextChill"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 냉각된 적이 받는 지속 냉기 피해 {0}% 감소"
 				}
 			}
 		},
@@ -15190,24 +5127,6 @@ return {
 						}
 					},
 					text="被辅助技能冰缓敌人后，冰缓效果对它们的冰霜伤害提高"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Inimigos Resfriados por Habilidades Suportadas tem o Dano de Gelo sofrido aumentado pelo Efeito de Resfriamento"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 냉각된 적이 받는 냉기 피해가 냉각 효과 만큼 증가"
 				}
 			}
 		},
@@ -15247,66 +5166,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的冰缓区域内的敌人，其受到的冰霜持续伤害降低 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextChillingArea"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inimigos em Áreas Resfriadas por Habilidades Suportadas sofrem {0}% de Dano de Gelo Degenerativo aumentado"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextChillingArea"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Inimigos em Áreas Resfriadas por Habilidades Suportadas sofrem {0}% de Dano de Gelo Degenerativo reduzido"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextChillingArea"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 발생한 냉각 지역에 있는 적이 받는 지속 냉기 피해 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextChillingArea"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 발생한 냉각 지역에 있는 적이 받는 지속 냉기 피해 {0}% 감소"
 				}
 			}
 		},
@@ -15329,32 +5188,6 @@ return {
 						}
 					},
 					text="敌人在被辅助技能产生的冰缓区域里时，冰缓效果对它们的冰霜伤害提高"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextChillingArea"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Inimigos em Áreas Resfriadas por Habilidades Suportadas tem o Dano de Gelo sofrido aumentado pelo Efeito de Resfriamento"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextChillingArea"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 발생한 냉각 지역에 있는 적이 받는 냉기 피해가 냉각 효과 만큼 증가"
 				}
 			}
 		},
@@ -15386,182 +5219,6 @@ return {
 						}
 					},
 					text="每个狂怒球使被辅助技能的地雷投掷速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% erhöhte Minen-Wurfgeschwindigkeit pro Raserei-Ladung"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% verringerte Minen-Wurfgeschwindigkeit pro Raserei-Ladung"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% повышение скорости броска мины за заряд ярости"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют {0}% снижение скорости броска мины за заряд ярости"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation de la Vitesse de jet des Mines par Charge de frénésie"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction de la Vitesse de jet des Mines par Charge de frénésie"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm Velocidade de Arremesso de Minas aumentada em {0}% por Carga de Frenesi"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm Velocidade de Arremesso de Minas reduzida em {0}% por Carga de Frenesi"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="격분 충전 하나당 보조 대상 스킬의 지뢰 투척 속도 {0}% 증가"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="격분 충전 하나당 보조 대상 스킬의 지뢰 투척 속도 {0}% 감소"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มความเร็วในการโยน ทุ่นระเบิด {0}% ต่อ Frenzy Charge หนึ่งลูก"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดความเร็วในการโยน ทุ่นระเบิด {0}% ต่อ Frenzy Charge หนึ่งลูก"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能每顆狂怒球增加 {0}% 地雷投擲速度"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能每顆狂怒球減少 {0}% 地雷投擲速度"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas tienen su velocidad de lanzamiento de minas aumentada un {0}% por cada Carga de Frenesí"
-				},
-				[18]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las habilidades asistidas tienen su velocidad de lanzamiento de minas reducida un {0}% por cada Carga de Frenesí"
 				}
 			}
 		},
@@ -15593,182 +5250,6 @@ return {
 						}
 					},
 					text="暴击球用于地雷时，每个可使被辅助技能的暴击率提高 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% erhöhte kritische Trefferchance pro\nEnergie-Ladung, wenn sie von Minen benutzt werden"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% verringerte kritische Trefferchance pro\nEnergie-Ladung, wenn sie von Minen benutzt werden"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% повышение шанса критического удара за\nзаряд энергии, если используются минами"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют {0}% снижение шанса критического удара за\nзаряд энергии, если используются минами"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation des Chances de coup critique par Charge de pouvoir lorsqu'elles sont utilisées par des Mines"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction des Chances de coup critique par Charge de pouvoir lorsqu'elles sont utilisées par des Mines"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm Chance de Golpe Crítico aumentada em {0}% por\nCarga de Poder quando utilizadas por Minas"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm Chance de Golpe Crítico reduzida em {0}% por\nCarga de Poder quando utilizadas por Minas"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="지뢰에 의해 사용될 시 권능 충전 하나당 보조 대상 스킬의\n치명타 확률 {0}% 증가"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="지뢰에 의해 사용될 시 권능 충전 하나당 보조 대상 스킬의\n치명타 확률 {0}% 감소"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มโอกาสคริติคอล {0}% ต่อหนึ่ง Power Charge หากใช้จากทุ่นระเบิด"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดโอกาสคริติคอล {0}% ต่อหนึ่ง Power Charge หากใช้จากทุ่นระเบิด"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能被地雷使用時，\n每顆暴擊球增加 {0}% 暴擊率"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能被地雷使用時，\n每顆暴擊球減少 {0}% 暴擊率"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas tienen su probabilidad de golpe crítico aumentada un {0}%\npor cada Carga de Poder cuando son usadas por minas"
-				},
-				[18]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="as habilidades asistidas tienen su probabilidad de golpe crítico reducida un {0}%\npor cada Carga de Poder cuando son usadas por minas"
 				}
 			}
 		},
@@ -15787,78 +5268,6 @@ return {
 						}
 					},
 					text="被辅助技能创造的召唤生物获得 {0:+d}% 全元素抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 소환수의 모든 원소 저항 {0:+d}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten haben {0:+d}% zu allen Elementarwiderständen"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Приспешники усиленных умений имеют {0:+d}% к сопротивлению всем стихиям"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées ont {0:+d}% à toutes les Résistances élémentaires"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Lacaios de Habilidades Suportadas têm {0:+d}% de todas as Resistências Elementais"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ต้านทาน ทุกธาตุ ของมิเนียนจากสกิลที่ถูกเสริม {0:+d}%"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="透過輔助技能製造的召喚物 {0:+d}% 全部元素抗性"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los esbirros de las habilidades asistidas tienen {0:+d}% a todas las resistencias elementales"
 				}
 			}
 		},
@@ -15881,110 +5290,6 @@ return {
 						}
 					},
 					text="被辅助技能创造的召唤生物获得 {0:+d}% 最大全元素抗性"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 소환수의 모든 원소 저항 최대치 {0:+d}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten haben {0:+d}% zu allen maximalen Elementarwiderständen"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Приспешники усиленных умений имеют {0:+d}% к максимуму сопротивлений всем стихиям"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées ont {0:+d}% à toutes les Résistances élémentaires maximales"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Lacaios de Habilidades Suportadas têm {0:+d}% ao máximo de todas as Resistências Elementais"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ต้านทาน ทุกธาตุสูงสุด ของมิเนียนจากสกิลที่ถูกเสริม {0:+d}%"
-				},
-				[8]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="透過輔助技能製造的召喚物 {0:+d}% 全部最大元素抗性"
-				},
-				[9]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaximumResistance"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los esbirros de las habilidades asistidas tienen {0:+d}% a todas las resistencias elementales máximas"
 				}
 			}
 		},
@@ -16007,110 +5312,6 @@ return {
 						}
 					},
 					text="被辅助技能创造的召唤生物每秒受到等同 {0}% 最大生命的火焰伤害"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 소환수가 1초마다 소환수의 최대 생명력의 {0}%를 화염 피해로 받음"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten erleiden {0}% ihres maximalen Lebens als Feuerschaden pro Sekunde"
-				},
-				[4]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Приспешники усиленных умений получают {0}% от их максимума здоровья в секунду в виде урона от огня"
-				},
-				[5]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées subissent {0}% de leur Vie maximale sous forme de Dégâts de feu par seconde"
-				},
-				[6]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Lacaios de Habilidades Suportadas sofrem {0}% de sua Vida Máxima como Dano de Fogo por segundo"
-				},
-				[7]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม จะได้รับความเสียหาย {0}% ของพลังชีวิตของพวกมัน เป็นความเสียหาย ไฟ ต่อวินาที"
-				},
-				[8]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="透過輔助技能製造的召喚物每秒承受 {0}% 他們最大生命的火焰傷害"
-				},
-				[9]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los esbirros de las habilidades asistidas reciben el {0}% de su vida máxima como daño de fuego por segundo"
 				}
 			}
 		},
@@ -16142,138 +5343,6 @@ return {
 						}
 					},
 					text="被辅助技能创造的召唤生物承受的火焰伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Приспешники усиленных умений получают увеличенный на {0}% урон от огня"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Приспешники усиленных умений получают уменьшенный на {0}% урон от огня"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées ont {0}% d'Augmentation des Dégâts de feu subis"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées ont {0}% de Réduction des Dégâts de feu subis"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Lacaios de Habilidades Suportadas sofrem Dano de Fogo aumentado em {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Lacaios de Habilidades Suportadas sofrem Dano de Fogo reduzido em {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม จะรับความเสียหาย ไฟ เพิ่มขึ้น {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม จะรับความเสียหาย ไฟ ลดลง {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="透過輔助技能製造的召喚物增加 {0}% 承受火焰傷害"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="透過輔助技能製造的召喚物減少 {0}% 承受火焰傷害"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los esbirros de las habilidades asistidas reciben el daño de fuego aumentado un {0}%"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los esbirros de las habilidades asistidas reciben el daño de fuego reducido un {0}%"
 				}
 			}
 		},
@@ -16336,84 +5405,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击得到先祖加持，每 {0} 秒只会发生一次\n先祖加持对重复的攻击无效"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Attaques avec les Aptitudes modifiées bénéficient de la Puissance des Ancêtres, mais pas plus d'une fois toutes les {0} secondes\nLa Puissance des Ancêtres ne s'applique pas aux répétitions des Attaques"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 공격이 선대의 힘으로 증폭, 최대 {0}초마다 1번 발동\n선대의 증폭은 공격 반복에는 적용되지 않음"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ataques com a Habilidade Suportada são Potencializados Ancestralmente, não mais que uma vez a cada {0} segundos\nPotencialização Ancestral não se aplica às repetições do Ataque"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="การโจมตีด้วยสกิลที่ถูกเสริมจะได้พลังจากบรรพชน แต่ไม่เกินหนึ่งครั้งต่อ {0} วินาที\nพลังจากบรรพชนจะไม่ส่งผลต่อการโจมตีที่เกิดซ้ำ"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Атаки усиленными умениями наделяются Могуществом предков, но не чаще одного раза в {0} секунд(-ы)\nМогущество предков не влияет на повторения атаки"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="使用被輔助技能的攻擊被先祖加持，每 {0} 秒不會超過 1 次\n先祖加持不會套用至重複的攻擊"
 				}
 			}
 		},
@@ -16445,138 +5436,6 @@ return {
 						}
 					},
 					text="先祖加持的猛击击中的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Attaques de fracas bénéficiant de la Puissance des Ancêtres ont {0}% Davantage de Dégâts au Toucher"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Attaques de fracas bénéficiant de la Puissance des Ancêtres ont {0}% de Perte de Dégâts au Toucher"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="선대의 힘으로 증폭된 강타의 적 명중 시 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="선대의 힘으로 증폭된 강타의 적 명중 시 피해 {0}% 감폭"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Impactos Potencializados Ancestralmente causam {0}% mais Dano com Acertos"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Impactos Potencializados Ancestralmente causam {0}% menos Dano com Acertos"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การฟาดที่ได้พลังจากบรรพชนจะ เพิ่มความเสียหายด้วยการปะทะ อีก {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="การฟาดที่ได้พลังจากบรรพชนจะ ลดความเสียหายด้วยการปะทะ อีก {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Наделённые Могуществом предков мощные удары наносят на {0}% больше урона от ударов"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Наделённые Могуществом предков мощные удары наносят на {0}% меньше урона от ударов"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="先祖加持的重擊造成 {0}% 更多擊中傷害"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="先祖加持的重擊造成 {0}% 更少擊中傷害"
 				}
 			}
 		},
@@ -16608,138 +5467,6 @@ return {
 						}
 					},
 					text="先祖加持的猛击异常状态的伤害总增 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Attaques de fracas bénéficiant de la Puissance des Ancêtres ont {0}% Davantage de Dégâts avec les Altérations"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Attaques de fracas bénéficiant de la Puissance des Ancêtres ont {0}% de Perte de Dégâts avec les Altérations"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="선대의 힘으로 증폭된 강타의 상태 이상 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="선대의 힘으로 증폭된 강타의 상태 이상 피해 {0}% 증폭"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Impactos Potencializados Ancestralmente causam {0}% mais Dano com Afecções"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Impactos Potencializados Ancestralmente causam {0}% menos Dano com Afecções"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การฟาดที่ได้พลังจากบรรพชนจะ เพิ่มความเสียหายด้วยสถานะเจ็บป่วย อีก {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="การฟาดที่ได้พลังจากบรรพชนจะ ลดความเสียหายด้วยสถานะเจ็บป่วย อีก {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Наделённые Могуществом предков мощные удары наносят на {0}% больше урона от состояний"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Наделённые Могуществом предков мощные удары наносят на {0}% меньше урона от состояний"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="先祖加持的重擊造成 {0}% 更多異常狀態傷害"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="先祖加持的重擊造成 {0}% 更少異常狀態傷害"
 				}
 			}
 		},
@@ -16771,138 +5498,6 @@ return {
 						}
 					},
 					text="先祖加持的猛击效果区域缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Attaques de fracas bénéficiant de la Puissance des Ancêtres ont {0}% Davantage de Zone d'effet"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Attaques de fracas bénéficiant de la Puissance des Ancêtres ont {0}% de Perte de Zone d'effet"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="선대의 힘으로 증폭된 강타의 효과 범위 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="선대의 힘으로 증폭된 강타의 효과 범위 {0}% 감소"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Impactos Potencializados Ancestralmente têm Efeito em Área aumentado em {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Impactos Potencializados Ancestralmente têm Efeito em Área aumentado em {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การฟาดที่ได้พลังจากบรรพชนจะ เพิ่มพื้นที่ส่งผล {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="การฟาดที่ได้พลังจากบรรพชนจะ ลดพื้นที่ส่งผล {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Наделённые Могуществом предков мощные удары имеют {0}% увеличение области действия"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Наделённые Могуществом предков мощные удары имеют {0}% уменьшение области действия"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="先祖加持的重擊增加 {0}% 範圍效果"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="先祖加持的重擊減少 {0}% 範圍效果"
 				}
 			}
 		},
@@ -16925,19 +5520,6 @@ return {
 						}
 					},
 					text="被辅助技能击中时，造成最高伤害的元素类型会提供 25 点其它元素的共振效果，持续 2 秒\n每有一种没有获得共振效果的元素使你每秒失去 5 点共振"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextResonance"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="การปะทะจาก สกิลที่ถูกเสริม ที่มี ธาตุ สูงกว่าความเสียหายชนิดอื่น จะทำให้คุณได้รับ การสั่นพ้อง 25 ระดับ ในธาตุอื่นๆ ต่อวินาทีเป็นเวลา 2 วินาที\nเสีย การสั่นพ้อง 5 ระดับต่อวินาที จากแต่ละธาตุที่ไม่ได้รับ การสั่นพ้อง"
 				}
 			}
 		},
@@ -16969,28 +5551,6 @@ return {
 						}
 					},
 					text="每 5 点最低的共振效果使被辅助技能造成的总元素伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ธาตุ เพิ่มขึ้น อีก {0}% ต่อ การสั่นพ้อง 5 ระดับ ของธาตุที่ต่ำที่สุด"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ธาตุ น้อยลง อีก {0}% ต่อ การสั่นพ้อง 5 ระดับ ของธาตุที่ต่ำที่สุด"
 				}
 			}
 		},
@@ -17009,15 +5569,6 @@ return {
 						}
 					},
 					text="每种至少 25 点的共振使被辅助技能穿透 {0}% 元素抗性 "
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เจาะต้านทาน ทุกธาตุ {0}% ขณะที่แต่ละธาตุมี การสั่นพ้อง อย่างน้อย 25 ระดับ"
 				}
 			}
 		},
@@ -17049,28 +5600,6 @@ return {
 						}
 					},
 					text="每种至少 25 点的共振使被辅助技能的攻击和施法速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เพิ่มความเร็วโจมตีและร่าย {0}% ขณะที่แต่ละธาตุมี การสั่นพ้อง อย่างน้อย 25 ระดับ"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ลดความเร็วโจมตีและร่าย {0}% ขณะที่แต่ละธาตุมี การสั่นพ้อง อย่างน้อย 25 ระดับ"
 				}
 			}
 		},
@@ -17093,110 +5622,6 @@ return {
 						}
 					},
 					text="被辅助技能的击中提供凌厉效果"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextCruelty"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Acertos de Habilidades Suportadas concedem Crueldade"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextCruelty"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 명중 시 잔혹 부여"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextCruelty"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées octroient Cruauté au Toucher"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextCruelty"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Treffer von unterstützten Fertigkeiten gewähren Grausamkeit"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextCruelty"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los golpes de las habilidades asistidas otorgan Crueldad"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextCruelty"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Удары усиленных умений даруют Злость"
-				},
-				[8]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextCruelty"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="來自被輔助技能的擊中獲得殘酷"
-				},
-				[9]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextCruelty"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="การปะทะด้วย สกิลที่ถูกเสริม จะมอบสถานะ อำมหิต"
 				}
 			}
 		},
@@ -17215,15 +5640,6 @@ return {
 						}
 					},
 					text="被辅助技能会使命中值提高 {0:+d} "
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 정확도 {0:+d}"
 				}
 			}
 		},
@@ -17255,28 +5671,6 @@ return {
 						}
 					},
 					text="被辅助技能会使命中值降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 정확도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 정확도 {0}% 감소"
 				}
 			}
 		},
@@ -17331,24 +5725,6 @@ return {
 						}
 					},
 					text="被辅助技能暴击时会获得暴击球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬 치명타 명중 시 {0}%의 확률로 권능 충전 획득"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="치명타 명중 시 보조 대상 스킬로 권능 충전 획득"
 				}
 			}
 		},
@@ -17367,15 +5743,6 @@ return {
 						}
 					},
 					text="被辅助技能击败敌人时，有 {0}% 的几率获得一个暴击球"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมมีโอกาส {0}% ที่จะได้รับ Power Charge เมื่อสังหาร"
 				}
 			}
 		},
@@ -17407,28 +5774,6 @@ return {
 						}
 					},
 					text="被辅助技能的总附加伤害总降 {}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มผลของม็อด เสริมความเสียหาย ของสกิลที่ถูกเสริม {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดผลของม็อด เสริมความเสียหาย ของสกิลที่ถูกเสริม {0}%"
 				}
 			}
 		},
@@ -17451,19 +5796,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击和法术基础暴击率提高 {0:+d}% "
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 치명타 확률 {0:+d}%"
 				}
 			}
 		},
@@ -17486,19 +5818,6 @@ return {
 						}
 					},
 					text="被辅助技能有 {0:+d}% 的几率冰冻被冰缓的敌人"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFreeze"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 냉각된 적 동결 확률 {0:+d}%"
 				}
 			}
 		},
@@ -17521,19 +5840,6 @@ return {
 						}
 					},
 					text="被击败时，被辅助技能的暴击率 {:+d}% "
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาสคริติคอล {:+d}% ขณะตาย"
 				}
 			}
 		},
@@ -17556,84 +5862,6 @@ return {
 						}
 					},
 					text="【灵巧】效果下，被辅助技能获得 {0:+d}% 暴击几率"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="當靈巧時，被輔助的技能 {0:+d}% 暴擊率"
-				},
-				[3]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas tem {0:+d}% de Chance de Golpe Crítico enquanto Elusivo"
-				},
-				[4]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0:+d}% к шансу критического удара под действием Неуловимости"
-				},
-				[5]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen {0:+d}% a la Probabilidad de Golpe Crítico mientras eres Escurridizo"
-				},
-				[6]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0:+d}% aux Chances de coup critique tant que vous êtes Insaisissable"
-				},
-				[7]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะมีโอกาสคริติคอล {0:+d}% ระหว่างผลของ ลื่นไหล"
 				}
 			}
 		},
@@ -17683,46 +5911,6 @@ return {
 						}
 					},
 					text="施放被辅助法术可以获得凝聚，最大 3 层\n每层凝聚使被辅助技能减少 {0} 枚投射物"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="เวทที่ถูกเสริม จะได้รับ Intensity เมื่อคุณร่าย สูงสุด 3 ระดับ\nสกิลที่ถูกเสริม จะยิงกระสุน เพิ่มเติม 1 ลูก ตามจำนวนระดับของ Intensity"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="เวทที่ถูกเสริม จะได้รับ Intensity เมื่อคุณร่าย สูงสุด 3 ระดับ\nสกิลที่ถูกเสริม จะยิงกระสุน เพิ่มเติม {0} ลูก ตามจำนวนระดับของ Intensity"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=-1,
-							[2]=-1
-						}
-					},
-					text="เวทที่ถูกเสริม จะได้รับ Intensity เมื่อคุณร่าย สูงสุด 3 ระดับ\nสกิลที่ถูกเสริม จะยิงกระสุน น้อยลง 1 ลูก ตามจำนวนระดับของ Intensity"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="เวทที่ถูกเสริม จะได้รับ Intensity เมื่อคุณร่าย สูงสุด 3 ระดับ\nสกิลที่ถูกเสริม จะยิงกระสุน น้อยลง {0} ลูก ตามจำนวนระดับของ Intensity"
 				}
 			}
 		},
@@ -17754,50 +5942,6 @@ return {
 						}
 					},
 					text="图腾启用时近战技能的效果区域扩大 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% увеличение области действия умениями ближнего боя при активном тотеме"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% увеличение области действия умениями ближнего боя при активном тотеме"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Efeito em Área com Habilidades Corpo a Corpo aumentado em {0}% enquanto o Totem estiver Ativo"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Efeito em Área com Habilidades Corpo a Corpo reduzido em {0}% enquanto o Totem estiver Ativo"
 				}
 			}
 		},
@@ -17855,24 +5999,6 @@ return {
 						}
 					},
 					text="【碾压】会使攻击伤害和法术伤害格挡几率 -{0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Subjugado aplica -{0}% à chance de Bloquear o Dano Mágico e de Ataques"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="압도가 -{0}%의 확률로 공격 및 주문 피해를 막아냄"
 				}
 			}
 		},
@@ -17904,28 +6030,6 @@ return {
 						}
 					},
 					text="被辅助技能会使范围伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 범위 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 범위 피해 {0}% 감소"
 				}
 			}
 		},
@@ -17957,28 +6061,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击和施法速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเร็วในการโจมตีและร่ายของ สกิลที่ถูกเสริม {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเร็วในการโจมตีและร่ายของ สกิลที่ถูกเสริม {0}%"
 				}
 			}
 		},
@@ -18010,28 +6092,6 @@ return {
 						}
 					},
 					text="猛攻期间，被辅助技能的攻击和施法速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเร็วในการโจมตี และร่าย ของสกิลที่ถูกเสริม {0}% ขณะมี Onslaught"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเร็วในการโจมตี และร่าย ของสกิลที่ถูกเสริม {0}% ขณะมี Onslaught"
 				}
 			}
 		},
@@ -18063,50 +6123,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击暴击率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 공격 치명타 확률 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 공격 치명타 확률 {0}% 감소"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas tem Chance de Acerto Crítico dos Ataques aumentada em {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas tem Chance de Acerto Crítico dos Ataques reduzida em {0}%"
 				}
 			}
 		},
@@ -18138,50 +6154,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 공격 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 공격 피해 {0}% 감소"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam Dano de Ataque aumentado em {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam Dano de Ataque reduzido em {0}%"
 				}
 			}
 		},
@@ -18213,28 +6185,6 @@ return {
 						}
 					},
 					text="每 1000 点命中值都使被辅助技能的攻击伤害降低  {}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหาย โจมตี {}% ต่อ 1000 ค่าความแม่นยำ ของสกิลที่ถูกเสริม "
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเสียหาย โจมตี {}% ต่อ 1000 ค่าความแม่นยำ ของสกิลที่ถูกเสริม "
 				}
 			}
 		},
@@ -18303,58 +6253,6 @@ return {
 						}
 					},
 					text="被辅助的武器攻击技能附加 {0} - {1} 基础物理伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="การโจมตีที่ถูกเสริม เพิ่มความเสียหาย กายภาพ ด้วยอาวุธ {0} ถึง {1}"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助且使用武器進行的攻擊附加 {0} 至 {1} 物理傷害"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Attaques modifiées infligent {0} à {1} Dégâts physiques supplémentaires avec les armes"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="무기 사용 시 보조 대상 공격으로 주는 물리 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -18382,142 +6280,6 @@ return {
 						}
 					},
 					text="被辅助攻击的 {0}% 伤害会转化为魔力偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 공격 스킬이 피해의 {0}%를 마나로 흡수"
-				},
-				[3]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Angriffe rauben {0}% des Schadens als Mana"
-				},
-				[4]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的攻擊 {0}% 傷害偷取魔力"
-				},
-				[5]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Attaques modifiées Drainent {0}% de leurs Dégâts sous forme de Mana"
-				},
-				[6]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ataques Suportados tem {0}% do Dano Drenado como Mana"
-				},
-				[7]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные атаки похищают {0}% от урона в виде маны"
-				},
-				[8]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen {0}% del Daño Absorbido como Maná"
-				},
-				[9]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลโจมตีที่ถูกเสริม จะดูด {0}% ของความเสียหายไปเป็น มานา"
 				}
 			}
 		},
@@ -18549,28 +6311,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 공격 속도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 공격 속도 {0}% 감소"
 				}
 			}
 		},
@@ -18610,126 +6350,6 @@ return {
 						}
 					},
 					text="被辅助技能低血状态下攻击速度减慢 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm Velocidade de Ataque aumentada em {0}% quando em Vida Baixa"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm Velocidade de Ataque reduzida em {0}% quando em Vida Baixa"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation de Vitesse d'attaque tant que votre Vie est Basse"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction de Vitesse d'attaque tant que votre Vie est Basse"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas tienen velocidad de ataque aumentada un {0}% cuando tienes la vida baja"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las habilidades asistidas tienen velocidad de ataque reducida un {0}% cuando tienes la vida baja"
-				},
-				[9]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="瀕血時，被輔助的技能增加 {0}% 攻擊速度"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="瀕血時，被輔助的技能減少 {0}% 攻擊速度"
 				}
 			}
 		},
@@ -18761,28 +6381,6 @@ return {
 						}
 					},
 					text="你至少有 20 点怒火时，被辅助技能的攻击速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเร็วในการโจมตีของ สกิลที่ถูกเสริม {0}% ขณะที่คุณมีสถานะ คลั่ง อย่างน้อย 20 ระดับ"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเร็วในการโจมตีของ สกิลที่ถูกเสริม {0}% ขณะที่คุณมีสถานะ คลั่ง อย่างน้อย 20 ระดับ"
 				}
 			}
 		},
@@ -18818,136 +6416,6 @@ return {
 						}
 					},
 					text="被辅助的攻击击中时总是穿刺敌人"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="被輔助的攻擊有 {0}% 機率在擊中時穿刺敵人"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="被輔助的攻擊在擊中時穿刺敵人"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 공격이 명중 시 {0}%의 확률로 적 꿰뚫음"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="보조 대상 공격이 명중 시 항상 적을 꿰뚫음"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="การโจมตีที่ถูกเสริม มีโอกาส {0}% ที่จะสร้างสถานะ ทิ่มแทง ต่อศัตรูเมื่อปะทะ"
-				},
-				[8]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="การโจมตีที่ถูกเสริม สร้างสถานะ ทิ่มแทง ต่อศัตรูเมื่อปะทะ เสมอ"
-				},
-				[9]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Ataques Suportados tem {0}% de chance de Empalar Inimigos ao Acertar"
-				},
-				[10]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Ataques Suportados sempre Empalam Inimigos ao Acertar"
-				},
-				[11]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Les Attaques modifiées ont {0}% de chances d'Empaler les Ennemis au Toucher"
-				},
-				[12]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Les Attaques modifiées Empalent toujours les Ennemis au Toucher"
 				}
 			}
 		},
@@ -18975,24 +6443,6 @@ return {
 						}
 					},
 					text="使用该技能时，被辅助技能不能被眩晕打断"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะหลีกเลี่ยงการรบกวนจากสถานะ มึนงง ขณะใช้สกิลนี้"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม ไม่ถูกรบกวนจากสถานะ มึนงง ขณะใช้สกิลนี้"
 				}
 			}
 		},
@@ -19024,28 +6474,6 @@ return {
 						}
 					},
 					text="被辅助技能发射投射物的扩散范围缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="กระสุนที่ยิงจากสกิลที่ถูกเสริม เพิ่มการกระจายกระสุน {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="กระสุนที่ยิงจากสกิลที่ถูกเสริม ลดการกระจายกระสุน {0}%"
 				}
 			}
 		},
@@ -19085,36 +6513,6 @@ return {
 						}
 					},
 					text="被辅助技能的异常状态异常状态伤害降低 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหาย เจ็บป่วย ของสกิลที่ถูกเสริม {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเสียหาย เจ็บป่วย ของสกิลที่ถูกเสริม {0}%"
 				}
 			}
 		},
@@ -19154,96 +6552,6 @@ return {
 						}
 					},
 					text="被辅助技能会使敌人受到的冰缓、点燃、冰冻、流血、中毒和感电状态持续时间缩短 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能增加 {0}% 敵人異常狀態時間"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能減少 {0}% 敵人異常狀態時間"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีระยะเวลาสถานะ เจ็บป่วย ที่สร้างต่อศัตรู เพิ่มขึ้น {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีระยะเวลาสถานะ เจ็บป่วย ที่สร้างต่อศัตรู ลดลง {0}%"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 상태 이상 지속시간 {0}% 증가"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 상태 이상 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -19275,28 +6583,6 @@ return {
 						}
 					},
 					text="被辅助攻击的流血持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีระยะเวลาสถานะ เลือดไหล เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีระยะเวลาสถานะ เลือดไหล ลดลง {0}%"
 				}
 			}
 		},
@@ -19328,28 +6614,6 @@ return {
 						}
 					},
 					text="被辅助技能的施法速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 시전 속도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 시전 속도 {0}% 감소"
 				}
 			}
 		},
@@ -19368,15 +6632,6 @@ return {
 						}
 					},
 					text="被辅助技能击败敌人时，有 {}% 的几率摧毁被点燃的灵枢"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมมีโอกาส {0}% ที่จะทำลาย ศพที่ลุกไหม้ เมื่อ ลงมือสังหาร"
 				}
 			}
 		},
@@ -19420,40 +6675,6 @@ return {
 						}
 					},
 					text="被辅助技能有 {0}% 的几率冰冻敌人"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFreeze"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="명중 시 보조 대상 스킬로 항상 동결 유발"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFreeze"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="보조 대상 스킬이 {0}%의 확률로 적 동결"
 				}
 			}
 		},
@@ -19490,32 +6711,6 @@ return {
 						}
 					},
 					text="被辅助技能必定点燃敌人"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextIgnite"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬이 {0}%의 확률로 적 점화"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextIgnite"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 항상 점화 유발"
 				}
 			}
 		},
@@ -19551,32 +6746,6 @@ return {
 						}
 					},
 					text="被辅助技能必定使敌人感电"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextShock"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬이 {0}%의 확률로 적 감전"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextShock"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 항상 감전 유발"
 				}
 			}
 		},
@@ -19599,84 +6768,6 @@ return {
 						}
 					},
 					text="被辅助技能 {0:+d} 秒冷却时间"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0:+d} Sekunden zu Abklingzeit"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm {0:+d} segundos de Tempo de Recarga"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0:+d} секунд к времени перезарядки"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能 {0:+d} 秒冷卻時間"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 재사용 대기시간 {0:+d}초"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds_2dp_if_required",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0:+d} secondes de Temps de recharge"
 				}
 			}
 		},
@@ -19739,28 +6830,6 @@ return {
 						}
 					},
 					text="被辅助的诅咒技能持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 저주 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 저주 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -19792,28 +6861,6 @@ return {
 						}
 					},
 					text="你被异常状态影响时，被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเสียหายเพิ่มขึ้น {0}% ขณะที่คุณได้รับผลจากสถานะ เจ็บป่วย"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเสียหายลดลง {0}% ขณะที่คุณได้รับผลจากสถานะ เจ็บป่วย"
 				}
 			}
 		},
@@ -19832,24 +6879,6 @@ return {
 						}
 					},
 					text="被辅助技能无法造成混沌伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées n'infligent plus de Dégâts de chaos"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 카오스 피해 없음"
 				}
 			}
 		},
@@ -19872,19 +6901,6 @@ return {
 						}
 					},
 					text="被辅助技能击中时有 {0}% 的几率击退敌人"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextKnockback"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 명중 시 {0}%의 확률로 적을 밀어냄"
 				}
 			}
 		},
@@ -19916,28 +6932,6 @@ return {
 						}
 					},
 					text="被辅助技能击败敌人时物品掉落数量降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 처치한 적이 떨어뜨리는 아이템 수량 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 처치한 적이 떨어뜨리는 아이템 수량 {0}% 감소"
 				}
 			}
 		},
@@ -19969,28 +6963,6 @@ return {
 						}
 					},
 					text="被辅助技能击败敌人时物品稀有度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 처치한 적이 떨어뜨리는 아이템 희귀도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 처치한 적이 떨어뜨리는 아이템 희귀도 {0}% 감소"
 				}
 			}
 		},
@@ -20009,15 +6981,6 @@ return {
 						}
 					},
 					text="被辅助技能击中时回复 {0:+d} 生命"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 공격으로 피격당한 적 하나당 획득하는 생명력 {0:+d}"
 				}
 			}
 		},
@@ -20044,23 +7007,6 @@ return {
 						}
 					},
 					text="被辅助技能将攻击伤害的 {0}% 转化为生命偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะดูด {0}% ของความเสียหาย โจมตี ไปเป็นพลังชีวิต"
 				}
 			}
 		},
@@ -20087,23 +7033,6 @@ return {
 						}
 					},
 					text="被辅助技能将混沌伤害的 {0}% 转化为生命偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะดูด {0}% ของความเสียหาย เคออส ไปเป็นพลังชีวิต"
 				}
 			}
 		},
@@ -20135,72 +7064,6 @@ return {
 						}
 					},
 					text="被辅助技能的生命保留降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% увеличение количества здоровья, удержанного усиленными умениями"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% уменьшение количества здоровья, удержанного усиленными умениями"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能增加 {0}% 生命保留"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能減少 {0}% 生命保留"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มค่าสำรอง พลังชีวิต ของ สกิลที่ถูกเสริม {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดค่าสำรอง พลังชีวิต ของ สกิลที่ถูกเสริม {0}%"
 				}
 			}
 		},
@@ -20232,28 +7095,6 @@ return {
 						}
 					},
 					text="被辅助技能的魔力保留降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มค่าสำรอง มานา ของ สกิลที่ถูกเสริม {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดค่าสำรอง มานา ของ สกิลที่ถูกเสริม {0}%"
 				}
 			}
 		},
@@ -20276,19 +7117,6 @@ return {
 						}
 					},
 					text="被辅助技能的地雷基础引爆时间为 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas tem um Tempo Base de Detonação de Minas de {0} segundos"
 				}
 			}
 		},
@@ -20316,150 +7144,6 @@ return {
 						}
 					},
 					text="最多召唤 {0} 个幻灵"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Maximal {0} beschworenes Phantasma"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Maximal {0} beschworene Phantasmen"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Максимум {0} призванный фантом"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Максимум {0} призванных фантома(-ов)"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Votre nombre maximum d'Apparitions Invoquées est de {0}"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Votre nombre maximum d'Apparitions Invoquées est de {0}"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Máximo de {0} Fantasma Convocado"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Máximo de {0} Fantasmas Convocados"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="소환된 환영 최대 {0}마리"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="소환된 환영 최대 {0}마리"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="อัญเชิญ Phantasm ได้พร้อมกันสูงสุด {0} ตัว"
-				},
-				[14]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="อัญเชิญ Phantasm ได้พร้อมกันสูงสุด {0} ตัว"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="召喚幻影上限 {0}"
-				},
-				[16]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="召喚幻影上限 {0}"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Máximo {0} Fantasma invocado"
-				},
-				[18]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Máximo {0} Fantasmas invocados"
 				}
 			}
 		},
@@ -20478,15 +7162,6 @@ return {
 						}
 					},
 					text="被辅助技能的 {0}% 物理伤害转换为闪电伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 {0}%의 물리 피해를 번개 피해로 전환"
 				}
 			}
 		},
@@ -20518,94 +7193,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的中毒伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย พิษ เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย พิษ ลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能增加 {0}% 中毒傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能減少 {0}% 中毒傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation des Dégâts avec le Poison"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction des Dégâts avec le Poison"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 중독 피해 {0}% 증가"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 중독 피해 {0}% 감소"
 				}
 			}
 		},
@@ -20637,28 +7224,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的中毒持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 중독 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 중독 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -20690,28 +7255,6 @@ return {
 						}
 					},
 					text="被辅助技能的投射物速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 투사체 속도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 투사체 속도 {0}% 감소"
 				}
 			}
 		},
@@ -20743,72 +7286,6 @@ return {
 						}
 					},
 					text="被辅助技能的保留效果降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% увеличение количества ресурсов, удержанных усиленными умениями"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% уменьшение количества ресурсов, удержанных усиленными умениями"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能增加 {0}% 保留"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能減少 {0}% 保留"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มค่าสำรองของ สกิลที่ถูกเสริม {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดค่าสำรองของ สกิลที่ถูกเสริม {0}%"
 				}
 			}
 		},
@@ -20840,28 +7317,6 @@ return {
 						}
 					},
 					text="被辅助技能会使敌人的晕眩时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 기절 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 기절 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -20901,36 +7356,6 @@ return {
 						}
 					},
 					text="被辅助技能会使敌人晕眩门槛提高 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStunThreshold"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 적 기절 한계치 {0}% 감소"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextStunThreshold"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 적 기절 한계치 {0}% 증가"
 				}
 			}
 		},
@@ -21020,86 +7445,6 @@ return {
 						}
 					},
 					text="被辅助攻击有 {0}% 的几率导致流血"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]="!",
-							[2]=0
-						}
-					},
-					text="การโจมตีที่ถูกเสริมไม่สามารถสร้างสถานะ เลือดไหล"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBleeding"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="การโจมตีที่ถูกเสริมสร้างสถานะ เลือดไหล"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBleeding"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="การโจมตีที่ถูกเสริมสร้างสถานะ เลือดไหล"
-				},
-				[8]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBleeding"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						},
-						[3]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="การโจมตีที่ถูกเสริมมีโอกาส {0}% ที่จะสร้างสถานะ เลือดไหล"
 				}
 			}
 		},
@@ -21133,94 +7478,6 @@ return {
 						}
 					},
 					text="被辅助的攻击技能造成的流血伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การโจมตีที่ถูกเสริม สร้างความเสียหาย เลือดไหล เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="การโจมตีที่ถูกเสริม สร้างความเสียหาย เลือดไหล ลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的攻擊增加 {0}% 流血傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的攻擊減少 {0}% 流血傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Attaques modifiées ont {0}% d'Augmentation des Dégâts de Saignement"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Attaques modifiées ont {0}% de Réduction des Dégâts de Saignement"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 공격으로 주는 출혈 피해 {0}% 증가"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 공격으로 주는 출혈 피해 {0}% 감소"
 				}
 			}
 		},
@@ -21243,45 +7500,6 @@ return {
 						}
 					},
 					text="被辅助攻击在低血状态下附加武器物理伤害，等于最大生命的 {0}%"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные атаки оружием наносят дополнительный физический урон,\nравный {0}% от максимума здоровья при малом количестве здоровья"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="貧血時，被輔助的攻擊\n附加等同於 (0)% 最大生命的武器武器傷害"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="การโจมตีที่ถูกเสริมจะ เสริมความเสียหาย กายภาพ ด้วยอาวุธ เท่ากับ {0}%\nของ พลังชีวิตสูงสุด ขณะ พลังชีวิตเหลือน้อย"
 				}
 			}
 		},
@@ -21313,28 +7531,6 @@ return {
 						}
 					},
 					text="被辅助技能的燃烧伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 화상 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 화상 피해 {0}% 감소"
 				}
 			}
 		},
@@ -21366,28 +7562,6 @@ return {
 						}
 					},
 					text="被辅助技能需要承受的伤害量降低 {0}% 才能触发"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม ต้องการจำนวนความเสียหายที่ได้รับ เพิ่มขึ้น {0}% เพื่อทริกเกอร์"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ต้องการจำนวนความเสียหายที่ได้รับ ลดลง {0}% เพื่อทริกเกอร์"
 				}
 			}
 		},
@@ -21419,116 +7593,6 @@ return {
 						}
 					},
 					text="被辅助技能的连锁范围缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation de la portée des Ricochets"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction de la portée des Ricochets"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% увеличение дальности удара по цепи"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют {0}% уменьшение дальности удара по цепи"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 연쇄 범위 {0}% 증가"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 연쇄 범위 {0}% 감소"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能增加 {0}% 連鎖範圍"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能減少 {0}% 連鎖範圍"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มระยะการชิ่ง {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดระยะการชิ่ง {0}%"
 				}
 			}
 		},
@@ -21547,15 +7611,6 @@ return {
 						}
 					},
 					text="被辅助技能击败敌人时有 {}% 的几率产生撒钱效果"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมมีโอกาส {}% ที่จะทำให้เกิด Coin Shower เมื่อสังหาร"
 				}
 			}
 		},
@@ -21591,32 +7646,6 @@ return {
 						}
 					},
 					text="被辅助技能有 {}% 的几率使伤害具有厄运一击效果"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLucky"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะ โชคดี ในการคำนวณ ความเสียหาย ปะทะ"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextUnlucky"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะ โชคร้าย ในการคำนวณ ความเสียหาย ปะทะ"
 				}
 			}
 		},
@@ -21639,19 +7668,6 @@ return {
 						}
 					},
 					text="被辅助技能对瘫痪的敌人有 {}% 的几率施加流血"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextBleeding"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {}% ที่จะสร้างสถานะ เลือดไหล ต่อศัตรูที่ติดสถานะ ขาหัก"
 				}
 			}
 		},
@@ -21670,15 +7686,6 @@ return {
 						}
 					},
 					text="被辅助技能有 {0}% 的几率使晕眩持续时间翻倍"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะเพิ่มระยะเวลาสถานะ มึนงง เป็นสองเท่า"
 				}
 			}
 		},
@@ -21697,15 +7704,6 @@ return {
 						}
 					},
 					text="被辅助技能发射的投射物在分叉时，有 {0}% 的几率产生一枚额外投射物"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริมมีโอกาส {0}% ที่จะเพิ่มจำนวนกระสุนอีกหนึ่งลูกหลังจากเกิดการ แบ่งตัว"
 				}
 			}
 		},
@@ -21741,32 +7739,6 @@ return {
 						}
 					},
 					text="被辅助技能在近战击中时有 {0}% 的几率获得护体效果"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFortify"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 근접 명중 시 방어 상승 적용"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFortify"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬로 근접 명중 시 {0}%의 확률로 방어 상승 보유"
 				}
 			}
 		},
@@ -21818,48 +7790,6 @@ return {
 						}
 					},
 					text="被辅助技能始终导致冻结、感电和点燃效果"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFreeze"
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextShock"
-					},
-					[3]={
-						k="reminderstring",
-						v="ReminderTextIgnite"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะสร้างสถานะ แช่แข็ง, ช็อค, ลุกไหม้"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFreeze"
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextShock"
-					},
-					[3]={
-						k="reminderstring",
-						v="ReminderTextIgnite"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างสถานะ แช่แข็ง, ช็อค, ลุกไหม้ เสมอ"
 				}
 			}
 		},
@@ -21887,24 +7817,6 @@ return {
 						}
 					},
 					text="被辅助技能击败冰冻敌人时会获得狂怒球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬로 동결된 적 처치 시 {0}%의 확률로 격분 충전 획득"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="동결된 적 처치 시 보조 대상 스킬로 격분 충전 획득"
 				}
 			}
 		},
@@ -21923,15 +7835,6 @@ return {
 						}
 					},
 					text="被辅助诅咒施加的魔蛊有 {0}% 的几率影响无咒的敌人"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สาปสะกดที่เกิดจากคำสาปที่ได้รับการเสริม มีโอกาส {0}% ที่จะส่งผลกับศัตรูที่ Hexproof"
 				}
 			}
 		},
@@ -21954,19 +7857,6 @@ return {
 						}
 					},
 					text="被辅助技能对被它穿刺的敌人有 {0}% 的几率施加一次额外穿刺"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextImpale"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะสร้างสถานะ ทิ่มแทง อีกระดับต่อศัตรูที่ติดสถานะ ทิ่มแทง"
 				}
 			}
 		},
@@ -21989,19 +7879,6 @@ return {
 						}
 					},
 					text="被辅助技能有 {0}% 的几率投掷 1 个额外地雷"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMultipleMines"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะปากับดักเพิ่มอีกหนึ่ง"
 				}
 			}
 		},
@@ -22029,24 +7906,6 @@ return {
 						}
 					},
 					text="当被辅助技能、或被辅助技能召唤的非幻灵召唤生物击中稀有或传奇敌人时，召唤 1 个幻灵"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬이, 또는 보조 대상 스킬로 소환된 비-환영 소환수가\n희귀 또는 고유 적 명중 시 {0}%의 확률로 환영 1개체 소환"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이, 또는 보조 대상 스킬로 소환된 비-환영 소환수가\n희귀 또는 고유 적 명중 시 환영 1개체 소환"
 				}
 			}
 		},
@@ -22078,50 +7937,6 @@ return {
 						}
 					},
 					text="被辅助持续吟唱技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 집중 유지 스킬로 주는 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 집중 유지 스킬로 주는 피해 {0}% 감소"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades de Canalização Suportadas causam Dano aumentado em {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades de Canalização Suportadas causam Dano reduzido em  {0}%"
 				}
 			}
 		},
@@ -22153,160 +7968,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的混沌伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят увеличенный на {0}% урон хаосом"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят уменьшенный на {0}% урон хаосом"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能增加 {0}% 混沌傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能減少 {0}% 混沌傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เคออส เพิ่มขึ้น {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เคออส ลดลง {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation des Dégâts de chaos"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction des Dégâts de chaos"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% erhöhten Chaosschaden"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% verringerten Chaosschaden"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas infligen daño de caos aumentado un {0}%"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las habilidades asistidas infligen daño de caos reducido un {0}%"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 카오스 피해 {0}% 증가"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 카오스 피해 {0}% 감소"
 				}
 			}
 		},
@@ -22325,15 +7986,6 @@ return {
 						}
 					},
 					text="对近距离敌人的伤害提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหาย {0}% ต่อศัตรูที่อยู่ในระยะใกล้"
 				}
 			}
 		},
@@ -22391,15 +8043,6 @@ return {
 						}
 					},
 					text="被辅助技能获得额外 {0}% 冰霜伤害，并转化为火焰伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 냉기 피해의 {0}%를 추가 화염 피해로 획득"
 				}
 			}
 		},
@@ -22431,28 +8074,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的冰霜伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 냉기 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 냉기 피해 {0}% 감소"
 				}
 			}
 		},
@@ -22502,15 +8123,6 @@ return {
 						}
 					},
 					text="被辅助技能的暴击造成异常状态时，它的持续伤害加成 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีตัวคูณความเสียหาย เจ็บป่วย ต่อเนื่อง ที่เกิดจากคริติคอล {0:+d}%"
 				}
 			}
 		},
@@ -22542,28 +8154,6 @@ return {
 						}
 					},
 					text="被辅助技能对抗目盲的敌人时，暴击率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาสคริติคอลเพิ่มขึ้น {0}% ต่อศัตรูที่มีสถานะ ตาบอด"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาสคริติคอลลดลง {0}% ต่อศัตรูที่มีสถานะ ตาบอด"
 				}
 			}
 		},
@@ -22595,72 +8185,6 @@ return {
 						}
 					},
 					text="被辅助技能提供的凌厉效果降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% усиление эффекта Злости, даруемого усиленными умениями"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% ослабление эффекта Злости, даруемого усиленными умениями"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="增加 {0}% 被輔助技能給予的殘酷效果"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="減少 {0}% 被輔助技能給予的殘酷效果"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มผลของสถานะ อำมหิต ที่ได้รับจากสกิลที่เสริม {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดผลของสถานะ อำมหิต ที่ได้รับจากสกิลที่เสริม {0}%"
 				}
 			}
 		},
@@ -22696,32 +8220,6 @@ return {
 						}
 					},
 					text="被辅助技能击中时碾压敌人 2 秒"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextCrushedNoDuration"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะสร้างสถานะ บดขยี้ 2 วินาทีเมื่อปะทะ"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextCrushedNoDuration"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างสถานะ บดขยี้ 2 วินาทีเมื่อปะทะ"
 				}
 			}
 		},
@@ -22753,28 +8251,6 @@ return {
 						}
 					},
 					text="被辅助诅咒的效果区域缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลคำสาปที่ถูกเสริม มีพื้นที่ส่งผล เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลคำสาปที่ถูกเสริม มีพื้นที่ส่งผล ลดลง {0}%"
 				}
 			}
 		},
@@ -22797,19 +8273,6 @@ return {
 						}
 					},
 					text="施放该法术施加的诅咒每秒获得 {0} 点灭能"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คำสาปที่เกิดจากการร่ายเวทนี้มี ระดับหายนะ เพิ่มขึ้น {0} ระดับต่อวินาที"
 				}
 			}
 		},
@@ -22841,28 +8304,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的持续性伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 피해 {0}% 감소"
 				}
 			}
 		},
@@ -22894,28 +8335,6 @@ return {
 						}
 					},
 					text="被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감소"
 				}
 			}
 		},
@@ -22978,28 +8397,6 @@ return {
 						}
 					},
 					text="若你在过去 8 秒内失去过耐力球，则被辅助技能的伤害降低  {}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหายให้กับสกิลที่ถูกเสริม {0}% หากคุณเสีย Endurance Charge ใน 8 วินาทีที่่ผ่านมา"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเสียหายให้กับสกิลที่ถูกเสริม {0}% หากคุณเสีย Endurance Charge ใน 8 วินาทีที่่ผ่านมา"
 				}
 			}
 		},
@@ -23031,28 +8428,6 @@ return {
 						}
 					},
 					text="近期内你每消耗 200 点魔力，就使被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เพิ่มความเสียหาย {0}% ต่อ 200 มานา ที่คุณได้ใช้ไปเร็วๆ นี้"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ลดความเสียหาย {0}% ต่อ 200 มานา ที่คุณได้ใช้ไปเร็วๆ นี้"
 				}
 			}
 		},
@@ -23084,28 +8459,6 @@ return {
 						}
 					},
 					text="每个耐力球都使被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เพิ่มความเสียหาย {0}% ต่อจำนวน Endurance Charge"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ลดความเสียหาย {0}% ต่อจำนวน Endurance Charge"
 				}
 			}
 		},
@@ -23137,28 +8490,6 @@ return {
 						}
 					},
 					text="每个狂怒球都使被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เพิ่มความเสียหาย {0}% ต่อจำนวน Frenzy Charge"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ลดความเสียหาย {0}% ต่อจำนวน Frenzy Charge"
 				}
 			}
 		},
@@ -23190,28 +8521,6 @@ return {
 						}
 					},
 					text="每个暴击球都使被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เพิ่มความเสียหาย {0}% ต่อจำนวน Power Charge"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ลดความเสียหาย {0}% ต่อจำนวน Power Charge"
 				}
 			}
 		},
@@ -23243,28 +8552,6 @@ return {
 						}
 					},
 					text="对抗满血敌人时，被辅助技能的击中和异常状态伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มความเสียหาย ปะทะและเจ็บป่วย {0}% ต่อศัตรูที่มี พลังชีวิตเต็ม"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดความเสียหาย ปะทะและเจ็บป่วย {0}% ต่อศัตรูที่มี พลังชีวิตเต็ม"
 				}
 			}
 		},
@@ -23304,36 +8591,6 @@ return {
 						}
 					},
 					text="敌人身上每种冻结、感电、点燃效果都使被辅助技能的击中和异常状态伤害降低 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ปะทะและเจ็บป่วย เพิ่มขึ้น {0}% ตามจำนวนสถานะ แช่แข็ง, ช็อค, ลุกไหม้ บนตัวศัตรู"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ปะทะและเจ็บป่วย ลดลง {0}% ตามจำนวนสถานะ แช่แข็ง, ช็อค, ลุกไหม้ บนตัวศัตรู"
 				}
 			}
 		},
@@ -23365,94 +8622,6 @@ return {
 						}
 					},
 					text="被辅助技能对被冰冻敌人的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能對冰凍的敵人增加 {0}% 傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能對冰凍的敵人減少 {0}% 傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ปะทะ เพิ่มขึ้น {0}% ต่อศัตรูที่ติดสถานะ แช่แข็ง"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ปะทะ ลดลง {0}% ต่อศัตรูที่ติดสถานะ แช่แข็ง"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% erhöhten Schaden mit Treffern gegen eingefrorene Gegner"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% verringerten Schaden mit Treffern gegen eingefrorene Gegner"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 동결된 적 명중 시 피해 {0}% 증가"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 동결된 적 명중 시 피해 {0}% 감소"
 				}
 			}
 		},
@@ -23484,28 +8653,6 @@ return {
 						}
 					},
 					text="能量护盾全满时，被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น {0}% ขณะ โล่พลังงานเต็ม"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลดลง {0}% ขณะ โล่พลังงานเต็ม"
 				}
 			}
 		},
@@ -23537,28 +8684,6 @@ return {
 						}
 					},
 					text="满血时，被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เพิ่มความเสียหาย {0}% ขณะ พลังชีวิตเต็ม"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ลดความเสียหาย {0}% ขณะ พลังชีวิตเต็ม"
 				}
 			}
 		},
@@ -23598,36 +8723,6 @@ return {
 						}
 					},
 					text="被辅助技能在低血状态下伤害降低 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น {0}% ขณะ พลังชีวิตเหลือน้อย"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลดลง {0}% ขณะ พลังชีวิตเหลือน้อย"
 				}
 			}
 		},
@@ -23667,36 +8762,6 @@ return {
 						}
 					},
 					text="你被异常状态影响时，被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเสียหายเพิ่มขึ้น {0}% ขณะที่คุณได้รับผลจากสถานะ เจ็บป่วย"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเสียหายลดลง {0}% ขณะที่คุณได้รับผลจากสถานะ เจ็บป่วย"
 				}
 			}
 		},
@@ -23728,28 +8793,6 @@ return {
 						}
 					},
 					text="偷取能量护盾时，被辅助技能造成的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="에너지 보호막을 흡수하는 동안 보조 대상 스킬로 주는 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="에너지 보호막을 흡수하는 동안 보조 대상 스킬로 주는 피해 {0}% 감소"
 				}
 			}
 		},
@@ -23781,28 +8824,6 @@ return {
 						}
 					},
 					text="偷取生命时，被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="생명력을 흡수하는 동안 보조 대상 스킬로 주는 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="생명력을 흡수하는 동안 보조 대상 스킬로 주는 피해 {0}% 감소"
 				}
 			}
 		},
@@ -23834,28 +8855,6 @@ return {
 						}
 					},
 					text="偷取魔力时，被辅助技能的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="마나를 흡수하는 동안 보조 대상 스킬로 주는 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="마나를 흡수하는 동안 보조 대상 스킬로 주는 피해 {0}% 감소"
 				}
 			}
 		},
@@ -23895,36 +8894,6 @@ return {
 						}
 					},
 					text="敌人身上的每个诅咒都使被辅助技能的击中和异常状态伤害降低 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มความเสียหาย ปะทะและเจ็บป่วย {0}% ตามจำนวนคำสาปบนตัวศัตรู"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดความเสียหาย ปะทะและเจ็บป่วย {0}% ตามจำนวนคำสาปบนตัวศัตรู"
 				}
 			}
 		},
@@ -23943,15 +8912,6 @@ return {
 						}
 					},
 					text="对抗低血敌人时，被辅助技能的击中伤害提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมสร้างความเสียหาย ปะทะ เพิ่มขึ้น {0}% ต่อศัตรูที่มี พลังชีวิตเหลือน้อย"
 				}
 			}
 		},
@@ -23992,42 +8952,6 @@ return {
 						}
 					},
 					text="被辅助技能击中时附加腐蚀状态，每秒造成 {0} 混沌伤害，持续8秒"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างสถานะ เสื่อมสลาย เมื่อปะทะ ซึ่งจะสร้างความเสียหาย เคออส {0} ต่อวินาที เป็นเวลา 8 วินาที"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能擊中時造成腐化，每秒造成 {0} 混沌傷害，持續 8 秒"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées infligent Décomposition au Toucher, infligeant {0} Dégâts de chaos par seconde pendant 8 secondes"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 명중 시 부패를 유발하여, 8초 동안 1초마다 {0} 카오스 피해를 줌"
 				}
 			}
 		},
@@ -24046,33 +8970,6 @@ return {
 						}
 					},
 					text="被辅助技能无法造成元素伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能無法造成元素傷害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะไม่สามารถสร้างความเสียหาย ธาตุ ได้"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 원소 피해 없음"
 				}
 			}
 		},
@@ -24126,19 +9023,6 @@ return {
 						}
 					},
 					text="被辅助法术在移动时每隔 0.25 秒失去 1 层凝聚，传送时会立刻失去"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เวทที่ถูกเสริม สูญเสีย Intensity 1 ระดับทุก 0.25 วินาที ขณะเคลื่อนที่ หรือสูญเสียทันทีหากคุณ เคลื่อนย้าย"
 				}
 			}
 		},
@@ -24157,42 +9041,6 @@ return {
 						}
 					},
 					text="图腾无法获得灌注"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="圖騰無法獲得注入"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="โทเทมไม่สามารถมี Infusion ได้"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Totens não podem ganhar Infusão"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="토템은 주입 획득 불가"
 				}
 			}
 		},
@@ -24211,15 +9059,6 @@ return {
 						}
 					},
 					text="被辅助技能的持续伤害加成 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมมี ตัวคูณความเสียหายต่อเนื่อง {0:+d}%"
 				}
 			}
 		},
@@ -24251,160 +9090,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的元素伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят увеличенный на {0}% урон от стихий"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят уменьшенный на {0}% урон от стихий"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能增加 {0}% 元素傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能減少 {0}% 元素傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้าง ความเสียหาย ธาตุเพิ่มขึ้น {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้าง ความเสียหาย ธาตุลดลง {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation des Dégâts élémentaires"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction des Dégâts élémentaires"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% erhöhten Elementarschaden"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% verringerten Elementarschaden"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas infligen daño elemental aumentado un {0}%"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las habilidades asistidas infligen daño elemental reducido un {0}%"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 원소 피해 {0}% 증가"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 원소 피해 {0}% 감소"
 				}
 			}
 		},
@@ -24475,28 +9160,6 @@ return {
 						}
 					},
 					text="被辅助技能使敌人感电时，它承受的物理伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่มีสถานะ ช็อค จากสกิลที่ถูกเสริมได้รับความเสียหาย กายภาพ เพิ่มขึ้น {:+d}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูที่ติดสถานะ ช็อค จากสกิลที่ถูกเสริมได้รับความเสียหาย กายภาพ ลดลง {:+d}%"
 				}
 			}
 		},
@@ -24519,19 +9182,6 @@ return {
 						}
 					},
 					text="被辅助技能压制 {0}% 物理伤害减免"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOverwhelm"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะท่วมท้น การป้องกันกายภาพ {0}%"
 				}
 			}
 		},
@@ -24558,23 +9208,6 @@ return {
 						}
 					},
 					text="被辅助技能的 {0}% 伤害会转化为能量护盾偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextEnergyShieldLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 흡수한 피해의 {0}%를 에너지 보호막으로 흡수"
 				}
 			}
 		},
@@ -24632,32 +9265,6 @@ return {
 						}
 					},
 					text="被辅助技能施加的点燃效果伤害生效速度减慢 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDealsDamageFaster"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สถานะ ลุกไหม้ จากสกิลที่ถูกเสริม สร้างความเสียหาย เร็วขึ้น {0}% "
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สถานะ ลุกไหม้ จากสกิลที่ถูกเสริม สร้างความเสียหาย ช้าลง {0}% "
 				}
 			}
 		},
@@ -24684,23 +9291,6 @@ return {
 						}
 					},
 					text="被辅助技能施加的中毒效果伤害生效速度加快 {0}%"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPoison"
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDealsDamageFaster"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="พิษจากสกิลที่ถูกเสริม สร้างความเสียหายเร็วขึ้น {0}%"
 				}
 			}
 		},
@@ -24732,28 +9322,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的火焰伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 화염 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 화염 피해 {0}% 감소"
 				}
 			}
 		},
@@ -24772,15 +9340,6 @@ return {
 						}
 					},
 					text="被辅助技能的持续火焰伤害加成 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมมี ตัวคูณความเสียหาย ไฟ ต่อเนื่อง {0:+d}%"
 				}
 			}
 		},
@@ -24812,28 +9371,6 @@ return {
 						}
 					},
 					text="被辅助技能的护体持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 방어 상승 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 방어 상승 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -24873,36 +9410,6 @@ return {
 						}
 					},
 					text="被辅助技能的护体效果降低 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFortify"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีผล Fortify เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextFortify"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีผล Fortify ลดลง {0}%"
 				}
 			}
 		},
@@ -24921,15 +9428,6 @@ return {
 						}
 					},
 					text="被辅助技能导致敌人冻结时，它的冰霜抗性 {:+d}% "
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ติดสถานะ แช่แข็ง จากสกิลที่ถูกเสริม มีต้านทาน น้ำแข็ง {:+d}%"
 				}
 			}
 		},
@@ -24961,28 +9459,6 @@ return {
 						}
 					},
 					text="被辅助技能对敌人的冰冻持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 동결 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 동결 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -25001,15 +9477,6 @@ return {
 						}
 					},
 					text="若被辅助技能的附着持续时间消减了 75%，则它的总激活频率总增 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่เสริมมีความถี่ในการทำงานเพิ่มขึ้น อีก {0}% หากหมดเวลาของการเกาะไป 75%"
 				}
 			}
 		},
@@ -25046,15 +9513,6 @@ return {
 						}
 					},
 					text="你使用被辅助技能有 {0}% 的几率获得 1 点怒火"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="มีโอกาส {0}% ที่จะได้รับ คลั่ง 1 ระดับ เมื่อใช้สกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -25103,123 +9561,6 @@ return {
 						}
 					},
 					text="当你使用被辅助技能近战命中并晕眩敌人时，获得 1 个耐力球"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=99
-						}
-					},
-					text="{1}% de chance de receber uma Carga de Tolerância quando você Atordoar um Inimigo com um Acerto Corpo a Corpo com Habilidades Suportadas"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Receba uma Carga de Tolerância quando você Atordoar um Inimigo com um Acerto Corpo a Corpo com Habilidades Suportadas"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Receba uma Carga de Tolerância quando você Atordoar um Inimigo com um Acerto Corpo a Corpo com Habilidades Suportadas"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=99
-						}
-					},
-					text="當你使用被輔助的技能近戰擊中暈眩敵人時，有 {1}% 機率獲得 1 顆耐力球"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="當你使用被輔助的技能近戰擊中暈眩敵人時，獲得 1 顆耐力球"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="當你使用被輔助的技能近戰擊中暈眩敵人時，獲得 1 顆耐力球"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=0,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬로 근접 명중하여 적 지절 시 {1}%의 확률로 인내 충전 획득"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=0,
-							[2]=0
-						},
-						[2]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 근접 명중하여 적 기절 시 인내 충전 획득"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 근접 명중하여 적 기절 시 인내 충전 획득"
 				}
 			}
 		},
@@ -25239,15 +9580,6 @@ return {
 						}
 					},
 					text="被辅助技能在击败一名至少中毒 5 层的敌人时，有 {0}% 的几率获得一个狂怒球"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะได้รับ Frenzy Charge หนึ่งลูกเมื่อสังหารศัตรูที่ได้รับผลจากสถานะ พิษ อย่างน้อย 5 ระดับ"
 				}
 			}
 		},
@@ -25266,15 +9598,6 @@ return {
 						}
 					},
 					text="被辅助技能以致命一击击败一名至少中毒 5 层的敌人时，有 {0}% 的几率获得一个狂怒球"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะได้รับ Frenzy Charge หนึ่งลูกเมื่อลงมือสังหารศัตรูที่มีสถานะ พิษ อย่างน้อย 5 ระดับ"
 				}
 			}
 		},
@@ -25293,33 +9616,6 @@ return {
 						}
 					},
 					text="被辅助技能有 {0}% 的几率在致命一击时获得一个暴击球"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能在擊殺之擊時有 {0}% 機率獲得 1 顆暴擊球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% шанс получить заряд энергии при нанесении смертельного удара"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมมีโอกาสที่จะให้ {0}% Power Charge เมื่อลงมือสังหาร"
 				}
 			}
 		},
@@ -25347,150 +9643,6 @@ return {
 						}
 					},
 					text="当你为被辅助技能消耗魔力时，获得激励球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬로 마나 소모 시 {0}%의 확률로 영감 충전 획득"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 마나 소모 시 영감 충전 획득"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="{0}% Chance auf eine Inspirations-Ladung, wenn Ihr für unterstützte Fertigkeiten Mana verbraucht"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Erhaltet eine Inspirations-Ladung, wenn Ihr für unterstützte Fertigkeiten Mana verbraucht"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="當你被輔助的技能消耗魔力時，有 {0}% 機率獲得 1 顆啟發球"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="當你被輔助的技能消耗魔力時，獲得 1 顆啟發球"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="{0}% de chance de ganhar uma Carga de Inspiração ao gastar Mana para as Habilidades Suportadas"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Ganha uma Carga de Inspiração ao gastar Mana para as Habilidades Suportadas"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="{0}% шанс получить заряд вдохновения при расходе маны на усиленные умения"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Заряд вдохновения при расходе маны на усиленные умения"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="{0}% de probabilidad de ganar una Carga de Inspiración cuando Gastas Maná para las Habilidades Asistidas"
-				},
-				[14]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="ganas una Carga de Inspiración cuando Gastas Maná para las Habilidades Asistidas"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="มีโอกาส {0}% ที่จะได้รับ Inspiration Charge เมื่อคุณใช้มานาด้วยสกิลที่เสริม"
-				},
-				[16]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="ได้รับ Inspiration Charge เมื่อคุณใช้มานาด้วยสกิลที่เสริม"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="{0}% de chances de gagner une Charge d'inspiration lorsque vous dépensez du Mana avec les Aptitudes modifiées"
-				},
-				[18]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Vous gagnez une Charge d'inspiration lorsque vous dépensez du Mana avec les Aptitudes modifiées"
 				}
 			}
 		},
@@ -25513,19 +9665,6 @@ return {
 						}
 					},
 					text="被辅助技能击中时获得 1 个瓦尔之灵\n每 {0} 秒最多获得 1 个瓦尔之灵"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="명중 시 보조 대상 스킬로 바알 영혼 획득\n{0}초마다 영혼 1개만 생성 가능"
 				}
 			}
 		},
@@ -25544,15 +9683,6 @@ return {
 						}
 					},
 					text="被辅助技能有 {:d}% 的几率使敌人逃跑"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 {:d}%의 확률로 몬스터를 도망치게 함"
 				}
 			}
 		},
@@ -25575,19 +9705,6 @@ return {
 						}
 					},
 					text="被辅助技能附加 {0} - {1} 基础混沌伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 카오스 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -25611,19 +9728,6 @@ return {
 						}
 					},
 					text="被辅助技能附加 {0} - {1} 基础冰霜伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 냉기 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -25647,19 +9751,6 @@ return {
 						}
 					},
 					text="被辅助技能附加 {0} - {1} 基础火焰伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 화염 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -25683,19 +9774,6 @@ return {
 						}
 					},
 					text="被辅助技能附加 {0} - {1} 基础闪电伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 번개 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -25719,19 +9797,6 @@ return {
 						}
 					},
 					text="被辅助技能附加 {0} - {1} 基础物理伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 물리 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -25751,15 +9816,6 @@ return {
 						}
 					},
 					text="被辅助技能会使敌人的格挡率降低 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 적 막기 확률 {0}% 감소"
 				}
 			}
 		},
@@ -25791,28 +9847,6 @@ return {
 						}
 					},
 					text="每层凝聚都使被辅助技能的投射物击中伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเสียหาย กระสุน เพิ่มขึ้น อีก {0}% ต่อจำนวนระดับของ Intensity"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเสียหาย กระสุน ลดลง อีก {0}% ต่อจำนวนระดับของ Intensity"
 				}
 			}
 		},
@@ -25844,28 +9878,6 @@ return {
 						}
 					},
 					text="击中伤害和中毒伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="적중 및 중독 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="적중 및 중독 피해 {0}% 감소"
 				}
 			}
 		},
@@ -25897,28 +9909,6 @@ return {
 						}
 					},
 					text="敌人的每层中毒状态会使击中伤害和中毒伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="중독된 적 하나당 적중 및 중독 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="중독된 적 하나당 적중 및 중독 피해 {0}% 감소"
 				}
 			}
 		},
@@ -25950,28 +9940,6 @@ return {
 						}
 					},
 					text="被辅助技能的击中伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ปะทะ เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ปะทะ ลดลง {0}%"
 				}
 			}
 		},
@@ -26003,28 +9971,6 @@ return {
 						}
 					},
 					text="被辅助技能对敌人的点燃持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 점화 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 점화 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -26043,24 +9989,6 @@ return {
 						}
 					},
 					text="被辅助技能点燃的敌人，其火焰抗性提高 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Inimigos Incendiados por Habilidades Suportadas possuem {0:+d}% de Resistência a Fogo"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 점화된 적의 화염 저항 {0:+d}%"
 				}
 			}
 		},
@@ -26092,116 +10020,6 @@ return {
 						}
 					},
 					text="被辅助的攻击使穿刺效果降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的攻擊增加 {0}% 穿刺效果"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的攻擊減少 {0}% 穿刺效果"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 공격의 꿰뚫기 효과 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 공격의 꿰뚫기 효과 {0}% 감소"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การโจมตีที่ถูกเสริม มีผลของสถานะ ทิ่มแทง เพิ่้มขึ้น {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="การโจมตีที่ถูกเสริม มีผลของสถานะ ทิ่มแทง ลดลง {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Ataques Suportados tem o Efeito de Empalamento aumentdo em {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Ataques Suportados tem o Efeito de Empalamento reduzido em {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Attaques modifiées ont {0}% d'Augmentation de l'Effet de l'Empalement"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Attaques modifiées ont {0}% de Réduction de l'Effet de l'Empalement"
 				}
 			}
 		},
@@ -26224,58 +10042,6 @@ return {
 						}
 					},
 					text="被辅助技能对已穿刺的敌人造成的穿刺伤害压制 {0}% 物理伤害减免"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOverwhelm"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Dégâts d'Empalement infligés aux Ennemis Empalés par les Aptitudes modifiées Submergent {0}% de la Réduction des Dégâts physiques"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOverwhelm"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬에 꿰뚫린 적에게 주는 꿰뚫기 피해가 물리 피해 감소의 {0}% 압도"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOverwhelm"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ความเสียหายจากสถานะ ทิ่มแทง ที่สร้างให้กับศัตรูที่ถูกทิ่มแทงจาก สกิลที่ถูกเสริม จะ ท่วมท้น การป้องกันกายภาพของศัตรู {0}%"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOverwhelm"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Урон от Прокола, наносимый врагам с эффектом Прокола, наложенным усиленными умениями, подавляет {0}% уменьшения получаемого физического урона"
 				}
 			}
 		},
@@ -26294,24 +10060,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的物理伤害总增 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 피해 {0}% 증폭"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano Físico"
 				}
 			}
 		},
@@ -26365,19 +10113,6 @@ return {
 						}
 					},
 					text="灌注提供每秒生命再生 {}%"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ได้รับ การฟื้นฟูพลังชีวิต {0}% ต่อวินาทีจาก Infusion"
 				}
 			}
 		},
@@ -26440,28 +10175,6 @@ return {
 						}
 					},
 					text="移动时，被辅助法术失去凝聚的频率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เวทที่ถูกเสริม เพิ่มความถี่ในการสูญเสีย Intensity {0}% ขณะเคลื่อนที่"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="เวทที่ถูกเสริม ลดความถี่ในการสูญเสีย Intensity {0}% ขณะเคลื่อนที่"
 				}
 			}
 		},
@@ -26480,60 +10193,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击视为被增助"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Attaques avec les Aptitudes modifiées sont considérées comme étant Stimulées"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 공격을 전력 공격으로 간주"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ataques com Habilidades Suportadas contam como Impelidos"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="การโจมตีด้วยสกิลที่ถูกเสริมจะนับว่าเป็นการโจมตีที่ ฮึกเหิม"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Атаки усиленными умениями считаются улучшенными"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="使用被輔助技能的攻擊視為竭盡"
 				}
 			}
 		},
@@ -26552,15 +10211,6 @@ return {
 						}
 					},
 					text="近程击中时，被辅助技能有 {0}% 的几率击退敌人"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะผลักศัตรูด้วย การปะทะ ใน ระยะใกล้"
 				}
 			}
 		},
@@ -26592,28 +10242,6 @@ return {
 						}
 					},
 					text="被辅助技能的击退距离缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 밀어내기 거리 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 밀어내기 거리 {0}% 감소"
 				}
 			}
 		},
@@ -26640,23 +10268,6 @@ return {
 						}
 					},
 					text="被辅助技能的 {0}% 伤害会转化为生命偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 피해의 {0}%를 생명력으로 흡수"
 				}
 			}
 		},
@@ -26727,28 +10338,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的闪电伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 번개 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 번개 피해 {0}% 감소"
 				}
 			}
 		},
@@ -26780,28 +10369,6 @@ return {
 						}
 					},
 					text="敏捷需求降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มคุณสมบัติ Dexterity {0}% ที่ต้องการ"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดคุณสมบัติ Dexterity {0}% ที่ต้องการ"
 				}
 			}
 		},
@@ -26833,28 +10400,6 @@ return {
 						}
 					},
 					text="智慧需求降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มคุณสมบัติ Intelligence ที่ต้องการ {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดคุณสมบัติ Intelligence ที่ต้องการ {0}%"
 				}
 			}
 		},
@@ -26886,28 +10431,6 @@ return {
 						}
 					},
 					text="力量需求降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มคุณสมบัติ Strength ที่ต้องการ {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดคุณสมบัติ Strength ที่ต้องการ {0}%"
 				}
 			}
 		},
@@ -26974,58 +10497,6 @@ return {
 						}
 					},
 					text="被辅助的攻击技能击中时必定瘫痪敌人"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaim"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de chances de Mutiler au Toucher"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaim"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées Mutilent toujours au Toucher"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaim"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬 명중 시 {0}%의 확률로 힘줄 절단"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaim"
-					},
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="명중 시 보조 대상 공격이 항상 힘줄 절단 유발"
 				}
 			}
 		},
@@ -27044,15 +10515,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击每击中一个敌人都使魔力 {0:+d}"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ได้รับ {0:+d} มานาจากศัตรูแต่ละตัวที่ถูกปะทะ จากสกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -27079,23 +10541,6 @@ return {
 						}
 					},
 					text="被辅助技能的 {0}% 伤害会转化为魔力偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 피해의 {0}%를 마나로 흡수"
 				}
 			}
 		},
@@ -27135,36 +10580,6 @@ return {
 						}
 					},
 					text="被辅助技能失去等于魔力消耗 {1}% 的附加闪电伤害，只要魔力消耗不高于你可以花费的最大值"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะมี ค่าใช้งานมานาพื้นฐาน เท่ากับ {0}% ของ มานาสูงสุดที่ไม่สำรอง หากค่านั้นสูงกว่า\nสกิลที่ถูกเสริม เสริมความเสียหาย สายฟ้า เท่ากับ {1}% ของ ค่าใช้งานมานา หากมันไม่เยอะไปกว่า มานา ที่คุณจ่ายได้"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=2
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม เสียการเสริมความเสียหาย สายฟ้า เท่ากับ {1}% ของ ค่าใช้งานมานา หากมันไม่เยอะไปกว่า มานา ที่คุณจ่ายได้"
 				}
 			}
 		},
@@ -27184,15 +10599,6 @@ return {
 						}
 					},
 					text="被辅助技能获得等于魔力消耗 {0}% 的附加冰霜伤害，只要魔力消耗不高于你可以花费的最大值"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เสริมความเสียหาย น้ำแข็ง เท่ากับ {0}% ของ ค่าใช้งานมานา หากมันไม่เยอะไปกว่า มานา ที่คุณจ่ายได้"
 				}
 			}
 		},
@@ -27224,28 +10630,6 @@ return {
 						}
 					},
 					text="每次能量护盾偷取都使被辅助技能的最大回复率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มปริมาณการดูด โล่พลังงาน ต่อครั้ง {0}% ของสกิลที่ถูกเสริม"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดปริมาณการดูด โล่พลังงาน ต่อครั้ง {0}% ของสกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -27264,15 +10648,6 @@ return {
 						}
 					},
 					text="最大凝聚 {0:+d}"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ระดับ Intensity สูงสุด {0:+d}"
 				}
 			}
 		},
@@ -27304,28 +10679,6 @@ return {
 						}
 					},
 					text="每次生命偷取都使被辅助技能的最大回复率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มปริมาณการดูด พลังชีวิต ต่อครั้ง {0}% ของสกิลที่ถูกเสริม"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดปริมาณการดูด พลังชีวิต ต่อครั้ง {0}% ของสกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -27388,28 +10741,6 @@ return {
 						}
 					},
 					text="被辅助技能对流血敌人的近战伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 출혈 중인 적을 상대로 주는 근접 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬이 출혈 중인 적을 상대로 주는 근접 피해 {0}% 감소"
 				}
 			}
 		},
@@ -27441,28 +10772,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的近战物理伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 근접 물리 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 근접 물리 피해 {0}% 감소"
 				}
 			}
 		},
@@ -27485,19 +10794,6 @@ return {
 						}
 					},
 					text="被辅助技能的近战打击距离 {0:+d}"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMeleeStrikeRange"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีระยะการฟาดระยะประชิด {0:+d}"
 				}
 			}
 		},
@@ -27529,28 +10825,6 @@ return {
 						}
 					},
 					text="被辅助技能会使近战技能溅射总范围额外缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 근접 범위 피해 효과 범위 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 근접 범위 피해 효과 범위 {0}% 감폭"
 				}
 			}
 		},
@@ -27582,28 +10856,6 @@ return {
 						}
 					},
 					text="被辅助的地雷技能的引爆范围缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 지뢰 폭파 효과 범위 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 지뢰 폭파 효과 범위 {0}% 감소"
 				}
 			}
 		},
@@ -27666,182 +10918,6 @@ return {
 						}
 					},
 					text="被辅助的地雷技能的投掷速度缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 지뢰 투척 속도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 지뢰 투척 속도 {0}% 감소"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% erhöhte Minen-Wurfgeschwindigkeit"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% verringerte Minen-Wurfgeschwindigkeit"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能增加 {0}% 地雷投擲速度"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能減少 {0}% 地雷投擲速度"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas tem Velocidade de Arremesso de Minas aumentada em {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas tem Velocidade de Arremesso de Minas reduzida em {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% повышение скорости броска мины"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют {0}% снижение скорости броска мины"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas tienen velocidad de lanzamiento de minas aumentada un {0}%"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las habilidades asistidas tienen velocidad de lanzamiento de minas reducida un {0}%"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มความเร็วในการโยนทุ่นระเบิด {0}%"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดความเร็วในการโยนทุ่นระเบิด {0}%"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation de la Vitesse de jet des Mines"
-				},
-				[18]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction de la Vitesse de jet des Mines"
 				}
 			}
 		},
@@ -27873,28 +10949,6 @@ return {
 						}
 					},
 					text="被辅助技能由地雷使用时，每个狂怒球都使投射物速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเร็วกระสุน ของสกิลที่ถูกเสริม {0}% ต่อจำนวน Frenzy Charge เมื่อถูกใช้จากทุ่นระเบิด"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเร็วกระสุน ของสกิลที่ถูกเสริม {0}% ต่อจำนวน Frenzy Charge เมื่อถูกใช้จากทุ่นระเบิด"
 				}
 			}
 		},
@@ -27917,58 +10971,6 @@ return {
 						}
 					},
 					text="每个狂怒球会使被辅助技能附加 {0} - {1} 基础冰霜伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют от {0} до {1} дополнительного урона от холода за заряд ярости"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen {0} a {1} de Daño de Hielo agregado por cada Carga de Frenesí"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0} à {1} Dégâts de froid supplémentaires par Charge de frénésie"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="격분 충전 하나당 보조 대상 스킬의 냉기 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -27992,19 +10994,6 @@ return {
 						}
 					},
 					text="被辅助技能的最小威力值为 {0}"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextPower"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่เสริมมี Power อย่างน้อย {0} ระดับ"
 				}
 			}
 		},
@@ -28054,28 +11043,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤生物时，它们的异常状态伤害降低  {}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม สร้างความเสียหาย เจ็บป่วย เพิ่มขึ้น {}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม สร้างความเสียหาย เจ็บป่วย ลดลง {}%"
 				}
 			}
 		},
@@ -28107,28 +11074,6 @@ return {
 						}
 					},
 					text="被辅助技能的召唤生物攻击速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 소환수 공격 속도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 소환수 공격 속도 {0}% 감소"
 				}
 			}
 		},
@@ -28147,15 +11092,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤生物时，它们的攻击伤害格挡几率 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม มีโอกาส {0:+d}% ที่จะบล็อก ความเสียหาย โจมตี "
 				}
 			}
 		},
@@ -28187,28 +11123,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤生物时，它们的燃烧伤害降低  {}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม สร้างความเสียหาย ติดไฟ เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม สร้างความเสียหาย ติดไฟ ลดลง {0}%"
 				}
 			}
 		},
@@ -28240,28 +11154,6 @@ return {
 						}
 					},
 					text="被辅助技能的召唤生物施法速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 소환수 시전 속도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 소환수 시전 속도 {0}% 감소"
 				}
 			}
 		},
@@ -28280,15 +11172,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤生物时，它们有 {0}% 的几率伤害翻倍"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม มีโอกาส {0}% ที่จะ สร้างความเสียหายสองเท่า"
 				}
 			}
 		},
@@ -28307,78 +11190,6 @@ return {
 						}
 					},
 					text="被辅助技能创造的召唤生物击中时有 {0}% 的几率嘲讽"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 소환수가 적 적중 시 {0}%의 확률로 도발"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten haben {0}% Chance, bei Treffer zu verspotten"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="透過輔助技能的召喚物，有 {0}% 機率在擊中時嘲諷"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées ont {0}% de chances de Provoquer au Toucher"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Lacaios de Habilidades Suportadas tem {0}% de chance de Provocar ao Acertar"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Приспешники усиленных умений имеют {0}% шанс провокации при нанесении удара"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los Esbirros de las Habilidades Asistidas tienen {0}% de probabilidad de Provocar con cada Golpe"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม มีโอกาส {0}% ที่จะ ยั่วยุ เมื่อปะทะ"
 				}
 			}
 		},
@@ -28472,28 +11283,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤生物时，它们满血时的伤害降低  {}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม สร้างความเสียหายเพิ่มขึ้น {}% ขณะ พลังชีวิตเต็ม"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม สร้างความเสียหายลดลง {}% ขณะ พลังชีวิตเต็ม"
 				}
 			}
 		},
@@ -28542,23 +11331,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤生物时，它们将 {}% 的元素伤害转化为生命偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียน จากสกิลที่ถูกเสริม ดูดความเสียหาย ธาตุ {}% เป็นพลังชีวิต"
 				}
 			}
 		},
@@ -28590,28 +11362,6 @@ return {
 						}
 					},
 					text="被辅助技能的召唤生物最大生命降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 소환수 최대 생명력 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 소환수 최대 생명력 {0}% 감소"
 				}
 			}
 		},
@@ -28643,28 +11393,6 @@ return {
 						}
 					},
 					text="被辅助技能的召唤生物移动速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 소환수 이동 속도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 소환수 이동 속도 {0}% 감소"
 				}
 			}
 		},
@@ -28696,28 +11424,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤生物时，它们的投射物速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเร็วกระสุน ของมิเนียน จากสกิลที่ถูกเสริม {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเร็วกระสุน ของมิเนียน จากสกิลที่ถูกเสริม {0}%"
 				}
 			}
 		},
@@ -28736,15 +11442,6 @@ return {
 						}
 					},
 					text="被辅助技能召唤生物时，它们击中回复 {0}% 生命"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียน จากสกิลที่ถูกเสริม เติมพลังชีวิต {0}% เมื่อปะทะ"
 				}
 			}
 		},
@@ -28790,15 +11487,6 @@ return {
 						}
 					},
 					text="幻影弓手的被辅助技能发射 {0} 枚额外投射物"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Mirage Archer ยิงกระสุนเพิ่มอีก {0} ลูก ด้วยสกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -28830,28 +11518,6 @@ return {
 						}
 					},
 					text="被辅助技能发射投射物的扩散范围缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="กระสุนที่ยิงจากสกิลที่ถูกเสริม เพิ่มการกระจายกระสุน {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="กระสุนที่ยิงจากสกิลที่ถูกเสริม ลดการกระจายกระสุน {0}%"
 				}
 			}
 		},
@@ -28883,28 +11549,6 @@ return {
 						}
 					},
 					text="被辅助技能每次重复都使效果区域缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีพื้นที่ส่งผล เพิ่มขึ้น {0}% ต่อการทำงานซ้ำ"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีพื้นที่ส่งผล ลดลง {0}% ต่อการทำงานซ็ำ"
 				}
 			}
 		},
@@ -29065,28 +11709,6 @@ return {
 						}
 					},
 					text="被辅助技能的非诅咒类光环效果降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 비-저주 오라 효과 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 비-저주 오라 효과 {0}% 감소"
 				}
 			}
 		},
@@ -29126,96 +11748,6 @@ return {
 						}
 					},
 					text="被辅助技能对敌人施加的非伤害性异常状态效果降低 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextNonDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能對敵人增加 {0}% 非傷害型異常狀態的效果"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextNonDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能對敵人減少 {0}% 非傷害型異常狀態的效果"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextNonDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Altérations qui n'endommagent pas infligées par les Aptitudes modifiées ont {0}% d'Augmentation de leurs Effets sur les Ennemis"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextNonDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Altérations qui n'endommagent pas infligées par les Aptitudes modifiées ont {0}% de Réduction de leurs Effets sur les Ennemis"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextNonDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 비-피해 상태 이상 효과 {0}% 증가"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextNonDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 비-피해 상태 이상 효과 {0}% 감소"
 				}
 			}
 		},
@@ -29305,42 +11837,6 @@ return {
 						}
 					},
 					text="被辅助技能可以发射 {0} 个额外投射物"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Habilidades Suportadas atiram um Projétil adicional"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas atiram {0} Projétil adicional"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="보조 대상 스킬이 투사체 1개 추가 발사"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 투사체 {0}개 추가 발사"
 				}
 			}
 		},
@@ -29368,24 +11864,6 @@ return {
 						}
 					},
 					text="被辅助技能最多同时可额外放置 {0} 个地雷"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="보조 대상 스킬로 한 번에 원격 지뢰 최대 {0}개 추가 설치"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 한 번에 원격 지뢰 최대 {0}개 추가 설치"
 				}
 			}
 		},
@@ -29413,24 +11891,6 @@ return {
 						}
 					},
 					text="被辅助技能最多同时可额外放置 {0} 个陷阱"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="보조 대상 스킬로 한 번에 덫 최대 {0}개 추가 설치"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 한 번에 덫 최대 {0}개 추가 설치"
 				}
 			}
 		},
@@ -29457,23 +11917,6 @@ return {
 						}
 					},
 					text="被辅助技能击败受感电影响的敌人时，获得【猛攻】，持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="감전된 적 처치 시 보조 대상 스킬로 {0}초 동안 맹공 획득"
 				}
 			}
 		},
@@ -29513,36 +11956,6 @@ return {
 						}
 					},
 					text="被辅助技能的压迫效果降低  {}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOverpowered"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีผล Overpower เพิ่มขึ้น {}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOverpowered"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีผล Overpower ลดลง {}%"
 				}
 			}
 		},
@@ -29565,19 +11978,6 @@ return {
 						}
 					},
 					text="你在护体状态下时，被辅助技能的击中压制{}% 的物理伤害减免"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOverwhelm"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การปะทะจากสกิลที่ถูกเสริม ขณะที่คุณมี Fortify จะท่วมท้น การป้องกันกายภาพ {}%"
 				}
 			}
 		},
@@ -29609,28 +12009,6 @@ return {
 						}
 					},
 					text="发射点之间的距离减少 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ระยะห่างระหว่างตำแหน่งที่ยิง เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ระยะห่างระหว่างตำแหน่งที่ยิง ลดลง {0}%"
 				}
 			}
 		},
@@ -29658,60 +12036,6 @@ return {
 						}
 					},
 					text="被辅助技能\n使地雷以敌人为目标引爆时，获得一个狂怒球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}% Chance, eine Raserei-Ladung zu erhalten, wenn eine Mine von unterstützten\nFertigkeiten mit einem Gegner im Ziel gezündet wird"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="Erhaltet eine Raserei-Ladung, wenn eine Mine von unterstützten\nFertigkeiten mit einem Gegner im Ziel gezündet wird"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="적을 대상으로 보조 대상 지뢰 발동 시 {0}% 확률로 격분 충전 획득\n스킬이 적을 대상으로 발동"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="적을 대상으로 보조 대상 지뢰 발동 시 격분 충전 획득"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="當透過輔助技能製造的地雷對敵人引爆時，\n有 {0}% 機率獲得 1 顆狂怒球"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="當透過輔助技能製造的地雷對敵人引爆時，\n獲得 1 顆狂怒球"
 				}
 			}
 		},
@@ -29739,42 +12063,6 @@ return {
 						}
 					},
 					text="当你的陷阱被敌人触发时，被辅助技能获得 1 个狂怒球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas possuem {0}% de chance de receber uma Carga de Frenesi quando sua Armadilha for ativada por um Inimigo"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="Habilidades Suportadas recebem uma Carga de Frenesi quando sua Armadilha for ativada por um Inimigo"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 덫이 적에 의해 발동되면 {0}%의 확률로 격분 충전 획득"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="자신의 덫이 적에 의해 발동되면 보조 대상 스킬로 격분 충전 획득"
 				}
 			}
 		},
@@ -29802,60 +12090,6 @@ return {
 						}
 					},
 					text="地雷以敌人为目标引爆时，被辅助技能\n获得一个暴击球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}% Chance, eine Energie-Ladung zu erhalten, wenn eine Mine von unterstützten\nFertigkeiten mit einem Gegner im Ziel gezündet wird"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="Erhaltet eine Energie-Ladung, wenn eine Mine von unterstützten\nFertigkeiten mit einem Gegner im Ziel gezündet wird"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="적을 대상으로 보조 대상 지뢰 발동 시 {0}% 확률로 권능 충전 획득\n스킬이 적을 대상으로 발동"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="적을 대상으로 보조 대상 지뢰 발동 시 권능 충전 획득"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="當透過輔助技能製造的地雷對敵人引爆時，\n有 {0}% 機率獲得 1 顆暴擊球"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="當透過輔助技能製造的地雷對敵人引爆時，\n獲得 1 顆暴擊球"
 				}
 			}
 		},
@@ -29883,42 +12117,6 @@ return {
 						}
 					},
 					text="当你的陷阱被敌人触发时，被辅助技能获得 1 个暴击球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas possuem {0}% de chance de receber uma Carga de Poder quando sua Armadilha for ativada por um Inimigo"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="Habilidades Suportadas recebem uma Carga de Poder quando sua Armadilha for ativada por um Inimigo"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 덫이 적에 의해 발동되면 {0}%의 확률로 권능 충전 획득"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="자신의 덫이 적에 의해 발동되면 보조 대상 스킬로 권능 충전 획득"
 				}
 			}
 		},
@@ -29937,33 +12135,6 @@ return {
 						}
 					},
 					text="被辅助技能额外获得 {0}% 物理伤害，并转化为混沌伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมจะ นำ {0}% ของความเสียหาย กายภาพ ไปเสริมเป็น เคออส"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas recebem {0}% de Dano Físico como Dano de Caos Extra"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 물리 피해의 {0}%를 추가 카오스 피해로 획득"
 				}
 			}
 		},
@@ -29982,15 +12153,6 @@ return {
 						}
 					},
 					text="被辅助技能额外获得 {0}% 物理伤害，并转化为火焰伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 물리 피해의 {0}%를 추가 화염 피해로 획득"
 				}
 			}
 		},
@@ -30009,15 +12171,6 @@ return {
 						}
 					},
 					text="被辅助技能额外获得 {0}% 物理伤害，并转化为闪电伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 물리 피해의 {0}%를 추가 번개 피해로 획득"
 				}
 			}
 		},
@@ -30049,28 +12202,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的物理伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 피해 {0}% 감소"
 				}
 			}
 		},
@@ -30102,28 +12233,6 @@ return {
 						}
 					},
 					text="被辅助陷阱技能冷却回复速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="덫 투척 시 보조 대상 스킬의 재사용 대기시간 회복 속도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="덫 투척 시 보조 대상 스킬의 재사용 대기시간 회복 속도 {0}% 감소"
 				}
 			}
 		},
@@ -30151,24 +12260,6 @@ return {
 						}
 					},
 					text="被辅助技能发射的投射物，它们不会贯穿敌人"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]=99
-						}
-					},
-					text="กระสุนที่ยิงจาก สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะไม่ เจาะทะลุ ศัตรู"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="กระสุนที่ยิงจาก สกิลที่ถูกเสริม ไม่สามารถ เจาะทะลุ ศัตรู ได้"
 				}
 			}
 		},
@@ -30200,28 +12291,6 @@ return {
 						}
 					},
 					text="被辅助的投射物技能伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 감소"
 				}
 			}
 		},
@@ -30253,28 +12322,6 @@ return {
 						}
 					},
 					text="若投射物来自被辅助的技能，则它们的贯穿伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="กระสุนจาก สกิลที่ถูกเสริม ที่เจาะทะลุ สร้างความเสียหาย เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="กระสุนจาก สกิลที่ถูกเสริม ที่เจาะทะลุ สร้างความเสียหาย ลดลง {0}%"
 				}
 			}
 		},
@@ -30293,51 +12340,6 @@ return {
 						}
 					},
 					text="被辅助技能的投射物范围受限"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="La Portée des Projectiles des Aptitudes modifiées est limitée"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют ограниченную дальность полета снарядов"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 투사체 사거리 제한"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能限制投射物距離"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ระยะกระสุนของสกิลที่ถูกเสริม จะมีที่สิ้นสุด"
 				}
 			}
 		},
@@ -30369,50 +12371,6 @@ return {
 						}
 					},
 					text="来自被辅助技能的投射物击中周围敌人时投射物击中伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="來自被輔助技能的投射物對附近敵人增加 {0}% 擊中傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="來自被輔助技能的投射物對附近敵人減少 {0}% 擊中傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม สร้างความเสียหาย ปะทะ เพิ่มขึ้น {0}% ต่อศัตรูที่อยู่ใกล้"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="กระสุนจากสกิลที่ถูกเสริม สร้างความเสียหาย ปะทะ ลดลง {0}% ต่อศัตรูที่อยู่ใกล้"
 				}
 			}
 		},
@@ -30431,15 +12389,6 @@ return {
 						}
 					},
 					text="来自被辅助技能的投射物会贯穿 {0} 格内的所有目标"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="กระสุนจาก สกิลที่ถูกเสริม เจาะทะลุ ทุกเป้าหมายในระยะ {0} หน่วย"
 				}
 			}
 		},
@@ -30458,24 +12407,6 @@ return {
 						}
 					},
 					text="被辅助技能的弩炮图腾只有在你发射攻击投射物的时候才会攻击"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Тотемы-баллисты усиленных умений атакуют только когда вы выпускаете снаряд атакой"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Totens Balista das Habilidades Suportadas só Atacam quando você disparar um Projétil de Ataque"
 				}
 			}
 		},
@@ -30498,19 +12429,6 @@ return {
 						}
 					},
 					text="你用被辅助技能眩晕敌人时，回复 {0}% 生命"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เติม พลังชีวิต {0}% เมื่อคุณทำให้ศัตรูติดสถานะ มึนงง ด้วยสกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -30529,15 +12447,6 @@ return {
 						}
 					},
 					text="被辅助技能终结敌人时，回复 {}% 生命"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เติม พลังชีวิต {0}% เมื่อสกิลที่ถูกเสริม ทำ Culling Strike ใส่ศัตรู"
 				}
 			}
 		},
@@ -30556,15 +12465,6 @@ return {
 						}
 					},
 					text="被辅助技能穿透 {0}% 混沌抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เจาะต้านทาน เคออส {0}%"
 				}
 			}
 		},
@@ -30583,24 +12483,6 @@ return {
 						}
 					},
 					text="被辅助技能会使敌人的躲避击中的几率降低 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inimigos possuem {0}% de redução da chance de Desviar de Acertos das Habilidades Suportadas"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="적이 보조 대상 스킬의 적중을 완벽회피할 확률 {0}% 감소"
 				}
 			}
 		},
@@ -30628,24 +12510,6 @@ return {
 						}
 					},
 					text="被辅助技能击中时会刷新流血持续时间"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะเริ่มนับระยะเวลาคงเหลือใหม่ของสถานะ เลือดไหล ใหม่ เมื่อปะทะ"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเริ่มนับระยะเวลาคงเหลือใหม่ของสถานะ เลือดไหล ใหม่ เมื่อปะทะ"
 				}
 			}
 		},
@@ -30664,15 +12528,6 @@ return {
 						}
 					},
 					text="你使用被辅助技能时，在 1 秒内再生 {0}% 生命"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ฟื้นฟู พลังชีวิต {0}% ในเวลา 1 วินาที เมื่อคุณใช้ สกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -30691,33 +12546,6 @@ return {
 						}
 					},
 					text="被辅助技能获得基础保留效果，等于基础魔力和生命消耗"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения получают базовое удержание ресурсов, равное базовому расходу маны и здоровья"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能獲得等同於基礎魔力和生命消耗的基礎保留"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มี ค่าสำรองพื้นฐาน เท่ากับ ค่าใช้งาน พลังชีวิต และ มานา พื้นฐาน"
 				}
 			}
 		},
@@ -30749,28 +12577,6 @@ return {
 						}
 					},
 					text="被辅助技能对敌人的感电持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 감전 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬이 적에게 적용하는 감전 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -30802,94 +12608,6 @@ return {
 						}
 					},
 					text="被辅助技能的激活频率减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 활성화 빈도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 활성화 빈도 {0}% 감소"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มความถี่ในการทำงาน {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดความถี่ในการทำงาน {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation de Fréquence d'activation"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction de Fréquence d'activation"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% повышение частоты активации усиленных умений"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% снижение частоты активации усиленных умений"
 				}
 			}
 		},
@@ -30939,78 +12657,6 @@ return {
 						}
 					},
 					text="最多召唤 1 个幻影弓手"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Maximal 1 beschworener Phantombogenschütze"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Максимум 1 призванный призрачный лучник"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Votre nombre maximum d'Archers mirage est de 1"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Máximo de 1 Arqueiro Ilusório Convocado"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="소환된 신기루 궁수 최대 1마리"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="อัญเชิญ Mirage Archer ได้พร้อมกันสูงสุด 1 ตัว"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="召喚幻影射手上限 1"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Máximo de Arqueros ilusorios que se pueden invocar: 1"
 				}
 			}
 		},
@@ -31029,15 +12675,6 @@ return {
 						}
 					},
 					text="被辅助技能的 {0}% 冰霜伤害转换为火焰伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 냉기 피해의 {0}%를 화염 피해로 전환"
 				}
 			}
 		},
@@ -31056,15 +12693,6 @@ return {
 						}
 					},
 					text="被辅助技能将物理伤害的 {0}% 转化为一种随机元素"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม แปลง ความเสียหาย กายภาพ {0}% เป็นธาตุสุ่ม"
 				}
 			}
 		},
@@ -31104,66 +12732,6 @@ return {
 						}
 					},
 					text="被辅助技能和该技能造成的伤害类异常状态持续时间缩短 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="增加 {0}% 輔助技能持續時間和異常狀態造成的傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="減少 {0}% 輔助技能持續時間和異常狀態造成的傷害"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 지속시간 및 피해를 주는 상태 이상 지속시간 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 스킬 지속시간 및 피해를 주는 상태 이상 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -31195,28 +12763,6 @@ return {
 						}
 					},
 					text="被辅助技能的持续时间缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 스킬 효과 지속시간 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 스킬 효과 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -31248,28 +12794,6 @@ return {
 						}
 					},
 					text="被击败时，被辅助技能的技能效果持续时间缩短  {}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีระยะเวลาส่งผลสกิลเพิ่มขึ้น {}% ขณะที่ตาย"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีระยะเวลาส่งผลสกิลลดลง {}% ขณะที่ตาย"
 				}
 			}
 		},
@@ -31347,15 +12871,6 @@ return {
 						}
 					},
 					text="被辅助技能的 {0}% 物理伤害转换为闪电伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 {0}%의 물리 피해를 번개 피해로 전환"
 				}
 			}
 		},
@@ -31387,50 +12902,6 @@ return {
 						}
 					},
 					text="被辅助技能的法术暴击率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 주문 치명타 확률 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 주문 치명타 확률 {0}% 감소"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas tem Chance de Acerto Crítico Mágico aumentado em {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas tem Chance de Acerto Crítico Mágico reduzido em {0}%"
 				}
 			}
 		},
@@ -31462,28 +12933,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的法术伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 주문 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 주문 피해 {0}% 감소"
 				}
 			}
 		},
@@ -31537,110 +12986,6 @@ return {
 						}
 					},
 					text="波束每 {0} 秒击中敌人"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="ลำแสง ปะทะศัตรูทุกๆ {0} วินาที"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ลำแสง ปะทะศัตรูทุกๆ {0} วินาที"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Лучи поражают врагов каждую {0} секунду"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Лучи поражают врагов каждые {0} секунд(-ы)"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Raios Acertam Inimigos a cada {0} segundo"
-				},
-				[8]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Raios Acertam Inimigos a cada {0} segundos"
-				},
-				[9]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="광선이 {0}초마다 적 적중"
-				},
-				[10]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="광선이 {0}초마다 적 적중"
 				}
 			}
 		},
@@ -31659,15 +13004,6 @@ return {
 						}
 					},
 					text="波束频率提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ความถี่ของลำแสง เพิ่มขึ้น {0}%"
 				}
 			}
 		},
@@ -31686,24 +13022,6 @@ return {
 						}
 					},
 					text="当你用被辅助技能发射的箭矢击中敌人时，召唤 1 个会使用此技能的【幻影弓手】"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Quando você acerta um Inimigo com uma Flecha de uma Habilidade Suportada, Convoca um Arqueiro Ilusório que usa aquela Habilidade"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 화살로 적 명중 시 해당 스킬을 사용하는 신기루 궁수 한 명 소환"
 				}
 			}
 		},
@@ -31735,28 +13053,6 @@ return {
 						}
 					},
 					text="被辅助技能的图腾放置速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm {0}% mais Velocidade de Posicionamento de Totens"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm {0}% menos Velocidade de Posicionamento de Totens"
 				}
 			}
 		},
@@ -31802,15 +13098,6 @@ return {
 						}
 					},
 					text="被辅助技能有 {0}% 的几率投掷一个额外陷阱"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะปากับดักเพิ่มอีกหนึ่ง"
 				}
 			}
 		},
@@ -31842,116 +13129,6 @@ return {
 						}
 					},
 					text="被辅助技能的总攻击速度总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能有 {0}% 更多攻擊速度"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能有 {0}% 更少攻擊速度"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเร็วในการโจมตี เพิ่มขึ้น อีก {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเร็วในการโจมตี ลดลง อีก {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm {0}% mais Velocidade de Ataque"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm {0}% menos Velocidade de Ataque"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Vitesse d'attaque"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Vitesse d'attaque"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 공격 속도 {0}% 증폭"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 공격 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -31983,28 +13160,6 @@ return {
 						}
 					},
 					text="被辅助技能的封印获取频率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เพิ่มความถี่ในการได้รับ Seal {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ลดความถี่ในการได้รับ Seal {0}%"
 				}
 			}
 		},
@@ -32036,28 +13191,6 @@ return {
 						}
 					},
 					text="你拥有【秘术增强】时，被辅助技能造成的法术伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="비전 쇄도 상태에서 보조 대상 스킬로 주는 주문 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="비전 쇄도 상태에서 보조 대상 스킬로 주는 주문 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -32080,19 +13213,6 @@ return {
 						}
 					},
 					text="光环持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}초간 오라 지속"
 				}
 			}
 		},
@@ -32115,45 +13235,6 @@ return {
 						}
 					},
 					text="保留效果持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Удержание длится {0} секунд(-ы)"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="保留持續 {0} 秒"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การสำรอง คงอยู่ {0} วินาที"
 				}
 			}
 		},
@@ -32247,72 +13328,6 @@ return {
 						}
 					},
 					text="被辅助攻击的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные атаки наносят на {0}% больше урона"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные атаки наносят на {0}% меньше урона"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的攻擊造成 {0}% 更多傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的攻擊造成 {0}% 更少傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหายของสกิล โจมตี ที่ถูกเสริม อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเสียหายของสกิล โจมตี ที่ถูกเสริม อีก {0}%"
 				}
 			}
 		},
@@ -32340,96 +13355,6 @@ return {
 						}
 					},
 					text="被辅助技能在近战范围击中时会触发【震波】"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Habilidades Suportadas tem {0}% de chance de Ativar Onda de Choque no Acerto Corpo a Corpo"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas Ativam Onda de Choque no Acerto Corpo a Corpo"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="被輔助的技能有 {0}% 機率在近戰擊中時觸發震波"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能在近戰擊中時觸發震波"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de chances de déclencher Onde de choc en Touchant en mêlée"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées déclenchent Onde de choc en Touchant en mêlée"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="Усиленные умения имеют {0}% шанс вызвать срабатывание Ударной волны при нанесении удара в ближнем бою"
-				},
-				[10]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения вызывают срабатывание ударной волны при нанесении удара в ближнем бою"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="보조 대상 스킬로 근접 명중 시 {0}%의 확률로 충격파 발동"
-				},
-				[12]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 근접 명중 시 충격파 발동"
 				}
 			}
 		},
@@ -32492,116 +13417,6 @@ return {
 						}
 					},
 					text="被辅助技能的总效果区域额外缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Zone d'effet"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Zone d'effet"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют на {0}% больше области действия"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют на {0}% меньше области действия"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 효과 범위 {0}% 증폭"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 효과 범위 {0}% 감폭"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能有 {0}% 更多範圍效果"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能有 {0}% 更少範圍效果"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มพื้นที่ส่งผล อีก {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดพื้นที่ส่งผล อีก {0}%"
 				}
 			}
 		},
@@ -32633,116 +13448,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能造成 {0}% 更多傷害"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能造成 {0}% 更少傷害"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น อีก {0}%"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}%"
 				}
 			}
 		},
@@ -32774,28 +13479,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的燃烧伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 화상 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 화상 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -32827,28 +13510,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหาย โจมตี ของสกิลที่ถูกเสริม อีก {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเสียหาย โจมตี ของสกิลที่ถูกเสริม อีก {0}%"
 				}
 			}
 		},
@@ -32880,50 +13541,6 @@ return {
 						}
 					},
 					text="被辅助的攻击技能造成的流血伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Attaques modifiées ont {0}% Davantage de Dégâts de Saignement"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Attaques modifiées ont {0}% de Perte de Dégâts de Saignement"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 공격으로 주는 출혈 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 공격으로 주는 출혈 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -32955,50 +13572,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的混沌伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เคออส เพิ่มขึ้น อีก {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เคออส ลดลง อีก {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 카오스 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 카오스 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -33030,28 +13603,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -33083,28 +13634,6 @@ return {
 						}
 					},
 					text="被辅助技能的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano"
 				}
 			}
 		},
@@ -33136,28 +13665,6 @@ return {
 						}
 					},
 					text="满能量护盾时，被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="에너지 보호막이 최대일 때 보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="에너지 보호막이 최대일 때 보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -33189,28 +13696,6 @@ return {
 						}
 					},
 					text="偷取能量护盾时，被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="에너지 보호막을 흡수하는 동안 보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="에너지 보호막을 흡수하는 동안 보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -33242,50 +13727,6 @@ return {
 						}
 					},
 					text="被辅助技能对低血敌人的击中和异常状态伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона от ударов и состояний по врагам с малым количеством здоровья"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона от ударов и состояний по врагам с малым количеством здоровья"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano com Acertos e Afecções contra Inimigos em Vida Baixa"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano com Acertos e Afecções contra Inimigos em Vida Baixa"
 				}
 			}
 		},
@@ -33308,19 +13749,6 @@ return {
 						}
 					},
 					text="被辅助的打击技能用近战武器对稀有怪物的致命一击可以提供它们的一个词缀。持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_0dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="近戰武器對稀有怪物使用輔助打擊技能的擊殺之擊，獲得他們其中一個詞綴 {0} 秒"
 				}
 			}
 		},
@@ -33339,24 +13767,6 @@ return {
 						}
 					},
 					text="你用被辅助技能击中稀有或传奇敌人时，有 {0}% 的几率恢复所获词缀的持续时间，最多可恢复 5 秒"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% шанс обновить длительность дарованного свойства вплоть до 5 секунд при нанесении удара по редкому или уникальному врагу усиленными умениями"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% de chance de renovar a Duração do Modificador recebido em até 5 segundos quando você Acertar um Inimigo Raro ou Único com Habilidades Suportadas"
 				}
 			}
 		},
@@ -33388,50 +13798,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击速度总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют на {0}% больше скорости атаки"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения  имеют на {0}% меньше скорости атаки"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm {0}% mais Velocidade de Ataque"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm {0}% menos Velocidade de Ataque"
 				}
 			}
 		},
@@ -33463,72 +13829,6 @@ return {
 						}
 					},
 					text="被辅助技能的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas infligen un {0}% más de daño"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las habilidades asistidas infligen un {0}% menos de daño"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano"
 				}
 			}
 		},
@@ -33560,94 +13860,6 @@ return {
 						}
 					},
 					text="被辅助技能在近战击中时造成的异常状态伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能使近戰擊中導致的異常狀態造成 {0}% 更多傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能使近戰擊中導致的異常狀態造成 {0}% 更少傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts avec les Altérations infligées par des Attaques de mêlée"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts avec les Altérations infligées par des Attaques de mêlée"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano com Afecções causados por Acertos Corpo a Corpo"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano com Afecções causados por Acertos Corpo a Corpo"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона состояниями от ударов в ближнем бою"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона состояниями от ударов в ближнем бою"
 				}
 			}
 		},
@@ -33701,32 +13913,6 @@ return {
 						}
 					},
 					text="【幻灵】持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Fantasmas duram {0} segundos"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}초간 환영 지속"
 				}
 			}
 		},
@@ -33758,28 +13944,6 @@ return {
 						}
 					},
 					text="被辅助技能的投射物伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเสียหาย กระสุน เพิ่มขึ้น อีก {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเสียหาย กระสุน ลดลง อีก {0}%"
 				}
 			}
 		},
@@ -33811,50 +13975,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的持续性冰霜伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano de Gelo Degenerativo"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano de Gelo Degenerativo"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 냉기 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 냉기 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -33894,36 +14014,6 @@ return {
 						}
 					},
 					text="敌人被冰缓时，辅助技能的伤害（击中和异常状态）缩短 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 냉각된 적에 대한 적중 및 상태 이상 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 냉각된 적에 대한 적중 및 상태 이상 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -34004,72 +14094,6 @@ return {
 						}
 					},
 					text="赤炼效果使被辅助技能的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона, пока на вас действует Жизнеотвод"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона, пока на вас действует Жизнеотвод"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="你有活栓時，被輔助的技能造成 {0}% 更多傷害"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="你有活栓時，被輔助的技能造成 {0}% 更少傷害"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มความเสียหายของ สกิลที่ถูกเสริม อีก {0}% ขณะที่คุณมีสถานะ จ่ายชีวี"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดความเสียหายของ สกิลที่ถูกเสริม อีก {0}% ขณะที่คุณมีสถานะ จ่ายชีวี"
 				}
 			}
 		},
@@ -34130,210 +14154,6 @@ return {
 						}
 					},
 					text="赤炼效果持续 {0} 秒"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Fonte de Vida dura {0:+d} segundos"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Fonte de Vida dura {0} segundo"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Fonte de Vida dura {0} segundos"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Ponction vitale dure {0:+d} secondes"
-				},
-				[8]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ponction vitale dure {0} seconde"
-				},
-				[9]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ponction vitale dure {0} secondes"
-				},
-				[10]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="Transfusión de vida dura {0:+d} segundos"
-				},
-				[11]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Transfusión de vida dura {0} segundo"
-				},
-				[12]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Transfusión de vida dura {0} segundos"
-				},
-				[13]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]=0,
-							[2]=0
-						}
-					},
-					text="活栓持續時間 {0:+d} 秒"
-				},
-				[14]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="活栓持續 {0} 秒"
-				},
-				[15]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="活栓持續 {0} 秒"
 				}
 			}
 		},
@@ -34366,28 +14186,6 @@ return {
 						}
 					},
 					text="被辅助技能使敌人瘫痪时，它受到的物理伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 힘줄 절단된 적이 받는 물리 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 힘줄 절단된 적이 받는 물리 피해 {0}% 감소"
 				}
 			}
 		},
@@ -34450,28 +14248,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -34503,182 +14279,6 @@ return {
 						}
 					},
 					text="被辅助的地雷技能的总投掷速度额外缩短 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 지뢰 투척 속도 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 지뢰 투척 속도 {0}% 감폭"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% mehr Minen-Wurfgeschwindigkeit"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% weniger Minen-Wurfgeschwindigkeit"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能有 {0}% 更多地雷投擲速度"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能有 {0}% 更少地雷投擲速度"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Vitesse de jet des Mines"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Vitesse de jet des Mines"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas tem {0}% mais Velocidade de Arremesso de Minas"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas tem {0}% menos Velocidade de Arremesso de Minas"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют на {0}% больше скорости броска мины"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют на {0}% меньше скорости броска мины"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen {0}% más Velocidad de Lanzamiento de Minas"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas tienen {0}% menos Velocidad de Lanzamiento de Minas"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มความเร็วในการโยนทุ่นระเบิด อีก {0}%"
-				},
-				[18]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดความเร็วในการโยนทุ่นระเบิด อีก {0}%"
 				}
 			}
 		},
@@ -34701,19 +14301,6 @@ return {
 						}
 					},
 					text="被辅助技能对燃烧的敌人附加 {0} - {1} 火焰伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 화상 상태의 적에게 주는 화염 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -34808,182 +14395,6 @@ return {
 						}
 					},
 					text="被辅助技能创造的召唤生物对你周围的敌人造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 소환수가 플레이어 주변의 적에게 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬 소환된 소환수가 플레이어 주변의 적에게 주는 피해 {0}% 감폭"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten verursachen {0}% mehr Schaden bei Gegnern in Eurem Umkreis"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten verursachen {0}% weniger Schaden bei Gegnern in Eurem Umkreis"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="透過輔助技能製造的召喚物，對你附近的敵人造成 {0}% 更多傷害"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="透過輔助技能製造的召喚物，對你附近的敵人造成 {0}% 更少傷害"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées ont {0}% Davantage de Dégâts contre les Ennemis qui sont près de vous"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées ont {0}% de Perte de Dégâts contre les Ennemis qui sont près de vous"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Lacaios de Habilidades Suportadas causam {0}% mais Dano aos Inimigos que estejam Próximos a você"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Lacaios de Habilidades Suportadas causam {0}% menos Dano aos Inimigos que estejam Próximos a você"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Приспешники усиленных умений наносят на {0}% больше урона ближайшим к вам врагам"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Приспешники усиленных умений наносят на {0}% меньше урона ближайшим к вам врагам"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los esbirros de las habilidades asistidas infligen un {0}% más de daño a los enemigos cercanos a ti"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los esbirros de las habilidades asistidas infligen un {0}% menos de daño a los enemigos cercanos a ti"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม จะเพิ่มความเสียหาย อีก {0}% หากศัตรูอยู่ใกล้คุณ"
-				},
-				[18]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม จะลดความเสียหาย อีก {0}% หากศัตรูอยู่ใกล้คุณ"
 				}
 			}
 		},
@@ -35015,182 +14426,6 @@ return {
 						}
 					},
 					text="被辅助技能创造的召唤生物的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 소환수가 받는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 소환된 소환수가 받는 피해 {0}% 감폭"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten erleiden {0}% mehr Schaden"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten erleiden {0}% weniger Schaden"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="透過輔助技能製造的召喚物承受 {0}% 更多傷害"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="透過輔助技能製造的召喚物承受 {0}% 更少傷害"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées ont {0}% Davantage de Dégâts subis"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées ont {0}% de Perte de Dégâts subis"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Lacaios de Habilidades Suportadas sofrem {0}% mais Dano"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Lacaios de Habilidades Suportadas sofrem {0}% menos Dano"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Приспешники усиленных умений получают на {0}% больше урона"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Приспешники усиленных умений получают на {0}% меньше урона"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los esbirros de las habilidades asistidas reciben un {0}% más de daño"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los esbirros de las habilidades asistidas reciben un {0}% menos de daño"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม จะได้รับความเสียหายเพิ่มขึ้น อีก {0}%"
-				},
-				[18]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม จะได้รับความเสียหายลดลง อีก {0}%"
 				}
 			}
 		},
@@ -35222,28 +14457,6 @@ return {
 						}
 					},
 					text="来自被辅助技能的召唤生物对猎物的暴击率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม เพิ่มโอกาสคริติคอล {0}% ต่อ เหยื่อ"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม ลดโอกาสคริติคอล {0}% ต่อ เหยื่อ"
 				}
 			}
 		},
@@ -35262,15 +14475,6 @@ return {
 						}
 					},
 					text="来自被辅助技能的召唤生物对猎物的暴击伤害加成 {0:+d}% "
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริมมี ตัวคูณคริติคอล {0:+d}% ต่อ เหยื่อ"
 				}
 			}
 		},
@@ -35302,28 +14506,6 @@ return {
 						}
 					},
 					text="来自被辅助技能的召唤生物对猎物的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น อีก {0}% ต่อเหยื่อ"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}% ต่อเหยื่อ"
 				}
 			}
 		},
@@ -35355,50 +14537,6 @@ return {
 						}
 					},
 					text="被辅助技能的召唤生物最大生命总值总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能有 {0}% 更多召喚物最大生命"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能有 {0}% 更少召喚物最大生命"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 소환수 최대 생명력 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 소환수 최대 생명력 {0}% 감폭"
 				}
 			}
 		},
@@ -35461,182 +14599,6 @@ return {
 						}
 					},
 					text="被辅助技能创造的召唤生物的元素伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 소환수가 주는 원소 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 소환된 소환수가 주는 원소 피해 {0}% 감폭"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten verursachen {0}% mehr Elementarschaden"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten verursachen {0}% weniger Elementarschaden"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助技能製造的召喚物造成 {0}% 更多元素傷害"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助技能製造的召喚物造成 {0}% 更少元素傷害"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Créatures créées par les Aptitudes modifiées ont {0}% Davantage de Dégâts élémentaires"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Créatures créées par les Aptitudes modifiées ont {0}% de Perte de Dégâts élémentaires"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Lacaios de Habilidades Suportadas causam {0}% mais Dano Elemental"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Lacaios de Habilidades Suportadas causam {0}% menos Dano Elemental"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Приспешники усиленных умений наносят на {0}% больше урона от стихий"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Приспешники усиленных умений наносят на {0}% меньше урона от стихий"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los Esbirros de las Habilidades Asistidas infligen {0}% más Daño Elemental"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los Esbirros de las Habilidades Asistidas infligen {0}% menos Daño Elemental"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม จะเพิ่มความเสียหาย ธาตุ อีก {0}%"
-				},
-				[18]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม จะลดความเสียหาย ธาตุ อีก {0}%"
 				}
 			}
 		},
@@ -35655,15 +14617,6 @@ return {
 						}
 					},
 					text="来自被辅助技能的召唤生物始终以猎物为目标"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม เลือก เหยื่อ เป็นเป้าหมายเสมอหากเป็นไปได้"
 				}
 			}
 		},
@@ -35695,50 +14648,6 @@ return {
 						}
 					},
 					text="【幻影弓手】使用被辅助技能时，攻击速度总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Arqueiro Ilusório utiliza Habilidades Suportadas com {0}% mais Velocidade de Ataque"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Arqueiro Ilusório utiliza Habilidades Suportadas com {0}% menos Velocidade de Ataque"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="신기루 궁수가 {0}% 증폭된 공격 속도로 보조 대상 스킬 사용"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="신기루 궁수의 {0}% 감폭된 공격 속도로 보조 대상 스킬 사용"
 				}
 			}
 		},
@@ -35761,32 +14670,6 @@ return {
 						}
 					},
 					text="幻影弓手持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Arqueiro Ilusório dura {0} segundos"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초간 신기루 궁수 지속"
 				}
 			}
 		},
@@ -35818,50 +14701,6 @@ return {
 						}
 					},
 					text="【幻影弓手】使用被辅助技能时所造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Arqueiro Ilusório causa {0}% mais Dano com Habilidades Suportadas"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Arqueiro Ilusório causa {0}% menos Dano com Habilidades Suportadas"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="신기루 궁수가 보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="신기루 궁수가 보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -35888,23 +14727,6 @@ return {
 						}
 					},
 					text="被辅助技能被格挡时施加 {0} 秒逼迫"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOverpowered"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างสถานะ Overpowered {0} วินาทีเมื่อถูกบล็อค"
 				}
 			}
 		},
@@ -35932,42 +14754,6 @@ return {
 						}
 					},
 					text="被辅助技能还会在你身体两侧发射投射物，最多 {0} 个发射点"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Habilidades Suportadas também disparam Projéteis de até {0} ponto de cada lado seu"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas também disparam Projéteis de até {0} pontos de cada lado seu"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="보조 대상 스킬 또한 자신의 양옆 최대 {0}개 지점에서 투사체 발사"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬 또한 자신의 양옆 최대 {0}개 지점에서 투사체 발사"
 				}
 			}
 		},
@@ -35999,138 +14785,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的投射物伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย กระสุน เพิ่มขึ้น อีก {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย กระสุน ลดลง อีก {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts des Projectiles"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts des Projectiles"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Projektilschaden"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Projektilschaden"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño de Proyectiles"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño de Proyectiles"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="輔助的技能造成 {0}% 更多投射物傷害"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="輔助的技能造成 {0}% 更少投射物傷害"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 증폭"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -36162,28 +14816,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的持续性混沌伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 카오스 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 카오스 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -36215,28 +14847,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的持续性物理伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 물리 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 지속 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -36268,28 +14878,6 @@ return {
 						}
 					},
 					text="被辅助的攻击技能总降 {0}% 投射物法术伤害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 투사체 주문 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 투사체 주문 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -36321,50 +14909,6 @@ return {
 						}
 					},
 					text="被辅助攻击技能的投射物击中造成的流血和中毒伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes d'Attaque modifiées ont {0}% Davantage de Dégâts avec le Saignement et le Poison infligés au Toucher avec des Projectiles"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes d'Attaque modifiées ont {0}% de Perte de Dégâts avec le Saignement et le Poison infligés au Toucher avec des Projectiles"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 공격 스킬의 투사체 명중으로 인한 출혈 및 중독 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 공격 스킬의 투사체 명중으로 인한 출혈 및 중독 피해 {0}% 증폭"
 				}
 			}
 		},
@@ -36396,28 +14940,6 @@ return {
 						}
 					},
 					text="被辅助技能总降 {0}% 投射物伤害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -36449,50 +14971,6 @@ return {
 						}
 					},
 					text="每个暴击球可使被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano por Carga de Poder"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano por Carga de Poder"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 권능 충전 하나당 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 권능 충전 하나당 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -36524,28 +15002,6 @@ return {
 						}
 					},
 					text="被辅助的攻击技能总降 {0}% 投射物物理伤害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 투사체 공격 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 물리 투사체 공격 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -36577,28 +15033,6 @@ return {
 						}
 					},
 					text="被辅助技能总降 {0}% 投射物攻击总速度"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 투사체 공격 속도 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 투사체 공격 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -36630,116 +15064,6 @@ return {
 						}
 					},
 					text="被辅助技能的总效果区域额外缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能有 {0}% 更多範圍效果"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能有 {0}% 更少範圍效果"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีพื้นที่ส่งผล เพิ่มขึ้น อีก {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีพื้นที่ส่งผล ลดลง อีก {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm {0}% mais Efeito em Área"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm {0}% menos Efeito em Área"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Zone d'effet"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Zone d'effet"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 효과 범위 {0}% 증폭"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 효과 범위 {0}% 감폭"
 				}
 			}
 		},
@@ -36771,116 +15095,6 @@ return {
 						}
 					},
 					text="被辅助技能的攻击速度总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能有 {0}% 更多攻擊速度"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能有 {0}% 更少攻擊速度"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเร็วในการโจมตี เพิ่มขึ้น อีก {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีความเร็วในการโจมตี ลดลง อีก {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm {0}% mais Velocidade de Ataque"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm {0}% menos Velocidade de Ataque"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Vitesse d'attaque"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Vitesse d'attaque"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 공격 속도 {0}% 증폭"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 공격 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -36912,116 +15126,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的近战范围伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能造成 {0}% 更多近戰範圍傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能造成 {0}% 更少近戰範圍傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 근접 범위 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 근접 범위 피해 {0}% 감폭"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย พื้นที่ ประชิด เพิ่มขึ้น อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย พื้นที่ ประชิด ลดลง อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano Corpo a Corpo em Área"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano Corpo a Corpo em Área"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts de zone de mêlée"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts de zone de mêlée"
 				}
 			}
 		},
@@ -37053,50 +15157,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的投射物伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano de Projéteis"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano de Projéteis"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -37154,94 +15214,6 @@ return {
 						}
 					},
 					text="被辅助技能的总激活频率额外减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Fréquence d'activation"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Fréquence d'activation"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 활성화 빈도 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 활성화 빈도 {0}% 감폭"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มความถี่ในการทำงาน อีก {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดความถี่ในการทำงาน อีก {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Частота активации усиленных умений на {0}% больше"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Частота активации усиленных умений на {0}% меньше"
 				}
 			}
 		},
@@ -37260,24 +15232,6 @@ return {
 						}
 					},
 					text="敌人格挡来自被辅助技能的攻击伤害或法术伤害的几率 -{0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Inimigos possuem -{0}% de chance de Bloquear o Dano de Ataques e Magias das Habilidades Suportadas"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="적이 -{0}%의 확률로 보조 대상 스킬의 공격 또는 주문 피해를 막아냄"
 				}
 			}
 		},
@@ -37296,24 +15250,6 @@ return {
 						}
 					},
 					text="敌人躲避来自被辅助技能的攻击击中或法术击中的几率 -{0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Inimigos possuem -{0}% de chance de Esquivar dos Acertos de Ataques e Magias das Habilidades Suportadas"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="적이 보조 대상 스킬의 공격 또는 주문 적중을 완벽회피할 확률 -{0}%"
 				}
 			}
 		},
@@ -37345,182 +15281,6 @@ return {
 						}
 					},
 					text="每有 1 个激励球，被辅助技能的攻击和法术暴击率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="영감 충전 하나당 보조 대상 스킬의 치명타 확률 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="영감 충전 하나당 보조 대상 스킬의 치명타 확률 {0}% 감소"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% erhöhte kritische Trefferchance pro Inspirations-Ladung"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% verringerte kritische Trefferchance pro Inspirations-Ladung"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能，每顆啟發球增加 {0}% 暴擊率"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能，每顆啟發球減少 {0}% 暴擊率"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas tem Chance de Golpe Crítico aumentada em {0}% por Carga de Inspiração"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas tem Chance de Golpe Crítico reduzida em {0}% por Carga de Inspiração"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% повышение шанса критического удара за заряд вдохновения"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют {0}% снижение шанса критического удара за заряд вдохновения"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen Probabilidad de Golpe Crítico aumentada un {0}% por cada Carga de Inspiración"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas tienen Probabilidad de Golpe Crítico reducida un {0}% por cada Carga de Inspiración"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation des Chances de coup critique par Charge d'inspiration"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction des Chances de coup critique par Charge d'inspiration"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะเพิ่มโอกาสคริติคอล {0}% ต่อ Inspiration Charge หนึ่งลูก"
-				},
-				[18]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะลดโอกาสคริติคอล {0}% ต่อ Inspiration Charge หนึ่งลูก"
 				}
 			}
 		},
@@ -37552,182 +15312,6 @@ return {
 						}
 					},
 					text="每有 1 个激励球，被辅助技能造成的元素伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="영감 충전 하나당 보조 대상 스킬로 주는 원소 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="영감 충전 하나당 보조 대상 스킬로 주는 원소 피해 {0}% 감폭"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Elementarschaden pro Inspirations-Ladung"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Elementarschaden pro Inspirations-Ladung"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能，每顆啟發球造成 {0}% 更多元素傷害"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能，每顆啟發球造成 {0}% 更少元素傷害"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano Elemental por Carga de Inspiração"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano Elemental por Carga de Inspiração"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона от стихий за заряд вдохновения"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона от стихий за заряд вдохновения"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño Elemental por cada Carga de Inspiración"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño Elemental por cada Carga de Inspiración"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts élémentaires par Charge d'inspiration"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts élémentaires par Charge d'inspiration"
-				},
-				[17]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม จะสร้างความเสียหาย ธาตุ เพิ่มขึ้น อีก {0}% ต่อจำนวน Inspiration Charge"
-				},
-				[18]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม จะสร้างความเสียหาย ธาตุ ลดลง อีก {0}% ต่อจำนวน Inspiration Charge"
 				}
 			}
 		},
@@ -37746,78 +15330,6 @@ return {
 						}
 					},
 					text="被辅助技能消耗总计 {0} 魔力后，失去所有启迪球"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 총 {0}의 마나 소모 시 모든 영감 충전 상실"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Verliert alle Inspirations-Ladungen nach dem Verbrauch von {0} Mana mit unterstützten Fertigkeiten"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Вы теряете все заряды вдохновения после расхода {0} маны усиленными умениями"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Vous perdez toutes vos Charges d'inspiration lorsque vous dépensez un total de {0} de Mana avec les Aptitudes modifiées"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Perca todas as Cargas de Inspiração após Gastar um total de {0} de mana com Habilidades Suportadas"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สูญเสีย Inspiration Charge ทั้งหมดเมื่อใช้มานาจากสกิลที่ถูกเสริม {0} หน่วย"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能消耗總 {0} 魔力後，失去所有啟發球"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Pierde todas las Cargas de Inspiración después de gastar un total de {0} de maná en habilidades asistidas"
 				}
 			}
 		},
@@ -37840,19 +15352,6 @@ return {
 						}
 					},
 					text="被辅助技能的地雷基础引爆时间为 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas tem um Tempo Base de Detonação de Minas de {0} segundos"
 				}
 			}
 		},
@@ -37915,28 +15414,6 @@ return {
 						}
 					},
 					text="传爆序列中，每个之前的地雷都使被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano para cada Mina anterior na Sequência de Detonação"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano para cada Mina anterior na Sequência de Detonação"
 				}
 			}
 		},
@@ -37968,94 +15445,6 @@ return {
 						}
 					},
 					text="被辅助的技能石击中时总降 {0}% 地雷伤害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts des Mines au Toucher"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts des Mines au Toucher"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Minenschaden durch Treffer"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Minenschaden durch Treffer"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño de Minas con Golpes"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño de Minas con Golpes"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상의 스킬 명중 시 지뢰 피해 {0}% 증폭"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상의 스킬 명중 시 지뢰 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -38095,186 +15484,6 @@ return {
 						}
 					},
 					text="猛攻持续时间缩短 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="增加 {0}% 猛攻持續時間"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="減少 {0}% 猛攻持續時間"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มระยะเวลาของ Onslaught {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดระยะเวลาของ Onslaught {0}%"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% verlängerte Ansturm-Dauer"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% verkürzte Ansturm-Dauer"
-				},
-				[9]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Duración de Fervor aumentada un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Duración de Fervor reducida un {0}%"
-				},
-				[11]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% d'Augmentation de la Durée d'Assaut"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% de Réduction de la Durée d'Assaut"
-				},
-				[13]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="맹공 지속시간 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="맹공 지속시간 {0}% 감소"
 				}
 			}
 		},
@@ -38301,23 +15510,6 @@ return {
 						}
 					},
 					text="你击中传奇敌人时，被辅助技能有 {0}% 的几率获得 3 秒猛攻"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="플레이어가 고유 적 명중 시 보조 대상 스킬이 {0}%의 확률로 3초 동안 지속되는 맹공 획득"
 				}
 			}
 		},
@@ -38353,131 +15545,6 @@ return {
 						}
 					},
 					text="被辅助技能造成致命一击时，\n有 {0}% 的几率获得 {1} 秒猛攻"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=2
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas tienen {0}% de probabilidad de otorgar Fervor por {1} segundos al\ninfligir un Golpe Mortal"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=2
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% Chance, beim Verursachen eines tödlichen Schlags\nfür {1} Sekunden Ansturm zu gewähren"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=2
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能擊殺時\n有 {0}% 機率獲得猛攻 {1} 秒"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=2
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de chances d'octroyer\nAssaut pour {1} secondes en Tuant"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=2
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextOnslaught"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="!",
-							[2]=0
-						},
-						[3]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 최후의 일격 시 {0}%의 확률로\n{1}초 동안 맹공 획득"
 				}
 			}
 		},
@@ -38577,28 +15644,6 @@ return {
 						}
 					},
 					text="被辅助的投射物技能总降 {0}% 投射物伤害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 투사체 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -38676,74 +15721,6 @@ return {
 						}
 					},
 					text="施放被辅助法术可以获得凝聚，最大 3 层\n每层凝聚使被辅助法术的总区域伤害总降 {0}%\n每层凝聚使被辅助法术的效果区域额外缩小 {1}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เวทที่ถูกเสริม จะได้รับ Intensity เมื่อคุณร่าย สูงสุด 3 ระดับ\nความเสียหาย ปะทะ พื้นที่ เพิ่มขึ้น อีก {0}% ตามจำนวนระดับของ Intensity\nพื้นที่ส่งผล เพิ่มขึ้น อีก {1}% ตามจำนวนระดับของ Intensity"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เวทที่ถูกเสริม จะได้รับ Intensity เมื่อคุณร่าย สูงสุด 3 ระดับ\nความเสียหาย ปะทะ พื้นที่ ลดลง อีก {0}% ตามจำนวนระดับของ Intensity\nพื้นที่ส่งผล เพิ่มขึ้น อีก {1}% ตามจำนวนระดับของ Intensity"
-				},
-				[7]={
-					[1]={
-						k="negate",
-						v=2
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="เวทที่ถูกเสริม จะได้รับ Intensity เมื่อคุณร่าย สูงสุด 3 ระดับ\nความเสียหาย ปะทะ พื้นที่ เพิ่มขึ้น อีก {0}% ตามจำนวนระดับของ Intensity\nพื้นที่ส่งผล ลดลง อีก {1}% ตามจำนวนระดับของ Intensity"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="negate",
-						v=2
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="เวทที่ถูกเสริม จะได้รับ Intensity เมื่อคุณร่าย สูงสุด 3 ระดับ\nความเสียหาย ปะทะ พื้นที่ ลดลง อีก {0}% ตามจำนวนระดับของ Intensity\nพื้นที่ส่งผล ลดลง อีก {1}% ตามจำนวนระดับของ Intensity"
 				}
 			}
 		},
@@ -38776,28 +15753,6 @@ return {
 						}
 					},
 					text="被辅助技能在受影响区域之间的延迟降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เพิ่มระยะเวลาระหว่าง พื้นที่ที่ได้รับผล {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ลดระยะเวลาระหว่าง พื้นที่ที่ได้รับผล {0}%"
 				}
 			}
 		},
@@ -38829,28 +15784,6 @@ return {
 						}
 					},
 					text="被辅助技能的总效果区域额外缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 효과 범위 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 효과 범위 {0}% 감폭"
 				}
 			}
 		},
@@ -38882,94 +15815,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -39037,28 +15882,6 @@ return {
 						}
 					},
 					text="被辅助技能最后一次重复的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การทำงานซ้ำ ของสกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น อีก {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="การทำงานซ้ำ ของสกิลที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}%"
 				}
 			}
 		},
@@ -39090,138 +15913,6 @@ return {
 						}
 					},
 					text="被辅助技能的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย เพิ่มขึ้น อีก {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม สร้างความเสียหาย ลดลง อีก {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения наносят на {0}% больше урона"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения наносят на {0}% меньше урона"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能造成 {0}% 更多傷害"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能造成 {0}% 更少傷害"
 				}
 			}
 		},
@@ -39257,32 +15948,6 @@ return {
 						}
 					},
 					text="持续吟唱结束后，【灌注】持续 {0} 秒"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="집중 유지를 끝낸 후 {0}초간 주입 지속"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="집중 유지를 끝낸 후 {0}초간 주입 지속"
 				}
 			}
 		},
@@ -39318,32 +15983,6 @@ return {
 						}
 					},
 					text="持续吟唱一个被辅助技能 {0} 秒后获得【灌注】"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="{0}초 동안 보조 대상 스킬을 집중 유지한 후 주입 획득"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="{0}초 동안 보조 대상 스킬을 집중 유지한 후 주입 획득"
 				}
 			}
 		},
@@ -39375,28 +16014,6 @@ return {
 						}
 					},
 					text="被辅助技能造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -39428,28 +16045,6 @@ return {
 						}
 					},
 					text="持续吟唱被辅助技能时，受到的击中物理伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬을 집중 유지하는 동안 피격 시 물리 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬을 집중 유지하는 동안 피격 시 물리 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -39489,66 +16084,6 @@ return {
 						}
 					},
 					text="根据被辅助宝石对应的伤害种类，【灌注】赋予 {0}% 的总伤害降低"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamageTypes"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Infusão concede {0}% mais Dano dos Tipos que combinam com as tags da Gema de Habilidade"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamageTypes"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Infusão concede {0}% menos Dano dos Tipos que combinam com as tags da Gema de Habilidade"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamageTypes"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="주입 적용 시 보조 대상 스킬 젬의 태그와 같은 유형 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamageTypes"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="주입 적용 시 보조 대상 스킬 젬의 태그와 같은 유형 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -39575,40 +16110,6 @@ return {
 						}
 					},
 					text="当持续吟唱一个被辅助技能时，被辅助宝石对应的伤害种类所造成的击中总伤害降低 {0}%"
-				},
-				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamageTypes"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Enquanto Canalizando uma Habilidade Suportada, sofre {0}% menos Dano de Acertos dos tipos de Tags que combinam com o da Gema de Habilidade"
-				},
-				[3]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamageTypes"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬을 집중 유지하는 동안, 보조 대상 스킬 젬의 태그와 같은 유형 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -39741,94 +16242,6 @@ return {
 						}
 					},
 					text="被辅助的技能石击中时总降 {0}% 陷阱伤害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts des Pièges au Toucher"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts des pièges au Toucher"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Fallenschaden durch Treffer"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Fallenschaden durch Treffer"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% más Daño de Trampas al Golpear"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Las Habilidades Asistidas infligen {0}% menos Daño de Trampas al Golpear"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 명중 시 덫 피해 {0}% 증폭"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 명중 시 덫 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -39868,96 +16281,6 @@ return {
 						}
 					},
 					text="被辅助技能总降 {0}% 异常效果伤害"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能造成 {0}% 更多異常狀態傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能造成 {0}% 更少異常狀態傷害"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% Davantage de Dégâts avec les Altérations"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Perte de Dégâts avec les Altérations"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 상태 이상 피해 {0}% 증폭"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDamagingAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 상태 이상 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -40096,19 +16419,6 @@ return {
 						}
 					},
 					text="被辅助技能只能由爪类或匕首发动"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDaggerRuneDagger"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas só podem ser usadas com Garras e Adagas"
 				}
 			}
 		},
@@ -40131,110 +16441,6 @@ return {
 						}
 					},
 					text="被辅助技能只能由锤类、短杖、长杖发动"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStaffWarstaff"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="철퇴, 셉터나 지팡이로만 보조 대상 스킬 사용 가능"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStaffWarstaff"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten können nur mit Streitkolben, Zeptern und Stäben benutzt werden"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStaffWarstaff"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能只能被錘、權杖和長杖使用"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStaffWarstaff"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ne peuvent être utilisées qu'avec les bâtons, masses et sceptres"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStaffWarstaff"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas só podem ser usadas com Maças, Cetros ou Cajados"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStaffWarstaff"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения можно использовать только с булавами, скипетрами и посохами"
-				},
-				[8]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStaffWarstaff"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Las Habilidades Asistidas solo se pueden usar con Mazas, Cetros y Báculos"
-				},
-				[9]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextStaffWarstaff"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมจะต้องใช้กับ กระบอง, คทา หรือ ไม้พลอง เท่านั้น"
 				}
 			}
 		},
@@ -40271,24 +16477,6 @@ return {
 						}
 					},
 					text="使用陷阱时，每个暴击球可使被辅助技能 {0:+d}% 暴击伤害加成"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas possuem {0:+d}% ao Multiplicador de Acertos Críticos por Carga de Poder quando utilizadas por Armadilhas"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="덫 설치 시 보조 대상 스킬의 권능 충전 하나당 치명타 피해 배율 {0:+d}%"
 				}
 			}
 		},
@@ -40320,28 +16508,6 @@ return {
 						}
 					},
 					text="被辅助技能降低 {0}% 陷阱伤害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 주는 덫 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬로 주는 덫 피해 {0}% 감소"
 				}
 			}
 		},
@@ -40373,28 +16539,6 @@ return {
 						}
 					},
 					text="被辅助技能的陷阱扩散缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีการกระจายกับดัก เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีการกระจายกับดัก ลดลง {0}%"
 				}
 			}
 		},
@@ -40426,28 +16570,6 @@ return {
 						}
 					},
 					text="被辅助技能降低 {0}% 陷阱投掷速度"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 덫 투척 속도 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 덫 투척 속도 {0}% 감소"
 				}
 			}
 		},
@@ -40479,50 +16601,6 @@ return {
 						}
 					},
 					text="每有一个狂怒球，被辅助技能降低 {0}% 陷阱投掷速度"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas possuem {0}% de aumento da Velocidade de Arremesso de Armadilhas por Carga de Frenesi"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas possuem {0}% de redução da Velocidade de Arremesso de Armadilhas por Carga de Frenesi"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="격분 충전 하나당 보조 대상 스킬의 덫 투척 속도 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="격분 충전 하나당 보조 대상 스킬의 덫 투척 속도 {0}% 감소"
 				}
 			}
 		},
@@ -40554,28 +16632,6 @@ return {
 						}
 					},
 					text="被辅助技能缩小 {0}% 陷阱引爆范围"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 덫 발동 효과 범위 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 덫 발동 효과 범위 {0}% 감소"
 				}
 			}
 		},
@@ -40607,28 +16663,6 @@ return {
 						}
 					},
 					text="每个暴击球都使被辅助技能的陷阱触发范围缩小  {}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีรัศมีในการ ทริกเกอร์กับดัก เพิ่มขึ้น {0}% ต่อจำนวน Power Charge"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม มีรัศมีในการ ทริกเกอร์กับดัก ลดลง {0}% ต่อจำนวน Power Charge"
 				}
 			}
 		},
@@ -40660,28 +16694,6 @@ return {
 						}
 					},
 					text="被辅助技能对带有烙印的敌人造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% mehr Schaden an gezeichnetem Gegner"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten verursachen {0}% weniger Schaden an gezeichnetem Gegner"
 				}
 			}
 		},
@@ -40700,42 +16712,6 @@ return {
 						}
 					},
 					text="被辅助技能被【奥法烙印】所在地点触发"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées sont déclenchées par Symbole de l'arcaniste, depuis la position du Symbole"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="신비학자 낙인이 낙인 위치에서 보조 대상 스킬 발동"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม ถูกทริกเกอร์ ด้วย Arcanist Brand จากตำแหน่งของ ตราเวท นั้น"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения активируются Клеймом чаротворца в месте нахождения клейма"
 				}
 			}
 		},
@@ -40754,15 +16730,6 @@ return {
 						}
 					},
 					text="被辅助法术是由魔武战号增助的攻击所触发"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Magias Suportadas são Ativadas por Ataques Impelidos pelo Clamor do Mago de Batalha"
 				}
 			}
 		},
@@ -40781,60 +16748,6 @@ return {
 						}
 					},
 					text="被辅助技能被【将军之吼】召唤的蜃影武士使用\n被辅助技能视为被触发"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées sont utilisés par les Guerriers mirage Invoqués par Cri du général\nLes Aptitudes modifiées sont considérées comme étant déclenchées"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="장군의 함성으로 소환된 신기루 전사가 보조 대상 스킬 사용\n보조 대상 스킬을 발동형으로 간주"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas são usadas por Guerreiros Ilusórios Convocados pelo Clamor do General\nHabilidades Suportadas contam como Ativadas"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริมไว้จะถูกใช้งานโดย นักรบแห่งเงา ที่ถูกอัญเชิญจากสกิล General's Cry\nสกิลที่ถูกเสริม จะนับว่า ถูกทริกเกอร์"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные умения используются призрачными воинами, поднятыми Кличем полководца\nУсиленные умения считаются срабатывающими"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的技能被將軍戰吼召喚的幻影戰士使用\n被輔助的技能視為觸發型"
 				}
 			}
 		},
@@ -40866,50 +16779,6 @@ return {
 						}
 					},
 					text="被辅助的触发类法术造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 발동형 주문으로 주는 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 발동형 주문으로 주는 피해 {0}% 감소"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Magias de Ativação Suportadas causam Dano aumentado em {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Magias de Ativação Suportadas causam Dano reduzido em {0}%"
 				}
 			}
 		},
@@ -40941,28 +16810,6 @@ return {
 						}
 					},
 					text="你在吟唱时，被辅助技能的封印获取频率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เพิ่มความถี่ในการได้รับ Seal {0}% ขณะที่คุณแชนเนล"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ลดความถี่ในการได้รับ Seal {0}% ขณะที่คุณแชนเนล"
 				}
 			}
 		},
@@ -40994,28 +16841,6 @@ return {
 						}
 					},
 					text="你没有吟唱时，被辅助技能的封印获取频率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม เพิ่มความถี่ในการได้รับ Seal {0}% ขณะที่คุณไม่ได้แชนเนล"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สกิลที่ถูกเสริม ลดความถี่ในการได้รับ Seal {0}% ขณะที่คุณไม่ได้แชนเนล"
 				}
 			}
 		},
@@ -41047,138 +16872,6 @@ return {
 						}
 					},
 					text="被辅助技能战吼速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% erhöhte Kriegsschrei-Geschwindigkeit"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% verringerte Kriegsschrei-Geschwindigkeit"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm Velocidade de Clamor aumentada em {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas têm Velocidade de Clamor reduzida em {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Усиленные умения имеют {0}% повышение скорости применения боевого клича"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Усиленные умения имеют {0}% снижение скорости применения боевого клича"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能增加 {0}% 戰吼速度"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能減少 {0}% 戰吼速度"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬의 함성 속도 {0}% 증가"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="보조 대상 스킬의 함성 속도 {0}% 감소"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% d'Augmentation de Vitesse des Cris de guerre"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de Réduction de Vitesse des Cris de guerre"
 				}
 			}
 		},
@@ -41210,28 +16903,6 @@ return {
 						}
 					},
 					text="被辅助技能降低 {0}% 武器元素伤害"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="무기 사용 시 보조 대상 스킬로 주는 원소 피해 {0}% 증가"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="무기 사용 시 보조 대상 스킬로 주는 원소 피해 {0}% 감소"
 				}
 			}
 		},
@@ -41250,60 +16921,6 @@ return {
 						}
 					},
 					text="被辅助技能施加枯萎时有 {0}% 的几率额外施加一个枯萎减益效果"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Unterstützte Fertigkeiten haben {0}% Chance, eine zusätzliche Verkümmerungs-Schwächung zu verursachen, wenn sie Verkümmerung verursachen"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สกิลที่ถูกเสริม มีโอกาส {0}% ที่จะสร้างดีบัฟ เหี่ยวเฉา อีกระดับเมื่อสร้างสถานะ เหี่ยวเฉา"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能造成凋零時，有 {0}% 機率套用 1 層額外的凋零減益效果"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas têm {0}% de chance de aplicar um Debuff Definhando adicional ao inflingir Definhar"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Aptitudes modifiées ont {0}% de chances d'appliquer une Flétrissure supplémentaire lorsqu'elles infligent Flétrissure"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Las habilidades asistidas tienen un {0}% de probabilidad de aplicar una penalidad adicional de Marchito al infligir Marchito"
 				}
 			}
 		},
@@ -41335,28 +16952,6 @@ return {
 						}
 					},
 					text="若施加的异常状态来自被辅助技能，你和敌人的移动速度减慢 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คุณกับศัตรูมีความเร็วการเคลื่อนที่ เพิ่มขึ้น {0}% ขณะที่ติดสถานะ เจ็บป่วย จากสกิลที่ถูกเสริม"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="คุณกับศัตรูมีความเร็วการเคลื่อนที่ ลดลง {0}% ขณะที่ติดสถานะ เจ็บป่วย จากสกิลที่ถูกเสริม"
 				}
 			}
 		},
@@ -41395,180 +16990,6 @@ return {
 						}
 					},
 					text="被辅助法术每 {0} 秒获得一个封印，最多 {2} 个\n被辅助法术施放时会解除封印，每失去一个封印，该法术的效果便重复一次"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextReoccurringSpell"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被輔助的法術每 {0} 秒獲得 1 層封印，至多 {2} 層封印\n被輔助的法術當施放時解除封印，且它們的效果隨每層失去的封印重複觸發"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextReoccurringSpell"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Sorts modifiés gagnent un Sceau toutes les {0} secondes, jusqu'à un maximum de {2} Sceaux\nTous les Sceaux sont perdus lorsqu'un Sort modifié est lancé, et tous ses Effets sont reproduits une fois par Sceau perdu"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextReoccurringSpell"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Magias Suportadas ganham um Selo a cada {0} segundos, até um máximo de {2} Selos\nMagias Suportadas são Liberadas quando conjuradas, e seus efeitos Ocorrem Novamente para cada Selo perdido"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextReoccurringSpell"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Усиленные чары закрываются Печатью каждые {0} секунд(-ы), вплоть до {2} Печатей\nПри сотворении с усиленных чар снимаются все Печати, и эффект чар повторяется за каждую снятую Печать"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextReoccurringSpell"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los Hechizos Asistidos ganan un Sello cada {0} segundos, hasta un máximo de {2} Sellos\nLos Hechizos Asistidos son Desellados cuando se lanzan, y sus efectos se Repiten por cada Sello perdido"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextReoccurringSpell"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						},
-						[3]={
-							[1]=1,
-							[2]="#"
-						},
-						[4]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เวทที่ถูกเสริม จะได้รับ Seal ทุกๆ {0} วินาที สูงสุดที่ {2} Seal\nปลดปล่อย Seal เมื่อร่าย เวทที่ถูกเสริม เพื่อทำให้ผลของสกิลเกิดซ้ำตามจำนวน Seal ที่สูญเสียไป"
 				}
 			}
 		},
@@ -41603,72 +17024,6 @@ return {
 						}
 					},
 					text="被辅助技能重复施放时，造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被輔助的技能再次被觸發時，造成 {0}% 更多傷害"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="被輔助的技能再次被觸發時，造成 {0}% 更少傷害"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Habilidades Suportadas causam {0}% mais Dano quando Ocorrendo Novamente"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Habilidades Suportadas causam {0}% menos Dano quando Ocorrendo Novamente"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="재발생 시 보조 대상 스킬로 주는 피해 {0}% 증폭"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="재발생 시 보조 대상 스킬로 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -41687,60 +17042,6 @@ return {
 						}
 					},
 					text="被辅助的技能使每个地雷有 {0}% 的几率对附近被击中的敌人造成双倍伤害，最高 100%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="透過輔助技能的每個地雷，擊中它附近敵人有 {0}% 機率造成 2 倍傷害，上限為 100%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Chacune des Mines générées par les Aptitudes modifiées applique cumulativement {0}% de chances d'infliger des Dégâts doublés aux ennemis situés à proximité d'elle, jusqu'à un maximum de 100%"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Cada Mina das Habilidades Suportadas aplicadas {0}% de chance de causar Dano Dobrado aos Acertos contra Inimigos próximos a ele, até um máximo de 100%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Каждая мина с усиленным умением накладывает {0}% шанс нанести двойной урон ударами по врагам рядом с ней, вплоть до максимума в 100%"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Cada Mina de las Habilidades Asistidas aplica un {0}% de probabilidad de infligir Daño Doble a los Golpes contra los Enemigos cercanos, hasta un máximo de 100%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ทุ่นระเบิดจากสกิลที่ถูกเสริมแต่ละลูกจะทำให้ศัตรูที่อยู่ใกล้ มีโอกาส {0}% ได้รับความเสียหายเพิ่มเป็นสองเท่า\nแต่สูงสุดไม่เกิน 100%"
 				}
 			}
 		},
@@ -41785,110 +17086,6 @@ return {
 						}
 					},
 					text="被辅助技能创造的召唤生物转为【防御】"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDefensiveMinions"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="보조 대상 스킬로 소환된 소환수가 방어적으로 행동"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDefensiveMinions"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Kreaturen von unterstützten Fertigkeiten sind defensiv"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDefensiveMinions"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Приспешники усиленных умений занимают оборонительную позицию"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDefensiveMinions"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Créatures générées par les Aptitudes modifiées ont un comportement défensif"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDefensiveMinions"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Lacaios de Habilidades Suportadas são Defensivos"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDefensiveMinions"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="มิเนียนจากสกิลที่ถูกเสริม จะปกป้อง"
-				},
-				[8]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDefensiveMinions"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="透過輔助技能製造的召喚物有防守性"
-				},
-				[9]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextDefensiveMinions"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los esbirros de las habilidades asistidas son defensivos"
 				}
 			}
 		},

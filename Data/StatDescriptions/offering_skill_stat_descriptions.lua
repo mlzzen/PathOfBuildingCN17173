@@ -14,32 +14,6 @@ return {
 						}
 					},
 					text="牺牲你生命的 {0}%\n召唤生物每秒获得所牺牲生命 {1}% 的生命回复"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Sacrifica {0}% da sua Vida\nLacaios Regeneram {1}% da Vida Sacrificada por segundo"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="생명력의 {0}% 희생\n소환수가 1초마다 희생된 생명력의 {1}% 재생"
 				}
 			}
 		},
@@ -73,72 +47,6 @@ return {
 						}
 					},
 					text="每消耗 1 具灵柩，召唤生物的生命回复便总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% Davantage de Régénération de Vie octroyée aux Créatures par Cadavre consommé"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% de Perte de Régénération de Vie octroyée aux Créatures par Cadavre consommé"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% mais Regeneração de Vida concedida aos Lacaios por Corpo consumido"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% menos Regeneração de Vida concedida aos Lacaios por Corpo consumido"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="소모한 시신 하나당 소환수가 획득하는 생명력 재생 {0}% 증폭"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="소모한 시신 하나당 소환수가 획득하는 생명력 재생 {0}% 감폭"
 				}
 			}
 		},
@@ -171,138 +79,6 @@ return {
 						}
 					},
 					text="召唤生物的攻击速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ความเร็วในการโจมตีของมิเนียนเพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ความเร็วในการโจมตีของมิเนียนลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Повышает скорость атаки приспешников на {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Снижает скорость атаки приспешников на {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Octroie aux Créatures {0}% d'Augmentation de la Vitesse d'attaque"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Octroie aux Créatures {0}% de Réduction de la Vitesse d'attaque"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Otorga a los Esbirros Velocidad de Ataque aumentada un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Otorga a los Esbirros Velocidad de Ataque reducida un {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Gewährt Kreaturen {0}% erhöhte Angriffsgeschwindigkeit"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Gewährt Kreaturen {0}% verringerte Angriffsgeschwindigkeit"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="소환수의 공격 속도 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="소환수의 공격 속도 {0}% 감소"
 				}
 			}
 		},
@@ -335,50 +111,6 @@ return {
 						}
 					},
 					text="召唤生物的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Concede {0}% de Dano aumentado aos Lacaios"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Concede {0}% de Dano reduzido aos Lacaios"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="소환수의 피해 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="소환수의 피해{0}% 감소"
 				}
 			}
 		},
@@ -411,138 +143,6 @@ return {
 						}
 					},
 					text="召唤生物的施法速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ความเร็วในการร่ายของมิเนียนเพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ความเร็วในการร่ายของมิเนียนลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Дарует приспешникам {0}% повышение скорости сотворения чар"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Дарует приспешникам {0}% снижение скорости сотворения чар"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Octroie aux Créatures {0}% d'Augmentation de la Vitesse d'incantation"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Octroie aux Créatures {0}% de Réduction de la Vitesse d'incantation"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Otorga a los Esbirros Velocidad de Lanzamiento de Hechizos aumentada un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Otorga a los Esbirros Velocidad de Lanzamiento de Hechizos reducida un {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Gewährt Kreaturen {0}% erhöhte Zaubergeschwindigkeit"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Gewährt Kreaturen {0}% verringerte Zaubergeschwindigkeit"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="소환수의 시전 속도 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="소환수의 시전 속도 {0}% 감소"
 				}
 			}
 		},
@@ -575,138 +175,6 @@ return {
 						}
 					},
 					text="召唤生物的移动速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ความเร็วในการเคลื่อนที่ของมิเนียนเพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ความเร็วในการเคลื่อนที่ของมิเนียนลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Повышает скорость передвижения приспешников на {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Снижает скорость передвижения приспешников на {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Octroie aux Créatures {0}% d'Augmentation de la Vitesse de déplacement"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Octroie aux Créatures {0}% de Réduction de la Vitesse de déplacement"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Otorga a los Esbirros Velocidad de Movimiento aumentada un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Otorga a los Esbirros Velocidad de Movimiento reducida un {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Gewährt Kreaturen {0}% erhöhte Bewegungsgeschwindigkeit"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Gewährt Kreaturen {0}% verringerte Bewegungsgeschwindigkeit"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="소환수의 이동 속도 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="소환수의 이동 속도 {0}% 감소"
 				}
 			}
 		},
@@ -726,15 +194,6 @@ return {
 						}
 					},
 					text="召唤生物的攻击伤害格挡几率提高 {0:+d}% "
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="소환수의 공격 피해 막기 확률 {0:+d}%"
 				}
 			}
 		},
@@ -754,15 +213,6 @@ return {
 						}
 					},
 					text="召唤生物的法术伤害格挡几率提高 {0:+d}% "
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="소환수의 주문 피해 막기 확률 {0:+d}%"
 				}
 			}
 		},
@@ -782,60 +232,6 @@ return {
 						}
 					},
 					text="召唤生物格挡时回复它们 {0} 生命"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Приспешники восстанавливают {0} здоровья при блоке"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="มิเนียน เติม พลังชีวิต {0} เมื่อมันบล็อค"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Créatures récupèrent {0} de Vie en Bloquant"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los Esbirros recuperan {0} de Vida cuando Bloquean"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Kreaturen stellen beim Blocken {0} Leben wieder her"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="소환수가 막아낼 시 소환수의 생명력 {0} 회복"
 				}
 			}
 		},
@@ -855,69 +251,6 @@ return {
 						}
 					},
 					text="召唤生物获得额外混沌伤害，其数值等同于自身物理伤害的 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มิเนียน จะนำ {0}% ของความเสียหาย กายภาพของพวกมัน ไปเสริมเป็น เคออส"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="召喚物獲得等同它們 {0}% 物理傷害的額外混沌傷害"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Приспешники наносят {0}% от их физического урона в виде дополнительного урона хаосом"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los Esbirros ganan {0}% de su Daño Físico como Daño Extra de Caos"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Créatures Rajoutent {0}% de leurs Dégâts physiques sous forme de Dégâts de chaos"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Kreaturen verursachen {0}% des physischen Schadens als extra Chaosschaden"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="소환수가 물리 피해의 {0}%를 추가 카오스 피해로 획득"
 				}
 			}
 		},
@@ -937,69 +270,6 @@ return {
 						}
 					},
 					text="每消耗 1 具灵柩，召唤生物便获得等同于自身最大生命 {0}% 的额外能量护盾"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="每消耗一具屍體，召喚物獲得等同它們\n{0}% 最大生命的額外最大能量護盾"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="มิเนียนได้รับ {0}% ของ พลังชีวิตสูงสุด เป็น\nโล่พลังงานสูงสุดเพิ่มเติม ต่อจำนวน ศพ ที่ถูกดูดกลืน"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Приспешники получают {0}% от их максимума здоровья в виде\nдополнительного максимума энергетического щита за каждый поглощённый труп"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los Esbirros ganan {0}% de su Vida Máxima como\nEscudo de Energía Máximo Extra por cada cadáver consumido"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Créatures gagnent {0}% de leur Vie maximale sous forme de\nBouclier d'énergie maximal pour chaque Cadavre consommé"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Kreaturen erhalten {0}% des maximalen Lebens als\nextra maximalen Energieschild für jede verbrauchte Leiche"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="소환수가 소모한 시신 하나당 최대 생명력의 {0}%를\n추가 에너지 보호막 최대치로 획득"
 				}
 			}
 		},
@@ -1038,51 +308,6 @@ return {
 						}
 					},
 					text="召唤生物获得 {0:+d}% 元素抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ต้านทาน ทุกธาตุ ของมิเนียน {0:+d}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los Esbirros ganan {0:+d}% a todas las Resistencias Elementales"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Créatures gagnent {0:+d}% à toutes les Résistances élémentaires"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Kreaturen erhalten {0:+d}% zu allen Elementarwiderständen"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="소환수가 모든 원소 저항 {0:+d}% 획득"
 				}
 			}
 		},
@@ -1110,23 +335,6 @@ return {
 						}
 					},
 					text="将召唤生物伤害的 {0}% 转化为生命偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ทำให้ มิเนียน ดูด {0}% ของความเสียหาย ไปเป็นพลังชีวิต"
 				}
 			}
 		},

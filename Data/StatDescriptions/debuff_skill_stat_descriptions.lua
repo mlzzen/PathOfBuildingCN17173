@@ -10,15 +10,6 @@ return {
 						}
 					},
 					text="减益效果持续时间的加成也作用于此技能的【阻灵术】效果"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="디버프 지속시간 속성 부여 수치를 이 스킬의 영혼 획득 방지에도 적용"
 				}
 			}
 		},
@@ -42,84 +33,6 @@ return {
 						}
 					},
 					text="减益效果持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ดีบัฟ คงอยู่ {0} วินาที"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Длительность отрицательного эффекта: {0} сек."
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="La Penalidad Dura {0} segundos"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="L'Effet néfaste dure {0} secondes"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Schwächung hält {0} Sekunden an"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}초간 디버프 지속"
 				}
 			}
 		},
@@ -143,84 +56,6 @@ return {
 						}
 					},
 					text="额外减益效果持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ดีบัฟที่สอง คงอยู่ {0} วินาที"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Длительность вторичного отрицательного эффекта: {0} сек."
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="La Penalidad Secundaria Dura {0} segundos"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="L'Effet néfaste secondaire dure {0} secondes"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Sekundäre Schwächung hält {0} Sekunden an"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}초간 2차 디버프 지속"
 				}
 			}
 		},
@@ -240,24 +75,6 @@ return {
 						}
 					},
 					text="向最近的 {0} 个敌人发射光线"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Aplica raios à {0} Inimigos próximos"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="가장 가까운 적 {0}명에게 광선 적용"
 				}
 			}
 		},
@@ -277,15 +94,6 @@ return {
 						}
 					},
 					text="向周围最近的 {0} 个流血的怪物发射光束"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ปล่อยบีมใส่ศัตรูใกล้สุดที่ติดสถานะ เลือดไหล {0} ตัว"
 				}
 			}
 		},
@@ -309,32 +117,6 @@ return {
 						}
 					},
 					text="若有任何敌人受到影响，则每秒回复 {0} 生命"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Concede {0} de Regeneração de Vida por segundo caso um Inimigo esteja afetado"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="적이 하나라도 영향을 받는 동안 1초마다 생명력 {0} 재생"
 				}
 			}
 		},
@@ -358,32 +140,6 @@ return {
 						}
 					},
 					text="若有任何敌人受到影响，则每秒回复 {0} 魔力"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Concede {0} de Regeneração de Mana por segundo se qualquer Inimigo está afetado"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="적이 하나라도 영향을 받는 동안 1초마다 마나 {0} 재생"
 				}
 			}
 		},
@@ -407,32 +163,6 @@ return {
 						}
 					},
 					text="每有一个受影响的敌人便每秒回复 {0} 生命"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Concede {0} de Regeneração de Vida por segundo para cada Inimigo afetado"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="영향을 받는 적 하나당 1초마다 생명력 {0} 재생"
 				}
 			}
 		},
@@ -456,32 +186,6 @@ return {
 						}
 					},
 					text="每有一个受影响的敌人便每秒回复 {0} 魔力"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Concede {0} de Regeneração de Mana por segundo para cada Inimigo afetado"
-				},
-				[3]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="영향을 받는 적 하나당 1초마다 마나 {0} 재생"
 				}
 			}
 		},
@@ -514,50 +218,6 @@ return {
 						}
 					},
 					text="每个受到影响的敌人会使玩家承受的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Concede {0}% de aumento de Dano Recebido para cada Inimigo afetado"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Concede {0}% de redução de Dano Recebido para cada Inimigo afetado"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="영향을 받는 적 하나당 받는 피해 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="영향을 받는 적 하나당 받는 피해 {0}% 감소"
 				}
 			}
 		},
@@ -577,60 +237,6 @@ return {
 						}
 					},
 					text="增益效果的火焰伤害提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="L'Effet bénéfique octroie {0}% d'Augmentation des Dégâts de feu"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="버프 시 화염 피해 {0}% 증가"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Buff concede Dano de Fogo aumentado em {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="บัฟมอบม็อด: เพิ่มความเสียหาย ไฟ {0}%"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Положительный эффект дарует {0}% увеличение урона от огня"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="增益效果增加 {0}% 火焰傷害"
 				}
 			}
 		},
@@ -695,28 +301,6 @@ return {
 						}
 					},
 					text="敌人的行动速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="적의 동작 속도가 {0}% 감소"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="적의 동작 속도가 {0}% 증가"
 				}
 			}
 		},
@@ -755,33 +339,6 @@ return {
 						}
 					},
 					text="敌人获得 {0:+d}% 混沌抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los Enemigos ganan {0:+d}% de Resistencia al Caos"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Ennemis ont {0:+d}% à la Résistance au chaos"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="적이 카오스 저항 {0:+d}% 획득"
 				}
 			}
 		},
@@ -801,15 +358,6 @@ return {
 						}
 					},
 					text="【畏寒】 {0:+d}% 冰霜抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="냉기 노출에 냉기 저항 {0:+d}% 적용"
 				}
 			}
 		},
@@ -829,15 +377,6 @@ return {
 						}
 					},
 					text="【畏火】 {0:+d}% 火焰抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="화염 노출에 화염 저항 {0:+d}% 적용"
 				}
 			}
 		},
@@ -857,15 +396,6 @@ return {
 						}
 					},
 					text="【弱电】 {0:+d}% 闪电抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="번개 노출에 번개 저항 {0:+d}% 적용"
 				}
 			}
 		},
@@ -898,50 +428,6 @@ return {
 						}
 					},
 					text="敌人受到陷阱或地雷的击中伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inimigos recebem {0}% de aumento de Dano dos Acertos de Minas ou Armadilhas"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Inimigos recebem {0}% de redução de Dano dos Acertos de Minas ou Armadilhas"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="적이 덫 또는 지뢰 명중으로 받는 피해 {0}% 증가"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="적이 덫 또는 지뢰 명중으로 받는 피해 {0}% 감소"
 				}
 			}
 		},
@@ -974,50 +460,6 @@ return {
 						}
 					},
 					text="当该减益效果生效时，敌人的移动速度总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inimigos possuem {0}% mais Velocidade de Movimento no início do Debuff"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Inimigos possuem {0}% menos Velocidade de Movimento no início do Debuff"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="디버프 시작 시 적의 이동 속도가 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="디버프 시작 시 적의 이동 속도가 {0}% 감폭"
 				}
 			}
 		},
@@ -1041,32 +483,6 @@ return {
 						}
 					},
 					text="穿过火墙的投射物附加 {0} 到 {1} 点火焰伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="벽을 통과하는 투사체가 주는 화염 피해 {0}~{1} 추가"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="กระสุนที่ผ่านกำแพงจะเพิ่มความเสียหาย ไฟ {0} ถึง {1}"
 				}
 			}
 		},
@@ -1099,27 +515,6 @@ return {
 						}
 					},
 					text="每个孢囊可使周围的敌人速度降低 {0}%，最多 {1}%"
-				},
-				[2]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="negate",
-						v=2
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						},
-						[2]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="각 포자 주머니로 주변의 적의 이동 속도 {0}% 감폭, 최대 {1}%"
 				}
 			}
 		},
@@ -1163,19 +558,6 @@ return {
 						}
 					},
 					text="每个受影响的敌人都使能量护盾每秒再生 {0}%"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ฟื้นฟู โล่พลังงาน {0}% ต่อวินาที ต่อจำนวนศัตรูที่รับผล"
 				}
 			}
 		},

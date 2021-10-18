@@ -15,15 +15,6 @@ return {
 						}
 					},
 					text="烙印每次启动都有 {0}% 的几率附着一个新敌人"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ตราเวทมีโอกาส {0}% ที่จะเกาะศัตรูตัวใหม่ทุกครั้งที่มันทำงาน"
 				}
 			}
 		},
@@ -47,32 +38,6 @@ return {
 						}
 					},
 					text="解除附着后可获得总计 {0} 秒的持续时间"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Pode ser Desvinculada por uma Duração total de {0} segundos"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="총 {0}초의 지속시간 동안 분리 가능"
 				}
 			}
 		},
@@ -100,40 +65,6 @@ return {
 						}
 					},
 					text="附着后可获得总计 {0} 秒的持续时间"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Pode ser Vinculada por uma Duração total de {0} segundos"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="총 {0}초의 지속시간 동안 부착 가능"
 				}
 			}
 		},
@@ -158,58 +89,6 @@ return {
 						}
 					},
 					text="减益效果基础持续时间为 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="La Durée de base de l'Effet néfaste est de {0} secondes"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="기본 디버프 지속시간 {0}초"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ดีบัฟ มีระยะเวลาพื้นฐาน {0} วินาที"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Базовая длительность отрицательного эффекта: {0} секунд(-ы)"
 				}
 			}
 		},
@@ -238,24 +117,6 @@ return {
 						}
 					},
 					text="可以对敌人附着 {0} 个烙印"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="可以對敵人附著 {0} 個烙印"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="可以對敵人附著 {0} 個烙印"
 				}
 			}
 		},
@@ -284,42 +145,6 @@ return {
 						}
 					},
 					text="向 {0} 个敌人，包括带有烙印的敌人发射光线"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="Envia um raio ao Inimigo Marcado"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="Envia raios à {0} Inimigosm, incluindo o Inimigo Marcado"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="낙인이 부착된 적에게 광선 발사"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="낙인이 부착된 적 포함, 적 {0}명에게 광선 발사"
 				}
 			}
 		},
@@ -343,32 +168,6 @@ return {
 						}
 					},
 					text="解除附着后可获得总计 {0} 秒的持续时间"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Pode ser Desvinculada por uma Duração total de {0} segundos"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="총 {0}초의 지속시간 동안 분리 가능"
 				}
 			}
 		},
@@ -401,50 +200,6 @@ return {
 						}
 					},
 					text="对带有烙印的敌人造成的伤害最多总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Causa {0}% mais Dano aos Inimigos Marcados"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Causa {0}% menos Dano aos Inimigos Marcados"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="낙인이 부착된 적에게 주는 피해 {0}% 증폭"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="낙인이 부착된 적에게 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -481,58 +236,6 @@ return {
 						}
 					},
 					text="附着后每 {0} 秒激活一次"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="Ativada a cada {0} segundo enquanto Vinculada"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Ativada a cada {0} segundos enquanto Vinculada"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1000,
-							[2]=1000
-						}
-					},
-					text="낙인이 부착된 동안 {0}초마다 활성화"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="낙인이 부착된 동안 {0}초마다 활성화"
 				}
 			}
 		},
@@ -556,32 +259,6 @@ return {
 						}
 					},
 					text="附着后可获得总计 {0} 秒的持续时间"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Pode ser Vinculada pela Duração total de {0} segundos"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="총 {0}초의 지속시간 동안 부착 가능"
 				}
 			}
 		},
@@ -605,71 +282,6 @@ return {
 						}
 					},
 					text="减益效果持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="L'Effet néfaste dure {0} secondes"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}초간 디버프 지속"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ดีบัฟ คงอยู่ {0} วินาที"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Длительность отрицательного эффекта: {0} секунд(-ы)"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="減益效果持續 {0} 秒"
 				}
 			}
 		},

@@ -14,84 +14,6 @@ return {
 						}
 					},
 					text="诅咒持续 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="คำสาป คงอยู่ {0} วินาที"
-				},
-				[3]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятие длится {0} секунд"
-				},
-				[4]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="La Malédiction dure {0} secondes"
-				},
-				[5]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="La Maldición dura {0} segundos"
-				},
-				[6]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Fluch hält {0} Sekunden an"
-				},
-				[7]={
-					[1]={
-						k="milliseconds_to_seconds",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}초간 저주 지속"
 				}
 			}
 		},
@@ -124,28 +46,6 @@ return {
 						}
 					},
 					text="被诅咒的普通和魔法敌人的行动速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 일반 및 마법 등급 적의 동작 속도 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 일반 및 마법 등급 적의 동작 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -182,162 +82,6 @@ return {
 						}
 					},
 					text="被诅咒敌人身上的增益与减益持续时间延长 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ผลอื่นๆ บนศัตรูที่ถูกสาปจะหมดเวลาเร็วขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextSlowTimeEffects"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ผลอื่นๆ บนศัตรูที่ถูกสาปจะหมดเวลาช้าลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Другие эффекты на проклятых врагах исчезают на {0}% быстрее"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextSlowTimeEffects"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Другие эффекты на проклятых врагах исчезают на {0}% медленнее"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les autres Effets sur les Ennemis Maudits expirent {0}% plus rapidement"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextSlowTimeEffects"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les autres Effets sur les Ennemis Maudits expirent {0}% plus lentement"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Andere Effekte klingen bei verfluchten Gegnern {0}% schneller ab"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextSlowTimeEffects"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Andere Effekte klingen bei verfluchten Gegnern {0}% langsamer ab"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Otros efectos sobre enemigos Malditos expiran {0}% más rápido"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextSlowTimeEffects"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Otros efectos sobre enemigos Malditos expiran {0}% más lento"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적에게 적용된 다른 효과들이 {0}% 빠르게 만료"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextSlowTimeEffects"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 적에게 적용된 다른 효과들이 {0}% 느리게 만료"
 				}
 			}
 		},
@@ -357,69 +101,6 @@ return {
 						}
 					},
 					text="被诅咒敌人的元素抗性提高 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คำสาปของศัตรูมีการป้องกันทุกธาตุ {0:+d}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被詛咒的敵人有 {0:+d}% 的元素抗性"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0:+d}% к сопротивлению всем стихиям"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen {0:+d}% a las Resistencias Elementales"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner erhalten {0:+d}% zu Elementarwiderständen"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0:+d}% aux Résistances élémentaires"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적의 원소 저항 {0:+d}%"
 				}
 			}
 		},
@@ -439,69 +120,6 @@ return {
 						}
 					},
 					text="被诅咒敌人的火焰抗性提高 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คำสาปของศัตรูมีการป้องกันธาตุไฟ {0:+d}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被詛咒的敵人有 {0:+d}% 的火焰抗性"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0:+d}% к сопротивлению огню"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen {0:+d}% a la Resistencia al Fuego"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner erhalten {0:+d}% zu Feuerwiderstand"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0:+d}% à la Résistance au feu"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적의 화염 저항 {0:+d}%"
 				}
 			}
 		},
@@ -521,69 +139,6 @@ return {
 						}
 					},
 					text="被诅咒敌人的冰霜抗性提高 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คำสาปของศัตรูมีการป้องกันธาตุน้ำแข็ง {0:+d}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被詛咒的敵人有 {0:+d}% 的冰冷抗性"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0:+d}% к сопротивлению холоду"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen {0:+d}% a la Resistencia al Hielo"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner erhalten {0:+d}% zu Kältewiderstand"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0:+d}% à la Résistance au froid"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적의 냉기 저항 {0:+d}%"
 				}
 			}
 		},
@@ -603,69 +158,6 @@ return {
 						}
 					},
 					text="被诅咒敌人的闪电抗性提高 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คำสาปของศัตรูมีการป้องกันธาตุสายฟ้า {0:+d}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="被詛咒的敵人有 {0:+d}% 的閃電抗性"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0:+d}% к сопротивлению молнии"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen {0:+d}% a la Resistencia al Rayo"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner erhalten {0:+d}% zu Blitzwiderstand"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0:+d}% à la Résistance à la foudre"
-				},
-				[8]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적의 번개 저항 {0:+d}%"
 				}
 			}
 		},
@@ -685,24 +177,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人获得 {0:+d}% 混沌抗性"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Inimigos Amaldiçoados têm {0:+d}% de Resistência a Caos"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적의 카오스 저항 {0:+d}%"
 				}
 			}
 		},
@@ -726,19 +200,6 @@ return {
 						}
 					},
 					text="对抗被诅咒的敌人时，击中的冻结几率 {0:+d}%"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextFreeze"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การปะทะ ศัตรูที่ถูกสาป มีโอกาสติดสถานะ แช่แข็ง {0:+d}% "
 				}
 			}
 		},
@@ -762,19 +223,6 @@ return {
 						}
 					},
 					text="对抗被诅咒的敌人时，击中的点燃几率 {0:+d}%"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextIgnite"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การปะทะ ศัตรูที่ถูกสาป โอกาสติดสถานะ ลุกไหม้ {0:+d}%"
 				}
 			}
 		},
@@ -798,19 +246,6 @@ return {
 						}
 					},
 					text="对抗被诅咒的敌人时，击中的感电几率 {0:+d}%"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextShock"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การปะทะ ศัตรูที่ถูกสาป มีโอกาส {0:+d}% ที่จะสร้างสถานะ ช็อค "
 				}
 			}
 		},
@@ -830,42 +265,6 @@ return {
 						}
 					},
 					text="击败被诅咒敌人后药剂使用次数额外增加 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos otorgan {0}% Cargas de Frasco aumentadas"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner gewähren {0}% erhöhte Fläschchenfüllungen"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% d'Augmentation des Charges de Flacon octroyées"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적에게 받는 플라스크 충전량 {0}% 증가"
 				}
 			}
 		},
@@ -893,91 +292,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被攻击击中时获得 {0}% 生命偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被詛咒的敵人被攻擊擊中時，獲得 {0}% 生命偷取"
-				},
-				[3]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적을 공격으로 명중 시, {0}% 생명력 흡수"
-				},
-				[4]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เมื่อโจมตี ปะทะ ศัตรูที่ถูกสาป จะดูด {0}% ของความเสียหาย ไปเป็น พลังชีวิต"
-				},
-				[5]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inimigos Amaldiçoados concedem {0}% de Dreno de Vida quando Acertados por Ataques"
-				},
-				[6]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Attaques Drainent {0}% de Vie au Toucher aux Ennemis Maudits"
 				}
 			}
 		},
@@ -1005,108 +319,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被击中时获得 {0}% 生命偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เมื่อปะทะ ศัตรูที่ถูกคำสาปจะ ดูด {0}% ของความเสียหาย ไปเป็น พลังชีวิต"
-				},
-				[3]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги дают {0}% похищения здоровья, при нанесении удара по ним"
-				},
-				[4]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous avez {0}% de Drain de Vie au Toucher contre les Ennemis Maudits"
-				},
-				[5]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos otorgan {0}% de Absorción de Vida al ser Golpeados"
-				},
-				[6]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner gewähren bei Treffer {0}% Lebensraub"
-				},
-				[7]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적 명중 시, {0}% 생명력 흡수"
 				}
 			}
 		},
@@ -1134,91 +346,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被攻击击中时获得 {0}% 魔力偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被詛咒的敵人被攻擊擊中時，獲得 {0}% 魔力偷取"
-				},
-				[3]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적을 공격으로 명중 시, {0}% 마나 흡수"
-				},
-				[4]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เมื่อโจมตี ปะทะ ศัตรูที่ถูกสาป จะดูด {0}% ของความเสียหาย ไปเป็น มานา"
-				},
-				[5]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLifeLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inimigos Amaldiçoados concedem {0}% de Dreno de Mana quando Acertados por Ataques"
-				},
-				[6]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Attaques Drainent {0}% de Mana au Toucher aux Ennemis Maudits"
 				}
 			}
 		},
@@ -1246,108 +373,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被击中时获得 {0}% 魔力偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เมื่อปะทะ ศัตรูที่ถูกคำสาปจะ ดูด {0}% ของความเสียหาย ไปเป็น มานา"
-				},
-				[3]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги дают {0}% похищения маны, при нанесении удара по ним"
-				},
-				[4]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Vous avez {0}% de Drain de Mana au Toucher contre les Ennemis Maudits"
-				},
-				[5]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos otorgan {0}% de Absorción de Maná al ser Golpeados"
-				},
-				[6]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner gewähren bei Treffer {0}% Manaraub"
-				},
-				[7]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextManaLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적 명중 시, {0}% 마나 흡수"
 				}
 			}
 		},
@@ -1367,60 +392,6 @@ return {
 						}
 					},
 					text="击败被诅咒敌人有 {0}% 的几率获得耐力球"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มีโอกาสได้รับ Endurance Charge {0}% เมื่อสังหารศัตรูที่ถูกสาป"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0}% шанс даровать заряд выносливости при смерти"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% de chances d'octroyer une Charge d'endurance lorsqu'ils sont Tués"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen {0}% de probabilidad de otorgar un Carga de Aguante al morir"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner haben {0}% Chance, bei Tötung eine Widerstands-Ladung zu gewähren"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적 처치 시 {0}%의 확률로 인내 충전 획득"
 				}
 			}
 		},
@@ -1440,60 +411,6 @@ return {
 						}
 					},
 					text="击败被诅咒敌人有 {0}% 的几率获得狂怒球"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มีโอกาสได้รับ Frenzy Charge {0}% เมื่อสังหารศัตรูที่ถูกสาป"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0}% шанс даровать заряд ярости при смерти"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% de chances d'octroyer une Charge de frénésie lorsqu'ils sont Tués"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen {0}% de probabilidad de otorgar un Carga de Frenesí al morir"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner haben {0}% Chance, bei Tötung eine Raserei-Ladung zu gewähren"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적 처치 시 {0}%의 확률로 격분 충전 획득"
 				}
 			}
 		},
@@ -1513,60 +430,6 @@ return {
 						}
 					},
 					text="击败被诅咒敌人有 {0}% 的几率获得暴击球"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="มีโอกาสได้รับ Power Charge {0}% เมื่อสังหารศัตรูที่ถูกสาป"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0}% шанс даровать заряд энергии при смерти"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% de chances d'octroyer une Charge de pouvoir lorsqu'ils sont Tués"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen {0}% de probabilidad de otorgar un Carga de Poder al morir"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner haben {0}% Chance, bei Tötung eine Energie-Ladung zu gewähren"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적 처치 시 {0}%의 확률로 권능 충전 획득"
 				}
 			}
 		},
@@ -1599,138 +462,6 @@ return {
 						}
 					},
 					text="被诅咒敌人命中值降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาปจะ เพิ่มค่า ความแม่นยำ {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูที่ถูกสาปจะ ลดค่า ความแม่นยำ {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0}% повышение меткости"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Проклятые враги имеют {0}% снижение меткости"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% d'Augmentation de leur Score de Précision"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% de Réduction de leur Score de Précision"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen Precisión aumentada un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los enemigos Malditos tienen Precisión reducida un {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner haben {0}% erhöhte Treffgenauigkeit"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Verfluchte Gegner haben {0}% verringerte Treffgenauigkeit"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적의 정확도 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 적의 정확도 {0}% 감소"
 				}
 			}
 		},
@@ -1763,138 +494,6 @@ return {
 						}
 					},
 					text="被诅咒敌人的暴击率降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป มีโอกาสคริติคอลเพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูที่ถูกสาป มีโอกาสคริติคอลลดลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0}% повышение шанса критического удара"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Проклятые враги имеют {0}% снижение шанса критического удара"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% d'Augmentation des Chances de coup critique"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% de Réduction des Chances de coup critique"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen Probabilidad de Golpe Crítico aumentada un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los enemigos Malditos tienen Probabilidad de Golpe Crítico reducida un {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner haben {0}% erhöhte kritische Trefferchance"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Verfluchte Gegner haben {0}% verringerte kritische Trefferchance"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적의 치명타 확률이 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 적의 치명타 확률이 {0}% 감소"
 				}
 			}
 		},
@@ -1914,60 +513,6 @@ return {
 						}
 					},
 					text="被诅咒敌人额外获得 {0:+d}% 攻击和法术基础暴击伤害加成"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0:+d}% к множителю критического удара"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป มี ตัวคูณคริติคอล {0:+d}%"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen {0:+d}% al Multiplicador de Golpe Crítico"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner haben {0:+d}% zu Multiplikator für kritische Treffer"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0:+d}% à leur Multiplicateur de coup critique"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적의 치명타 피해 배율 {0:+d}%"
 				}
 			}
 		},
@@ -2000,28 +545,6 @@ return {
 						}
 					},
 					text="被诅咒的普通和魔法敌人造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 일반 및 마법 적이 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 일반 및 마법 적이 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -2045,19 +568,6 @@ return {
 						}
 					},
 					text="对被诅咒敌人的击中获得 {0:+d}% 基础暴击几率"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적 명중 시 치명타 확률 {0:+d}%"
 				}
 			}
 		},
@@ -2077,15 +587,6 @@ return {
 						}
 					},
 					text="对抗被诅咒的敌人时，击中的暴击伤害加成 {0:+d}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ตัวคูณคริติคอล {0:+d}% เมื่อปะทะ ศัตรูที่ถูกสาป"
 				}
 			}
 		},
@@ -2118,160 +619,6 @@ return {
 						}
 					},
 					text="被诅咒敌人受到的暴击伤害总增 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inimigos Amaldiçoados sofrem uma redução de {0}% do dano extra de Acertos Críticos"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Inimigos Amaldiçoados sofrem um aumento de {0}% do dano extra de Acertos Críticos"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги получают сниженный на {0}% дополнительный урон от критических ударов"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Проклятые враги получают увеличенный на {0}% дополнительный урон от критических ударов"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป รับความเสียหายเพิ่มเติมจากคริติคอลลดลง {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูที่ถูกสาป รับความเสียหายเพิ่มเติมจากคริติคอลเพิ่มขึ้น {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos reciben Daño Extra de Golpes Críticos reducido un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los enemigos Malditos reciben Daño Extra de Golpes Críticos aumentado un {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner erleiden {0}% verringerten extra Schaden von kritischen Treffern"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Verfluchte Gegner erleiden {0}% erhöhten extra Schaden von kritischen Treffern"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% de Réduction des Dégâts supplémentaires découlant de Coups critiques"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% d'Augmentation des Dégâts supplémentaires découlant de Coups critiques"
-				},
-				[15]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적이 치명타로 받는 추가 피해 {0}% 감소"
-				},
-				[16]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 적이 치명타로 받는 추가 피해 {0}% 증가"
 				}
 			}
 		},
@@ -2291,42 +638,6 @@ return {
 						}
 					},
 					text="投射物会贯穿被诅咒的敌人"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Projektile durchbohren verfluchte Gegner"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Снаряды пронзают проклятых врагов"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Projectiles Transpercent les Ennemis Maudits"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="투사체들이 저주받은 적을 관통"
 				}
 			}
 		},
@@ -2350,84 +661,6 @@ return {
 						}
 					},
 					text="击中被诅咒敌人时有额外 {0}% 的几率将其击退"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextKnockback"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="การปะทะ ศัตรูที่ถูกสาป มีโอกาสเพิ่มเติม  {0}% ที่จะผลักออกไป"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextKnockback"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Удары по проклятым врагам имеют дополнительный {0}% шанс их отбросить"
-				},
-				[4]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextKnockback"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% de chances supplémentaires de Repousser les Ennemis Maudits au Toucher"
-				},
-				[5]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextKnockback"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los Golpes a Enemigos Malditos tienen {0}% de probabilidad adicional de Empujar"
-				},
-				[6]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextKnockback"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Treffer auf verfluchte Gegner haben zusätzlich {0}% Chance auf Zurückstoßen"
-				},
-				[7]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextKnockback"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적 명중 시 밀어내기 확률 {0}% 추가"
 				}
 			}
 		},
@@ -2460,138 +693,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人的闪避值总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาปมีการหลบหลีกมากขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูที่ถูกสาปมีการหลบหลีกน้อยลง {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют на {0}% больше уклонения"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Проклятые враги имеют на {0}% меньше уклонения"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% Davantage d'Évasion"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% de Perte d'Évasion"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen {0}% más Evasión"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los enemigos Malditos tienen {0}% menos Evasión"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner haben {0}% mehr Ausweichen"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Verfluchte Gegner haben {0}% weniger Ausweichen"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적의 회피가 {0}% 증폭"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 적의 회피가 {0}% 감폭"
 				}
 			}
 		},
@@ -2611,33 +712,6 @@ return {
 						}
 					},
 					text="被诅咒敌人受到的投射物伤害提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป ได้รับความเสียหายจากการปะทะ กระสุน เพิ่มขึ้น {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="被詛咒的敵人被投射物擊中增加 {0}% 承受傷害"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적이 투사체 피격 시 받는 피해 {0}% 증가"
 				}
 			}
 		},
@@ -2657,60 +731,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人的眩晕几率总增 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป มีโอกาสติดสถานะ มึนงง {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги получают дополнительный {0}% шанс быть оглушенными"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% de chances supplémentaires d'être Étourdis"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos tienen {0}% de probabilidad adicional de ser Aturdidos"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner haben zusätzlich {0}% Chance betäubt zu werden"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적이 기절할 확률 {0}% 추가"
 				}
 			}
 		},
@@ -2743,138 +763,6 @@ return {
 						}
 					},
 					text="被诅咒敌人的晕眩和格挡回复降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาปจะทำให้เพิ่ม Stun และ ค่าฟื้นฟูการป้องกัน {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูที่ถูกสาปจะทำให้ลด Stun และ ค่าฟื้นฟูการป้องกัน {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Проклятые враги имеют {0}% ускорение восстановления после оглушения и блока"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Проклятые враги имеют {0}% замедление восстановления после оглушения и блока"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos malditos tienen la recuperación del aturdimiento y del bloqueo aumentada un {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Los enemigos malditos tienen la recuperación del aturdimiento y del bloqueo reducida un {0}%"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner haben {0}% beschleunigte Betäubungs- und Blockerholung"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Verfluchte Gegner haben {0}% verlangsamte Betäubungs- und Blockerholung"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% d'Augmentation de la Récupération d'Étourdissement et de Blocage"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% de Réduction de la Récupération d'Étourdissement et de Blocage"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적의 기절 및 막기 회복 확률 {0}% 증가"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 적의 기절 및 막기 회복 확률 {0}% 감소"
 				}
 			}
 		},
@@ -2894,60 +782,6 @@ return {
 						}
 					},
 					text="被诅咒敌人受到的物理伤害总增 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป ได้รับความเสียหาย กายภาพ เพิ่มขึ้น {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Получаемый проклятыми врагами физический урон увеличен на {0}%"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% d'Augmentation des Dégâts physiques subis"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos reciben Daño Físico aumentado un {0}%"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner erleiden {0}% erhöhten physischen Schaden"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적이 받는 물리 피해 {0}% 증가"
 				}
 			}
 		},
@@ -2967,60 +801,6 @@ return {
 						}
 					},
 					text="被诅咒敌人受到的持续伤害提高 {0}%"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาปจะได้รับ Damage over Time มากขึ้น {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Получаемый проклятыми врагами постепенный урон увеличен на {0}%"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% d'Augmention des Dégâts sur la durée subis"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos reciben Daño aumentado un {0}% por efectos de Daño Degenerativo"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner erleiden {0}% erhöhten Schaden von 'Schaden über Zeit'-Effekten"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적이 지속 피해 효과로 받는 피해 {0}% 증가"
 				}
 			}
 		},
@@ -3053,138 +833,6 @@ return {
 						}
 					},
 					text="被诅咒敌人的点燃持续时间延长 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ระยะเวลาของการถูกลุกไหม้บนศัตรูที่ถูกสาปลดลง {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ระยะเวลาของการถูกลุกไหม้บนศัตรูที่ถูกสาปเพิ่มขึ้น {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Длительность поджога на проклятых врагах уменьшена на {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Длительность поджога на проклятых врагах увеличена на {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="L'Embrasement des Ennemis Maudits a {0}% de Réduction de Durée"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="L'Embrasement des Ennemis Maudits a {0}% d'Augmentation de Durée"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="La Quemadura en enemigos Malditos tiene Duración reducida un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="La Quemadura en enemigos Malditos tiene Duración aumentada un {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Brenndauer bei verfluchten Gegnern ist um {0}% verkürzt"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Brenndauer bei verfluchten Gegnern ist um {0}% verlängert"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적을 {0}% 감소한 지속시간 동안 점화"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 적을 {0}% 증가한 지속시간 동안 점화"
 				}
 			}
 		},
@@ -3217,138 +865,6 @@ return {
 						}
 					},
 					text="被诅咒敌人的冰冻持续时间延长 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สถานะ แช่แข็ง ต่อศัตรูที่ถูกสาป มีระยะเวลา ลดลง {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สถานะ แช่แข็ง ต่อศัตรูที่ถูกสาป มีระยะเวลา เพิ่มขึ้น {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Длительность заморозки на проклятых врагах уменьшена на {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Длительность заморозки на проклятых врагах увеличена на {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% de Réduction de Durée de Gel sur les Ennemis maudits"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% d'Augmentation de Durée de Gel sur les Ennemis maudits"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="El congelamiento en enemigos malditos tiene la duración reducida un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="El congelamiento en enemigos malditos tiene la duración aumentada un {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Einfrierungsdauer bei verfluchten Gegnern ist um {0}% verkürzt"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Einfrierungsdauer bei verfluchten Gegnern ist um {0}% verlängert"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적을 {0}% 감소한 지속시간 동안 동결"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 적을 {0}% 증가한 지속시간 동안 동결"
 				}
 			}
 		},
@@ -3381,138 +897,6 @@ return {
 						}
 					},
 					text="被诅咒敌人的感电持续时间延长 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="สถานะ ช็อค ที่ศัตรูที่ถูกสาปได้รับจะมีระยะเวลา ลดลง {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="สถานะ ช็อค ที่ศัตรูที่ถูกสาปได้รับจะมีระยะเวลา เพิ่มขึ้น {0}%"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Длительность шока на проклятых врагах уменьшена на {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Длительность шока на проклятых врагах увеличена на {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="L'Électrocution des Ennemis Maudits a {0}% de Réduction de Durée"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="L'Électrocution des Ennemis Maudits a {0}% d'Augmentation de Durée"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="La Electrocución en enemigos Malditos tiene Duración reducida un {0}%"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="La Electrocución en enemigos Malditos tiene Duración aumentada un {0}%"
-				},
-				[11]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Schockdauer bei verfluchten Gegnern ist um {0}% verkürzt"
-				},
-				[12]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Schockdauer bei verfluchten Gegnern ist um {0}% verlängert"
-				},
-				[13]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적을 {0}% 감소한 지속시간 동안 감전"
-				},
-				[14]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 적을 {0}% 증가한 지속시간 동안 감전"
 				}
 			}
 		},
@@ -3532,15 +916,6 @@ return {
 						}
 					},
 					text="你不能直接施放该法术"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คุณไม่สามารถร่าย เวทนี้ ได้โดยตรง"
 				}
 			}
 		},
@@ -3560,60 +935,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被攻击击中时获得 {0} 生命"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เมื่อโจมตี ปะทะ ศัตรูที่ถูกสาป จะได้รับ พลังชีวิต {0}"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Проклятые враги даруют {0} здоровья за удар атакой по ним"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits octroient {0} de Vie lorsqu'ils sont Touchés par des Attaques"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos otorgan {0} de Vida al ser Golpeados por Ataques"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Bei Angriffen getroffene verfluchte Gegner gewähren {0} Leben"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적을 공격으로 명중 시, {0} 생명력 회복"
 				}
 			}
 		},
@@ -3633,60 +954,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被攻击击中时获得 {0} 魔力"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="เมื่อโจมตี ปะทะ ศัตรูที่ถูกสาป จะได้รับ มานา {0}"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Проклятые враги даруют {0} маны за удар атакой по ним"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits octroient {0} de Mana lorsqu'ils sont Touchés par des Attaques"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos otorgan {0} de Maná al ser Golpeados por Ataques"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Bei Angriffen getroffene verfluchte Gegner gewähren {0} Mana"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적을 공격으로 명중 시, {0} 마나 회복"
 				}
 			}
 		},
@@ -3706,60 +973,6 @@ return {
 						}
 					},
 					text="击败被诅咒敌人时会给予玩家 {0} 生命"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ได้รับพลังชีวิต {0} เมื่อสังหารศัตรูที่ถูกสาป"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Проклятые враги даруют {0} здоровья при смерти"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits octroient {0} de Vie lorsqu'ils sont Tués"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos otorgan {0} de Vida al Morir"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner gewähren bei Tötung {0} Leben"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적 처치 시 {0}의 생명력 획득"
 				}
 			}
 		},
@@ -3779,60 +992,6 @@ return {
 						}
 					},
 					text="击败被诅咒敌人时会给予玩家 {0} 魔力"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ได้รับมานา {0} เมื่อสังหารศัตรูที่ถูกสาป"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Проклятые враги даруют {0} маны при смерти"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits octroient {0} de Mana lorsqu'ils sont Tués"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Los enemigos Malditos otorgan {0} de Maná al Morir"
-				},
-				[6]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Verfluchte Gegner gewähren bei Tötung {0} Mana"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적 처치 시 {0}의 마나 획득"
 				}
 			}
 		},
@@ -3865,72 +1024,6 @@ return {
 						}
 					},
 					text="效果区域缩小 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="增加 {0}% 範圍效果"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="減少 {0}% 範圍效果"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="{0}% увеличение области действия"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="{0}% уменьшение области действия"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="เพิ่มพื้นที่ส่งผล {0}%"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ลดพื้นที่ส่งผล {0}%"
 				}
 			}
 		},
@@ -4001,28 +1094,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人承受的伤害降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป รับความเสียหาย เพิ่มขึ้น {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูที่ถูกสาป รับความเสียหาย ลดลง {0}%"
 				}
 			}
 		},
@@ -4046,19 +1117,6 @@ return {
 						}
 					},
 					text="法术击中有 {0}% 的几率使被诅咒的敌人缓速，移动速度减慢 30%，持续 4 秒"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextHinder"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="การปะทะ เวท ต่อศัตรูที่ถูกสาป มีโอกาส {0}% ที่จะสร้างสถานะ ขัดขวาง และลดความเร็วในการเคลื่อนที่ 30% 4 วินาที"
 				}
 			}
 		},
@@ -4082,19 +1140,6 @@ return {
 						}
 					},
 					text="攻击击中有 {0}% 的几率使被诅咒的敌人【瘫痪】，持续 4 秒"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextMaim"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="攻擊擊中有 {0}% 機率癱瘓被詛咒的敵人 4 秒"
 				}
 			}
 		},
@@ -4114,15 +1159,6 @@ return {
 						}
 					},
 					text="产生一片魔蛊区域\n魔蛊区域里的诅咒不会消减\n魔蛊区域结束时，其中的诅咒获得最大灭能"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="สร้างพื้นที่สาปสะกด\nคำสาป จะไม่หมดเวลาขณะอยู่ใน พื้นที่สาปสะกด\nคำสาปใน พื้นที่สาปสะกด จะมีระดับ ความหายนะ สูงที่สุดเมื่อ พื้นที่สาปสะกด จบลง"
 				}
 			}
 		},
@@ -4142,15 +1178,6 @@ return {
 						}
 					},
 					text="该技能施加的诅咒使最大灭能 {0:+d}"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คำสาปที่เกิดจากสกิลนี้จะมี ความหายนะ สูงสุด {0:+d} ระดับ"
 				}
 			}
 		},
@@ -4182,27 +1209,6 @@ return {
 						}
 					},
 					text="诅咒每秒获得 {0} 点灭能"
-				},
-				[2]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					[2]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					[3]={
-						k="reminderstring",
-						v="ReminderTextDoom"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="คำสาปมีระดับ ความหายนะ เพิ่มขึ้น {0} ระดับต่อวินาที"
 				}
 			}
 		},
@@ -4243,36 +1249,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人在低血时承受的伤害降低 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป ได้รับความเสียหาย เพิ่มขึ้น {0}% ขณะ พลังชีวิตเหลือน้อย"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextLowLife"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูที่ถูกสาป ได้รับความเสียหาย ลดลง {0}% ขณะ พลังชีวิตเหลือน้อย"
 				}
 			}
 		},
@@ -4300,23 +1276,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被击中时疲惫 {0} 秒"
-				},
-				[2]={
-					[1]={
-						k="milliseconds_to_seconds_2dp",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextDebilitate"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป จะติดสถานะ อ่อนกำลัง เป็นเวลา {0} วินาที เมื่อพวกมันปะทะ"
 				}
 			}
 		},
@@ -4336,15 +1295,6 @@ return {
 						}
 					},
 					text="对抗被诅咒的敌人时，击中有 {0}% 的几率使晕眩持续时间翻倍"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="โอกาสที่จะทำให้ มึนงง นานขึ้นสองเท่า {0}% เมื่อปะทะ ศัตรูที่ถูกสาป"
 				}
 			}
 		},
@@ -4387,15 +1337,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被眩晕时，在 1 秒内再生 {0} 点怒火"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ฟื้นฟูสถานะ คลั่ง {0} ระดับต่อ 1 วินาทีเมื่อทำให้ ศัตรูที่ถูกสาป ติดสถานะ มึนงง"
 				}
 			}
 		},
@@ -4423,23 +1364,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被击中时获得 {0}% 能量护盾偷取"
-				},
-				[2]={
-					[1]={
-						k="divide_by_one_hundred",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextEnergyShieldLeech"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적 명중 시 {0}% 에너지 보호막 흡수"
 				}
 			}
 		},
@@ -4472,28 +1396,6 @@ return {
 						}
 					},
 					text="被诅咒的稀有或传奇敌人造成的伤害总降 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 희귀 또는 고유 적이 주는 피해 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 희귀 또는 고유 적이 주는 피해 {0}% 감폭"
 				}
 			}
 		},
@@ -4522,24 +1424,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被击中时有 {0}% 的几率提供一个耐力球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="ได้รับ Endurance Charge เมื่อปะทะ ศัตรูที่ถูกสาป"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]=99
-						}
-					},
-					text="มีโอกาสได้รับ Endurance Charge {0}% เมื่อปะทะ ศัตรูที่ถูกสาป"
 				}
 			}
 		},
@@ -4568,24 +1452,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被击中时有 {0}% 的几率提供一个狂怒球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="ได้รับ Frenzy Charge เมื่อปะทะ ศัตรูที่ถูกสาป"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]=99
-						}
-					},
-					text="มีโอกาสได้รับ Frenzy Charge {0}% เมื่อปะทะ ศัตรูที่ถูกสาป"
 				}
 			}
 		},
@@ -4614,24 +1480,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人被击中时有 {0}% 的几率提供一个暴击球"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]=100
-						}
-					},
-					text="ได้รับ Power Charge เมื่อปะทะ ศัตรูที่ถูกสาป"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]=99
-						}
-					},
-					text="มีโอกาสได้รับ Power Charge {0}% เมื่อปะทะ ศัตรูที่ถูกสาป"
 				}
 			}
 		},
@@ -4660,24 +1508,6 @@ return {
 						}
 					},
 					text="你击中被诅咒的敌人时，获得 {0}  次生命药剂充能，每 0.5 秒只发生一次"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="คุณจะได้รับชาร์จขวดยาพลังชีวิต 1 ชาร์จ เมื่อคุณ ปะทะ ศัตรูที่ถูกสาป\nไม่มากไปกว่า 1 ครั้งต่อ 0.5 วินาที"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="คุณจะได้รับชาร์จขวดยาพลังชีวิต {0} ชาร์จ เมื่อคุณ ปะทะ ศัตรูที่ถูกสาป\nไม่มากไปกว่า 1 ครั้งต่อ 0.5 วินาที"
 				}
 			}
 		},
@@ -4706,24 +1536,6 @@ return {
 						}
 					},
 					text="你击中被诅咒的敌人时，获得 {0} 次魔力药剂充能，每 0.5 秒只发生一次"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=1
-						}
-					},
-					text="คุณจะได้รับชาร์จขวดยามานา 1 ชาร์จ เมื่อคุณ ปะทะ ศัตรูที่ถูกสาป\nไม่มากไปกว่า 1 ครั้งต่อ 0.5 วินาที"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=2,
-							[2]="#"
-						}
-					},
-					text="คุณจะได้รับชาร์จขวดยามานา {0} ชาร์จ เมื่อคุณ ปะทะ ศัตรูที่ถูกสาป\nไม่มากไปกว่า 1 ครั้งต่อ 0.5 วินาที"
 				}
 			}
 		},
@@ -4747,32 +1559,6 @@ return {
 						}
 					},
 					text="击中被诅咒敌人时，附加 {0} - {1} 基础混沌伤害"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="Adiciona {0} a {1} de Dano de Caos aos Acertos contra Inimigos Amaldiçoados"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						},
-						[2]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="저주받은 적 명중 시 카오스 피해 {0}~{1} 추가"
 				}
 			}
 		},
@@ -4830,94 +1616,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人受到的物理持续伤害 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% d'Augmentation des Dégâts physiques sur la durée subis"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Les Ennemis Maudits ont {0}% de Réduction des Dégâts physiques sur la durée subis"
-				},
-				[5]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป ได้รับความเสียหาย กายภาพ ต่อเนื่อง เพิ่มขึ้น {0}%"
-				},
-				[6]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูที่ถูกสาป ได้รับความเสียหาย กายภาพ ต่อเนื่อง ลดลง {0}%"
-				},
-				[7]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="Inimigos Amaldiçoados sofrem {0}% de aumento de Dano Físico por Dano Degenerativo"
-				},
-				[8]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="Inimigos Amaldiçoados sofrem {0}% de aumento de Dano Físico por Dano Degenerativo"
-				},
-				[9]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 적이 받는 지속 물리 피해 {0}% 증가"
-				},
-				[10]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 적이 받는 지속 물리 피해 {0}% 감소"
 				}
 			}
 		},
@@ -4937,15 +1635,6 @@ return {
 						}
 					},
 					text="击中被诅咒的敌人的投射物发生分裂，飞向 {0} 个额外目标"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="กระสุนที่ปะทะ ศัตรูที่ถูกสาป จะแยกไปหาเป้าหมายเพิ่มอีก {0} เป้าหมาย"
 				}
 			}
 		},
@@ -4992,19 +1681,6 @@ return {
 						}
 					},
 					text="对被诅咒的敌人施加致命一击时，将 {0}% 溢出伤害以物理伤害的形式反射给其它敌人"
-				},
-				[2]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextOverkill"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="ความเสียหาย Overkill {0}% จากการลงมือสังหารศัตรูที่ถูกสาป จะถูกสะท้อนไปหาศัตรูตัวอื่นๆ เป็นความเสียหาย กายภาพ"
 				}
 			}
 		},
@@ -5045,36 +1721,6 @@ return {
 						}
 					},
 					text="被诅咒的敌人身上的元素异常状态持续时间延长 {0}%"
-				},
-				[3]={
-					[1]={
-						k="reminderstring",
-						v="ReminderTextElementalStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="ศัตรูที่ถูกสาป จะมีระยะเวลาสถานะ เจ็บป่วยธาตุ ลดลง {0}%"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					[2]={
-						k="reminderstring",
-						v="ReminderTextElementalStatusAilments"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="ศัตรูที่ถูกสาป จะมีระยะเวลาสถานะ เจ็บป่วยธาตุ เพิ่มขึ้น {0}%"
 				}
 			}
 		},
@@ -5107,28 +1753,6 @@ return {
 						}
 					},
 					text="被诅咒的稀有或传奇敌人的行动速度降低 {0}%"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]="#"
-						}
-					},
-					text="저주받은 희귀 및 고유 적의 동작 속도 {0}% 증폭"
-				},
-				[4]={
-					[1]={
-						k="negate",
-						v=1
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]=-1
-						}
-					},
-					text="저주받은 희귀 및 고유 적의 동작 속도 {0}% 감폭"
 				}
 			}
 		},
@@ -5157,24 +1781,6 @@ return {
 						}
 					},
 					text="诅咒结束时触发末日爆炸末日爆炸"
-				},
-				[3]={
-					limit={
-						[1]={
-							[1]=1,
-							[2]=99
-						}
-					},
-					text="ทริกเกอร์ ระเบิดหายนะ เมื่อคำสาปจบลง"
-				},
-				[4]={
-					limit={
-						[1]={
-							[1]=100,
-							[2]="#"
-						}
-					},
-					text="ทริกเกอร์ ระเบิดหายนะ เมื่อคำสาปจบลง"
 				}
 			}
 		},
