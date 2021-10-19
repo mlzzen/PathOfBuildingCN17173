@@ -1195,7 +1195,7 @@ ifCond = "OnFungalGround",
 { var = "conditionEnemyBlinded", type = "check", label = "敌人被致盲?", tooltip = "可以让“对致盲敌人什么什么”的词缀起作用\n同时减少敌人20%命中值和闪避值.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Blinded", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
-{ var = "overrideBuffBlinded", type = "count", label = "致盲效果(如果不是最大值的话):", ifEnemyCond = "Blinded", tooltip = "如果你有其他稳定的致盲来源，会应用最高的一个", apply = function(val, modList, enemyModList)
+{ var = "overrideBuffBlinded", type = "count", label = "致盲效果(如果不是最大值的话):", ifOption = "conditionEnemyBlinded", tooltip = "如果你有其他稳定的致盲来源，会应用最高的一个", apply = function(val, modList, enemyModList)
 	enemyModList:NewMod("BlindEffect", "OVERRIDE", val, "Config", {type = "GlobalEffect", effectType = "Buff" })
 end },
 { var = "conditionEnemyTaunted", type = "check", label = "敌人被嘲讽?", ifEnemyCond = "Taunted", apply = function(val, modList, enemyModList)
