@@ -32,6 +32,8 @@ replica: true
 [[
 西里的真相【仿品】
 翠玉护身符
+版本: 3.16.0以前
+版本: 当前
 等级需求: 64
 replica: true
 联盟: 夺宝奇兵
@@ -43,7 +45,8 @@ replica: true
 {tags:jewellery_elemental,attack}攻击附加 (11-15) - (23-28) 基础冰霜伤害
 {tags:critical}+(23-28)% 攻击和法术暴击伤害加成
 {tags:attack,life}冰霜伤害的 (0.8-1)% 转化为生命偷取
-憎恨的总魔力保留额外降低 50%
+{variant:1}憎恨的总魔力保留额外降低 50%
+{variant:2}憎恨的总魔力保留效率额外提高 100%
 ]],
 [[
 阿兹里圣徽【仿品】
@@ -173,11 +176,13 @@ replica: true
 翠玉护身符
 等级需求: 7
 版本: 3.7.0以前
+版本: 3.16.0以前
 版本: 当前
 固定基底词缀: 1
 {tags:jewellery_attribute}+(20-30) 敏捷
 获得 22 级的主动技能【精准】，且可被此道具上的技能石辅助
-{variant:2}精准的保留效果总降 50%
+{variant:1,2}精准的保留效果总降 50%
+{variant:3}精准的保留效率总增 100%
 {tags:jewellery_attribute}+(25-35) 敏捷 
 {tags:attack,physical}攻击附加 (12-15) - (24-28) 基础物理伤害 
 {tags:jewellery_elemental,attack}攻击附加 (11-15) - (23-28) 基础冰霜伤害 
