@@ -595,7 +595,7 @@ local function doActorAttribsPoolsConditions(env, actor)
 	if not   modDB:Flag(nil, "NoAttributeBonus") then
 		modDB:NewMod("PhysicalDamage", "INC", actor.strDmgBonus, "力量", ModFlag.Melee)
 		modDB:NewMod("Accuracy", "BASE", output.Dex * 2, "敏捷")
-		modDB:NewMod("EnergyShield", "INC", round(output.Int / 5), "智慧")
+		-- modDB:NewMod("EnergyShield", "INC", round(output.Int / 5), "智慧")
 	end
 	
 
@@ -604,6 +604,9 @@ local function doActorAttribsPoolsConditions(env, actor)
 	end
 	if not modDB:Flag(nil, "NoIntBonusToMana") and  not   modDB:Flag(nil, "NoAttributeBonus")  then
 		modDB:NewMod("Mana", "BASE", round(output.Int / 2), "智慧")
+	end
+	if not modDB:Flag(nil, "IntelligenceNoEnergyShieldBonus") then
+		modDB:NewMod("EnergyShield", "INC", round(output.Int / 5), "Intelligence")
 	end
 	
 	--涉及到生命 需要这里处理
