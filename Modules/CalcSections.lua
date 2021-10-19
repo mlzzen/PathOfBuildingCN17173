@@ -1339,8 +1339,8 @@ flag = "rage",
 
 { defaultCollapsed = false, label = "躲避", data = {
 	extra = "{0:output:AttackDodgeChance}%/{0:output:SpellDodgeChance}%",
-	{ label = "攻击躲避几率", { format = "{0:output:AttackDodgeChance}%", { modName = "AttackDodgeChance" }, }, },
-	{ label = "法术躲避几率", { format = "{0:output:SpellDodgeChance}%", { modName = "SpellDodgeChance" }, }, }, 
+	{ label = "攻击躲避几率", { format = "{0:output:AttackDodgeChance}% (+{0:output:AttackDodgeChanceOverCap}%)", { modName = "AttackDodgeChance" }, }, },
+	{ label = "法术躲避几率", { format = "{0:output:SpellDodgeChance}% (+{0:output:SpellDodgeChanceOverCap}%)", { modName = "SpellDodgeChance" }, }, },
 } },
 { defaultCollapsed = true, label = "伤害避免", data = {
 	{ label = "避免物理伤害几率", haveOutput = "AvoidPhysicalDamageChance", { format = "{0:output:AvoidPhysicalDamageChance}%", { modName = "AvoidPhysicalDamageChance" }, }, },
@@ -1723,13 +1723,13 @@ flag = "rage",
 
 { 1, "Block", 3, colorCodes.DEFENCE, {{ defaultCollapsed = false, label = "格挡", data = {
 	extra = "{0:output:BlockChance}%/{0:output:SpellBlockChance}%",
-{ label = "攻击格挡几率", { format = "{0:output:BlockChance}%",
+{ label = "攻击格挡几率", { format = "{0:output:BlockChance}% (+{0:output:BlockChanceOverCap}%)",
 		{ breakdown = "BlockChance" },
 		{ modName = "BlockChance" }, 
 	}, },
-{ label = "法术格挡几率", { format = "{0:output:SpellBlockChance}%", 
+{ label = "法术格挡几率", { format = "{0:output:SpellBlockChance}% (+{0:output:SpellBlockChanceOverCap}%)",  
 		{ breakdown = "SpellBlockChance" }, 
-		{ modName = { "SpellBlockChance", "BlockChanceConv" }, },
+		{ modName = { "SpellBlockChance", "SpellBlockChanceIsBlockChance", "SpellBlockChanceMaxIsBlockChanceMax" }, },
 	}, },
 	{ label = "格挡 效用", haveOutput = "ShowBlockEffect", { format = "{0:output:DamageTakenOnBlock}%", 
 		{ breakdown = "BlockEffect" }, 

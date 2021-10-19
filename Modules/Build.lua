@@ -356,18 +356,19 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "Spec:ArmourInc", label = "天赋树·护甲提高", fmt = "d%%" },
 		{ stat = "PhysicalDamageReduction", label = "物理伤害减伤", fmt = "d%%", condFunc = function() return true end },
 		{ stat = "EffectiveMovementSpeedMod", label = "移动速度加成", fmt = "+d%%", mod = true, condFunc = function() return true end },
-		{ stat = "BlockChance", label = "攻击格挡几率", fmt = "d%%" },
-		{ stat = "SpellBlockChance", label = "法术格挡几率", fmt = "d%%" },
-		{ stat = "AttackDodgeChance", label = "攻击躲避几率", fmt = "d%%" },
-		{ stat = "SpellDodgeChance", label = "法术躲避几率", fmt = "d%%" },
+		{ stat = "BlockChance", label = "攻击格挡几率", fmt = "d%%", overCapStat = "BlockChanceOverCap" },
+		{ stat = "SpellBlockChance", label = "法术格挡几率", fmt = "d%%", overCapStat = "SpellBlockChanceOverCap" },
+		{ stat = "AttackDodgeChance", label = "攻击躲避几率", fmt = "d%%", overCapStat = "AttackDodgeChanceOverCap" },
+		{ stat = "SpellDodgeChance", label = "法术躲避几率", fmt = "d%%", overCapStat = "SpellDodgeChanceOverCap" },
+		{ stat = "SpellSuppressionChance", label = "法术抑制几率", fmt = "d%%", overCapStat = "SpellSuppressionChanceOverCap" },
 		{ },
-		{ stat = "FireResist", label = "火焰抗性", fmt = "d%%", color = colorCodes.FIRE, condFunc = function() return true end, resistOverCapStat = "FireResistOverCap"},
+		{ stat = "FireResist", label = "火焰抗性", fmt = "d%%", color = colorCodes.FIRE, condFunc = function() return true end, overCapStat = "FireResistOverCap"},
 		{ stat = "FireResistOverCap", label = "火焰抗性溢出", fmt = "d%%", hideStat = true },
-		{ stat = "ColdResist", label = "冰霜抗性", fmt = "d%%", color = colorCodes.COLD, condFunc = function() return true end, resistOverCapStat = "ColdResistOverCap" },
+		{ stat = "ColdResist", label = "冰霜抗性", fmt = "d%%", color = colorCodes.COLD, condFunc = function() return true end, overCapStat = "ColdResistOverCap" },
 		{ stat = "ColdResistOverCap", label = "冰霜抗性溢出", fmt = "d%%", hideStat = true },
-		{ stat = "LightningResist", label = "闪电抗性", fmt = "d%%", color = colorCodes.LIGHTNING, condFunc = function() return true end, resistOverCapStat = "LightningResistOverCap" },
+		{ stat = "LightningResist", label = "闪电抗性", fmt = "d%%", color = colorCodes.LIGHTNING, condFunc = function() return true end, overCapStat = "LightningResistOverCap" },
 		{ stat = "LightningResistOverCap", label = "闪电抗性溢出", fmt = "d%%", hideStat = true },
-		{ stat = "ChaosResist", label = "混沌抗性", fmt = "d%%", color = colorCodes.CHAOS, condFunc = function() return true end, resistOverCapStat = "ChaosResistOverCap" },
+		{ stat = "ChaosResist", label = "混沌抗性", fmt = "d%%", color = colorCodes.CHAOS, condFunc = function() return true end, overCapStat = "ChaosResistOverCap" },
 		{ stat = "ChaosResistOverCap", label = "混沌抗性溢出", fmt = "d%%", hideStat = true },
 		{ },
 		{ stat = "FullDPS", label = "综合所有 DPS", fmt = ".1f", color = colorCodes.CURRENCY, compPercent = true },
@@ -1158,13 +1159,18 @@ t_insert(controls.mainSkillMinion.list, "<未选择灵体类型>")
 	end
 end
 
-function buildMode:FormatStat(statData, statVal)
+function buildMode:FormatStat(statData, statVal, overCapStatVal)
 	if type(statVal) == "table" then return "" end
 	local val = statVal * ((statData.pc or statData.mod) and 100 or 1) - (statData.mod and 100 or 0)
 	local color = (statVal >= 0 and "^7" or colorCodes.NEGATIVE)
 	local valStr = s_format("%"..statData.fmt, val)
 	valStr:gsub("%.", main.decimalSeparator)
 	valStr = color .. formatNumSep(valStr)
+
+	if overCapStatVal and overCapStatVal > 0 then
+		valStr = valStr .. "^x808080" .. " (+" .. overCapStatVal .. "%)"
+	end
+
 	self.lastShowThousandsSeparators = main.showThousandsSeparators
 	self.lastShowThousandsSeparator = main.thousandsSeparator
 	self.lastShowDecimalSeparator = main.decimalSeparator
@@ -1184,13 +1190,7 @@ function buildMode:AddDisplayStatList(statList, actor)
 					if statData.color then
 						labelColor = statData.color
 					end
-					local resistOverCapStatLabel = ""
-					if (statData.resistOverCapStat) then
-						local resistOverCapStatVal = actor.output[statData.resistOverCapStat]
-						if (resistOverCapStatVal) then
-							resistOverCapStatLabel = " ^7(+"..self:FormatStat(statData, resistOverCapStatVal).."^7)"
-						end
-					end
+					local overCapStatVal = actor.output[statData.overCapStat] or nil
 					if statData.stat == "SkillDPS" then
 						labelColor = colorCodes.CUSTOM
 						table.sort(actor.output.SkillDPS, function(a,b) return (a.dps * a.count) > (b.dps * b.count) end)
@@ -1206,7 +1206,7 @@ function buildMode:AddDisplayStatList(statList, actor)
 							t_insert(statBoxList, {
 								height = 16,
 								lhsString,
-								self:FormatStat({fmt = "1.f"}, skillData.dps * skillData.count),
+								self:FormatStat({fmt = "1.f"}, skillData.dps * skillData.count, overCapStatVal),
 							})
 							
 							if skillData.skillPart then
@@ -1228,7 +1228,7 @@ function buildMode:AddDisplayStatList(statList, actor)
 						t_insert(statBoxList, {
 							height = 16,
 							labelColor..statData.label..":",
-							self:FormatStat(statData, statVal)..resistOverCapStatLabel,
+							self:FormatStat(statData, statVal, overCapStatVal),
 						})
 					end
 				end
