@@ -548,8 +548,7 @@ local modNameList = {
 	["to dodge spell damage"] = "SpellDodgeChance",
 	["躲避攻击和法术击中"] = { "AttackDodgeChance", "SpellDodgeChance" }, --备注：to dodge attacks and spells
 	["躲避攻击或法术击中"] = { "AttackDodgeChance", "SpellDodgeChance" }, --备注：to dodge attacks and spells
-	["to dodge attacks and spell damage"] = { "AttackDodgeChance", "SpellDodgeChance" },
-	["to dodge attack and spell hits"] = { "AttackDodgeChance", "SpellDodgeChance" },
+	["抑制法术伤害"] = { "SpellSuppressionChance" },
 	["to block"] = "BlockChance",
 	["to block attacks"] = "BlockChance",
 	["to block attack damage"] = "BlockChance",
@@ -6706,6 +6705,19 @@ minus = -tonumber(minus)
 	["intelligence provides no inherent bonus to energy shield"] = { flag("IntelligenceNoEnergyShieldBonus") },
 	["effect of shock on you"] = "SelfShockEffect",
 	["effect of chill and shock on you"] = { "SelfChillEffect", "SelfShockEffect"},
+	["modifiers to spell suppression instead apply to spell dodge at 50%% of their values"] = { 
+		flag("ConvertSpellSuppressionToSpellDodge"),
+		mod("SpellSuppressionChance", "OVERRIDE", 0, "Acrobatics"), 
+	},
+	["dexterity provides no inherent bonus to evasion rating"] = { flag("MageBane"), flag("NoDexBonusToEvasion") },
+	["(%d+)%% chance to suppress spell damage per (%d+) dexterity"] = function(_, suppression, dex) return {
+		flag("MageBane"),
+		mod("SpellSuppressionChance", "BASE", tonumber(suppression), { type = "PerStat", stat = "Dex", div = tonumber(dex) })
+	} end,
+	["converts all evasion rating to armour%. dexterity provides no bonus to evasion rating"] = { flag("NoDexBonusToEvasion"), flag("IronReflexes") },
+	["your chance to suppressed spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
+	["your chance to suppressed spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
+	["prevents +(%d+)%% of suppressed spell damage"] = function(num) return { mod("SpellSuppressionEffect", "BASE", num) } end,
 }
 
 for _, name in pairs(data.keystones) do
