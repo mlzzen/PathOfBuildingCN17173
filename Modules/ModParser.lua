@@ -5395,12 +5395,12 @@ local specialModList = {
 		mod("HydroSphereFrequency", "INC", num, { type = "SkillId", skillId = "WaterSphere" })
 		} end,
 	["你被碾压了"] = function(num) return { mod("PhysicalDamageReduction", "BASE", -15) } end,
-	["你每有一个暴击球便使召唤生物的暴击率提高 (%d+)%%"]= function(num) return { mod("MinionModifier", "LIST", 
-	{ mod = mod("CritChance", "INC", num, { type = "Multiplier", var = "PowerCharge" , actor = "parent"} )})  } end,
-	["召唤生物造成暴击后会在 5 秒内听到低语"] = {
-	flag("Condition:MinionsCanHearTheWhispers"),
-	mod("Dummy", "DUMMY", 1, { type = "Condition", var = "MinionsCanHearTheWhispers" }) -- Make the Configuration option appear
-	},
+	["你每有一个暴击球便使召唤生物的暴击率提高 (%d+)%%"]= function(num) return { mod("MinionModifier", "LIST", { mod = mod("CritChance", "INC", num, { type = "Multiplier",actor = "parent", var = "PowerChargeMax" }) }) } end,
+	["召唤生物造成暴击后会在 5 秒内听到低语"] = function() return {
+		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", 50, { type = "Condition", neg = true, var = "NeverCrit"}) }),
+		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", 50, { type = "Condition", neg = true, var = "NeverCrit"}) }),
+		mod("MinionModifier", "LIST", { mod = mod("ChaosDegen", "BASE", 1, {type = "PercentStat", stat = "Life", percent = 20},{ type = "Condition", neg = true, var = "NeverCrit"}) }),
+	} end,
 	["若你近期内没有获得狂怒球，则攻击速度加快 (%d+)%%"]= function(num) return {
 		mod("Speed", "INC", num,nil, ModFlag.Attack, { type = "Condition", var = "GainedFrenzyChargeRecently", neg = true } )
 		} end,
@@ -6721,6 +6721,7 @@ minus = -tonumber(minus)
 	["your chance to suppressed spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
 	["your chance to suppressed spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
 	["prevents +(%d+)%% of suppressed spell damage"] = function(num) return { mod("SpellSuppressionEffect", "BASE", num) } end,
+	
 }
 
 for _, name in pairs(data.keystones) do
