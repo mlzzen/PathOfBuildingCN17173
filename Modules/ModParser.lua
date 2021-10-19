@@ -6077,7 +6077,10 @@ local specialModList = {
 		mod("BlockChance", "MORE", -30),
 		mod("SpellBlockChance", "MORE", -30) 
 	},
-	["最大生命上限变成 1，免疫混沌伤害"] = { flag("ChaosInoculation") }, --备注：maximum life becomes 1, immune to chaos damage
+	["最大生命上限变成 1，免疫混沌伤害"] = { 
+		flag("ChaosInoculation"),
+		mod("ChaosDamageTaken", "MORE", -100)
+	},
 	["不再获得生命回复，将其回复效果套用于能量护盾"] = { flag("ZealotsOath") }, --备注：life regeneration is applied to energy shield instead
 	["每秒生命偷取效果翻倍。"] = { mod("LifeLeechRate", "MORE", 100) }, --备注：life leeched per second is doubled%.
 	["生命偷取速度上限翻倍。"] = { mod("MaxLifeLeechRate", "MORE", 100) }, --备注：maximum life leech rate is doubled%.
