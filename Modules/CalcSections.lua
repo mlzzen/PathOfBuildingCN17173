@@ -612,11 +612,11 @@ return {
 
 { label = "魔力保留加成", haveOutput = "ManaReservedMod", { format = "x {2:output:ManaReservedMod}",
 		{ breakdown = "ManaReservedMod" },
-		{ modName = { "ManaReserved", "Reserved", "SupportManaMultiplier" }, cfg = "skill"}
+		{ modName = { "ManaReserved", "Reserved", "SupportManaMultiplier", "ManaReservationEfficiency", "ReservationEfficiency" }, cfg = "skill"}
 	}, },
 { label = "生命保留加成", haveOutput = "LifeReservedMod", { format = "x {2:output:LifeReservedMod}",
 		{ breakdown = "LifeReservedMod" },
-		{ modName = { "LifeReserved", "Reserved", "SupportManaMultiplier" }, cfg = "skill"}
+		{ modName = { "LifeReserved", "Reserved", "SupportManaMultiplier", "LifeReservationEfficiency", "ReservationEfficiency"  }, cfg = "skill"}
 	}, },
 { label = "诅咒效果加成", haveOutput = "CurseEffectMod", { format = "x {2:output:CurseEffectMod}",
 		{ breakdown = "CurseEffectMod" },

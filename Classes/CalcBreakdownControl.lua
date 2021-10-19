@@ -172,6 +172,7 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 { label = "【百分比加成】", key = "mult" },
 { label = "【额外 提高/降低】", key = "more" },
 { label = "【提高/降低】", key = "inc" },
+{ label = "【效率】", key = "efficiency" },
 { label = "【保留】", key = "total" },
 			}
 		}

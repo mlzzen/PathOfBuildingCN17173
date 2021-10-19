@@ -438,6 +438,10 @@ local modNameList = {
 	["技能保留效果"] = "Reserved",
 	["技能的保留"] = "Reserved",
 	["资源保留"] = { "Reserved" },
+	["技能的保留效率"] = "ReservationEfficiency",
+	["技能保留效果"] = "ReservationEfficiency",
+	["魔力保留效率"] = "ManaReservationEfficiency",
+	["生命保留效率"] = "LifeReservationEfficiency",
 	["赤炼球数量上限"] = "BloodChargesMax",
 	["for stance skills"] = { tag = { type = "SkillType", skillType = SkillType.StanceSkill } },
 	["of stance skills"] = { tag = { type = "SkillType", skillType = SkillType.StanceSkill } },
@@ -465,7 +469,7 @@ local modNameList = {
 	["魔力消耗"] = "ManaCost", --备注：mana cost of
 	["技能魔力消耗"] = "ManaCost", --备注：mana cost of skills
 	["技能的总魔力消耗"] = "ManaCost", --备注：total mana cost of skills
-	["魔力保留"] = "ManaReserved", --备注：mana reserved
+	["魔力保留效率"] = "ManaReservationEfficiency", --备注：mana reserved
 	["魔力保留"] = "ManaReserved", --备注：mana reservation
 	["^技能的魔力保留"] = "ManaReserved", --备注：mana reservation of skills
 	-- Primary defences
