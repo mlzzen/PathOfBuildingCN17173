@@ -18,13 +18,16 @@ return {
 [[
 腐血的承诺
 潜能之戒
+版本: 3.16.0以前
+版本: 当前
 联盟: 驱灵仪式
 等级需求: 56
 固定基底词缀: 1
 有 1 个插槽
 {tags:caster}此物品上的诅咒技能石受到 20 级的 诅咒光环 辅助
 插入技能的诅咒光环也作用于你自身
-{tags:caster}插入的诅咒宝石的保留效果降低 50%
+{variant:1}{tags:caster}插入的诅咒宝石的保留效果降低 50%
+{variant:2}{tags:caster}插入的诅咒宝石的保留效率提高 80%
 {tags:jewellery_attribute}+(20-30) 智慧
 {tags:caster}你受到的诅咒效果降低 20%
 对抗被诅咒的敌人时，击中和异常状态伤害提高 (15-25)%
@@ -219,6 +222,16 @@ replica: true
 活解
 潜能之戒
 联盟: 毁灭不朽
+版本: 火焰与混沌抗性（3.16前）
+版本: 冰霜与混沌抗性（3.16前）
+版本: 闪电与混沌抗性（3.16前）
+版本: 力量和敏捷（3.16前）
+版本: 敏捷和智慧（3.16前）
+版本: 力量和敏捷（3.16前）
+版本: 专注感电敌人（3.16前）
+版本: 狂怒球下限（3.16前）
+版本: 暴击球下限（3.16前）
+版本: 耐力球下限（3.16前）
 版本: 火焰与混沌抗性
 版本: 冰霜与混沌抗性
 版本: 闪电与混沌抗性
@@ -232,24 +245,25 @@ replica: true
 固定基底词缀: 1
 有 1 个插槽
 此物品上装备的【光环技能石】等级 +5
-插入的技能石的保留效果提高 10%
+{variant:1,2,3,4,5,6,7,8,9,10}插入的技能石的保留效果提高 10%
+{variant:11,12,13,14,15,16,17,18,19,20}插入的技能石的保留效率降低 20%
 {tags:jewellery_attribute}+(15-25) 全属性
 {tags:life}每装备 1 个未腐化的物品，获得 15 每秒生命回复
 {tags:mana}每装备 1 个被腐化的物品时，技能的总魔力消耗 -2 
-{variant:1}{tags:jewellery_resistance,chaos}+(16-20)% 火焰与混沌抗性
-{variant:2}{tags:jewellery_resistance,chaos}+(16-20)% 冰霜与混沌抗性
-{variant:3}{tags:jewellery_resistance,chaos}+(16-20)% 闪电与混沌抗性
-{variant:4}{tags:jewellery_attribute}+(31-35) 力量和敏捷
-{variant:5}{tags:jewellery_attribute}+(31-35) 敏捷与智慧
-{variant:6}{tags:jewellery_attribute}+(31-35) 力量和智慧
-{variant:7}专注时，使周围敌人感电 4 秒
-{variant:7}专注的冷却回复速度提高 (5-8)%
-{variant:8}+1 狂怒球数量下限
-{variant:8}击败敌人有 (3-4)% 的几率获得狂怒球
-{variant:9}+1 暴击球数量下限
-{variant:9}击败敌人有 (3-4)% 的几率获得暴击球
-{variant:10}+1 耐力球数量下限
-{variant:10}击败敌人有 (3-4)% 的几率时获得耐力球
+{variant:1,11}{tags:jewellery_resistance,chaos}+(16-20)% 火焰与混沌抗性
+{variant:2,12}{tags:jewellery_resistance,chaos}+(16-20)% 冰霜与混沌抗性
+{variant:3,13}{tags:jewellery_resistance,chaos}+(16-20)% 闪电与混沌抗性
+{variant:4,14}{tags:jewellery_attribute}+(31-35) 力量和敏捷
+{variant:5,15}{tags:jewellery_attribute}+(31-35) 敏捷与智慧
+{variant:6,16}{tags:jewellery_attribute}+(31-35) 力量和智慧
+{variant:7,17}专注时，使周围敌人感电 4 秒
+{variant:7,17}专注的冷却回复速度提高 (5-8)%
+{variant:8,18}+1 狂怒球数量下限
+{variant:8,18}击败敌人有 (3-4)% 的几率获得狂怒球
+{variant:9,19}+1 暴击球数量下限
+{variant:9,19}击败敌人有 (3-4)% 的几率获得暴击球
+{variant:10,20}+1 耐力球数量下限
+{variant:10,20}击败敌人有 (3-4)% 的几率时获得耐力球
 ]],
 [[
 罪恶之环(忆境)
@@ -699,6 +713,7 @@ Has Alt Variant: true
 菁华蠕虫
 潜能之戒
 版本: 3.14.0以前
+版本: 3.16.0以前
 版本: 当前
 等级需求: 38
 固定基底词缀: 1
@@ -706,8 +721,9 @@ Has Alt Variant: true
 此物品上装备的【光环技能石】等级 +2
 {variant:1}此物品上的技能石无魔力保留
 {variant:1}魔力保留提高 40%
-{variant:2}插入的技能石没有保留效果
+{variant:2,3}插入的技能石没有保留效果
 {variant:2}技能的保留效果提高 40%
+{variant:3}技能的保留效率降低 80%
 ]],[[
 神赐
 宝钻戒指
