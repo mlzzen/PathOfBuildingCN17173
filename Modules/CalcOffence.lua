@@ -1780,6 +1780,13 @@ t_insert(breakdown[stat], s_format("x %.3f ^8(副手创建的实例部分)", off
 			end
 		end
 		
+		if modDB:Flag(nil, "CritChanceIncreasedBySuppressionChance") then
+			local SpellSuppressionChance = modDB:Sum("BASE", nil, "SpellSuppressionChance")
+			if modDB:Override("OVERRIDE", nil, "SpellSuppressionChance") then
+				SpellSuppressionChance = modDB:Sum("OVERRIDE", nil, "SpellSuppressionChance")
+			end
+			modDB:NewMod("CritChance", "INC", SpellSuppressionChance, "Spell Suppression Mastery")
+		end
 		
 		-- Calculate crit chance, crit multiplier, and their combined effect
 		if skillModList:Flag(nil, "NeverCrit") then
