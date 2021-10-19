@@ -1826,7 +1826,7 @@ name = "沉默之雷",
 	},
 }
 skills["TriggeredMoltenStrike"] = {
-	name = " 熔岩爆破",
+	name = "熔岩爆破",
 	hidden = true,
 	color = 1,
 	description = "对目标造成物理及火焰伤害, 并在挥击的途中从武器弹射出熔岩球. 这些熔岩球在着地时会爆炸, 并对附近的敌人造成伤害. ",
