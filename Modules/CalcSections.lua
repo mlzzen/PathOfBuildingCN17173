@@ -1369,6 +1369,8 @@ flag = "rage",
 	{ label = "点燃持续时间", { format = "{1:output:SelfIgniteDuration}%", { modName = "SelfIgniteDuration" }, }, },
 	{ label = "流血持续时间", { format = "{1:output:SelfBleedDuration}%", { modName = "SelfBleedDuration" }, }, },
 	{ label = "中毒持续时间", { format = "{1:output:SelfPoisonDuration}%", { modName = "SelfPoisonDuration" }, }, },
+	{ label = "冰缓效果", { format = "{1:output:SelfChillEffect}%", { modName = "SelfChillEffect" }, }, },
+	{ label = "感电效果", { format = "{1:output:SelfShockEffect}%", { modName = "SelfShockEffect" }, }, },
 } },
 
 } },

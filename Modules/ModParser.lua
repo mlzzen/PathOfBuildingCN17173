@@ -6704,6 +6704,8 @@ minus = -tonumber(minus)
 	["duration of ailments on you"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfPoisonDuration", "SelfBleedDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
 	["elemental ailment duration on you"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfPoisonDuration", "SelfBleedDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
 	["intelligence provides no inherent bonus to energy shield"] = { flag("IntelligenceNoEnergyShieldBonus") },
+	["effect of shock on you"] = "SelfShockEffect",
+	["effect of chill and shock on you"] = { "SelfChillEffect", "SelfShockEffect"},
 }
 
 for _, name in pairs(data.keystones) do
