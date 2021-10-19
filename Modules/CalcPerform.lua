@@ -955,7 +955,13 @@ modDB:NewMod("MovementSpeed", "INC", 20, "女神之拥")
 		end
 		if modDB:Flag(nil, "Blind") then
 			if not modDB:Flag(nil, "IgnoreBlindHitChance") then
-				modDB:NewMod("HitChance", "MORE", -50, "致盲")
+				local effect = 1 + modDB:Sum("INC", nil, "BlindEffect", "BuffEffectOnSelf") / 100
+				-- Override Blind effect if set.			
+				if modDB:Override(nil, "BlindEffect") then 
+					effect = m_min(modDB:Override(nil, "BlindEffect") / 100, effect)
+				end
+				modDB:NewMod("Accuracy", "MORE", m_floor(-20 * effect), "致盲")
+				modDB:NewMod("Evasion", "MORE", m_floor(-20 * effect), "致盲")
 			end
 		end
 		if modDB:Flag(nil, "Chill") then

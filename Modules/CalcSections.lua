@@ -554,6 +554,7 @@ return {
 		{ label = "敌人闪避加成", modName = { "Evasion", "CannotEvade" }, enemy = true },
 		{ label = "玩家加成", modName = { "HitChance", "CannotBeEvaded", "IgnoreBlindHitChance" } },
 	}, },
+	{ label = "致盲效果", haveOutput = "BlindEffectMod", { format = "{0:output:BlindEffectMod}%", { breakdown = "BlindEffectMod" }, { modName = { "BlindEffect", "BuffEffectOnSelf" }, }, } },
 } },
 } },
 { 1, "SkillTypeStats", 1,  colorCodes.OFFENCE, {
@@ -1295,6 +1296,7 @@ flag = "rage",
 	    { label = "玩家加成", modName = { "CannotEvade", "EvadeChance", "ProjectileEvadeChance" } },
 	    { label = "敌人加成", modName = { "Accuracy", "HitChance" }, enemy = true },
 	}, },
+	{ label = "致盲效果", haveOutput = "BlindEffectMod", { format = "{0:output:BlindEffectMod}%", { breakdown = "BlindEffectMod" }, { modName = { "BlindEffect", "BuffEffectOnSelf" }, }, } },
 } }
 } },
 { 1, "Resist", 3,  colorCodes.DEFENCE, {

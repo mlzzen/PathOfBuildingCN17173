@@ -644,7 +644,9 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 		output.ElusiveEffectMod = calcLib.mod(modDB, nil, "ElusiveEffect", "BuffEffectOnSelf") * 100
 	end
 	
-	
+	if enemyDB:Flag(nil, "Blind") then
+		output.BlindEffectMod = calcLib.mod(enemyDB, nil, "BlindEffect", "BuffEffectOnSelf") * 100
+	end
 	
 	-- damage avoidances
 	for _, damageType in ipairs(dmgTypeList) do
