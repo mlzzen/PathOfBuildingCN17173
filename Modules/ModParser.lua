@@ -6694,6 +6694,8 @@ minus = -tonumber(minus)
 	-- 3.16
 	["可以有 (%d+) 个额外附魔词缀"] = { },
 	["致盲效果提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("BlindEffect", "INC", num) }), } end,
+	["cannot recover energy shield to above armour"] = { flag("ArmourESRecoveryCap") },
+	["cannot recover energy shield to above evasion rating"] = { flag("EvasionESRecoveryCap") },
 }
 
 for _, name in pairs(data.keystones) do

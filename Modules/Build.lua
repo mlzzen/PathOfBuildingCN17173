@@ -342,6 +342,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "NetEnergyShieldRegen", label = "消减魔力回复", fmt = "+.1f" },
 		{ },
 		{ stat = "EnergyShield", label = "能量护盾", fmt = "d", compPercent = true },
+		{ stat = "EnergyShieldRecoveryCap", label = "可回复的能量护盾", fmt = "d", condFunc = function(v,o) return v ~= nil end },
 		{ stat = "Spec:EnergyShieldInc", label = "天赋树·能量护盾提高", fmt = "d%%" },
 		{ stat = "EnergyShieldRegen", label = "能量护盾回复", fmt = ".1f" },
 		{ stat = "EnergyShieldLeechGainRate", label = "能量护盾偷取/击中回复速率", fmt = ".1f", compPercent = true },

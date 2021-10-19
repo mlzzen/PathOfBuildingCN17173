@@ -169,6 +169,7 @@ data.powerStatList = {
 	{ stat="LifeRegen", label="生命回复" },
 	{ stat="LifeLeechRate", label="生命偷取" },
 	{ stat="EnergyShield", label=" 能量护盾" },
+	{ stat="EnergyShieldRecoveryCap", label="可回复能量护盾" },
 	{ stat="EnergyShieldRegen", label="能量护盾回复" },
 	{ stat="EnergyShieldLeechRate", label="能量护盾偷取" },
 	{ stat="Mana", label="魔力" },
