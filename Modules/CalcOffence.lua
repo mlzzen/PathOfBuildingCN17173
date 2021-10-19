@@ -4148,101 +4148,7 @@ t_insert(breakdown.DecayDuration, s_format("/ %.2f ^8(更快或较慢 debuff消�
 	else
 		output.TotalDot = output.TotalDotInstance
 	end
--- General's Cry Mirage Warriors
-	if activeSkill.activeEffect.grantedEffect.name == "将军之吼" then
-		
-		local usedSkill = nil
-		local calcMode = env.mode == "CALCS" and "CALCS" or "MAIN"
-		for _, triggerSkill in ipairs(actor.activeSkillList) do
-			if triggerSkill.socketGroup == activeSkill.socketGroup and triggerSkill ~= activeSkill and triggerSkill.skillData.triggeredByGeneralsCry then
-				-- Grab a fully-processed by calcs.perform() version of the skill that Mirage Warrior(s) will use
-				local uuid = cacheSkillUUID(triggerSkill)
-				if not GlobalCache.cachedData[calcMode][uuid] then
-					calcs.buildActiveSkill(env, calcMode, triggerSkill)
-					env.dontCache = true
-				end
-				if GlobalCache.cachedData[calcMode][uuid] then
-					usedSkill = GlobalCache.cachedData[calcMode][uuid].ActiveSkill
-					
-				end
-				break
-			end
-		end
 
-		if usedSkill then
-			local moreDamage =  usedSkill.skillModList:Sum("BASE", usedSkill.skillCfg, "GeneralsCryMirageWarriorLessDamage")
-			local exertInc = env.modDB:Sum("INC", usedSkill.skillCfg, "ExertIncrease")
-			local exertMore = env.modDB:Sum("MORE", usedSkill.skillCfg, "ExertIncrease")
-			
-			local newSkill, newEnv = calcs.copyActiveSkill(env, calcMode, usedSkill)
-
-			-- Add new modifiers to new skill (which already has all the old skill's modifiers)
-			newSkill.skillModList:NewMod("Damage", "MORE", moreDamage, "将军之吼", activeSkill.ModFlags, activeSkill.KeywordFlags)
-			newSkill.skillModList:NewMod("Damage", "INC", exertInc, "将军之吼增助攻击", activeSkill.ModFlags, activeSkill.KeywordFlags)
-			newSkill.skillModList:NewMod("Damage", "MORE", exertMore, "将军之吼增助攻击", activeSkill.ModFlags, activeSkill.KeywordFlags)
-			local maxMirageWarriors = 0
-			for i, value in ipairs(env.player.mainSkill.skillModList:Tabulate("BASE", env.player.mainSkill.skillCfg, "GeneralsCryDoubleMaxCount")) do
-				local mod = value.mod
-				newSkill.skillModList:NewMod("QuantityMultiplier", "BASE", mod.value, mod.source, activeSkill.ModFlags, activeSkill.KeywordFlags)
-				maxMirageWarriors = maxMirageWarriors + mod.value
-			end
-			-- Non-channeled skills only attack once, disregard attack rate
-			if not usedSkill.skillTypes[SkillType.Channelled] then
-				newSkill.skillData.timeOverride = 1
-			end
-			
-			
-			if usedSkill.skillPartName then
-				activeSkill.skillPart = usedSkill.skillPart
-				env.player.mainSkill.skillPartName = usedSkill.skillPartName
-				env.player.mainSkill.infoMessage2 = usedSkill.activeEffect.grantedEffect.name
-			else
-				activeSkill.skillPartName = usedSkill.activeEffect.grantedEffect.name
-			end
-			
-			-- Recalculate the offensive/defensive aspects of this new skill
-			newEnv.player.mainSkill = newSkill
-			calcs.perform(newEnv)
-			env.player.mainSkill = newSkill
-			
-			activeSkill.infoMessage = tostring(maxMirageWarriors) .. " 蜃影武士使用 " .. usedSkill.activeEffect.grantedEffect.name
-
-
-			-- Re-link over the output
-			env.player.output = newEnv.player.output
-			if newSkill.minion then
-				env.minion = newEnv.player.mainSkill.minion
-				env.minion.output = newEnv.minion.output
-			end
-
-			-- Make any necessary corrections to output
-			-- Don't show attack rate for non-channeled skills
-			if not usedSkill.skillTypes[SkillType.Channelled] then
-				env.player.output.Speed = 0
-			end
-			env.player.output.ManaCost = output.ManaCost
-			env.player.output.Cooldown = output.Cooldown
-
-
-			-- Re-link over the breakdown (if present)
-			if newEnv.player.breakdown then
-				env.player.breakdown = newEnv.player.breakdown
-				if newSkill.minion then
-					env.minion.breakdown = newEnv.minion.breakdown
-				end
-				-- Make any necessary corrections to breakdown
-			end
-
-			-- Copy over original breakdown components (if present)
-			if breakdown then
-				env.player.breakdown.ManaCost = breakdown.ManaCost
-			end
-
-			 
-			usedSkill.TotalDPS = 0
-			usedSkill.CombinedDPS = 0
-		end
-	end
 	-- The Saviour
 	if activeSkill.activeEffect.grantedEffect.name == "反射" then
 		
@@ -4286,21 +4192,19 @@ t_insert(breakdown.DecayDuration, s_format("/ %.2f ^8(更快或较慢 debuff消�
 			end
 			newSkill.skillModList:NewMod("QuantityMultiplier", "BASE", maxMirageWarriors, "【救世者】的蜃影救世者", activeSkill.ModFlags, activeSkill.KeywordFlags)
 			
-			
-
-			if usedSkill.skillPartName then
-				activeSkill.skillPart = usedSkill.skillPart
-				env.player.mainSkill.skillPartName = usedSkill.skillPartName
-				env.player.mainSkill.infoMessage2 = usedSkill.activeEffect.grantedEffect.name
-			else
-				activeSkill.skillPartName = usedSkill.activeEffect.grantedEffect.name
-			end
 			-- Recalculate the offensive/defensive aspects of this new skill
 			newEnv.player.mainSkill = newSkill
 			calcs.perform(newEnv)
 			env.player.mainSkill = newSkill
 			
-			activeSkill.infoMessage = tostring(maxMirageWarriors) .. " 蜃影救世者使用 " .. usedSkill.activeEffect.grantedEffect.name
+			if usedSkill.skillPartName then
+				env.player.mainSkill.skillPart = usedSkill.skillPart
+				env.player.mainSkill.skillPartName = usedSkill.activeEffect.grantedEffect.name .. " " .. usedSkill.skillPartName
+				env.player.mainSkill.infoMessage2 = usedSkill.activeEffect.grantedEffect.name .. " " .. usedSkill.skillPartName
+			else
+				env.player.mainSkill.skillPartName = usedSkill.activeEffect.grantedEffect.name
+			end
+			env.player.mainSkill.infoMessage = tostring(maxMirageWarriors) .. " 蜃影救世者使用 " .. usedSkill.activeEffect.grantedEffect.name
 			
 			-- Re-link over the output
 			env.player.output = newEnv.player.output
