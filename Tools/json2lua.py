@@ -64,5 +64,4 @@ def TestData2Lua(data, lua_file_name, note = ''):
     SaveToLua(data, lua_file_name, note)
 
 if __name__ == "__main__":
-    TestJson2Lua("test1.json", "test1.lua", "i am the note1")
-    TestData2Lua([1, 2, 3, 4, {'a':1, 'b':2}], "test2.lua", "i am the note2")
+    TestJson2Lua("tree.json", "tree.lua", "i am the note1")
