@@ -7,7 +7,7 @@ liveTargetVersion = "3_0"
 -- Skill tree versions
 ---Added for convenient indexing of skill tree versions.
 ---@type string[]
-treeVersionList = { "2_6", "3_6", "3_7", "3_8", "3_9", "3_10", "3_11", "3_12" , "3_13", "3_14", "3_15"}
+treeVersionList = { "2_6", "3_6", "3_7", "3_8", "3_9", "3_10", "3_11", "3_12" , "3_13", "3_14", "3_15", "3_16"}
 --- Always points to the latest skill tree version.
 latestTreeVersion = treeVersionList[#treeVersionList]
 ---Tree version where multiple skill trees per build were introduced to PoBC.
@@ -59,13 +59,20 @@ treeVersions = {
 		display = "3.13（驱灵仪式）",
 		num = 3.13,
 		url = "https://poe.game.qq.com/passive-skill-tree/3.13.0/",
-	},["3_14"] = {
+	},
+	["3_14"] = {
 		display = "3.14（致命贪婪）",
 		num = 3.14,
 		url = "https://poe.game.qq.com/passive-skill-tree/3.14.0/",
-	},["3_15"] = {
+	},
+	["3_15"] = {
 		display = "3.15（先祖秘藏）",
 		num = 3.15,
 		url = "https://poe.game.qq.com/passive-skill-tree/3.15.0/",
+	},
+	["3_16"] = {
+		display = "3.16（异度天灾）",
+		num = 3.16,
+		url = "https://www.pathofexile.com/passive-skill-tree/3.16.0/",
 	},
 }

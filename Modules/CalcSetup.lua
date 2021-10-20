@@ -446,6 +446,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 		
 		modDB:NewMod("Condition:BloodStance", "FLAG", true, "Base", { type = "Condition", var = "SandStance", neg = true })
 		modDB:NewMod("Condition:PrideMinEffect", "FLAG", true, "Base", { type = "Condition", var = "PrideMaxEffect", neg = true })
+		modDB:NewMod("PerBrutalTripleDamageChance", "BASE", 3, "Base")
+		modDB:NewMod("PerAfflictionAilmentDamage", "BASE", 8, "Base")
+		modDB:NewMod("PerAfflictionNonDamageEffect", "BASE", 8, "Base")
+		modDB:NewMod("Multiplier:PerAllocatedNotable", "BASE", env.spec.allocatedNotableCount, "")
+		modDB:NewMod("Multiplier:PerAllocatedMastery", "BASE", env.spec.allocatedMasteryCount, "")
+
 		-- Add bandit mods
 		if build.bandit == "Alira" then
 				modDB:NewMod("ManaRegen", "BASE", 5, "Bandit")
