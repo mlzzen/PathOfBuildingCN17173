@@ -166,11 +166,49 @@ self.controls.saveAs = new("ButtonControl", {"LEFT",self.controls.save,"RIGHT"},
 		end
 	end
 	self.controls.pointDisplay.width = function(control)
-		local used, ascUsed = self.spec:CountAllocNodes()
-		local usedMax = 99 + 22 + (self.calcsTab.mainOutput.ExtraPoints or 0)
-		local ascMax = 8	
-		control.str = string.format("%s%3d / %3d   %s%d / %d", used > usedMax and "^1" or "^7", used, usedMax, ascUsed > ascMax and "^1" or "^7", ascUsed, ascMax)
-		control.req = "需求等级: "..m_max(1, (100 + used - usedMax))
+		local PointsUsed, AscUsed = self.spec:CountAllocNodes()
+		local bandit = self.calcsTab.mainOutput.ExtraPoints or 0 
+		local usedMax, ascMax, levelreq, currentAct, banditStr, labSuggest = 99 + 22 + bandit, 8, 1, 1, "", ""
+		local acts = { 
+			[1] = { level = 1, questPoints = 0 }, 
+			[2] = { level = 12, questPoints = 2 }, 
+			[3] = { level = 22, questPoints = 3 + bandit }, 
+			[4] = { level = 32, questPoints = 5 + bandit },
+			[5] = { level = 40, questPoints = 6 + bandit },
+			[6] = { level = 44, questPoints = 8 + bandit },
+			[7] = { level = 50, questPoints = 11 + bandit },
+			[8] = { level = 54, questPoints = 14 + bandit },
+			[9] = { level = 60, questPoints = 17 + bandit },
+			[10] = { level = 64, questPoints = 19 + bandit },
+			[11] = { level = 67, questPoints = 22 + bandit }
+		}
+				
+		-- loop for how much quest skillpoints are used with the progress
+		while currentAct < 11 and PointsUsed + 1 - acts[currentAct].questPoints > acts[currentAct + 1].level do
+			currentAct = currentAct + 1
+		end
+
+		-- bandits notification; when considered and in calculation after act 2
+		if currentAct <= 2 and bandit ~= 0 then
+			bandit = 0
+		end
+		
+		-- to prevent a negative level at a blank sheet the level requirement will be set dependent on points invested until catched up with quest skillpoints 
+		levelreq = math.max(PointsUsed - acts[currentAct].questPoints + 1, acts[currentAct].level)
+		
+		-- Ascendency points for lab
+		-- this is a recommendation for beginners who are using Path of Building for the first time and trying to map out progress in PoB
+		local labstr = {"\n帝王试炼迷宫 : 帝王迷宫", "\n帝王试炼迷宫: 残酷帝王迷宫", "\n帝王试炼迷宫: 无情帝王迷宫", "\n帝王试炼迷宫: 终极帝王迷宫"}
+		local strAct = "终章"
+		if levelreq >= 33 and levelreq < 55 then labSuggest = labstr[1]
+		elseif levelreq >= 55 and levelreq < 68 then labSuggest = labstr[2]
+		elseif levelreq >= 68 and levelreq < 75 then labSuggest = labstr[3]
+		elseif levelreq >= 75 and levelreq < 90 then labSuggest = labstr[4]
+		elseif levelreq < 90 and currentAct <= 10 then strAct = currentAct end
+		
+		control.str = string.format("%s%3d / %3d   %s%d / %d", PointsUsed > usedMax and "^1" or "^7", PointsUsed, usedMax, AscUsed > ascMax and "^1" or "^7", AscUsed, ascMax)
+		control.req = "需求等级: ".. levelreq .. "\n预估进度:\n章节: ".. strAct .. "\n任务点数: " .. acts[currentAct].questPoints - bandit .. "\n盗贼任务: " .. bandit .. labSuggest
+		
 		return DrawStringWidth(16, "FIXED", control.str) + 8
 	end
 	self.controls.pointDisplay.Draw = function(control)
@@ -224,21 +262,18 @@ self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.pointDis
 			end
 		end
 	end
-	self.controls.classDrop = new("DropDownControl", {"LEFT",self.controls.characterLevel,"RIGHT"}, 8, 0, 200, 20, nil, function(index, value)
+	self.controls.classDrop = new("DropDownControl", {"LEFT",self.controls.characterLevel,"RIGHT"}, 8, 0, 100, 20, nil, function(index, value)
 		if value.classId ~= self.spec.curClassId then
 			if self.spec:CountAllocNodes() == 0 or self.spec:IsClassConnected(value.classId) then
 				self.spec:SelectClass(value.classId)
 				self.spec:AddUndoState()
-				--self.spec:resetAllocTimeJew(); 
-				--self.build.spec:allocTimeJew(); 				
+				self.spec:SetWindowTitleWithBuildClass()
 				self.buildFlag = true
 			else
 main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会重置你目前的天赋树.\n你可以考虑连接当前的天赋点到 "..value.label.."\n这样出门点就不会被重置了。", "继续", function()
 					self.spec:SelectClass(value.classId)
 					self.spec:AddUndoState()
-					--self.spec:resetAllocTimeJew(); 
-					--self.build.spec:allocTimeJew(); 
-				
+					self.spec:SetWindowTitleWithBuildClass()
 					self.buildFlag = true					
 				end)
 			end
@@ -247,6 +282,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 	self.controls.ascendDrop = new("DropDownControl", {"LEFT",self.controls.classDrop,"RIGHT"}, 8, 0, 120, 20, nil, function(index, value)
 		self.spec:SelectAscendClass(value.ascendClassId)
 		self.spec:AddUndoState()
+		self.spec:SetWindowTitleWithBuildClass()
 		self.buildFlag = true
 	end)
 
@@ -348,11 +384,15 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "EnergyShieldRegen", label = "能量护盾回复", fmt = ".1f" },
 		{ stat = "EnergyShieldLeechGainRate", label = "能量护盾偷取/击中回复速率", fmt = ".1f", compPercent = true },
 		{ stat = "EnergyShieldLeechGainPerHit", label = "每次击中能量护盾偷取/击中回复", fmt = ".1f", compPercent = true },
+
+
+		{ },		
 		{ stat = "Evasion", label = "闪避值", fmt = "d", compPercent = true },
 		{ stat = "Spec:EvasionInc", label = "天赋树·闪避值提高", fmt = "d%%" },
 		{ stat = "MeleeEvadeChance", label = "闪避几率", fmt = "d%%", condFunc = function(v,o) return v > 0 and o.MeleeEvadeChance == o.ProjectileEvadeChance end },
 		{ stat = "MeleeEvadeChance", label = "近战闪避几率", fmt = "d%%", condFunc = function(v,o) return v > 0 and o.MeleeEvadeChance ~= o.ProjectileEvadeChance end },
 		{ stat = "ProjectileEvadeChance", label = "投射物闪避几率", fmt = "d%%", condFunc = function(v,o) return v > 0 and o.MeleeEvadeChance ~= o.ProjectileEvadeChance end },
+		{ },
 		{ stat = "Armour", label = "护甲", fmt = "d", compPercent = true },
 		{ stat = "Spec:ArmourInc", label = "天赋树·护甲提高", fmt = "d%%" },
 		{ stat = "PhysicalDamageReduction", label = "物理伤害减伤", fmt = "d%%", condFunc = function() return true end },
@@ -400,7 +440,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 { stat = "ImpaleDPS", label = "穿刺 DPS", fmt = ".1f", compPercent = true, flag = "impale" },
 { stat = "WithImpaleDPS", label = "总DPS（包含穿刺伤害）", fmt = ".1f", compPercent = true, flag = "impale", condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
 	
-{ stat = "Cooldown", label = "技能CD", fmt = ".2fs", lowerIsBetter = true },
+{ stat = "Cooldown", label = "技能冷却", fmt = ".2fs", lowerIsBetter = true },
 { stat = "Life", label = "总生命", fmt = ".1f", compPercent = true },
 { stat = "LifeRegen", label = "生命回复", fmt = ".1f" },
 { stat = "LifeLeechGainRate", label = "生命偷取/击中回复速率", fmt = ".1f", compPercent = true },
@@ -577,10 +617,8 @@ self.controls.mainSkillStageCountLabel = new("LabelControl", {"TOPLEFT",self.con
 	function self.controls.mainSkillMinion.CanReceiveDrag(control, type, value)
 		if type == "Item" and control.list[control.selIndex] and control.list[control.selIndex].itemSetId then
 			local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
-			if mainSocketGroup then 
-				local minionUses = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.grantedEffect.minionUses
-				return minionUses and minionUses[value:GetPrimarySlot()] -- O_O
-			end 
+			local minionUses = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.grantedEffect.minionUses
+			return minionUses and minionUses[value:GetPrimarySlot()] -- O_O
 		end
 	end
 	function self.controls.mainSkillMinion.ReceiveDrag(control, type, value, source)
@@ -611,9 +649,10 @@ self.controls.mainSkillMinionLibrary = new("ButtonControl", {"LEFT",self.control
 		return main.screenH - main.mainBarHeight - 4 - y
 	end
 
-	-- Initialise build components	
-	self.data = data
+	-- Initialise build components
 	self.latestTree = main.tree[latestTreeVersion]
+	data.setJewelRadiiGlobally(latestTreeVersion)
+	self.data = data
 	self.importTab = new("ImportTab", self)
 	self.notesTab = new("NotesTab", self)
 	self.configTab = new("ConfigTab", self)
@@ -739,6 +778,7 @@ function buildMode:GetArgs()
 end
 
 function buildMode:CloseBuild()
+	main:SetWindowTitleSubtext()
 	main:SetMode("LIST", self.dbFileName and self.buildName, self.dbFileSubPath)
 end
 
@@ -879,6 +919,9 @@ function buildMode:OnFrame(inputEvents)
 	if main.decimalSeparator ~= self.lastShowDecimalSeparator then
 		self:RefreshStatList()
 	end
+	if main.showTitlebarName ~= self.lastShowTitlebarName then
+		self.spec:SetWindowTitleWithBuildClass()
+	end
 
 	-- Update contents of main skill dropdowns
 	self:RefreshSkillSelectControls(self.controls, self.mainSocketGroup, "")
@@ -933,8 +976,7 @@ function buildMode:OnFrame(inputEvents)
 	self:DrawControls(main.viewPort)
 end
 
-
--- Opens the game version selection popup
+-- Opens the game version conversion popup
 function buildMode:OpenConversionPopup()
 	local controls = { }
 	local currentVersion = treeVersions[latestTreeVersion].display
@@ -1177,14 +1219,6 @@ function buildMode:FormatStat(statData, statVal, overCapStatVal)
 	self.lastShowDecimalSeparator = main.decimalSeparator
 	self.lastShowTitlebarName = main.showTitlebarName	
 	return valStr
-end
-
-function stringSplit(s, delimiter)
-    result = {};
-    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
-        table.insert(result, match);
-    end
-    return result;
 end
 
 -- Add stat list for given actor
