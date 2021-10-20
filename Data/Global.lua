@@ -59,6 +59,8 @@ colorCodes.STRENGTH = colorCodes.MARAUDER
 colorCodes.DEXTERITY = colorCodes.RANGER
 colorCodes.INTELLIGENCE = colorCodes.WITCH
 
+colorCodes.WARD = colorCodes.WARLORD
+
 ModFlag = { }
 -- Damage modes
 ModFlag.Attack =	 0x00000001

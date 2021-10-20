@@ -341,6 +341,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "NetManaRegen", label = "消减魔力回复", fmt = "+.1f" },
 		{ stat = "NetEnergyShieldRegen", label = "消减魔力回复", fmt = "+.1f" },
 		{ },
+		{ stat = "Ward", label = "结界", color = colorCodes.WARD, fmt = "d", compPercent = true },
 		{ stat = "EnergyShield", label = "能量护盾", fmt = "d", compPercent = true },
 		{ stat = "EnergyShieldRecoveryCap", label = "可回复的能量护盾", fmt = "d", condFunc = function(v,o) return v ~= nil end },
 		{ stat = "Spec:EnergyShieldInc", label = "天赋树·能量护盾提高", fmt = "d%%" },
@@ -1176,6 +1177,14 @@ function buildMode:FormatStat(statData, statVal, overCapStatVal)
 	self.lastShowDecimalSeparator = main.decimalSeparator
 	self.lastShowTitlebarName = main.showTitlebarName	
 	return valStr
+end
+
+function stringSplit(s, delimiter)
+    result = {};
+    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
+        table.insert(result, match);
+    end
+    return result;
 end
 
 -- Add stat list for given actor

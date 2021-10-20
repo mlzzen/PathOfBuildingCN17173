@@ -478,6 +478,7 @@ local modNameList = {
 	["最大能量护盾"] = "EnergyShield", --备注：maximum energy shield
 	["能量护盾的回复速度"] = "EnergyShieldRecharge", --备注：energy shield recharge rate
 	["能量护盾启动回复"] = "EnergyShieldRechargeFaster", --备注：start of energy shield recharge
+	["结界复原速度"] = "WardRechargeFaster",
 	["护甲"] = "Armour", --备注：armour
 	["evasion"] = "Evasion",
 	["闪避值"] = "Evasion", --备注：evasion rating
@@ -4645,6 +4646,7 @@ local specialModList = {
 	["魔力再生率的加快和减慢效果也作用与怒火再生速度"] = { flag("ManaRegenToRageRegen") },
 	["魔力再生率的加快和减慢效果改为作用于怒火再生速度"] = { flag("ManaRegenToRageRegen") },
 	["魔力再生率的增幅与减益效果改为对怒火再生率生效"] = { flag("ManaRegenToRageRegen") },
+	["对最大能量护盾的增强与减弱效果改为作用于结界"] = { flag("EnergyShieldToWard") },
 	["你的感电效果可以提高承受伤害，最大 (%d+)%%"] = function(num) return { mod("ShockMax", "OVERRIDE", num) } end,
 	["你的感电效果所提供的提高承受伤害的效果最高提高 (%d+)%%"] = function(num) return { mod("ShockMax", "OVERRIDE", num) } end,
 	["如同额外造成 (%d+)%% 总伤害来计算感电门槛"] = function(num) return { mod("ShockAsThoughDealing", "MORE", num) } end,
@@ -5057,6 +5059,7 @@ local specialModList = {
 	mod("Armour", "MORE", -100),
 	mod("EnergyShield", "MORE", -100),
 	mod("Evasion", "MORE", -100),
+	mod("Ward", "MORE", -100),
 	},
 	["物理神盾没有消散时，周围敌人会目盲"] = { mod("EnemyModifier", "LIST", { mod = mod("Condition:Blinded", "FLAG", true) }, { type = "Condition", var = "PhysicalAegisDepleted", neg = true }) },
 	["你至少有 (%d+) 点怒火时免疫诅咒"] = function(num) return { mod("AvoidCurse", "BASE", 100, { type = "MultiplierThreshold", var = "Rage", threshold = num }) } end,

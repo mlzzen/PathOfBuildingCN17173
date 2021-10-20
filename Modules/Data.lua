@@ -71,6 +71,9 @@ local typeLabel = {
 {en="Jewel: Timeless",cn="珠宝: 永恒珠宝"},
 {en="Staff: Warstaff",cn="长杖: 战斗长杖"},
 {en="Helmet",cn="头盔: 特殊"},
+{en="Boots: Ward",cn="鞋子: 结界"},
+{en="Gloves: Ward",cn="手套: 结界"},
+{en="Helmet: Ward",cn="头盔: 结界"},
 }
 
 -- 一些特殊技能有特殊等级
@@ -175,6 +178,7 @@ data.powerStatList = {
 	{ stat="Mana", label="魔力" },
 	{ stat="ManaRegen", label="魔力回复" },
 	{ stat="ManaLeechRate", label="魔力偷取" },
+	{ stat="Ward", label="结界" },
 	{ stat="Str", label="力量" },
 	{ stat="Dex", label="敏捷" },
 	{ stat="Int", label="智力" },

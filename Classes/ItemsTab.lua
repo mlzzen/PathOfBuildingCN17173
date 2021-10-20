@@ -2858,6 +2858,9 @@ tooltip:AddLine(16, s_format("^x7F7F7F闪避: %s%d", main:StatColor(armourData.E
 		end
 		if armourData.EnergyShield > 0 then
 tooltip:AddLine(16, s_format("^x7F7F7F能量护盾: %s%d", main:StatColor(armourData.EnergyShield, base.armour.EnergyShieldBase), armourData.EnergyShield))
+		end		
+		if armourData.Ward > 0 then
+			tooltip:AddLine(16, s_format("^x7F7F7F结界: %s%d", main:StatColor(armourData.Ward, base.armour.WardBase), armourData.Ward))
 		end
 	elseif base and base.flask then
 		-- Flask-specific info
