@@ -221,9 +221,9 @@ end
 
 data.jewelRadii = {
 	["3_15"] = {
-		{ inner = 0, outer = 800, col = "^xBB6600", label = "Small" },
-		{ inner = 0, outer = 1200, col = "^x66FFCC", label = "Medium" },
-		{ inner = 0, outer = 1500, col = "^x2222CC", label = "Large" },
+		{ inner = 0, outer = 800, col = "^xBB6600", label = "小" },
+		{ inner = 0, outer = 1200, col = "^x66FFCC", label = "中" },
+		{ inner = 0, outer = 1500, col = "^x2222CC", label = "大" },
 
 		{ inner = 850, outer = 1100, col = "^xD35400", label = "Variable" },
 		{ inner = 1150, outer = 1400, col = "^x66FFCC", label = "Variable" },
@@ -231,9 +231,9 @@ data.jewelRadii = {
 		{ inner = 1750, outer = 2000, col = "^xC100FF", label = "Variable" },
 	},
 	["3_16"] = {
-		{ inner = 0, outer = 960, col = "^xBB6600", label = "Small" },
-		{ inner = 0, outer = 1440, col = "^x66FFCC", label = "Medium" },
-		{ inner = 0, outer = 1800, col = "^x2222CC", label = "Large" },
+		{ inner = 0, outer = 960, col = "^xBB6600", label = "小" },
+		{ inner = 0, outer = 1440, col = "^x66FFCC", label = "中" },
+		{ inner = 0, outer = 1800, col = "^x2222CC", label = "大" },
 
 		{ inner = 960, outer = 1320, col = "^xD35400", label = "Variable" },
 		{ inner = 1320, outer = 1680, col = "^x66FFCC", label = "Variable" },
