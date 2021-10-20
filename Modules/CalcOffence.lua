@@ -721,18 +721,20 @@ output.ChainMaxString = "无法连锁"
 		end
 	end
 	if activeSkill.skillTypes[SkillType.ManaCostReserved] then
-		output.ManaReservedMod = calcLib.mod(skillModList, skillCfg, "ManaReserved", "Reserved") * calcLib.mod(skillModList, skillCfg, "SupportManaMultiplier") / calcLib.mod(skillModList, skillCfg, "ManaReservationEfficiency", "ReservationEfficiency")
-		if breakdown then
-			breakdown.ManaReservedMod = breakdown.mod(skillModList, skillCfg, "ManaReserved", "Reserved", "SupportManaMultiplier")
-			breakdown.ManaReservedMod[3] = s_format("/ %.2f ^8(reservation efficiency)", calcLib.mod(skillModList, skillCfg, "ManaReservationEfficiency", "ReservationEfficiency"))
-			breakdown.ManaReservedMod[4] = s_format("= %.2f", output.ManaReservedMod)
-		end
-		output.LifeReservedMod = calcLib.mod(skillModList, skillCfg, "LifeReserved", "Reserved") * calcLib.mod(skillModList, skillCfg, "SupportManaMultiplier")
-		output.LifeReservedMod = calcLib.mod(skillModList, skillCfg, "LifeReserved", "Reserved") * calcLib.mod(skillModList, skillCfg, "SupportManaMultiplier") / calcLib.mod(skillModList, skillCfg, "LifeReservationEfficiency", "ReservationEfficiency")
-		if breakdown then
-			breakdown.LifeReservedMod = breakdown.mod(skillModList, skillCfg, "LifeReserved", "Reserved", "SupportManaMultiplier")
-			breakdown.LifeReservedMod[3] = s_format("/ %.2f ^8(reservation efficiency)", calcLib.mod(skillModList, skillCfg, "LifeReservationEfficiency", "ReservationEfficiency"))
-			breakdown.LifeReservedMod[4] = s_format("= %.2f", output.LifeReservedMod)
+		for _, pool in ipairs({"Life", "Mana"}) do
+			output[pool .. "ReservedMod"] = calcLib.mod(skillModList, skillCfg, pool .. "Reserved", "Reserved") * calcLib.mod(skillModList, skillCfg, "SupportManaMultiplier") / calcLib.mod(skillModList, skillCfg, pool .. "ReservationEfficiency", "ReservationEfficiency")
+			if breakdown then
+				local inc = skillModList:Sum("INC", skillCfg, pool .. "Reserved", "Reserved", "SupportManaMultiplier")
+				local more = skillModList:More(skillCfg, pool .. "Reserved", "Reserved", "SupportManaMultiplier")
+				if inc ~= 0 and more ~= 1 then
+					breakdown[pool .. "ReservedMod"] = {
+						s_format("%.2f ^8(increased/reduced)", 1 + inc/100),
+						s_format("x %.2f ^8(more/less)", more),
+						s_format("/ %.2f ^8(reservation efficiency)", calcLib.mod(skillModList, skillCfg, pool .. "ReservationEfficiency", "ReservationEfficiency")),
+						s_format("= %.2f", output[pool .. "ReservedMod"]),
+					}
+				end
+			end
 		end
 	end
 	if activeSkill.skillTypes[SkillType.Hex] or activeSkill.skillTypes[SkillType.Mark]then
@@ -902,6 +904,55 @@ total = s_format("= %.2f ^8每秒", output.MineLayingSpeed),
 	end
 	if skillFlags.warcry then
 		output.WarcryCastTime = calcWarcryCastTime(skillModList, skillCfg, actor)
+	end
+	-- General's Cry
+	if skillData.triggeredByGeneralsCry then
+		local mirageActiveSkill = nil
+
+		-- Find the active General's Cry gem to get active properties
+		for _, skill in ipairs(actor.activeSkillList) do
+			if skill.activeEffect.grantedEffect.name == "将军之吼" and actor.mainSkill.socketGroup.slot == activeSkill.socketGroup.slot then
+				mirageActiveSkill = skill
+				break
+			end
+		end
+
+		if mirageActiveSkill then
+			local cooldown = calcSkillCooldown(mirageActiveSkill.skillModList, mirageActiveSkill.skillCfg, mirageActiveSkill.skillData)
+
+			-- Non-channelled skills only attack once, disregard attack rate
+			if not activeSkill.skillTypes[SkillType.Channelled] then
+				skillData.timeOverride = 1
+			end
+
+			-- Supported Attacks Count as Exerted	
+			for _, value in ipairs(env.modDB:Tabulate("INC", skillCfg, "ExertIncrease")) do
+				local mod = value.mod
+				skillModList:NewMod("Damage", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags)
+			end
+			for _, value in ipairs(env.modDB:Tabulate("MORE", skillCfg, "ExertIncrease")) do
+				local mod = value.mod
+				skillModList:NewMod("Damage", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags)
+			end
+			for _, value in ipairs(env.modDB:Tabulate("BASE", skillCfg, "ExertDoubleDamageChance")) do
+				local mod = value.mod
+				skillModList:NewMod("DoubleDamageChance", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags)
+			end
+			local maxMirageWarriors = 0
+			for _, value in ipairs(mirageActiveSkill.skillModList:Tabulate("BASE", skillCfg, "GeneralsCryDoubleMaxCount")) do
+				local mod = value.mod
+				skillModList:NewMod("QuantityMultiplier", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags)
+				maxMirageWarriors = maxMirageWarriors + mod.value
+			end
+			env.player.mainSkill.infoMessage = tostring(maxMirageWarriors) .. " 将军之吼蜃影武士使用 " .. activeSkill.activeEffect.grantedEffect.name
+
+			-- Scale dps with GC's cooldown
+			if skillData.dpsMultiplier then
+				skillData.dpsMultiplier = skillData.dpsMultiplier * (1 / cooldown)
+			else
+				skillData.dpsMultiplier = 1 / cooldown
+			end
+		end
 	end
 
 	 

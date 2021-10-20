@@ -2420,102 +2420,6 @@ function calcs.perform(env, avoidCache)
 			env.player.mainSkill.infoMessage2 = "未发现幻影射手可用技能"
 		end
  	end
-	-- General's Cry Support
-	-- This creates and populates env.player.mainSkill.mirage table
-	if env.player.mainSkill.skillData.triggeredByGeneralsCry and not env.player.mainSkill.skillFlags.minion and not env.player.mainSkill.marked then
-		local usedSkill = nil
-		local mirageActiveSkill = nil
-		local uuid = cacheSkillUUID(env.player.mainSkill)
-		local calcMode = env.mode == "CALCS" and "CALCS" or "MAIN"
-
-		-- cache a new copy of this skill that's affected by General's Cry
-		if avoidCache then
-			usedSkill = env.player.mainSkill
-			env.dontCache = true
-		else
-			if not GlobalCache.cachedData[calcMode][uuid] then
-				calcs.buildActiveSkill(env, calcMode, env.player.mainSkill, true)
-			end
-
-			if GlobalCache.cachedData[calcMode][uuid] and not avoidCache then
-				usedSkill = GlobalCache.cachedData[calcMode][uuid].ActiveSkill
-			end
-		end
-
-		-- find the active General's Cry gem to get active properties
-		for _, activeSkill in ipairs(env.player.activeSkillList) do
-			if activeSkill.activeEffect.grantedEffect.name == "将军之吼" and env.player.mainSkill.socketGroup.slot == activeSkill.socketGroup.slot then
-				mirageActiveSkill = activeSkill
-				break
-			end
-		end
-
-		if usedSkill then
-			local moreDamage = usedSkill.skillModList:Sum("BASE", usedSkill.skillCfg, "GeneralsCryMirageWarriorLessDamage")
-			local exertInc = env.modDB:Sum("INC", usedSkill.skillCfg, "ExertIncrease")
-			local exertMore = env.modDB:Sum("MORE", usedSkill.skillCfg, "ExertIncrease")
-
-			local newSkill, newEnv = calcs.copyActiveSkill(env, calcMode, usedSkill)
-
-			-- Add new modifiers to new skill (which already has all the old skill's modifiers)
-			newSkill.skillModList:NewMod("Damage", "MORE", moreDamage, "将军之吼", env.player.mainSkill.ModFlags, env.player.mainSkill.KeywordFlags)
-			newSkill.skillModList:NewMod("Damage", "INC", exertInc, "将军之吼增助攻击", env.player.mainSkill.ModFlags, env.player.mainSkill.KeywordFlags)
-			newSkill.skillModList:NewMod("Damage", "MORE", exertMore, "将军之吼增助攻击", env.player.mainSkill.ModFlags, env.player.mainSkill.KeywordFlags)
-			local maxMirageWarriors = 0
-			if mirageActiveSkill then
-				for i, value in ipairs(mirageActiveSkill.skillModList:Tabulate("BASE", env.player.mainSkill.skillCfg, "GeneralsCryDoubleMaxCount")) do
-					local mod = value.mod
-					maxMirageWarriors = maxMirageWarriors + mod.value
-				end
-			end
-			maxMirageWarriors = m_max(maxMirageWarriors, 1)
-
-			env.player.mainSkill.mirage = { }
-			env.player.mainSkill.mirage.count = maxMirageWarriors
-			env.player.mainSkill.mirage.name = usedSkill.activeEffect.grantedEffect.name
-
-			if usedSkill.skillPartName then
-				env.player.mainSkill.mirage.skillPart = usedSkill.skillPart
-				env.player.mainSkill.mirage.skillPartName = usedSkill.skillPartName
-				env.player.mainSkill.mirage.infoMessage2 = usedSkill.activeEffect.grantedEffect.name
-			else
-				env.player.mainSkill.mirage.skillPartName = nil
-			end
-			env.player.mainSkill.mirage.infoTrigger = "将军之吼"
-
-			-- Recalculate the offensive/defensive aspects of the Mirage Warrior influence on skill
-			newEnv.player.mainSkill = newSkill
-			-- mark it so we don't recurse infinitely
-			newSkill.marked = true
-			newEnv.dontCache = true
-			calcs.perform(newEnv)
-
-			env.player.mainSkill.infoMessage = tostring(maxMirageWarriors) .. " 将军之吼蜃影武士使用 " .. usedSkill.activeEffect.grantedEffect.name
-
-			-- Re-link over the output
-			env.player.mainSkill.mirage.output = newEnv.player.output
-
-			if newSkill.minion then
-				env.player.mainSkill.mirage.minion = {}
-				env.player.mainSkill.mirage.minion.output = newEnv.minion.output
-			end
-
-			-- Make any necessary corrections to output
-			env.player.mainSkill.mirage.output.ManaCost = 0
-
-			if newEnv.player.breakdown then
-				env.player.mainSkill.mirage.breakdown = newEnv.player.breakdown
-				-- Make any necessary corrections to breakdown
-				env.player.mainSkill.mirage.breakdown.ManaCost = nil
-				if newSkill.minion then
-					env.player.mainSkill.mirage.minion.breakdown = newEnv.minion.breakdown
-				end
-			end
-		else
-			env.player.mainSkill.infoMessage2 = "未发现将军之吼可用技能"
-		end
-	end
-
 -- Kitava's Thirst
 		if env.player.mainSkill.skillData.triggeredByManaSpent and not env.player.mainSkill.skillFlags.minion then
 			local triggerName = "奇塔弗之渴望"
@@ -3083,32 +2987,8 @@ function calcs.perform(env, avoidCache)
 	end
 
 	local uuid = cacheSkillUUID(env.player.mainSkill)
-	if not GlobalCache.cachedData[uuid] and not env.dontCache then
-		GlobalCache.cachedData[uuid] = {
-			Name = env.player.mainSkill.activeEffect.grantedEffect.name,
-			Speed = env.player.output.Speed,
-			HitChance = env.player.output.HitChance,
-			PreEffectiveCritChance = env.player.output.PreEffectiveCritChance,
-			CritChance = env.player.output.CritChance,
-			ActiveSkill = env.player.mainSkill,
-			Env = env,
-		}
-	end
-	if env.minion then
-		calcs.defence(env, env.minion)
-		calcs.offence(env, env.minion, env.minion.mainSkill)
-		uuid = cacheSkillUUID(env.player.mainSkill)
-		if not GlobalCache.cachedData[uuid].Minion and not env.dontCache then
-			GlobalCache.cachedData[uuid].Minion = {
-				Name = env.minion.mainSkill.activeEffect.grantedEffect.name,
-				Speed = env.minion.output.Speed,
-				HitChance = env.minion.output.HitChance,
-				PreEffectiveCritChance = env.minion.output.PreEffectiveCritChance,
-				CritChance = env.minion.output.CritChance,
-				ActiveSkill = env.minion.mainSkill,
-				Env = env.minion,
-			}
-		end
+	if not env.dontCache then
+		cacheData(uuid, env)
 	end
 	
 	

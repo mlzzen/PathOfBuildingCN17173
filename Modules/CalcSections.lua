@@ -568,7 +568,10 @@ return {
 	}, },
 
 { label = "召唤生物最大数量", haveOutput = "ActiveMinionLimit", { format = "{0:output:ActiveMinionLimit}",
-{ label = "数量加成", haveOutput = "QuantityMultiplier", { format = "{0:output:QuantityMultiplier}", { modName = "QuantityMultiplier", cfg = "skill" }, }, },
+{ label = "数量加成", haveOutput = "QuantityMultiplier", { format = "{0:output:QuantityMultiplier}",
+{ breakdown = "QuantityMultiplier" },
+{ modName = { "QuantityMultiplier" }, cfg = "skill" },
+}, },
 
 { breakdown = "ActiveMinionLimit" }, 
 
