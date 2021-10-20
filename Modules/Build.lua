@@ -396,6 +396,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "Armour", label = "护甲", fmt = "d", compPercent = true },
 		{ stat = "Spec:ArmourInc", label = "天赋树·护甲提高", fmt = "d%%" },
 		{ stat = "PhysicalDamageReduction", label = "物理伤害减伤", fmt = "d%%", condFunc = function() return true end },
+		{ },
 		{ stat = "EffectiveMovementSpeedMod", label = "移动速度加成", fmt = "+d%%", mod = true, condFunc = function() return true end },
 		{ stat = "BlockChance", label = "攻击格挡几率", fmt = "d%%", overCapStat = "BlockChanceOverCap" },
 		{ stat = "SpellBlockChance", label = "法术格挡几率", fmt = "d%%", overCapStat = "SpellBlockChanceOverCap" },
