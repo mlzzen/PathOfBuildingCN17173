@@ -176,6 +176,15 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	local igniteSource = ""
 	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
 		if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS and not isExcludedFromFullDps(activeSkill) then
+			local uuid = cacheSkillUUID(activeSkill)
+			if GlobalCache.cachedData[uuid] and not override then
+				usedEnv = GlobalCache.cachedData[uuid].Env
+				activeSkill = usedEnv.player.mainSkill
+			else
+				fullEnv.player.mainSkill = activeSkill
+				calcs.perform(fullEnv)
+				usedEnv = fullEnv
+			end
 			local activeSkillCount, enabled = getActiveSkillCount(activeSkill)
 			if enabled then
 				local cacheData = getCachedData(activeSkill, mode)
