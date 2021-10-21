@@ -6,6 +6,16 @@
 local ipairs = ipairs
 local s_format = string.format
 
+local classNameMap = {
+	决斗者 = "Duelist",
+	野蛮人 = "Marauder",
+	游侠 = "Ranger",
+	贵族 = "Scion",
+	暗影 = "Shadow",
+	圣堂武僧 = "Templar",
+	女巫 = "Witch",
+}
+
 local BuildListClass = newClass("BuildListControl", "ListControl", function(self, anchor, x, y, width, height, listMode)
 	self.ListControl(anchor, x, y, width, height, 20, false, false, listMode.list)
 	self.listMode = listMode
@@ -175,8 +185,15 @@ function BuildListClass:GetRowValue(column, index, build)
 		end
 	elseif column == 2 then
 		if build.buildName then
-return s_format("%s等级 %d %s", 
-				build.className and colorCodes[build.className:upper()] or "^7", 
+			local textColor = nil
+			if classNameMap[build.className] then
+				local classNameEN = classNameMap[build.className]
+				textColor = colorCodes[classNameEN:upper()]
+			else
+				textColor = colorCodes[build.className:upper()]
+			end
+			return s_format("%s等级 %d %s", 
+				build.className and textColor or "^7", 
 				build.level or 1, 
 				(build.ascendClassName ~= "None" and build.ascendClassName) or build.className or "?"
 			)
