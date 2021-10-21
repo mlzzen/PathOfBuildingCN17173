@@ -478,6 +478,7 @@ local modNameList = {
 	["最大能量护盾"] = "EnergyShield", --备注：maximum energy shield
 	["能量护盾的回复速度"] = "EnergyShieldRecharge", --备注：energy shield recharge rate
 	["能量护盾启动回复"] = "EnergyShieldRechargeFaster", --备注：start of energy shield recharge
+	["结界"] = "Ward", --备注：energy shield
 	["结界复原速度"] = "WardRechargeFaster",
 	["护甲"] = "Armour", --备注：armour
 	["evasion"] = "Evasion",
@@ -771,6 +772,8 @@ local modNameList = {
 	["敌人受到的元素异常状态时间"] = { "EnemyShockDuration", "EnemyFreezeDuration", "EnemyChillDuration", "EnemyIgniteDuration" , "EnemyScorchDuration", "EnemyBrittleDuration", "EnemySapDuration" }, --备注：duration of elemental ailments
 	["duration of elemental status ailments"] = { "EnemyShockDuration", "EnemyFreezeDuration", "EnemyChillDuration", "EnemyIgniteDuration" , "EnemyScorchDuration", "EnemyBrittleDuration", "EnemySapDuration" },
 	["duration of ailments"] = { "EnemyShockDuration", "EnemyFreezeDuration", "EnemyChillDuration", "EnemyIgniteDuration", "EnemyPoisonDuration", "EnemyBleedDuration" , "EnemyScorchDuration", "EnemyBrittleDuration", "EnemySapDuration" },
+	["你施加的非伤害型异常状态效果"] = { "EnemyShockEffect", "EnemyChillEffect", "EnemyFreezeEffect", "EnemyScorchEffect", "EnemyBrittleEffect", "EnemySapEffect" },
+	["非伤害型异常状态效果"] = { "EnemyShockEffect", "EnemyChillEffect", "EnemyFreezeEffect", "EnemyScorchEffect", "EnemyBrittleEffect", "EnemySapEffect" },
 	-- Other ailments
 	["to poison"] = "PoisonChance",
 	["to cause poison"] = "PoisonChance",
@@ -817,6 +820,7 @@ local modNameList = {
 	["药剂充能使用"] = "FlaskChargesUsed", --备注：flask charges used
 	["药剂充能获取"] = "FlaskChargesGained", --备注：flask charges gained
 	["充能回复"] = "FlaskChargeRecovery", --备注：charge recovery
+	["充能回复量"] = "FlaskChargeRecovery", --备注：charge recovery
 }
 
 -- List of modifier flags
@@ -1272,6 +1276,8 @@ local modTagList = {
 	["每个狂怒球附加"] = { tag = { type = "Multiplier", var = "FrenzyCharge" } }, --备注：per frenzy charge
 	["每拥有 1 个狂怒球，"] = { tag = { type = "Multiplier", var = "FrenzyCharge" } }, --备注：per frenzy charge
 	["每个狂怒球会使"] = { tag = { type = "Multiplier", var = "FrenzyCharge" } }, --备注：per frenzy charge
+	["每个狂怒球使"] = { tag = { type = "Multiplier", var = "FrenzyCharge" } }, --备注：per frenzy charge
+	["每个狂怒球都使"] = { tag = { type = "Multiplier", var = "FrenzyCharge" } }, --备注：per frenzy charge
 	["若过去 8 秒内你打出过暴击，则"] = { tag = { type = "Condition", var = "CritInPast8Sec" } },
 	["耐力球达到上限时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", thresholdStat = "EnduranceChargesMax" } }, --备注：while at maximum endurance charges
 	["护体时"] = { tag = { type = "Condition", var = "Fortify" } }, --备注：while you have fortify	
@@ -1717,6 +1723,7 @@ local modTagList = {
 	["使用药剂时"] = { tag = { type = "Condition", var = "UsingFlask" } }, --备注：while using a flask
 	["during effect"] = { tag = { type = "Condition", var = "UsingFlask" } },
 	["药剂生效期间，"] = { tag = { type = "Condition", var = "UsingFlask" } }, --备注：during flask effect
+	["药剂生效期间"] = { tag = { type = "Condition", var = "UsingFlask" } }, --备注：during flask effect
 	["药剂持续期间，"] = { tag = { type = "Condition", var = "UsingFlask" } }, --备注：during any flask effect
 	["在奉献地面上时"] = { tag = { type = "Condition", var = "OnConsecratedGround" } }, --备注：while on consecrated ground
 	["在燃烧地面上的"] = { tag = { type = "Condition", var = "OnBurningGround" } }, --备注：on burning ground
@@ -2663,6 +2670,14 @@ local specialModList = {
 	mod("EnemyBrittleEffect", "INC", num),
 	mod("EnemySapEffect", "INC", num),
 	} end,
+	["你施加的非伤害型异常状态效果提高 (%d+)%%"] = function(num) return {
+		mod("EnemyShockEffect", "INC", num) ,
+		mod("EnemyChillEffect", "INC", num) ,
+		mod("EnemyFreezeEffect", "INC", num) ,
+		mod("EnemyScorchEffect", "INC", num),
+		mod("EnemyBrittleEffect", "INC", num),
+		mod("EnemySapEffect", "INC", num),
+	} end,
 	["周围友军伤害提高 (%d+)%%"]  = function(num) return { mod("ExtraAura", "LIST",{ mod =mod("Damage", "INC", num), onlyAllies = true} )} end,
 	["周围友军获得每秒回复 ([%d%.]+)%% 生命"] = function(num) return { mod("ExtraAura", "LIST",{ mod =mod("LifeRegenPercent", "BASE", num), onlyAllies = true} )} end,
 	["周围友军获得 (%d+)%% 魔力回复"]  = function(num) return { mod("ExtraAura", "LIST",{ mod =mod("ManaRegen", "INC", num), onlyAllies = true} )} end,
@@ -3549,6 +3564,10 @@ local specialModList = {
 	["你若过去 8 秒内使用过战吼，则有 (%d+)%% 几率造成双倍伤害"]= function(num) return { mod("DoubleDamageChance", "BASE", num, { type = "Condition", var = "UsedWarcryInPast8Seconds" } ) } end,
 	["你若过去 8 秒内使用过战吼，则有 (%d+)%% 的几率造成双倍伤害"]= function(num) return { mod("DoubleDamageChance", "BASE", num, { type = "Condition", var = "UsedWarcryInPast8Seconds" } ) } end,
 	["投射物的伤害随着飞行距离提升，击中目标时最多提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num, nil, bor(ModFlag.Attack, ModFlag.Projectile), { type = "DistanceRamp", ramp = {{35,0},{70,1}} }) } end,
+	["获得附加混沌伤害，等于结界的 (%d+)%%"] = function(num) return {
+		mod("ChaosMin", "BASE", 1, { type = "PerStat", stat = "Ward", div = 100 / num }),
+		mod("ChaosMax", "BASE", 1, { type = "PerStat", stat = "Ward", div = 100 / num }),
+	}  end,
 	["当你没有获得【霸体】时，获得【远射】"] = { flag("FarShot", { type = "Condition", var = "Have霸体Keystone" ,neg = true}) },
 	["当你获得【霸体】时，近距离用弓击中后的总伤害额外提高 (%d+)%%"] = function(num) return {
 	mod("Damage", "MORE", num,nil,ModFlag.Hit, { type = "Condition", var = "AtCloseRange" }, { type = "Condition", var = "Have霸体Keystone"})
@@ -4793,6 +4812,9 @@ local specialModList = {
 	["药剂效果的持续时间延长 (%d+)%%"] = function(num) return {
 	mod("FlaskDuration", "INC", num )
 	} end,
+	["生效时间延长 (%d+)%%"] = function(num) return {
+	mod("FlaskDuration", "INC", num )
+	} end,
 	["非药剂效果持续时间，移动速度提高 (%d+)%%"] = function(num) return {
 	mod("MovementSpeed", "INC", num, { type = "Condition", var = "UsingFlask" , neg = true} )
 	} end,
@@ -4985,6 +5007,11 @@ local specialModList = {
 	["若你近期内获得过暴击球，则暴击伤害加成 ([%+%-]?%d+)%%"]= function(num) return {  mod("CritMultiplier", "BASE", num, { type = "StatThreshold", stat = "PowerCharges", threshold = 1 })  } end,
 	["暴击球总持续时间额外缩短 (%d+)%%"]= function(num) return {  mod("PowerChargesDuration", "MORE", -num)  } end,
 	["暴击球总持续时间额外缩短 (%d+)%%"]= function(num) return {  mod("PowerChargesDuration", "MORE", -num)  } end,
+	["使用时对周围敌人施加火焰、冰霜和闪电曝露"] = {
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10) }, { type = "Condition", var = "Effective" }, { type = "Condition", var = "UsingFlask" }),
+	},
 	["【迷踪】状态下，附近的敌人获得火焰、冰霜、闪电曝露，并使它们的抗性 %-(%d+)%%"] = function(num) return {
 	mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -num) }, { type = "Condition", var = "Phasing" } ),
 	mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -num) }, { type = "Condition", var = "Phasing" } ),
@@ -5697,6 +5724,7 @@ local specialModList = {
 	["血量低于 (%d+)%% 的敌人被你的技能击中时，会直接被终结"] = function(num) return { mod("CullPercent", "MAX", num) } end,
 	-- Culling
 	["终结"] = { mod("CullPercent", "MAX", 10)},
+	["拥有终结效果"] = { mod("CullPercent", "MAX", 10)},
 	["该武器击中流血敌人时会获得【终结】效果"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Bleeding" })},
 	["你可以【终结】被诅咒的敌人"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Cursed" })},
 	["对被诅咒的敌人有【终结】效果"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Cursed" })},
@@ -6697,6 +6725,13 @@ minus = -tonumber(minus)
 	["每次剩余连锁都使投射物的击中和异常状态伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,0,bor(KeywordFlag.Hit, KeywordFlag.Ailment) , { type = "PerStat", stat = "ChainRemaining" }) } end,
 	["(.+)的诅咒效果提高 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("CurseEffect", "INC", num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
 	["【(.+)】的诅咒效果提高 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("CurseEffect", "INC", num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
+	["每个狂怒球使流血 ([%+%-]?%d+)%% 持续伤害加成"]= function(num) return {
+		mod( "DotMultiplier","BASE", num, nil, nil, KeywordFlag.Bleed, { type = "Multiplier", var = "FrenzyCharge" } )
+	} end,
+	["每个狂怒球都使你施加的流血伤害生效速度加快 (%d+)%%"]= function(num) return {
+		mod("BleedFaster", "INC", num, { type = "Multiplier", var = "FrenzyCharge" } )
+	} end,
+	["药剂生效期间拥有终结效果"] = function(num) return { mod("CullPercent", "MAX", 10, { type = "Condition", var = "UsingFlask" })} end,
 
 	-- 3.16
 	["可以有 (%d+) 个额外附魔词缀"] = { },
