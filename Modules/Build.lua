@@ -1212,7 +1212,7 @@ function buildMode:FormatStat(statData, statVal, overCapStatVal)
 	valStr = color .. formatNumSep(valStr)
 
 	if overCapStatVal and overCapStatVal > 0 then
-		valStr = valStr .. "^x808080" .. " (+" .. overCapStatVal .. "%)"
+		valStr = valStr .. "^x808080" .. " (+" .. s_format("%"..statData.fmt, overCapStatVal) .. ")"
 	end
 
 	self.lastShowThousandsSeparators = main.showThousandsSeparators
