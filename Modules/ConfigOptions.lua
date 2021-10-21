@@ -1281,6 +1281,9 @@ tooltip = "精疲力尽的敌人总伤害额外降低，最多降低 20%.", appl
 		enemyModList:NewMod("Condition:Intimidated", "FLAG", true, "Config", { type = "Condition", var = "Effective" })	
 			
 	end },
+{ var = "conditionNearLinkedTarget", type = "check", label = "敌人在你的链接目标附近?", ifEnemyCond = "NearLinkedTarget", apply = function(val, modList, enemyModList)
+	enemyModList:NewMod("Condition:NearLinkedTarget", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+end },
 { var = "conditionEnemyUnnerved", type = "check",  label = "敌人被恐惧?", tooltip = "这个会附加词缀:\n提高 10% 敌人承受的法术伤害", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Unnerved", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
