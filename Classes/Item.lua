@@ -13,8 +13,6 @@ local m_floor = math.floor
 
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}--这个不要处理
 
-local influenceInfo = itemLib.influenceInfo
-
 local catalystList = {"研磨催化剂","加速催化剂", "丰沃催化剂", "灌注催化剂", "内在催化剂", "有害催化剂","棱光催化剂", "回火催化剂", "猛烈催化剂", "不稳定的催化剂"}
 local catalystTags = {
 	{ "attack" },
@@ -52,8 +50,10 @@ local function getCatalystScalar(catalystId, tags, quality)
 	return 1
 end
 
+local influenceInfo = itemLib.influenceInfo
+
+
 local ItemClass = newClass("Item", function(self,  raw)
-	
 	if raw and raw~=nil then
 		self:ParseRaw(itemLib.sanitiseItemText(raw))--self:ParseRaw(itemLib.sanitiseItemText(raw))
 	end	
@@ -163,6 +163,7 @@ if self.rarity == "普通" or self.rarity == "魔法" then
 	self.sockets = { }
 	self.buffModLines = { }
 	self.enchantModLines = { }
+	self.scourgeModLines = { }
 	self.implicitModLines = { }
 	self.explicitModLines = { }
 	local implicitLines = 0
@@ -353,6 +354,8 @@ elseif specName == "联盟" then
 					self.league = specVal
 elseif specName == "工艺" then
 					self.crafted = true
+				elseif specName == "灾魇" then
+					self.scourge = true
 elseif specName == "前缀" then
 					local range, affix = specVal:match("{range:([%d.]+)}(.+)")
 					t_insert(self.prefixes, {
@@ -430,15 +433,16 @@ local varSpec = line:match("{variant:([%d,]+)}")
 						variantList[tonumber(varId)] = true
 					end
 				end
-local fractured = line:match("{fractured}") or line:match(" %(fractured%)")
-local rangeSpec = line:match("{range:([%d.]+)}")
+				local fractured = line:match("{fractured}") or line:match(" %(fractured%)")
+				local rangeSpec = line:match("{range:([%d.]+)}")
 
-local enchant = line:match(" %(enchant%)")
-local crafted = line:match("{crafted}") or line:match(" %(crafted%)") or enchant
+				local enchant = line:match(" %(enchant%)")
+				local scourge = line:match("{scourge}") or line:match(" %(scourge%)")
+				local crafted = line:match("{crafted}") or line:match(" %(crafted%)") or enchant
 
 
-local custom = line:match("{custom}")
-local modTagsText = line:match("{tags:([^}]*)}") or ''
+				local custom = line:match("{custom}")
+				local modTagsText = line:match("{tags:([^}]*)}") or ''
 
 				local modTags = {}
 			
@@ -453,7 +457,7 @@ local modTagsText = line:match("{tags:([^}]*)}") or ''
 					foundImplicit = true
 					gameModeStage = "IMPLICIT"
 				end				
-				line = line:gsub("%b{}", ""):gsub(" %(fractured%)",""):gsub(" %(crafted%)",""):gsub(" %(implicit%)",""):gsub(" %(enchant%)","")
+				line = line:gsub("%b{}", ""):gsub(" %(fractured%)",""):gsub(" %(crafted%)",""):gsub(" %(implicit%)",""):gsub(" %(enchant%)",""):gsub(" %(scourge%)","")
 				local catalystScalar = getCatalystScalar(self.catalyst, modTags, self.catalystQuality)
 				
 				local rangedLine
@@ -466,7 +470,8 @@ if (line:match("%(%d+%-%d+ %- %d+%-%d+%)") or line:match("%(%-?[%d%.]+ %- %-?[%d
 				local modList, extra = modLib.parseMod(rangedLine or line)
 				if (not modList or extra) and self.rawLines[l+1] then
 					-- Try to combine it with the next line
-					local combLine = line.." "..self.rawLines[l+1]:gsub("%b{}", ""):gsub(" %(fractured%)",""):gsub(" %(crafted%)",""):gsub(" %(implicit%)",""):gsub(" %(enchant%)","")
+					local nextLine = self.rawLines[l+1]:gsub("%b{}", ""):gsub(" ?%(fractured%)",""):gsub(" ?%(crafted%)",""):gsub(" ?%(implicit%)",""):gsub(" ?%(enchant%)",""):gsub(" ?%(scourge%)","")
+					local combLine = line.." "..nextLine
 if combLine:match("%(%d+%-%d+ %- %d+%-%d+%)") or combLine:match("%(%-?[%d%.]+ %- %-?[%d%.]+%)") or combLine:match("%(%-?[%d%.]+%-[%d%.]+%)") and line:match(":")==nil  and line:match("^Requires")==nil then
 						rangedLine = itemLib.applyRange(combLine, 1, catalystScalar)
 					elseif catalystScalar ~= 1 then
@@ -484,15 +489,15 @@ if combLine:match("%(%d+%-%d+ %- %d+%-%d+%)") or combLine:match("%(%-?[%d%.]+ %-
 				local modLines
 				if enchant or (crafted and #self.enchantModLines + #self.implicitModLines < implicitLines) then
 					modLines = self.enchantModLines
-				elseif implicit or (not crafted and #self.enchantModLines + #self.implicitModLines < implicitLines) then
+				elseif scourge then
+					modLines = self.scourgeModLines
+				elseif implicit or (not crafted and #self.enchantModLines + #self.scourgeModLines + #self.implicitModLines < implicitLines) then
 					modLines = self.implicitModLines
 				else
 					modLines = self.explicitModLines
 				end
 				if modList and  string.find(line,":")==nil then --lucifer
-									
-					t_insert(modLines, { line = line, extra = extra, modList = modList, modTags = modTags, variantList = variantList, crafted = crafted, custom = custom, fractured = fractured, implicit = implicit, range = rangedLine and (tonumber(rangeSpec) or 0.5), valueScalar = catalystScalar })
-					
+					t_insert(modLines, { line = line, extra = extra, modList = modList, modTags = modTags, variantList = variantList, scourge = scourge, crafted = crafted, custom = custom, fractured = fractured, implicit = implicit, range = rangedLine and (tonumber(rangeSpec) or 0.5), valueScalar = catalystScalar })
 					if mode == "GAME" then
 						if gameModeStage == "FINDIMPLICIT" then
 							gameModeStage = "IMPLICIT"
@@ -507,13 +512,12 @@ if combLine:match("%(%d+%-%d+ %- %d+%-%d+%)") or combLine:match("%(%-?[%d%.]+ %-
 					end
 				elseif mode == "GAME" then
 					if gameModeStage == "IMPLICIT" or gameModeStage == "EXPLICIT" then
-						
-						t_insert(modLines, { line = line, extra = line, modList = { }, modTags = { }, variantList = variantList, crafted = crafted, custom = custom, fractured = fractured, implicit = implicit })
+						t_insert(modLines, { line = line, extra = line, modList = { }, modTags = { }, variantList = variantList, scourge = scourge, crafted = crafted, custom = custom, fractured = fractured, implicit = implicit })
 					elseif gameModeStage == "FINDEXPLICIT" then
 						gameModeStage = "DONE"
 					end
 				elseif foundExplicit then
-					t_insert(modLines, { line = line, extra = line, modList = { }, modTags = { }, variantList = variantList, crafted = crafted, custom = custom, fractured = fractured, implicit = implicit })
+					t_insert(modLines, { line = line, extra = line, modList = { }, modTags = { }, variantList = variantList, scourge = scourge, crafted = crafted, custom = custom, fractured = fractured, implicit = implicit })
 				end
 				
 			end
@@ -801,7 +805,7 @@ t_insert(rawLines, "范围: "..self.jewelRadiusLabel)
 	if self.limit then
 t_insert(rawLines, "仅限: "..self.limit)
 	end
-t_insert(rawLines, "固定基底词缀: "..(#self.enchantModLines + #self.implicitModLines))
+t_insert(rawLines, "固定基底词缀: "..(#self.enchantModLines + #self.implicitModLines + #self.scourgeModLines))
 
 local function writeModLine(modLine)
 		local line = modLine.line
@@ -813,6 +817,9 @@ local function writeModLine(modLine)
 		end
 		if modLine.custom then
 			line = "{custom}" .. line
+		end
+		if modLine.scourge then
+			line = "{scourge}" .. line
 		end
 		if modLine.fractured then
 			line = "{fractured}" .. line
@@ -832,13 +839,16 @@ local function writeModLine(modLine)
 	for _, modLine in ipairs(self.enchantModLines) do
 		writeModLine(modLine)
 	end
+	for _, modLine in ipairs(self.scourgeModLines) do
+		writeModLine(modLine)
+	end
 	for _, modLine in ipairs(self.implicitModLines) do
 		writeModLine(modLine)
 	end
 	for _, modLine in ipairs(self.explicitModLines) do
 		writeModLine(modLine)
 	end
-	if self.corrupted then
+	if self.corrupted or self.scourge then
 		t_insert(rawLines, "已腐化")
 	end
 	return table.concat(rawLines, "\n")

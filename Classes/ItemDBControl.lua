@@ -12,8 +12,8 @@ local m_max = math.max
 local m_floor = math.floor
 
 local sortDropList = { 
-	{ label = "Sort by name", sortMode = "NAME" },
-	{ label = "Sort by DPS", sortMode = "DPS" },
+	{ label = "按名称排序", sortMode = "NAME" },
+	{ label = "按DPS排序", sortMode = "DPS" },
 }
 
 local ItemDBClass = newClass("ItemDBControl", "ListControl", function(self, anchor, x, y, width, height, itemsTab, db, dbType)

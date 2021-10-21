@@ -35,10 +35,10 @@ local NotableDBClass = newClass("NotableDBControl", "ListControl", function(self
 		self:SetSortMode(value.sortMode)
 		GlobalCache.useFullDPS = value.sortMode == "FullDPS"
 	end)
-	self.controls.search = new("EditControl", {"BOTTOMLEFT",self,"TOPLEFT"}, 0, -2, 258, 18, "", "Search", "%c", 100, function()
+	self.controls.search = new("EditControl", {"BOTTOMLEFT",self,"TOPLEFT"}, 0, -2, 258, 18, "", "搜索", "%c", 100, function()
 		self.listBuildFlag = true
 	end)
-	self.controls.searchMode = new("DropDownControl", {"LEFT",self.controls.search,"RIGHT"}, 2, 0, 100, 18, { "Anywhere", "Names", "Modifiers" }, function(index, value)
+	self.controls.searchMode = new("DropDownControl", {"LEFT",self.controls.search,"RIGHT"}, 2, 0, 100, 18, { "所有内容", "名称", "词缀" }, function(index, value)
 		self.listBuildFlag = true
 	end)
 	self:BuildSortOrder()
@@ -88,7 +88,7 @@ function NotableDBClass:BuildSortOrder()
 	for id,stat in pairs(data.powerStatList) do
 		if not stat.ignoreForItems then
 			t_insert(self.sortDropList, {
-				label="Sort by "..stat.label,
+				label="按 "..stat.label.." 排序",
 				sortMode=stat.itemField or stat.stat,
 				itemField=stat.itemField,
 				stat=stat.stat,
@@ -228,7 +228,7 @@ end
 ---@param node table
 function NotableDBClass:AddValueTooltip(tooltip, index, node)
 	local dropdownDropped = self.controls.type and self.controls.type.dropped or self.controls.sort.dropped or self.controls.searchMode.dropped
-	if dropdownDropped or (main.popups[1] and main.popups[1].title ~= "Anoint Item") then
+	if dropdownDropped or (main.popups[1] and main.popups[1].title ~= "物品涂油") then
 		tooltip:Clear()
 		return
 	end

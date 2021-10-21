@@ -699,6 +699,7 @@ elseif property.name == "仅限" then
 		end
 	end
 	item.enchantModLines = { }
+	item.scourgeModLines = { }
 	item.implicitModLines = { }
 	item.explicitModLines = { }
 	if itemData.enchantMods then
