@@ -1045,6 +1045,7 @@ local preFlagList = {
 	--【中文化程序额外添加开始】
 	["^召唤生物有 "] = { addToMinion = true }, --备注：^minions [hd][ae][va][el] 
 	["^攻击击中有"] = { flags = ModFlag.Attack },
+	["^攻击伤害"] = { flags = ModFlag.Attack },
 	["^图腾有"] = { keywordFlags = KeywordFlag.Totem },
 	["^【魔侍】造成的"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "召唤魔侍" } },
 	["当你拥有兽化的召唤生物时，"] = { tag = { type = "Condition", var = "HaveBestialMinion" } },
@@ -6291,7 +6292,7 @@ minus = -tonumber(minus)
 	["(%d+)%% of recovery applied instantly"] = function(num) return { mod("FlaskInstantRecovery", "BASE", num) } end,
 	["穿戴对人物属性无需求"] = { flag("NoAttributeRequirements") }, --备注：has no attribute requirements
 	-- Socketed gem modifiers
-	["此物品上装备的技能石等级 %+(%d+)"] = function(num) return { mod("GemProperty", "LIST", { keyword = "all", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end, --备注：%+(%d+) to level of socketed gems
+	["此物品上装备的技能石等级 ([%+%-]%d+)"] = function(num) return { mod("GemProperty", "LIST", { keyword = "all", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end, --备注：%+(%d+) to level of socketed gems
 	["%+(%d+) to level of socketed ([%a ]+) gems"] = function(num, _, type) return { mod("GemProperty", "LIST", { keyword = type, key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
 	["%+(%d+)%% to quality of socketed ([%a ]+) gems"] = function(num, _, type) return { mod("GemProperty", "LIST", { keyword = type, key = "quality", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
 	["%+(%d+) to level of active socketed skill gems"] = function(num) return { mod("GemProperty", "LIST", { keyword = "active_skill", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
@@ -6753,10 +6754,6 @@ minus = -tonumber(minus)
 		mod("SpellSuppressionChance", "OVERRIDE", 0, "Acrobatics"), 
 	},
 	["dexterity provides no inherent bonus to evasion rating"] = { flag("MageBane"), flag("NoDexBonusToEvasion") },
-	["(%d+)%% chance to suppress spell damage per (%d+) dexterity"] = function(_, suppression, dex) return {
-		flag("MageBane"),
-		mod("SpellSuppressionChance", "BASE", tonumber(suppression), { type = "PerStat", stat = "Dex", div = tonumber(dex) })
-	} end,
 	["converts all evasion rating to armour%. dexterity provides no bonus to evasion rating"] = { flag("NoDexBonusToEvasion"), flag("IronReflexes") },
 	["your chance to suppressed spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
 	["your chance to suppressed spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
@@ -6798,7 +6795,17 @@ minus = -tonumber(minus)
 	["per allocated notable passive skill"] = { tag = { type = "Multiplier", var = "PerAllocatedNotable" } },
 	["^blink arrow and mirror arrow have "] = { tag = { type = "SkillName", skillNameList = { "Blink Arrow", "Mirror Arrow" } } },
 	["%+(%d+)%% chance to block attack damage if you have not blocked recently"] = function(num) return { mod("BlockChance", "BASE", num, { type = "Condition", var = "BlockedRecently", neg = true }) } end,
-
+	["intelligence provides no inherent bonus to energy shield"] = { flag("NoIntelligenceAttributeBonuses") },
+	["strength's damage bonus applies to all spell damage as well"] = { flag("IronWill") },
+	["enemies near your linked targets have fire, cold and lightning exposure"] = {
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
+	},
+	["fire exposure you inflict applies an extra (%-?%d+)%% to fire resistance"] = function(num) return { mod("ExtraFireExposure", "BASE", num) } end,
+	["cold exposure you inflict applies an extra (%-?%d+)%% to cold resistance"] = function(num) return { mod("ExtraColdExposure", "BASE", num) } end,
+	["lightning exposure you inflict applies an extra (%-?%d+)%% to lightning resistance"] = function(num) return { mod("ExtraLightningExposure", "BASE", num) } end,
+	["exposure you inflict applies at least (%-%d+)%% to the affected resistance"] = function(num) return { mod("ExposureMin", "OVERRIDE", num) } end,
 
 }
 
