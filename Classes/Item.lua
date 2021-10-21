@@ -648,7 +648,7 @@ function ItemClass:GetModSpawnWeight(mod, extraTags)
 
 		--有些部位 比如项链 没有魔力保留尊崇
 		local function HasMavenInfluence(modAffix)
-			return false --modAffix:match("尊崇")
+			return modAffix:match("尊崇")
 		end
 		for i, key in ipairs(mod.weightKey) do
 			if self.base.tags[key] or (extraTags and extraTags[key]) or HasInfluenceTag(key) then
