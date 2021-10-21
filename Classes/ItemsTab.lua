@@ -2371,23 +2371,25 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					end
 				end
 			end
-			for _, craft in ipairs(self.build.data.masterMods) do
+			local cnFix = { Prefix = "前缀", Suffix = "后缀" }
+			for i, craft in ipairs(self.build.data.masterMods) do
 				if craft.types[self.displayItem.type] and not excludeGroups[craft.group] then
-					local label
-					if craft.master then
-						label = craft.master .. " " .. craft.masterLevel .. "   "..craft.type:sub(1,3).."^8[" .. table.concat(craft, "/") .. "]"
-					else
-						label =craft.type:sub(1,3).."^8[" .. table.concat(craft, "/") .. "]"
-												
-					end
-					
 					t_insert(modList, {
-						label = label,
+						label = table.concat(craft, "/") .. " ^8(" .. cnFix[craft.type] .. ")",
 						mod = craft,
 						type = "crafted",
+						affixType = craft.type,
+						defaultOrder = i,
 					})
 				end
 			end
+			table.sort(modList, function(a, b)
+				if a.affixType ~= b.affixType then
+					return a.affixType == "Prefix" and b.affixType == "Suffix"
+				else
+					return a.defaultOrder < b.defaultOrder
+				end
+			end)
 		elseif sourceId == "HarvestSeedWeapon" then
 			for _, craft in ipairs(self.build.data.harvestSeedEnchantments["Weapon"]) do
 					 
@@ -2516,16 +2518,15 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	)
 	
 	then
-t_insert(sourceList, { label = "工艺工作台", sourceId = "MASTER" })
+		t_insert(sourceList, { label = "工艺工作台", sourceId = "MASTER" })
 
 	end
 	if self.displayItem.type ~= "Jewel" and self.displayItem.type ~= "Flask" 
-	
 	and (self.displayItem.rarity == "魔法" or self.displayItem.rarity == "稀有")
 	then
-t_insert(sourceList, { label = "精华", sourceId = "ESSENCE" })
-t_insert(sourceList, { label = "地心", sourceId = "DELVE" })
-t_insert(sourceList, { label = "穿越", sourceId = "INCURSION" })
+		t_insert(sourceList, { label = "精华", sourceId = "ESSENCE" })
+		t_insert(sourceList, { label = "地心", sourceId = "DELVE" })
+		t_insert(sourceList, { label = "穿越", sourceId = "INCURSION" })
 	end
 	if self.displayItem.type == "Amulet" or self.displayItem.name=='扼息者, 火蝮鳞手套' 	
 	 or self.displayItem.name=='孢囊守卫, 圣者链甲'   or self.displayItem.name=='奔逃之, 暗影之靴'  
@@ -2533,26 +2534,20 @@ t_insert(sourceList, { label = "穿越", sourceId = "INCURSION" })
 	 or self.displayItem.name=='嗜雷之冠, 日耀之冠' 
 	 or self.displayItem.name=='嗜火之冠, 艾兹麦坚盔'  
 	then
-	
-	t_insert(sourceList, { label = "涂膏", sourceId = "BLIGHT" })
-	
+		t_insert(sourceList, { label = "涂膏", sourceId = "BLIGHT" })
 	end
 	
 	if  self.displayItem.base.weapon  then 
-	
 		t_insert(sourceList, { label = "收割种子", sourceId = "HarvestSeedWeapon" })
-	
 	end
-	if  self.displayItem.type == "Body Armour"  then 
-	
+	if  self.displayItem.type == "Body Armour"  then
 		t_insert(sourceList, { label = "收割种子", sourceId = "HarvestSeedBodyArmour" })
-	
 	end
 	if not self.displayItem.crafted and (self.displayItem.rarity == "魔法" or self.displayItem.rarity == "稀有") then
-t_insert(sourceList, { label = "【前缀】", sourceId = "PREFIX" })
-t_insert(sourceList, { label = "【后缀】", sourceId = "SUFFIX" })
+		t_insert(sourceList, { label = "【前缀】", sourceId = "PREFIX" })
+		t_insert(sourceList, { label = "【后缀】", sourceId = "SUFFIX" })
 	end
-t_insert(sourceList, { label = "自定义", sourceId = "CUSTOM" })
+	t_insert(sourceList, { label = "自定义", sourceId = "CUSTOM" })
 	buildMods(sourceList[1].sourceId)
 	local function addModifier()
 		local item = new("Item",  self.displayItem:BuildRaw())
