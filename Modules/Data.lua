@@ -344,6 +344,14 @@ data.keystones = {
 	"风舞者",
 	"狂热誓言",
 	"空明之掌",
+	"Divine Shield",
+	"灭亡之日",
+	"幽灵舞步",
+	"钢铁意志",
+	"Lethe Shade",
+	"MageBane",
+	"Solipsism",
+	"全方位斗士",
 }
 
 
