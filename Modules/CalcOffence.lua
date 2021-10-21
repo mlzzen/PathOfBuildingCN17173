@@ -439,6 +439,9 @@ local function runSkillFunc(name)
 			if band(mod.flags, ModFlag.Spell) ~= 0 then
 				local modifiers = getConvertedModTags(mod, multiplier)
 				skillModList:NewMod("Damage", "INC", mod.value * multiplier, mod.source, bor(band(mod.flags, bnot(ModFlag.Spell)), ModFlag.Attack), mod.keywordFlags, unpack(modifiers))
+				if mod.source == "Strength" then -- Prevent double-dipping from converted strength's damage bonus
+					skillModList:ReplaceMod("PhysicalDamage", "INC", 0, "Strength", ModFlag.Melee)
+				end
 			end
 		end
 	end
