@@ -390,6 +390,7 @@ function PassiveSpecClass:ResetNodes()
 			self.allocNodes[id] = nil
 		end
 	end
+	wipeTable(self.masterySelections)
 end
 
 function PassiveSpecClass:getAllocNodes()
