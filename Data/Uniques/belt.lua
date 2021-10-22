@@ -268,16 +268,18 @@ replica: true
 扣链腰带
 源: 预言【奇术史 IV】
 版本: 2.6.0以前
+版本: 3.16.0以前
 版本: 当前
 等级需求: 44
 固定基底词缀: 1
 {tags:jewellery_defense}+(9-20) 最大能量护盾
 {tags:jewellery_defense}+300 点闪避值
 {variant:1}{tags:jewellery_defense}+(35-45) 最大能量护盾
-{variant:2}{tags:jewellery_defense}+(75-80) 最大能量护盾
+{variant:2,3}{tags:jewellery_defense}+(75-80) 最大能量护盾
 {tags:jewellery_resistance}获得 +(10-15)% 火焰、冰霜、闪电抗性
 近期内你若有能量护盾开始回复，则获得【迷踪】状态
-【迷踪】状态时有 6% 几率躲避攻击击中
+{variant:1,2}6% increased Evasion while Phasing
+{variant:3}30% increased Evasion while Phasing
 {tags:speed}【迷踪】状态时移动速度提高 10%
 ]],[[
 奥术之符

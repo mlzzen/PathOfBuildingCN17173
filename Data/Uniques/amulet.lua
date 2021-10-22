@@ -871,6 +871,8 @@ Talisman Tier: 2
 ]],[[
 暴风之言
 海玉护身符
+版本: 3.16.0以前
+版本: 当前
 联盟: 裂隙
 源: 地图【艾许领域】 或 传奇Boss【异念‧艾许】 专属掉落
 升级: 使用 通货【艾许的祝福】 升级为 传奇【暴风之语】
@@ -881,12 +883,15 @@ Talisman Tier: 2
 {tags:jewellery_attribute}+(20-30) 智慧
 {tags:jewellery_attribute}+(10-15) 全属性
 {tags:mana}最大魔力提高 (10-20)%
-{variant:1}暴击率将随绝对闪电抗性而提高
-{variant:2}暴击率随闪电抗性提高
+{variant:1}暴击率随闪电抗性提高
+{variant:2}Critical Strike Chance is increased by Overcapped Lightning Resistance
 暴击时触发 12 级的【雷霆万钧】
 ]],[[
 暴风之语
 海玉护身符
+版本: 3.0.0以前
+版本: 3.16.0以前
+版本: 当前
 联盟: 裂隙
 源: 由传奇【暴风之言】 使用 通货【艾许的祝福】 升级
 版本: 3.0.0以前
@@ -894,13 +899,12 @@ Talisman Tier: 2
 等级需求: 69
 固定基底词缀: 1
 {tags:jewellery_attribute}+(20-30) 智慧
-{tags:mana}最大魔力提高 (10-20)%
-{variant:1}{tags:jewellery_resistance}--30% 闪电抗性
-{variant:1}暴击率将随绝对闪电抗性而提高
-{variant:2}暴击率随闪电抗性提高
-{variant:1}Critical Strikes deal 50% increased Lightning Damage
-{variant:2}{tags:jewellery_elemental}闪电伤害提高 50%
 暴击时触发 20 级的【雷霆万钧】
+{tags:jewellery_elemental}闪电伤害提高 50%
+{tags:mana}最大魔力提高 (10-20)%
+{variant:1,2}暴击率随闪电抗性提高
+{variant:1,3}{tags:jewellery_resistance}-30% 闪电抗性
+{variant:3}Critical Strike Chance is increased by Overcapped Lightning Resistance
 ]],[[
 福尔的忠诚之符
 玛瑙护身符

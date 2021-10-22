@@ -38,7 +38,7 @@ replica: true
 闪避值提高 (30-50)%
 +(50-80) 最大生命
 -30% 冰霜抗性
-血肉与岩石的保留效果降低 100%
+Flesh and Stone has no Reservation
 闪避值将随绝对冰霜抗性提高
 空明之掌
 ]],
@@ -320,13 +320,18 @@ replica: true
 ]],[[
 巨铜之顶
 角斗重铠
+版本: 3.16.0以前
+版本: 当前
 源: 传奇Boss【牛头人守卫】 专属掉落
 等级需求: 65, 177 Str
-攻击及法术伤害格挡几率降低 30%
-护甲提高 (600-650)%
-移动速度降低 10%
-你被感电的持续时间延长 50%
+{variant:1}护甲提高 (600-650)%
+{variant:2}护甲提高 (350-400)%
+{variant:1}攻击及法术伤害格挡几率降低 30%
+{variant:1}移动速度降低 10%
+{variant:1}你被感电的持续时间延长 50%
 不会受到暴击所造成的额外暴击伤害
+{variant:2}+(1-2) to all maximum Resistances
+{variant:2}Gain no inherent bonuses from Strength
 ]],[[
 深海魔甲
 金耀之铠
@@ -583,29 +588,40 @@ Requires Level: 59
 ]],[[
 雪盲恩惠
 光耀皮甲
+版本: 3.16.0以前
+版本: 当前
 联盟: 裂隙
 源: 地图【托沃领域】 或 传奇Boss【崩雪‧托沃】 专属掉落
 源: 使用 通货【托沃的祝福】 升级 传奇【完美姿态】
 等级需求: 49, 134 Dex
 +(30-40) 敏捷
-闪避值提高 (30-50)%
+{variant:1}闪避值提高 (30-50)%
+{variant:2}闪避值提高 (80-100)%
 +(40-60) 最大生命
-10% 几率躲避法术击中
+{variant:1}10% chance to Suppress Spell Damage
+{variant:2}20% chance to Suppress Spell Damage
 【极地装甲】的增益效果提高 25%
-闪避值将随绝对冰霜抗性提高
+{variant:1}闪避值将随绝对冰霜抗性提高
+{variant:2}Evasion Rating is increased by Overcapped Cold Resistance
 ]],[[
 完美姿态
 星辰皮甲
+版本: 3.16.0以前
+版本: 当前
 联盟: 裂隙
 源: 传奇【雪盲恩惠】 使用 通货【托沃的祝福】 升级
 等级需求: 65, 197 Dex
-闪避值提高 (30-50)%
-+(50-80) 最大生命
+{variant:1}闪避值提高 (30-50)%
+{variant:2}闪避值提高 (80-100)%
+{variant:1}+(50-80) 最大生命
+{variant:2}+(70-100) 最大生命
 -30% 冰霜抗性
-敏捷提高 (5-10)%
-极地装甲的保留效果降低 100%
-闪避值将随绝对冰霜抗性提高
-移灵换影
+{variant:1}敏捷提高 (5-10)%
+{variant:2}敏捷提高 (10-15)%
+Arctic Armour has no Reservation
+{variant:1}闪避值将随绝对冰霜抗性提高
+{variant:2}Evasion Rating is increased by Overcapped Cold Resistance
+移形换影
 ]],[[
 伊瑞的精通
 精制皮甲
@@ -957,13 +973,14 @@ Requires Level: 59
 连身龙鳞铠
 版本: 2.6.0以前
 版本: 3.5.0以前
+版本: 3.16.0以前
 版本: 当前
 等级需求: 63, 115 Str, 94 Dex
-该装备的护甲与闪避提高 (160-200)%
+{variant:1,2,3}该装备的护甲与闪避提高 (160-200)%
+{variant:4}该装备的护甲与闪避提高 (180-220)%
 {variant:1,2}+(40-60) 最大生命
-{variant:3}+(60-90) 最大生命
+{variant:3,4}+(60-90) 最大生命
 物理攻击伤害的 (0.4-0.6)% 会转化为生命偷取
-6% 几率躲避攻击击中
 被击中时，你失去所有的耐力球
 击败敌人时，你获得 1 颗耐力球
 {variant:1}被击中时，每个耐力球可使你获得 1 秒的【猛攻】状态

@@ -1752,21 +1752,33 @@ Has Alt Variant: true
 ]],[[
 生存本能
 翠绿珠宝
+版本: 3.16.0以前
+版本: 当前
 仅限: 1
-+20 敏捷
-获得 +6% 火焰、冰霜、闪电抗性
+{variant:1}+20 敏捷
+{variant:1}获得 +6% 火焰、冰霜、闪电抗性
+{variant:2}50% chance for Flasks you use to not consume Charges
+{variant:2}70% less Flask Charges gained from Kills
 ]],[[
 生存秘技
 钴蓝珠宝
+版本: 3.16.0以前
+版本: 当前
 仅限: 1
-3 每秒魔力回复
-火焰、冰霜、闪电伤害提高 10%
+{variant:1}3 每秒魔力回复
+{variant:1}火焰、冰霜、闪电伤害提高 10%
+{variant:2}Flasks gain 2 Charges every 3 seconds while they are inactive
+{variant:2}50% less Flask Effect Duration
 ]],[[
 生存技巧
 赤红珠宝
+版本: 3.16.0以前
+版本: 当前
 仅限: 1
-物理伤害提高 10%
-+50 护甲
+{variant:1}物理伤害提高 10%
+{variant:1}+50 护甲
+{variant:2}Flasks gain 2 Charges when you hit a Non-Unique Enemy, no more than once per second
+{variant:2}80% less Flask Charges gained from Kills
 ]],[[
 督军之力
 赤红珠宝

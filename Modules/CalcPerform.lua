@@ -586,24 +586,28 @@ local function doActorAttribsPoolsConditions(env, actor)
 	 
 	-- Add attribute bonuses
 	if not modDB:Flag(nil, "NoAttributeBonuses") then
-		if not modDB:Flag(nil, "NoStrBonusToLife") then
-			modDB:NewMod("Life", "BASE", m_floor(output.Str / 2), "力量")
+		if not modDB:Flag(nil, "NoStrengthAttributeBonuses") then
+			if not modDB:Flag(nil, "NoStrBonusToLife") then
+				modDB:NewMod("Life", "BASE", m_floor(output.Str / 2), "力量")
+			end
+			local strDmgBonusRatioOverride = modDB:Sum("BASE", nil, "StrDmgBonusRatioOverride")
+			if strDmgBonusRatioOverride > 0 then
+				actor.strDmgBonus = round((output.Str + modDB:Sum("BASE", nil, "DexIntToMeleeBonus")) * strDmgBonusRatioOverride)
+			else
+				actor.strDmgBonus = round((output.Str + modDB:Sum("BASE", nil, "DexIntToMeleeBonus")) / 5)
+			end
+			modDB:NewMod("PhysicalDamage", "INC", actor.strDmgBonus, "力量", ModFlag.Melee)
 		end
-		local strDmgBonusRatioOverride = modDB:Sum("BASE", nil, "StrDmgBonusRatioOverride")
-		if strDmgBonusRatioOverride > 0 then
-			actor.strDmgBonus = round((output.Str + modDB:Sum("BASE", nil, "DexIntToMeleeBonus")) * strDmgBonusRatioOverride)
-		else
-			actor.strDmgBonus = round((output.Str + modDB:Sum("BASE", nil, "DexIntToMeleeBonus")) / 5)
+		if not modDB:Flag(nil, "NoDexterityAttributeBonuses") then
+			modDB:NewMod("Accuracy", "BASE", output.Dex * 2, "敏捷")
+			if not modDB:Flag(nil, "IronReflexes") then
+				modDB:NewMod("Evasion", "INC", round(output.Dex / 5), "敏捷")
+			end
 		end
-		modDB:NewMod("PhysicalDamage", "INC", actor.strDmgBonus, "力量", ModFlag.Melee)
-		modDB:NewMod("Accuracy", "BASE", output.Dex * 2, "敏捷")
-		if not modDB:Flag(nil, "NoDexBonusToEvasion") then
-			modDB:NewMod("Evasion", "INC", round(output.Dex / 5), "敏捷")
-		end
-		if not modDB:Flag(nil, "NoIntBonusToMana") then
-			modDB:NewMod("Mana", "BASE", round(output.Int / 2), "智慧")
-		end
-		if not modDB:Flag(nil, "IntelligenceNoEnergyShieldBonus") then
+		if not modDB:Flag(nil, "NoIntelligenceAttributeBonuses") then
+			if not modDB:Flag(nil, "NoIntBonusToMana") then
+				modDB:NewMod("Mana", "BASE", round(output.Int / 2), "智慧")
+			end
 			modDB:NewMod("EnergyShield", "INC", round(output.Int / 5), "智慧")
 		end
 	end
