@@ -139,13 +139,13 @@ enemyModList:NewMod("Multiplier:Spider's WebStack", "BASE", val, "Config")
 
 	end },
 
-{ label = "旗帜技能:", ifSkillList = { "恐怖之旗", "战旗" } },
-{ var = "conditionBannerPlanted", type = "check", label = "旗帜放置?", ifSkillList = { "恐怖之旗", "战旗"}, apply = function(val, modList, enemyModList)
+{ label = "旗帜技能:", ifSkillList = { "恐怖之旗", "战旗", "抗争之旗" } },
+{ var = "conditionBannerPlanted", type = "check", label = "旗帜放置?", ifSkillList = { "恐怖之旗", "战旗", "抗争之旗"}, apply = function(val, modList, enemyModList)
 
 modList:NewMod("Condition:BannerPlanted", "FLAG", true, "Config")
 	end },
-{ var = "bannerStages", type = "count", label = "旗帜阶层:", ifSkillList = { "恐怖之旗", "战旗" }, apply = function(val, modList, enemyModList)
-modList:NewMod("Multiplier:BannerStage", "BASE", m_min(val, 50), "Config", { type = "SkillName", skillNameList = { "恐怖之旗", "战旗" } })
+{ var = "bannerStages", type = "count", label = "旗帜阶层:", ifSkillList = { "恐怖之旗", "战旗", "抗争之旗" }, apply = function(val, modList, enemyModList)
+modList:NewMod("Multiplier:BannerStage", "BASE", m_min(val, 50), "Config", { type = "SkillName", skillNameList = { "恐怖之旗", "战旗", "抗争之旗" } })
 	end },
 
 	-- 3.7 技能
