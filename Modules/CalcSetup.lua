@@ -436,6 +436,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("ActiveMineLimit", "BASE", 5, "Base")
 		
 		modDB:NewMod("EnemyCurseLimit", "BASE", 1, "Base")
+		modDB:NewMod("SocketedCursesHexLimitValue", "BASE", 1, "Base")
 		modDB:NewMod("ProjectileCount", "BASE", 1, "Base")
 		modDB:NewMod("Speed", "MORE", 10, "Base", ModFlag.Attack, { type = "Condition", var = "DualWielding" })
 		--3.11 双持武器：不再使总物理攻击伤害额外提高 20% 了。但它仍然使总攻击速度额外提高 10%，并提供 15% 攻击击中格挡率。
