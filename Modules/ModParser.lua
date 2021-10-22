@@ -6830,7 +6830,8 @@ minus = -tonumber(minus)
 		return {  mod("ExtraAura", "LIST", {onlyAllies = true, mod = mod("BlockChance", "BASE", block)}, {type = "PerStat", stat = "Str", div = tonumber(str)})} end,
 	["%+(%d+)%% chance to block spell damage for each (%d+)%% overcapped chance to block attack damage"] = function(num, _, div) return { mod("SpellBlockChance", "BASE", num, { type = "PerStat", stat = "BlockChanceOverCap", div = tonumber(div) }) } end,
 	["you can cast (%d+) additional brands"] = function(num) return { mod("ActiveBrandLimit", "BASE", num) } end,
-
+	["wand attacks fire an additional projectile"] = { mod("ProjectileCount", "BASE", 1, nil, ModFlag.Wand) },
+	
 }
 
 for _, name in pairs(data.keystones) do
