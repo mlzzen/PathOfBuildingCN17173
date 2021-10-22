@@ -296,7 +296,7 @@ replica: true
 {variant:2}{tags:mana}最大魔力提高 (16-24)%
 {variant:1}{tags:mana}魔力回复速度提高 (40-60)%
 {variant:2}{tags:mana}魔力回复速度提高 (80-100)%
-{tags:jewellery_attribute}装备和技能石的属性需求降低 25%
+装备和技能石的属性需求降低 25%
 ]],[[
 埃拉黛丝
 玛瑙护身符
@@ -745,7 +745,7 @@ Talisman Tier: 1
 {tags:mana}+(20-40) 最大魔力
 {variant:1}{tags:jewellery_elemental}敌人受到的元素异常状态时间延长 20%
 {variant:2}{tags:jewellery_elemental}敌人受到的元素异常状态时间延长 20%
-{tags:jewellery_attribute}装备和技能石的属性需求降低 10%
+装备和技能石的属性需求降低 10%
 {tags:jewellery_elemental}5% 几率造成冰冻、感电与点燃效果
 无法获得暴击球
 ]],[[
