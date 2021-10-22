@@ -587,6 +587,7 @@ replica: true
 恒毅意志
 先锋腰带
 版本: 3.11.0以前
+版本: 3.16.0以前
 版本: 当前
 等级需求: 78
 固定基底词缀: 1
@@ -595,7 +596,8 @@ replica: true
 {tags:jewellery_resistance}+(20-40)% 冰霜抗性
 {variant:1}{tags:attack}取护甲和闪避值之间的较低者，每 300 点可使攻击伤害提高 1%
 {variant:1}{tags:attack}取护甲和闪避值之间的较低者，每 200 点可使攻击伤害提高 1%
-{tags:attack}你的近战伤害晕眩敌人时有 (14-20)% 几率获得护体
+{variant:1}{tags:attack}你的近战伤害晕眩敌人时有 (14-20)% 几率获得护体
+{variant:2}{tags:attack}Melee Hits which Stun Fortify
 当你拥有护体时获得【猛攻】状态
 ]],[[
 幻彩菱织
