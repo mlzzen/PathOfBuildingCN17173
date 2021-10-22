@@ -410,7 +410,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "ColdResistOverCap", label = "冰霜抗性溢出", fmt = "d%%", hideStat = true },
 		{ stat = "LightningResist", label = "闪电抗性", fmt = "d%%", color = colorCodes.LIGHTNING, condFunc = function() return true end, overCapStat = "LightningResistOverCap" },
 		{ stat = "LightningResistOverCap", label = "闪电抗性溢出", fmt = "d%%", hideStat = true },
-		{ stat = "ChaosResist", label = "混沌抗性", fmt = "d%%", color = colorCodes.CHAOS, condFunc = function() return true end, overCapStat = "ChaosResistOverCap" },
+		{ stat = "ChaosResist", label = "混沌抗性", fmt = "d%%", color = colorCodes.CHAOS, condFunc = function(v,o) return not o.ChaosInoculation end, overCapStat = "ChaosResistOverCap" },
 		{ stat = "ChaosResistOverCap", label = "混沌抗性溢出", fmt = "d%%", hideStat = true },
 		{ },
 		{ stat = "FullDPS", label = "综合所有 DPS", fmt = ".1f", color = colorCodes.CURRENCY, compPercent = true },
@@ -1206,8 +1206,7 @@ end
 function buildMode:FormatStat(statData, statVal, overCapStatVal)
 	if type(statVal) == "table" then return "" end
 	local val = statVal * ((statData.pc or statData.mod) and 100 or 1) - (statData.mod and 100 or 0)
-	local color = (statVal >= 0 and "^7" or colorCodes.NEGATIVE)
-	local valStr = s_format("%"..statData.fmt, val)
+	local color = (statVal >= 0 and "^7" or statData.chaosInoc and "^8" or colorCodes.NEGATIVE)	local valStr = s_format("%"..statData.fmt, val)
 	valStr:gsub("%.", main.decimalSeparator)
 	valStr = color .. formatNumSep(valStr)
 
@@ -1226,14 +1225,14 @@ end
 function buildMode:AddDisplayStatList(statList, actor)
 	local statBoxList = self.controls.statBox.list
 	for index, statData in ipairs(statList) do
-		if statData.stat then
-			if not statData.flag or actor.mainSkill.skillFlags[statData.flag] then
+		if not statData.flag or actor.mainSkill.skillFlags[statData.flag] then
+			local labelColor = "^7"
+				if statData.color then
+					labelColor = statData.color
+				end
+			if statData.stat then
 				local statVal = actor.output[statData.stat]
 				if statVal and ((statData.condFunc and statData.condFunc(statVal,actor.output)) or (not statData.condFunc and statVal ~= 0)) then
-					local labelColor = "^7"
-					if statData.color then
-						labelColor = statData.color
-					end
 					local overCapStatVal = actor.output[statData.overCapStat] or nil
 					if statData.stat == "SkillDPS" then
 						labelColor = colorCodes.CUSTOM
@@ -1276,6 +1275,10 @@ function buildMode:AddDisplayStatList(statList, actor)
 						})
 					end
 				end
+			elseif statData.label and statData.condFunc and statData.condFunc(actor.output) then
+				t_insert(statBoxList, { 
+					height = 16, labelColor..statData.label..":", 
+					"^7"..actor.output[statData.labelStat].."%^x808080" .. " (" .. statData.val  .. ")",})
 			end
 		elseif not statBoxList[#statBoxList] or statBoxList[#statBoxList][1] then
 			t_insert(statBoxList, { height = 10 })
