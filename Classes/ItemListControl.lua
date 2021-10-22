@@ -9,7 +9,7 @@ local pairs = pairs
 local t_insert = table.insert
 
 local ItemListClass = newClass("ItemListControl", "ListControl", function(self, anchor, x, y, width, height, itemsTab)
-	self.ListControl(anchor, x, y, width, height, 16, false, true, itemsTab.itemOrderList)
+	self.ListControl(anchor, x, y, width, height, 16, "VERTICAL", true, itemsTab.itemOrderList)
 	self.itemsTab = itemsTab
 self.label = "^7所有装备:"
 self.defaultText = "^x7F7F7F这里显示的是所有加入build的装备物品.\n你可以从下面的预设装备列表中拖拽装备到这里\n或者在查看装备的时候点击【加入Build】按钮放入这里"

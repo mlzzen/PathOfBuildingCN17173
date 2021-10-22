@@ -449,6 +449,7 @@ function PassiveSpecClass:DeallocSingleNode(node)
 	node.alloc = false
 	self.allocNodes[node.id] = nil
 	if node.type == "Mastery" then
+		self:AddMasteryEffectOptionsToNode(node)
 		self.masterySelections[node.id] = nil
 	end
 end
@@ -499,7 +500,7 @@ function PassiveSpecClass:FindStartFromNode(node, visited, noAscend)
 		local startIndex = #visited + 1
 		if other.alloc and 
 		  (other.type == "ClassStart" or other.type == "AscendClassStart" or 
-		  	(not other.visited and other.type ~= "Mastery" and self:FindStartFromNode(other, visited, noAscend))
+		  	(not other.visited and node.type ~= "Mastery" and self:FindStartFromNode(other, visited, noAscend))
 		  ) then
 			if node.ascendancyName and not other.ascendancyName then
 				-- Pathing out of Ascendant, un-visit the outside nodes
@@ -611,8 +612,23 @@ function PassiveSpecClass:SetNodeDistanceToClassStart(root)
 	end
 end
 
+function PassiveSpecClass:AddMasteryEffectOptionsToNode(node)
+	node.sd = {}
+	if node.masteryEffects ~= nil then
+		for _, effect in ipairs(node.masteryEffects) do
+			effect = self.tree.masteryEffects[effect.effect]
+			if effect.sd ~= nil then
+				for _, sd in ipairs(effect.sd) do
+					t_insert(node.sd, sd)
+				end
+			end
+		end
+	end
+	self.tree:ProcessStats(node)
+	node.allMasteryOptions = true
+end
 
--- Rebuilds dependancies and paths for all nodes
+-- Rebuilds dependencies and paths for all nodes
 function PassiveSpecClass:BuildAllDependsAndPaths()
 	-- This table will keep track of which nodes have been visited during each path-finding attempt
 	local visited = { }
@@ -723,9 +739,12 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		if node.type == "Mastery" and self.masterySelections[id] then
 			local effect = self.tree.masteryEffects[self.masterySelections[id]]
 			node.sd = effect.sd
+			node.allMasteryOptions = false
 			node.reminderText = { "Tip: Right click to select a different effect" }
 			self.tree:ProcessStats(node)
 			self.allocatedMasteryCount = self.allocatedMasteryCount + 1
+		elseif node.type == "Mastery" then
+			self:AddMasteryEffectOptionsToNode(node)
 		elseif node.type == "Notable" then
 			self.allocatedNotableCount = self.allocatedNotableCount + 1
 		end
@@ -742,7 +761,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 				if other.type == "ClassStart" or other.type == "AscendClassStart" then
 					-- Well that was easy!
 					anyStartFound = true
-				elseif other.type ~= "Mastery" and self:FindStartFromNode(other, visited) then
+				elseif self:FindStartFromNode(other, visited) then
 					-- We found a path through the other node, therefore the other node cannot be dependant on this node
 					anyStartFound = true
 					for i, n in ipairs(visited) do
@@ -750,10 +769,37 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 						visited[i] = nil
 					end
 				else
-					-- No path was found, so all the nodes visited while trying to find the path must be dependant on this node
+					-- No path was found, so all the nodes visited while trying to find the path must be dependent on this node
+					-- except for mastery nodes that have linked allocated nodes that weren't visited
+					local depIds = { }
+					for _, n in ipairs(visited) do
+						if not n.dependsOnIntuitiveLeapLike then
+							depIds[n.id] = true
+						end
+					end
 					for i, n in ipairs(visited) do
-						if not n.dependsOnIntuitiveLeapLike and n.type ~= "Mastery" then
-							t_insert(node.depends, n)
+						if not n.dependsOnIntuitiveLeapLike then
+							if n.type == "Mastery" then
+								local otherPath = false
+								local allocatedLinkCount = 0
+								for _, linkedNode in ipairs(n.linked) do
+									if linkedNode.alloc then
+										allocatedLinkCount = allocatedLinkCount + 1
+									end
+								end
+								if allocatedLinkCount > 1 then
+									for _, linkedNode in ipairs(n.linked) do
+										if linkedNode.alloc and not depIds[linkedNode.id] then
+											otherPath = true
+										end
+									end
+								end
+								if not otherPath then
+									t_insert(node.depends, n)
+								end
+							else
+								t_insert(node.depends, n)
+							end
 						end
 						n.visited = false
 						visited[i] = nil

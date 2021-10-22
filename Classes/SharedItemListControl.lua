@@ -10,7 +10,7 @@ local t_insert = table.insert
 local t_remove = table.remove
 
 local SharedItemListClass = newClass("SharedItemListControl", "ListControl", function(self, anchor, x, y, width, height, itemsTab)
-	self.ListControl(anchor, x, y, width, height, 16, false, true, main.sharedItemList)
+	self.ListControl(anchor, x, y, width, height, 16, "VERTICAL", true, main.sharedItemList)
 	self.itemsTab = itemsTab
 self.label = "^7Build之间分享装备:"
 self.defaultText = "^x7F7F7F这是一个装备列表，\n可以在你的所有Build之间分享你的装备。\n你可以从其他装备列表中拖放装备到\n这里列表中来."

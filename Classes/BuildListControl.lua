@@ -17,7 +17,7 @@ local classNameMap = {
 }
 
 local BuildListClass = newClass("BuildListControl", "ListControl", function(self, anchor, x, y, width, height, listMode)
-	self.ListControl(anchor, x, y, width, height, 20, false, false, listMode.list)
+	self.ListControl(anchor, x, y, width, height, 20, "VERTICAL", false, listMode.list)
 	self.listMode = listMode
 	self.colList = { 
 		{ width = function() return self:GetProperty("width") - 172 end }, 

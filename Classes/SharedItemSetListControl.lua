@@ -11,7 +11,7 @@ local m_max = math.max
 local s_format = string.format
 
 local SharedItemSetListClass = newClass("SharedItemSetListControl", "ListControl", function(self, anchor, x, y, width, height, itemsTab)
-	self.ListControl(anchor, x, y, width, height, 16, false, true, main.sharedItemSetList)
+	self.ListControl(anchor, x, y, width, height, 16, "VERTICAL", true, main.sharedItemSetList)
 	self.itemsTab = itemsTab
 self.defaultText = "^x7F7F7F这里是你的不同Build之间共享的套装装备\n 你可以从左边的Build套装中拖拽套装\n到这个共享列表."
 self.controls.delete = new("ButtonControl", {"BOTTOMLEFT",self,"TOP"}, 2, -4, 60, 18, "删除", function()
