@@ -677,6 +677,9 @@ self.aboutTab = new("AboutTab", self)--lucifer
 	self.legacyLoaders = { -- Special loaders for legacy sections
 		["Spec"] = self.treeTab,
 	}
+	-- so we ran into problems with converted trees, trying to check passive tree routes and also consider thread jewels
+	-- but we cant check jewel info because items have not been loaded yet, and they come after passives in the xml.
+	-- the simplest solution seems to be making sure passive trees (which contain jewel sockets) are loaded last.
 	local deferredPassiveTrees = { }
 	for _, node in ipairs(self.xmlSectionList) do
 		-- Check if there is a saver that can load this section
