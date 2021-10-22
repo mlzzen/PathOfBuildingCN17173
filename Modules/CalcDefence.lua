@@ -510,6 +510,7 @@ s_format("近似近战闪避率: %d%%", output.MeleeEvadeChance),
 	output.LifeOnBlock = modDB:Sum("BASE", nil, "LifeOnBlock")
 	output.ManaOnBlock = modDB:Sum("BASE", nil, "ManaOnBlock")
 	output.EnergyShieldOnBlock = modDB:Sum("BASE", nil, "EnergyShieldOnBlock")
+	output.EnergyShieldOnSpellBlock = modDB:Sum("BASE", nil, "EnergyShieldOnSpellBlock")
 	-- Dodge
 	local totalAttackDodgeChance = modDB:Sum("BASE", nil, "AttackDodgeChance")
 	local totalSpellDodgeChance = modDB:Sum("BASE", nil, "SpellDodgeChance")
