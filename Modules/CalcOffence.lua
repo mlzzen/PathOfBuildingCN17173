@@ -3485,7 +3485,7 @@ t_insert(breakdown.IgniteDamage, s_format("= %.1f ^8每层点燃伤害", output.
 							})
 						end
 					end
-					if globalOutput.IgniteDuration ~= 4 then
+					if globalOutput.IgniteDuration ~= data.misc.IgniteDurationBase then
 						globalBreakdown.IgniteDuration = {
 							s_format("4.00s ^8(基础持续时间)", durationBase)
 						}
