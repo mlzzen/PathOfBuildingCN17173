@@ -3431,11 +3431,9 @@ s_format("异常计算模式: %s ^8(可以在配置面板修改)", igniteMode ==
 				local effectMod = calcLib.mod(skillModList, dotCfg, "AilmentEffect")
 				local rateMod = (calcLib.mod(skillModList, cfg, "IgniteBurnFaster") + enemyDB:Sum("INC", nil, "SelfIgniteBurnFaster") / 100)  / calcLib.mod(skillModList, cfg, "IgniteBurnSlower")
 				output.IgniteDPS = baseVal * effectMod * rateMod * effMult	
-				
-				
-				local incDur = skillModList:Sum("INC", dotCfg, "EnemyIgniteDuration", "SkillAndDamagingAilmentDuration") + enemyDB:Sum("INC", nil, "SelfIgniteDuration")
-				local moreDur = enemyDB:More(nil, "SelfIgniteDuration")
-				globalOutput.IgniteDuration = 4 * (1 + incDur / 100) * moreDur / rateMod * debuffDurationMult
+				local durationBase = data.misc.IgniteDurationBase
+				local durationMod = calcLib.mod(skillModList, dotCfg, "EnemyIgniteDuration", "SkillAndDamagingAilmentDuration") * calcLib.mod(enemyDB, nil, "SelfIgniteDuration")
+				globalOutput.IgniteDuration = durationBase * durationMod / rateMod * debuffDurationMult
 				globalOutput.IgniteDamage = output.IgniteDPS * globalOutput.IgniteDuration
 			
 				if skillFlags.igniteCanStack then
@@ -3477,29 +3475,26 @@ t_insert(breakdown.IgniteDamage, s_format("= %.1f ^8每层点燃伤害", output.
 							end
 							breakdown.multiChain(breakdown.TotalIgniteStacks, {
 								base = s_format("%.2fs ^8(点燃持续时间)", globalOutput.IgniteDuration),
-{ "%.2f ^8(点燃几率)", output.IgniteChance / 100 },
-{ "%.2f ^8(命中几率)", output.HitChance / 100 },
-{ "%.2f ^8(每秒击中)", globalOutput.HitSpeed or globalOutput.Speed },
-{ "%g ^8(本技能DPS加成)", skillData.dpsMultiplier or 1 },
+								{ "%.2f ^8(点燃几率)", output.IgniteChance / 100 },
+								{ "%.2f ^8(命中几率)", output.HitChance / 100 },
+								{ "%.2f ^8(每秒击中)", globalOutput.HitSpeed or globalOutput.Speed },
+								{ "%g ^8(本技能DPS加成)", skillData.dpsMultiplier or 1 },
 								total = s_format("= %.1f", output.TotalIgniteStacks),
 							})
 						end
 					end
 					if globalOutput.IgniteDuration ~= data.misc.IgniteDurationBase then
 						globalBreakdown.IgniteDuration = {
-							s_format("4.00s ^8(基础持续时间)", durationBase)
+							s_format("%.2fs ^8(基础持续时间)", durationBase)
 						}
-						if incDur ~= 0 then
-t_insert(globalBreakdown.IgniteDuration, s_format("x %.2f ^8(延长/缩短 持续时间)", 1 + incDur/100))
-						end
-						if moreDur ~= 1 then
-t_insert(globalBreakdown.IgniteDuration, s_format("x %.2f ^8(额外延长/缩短 总持续时间)", moreDur))
+						if durationMod ~= 1 then
+							t_insert(globalBreakdown.IgniteDuration, s_format("x %.2f ^8(持续时间加成)", durationMod))
 						end
 						if rateMod  ~= 1 then
-t_insert(globalBreakdown.IgniteDuration, s_format("/ %.2f ^8(燃烧速率加成)", rateMod))
+							t_insert(globalBreakdown.IgniteDuration, s_format("/ %.2f ^8(燃烧速率加成)", rateMod))
 						end
 						if debuffDurationMult ~= 1 then
-t_insert(globalBreakdown.IgniteDuration, s_format("/ %.2f ^8(更快或较慢 debuff消退)", 1 / debuffDurationMult))
+							t_insert(globalBreakdown.IgniteDuration, s_format("/ %.2f ^8(更快或较慢 debuff消退)", 1 / debuffDurationMult))
 						end
 						t_insert(globalBreakdown.IgniteDuration, s_format("= %.2f秒", globalOutput.IgniteDuration))
 					end
