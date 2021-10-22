@@ -6836,9 +6836,11 @@ minus = -tonumber(minus)
 	["charge duration"] = "ChargeDuration",
 	["increases and reductions to maximum mana also apply to shock effect at (%d+)%% of their value"] = function(num) return { flag("MaximumManaAppliesToShockEffect"), mod("ImprovedMaximumManaAppliesToShockEffect", "INC", num) } end,
 	["recover (%d+) energy shield when you block spell damage"] = function(num) return { mod("EnergyShieldOnSpellBlock", "BASE", num) } end,
+	["(%d+)%% chance to deal double damage with attacks if attack time is longer than 1 second"] = function(num) return { 
+		mod("DoubleDamageChance", "BASE", num, 0, 0, { type = "Condition", var = "OneSecondAttackTime" })
+	} end,
 
 
-	
 }
 
 for _, name in pairs(data.keystones) do

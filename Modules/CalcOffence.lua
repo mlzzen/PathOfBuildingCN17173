@@ -1455,10 +1455,13 @@ t_insert(breakdown[stat], s_format("x %.3f ^8(副手创建的实例部分)", off
 		else
 			output.Time = 1 / output.Speed
 		end
+		if output.Time > 1 then
+			modDB:NewMod("Condition:OneSecondAttackTime", "FLAG", true)
+		end
 		if skillFlags.bothWeaponAttack then
 			if breakdown then
 				breakdown.Speed = {
-"所有武器:",
+					"所有武器:",
 					s_format("(%.2f + %.2f) / 2", output.MainHand.Speed, output.OffHand.Speed),
 					s_format("= %.2f", output.Speed),
 				}
