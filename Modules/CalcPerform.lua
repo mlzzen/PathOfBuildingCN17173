@@ -612,14 +612,18 @@ local function doActorAttribsPoolsConditions(env, actor)
 		end
 	end
 	
-	-- Check shrine buffs, must be done before life pool calculated for massive shrine
-	for _, value in ipairs(modDB:List(nil, "ShrineBuff")) do
-		modDB:ScaleAddList({ value.mod }, calcLib.mod(modDB, nil, "BuffEffectOnSelf", "ShrineBuffEffect"))
+	
+	--涉及到生命 需要这里处理
+	if env.mode_combat then
+		if modDB:Flag(nil, "LesserMassiveShrine") then
+				local effect = (1 + modDB:Sum("INC", nil, "ShrineEffect", "BuffEffectOnSelf") / 100)
+				local effectAreaOfEffect = m_floor(20 * effect)
+				local effectLife  = m_floor(20 * effect)			
+				modDB:NewMod("Life", "INC", effectLife, "次级威猛神龛")		
+		end
 	end
-
 	-- Life/mana pools
-	output.ChaosInoculation = modDB:Flag(nil, "ChaosInoculation")
-	if output.ChaosInoculation then
+	if modDB:Flag(nil, "ChaosInoculation") then
 		output.Life = 1
 		condList["FullLife"] = true
 	else
