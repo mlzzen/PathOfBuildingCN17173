@@ -1371,7 +1371,8 @@ list = {{val="NONE",label="不是"},{val="Uber Atziri",label="普通Boss"},
 	--[[
 { var = "EEIgnoreHitDamage", type = "check", label = "忽略技能击中伤害?", ifNode = 39085, tooltip = "这个选项是防止【元素之相】受到你的主要技能的伤害类型的影响." },
 ]]--
-
+{ var = "EEIgnoreHitDamage", type = "check", label = "忽略技能的击中伤害?", ifFlag = "ElementalEquilibriumLegacy",
+tooltip = "该选项可以避免元素之相效果被主技能重置" },
  
 
 

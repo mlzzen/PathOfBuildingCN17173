@@ -6128,9 +6128,10 @@ local specialModList = {
 	} end,
 	["移除魔力，施放所有技能改为消耗生命"] = { mod("Mana", "MORE", -100), flag("BloodMagic") }, --备注：removes all mana%. spend life instead of mana for skills
 	["被火焰、冰霜和闪电伤害击中的敌人暂时提高 (%d+)%% 的该属性抗性，其他属性抗性降低 (%d+)%%"] = function(plus, _, minus) --备注：enemies you hit with elemental damage temporarily get (%+%d+)%% resistance to those elements and (%-%d+)%% resistance to other elements
-minus = -tonumber(minus)
+		minus = -tonumber(minus)
 		return {
 			flag("ElementalEquilibrium"),
+			flag("ElementalEquilibriumLegacy"),
 			mod("EnemyModifier", "LIST", { mod = mod("FireResist", "BASE", plus, { type = "Condition", var = "HitByFireDamage" }) }),
 			mod("EnemyModifier", "LIST", { mod = mod("FireResist", "BASE", minus, { type = "Condition", var = "HitByFireDamage", neg = true }, { type = "Condition", varList={"HitByColdDamage","HitByLightningDamage"} }) }),
 			mod("EnemyModifier", "LIST", { mod = mod("ColdResist", "BASE", plus, { type = "Condition", var = "HitByColdDamage" }) }),
@@ -6139,6 +6140,12 @@ minus = -tonumber(minus)
 			mod("EnemyModifier", "LIST", { mod = mod("LightningResist", "BASE", minus, { type = "Condition", var = "HitByLightningDamage", neg = true }, { type = "Condition", varList={"HitByFireDamage","HitByColdDamage"} }) }),
 		}
 	end,
+	["hits that deal elemental damage remove exposure to those elements and inflict exposure to other elements exposure inflicted this way applies (%-%d+)%% to resistances"] = function(num) return {
+		flag("ElementalEquilibrium"),
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", num, { type = "Condition", varList={ "HitByColdDamage","HitByLightningDamage" } }) }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", num, { type = "Condition", varList={ "HitByFireDamage","HitByLightningDamage" } }) }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", num, { type = "Condition", varList={ "HitByFireDamage","HitByColdDamage" } }) }),
+	} end,
 	["投射物攻击近距离目标时造成的总伤害最多额外提高 50%%，但攻击远距离目标时总伤害则会额外降低"] = { flag("PointBlank") }, --备注：projectile attack hits deal up to 50%% more damage to targets at the start of their movement, dealing less damage to targets as the projectile travels farther
 	["投射物攻击近距离目标时造成的伤害最多总增 30%%，但攻击远距离目标时伤害则会总降"] = { flag("PointBlank") }, --备注：projectile attack hits deal up to 50%% more damage to targets at the start of their movement, dealing less damage to targets as the projectile travels farther
 	["不再获得生命偷取，将其偷取效果套用于能量护盾"] = { flag("GhostReaver") }, --备注：life leech is applied to energy shield instead
