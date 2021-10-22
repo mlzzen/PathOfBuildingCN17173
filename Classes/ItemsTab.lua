@@ -1648,9 +1648,6 @@ function ItemsTabClass:UpdateCustomControls()
 					end
 					self.controls["displayItemCustomModifier"..i].shown = true
 					local label = itemLib.formatModLine(modLine)
-					if DrawStringCursorIndex(16, "VAR", label, 330, 10) < #label then
-						label = label:sub(1, DrawStringCursorIndex(16, "VAR", label, 310, 10)) .. "..."
-					end
 					self.controls["displayItemCustomModifier"..i].label = label
 					self.controls["displayItemCustomModifierLabel"..i].label = modLine.crafted and "^7工艺:" or "^7自定义:"
 					self.controls["displayItemCustomModifierRemove"..i].onClick = function()
@@ -2358,6 +2355,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	local controls = { }
 	local sourceList = { }
 	local modList = { }
+	local cnAffix = { Prefix = "前缀", Pre = "前缀", Suffix = "后缀", Suf = "后缀" }
 	---Mutates modList to contain mods from the specified source
 	---@param sourceId string @The crafting source id to build the list of mods for
 	local function buildMods(sourceId)
@@ -2371,11 +2369,10 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					end
 				end
 			end
-			local cnFix = { Prefix = "前缀", Suffix = "后缀" }
 			for i, craft in ipairs(self.build.data.masterMods) do
 				if craft.types[self.displayItem.type] and not excludeGroups[craft.group] then
 					t_insert(modList, {
-						label = table.concat(craft, "/") .. " ^8(" .. cnFix[craft.type] .. ")",
+						label = "(" .. cnAffix[craft.type] .. ") ".. table.concat(craft, "/"),
 						mod = craft,
 						type = "crafted",
 						affixType = craft.type,
@@ -2418,7 +2415,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 			for _, craft in ipairs(self.build.data.incursion) do
 				if craft.types[self.displayItem.type] then
 					if craft.room then
-						label = ""..craft.affix.."("..craft.room..") "..craft.type:sub(1,3).."^8[" .. table.concat(craft, "/") .. "]"
+						label = ""..craft.affix.."("..craft.room..") "..cnAffix[craft.type:sub(1,3)].."^8[" .. table.concat(craft, "/") .. "]"
 					else
 						label = table.concat(craft, "/")
 					end
@@ -2433,7 +2430,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 			for _, craft in ipairs(self.build.data.delve) do
 				if craft.types[self.displayItem.type] then
 					if craft.fossil then
-						label = table.concat(craft.fossil, "/").." "..craft.type:sub(1,3).."^8[" .. table.concat(craft, "/") .. "]"
+						label = table.concat(craft.fossil, "/").." "..cnAffix[craft.type:sub(1,3)].."^8[" .. table.concat(craft, "/") .. "]"
 					else
 						label = table.concat(craft, "/")
 					end
@@ -2468,7 +2465,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				local modId = essence.mods[self.displayItem.type]
 				local mod = self.displayItem.affixes[modId]
 				t_insert(modList, {
-					label = essence.name .. "   "..mod.type:sub(1,3).."^8[" .. table.concat(mod, "/") .. "]",
+					label = essence.name .. "   "..cnAffix[mod.type:sub(1,3)].."^8[" .. table.concat(mod, "/") .. "]",
 					mod = mod,
 					type = "custom",
 					essence = essence,
@@ -2505,13 +2502,30 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				end
 				return modA.level > modB.level
 			end)
+		elseif sourceId == "VEILED" then
+			for i, mod in pairs(self.build.data.veiledMods) do
+				if self.displayItem:GetModSpawnWeight(mod) > 0 then
+					t_insert(modList, {
+						label = "(" .. cnAffix[mod.type] .. ") " .. table.concat(mod, "/"),
+						mod = mod,
+						affixType = mod.type,
+						type = "custom",
+						defaultOrder = i,
+					})
+				end
+			end
+			table.sort(modList, function(a, b)
+				if a.affixType ~= b.affixType then
+					return a.affixType == "Prefix" and b.affixType == "Suffix"
+				else
+					return a.defaultOrder < b.defaultOrder
+				end
+			end)
 		end
 	end
 	
 	
-	if (	 
-	self.displayItem.type ~= "Jewel"
-	) 
+	if (self.displayItem.type ~= "Jewel") 
 	and  (self.displayItem.rarity == "魔法" or self.displayItem.rarity == "稀有")	
 	or (self.displayItem.name == '悖论【仿品】, 瓦尔细剑'  or  self.displayItem.name == '悖论, 瓦尔细剑'  or  self.displayItem.name == '女王的饥饿, 瓦尔法衣'
 	or  self.displayItem.name == '库勒马克藤杖, 蛇纹长杖' 
@@ -2527,6 +2541,9 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		t_insert(sourceList, { label = "精华", sourceId = "ESSENCE" })
 		t_insert(sourceList, { label = "地心", sourceId = "DELVE" })
 		t_insert(sourceList, { label = "穿越", sourceId = "INCURSION" })
+	end
+	if self.displayItem.type ~= "Jewel" and self.displayItem.type ~= "Flask" then
+		t_insert(sourceList, { label = "影匿", sourceId = "VEILED"})
 	end
 	if self.displayItem.type == "Amulet" or self.displayItem.name=='扼息者, 火蝮鳞手套' 	
 	 or self.displayItem.name=='孢囊守卫, 圣者链甲'   or self.displayItem.name=='奔逃之, 暗影之靴'  

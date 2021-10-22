@@ -427,6 +427,7 @@ data.synthesisedMods = {
 		
 }
 data.essences = LoadModule("Data/Essence")
+data.veiledMods = LoadModule("Data/ModVeiled")
 data.pantheons = LoadModule("Data/Pantheons")
 
 
