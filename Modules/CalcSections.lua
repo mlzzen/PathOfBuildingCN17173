@@ -1363,9 +1363,9 @@ flag = "rage",
 	{ label = "法术躲避几率", { format = "{0:output:SpellDodgeChance}% (+{0:output:SpellDodgeChanceOverCap}%)", { modName = "SpellDodgeChance" }, }, },
 } }, 
 { defaultCollapsed = false, label = "法术抑制", data = {
-extra = "{0:output:SpellSuppressionChance}%",
-{ label = "法术抑制几率", { format = "{0:output:SpellSuppressionChance}% (+{0:output:SpellSuppressionChanceOverCap}%)", { modName = "SpellSuppressionChance" }, }, },
-{ label = "法术抑制效果", { format = "{0:output:SpellSuppressionEffect}%", { modName = "SpellSuppressionEffect" }, }, },
+	extra = "{0:output:SpellSuppressionChance}%",
+	{ label = "法术抑制几率", { format = "{0:output:SpellSuppressionChance}% (+{0:output:SpellSuppressionChanceOverCap}%)", { modName = "SpellSuppressionChance" }, }, },
+	{ label = "法术抑制效果", { format = "{0:output:SpellSuppressionEffect}%", { modName = "SpellSuppressionEffect" }, }, },
 } },
 { defaultCollapsed = true, label = "伤害避免", data = {
 	{ label = "避免物理伤害几率", haveOutput = "AvoidPhysicalDamageChance", { format = "{0:output:AvoidPhysicalDamageChance}%", { modName = "AvoidPhysicalDamageChance" }, }, },
