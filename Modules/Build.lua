@@ -677,14 +677,27 @@ self.aboutTab = new("AboutTab", self)--lucifer
 	self.legacyLoaders = { -- Special loaders for legacy sections
 		["Spec"] = self.treeTab,
 	}
+	local deferredPassiveTrees = { }
 	for _, node in ipairs(self.xmlSectionList) do
 		-- Check if there is a saver that can load this section
 		local saver = self.savers[node.elem] or self.legacyLoaders[node.elem]
 		if saver then
-			if saver:Load(node, self.dbFileName) then
-				self:CloseBuild()
-				return
+			-- if the saver is treetab, defer it until everything is is loaded
+			if saver == self.treeTab  then
+				t_insert( deferredPassiveTrees, node )
+			else
+				if saver:Load(node, self.dbFileName) then
+					self:CloseBuild()
+					return
+				end
 			end
+		end
+	end
+	for _, node in ipairs(deferredPassiveTrees) do
+		-- Check if there is a saver that can load this section
+		if self.treeTab:Load(node, self.dbFileName) then
+			self:CloseBuild()
+			return
 		end
 	end
 	for _, saver in pairs(self.savers) do
