@@ -4468,8 +4468,9 @@ local specialModList = {
 	mod("CooldownRecovery", "OVERRIDE", num, nil, 0, KeywordFlag.Warcry)
 	} end,
 	["你至少有 (%d+) 点怒火时，周围敌人被压垮"]= function(num) return {
-	mod("EnemyPhysicalDamageReduction", "BASE", -15, { type = "GlobalEffect", effectType = "Debuff", effectName = "压垮" },
-	{ type = "MultiplierThreshold", var = "Rage", threshold = tonumber(num) })} end,
+		-- MultiplierThreshold is on RageStacks because Rage is only set in CalcPerform if Condition:CanGainRage is true, Bear's Girdle does not flag CanGainRage
+		mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }, { type = "MultiplierThreshold", var = "RageStack", threshold = num })
+	} end,
 	["每 (%d+) 点怒火使物理伤害提高 (%d+)%%"]= function(_,num1,num2) return {
 	mod("PhysicalDamage", "INC", tonumber(num2),{ type = "Multiplier", var = "Rage", div = tonumber(num1) } )  } end,
 	["血姿态下获得 (%d+) 每秒生命回复"]= function(num) return {
@@ -5427,7 +5428,7 @@ local specialModList = {
 	["水源法球的脉冲频率加快 (%d+)%%"]= function(num) return {
 		mod("HydroSphereFrequency", "INC", num, { type = "SkillId", skillId = "WaterSphere" })
 		} end,
-	["你被碾压了"] = function(num) return { mod("PhysicalDamageReduction", "BASE", -15) } end,
+	["你被碾压了"] = { flag("Condition:Crushed") },
 	["你每有一个暴击球便使召唤生物的暴击率提高 (%d+)%%"]= function(num) return { mod("MinionModifier", "LIST", { mod = mod("CritChance", "INC", num, { type = "Multiplier",actor = "parent", var = "PowerChargeMax" }) }) } end,
 	["召唤生物造成暴击后会在 5 秒内听到低语"] = function() return {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", 50, { type = "Condition", neg = true, var = "NeverCrit"}) }),
@@ -5997,7 +5998,7 @@ local specialModList = {
 	["灵魂牧者"] = { mod("Damage", "MORE", -30, { type = "SkillType", skillType = SkillType.Vaal, neg = true }) },
 	["插入的技能石的消耗及保留加成为原来的 (%d+)%%"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("SupportManaMultiplier", "MORE", num - 100) }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
 	["周围敌人有恶语术效果"] = { mod("EnemyModifier", "LIST", { mod = flag("HasMalediction") }) },
-	["周围敌人被碾压"] = { mod("EnemyPhysicalDamageReduction", "BASE", -15) },
+	["周围敌人被碾压"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed")} )},
 	["你总共消耗 12 枚钢刃碎片后技能在 4 秒内发射 (%d+) 枚额外投射物"] = function(num) return { mod("ProjectileCount", "BASE", num, { type = "Condition", var = "Consumed12SteelShardsRecently" }) } end,
 	["近战暴击时触发一个插入的冰霜法术，它有 0.15 秒冷却时间"] = { mod("ExtraSupport", "LIST", { skillId = "SupportUniqueCosprisMaliceColdSpellsCastOnMeleeCriticalStrike", level = 1 }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 	["插入的技能石的保留效果降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Reserved", "INC", -num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
@@ -6866,7 +6867,8 @@ local specialModList = {
 		mod("Multiplier:Fortification", "BASE", num),
 		flag("Condition:Fortified") 
 	} end,
-	
+	["crush enemies on hit with maces and sceptres"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }, { type = "Condition", var = "UsingMace" } )},
+
 }
 
 for _, name in pairs(data.keystones) do
@@ -7207,6 +7209,8 @@ local jewelOtherFuncs = {
 	["范围内其他伤害类型的增减转换成火焰伤害"] = getSimpleConv({"PhysicalDamage","ColdDamage","LightningDamage","ChaosDamage"}, "FireDamage", "INC", true), --备注：Increases and Reductions to other Damage Types in Radius are Transformed to apply to Fire Damage
 	["范围内提高闪电抗性的天赋也会以 35% 的比例提高法术格挡率"] = getSimpleConv({"LightningResist","ElementalResist"}, "SpellBlockChance", "BASE", false, 0.35), --备注：Passives granting Lightning Resistance or all Elemental Resistances in Radius also grant Chance to Block Spells at 35% of its value
 	["范围内提高冰霜抗性的天赋也会以 35% 的比例提高躲避攻击击中几率"] = getSimpleConv({"ColdResist","ElementalResist"}, "AttackDodgeChance", "BASE", false, 0.35), --备注：Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Dodge Attacks at 35% of its value
+	["范围内提高冰霜抗性的天赋也会以 35% 的比例提高法术抑制几率"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.35),
+	["范围内提高冰霜抗性的天赋也会以 50% 的比例提高法术抑制几率"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.5),
 	["范围内提高火焰抗性的天赋也会以 35% 的比例提高攻击格挡率"] = getSimpleConv({"FireResist","ElementalResist"}, "BlockChance", "BASE", false, 0.35), --备注：Passives granting Fire Resistance or all Elemental Resistances in Radius also grant Chance to Block at 35% of its value
 	["范围内的近战和近战武器加成转换成弓类武器加成"] = function(node, out, data) --备注：Melee and Melee Weapon Type modifiers in Radius are Transformed to Bow Modifiers
 		if node then
