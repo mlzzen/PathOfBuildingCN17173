@@ -496,7 +496,9 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			node.type = "Mastery"
 		elseif node.ks then
 			node.type = "Keystone"
-			self.keystoneMap[node.dn] = node
+			if not self.keystoneMap[node.dn] then -- Don't override good tree data with legacy keystones
+				self.keystoneMap[node.dn] = node
+			end
 		elseif node["not"] then
 			node.type = "Notable"
 		else
