@@ -701,10 +701,10 @@ end },
 { var = "buffPhasing", type = "check", label = "你是否处于【迷踪】状态?", ifCond = "Phasing", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Phasing", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-{ var = "buffFortify", type = "check", label = "你是否处于【护体】状态?", ifCond = "Fortify", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:Fortify", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
-	end },
-	
+{ var = "multiplierFortification", type = "count", label = "护体防卫层数: #", tooltip = "每层护体防卫层数使你受到的击中伤害降低1%\n默认层数上限为20层", apply = function(val, modList, enemyModList)
+	modList:NewMod("Multiplier:Fortification", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+	modList:NewMod("Condition:Fortified", "FLAG", val >= 1, "Config", { type = "Condition", var = "Combat" })
+end },
 { var = "buffVaalArcLuckyHits", type = "check", label = "你是否有【瓦尔.电弧】的【特别幸运】增益效果？", ifCond = "CanBeLucky",  
 tooltip = "电弧的击中伤害会 roll 2 次，取高的那次", apply = function(val, modList, enemyModList)
 

@@ -6860,8 +6860,12 @@ local specialModList = {
 		mod("BleedDamage", "INC", num, { type = "ActorCondition", actor = "enemy", var = "Poisoned"})
 	} end,
 	["corrupted blood cannot be inflicted on you"] = { flag("Condition:CorruptedBloodImmunity") },
-
-
+	["maximum fortification"] = "MaximumFortification",
+	["you have (%d+) fortification"] = function(num) return { 
+		mod("MaximumFortification", "OVERRIDE", num), 
+		mod("Multiplier:Fortification", "BASE", num),
+		flag("Condition:Fortified") 
+	} end,
 	
 }
 
