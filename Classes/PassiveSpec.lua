@@ -735,7 +735,6 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 					node.modKey = ""
 					node.reminderText = { }
 				end
-				
 				self:ReconnectNodeToClassStart(node)
 			end
 		end
