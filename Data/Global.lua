@@ -269,6 +269,7 @@ Attack = 1,
 	Arcane = 115, -- means it is reliant on amount of mana spent
 	Type116 = 116,
 	CantEquipWeapon = 117,
+	Link = 118,
 	--SkillCanBarrage = 97, --Skill can be supported by Barrage Support
 --	SkillCanSequentialProj = 98, --Skill can receive the Sequential Projectiles bonus from Barrage Support
 }
