@@ -2347,7 +2347,8 @@ controls.save = new("ButtonControl", nil, -45, 70, 80, 20, "腐化", function()
 controls.close = new("ButtonControl", nil, 45, 70, 80, 20, "取消", function()
 		main:ClosePopup()
 	end)
-main:OpenPopup(540, 100, "腐化装备", controls)
+	local modTypeCN = { Corrupted = "腐化", Scourge = "灾魇腐化"}
+	main:OpenPopup(540, 100, modTypeCN[modType].."装备", controls)
 end
 
 -- Opens the custom modifier popup
