@@ -698,8 +698,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 					self:ReplaceNode(node,legionNode)
 				elseif conqueredBy.conqueror.type == "eternal" and node.type == "Notable"  then
 					local legionNode = legionNodes["eternal_notable_fire_resistance_1"]
-					node.dn = "Eternal Empire notable node"
-					node.sd = {"Right click to set mod"}
+					node.dn = "永恒帝国核心天赋"
+					node.sd = {"右键设置词缀"}
 					node.sprites = legionNode.sprites
 					node.mods = {""}
 					node.modList = new("ModList")
