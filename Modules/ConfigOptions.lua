@@ -351,6 +351,10 @@ modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", 
 	apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "hoaOverkill", value = val }, "Config", { type = "SkillName", skillName = "灰烬之捷" })
 	end },
+	{ label = "雷电魔爆:", ifSkill = "Voltaxic Burst" },
+	{ var = "voltaxicBurstSpellsQueued", type = "count", label = "# 个等待释放的法术:", ifSkill = "Voltaxic Burst", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:VoltaxicCastsWaiting", "BASE", val, "Config")
+	end },
 { label = "【漩涡】 :", ifSkill = "漩涡 " },
 { var = "conditionCastOnFrostbolt", type = "check", label = "由【寒冰弹】触发?", ifSkill = "漩涡", apply = function(val, modList, enemyModList)
 modList:NewMod("Condition:CastOnFrostbolt", "FLAG", true, "Config", { type = "SkillName", skillName = "漩涡" })
