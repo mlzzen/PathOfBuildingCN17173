@@ -39,6 +39,9 @@ return {
 { var = "conditionLowLife", type = "check", label = "你处于低血状态?", ifCond = "LowLife", tooltip = "当你至少有 50% 生命保留的时候会自动认为是低血状态,\n如果有必要，你可以勾选这个来认为你是低血的.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:LowLife", "FLAG", true, "Config")
 	end },
+	{ var = "conditionLowMana", type = "check", label = "你处于低魔状态?", ifCond = "LowMana", tooltip = "当你至少有 50% 魔力保留的时候会自动认为是低魔状态,\n如果有必要，你可以勾选这个来认为你是低魔的.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:LowMana", "FLAG", true, "Config")
+	end },
 { var = "conditionFullEnergyShield", type = "check", label = "你处于满能量护盾状态?", ifCond = "FullEnergyShield", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FullEnergyShield", "FLAG", true, "Config")
 	end },

@@ -987,16 +987,6 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 			end
 		end
 	end
-	
-	-- Damage source taken multiplier calculations
-	for _, hitType in ipairs(hitSourceList) do
-		local baseTakenInc = modDB:Sum("INC", nil, "DamageTaken", hitType.."DamageTaken")
-		local baseTakenMore = modDB:More(nil, "DamageTaken", hitType.."DamageTaken")
-		do
-			-- Hit
-			output[hitType.."TakenHitMult"] = m_max((1 + baseTakenInc / 100) * baseTakenMore)
-		end
-	end
 
 	-- Damage taken multipliers/Degen calculations
 	for _, damageType in ipairs(dmgTypeList) do
@@ -1296,6 +1286,15 @@ label = "持续伤害加成:",
 			end
 		end
 		output[damageType.."TakenHitMult"] = mult
+		for _, hitType in ipairs(hitSourceList) do
+			local baseTakenInc = modDB:Sum("INC", nil, "DamageTaken", hitType.."DamageTaken")
+			local baseTakenMore = modDB:More(nil, "DamageTaken", hitType.."DamageTaken")
+			do
+				-- Hit
+				output[hitType.."TakenHitMult"] = m_max((1 + baseTakenInc / 100) * baseTakenMore)
+				output[hitType..damageType.."TakenHitMult"] = mult * output[hitType.."TakenHitMult"]
+			end
+		end
 		if output.AnyTakenReflect then
 			output[damageType.."TakenReflectMult"] = multReflect
 		end
@@ -1405,6 +1404,7 @@ label = "持续伤害加成:",
 
 	--maximum hit taken
 	--FIX ARMOUR MITIGATION FOR THIS, uses input damage to calculate mitigation from armour, instead of maximum hit taken
+	local damageCategoryConfig = env.configInput.EhpCalcMode or "Average"
 	for _, damageType in ipairs(dmgTypeList) do
 		if breakdown then
 			breakdown[damageType.."MaximumHitTaken"] = { 
@@ -1422,7 +1422,15 @@ label = "持续伤害加成:",
 		for _, damageConvertedType in ipairs(dmgTypeList) do
 			if actor.damageShiftTable[damageType][damageConvertedType] > 0 then
 				local hitTaken = output[damageConvertedType.."TotalPool"] / (actor.damageShiftTable[damageType][damageConvertedType] / 100) / output[damageType..damageConvertedType.."BaseTakenHitMult"]
-				
+				if damageCategoryConfig == "Melee" or damageCategoryConfig == "Projectile" then
+					hitTaken = hitTaken * (1 / output.AttackTakenHitMult)
+				end
+				if damageCategoryConfig == "Spell" or damageCategoryConfig == "Projectile Spell" then
+					hitTaken = hitTaken * (1 / output.SpellTakenHitMult)
+				end
+				if damageCategoryConfig == "Average" then
+					hitTaken = hitTaken * (1 / ((output.SpellTakenHitMult + output.AttackTakenHitMult) / 2))
+				end
 				if hitTaken < output[damageType.."MaximumHitTaken"] then
 					output[damageType.."MaximumHitTaken"] = hitTaken
 				end
@@ -1473,8 +1481,14 @@ label = "持续伤害加成:",
 		for _, damageConvertedType in ipairs(dmgTypeList) do
 			if actor.damageShiftTable[damageType][damageConvertedType] > 0 then
 				local damageTaken = (damage  * actor.damageShiftTable[damageType][damageConvertedType] / 100 * output[damageType..damageConvertedType.."BaseTakenHitMult"])
+				if damageCategoryConfig == "Melee" or damageCategoryConfig == "Projectile" then
+					damageTaken = damageTaken * output.AttackTakenHitMult
+				end
 				if damageCategoryConfig == "Spell" or damageCategoryConfig == "SpellProjectile" then
-					damageTaken = damageTaken * ((100 - output.SpellSuppressionEffectiveChance) / 100)
+					damageTaken = damageTaken * ((100 - output.SpellSuppressionEffectiveChance) / 100) * output.SpellTakenHitMult
+				end
+				if damageCategoryConfig == "Average" then
+					damageTaken = damageTaken * ((((100 - output.SpellSuppressionEffectiveChance) / 100) * output.SpellTakenHitMult + output.AttackTakenHitMult) / 2)
 				end
 				local hitsTaken = math.ceil(output[damageConvertedType.."TotalPool"] / damageTaken)
 				hitsTaken = hitsTaken / (1 - output[damageCategory.."NotHitChance"] / 100)  / (1 - output[damageConvertedType..damageCategory.."DamageChance"] / 100)

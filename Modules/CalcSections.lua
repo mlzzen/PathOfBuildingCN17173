@@ -1402,46 +1402,54 @@ flag = "rage",
 { 3, "DamageTaken", 1, colorCodes.DEFENCE, {{ defaultCollapsed = false, label = "伤害承受", data = {
 	colWidth = 114,
 	{
-		{ format = "攻击:" },
-		{ format = "法术:" },
-	},
-	{ label = "承受击中伤害",
-		{ format = "x {2:output:AttackTakenHitMult}", 
-			{ breakdown = "AttackTakenHitMult" }, 
-			{ modName = { "DamageTaken", "AttackDamageTaken" } } 
-		},
-		{ format = "x {2:output:SpellTakenHitMult}",
-			{ breakdown = "SpellTakenHitMult" }, 
-			{ modName = { "DamageTaken", "SpellDamageTaken" } }
-		}
-	},
-	{
 		{ format = "物理:" },
 		{ format = "闪电:" },
 		{ format = "冰霜:" },
 		{ format = "火焰:" },
 		{ format = "混沌:" },
 	},
-	{ label = "承受击中伤害",
-		{ format = "x {2:output:PhysicalTakenHitMult}", 
+	{ label = "承受攻击击中伤害",
+		{ format = "x {2:output:AttackPhysicalTakenHitMult}", 
 			{ breakdown = "PhysicalTakenHitMult" }, 
-			{ modName = { "DamageTaken", "DamageTakenWhenHit", "PhysicalDamageTaken", "PhysicalDamageTakenWhenHit", "PhysicalDamageTakenAsFire", "PhysicalDamageTakenAsCold", "PhysicalDamageTakenAsLightning", "PhysicalDamageTakenAsChaos" } } 
+			{ modName = { "DamageTaken", "DamageTakenWhenHit", "AttackDamageTaken", "PhysicalDamageTaken", "PhysicalDamageTakenWhenHit", "PhysicalDamageTakenAsFire", "PhysicalDamageTakenAsCold", "PhysicalDamageTakenAsLightning", "PhysicalDamageTakenAsChaos" } } 
 		},
-		{ format = "x {2:output:LightningTakenHitMult}",
+		{ format = "x {2:output:AttackLightningTakenHitMult}",
 			{ breakdown = "LightningTakenHitMult" }, 
-			{ modName = { "DamageTaken", "DamageTakenWhenHit", "LightningDamageTaken", "LightningDamageTakenWhenHit", "ElementalDamageTaken", "ElementalDamageTakenWhenHit", "LightningDamageTakenAsPhysical", "LightningDamageTakenAsFire", "LightningDamageTakenAsCold", "LightningDamageTakenAsChaos", "ElementalDamageTakenAsPhysical", "ElementalDamageTakenAsChaos", "SelfIgnoreLightningResistance" } }
+			{ modName = { "DamageTaken", "DamageTakenWhenHit", "AttackDamageTaken", "LightningDamageTaken", "LightningDamageTakenWhenHit", "ElementalDamageTaken", "ElementalDamageTakenWhenHit", "LightningDamageTakenAsPhysical", "LightningDamageTakenAsFire", "LightningDamageTakenAsCold", "LightningDamageTakenAsChaos", "ElementalDamageTakenAsPhysical", "ElementalDamageTakenAsChaos", "SelfIgnoreLightningResistance" } }
 		},
-		{ format = "x {2:output:ColdTakenHitMult}",
+		{ format = "x {2:output:AttackColdTakenHitMult}",
 			{ breakdown = "ColdTakenHitMult" }, 
-			{ modName = { "DamageTaken", "DamageTakenWhenHit", "ColdDamageTaken", "ColdDamageTakenWhenHit", "ElementalDamageTaken", "ElementalDamageTakenWhenHit", "ColdDamageTakenAsPhysical", "ColdDamageTakenAsFire", "ColdDamageTakenAsLightning", "ColdDamageTakenAsChaos", "ElementalDamageTakenAsPhysical", "ElementalDamageTakenAsChaos", "SelfIgnoreColdResistance" } }
+			{ modName = { "DamageTaken", "DamageTakenWhenHit", "AttackDamageTaken", "ColdDamageTaken", "ColdDamageTakenWhenHit", "ElementalDamageTaken", "ElementalDamageTakenWhenHit", "ColdDamageTakenAsPhysical", "ColdDamageTakenAsFire", "ColdDamageTakenAsLightning", "ColdDamageTakenAsChaos", "ElementalDamageTakenAsPhysical", "ElementalDamageTakenAsChaos", "SelfIgnoreColdResistance" } }
 		},
-		{ format = "x {2:output:FireTakenHitMult}", 
+		{ format = "x {2:output:AttackFireTakenHitMult}", 
 			{ breakdown = "FireTakenHitMult" }, 
-			{ modName = { "DamageTaken", "DamageTakenWhenHit", "FireDamageTaken", "FireDamageTakenWhenHit", "ElementalDamageTaken", "ElementalDamageTakenWhenHit", "FireDamageTakenAsPhysical", "FireDamageDamageTakenAsCold", "FireDamageTakenAsLightning", "FireDamageTakenAsChaos", "ElementalDamageTakenAsPhysical", "ElementalDamageTakenAsChaos", "SelfIgnoreFireResistance" }  } 
+			{ modName = { "DamageTaken", "DamageTakenWhenHit", "AttackDamageTaken", "FireDamageTaken", "FireDamageTakenWhenHit", "ElementalDamageTaken", "ElementalDamageTakenWhenHit", "FireDamageTakenAsPhysical", "FireDamageDamageTakenAsCold", "FireDamageTakenAsLightning", "FireDamageTakenAsChaos", "ElementalDamageTakenAsPhysical", "ElementalDamageTakenAsChaos", "SelfIgnoreFireResistance" }  } 
 		},
-		{ format = "x {2:output:ChaosTakenHitMult}",
+		{ format = "x {2:output:AttackChaosTakenHitMult}",
 			{ breakdown = "ChaosTakenHitMult" }, 
-			{ modName = { "DamageTaken", "DamageTakenWhenHit", "ChaosDamageTaken", "ChaosDamageTakenWhenHit", "ChaosDamageTakenAsPhysical", "ChaosDamageTakenAsFire", "ChaosDamageTakenAsCold", "ChaosDamageTakenAsLightning", "SelfIgnoreChaosResistance" } }
+			{ modName = { "DamageTaken", "DamageTakenWhenHit", "AttackDamageTaken", "ChaosDamageTaken", "ChaosDamageTakenWhenHit", "ChaosDamageTakenAsPhysical", "ChaosDamageTakenAsFire", "ChaosDamageTakenAsCold", "ChaosDamageTakenAsLightning", "SelfIgnoreChaosResistance" } }
+		},
+	},
+	{ label = "承受法术击中伤害",
+		{ format = "x {2:output:SpellPhysicalTakenHitMult}", 
+			{ breakdown = "PhysicalTakenHitMult" }, 
+			{ modName = { "DamageTaken", "DamageTakenWhenHit", "SpellDamageTaken", "PhysicalDamageTaken", "PhysicalDamageTakenWhenHit", "PhysicalDamageTakenAsFire", "PhysicalDamageTakenAsCold", "PhysicalDamageTakenAsLightning", "PhysicalDamageTakenAsChaos" } } 
+		},
+		{ format = "x {2:output:SpellLightningTakenHitMult}",
+			{ breakdown = "LightningTakenHitMult" }, 
+			{ modName = { "DamageTaken", "DamageTakenWhenHit", "SpellDamageTaken", "LightningDamageTaken", "LightningDamageTakenWhenHit", "ElementalDamageTaken", "ElementalDamageTakenWhenHit", "LightningDamageTakenAsPhysical", "LightningDamageTakenAsFire", "LightningDamageTakenAsCold", "LightningDamageTakenAsChaos", "ElementalDamageTakenAsPhysical", "ElementalDamageTakenAsChaos", "SelfIgnoreLightningResistance" } }
+		},
+		{ format = "x {2:output:SpellColdTakenHitMult}",
+			{ breakdown = "ColdTakenHitMult" }, 
+			{ modName = { "DamageTaken", "DamageTakenWhenHit", "SpellDamageTaken", "ColdDamageTaken", "ColdDamageTakenWhenHit", "ElementalDamageTaken", "ElementalDamageTakenWhenHit", "ColdDamageTakenAsPhysical", "ColdDamageTakenAsFire", "ColdDamageTakenAsLightning", "ColdDamageTakenAsChaos", "ElementalDamageTakenAsPhysical", "ElementalDamageTakenAsChaos", "SelfIgnoreColdResistance" } }
+		},
+		{ format = "x {2:output:SpellFireTakenHitMult}", 
+			{ breakdown = "FireTakenHitMult" }, 
+			{ modName = { "DamageTaken", "DamageTakenWhenHit", "SpellDamageTaken", "FireDamageTaken", "FireDamageTakenWhenHit", "ElementalDamageTaken", "ElementalDamageTakenWhenHit", "FireDamageTakenAsPhysical", "FireDamageDamageTakenAsCold", "FireDamageTakenAsLightning", "FireDamageTakenAsChaos", "ElementalDamageTakenAsPhysical", "ElementalDamageTakenAsChaos", "SelfIgnoreFireResistance" }  } 
+		},
+		{ format = "x {2:output:SpellChaosTakenHitMult}",
+			{ breakdown = "ChaosTakenHitMult" }, 
+			{ modName = { "DamageTaken", "DamageTakenWhenHit", "SpellDamageTaken", "ChaosDamageTaken", "ChaosDamageTakenWhenHit", "ChaosDamageTakenAsPhysical", "ChaosDamageTakenAsFire", "ChaosDamageTakenAsCold", "ChaosDamageTakenAsLightning", "SelfIgnoreChaosResistance" } }
 		},
 	},
 	{ label = "承受持续伤害",
