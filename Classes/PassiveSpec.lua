@@ -733,6 +733,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 					node.mods = {""}
 					node.modList = new("ModList")
 					node.modKey = ""
+					node.reminderText = { }
 				end
 				
 				self:ReconnectNodeToClassStart(node)
@@ -888,7 +889,7 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
 	old.keystoneMod = newNode.keystoneMod
 	old.icon = newNode.icon
 	old.spriteId = newNode.spriteId
-	old.reminderText = newNode.reminderText
+	old.reminderText = newNode.reminderText or { }
 end
 ---Reconnects altered timeless jewel to class start, for Pure Talent
 ---@param node table @ The node to add the Condition:ConnectedTo[Class] flag to, if applicable
