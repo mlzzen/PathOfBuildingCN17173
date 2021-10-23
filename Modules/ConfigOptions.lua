@@ -951,6 +951,9 @@ ifCond = "OnFungalGround",
 		modList:NewMod("Multiplier:BeenHitRecently", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:BeenHitRecently", "FLAG", 1 <= val, "Config", { type = "Condition", var = "Combat" })
 	end },
+{ var = "conditionBeenHitByAttackRecently", type = "check", label = "你近期被攻击击中?", ifCond = "BeenHitByAttackRecently", apply = function(val, modList, enemyModList)
+	modList:NewMod("Condition:BeenHitByAttackRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+end },
 { var = "conditionBeenCritRecently", type = "check", label = "你近期有承受过暴击?", ifCond = "BeenCritRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:BeenCritRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },

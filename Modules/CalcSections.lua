@@ -1402,6 +1402,20 @@ flag = "rage",
 { 3, "DamageTaken", 1, colorCodes.DEFENCE, {{ defaultCollapsed = false, label = "伤害承受", data = {
 	colWidth = 114,
 	{
+		{ format = "攻击:" },
+		{ format = "法术:" },
+	},
+	{ label = "承受击中伤害",
+		{ format = "x {2:output:AttackTakenHitMult}", 
+			{ breakdown = "AttackTakenHitMult" }, 
+			{ modName = { "DamageTaken", "AttackDamageTaken" } } 
+		},
+		{ format = "x {2:output:SpellTakenHitMult}",
+			{ breakdown = "SpellTakenHitMult" }, 
+			{ modName = { "DamageTaken", "SpellDamageTaken" } }
+		}
+	},
+	{
 		{ format = "物理:" },
 		{ format = "闪电:" },
 		{ format = "冰霜:" },
