@@ -681,7 +681,7 @@ function TreeTabClass:OpenMasteryPopup(node, viewPort)
 	--Check to make sure that the effects list has a potential mod to apply to a mastery
 	if not (next(effects) == nil) then
 		local passiveMasteryControlHeight = (#effects + 1) * 14 + 2
-		controls.close =  new("ButtonControl", nil, 0, 30 + passiveMasteryControlHeight, 90, 20, "Cancel", function()
+		controls.close =  new("ButtonControl", nil, 0, 30 + passiveMasteryControlHeight, 90, 20, "取消", function()
 			node.sd = cachedSd
 			node.allMasteryOptions = cachedAllMasteryOption
 			self.build.spec.tree:ProcessStats(node)
