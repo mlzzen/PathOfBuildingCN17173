@@ -73,7 +73,7 @@ end
 function ItemSetListClass:GetRowValue(column, index, itemSetId)
 	local itemSet = self.itemsTab.itemSets[itemSetId]
 	if column == 1 then
-return (itemSet.title or "Default") .. (itemSetId == self.itemsTab.activeItemSetId and "  ^9(当前使用)" or "")
+return (itemSet.title or "默认套装") .. (itemSetId == self.itemsTab.activeItemSetId and "  ^9(当前使用)" or "")
 	end
 end
 
@@ -122,7 +122,7 @@ end
 function ItemSetListClass:OnSelDelete(index, itemSetId)
 	local itemSet = self.itemsTab.itemSets[itemSetId]
 	if #self.list > 1 then
-main:OpenConfirmPopup("套装删除", "你确定要删除套装 '"..(itemSet.title or "Default").."'?\n这不会删除套装中的装备物品.", "Delete", function()
+main:OpenConfirmPopup("套装删除", "你确定要删除套装 '"..(itemSet.title or "默认套装").."'?\n这不会删除套装中的装备物品.", "Delete", function()
 			t_remove(self.list, index)
 			self.itemsTab.itemSets[itemSetId] = nil
 			self.selIndex = nil

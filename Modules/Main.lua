@@ -133,7 +133,7 @@ local newItem = new("Item",  "稀 有 度: 稀有\n"..raw)
 	self.anchorMain.y = function()
 		return self.screenH - 4
 	end
-	self.controls.options = new("ButtonControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, 0, 0, 70, 20, "Options", function()
+	self.controls.options = new("ButtonControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, 0, 0, 70, 20, "设置", function()
 		self:OpenOptionsPopup()
 	end)
 	--[[

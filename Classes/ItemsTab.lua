@@ -1090,7 +1090,7 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 	wipeTable(self.controls.setSelect.list)
 	for index, itemSetId in ipairs(self.itemSetOrderList) do
 		local itemSet = self.itemSets[itemSetId]
-		t_insert(self.controls.setSelect.list, itemSet.title or "Default")
+		t_insert(self.controls.setSelect.list, itemSet.title or "默认套装")
 		if itemSetId == self.activeItemSetId then
 			self.controls.setSelect.selIndex = index
 		end
@@ -1755,10 +1755,10 @@ function ItemsTabClass:OpenItemSetManagePopup()
 	controls.sharedList = new("SharedItemSetListControl", nil, 155, 50, 300, 200, self)
 	controls.setList.dragTargetList = { controls.sharedList }
 	controls.sharedList.dragTargetList = { controls.setList }
-	controls.close = new("ButtonControl", nil, 0, 260, 90, 20, "Done", function()
+	controls.close = new("ButtonControl", nil, 0, 260, 90, 20, "完成", function()
 		main:ClosePopup()
 	end)
-main:OpenPopup(630, 290, "套装 管理", controls)
+main:OpenPopup(630, 290, "套装管理", controls)
 end
 
 -- Opens the item crafting popup

@@ -132,7 +132,7 @@ self.controls.treeSearch = new("EditControl", {"LEFT",self.controls.export,"RIGH
 		end
 	end
 
-	self.controls.powerReport = new("ButtonControl", {"LEFT", self.controls.treeHeatMapStatSelect, "RIGHT"}, 8, 0, 150, 20, self.showPowerReport and "Hide Power Report" or "Show Power Report", function()
+	self.controls.powerReport = new("ButtonControl", {"LEFT", self.controls.treeHeatMapStatSelect, "RIGHT"}, 8, 0, 150, 20, self.showPowerReport and "隐藏高亮节点报表" or "显示高亮节点报表", function()
 		self.showPowerReport = not self.showPowerReport
 		self:TogglePowerReport()
 	end)
@@ -220,13 +220,13 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 	self.controls.compareSelect.selIndex = self.activeCompareSpec
 	wipeTable(self.controls.compareSelect.list)
 	for id, spec in ipairs(self.specList) do
-		t_insert(self.controls.compareSelect.list, (spec.treeVersion ~= latestTreeVersion and ("["..treeVersions[spec.treeVersion].display.."] ") or "")..(spec.title or "Default"))
+		t_insert(self.controls.compareSelect.list, (spec.treeVersion ~= latestTreeVersion and ("["..treeVersions[spec.treeVersion].display.."] ") or "")..(spec.title or "默认天赋树"))
 	end
 
 	self.controls.specSelect.selIndex = self.activeSpec
 	wipeTable(self.controls.specSelect.list)
 	for id, spec in ipairs(self.specList) do
-		t_insert(self.controls.specSelect.list, (spec.treeVersion ~= latestTreeVersion and ("["..treeVersions[spec.treeVersion].display.."] ") or "")..(spec.title or "Default"))
+		t_insert(self.controls.specSelect.list, (spec.treeVersion ~= latestTreeVersion and ("["..treeVersions[spec.treeVersion].display.."] ") or "")..(spec.title or "默认天赋树"))
 
 	end
 	t_insert(self.controls.specSelect.list, "管理天赋树...")

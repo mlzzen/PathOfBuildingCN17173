@@ -24,10 +24,10 @@ local AboutTabClass = newClass("AboutTab", "ControlHost", "Control", function(se
 	end
 	
 	self.controls.about = new("ButtonControl", {"TOPLEFT",self,"TOPLEFT"}, 8, 8, 250, 24, "去踩蘑菇论坛反馈", function()
-		 OpenURL("https://www.caimogu.net/post/16678.html")
+		 OpenURL("https://www.caimogu.net/post/67779.html")
 	end)
 	self.controls.about2 = new("ButtonControl", {"TOPLEFT",self,"TOPLEFT"}, 268, 8, 250, 24, "去17173论坛反馈", function()
-		 OpenURL("http://bbs.17173.com/thread-10923378-1-1.html")
+		 OpenURL("http://bbs.17173.com/thread-11316406-1-1.html")
 	end)
 	
 	if self.controls.edit.buf==nil or #self.controls.edit.buf==0 then 
