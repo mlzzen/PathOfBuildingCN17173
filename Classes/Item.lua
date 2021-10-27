@@ -171,7 +171,11 @@ if self.rarity == "普通" or self.rarity == "魔法" then
 		self.affixes = (self.base.subType and data.itemMods[self.base.type..self.base.subType])
 			or data.itemMods[self.base.type] 
 			or data.itemMods.Item
-		self.enchantments = data.enchantments[self.base.type]
+		if self.base.weapon then
+			self.enchantments = data.enchantments["Weapon"]
+		else
+			self.enchantments = data.enchantments[self.base.type]
+		end
 		self.synthesisedMods = data.synthesisedMods["Item"]
 		self.harvestSeedWeaponEnchantments = data.harvestSeedEnchantments["Weapon"]
 		self.harvestSeedBodyArmourEnchantments = data.harvestSeedEnchantments["Body Armour"]

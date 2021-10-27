@@ -244,11 +244,14 @@ data.jewelRadii = {
 
 data.jewelRadius = data.setJewelRadiiGlobally(latestTreeVersion)
 
-data.labyrinths = {
-	{ name = "ENDGAME", label = "Eternal" },
-	{ name = "MERCILESS", label = "Merciless" },
-	{ name = "CRUEL", label = "Cruel" },
-	{ name = "NORMAL", label = "Normal" },
+data.enchantmentSource = {
+	{ name = "HEIST", label = "夺宝" },
+	{ name = "HARVEST", label = "庄园" },
+	{ name = "DEDICATION", label = "潜能终极帝王迷宫-女神祭献" },
+	{ name = "ENDGAME", label = "终极帝王试炼" },
+	{ name = "MERCILESS", label = "无情帝王试炼" },
+	{ name = "CRUEL", label = "残酷帝王试炼" },
+	{ name = "NORMAL", label = "帝王试炼" },
 }
 
 data.monsterExperienceLevelMap = { [71] = 70.94, [72] = 71.82, [73] = 72.64, [74] = 73.40, [75] = 74.10, [76] = 74.74, [77] = 75.32, [78] = 75.84, [79] = 76.30, [80] = 76.70, [81] = 77.04, [82] = 77.32, [83] = 77.54, [84] = 77.70, }
@@ -419,8 +422,15 @@ data.itemMods = {
 data.masterMods = LoadModule("Data/ModMaster")
 data.enchantments = {
 	Helmet = LoadModule("Data/EnchantmentHelmet"),
+	["Helmet"] = LoadModule("Data/EnchantmentHelmet"),
 	Boots = LoadModule("Data/EnchantmentBoots"),
+	["Boots"] = LoadModule("Data/EnchantmentBoots"),
 	Gloves = LoadModule("Data/EnchantmentGloves"),
+	["Gloves"] = LoadModule("Data/EnchantmentGloves"),
+	Belt = LoadModule("Data/EnchantmentBelt"),
+	["Belt"] = LoadModule("Data/EnchantmentBelt"),
+	["Body Armour"] = LoadModule("Data/EnchantmentBody"),
+	["Weapon"] = LoadModule("Data/EnchantmentWeapon"),
 }
 data.synthesisedMods = {
 		Item = LoadModule("Data/ModSynthesised"),
