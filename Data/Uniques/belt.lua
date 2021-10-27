@@ -2,6 +2,19 @@
 return {
 -- Belt
 [[
+魔血
+重革腰带
+等级需求: 44
+固定基底词缀: 1
+{tags:jewellery_attribute}+(25-35) 力量
+{tags:jewellery_attribute}+(30-50) 敏捷
+{tags:jewellery_resistance}+(15-25)% 火焰抗性
+{tags:jewellery_resistance}+(15-25)% 冰霜抗性
+魔法功能型药剂不能使用
+最左边 (2-4) 的魔法功能型药剂持续套用它的药剂效果至你身上
+魔法功能型药剂效果不能被移除
+]],
+[[
 幸存者的愧疚
 重革腰带
 联盟: 驱灵仪式
