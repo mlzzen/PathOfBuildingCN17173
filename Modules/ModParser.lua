@@ -6362,13 +6362,13 @@ local specialModList = {
 	["插入的辅助宝石也能辅助你主手上的技能"] = function (_, itemSlotName)
 		local targetItemSlotName = "Weapon 1"
 		return {
-			mod("LinkedNonExceptionSupport", "LIST", { targetSlotName = targetItemSlotName }, { type = "SocketedIn", slotName = "{SlotName}" }),
+			mod("LinkedSupport", "LIST", { targetSlotName = targetItemSlotName }, { type = "SocketedIn", slotName = "{SlotName}" }),
 		}
 	end,
 	["插入的辅助宝石也能辅助你身体装备上的技能"] = function (_, itemSlotName)
 		local targetItemSlotName = "Body Armour"
 		return {
-			mod("LinkedNonExceptionSupport", "LIST", { targetSlotName = targetItemSlotName }, { type = "SocketedIn", slotName = "{SlotName}" }),
+			mod("LinkedSupport", "LIST", { targetSlotName = targetItemSlotName }, { type = "SocketedIn", slotName = "{SlotName}" }),
 		}
 	end,
 	-- Conversion

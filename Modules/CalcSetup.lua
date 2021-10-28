@@ -1010,12 +1010,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 							processGrantedEffect(gemInstance.grantedEffect)
 						end
 						-- Store extra supports for other items that are linked
-						for _, value in ipairs(env.modDB:List(groupCfg, "LinkedNonExceptionSupport")) do
+						for _, value in ipairs(env.modDB:List(groupCfg, "LinkedSupport")) do
 							crossLinkedSupportList[value.targetSlotName] = { }
 							for _, supportItem in ipairs(supportList) do
-								if supportItem.grantedEffect.name ~= "赋予" and supportItem.grantedEffect.name ~= "启蒙" and supportItem.grantedEffect.name ~= "增幅" then
-									t_insert(crossLinkedSupportList[value.targetSlotName], supportItem)
-								end
+								t_insert(crossLinkedSupportList[value.targetSlotName], supportItem)
 							end
 						end
 					end	
