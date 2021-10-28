@@ -4720,6 +4720,8 @@ local specialModList = {
 	["战吼增助 (%d+) 次额外攻击"] = function(num) return { mod("ExtraExertedAttacks", "BASE", num) } end,
 	["战吼(%d+) 次额外攻击"] = function(num) return { mod("ExtraExertedAttacks", "BASE", num) } end,
 	["战吼立即施放"] = { flag("InstantWarcry") },
+	-- Masteries
+	["off hand accuracy is equal to main hand accuracy while wielding a sword"] = { flag("Condition:OffHandAccuracyIsMainHandAccuracy", { type = "Condition", var = "UsingSword" }) },
 	-- Exerted Attacks
 	["战吼增助的攻击伤害提高 (%d+)%%"] = function(num) return { mod("ExertIncrease", "INC", num, nil, ModFlag.Attack, 0) } end,
 	["若战吼在近期内献祭过怒火，则增助攻击的伤害总增 (%d+)%%"] = function(num) return { mod("ExertIncrease", "MORE", num, nil, ModFlag.Attack, 0) } end,
