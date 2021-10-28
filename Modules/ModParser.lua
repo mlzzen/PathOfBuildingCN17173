@@ -2075,7 +2075,7 @@ local specialModList = {
 	mod("Devotion", "BASE", num)
 	}end,
 	["可附加第二种附魔词缀"] = { },
-	["可附加 (%d+) 种额外的附魔词缀"] = { },
+	["可以有额外 (%d+) 个附魔词缀"] = { },
 	--能量护盾回复问题
 	--（有带“的”的词缀解析为充能速度，不带“的”的解析为回复速度）
 	["能量护盾的回复速度提高 (%d+)%%"] = function(num) return {  mod("EnergyShieldRecharge", "INC", num)  } end,
