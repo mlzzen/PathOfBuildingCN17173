@@ -1359,8 +1359,14 @@ flag = "rage",
 
 { defaultCollapsed = false, label = "躲避", data = {
 	extra = "{0:output:AttackDodgeChance}%/{0:output:SpellDodgeChance}%",
-	{ label = "攻击躲避几率", { format = "{0:output:AttackDodgeChance}% (+{0:output:AttackDodgeChanceOverCap}%)", { modName = "AttackDodgeChance" }, }, },
-	{ label = "法术躲避几率", { format = "{0:output:SpellDodgeChance}% (+{0:output:SpellDodgeChanceOverCap}%)", { modName = "SpellDodgeChance" }, }, },
+	{ label = "攻击躲避几率", { format = "{0:output:AttackDodgeChance}% (+{0:output:AttackDodgeChanceOverCap}%)",
+		{ breakdown = "AttackDodgeChance" },
+		{ modName = "AttackDodgeChance" }, 
+	}, },
+	{ label = "法术躲避几率", { format = "{0:output:SpellDodgeChance}% (+{0:output:SpellDodgeChanceOverCap}%)",
+		{ breakdown = "SpellDodgeChance" },
+		{ modName = { "SpellDodgeChanceMax", "SpellDodgeChance" }, },
+	}, },
 } }, 
 { defaultCollapsed = false, label = "法术伤害压制", data = {
 	extra = "{0:output:SpellSuppressionChance}%",
