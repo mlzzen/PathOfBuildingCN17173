@@ -630,7 +630,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "至少 150 点奉献时，+1% 狂怒球数量下限", 
+				[1] = "狂怒球数量下限在你有至少 150 点奉献时 +1", 
 			}, 
 			["dn"] = "狂烈的信仰", 
 			["isJewelSocket"] = false, 
@@ -664,9 +664,9 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "受到的所有伤害穿透护盾", 
-				[2] = "受到的元素伤害有 50% 视为混沌伤害", 
-				[3] = "+5% 混沌抗性上限", 
+				[1] = "承受的所有伤害都规避能量护盾", 
+				[2] = "承受的元素伤害有 50% 视为混沌伤害", 
+				[3] = "混沌抗性上限 +5%", 
 			}, 
 			["dn"] = "神圣血肉", 
 			["isJewelSocket"] = false, 
@@ -700,7 +700,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "你所施放诅咒的效果提高 (10-15)%", 
+				[1] = "你所施放诅咒的效果提高 (7-10)%", 
 				[2] = "诅咒技能的技能效果持续时间延长 20%", 
 			}, 
 			["dn"] = "上古邪术", 
@@ -714,8 +714,8 @@ return {
 			}, 
 			["stats"] = {
 				["curse_effect_+%"] = {
-					["max"] = 15, 
-					["min"] = 10, 
+					["max"] = 10, 
+					["min"] = 7, 
 					["fmt"] = "d", 
 				}, 
 				["curse_skill_effect_duration_+%"] = {
@@ -850,7 +850,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "至少 150 点奉献时，+1% 暴击球数量下限", 
+				[1] = "暴击球数量下限在你有至少 150 点奉献时 +1", 
 			}, 
 			["dn"] = "强大的信仰", 
 			["isJewelSocket"] = false, 
@@ -1268,7 +1268,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "50% 的几率避免被冰缓", 
+				[1] = "有 80% 的几率避免被冰缓", 
 			}, 
 			["dn"] = "日耀仪式", 
 			["isJewelSocket"] = false, 
@@ -1281,8 +1281,8 @@ return {
 			}, 
 			["stats"] = {
 				["base_avoid_chill_%"] = {
-					["max"] = 50, 
-					["min"] = 50, 
+					["max"] = 80, 
+					["min"] = 80, 
 					["fmt"] = "d", 
 				}, 
 			}, 
@@ -1336,7 +1336,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "最大魔力提高 (4-6)%", 
+				[1] = "魔力上限提高 (4-6)%", 
 			}, 
 			["dn"] = "魔力", 
 			["isJewelSocket"] = false, 
@@ -1370,7 +1370,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "至少 150 点奉献时，+1% 耐力球数量下限", 
+				[1] = "耐力球数量下限在你有至少 150 点奉献时 +1", 
 			}, 
 			["dn"] = "持久的信仰", 
 			["isJewelSocket"] = false, 
@@ -1438,7 +1438,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "最大能量护盾提高 (8-12)%", 
+				[1] = "能量护盾上限提高 (8-12)%", 
 				[2] = "法术伤害的 0.3% 转化为能量护盾偷取", 
 			}, 
 			["dn"] = "灵魂崇拜", 
@@ -1581,7 +1581,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "持续伤害效果提高 (25-35)%", 
+				[1] = "持续伤害提高 (25-35)%", 
 				[2] = "技能效果持续时间延长 (7-11)%", 
 			}, 
 			["dn"] = "极度剧痛", 
@@ -1621,7 +1621,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "格挡时回复 +(6-10) 生命", 
+				[1] = "生命在你格挡时 +(6-10)", 
 				[2] = "+5% 攻击伤害格挡几率", 
 			}, 
 			["dn"] = "血淬壁垒", 
@@ -1803,8 +1803,8 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "(8-10)% 的几率避免被晕眩", 
-				[2] = "4% 的几率躲避攻击击中", 
+				[1] = "(8-10)% 的几率避免元素异常状态", 
+				[2] = "(8-10)% 的几率避免被晕眩", 
 			}, 
 			["dn"] = "丛林迷踪", 
 			["isJewelSocket"] = false, 
@@ -1816,12 +1816,12 @@ return {
 			["spc"] = {
 			}, 
 			["stats"] = {
-				["base_chance_to_dodge_%"] = {
-					["max"] = 4, 
-					["min"] = 4, 
+				["base_avoid_stun_%"] = {
+					["max"] = 10, 
+					["min"] = 8, 
 					["fmt"] = "d", 
 				}, 
-				["base_avoid_stun_%"] = {
+				["avoid_all_elemental_status_%"] = {
 					["max"] = 10, 
 					["min"] = 8, 
 					["fmt"] = "d", 
@@ -1843,9 +1843,9 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "近期内如果没有被击中，则承受的伤害总降 20%", 
-				[2] = "近期内如果没有被击中，则闪避值总降 40%", 
-				[3] = "如果近期内被击中，则闪避值总增20%", 
+				[1] = "承受的攻击伤害在你近期内没有被攻击击中的情况下总降 20%", 
+				[2] = "闪避值在你近期内被攻击击中的情况下总增 40%", 
+				[3] = "承受的攻击伤害在你近期内被攻击击中的情况下总增 20%", 
 			}, 
 			["dn"] = "风舞者", 
 			["isJewelSocket"] = false, 
@@ -1947,7 +1947,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "(3-6)% 的几率使用冰霜伤害击中时冰冻敌人", 
+				[1] = "有 (3-6)% 的几率造成冻结状态", 
 			}, 
 			["dn"] = "冻结几率", 
 			["isJewelSocket"] = false, 
@@ -1981,8 +1981,8 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "最大生命提高 (6-10)%", 
-				[2] = "每秒回复 (0.7-1.2)% 生命", 
+				[1] = "生命上限提高 (6-10)%", 
+				[2] = "生命每秒再生 (0.7-1.2)%", 
 			}, 
 			["dn"] = "血肉祭仪", 
 			["isJewelSocket"] = false, 
@@ -2231,9 +2231,9 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "1% 的几率躲避攻击击中", 
+				[1] = "3% 的几率避免元素异常状态", 
 			}, 
-			["dn"] = "攻击闪避", 
+			["dn"] = "避免元素异常状态", 
 			["isJewelSocket"] = false, 
 			["m"] = false, 
 			["icon"] = "Art/2DArt/SkillIcons/passives/VaalDefensive.dds", 
@@ -2243,9 +2243,9 @@ return {
 			["spc"] = {
 			}, 
 			["stats"] = {
-				["base_chance_to_dodge_%"] = {
-					["max"] = 1, 
-					["min"] = 1, 
+				["avoid_all_elemental_status_%"] = {
+					["max"] = 3, 
+					["min"] = 3, 
 					["fmt"] = "d", 
 				}, 
 			}, 
@@ -2266,7 +2266,7 @@ return {
 			["not"] = true, 
 			["sd"] = {
 				[1] = "闪电伤害提高 (25-35)%", 
-				[2] = "伤害穿透 (2-4)% 闪电抗性", 
+				[2] = "伤害穿透 (2-4)% 的闪电抗性", 
 			}, 
 			["dn"] = "雷霆祭仪", 
 			["isJewelSocket"] = false, 
@@ -2401,7 +2401,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "6% 的几率躲避法术击中", 
+				[1] = "法术伤害压制率 +12%", 
 			}, 
 			["dn"] = "净化叛乱", 
 			["isJewelSocket"] = false, 
@@ -2413,9 +2413,9 @@ return {
 			["spc"] = {
 			}, 
 			["stats"] = {
-				["base_chance_to_dodge_spells_%"] = {
-					["max"] = 6, 
-					["min"] = 6, 
+				["base_spell_suppression_chance_%"] = {
+					["max"] = 12, 
+					["min"] = 12, 
 					["fmt"] = "d", 
 				}, 
 			}, 
@@ -2435,7 +2435,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "最大魔力提高 30%", 
+				[1] = "魔力上限提高 30%", 
 			}, 
 			["dn"] = "魔力聚汇", 
 			["isJewelSocket"] = false, 
@@ -2608,7 +2608,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "最大生命提高 (6-10)%", 
+				[1] = "生命上限提高 (6-10)%", 
 				[2] = "攻击伤害的 0.4% 转化为生命偷取", 
 			}, 
 			["dn"] = "血肉崇拜", 
@@ -2648,7 +2648,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "你技能的非诅咒类光环效果提高 (3-5)%", 
+				[1] = "你技能的非诅咒类光环效果提高 (2-4)%", 
 			}, 
 			["dn"] = "光环效果", 
 			["isJewelSocket"] = false, 
@@ -2661,8 +2661,8 @@ return {
 			}, 
 			["stats"] = {
 				["non_curse_aura_effect_+%"] = {
-					["max"] = 5, 
-					["min"] = 3, 
+					["max"] = 4, 
+					["min"] = 2, 
 					["fmt"] = "d", 
 				}, 
 			}, 
@@ -3046,7 +3046,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "你技能的非诅咒类光环效果提高 15%", 
+				[1] = "你技能的非诅咒类光环效果提高 12%", 
 			}, 
 			["dn"] = "优越", 
 			["isJewelSocket"] = false, 
@@ -3059,8 +3059,8 @@ return {
 			}, 
 			["stats"] = {
 				["non_curse_aura_effect_+%"] = {
-					["max"] = 15, 
-					["min"] = 15, 
+					["max"] = 12, 
+					["min"] = 12, 
 					["fmt"] = "d", 
 				}, 
 			}, 
@@ -3081,7 +3081,7 @@ return {
 			["not"] = true, 
 			["sd"] = {
 				[1] = "光环技能范围提高 20%", 
-				[2] = "你技能的非诅咒类光环效果提高 (10-15)%", 
+				[2] = "你技能的非诅咒类光环效果提高 (7-10)%", 
 			}, 
 			["dn"] = "指挥姿态", 
 			["isJewelSocket"] = false, 
@@ -3094,8 +3094,8 @@ return {
 			}, 
 			["stats"] = {
 				["non_curse_aura_effect_+%"] = {
-					["max"] = 15, 
-					["min"] = 10, 
+					["max"] = 10, 
+					["min"] = 7, 
 					["fmt"] = "d", 
 				}, 
 				["base_aura_area_of_effect_+%"] = {
@@ -3120,7 +3120,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "持续伤害效果提高 (7-12)%", 
+				[1] = "持续伤害提高 (7-12)%", 
 			}, 
 			["dn"] = "持续伤害", 
 			["isJewelSocket"] = false, 
@@ -3154,7 +3154,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "魔力回复速度提高 50%", 
+				[1] = "魔力再生率提高 50%", 
 			}, 
 			["dn"] = "魔力之冠", 
 			["isJewelSocket"] = false, 
@@ -3188,7 +3188,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "最大生命提高 10%", 
+				[1] = "生命上限提高 10%", 
 			}, 
 			["dn"] = "健康食谱", 
 			["isJewelSocket"] = false, 
@@ -3358,7 +3358,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "投射物的攻击伤害提高 80%", 
+				[1] = "投射物攻击伤害提高 80%", 
 			}, 
 			["dn"] = "狮眼的专注", 
 			["isJewelSocket"] = false, 
@@ -3766,7 +3766,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "最大能量护盾提高 (3-5)%", 
+				[1] = "能量护盾上限提高 (3-5)%", 
 			}, 
 			["dn"] = "能量护盾", 
 			["isJewelSocket"] = false, 
@@ -3908,7 +3908,6 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				"能量护盾初始为 0","无法回复，也无法补充","能量护盾每秒损失 5%","满血时无法移除生命偷取效果","生命偷取在满血时恢复能量护盾"
 			}, 
 			["dn"] = "不朽野望", 
 			["isJewelSocket"] = false, 
@@ -4194,7 +4193,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "魔力回复速度提高 (12-17)%", 
+				[1] = "魔力再生率提高 (12-17)%", 
 			}, 
 			["dn"] = "魔力回复", 
 			["isJewelSocket"] = false, 
@@ -4228,8 +4227,8 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "最大魔力提高 (17-23)%", 
-				[2] = "魔力回复速度提高 (15-25)%", 
+				[1] = "魔力上限提高 (17-23)%", 
+				[2] = "魔力再生率提高 (15-25)%", 
 			}, 
 			["dn"] = "回忆祭仪", 
 			["isJewelSocket"] = false, 
@@ -4342,8 +4341,8 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "最大能量护盾提高 (8-12)%", 
-				[2] = "能量护盾的回复速度提高 (10-15)%", 
+				[1] = "能量护盾上限提高 (8-12)%", 
+				[2] = "能量护盾充能率提高 (10-15)%", 
 			}, 
 			["dn"] = "能量之学", 
 			["isJewelSocket"] = false, 
@@ -4382,8 +4381,8 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "被击中时，护甲值不对物理伤害生效，改为对火焰、冰霜、闪电伤害生效", 
-				[2] = "-5% 最大元素抗性", 
+				[1] = "护甲值改为承受击中造成的火焰、冰霜、闪电伤害，而非物理伤害", 
+				[2] = "所有元素抗性上限 -15%", 
 			}, 
 			["dn"] = "超然飞升", 
 			["isJewelSocket"] = false, 
@@ -4562,9 +4561,9 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "你瞎了", 
-				[2] = "目盲不影响你的照亮范围", 
-				[3] = "目盲时总近战暴击率总增 25%", 
+				[1] = "你陷入目盲状态", 
+				[2] = "目盲状态不影响你的照亮范围", 
+				[3] = "近战暴击率在目盲状态下总增 25%", 
 			}, 
 			["dn"] = "慧眼", 
 			["isJewelSocket"] = false, 
@@ -4638,7 +4637,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "50% 的几率避免被感电", 
+				[1] = "80% 的几率避免被感电", 
 			}, 
 			["dn"] = "田园牧歌", 
 			["isJewelSocket"] = false, 
@@ -4651,8 +4650,8 @@ return {
 			}, 
 			["stats"] = {
 				["base_avoid_shock_%"] = {
-					["max"] = 50, 
-					["min"] = 50, 
+					["max"] = 80, 
+					["min"] = 80, 
 					["fmt"] = "d", 
 				}, 
 			}, 
@@ -4780,7 +4779,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "你所施放诅咒的效果提高 (3-5)%", 
+				[1] = "你所施放诅咒的效果提高 (2-4)%", 
 			}, 
 			["dn"] = "诅咒效果", 
 			["isJewelSocket"] = false, 
@@ -4793,8 +4792,8 @@ return {
 			}, 
 			["stats"] = {
 				["curse_effect_+%"] = {
-					["max"] = 5, 
-					["min"] = 3, 
+					["max"] = 4, 
+					["min"] = 2, 
 					["fmt"] = "d", 
 				}, 
 			}, 
@@ -4950,7 +4949,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "6% 的几率躲避攻击击中", 
+				[1] = "20% 的几率避免元素异常状态", 
 			}, 
 			["dn"] = "秘密隧道", 
 			["isJewelSocket"] = false, 
@@ -4962,9 +4961,9 @@ return {
 			["spc"] = {
 			}, 
 			["stats"] = {
-				["base_chance_to_dodge_%"] = {
-					["max"] = 6, 
-					["min"] = 6, 
+				["avoid_all_elemental_status_%"] = {
+					["max"] = 20, 
+					["min"] = 20, 
 					["fmt"] = "d", 
 				}, 
 			}, 
@@ -5378,7 +5377,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "最大生命提高 (2-4)%", 
+				[1] = "生命上限提高 (2-4)%", 
 			}, 
 			["dn"] = "生命", 
 			["isJewelSocket"] = false, 
@@ -5557,9 +5556,9 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "1% 的几率躲避法术击中", 
+				[1] = "法术伤害压制率 +2%", 
 			}, 
-			["dn"] = "法术闪避", 
+			["dn"] = "法术压制", 
 			["isJewelSocket"] = false, 
 			["m"] = false, 
 			["icon"] = "Art/2DArt/SkillIcons/passives/VaalDefensive.dds", 
@@ -5569,9 +5568,9 @@ return {
 			["spc"] = {
 			}, 
 			["stats"] = {
-				["base_chance_to_dodge_spells_%"] = {
-					["max"] = 1, 
-					["min"] = 1, 
+				["base_spell_suppression_chance_%"] = {
+					["max"] = 2, 
+					["min"] = 2, 
 					["fmt"] = "d", 
 				}, 
 			}, 
@@ -5591,8 +5590,8 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "+(8-10)% 所有元素抗性", 
-				[2] = "4% 的几率躲避法术击中", 
+				[1] = "法术伤害压制率 +6%", 
+				[2] = "+(8-10)% 所有元素抗性", 
 			}, 
 			["dn"] = "神庙迷踪", 
 			["isJewelSocket"] = false, 
@@ -5604,14 +5603,14 @@ return {
 			["spc"] = {
 			}, 
 			["stats"] = {
+				["base_spell_suppression_chance_%"] = {
+					["max"] = 6, 
+					["min"] = 6, 
+					["fmt"] = "d", 
+				}, 
 				["base_resist_all_elements_%"] = {
 					["max"] = 10, 
 					["min"] = 8, 
-					["fmt"] = "d", 
-				}, 
-				["base_chance_to_dodge_spells_%"] = {
-					["max"] = 4, 
-					["min"] = 4, 
 					["fmt"] = "d", 
 				}, 
 			}, 
@@ -5684,7 +5683,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "每秒回复 1% 生命", 
+				[1] = "生命每秒再生 1%", 
 			}, 
 			["id"] = "karui_notable_add_life_regen", 
 			["dn"] = "Add Life Regen", 
@@ -5705,14 +5704,14 @@ return {
 		}, 
 		["vaal_small_attack_dodge"] = {
 			["stats"] = {
-				["base_chance_to_dodge_%"] = {
-					["max"] = 1, 
-					["min"] = 1, 
+				["avoid_all_elemental_status_%"] = {
+					["max"] = 3, 
+					["min"] = 3, 
 					["fmt"] = "d", 
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "1% 的几率躲避攻击击中", 
+				[1] = "3% 的几率避免元素异常状态", 
 			}, 
 			["id"] = "vaal_small_attack_dodge", 
 			["dn"] = "Attack Dodge", 
@@ -5747,14 +5746,14 @@ return {
 		}, 
 		["vaal_small_spell_dodge"] = {
 			["stats"] = {
-				["base_chance_to_dodge_spells_%"] = {
-					["max"] = 1, 
-					["min"] = 1, 
+				["base_spell_suppression_chance_%"] = {
+					["max"] = 2, 
+					["min"] = 2, 
 					["fmt"] = "d", 
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "1% 的几率躲避法术击中", 
+				[1] = "法术伤害压制率 +2%", 
 			}, 
 			["id"] = "vaal_small_spell_dodge", 
 			["dn"] = "Spell Dodge", 
@@ -5916,13 +5915,13 @@ return {
 		["vaal_small_aura_effect"] = {
 			["stats"] = {
 				["non_curse_aura_effect_+%"] = {
-					["max"] = 5, 
-					["min"] = 3, 
+					["max"] = 4, 
+					["min"] = 2, 
 					["fmt"] = "d", 
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "你技能的非诅咒类光环效果提高 (3-5)%", 
+				[1] = "你技能的非诅咒类光环效果提高 (2-4)%", 
 			}, 
 			["id"] = "vaal_small_aura_effect", 
 			["dn"] = "Aura Effect", 
@@ -5950,7 +5949,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "魔力回复速度提高 (12-17)%", 
+				[1] = "魔力再生率提高 (12-17)%", 
 			}, 
 			["id"] = "vaal_small_mana_regeneration", 
 			["dn"] = "Mana Regeneration", 
@@ -6118,7 +6117,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "持续伤害效果提高 (7-12)%", 
+				[1] = "持续伤害提高 (7-12)%", 
 			}, 
 			["id"] = "vaal_small_damage_over_time", 
 			["dn"] = "Damage Over Time", 
@@ -6216,7 +6215,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "最大生命提高 4%", 
+				[1] = "生命上限提高 4%", 
 			}, 
 			["id"] = "karui_notable_add_life", 
 			["dn"] = "Add Life", 
@@ -6244,7 +6243,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "最大魔力提高 (4-6)%", 
+				[1] = "魔力上限提高 (4-6)%", 
 			}, 
 			["id"] = "vaal_small_mana", 
 			["dn"] = "Mana", 
@@ -6272,7 +6271,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "最大能量护盾提高 (3-5)%", 
+				[1] = "能量护盾上限提高 (3-5)%", 
 			}, 
 			["id"] = "vaal_small_energy_shield", 
 			["dn"] = "Energy Shield", 
@@ -6616,13 +6615,13 @@ return {
 		["maraketh_notable_add_ailment_avoid"] = {
 			["stats"] = {
 				["base_avoid_stun_%"] = {
-					["max"] = 10, 
-					["min"] = 10, 
+					["max"] = 20, 
+					["min"] = 20, 
 					["fmt"] = "d", 
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "10% 的几率避免被晕眩", 
+				[1] = "20% 的几率避免被晕眩", 
 			}, 
 			["id"] = "maraketh_notable_add_ailment_avoid", 
 			["dn"] = "Add Ailment Avoid", 
@@ -6672,13 +6671,13 @@ return {
 		["maraketh_notable_add_aura_effect"] = {
 			["stats"] = {
 				["non_curse_aura_effect_+%"] = {
-					["max"] = 10, 
-					["min"] = 10, 
+					["max"] = 8, 
+					["min"] = 8, 
 					["fmt"] = "d", 
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "你技能的非诅咒类光环效果提高 10%", 
+				[1] = "你技能的非诅咒类光环效果提高 8%", 
 			}, 
 			["id"] = "maraketh_notable_add_aura_effect", 
 			["dn"] = "Add Aura Effect", 
@@ -6776,7 +6775,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "最大生命提高 4%", 
+				[1] = "生命上限提高 4%", 
 			}, 
 			["id"] = "maraketh_notable_add_life", 
 			["dn"] = "Add Life", 
@@ -6804,7 +6803,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "最大生命提高 (2-4)%", 
+				[1] = "生命上限提高 (2-4)%", 
 			}, 
 			["id"] = "vaal_small_life", 
 			["dn"] = "Life", 
@@ -6818,7 +6817,7 @@ return {
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "(3-6)% 的几率使用冰霜伤害击中时冰冻敌人", 
+				[1] = "有 (3-6)% 的几率造成冻结状态", 
 			}, 
 			["id"] = "vaal_small_chance_to_freeze", 
 			["dn"] = "Chance To Freeze", 
@@ -6867,14 +6866,14 @@ return {
 		}, 
 		["karui_notable_add_fortify_effect"] = {
 			["stats"] = {
-				["fortify_effect_on_self_+%"] = {
-					["max"] = 5, 
-					["min"] = 5, 
+				["base_max_fortification"] = {
+					["max"] = 1, 
+					["min"] = 1, 
 					["fmt"] = "d", 
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "你身上的护体效果提高 5%", 
+				[1] = "护身上限 +1", 
 			}, 
 			["id"] = "karui_notable_add_fortify_effect", 
 			["dn"] = "Add Fortify Effect", 
@@ -6882,13 +6881,13 @@ return {
 		["vaal_small_curse_effect"] = {
 			["stats"] = {
 				["curse_effect_+%"] = {
-					["max"] = 5, 
-					["min"] = 3, 
+					["max"] = 4, 
+					["min"] = 2, 
 					["fmt"] = "d", 
 				}, 
 			}, 
 			["sd"] = {
-				[1] = "你所施放诅咒的效果提高 (3-5)%", 
+				[1] = "你所施放诅咒的效果提高 (2-4)%", 
 			}, 
 			["id"] = "vaal_small_curse_effect", 
 			["dn"] = "Curse Effect", 

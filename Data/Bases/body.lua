@@ -9,7 +9,7 @@ itemBases["铁制背心"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 19, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 19, ArmourBaseMax = 27, MovementPenalty = 3, },
 	req = { str = 12, },
 }
 itemBases["胸甲"] = {
@@ -18,7 +18,7 @@ itemBases["胸甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 68, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 68, ArmourBaseMax = 89, MovementPenalty = 5, },
 	req = { level = 6, str = 25, },
 }
 itemBases["铜锻板甲"] = {
@@ -27,7 +27,7 @@ itemBases["铜锻板甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 176, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 176, ArmourBaseMax = 221, MovementPenalty = 5, },
 	req = { level = 17, str = 53, },
 }
 itemBases["战争之铠"] = {
@@ -36,7 +36,7 @@ itemBases["战争之铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 216, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 216, ArmourBaseMax = 248, MovementPenalty = 5, },
 	req = { level = 21, str = 63, },
 }
 itemBases["连身铠甲"] = {
@@ -45,7 +45,7 @@ itemBases["连身铠甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 284, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 284, ArmourBaseMax = 319, MovementPenalty = 5, },
 	req = { level = 28, str = 81, },
 }
 itemBases["斗者之铠"] = {
@@ -54,7 +54,7 @@ itemBases["斗者之铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 324, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 324, ArmourBaseMax = 389, MovementPenalty = 5, },
 	req = { level = 32, str = 91, },
 }
 itemBases["领主护铠"] = {
@@ -63,7 +63,7 @@ itemBases["领主护铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 353, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 353, ArmourBaseMax = 417, MovementPenalty = 5, },
 	req = { level = 35, str = 99, },
 }
 itemBases["青铜铠甲"] = {
@@ -72,7 +72,7 @@ itemBases["青铜铠甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 373, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 373, ArmourBaseMax = 429, MovementPenalty = 5, },
 	req = { level = 37, str = 104, },
 }
 itemBases["战铠"] = {
@@ -81,7 +81,7 @@ itemBases["战铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 412, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 412, ArmourBaseMax = 474, MovementPenalty = 5, },
 	req = { level = 41, str = 114, },
 }
 itemBases["日光之铠"] = {
@@ -90,7 +90,7 @@ itemBases["日光之铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 451, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 451, ArmourBaseMax = 506, MovementPenalty = 5, },
 	req = { level = 45, str = 124, },
 }
 itemBases["决斗之铠"] = {
@@ -99,7 +99,7 @@ itemBases["决斗之铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 491, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 491, ArmourBaseMax = 589, MovementPenalty = 5, },
 	req = { level = 49, str = 134, },
 }
 itemBases["庄严之铠"] = {
@@ -108,7 +108,7 @@ itemBases["庄严之铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 530, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 530, ArmourBaseMax = 625, MovementPenalty = 5, },
 	req = { level = 53, str = 145, },
 }
 itemBases["金耀之铠"] = {
@@ -117,7 +117,7 @@ itemBases["金耀之铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 559, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 559, ArmourBaseMax = 643, MovementPenalty = 5, },
 	req = { level = 56, str = 152, },
 }
 itemBases["征战重铠"] = {
@@ -126,7 +126,7 @@ itemBases["征战重铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 601, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 601, ArmourBaseMax = 691, MovementPenalty = 5, },
 	req = { level = 59, str = 160, },
 }
 itemBases["星芒战铠"] = {
@@ -136,7 +136,7 @@ itemBases["星芒战铠"] = {
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicit = "+(8-12)% 所有元素抗性",
 	implicitModTypes = { { "elemental", "resistance" }, },
-	armour = { ArmourBase = 711, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 711, ArmourBaseMax = 782, MovementPenalty = 5, },
 	req = { level = 62, str = 180, },
 }
 itemBases["角斗重铠"] = {
@@ -145,7 +145,7 @@ itemBases["角斗重铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 738, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 738, ArmourBaseMax = 848, MovementPenalty = 5, },
 	req = { level = 65, str = 177, },
 }
 itemBases["荣耀战铠"] = {
@@ -154,7 +154,7 @@ itemBases["荣耀战铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 776, },
+	armour = { ArmourBaseMin = 776, ArmourBaseMax = 892, },
 	req = { level = 68, str = 191, },
 }
 
@@ -164,7 +164,7 @@ itemBases["破旧外套"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 29, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 29, EvasionBaseMax = 41, MovementPenalty = 3, },
 	req = { dex = 14, },
 }
 itemBases["扣环皮甲"] = {
@@ -173,7 +173,7 @@ itemBases["扣环皮甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 98, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 98, EvasionBaseMax = 127, MovementPenalty = 3, },
 	req = { level = 9, dex = 32, },
 }
 itemBases["鹿皮外套"] = {
@@ -182,7 +182,7 @@ itemBases["鹿皮外套"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 176, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 176, EvasionBaseMax = 221, MovementPenalty = 3, },
 	req = { level = 17, dex = 53, },
 }
 itemBases["狂野部族皮甲"] = {
@@ -191,7 +191,7 @@ itemBases["狂野部族皮甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 255, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 255, EvasionBaseMax = 306, MovementPenalty = 3, },
 	req = { level = 25, dex = 73, },
 }
 itemBases["连身皮甲"] = {
@@ -200,7 +200,7 @@ itemBases["连身皮甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 284, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 284, EvasionBaseMax = 327, MovementPenalty = 3, },
 	req = { level = 28, dex = 81, },
 }
 itemBases["日光皮甲"] = {
@@ -209,7 +209,7 @@ itemBases["日光皮甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 324, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 324, EvasionBaseMax = 382, MovementPenalty = 3, },
 	req = { level = 32, dex = 91, },
 }
 itemBases["窃贼之装"] = {
@@ -218,7 +218,7 @@ itemBases["窃贼之装"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 353, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 353, EvasionBaseMax = 396, MovementPenalty = 3, },
 	req = { level = 35, dex = 99, },
 }
 itemBases["鳗皮之衣"] = {
@@ -227,7 +227,7 @@ itemBases["鳗皮之衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 373, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 373, EvasionBaseMax = 429, MovementPenalty = 3, },
 	req = { level = 37, dex = 104, },
 }
 itemBases["边戍皮甲"] = {
@@ -236,7 +236,7 @@ itemBases["边戍皮甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 412, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 412, EvasionBaseMax = 495, MovementPenalty = 3, },
 	req = { level = 41, dex = 114, },
 }
 itemBases["荣耀皮甲"] = {
@@ -245,7 +245,7 @@ itemBases["荣耀皮甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 451, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 451, EvasionBaseMax = 519, MovementPenalty = 3, },
 	req = { level = 45, dex = 124, },
 }
 itemBases["光耀皮甲"] = {
@@ -254,7 +254,7 @@ itemBases["光耀皮甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 491, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 491, EvasionBaseMax = 579, MovementPenalty = 3, },
 	req = { level = 49, dex = 134, },
 }
 itemBases["死神之装"] = {
@@ -263,7 +263,7 @@ itemBases["死神之装"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 530, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 530, EvasionBaseMax = 594, MovementPenalty = 3, },
 	req = { level = 53, dex = 145, },
 }
 itemBases["鲨皮之衣"] = {
@@ -272,7 +272,7 @@ itemBases["鲨皮之衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 559, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 559, EvasionBaseMax = 643, MovementPenalty = 3, },
 	req = { level = 56, dex = 152, },
 }
 itemBases["命运皮甲"] = {
@@ -281,7 +281,7 @@ itemBases["命运皮甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 601, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 601, EvasionBaseMax = 721, MovementPenalty = 3, },
 	req = { level = 59, dex = 160, },
 }
 itemBases["精制皮甲"] = {
@@ -290,7 +290,7 @@ itemBases["精制皮甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 704, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 704, EvasionBaseMax = 810, MovementPenalty = 3, },
 	req = { level = 62, dex = 170, },
 }
 itemBases["星辰皮甲"] = {
@@ -299,7 +299,7 @@ itemBases["星辰皮甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 854, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 854, EvasionBaseMax = 982, MovementPenalty = 3, },
 	req = { level = 65, dex = 197, },
 }
 itemBases["暗影之装"] = {
@@ -309,7 +309,7 @@ itemBases["暗影之装"] = {
 	tags = { body_armour = true, armour = true, dex_armour = true, default = true, },
 	implicit = "移动速度提高 3%",
 	implicitModTypes = { { "speed" }, },
-	armour = { EvasionBase = 737, },
+	armour = { EvasionBaseMin = 737, EvasionBaseMax = 811, },
 	req = { level = 68, dex = 183, },
 }
 
@@ -319,7 +319,7 @@ itemBases["简易之袍"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 12, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 14, EnergyShieldBaseMax = 20, MovementPenalty = 3, },
 	req = { int = 17, },
 }
 itemBases["绸缎背心"] = {
@@ -328,7 +328,7 @@ itemBases["绸缎背心"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 27, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 30, EnergyShieldBaseMax = 38, MovementPenalty = 3, },
 	req = { level = 11, int = 37, },
 }
 itemBases["学者之袍"] = {
@@ -337,7 +337,7 @@ itemBases["学者之袍"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 39, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 43, EnergyShieldBaseMax = 53, MovementPenalty = 3, },
 	req = { level = 18, int = 55, },
 }
 itemBases["丝绸之衣"] = {
@@ -346,7 +346,7 @@ itemBases["丝绸之衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 52, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 56, EnergyShieldBaseMax = 64, MovementPenalty = 3, },
 	req = { level = 25, int = 73, },
 }
 itemBases["博学长衣"] = {
@@ -355,7 +355,7 @@ itemBases["博学长衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 58, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 62, EnergyShieldBaseMax = 69, MovementPenalty = 3, },
 	req = { level = 28, int = 81, },
 }
 itemBases["丝质之袍"] = {
@@ -364,7 +364,7 @@ itemBases["丝质之袍"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 65, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 69, EnergyShieldBaseMax = 80, MovementPenalty = 3, },
 	req = { level = 32, int = 91, },
 }
 itemBases["秘术法衣"] = {
@@ -373,7 +373,7 @@ itemBases["秘术法衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 71, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 75, EnergyShieldBaseMax = 88, MovementPenalty = 3, },
 	req = { level = 35, int = 99, },
 }
 itemBases["贤者之袍"] = {
@@ -382,7 +382,7 @@ itemBases["贤者之袍"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 74, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 79, EnergyShieldBaseMax = 90, MovementPenalty = 3, },
 	req = { level = 37, int = 104, },
 }
 itemBases["丝绒背心"] = {
@@ -391,7 +391,7 @@ itemBases["丝绒背心"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 82, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 86, EnergyShieldBaseMax = 104, MovementPenalty = 3, },
 	req = { level = 41, int = 114, },
 }
 itemBases["咒者长衣"] = {
@@ -400,7 +400,7 @@ itemBases["咒者长衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 89, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 94, EnergyShieldBaseMax = 105, MovementPenalty = 3, },
 	req = { level = 45, int = 124, },
 }
 itemBases["蛛丝之袍"] = {
@@ -409,7 +409,7 @@ itemBases["蛛丝之袍"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 96, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 101, EnergyShieldBaseMax = 117, MovementPenalty = 3, },
 	req = { level = 49, int = 134, },
 }
 itemBases["灭世法衣"] = {
@@ -418,7 +418,7 @@ itemBases["灭世法衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 104, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 109, EnergyShieldBaseMax = 129, MovementPenalty = 3, },
 	req = { level = 53, int = 145, },
 }
 itemBases["智者之袍"] = {
@@ -427,7 +427,7 @@ itemBases["智者之袍"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 109, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 115, EnergyShieldBaseMax = 132, MovementPenalty = 3, },
 	req = { level = 56, int = 152, },
 }
 itemBases["操灵者背心"] = {
@@ -436,7 +436,7 @@ itemBases["操灵者背心"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 117, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 123, EnergyShieldBaseMax = 147, MovementPenalty = 3, },
 	req = { level = 59, int = 160, },
 }
 itemBases["秘术长衣"] = {
@@ -446,7 +446,7 @@ itemBases["秘术长衣"] = {
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicit = "法术伤害提高 (3-10)%",
 	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
-	armour = { EnergyShieldBase = 130, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 137, EnergyShieldBaseMax = 151, MovementPenalty = 3, },
 	req = { level = 62, int = 180, },
 }
 itemBases["毒蛛丝之袍"] = {
@@ -455,7 +455,7 @@ itemBases["毒蛛丝之袍"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 150, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 157, EnergyShieldBaseMax = 181, MovementPenalty = 3, },
 	req = { level = 65, int = 187, },
 }
 itemBases["瓦尔法衣"] = {
@@ -464,7 +464,7 @@ itemBases["瓦尔法衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 163, MovementPenalty = 3, },
+	armour = { EnergyShieldBaseMin = 171, EnergyShieldBaseMax = 197, MovementPenalty = 3, },
 	req = { level = 68, int = 194, },
 }
 
@@ -474,7 +474,7 @@ itemBases["细鳞背心"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 27, EvasionBase = 27, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 27, ArmourBaseMax = 38, EvasionBaseMin = 27, EvasionBaseMax = 38, MovementPenalty = 3, },
 	req = { str = 10, dex = 10, },
 }
 itemBases["轻锁甲"] = {
@@ -483,7 +483,7 @@ itemBases["轻锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 48, EvasionBase = 48, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 48, ArmourBaseMax = 63, EvasionBaseMin = 48, EvasionBaseMax = 63, MovementPenalty = 3, },
 	req = { level = 8, str = 16, dex = 16, },
 }
 itemBases["合身鳞甲"] = {
@@ -492,7 +492,7 @@ itemBases["合身鳞甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 97, EvasionBase = 97, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 97, ArmourBaseMax = 121, EvasionBaseMin = 97, EvasionBaseMax = 121, MovementPenalty = 3, },
 	req = { level = 17, str = 28, dex = 28, },
 }
 itemBases["步兵锁甲"] = {
@@ -501,7 +501,7 @@ itemBases["步兵锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 119, EvasionBase = 119, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 119, ArmourBaseMax = 142, EvasionBaseMin = 119, EvasionBaseMax = 142, MovementPenalty = 3, },
 	req = { level = 21, str = 34, dex = 34, },
 }
 itemBases["连身鳞甲"] = {
@@ -510,7 +510,7 @@ itemBases["连身鳞甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 156, EvasionBase = 156, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 156, ArmourBaseMax = 180, EvasionBaseMin = 156, EvasionBaseMax = 180, MovementPenalty = 3, },
 	req = { level = 28, str = 43, dex = 43, },
 }
 itemBases["战士锁甲"] = {
@@ -519,7 +519,7 @@ itemBases["战士锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 178, EvasionBase = 178, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 178, ArmourBaseMax = 210, EvasionBaseMin = 178, EvasionBaseMax = 210, MovementPenalty = 3, },
 	req = { level = 32, str = 48, dex = 48, },
 }
 itemBases["野战薄甲"] = {
@@ -528,7 +528,7 @@ itemBases["野战薄甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 194, EvasionBase = 194, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 194, ArmourBaseMax = 223, EvasionBaseMin = 194, EvasionBaseMax = 223, MovementPenalty = 3, },
 	req = { level = 35, str = 53, dex = 53, },
 }
 itemBases["龙鳞战甲"] = {
@@ -537,7 +537,7 @@ itemBases["龙鳞战甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 210, EvasionBase = 210, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 210, ArmourBaseMax = 236, EvasionBaseMin = 210, EvasionBaseMax = 236, MovementPenalty = 3, },
 	req = { level = 38, str = 57, dex = 57, },
 }
 itemBases["轻骑锁甲"] = {
@@ -546,7 +546,7 @@ itemBases["轻骑锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 232, EvasionBase = 232, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 232, ArmourBaseMax = 278, EvasionBaseMin = 232, EvasionBaseMax = 278, MovementPenalty = 3, },
 	req = { level = 42, str = 62, dex = 62, },
 }
 itemBases["连身龙鳞战甲"] = {
@@ -555,7 +555,7 @@ itemBases["连身龙鳞战甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 254, EvasionBase = 254, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 254, ArmourBaseMax = 292, EvasionBaseMin = 254, EvasionBaseMax = 292, MovementPenalty = 3, },
 	req = { level = 46, str = 68, dex = 68, },
 }
 itemBases["指挥者锁甲"] = {
@@ -564,7 +564,7 @@ itemBases["指挥者锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 275, EvasionBase = 275, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 275, ArmourBaseMax = 325, EvasionBaseMin = 275, EvasionBaseMax = 325, MovementPenalty = 3, },
 	req = { level = 50, str = 73, dex = 73, },
 }
 itemBases["争战鳞甲"] = {
@@ -573,7 +573,7 @@ itemBases["争战鳞甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 297, EvasionBase = 297, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 297, ArmourBaseMax = 341, EvasionBaseMin = 297, EvasionBaseMax = 341, MovementPenalty = 3, },
 	req = { level = 54, str = 79, dex = 79, },
 }
 itemBases["龙鳞护甲"] = {
@@ -582,7 +582,7 @@ itemBases["龙鳞护甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 313, EvasionBase = 313, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 313, ArmourBaseMax = 351, EvasionBaseMin = 313, EvasionBaseMax = 351, MovementPenalty = 3, },
 	req = { level = 57, str = 83, dex = 83, },
 }
 itemBases["荒野锁铠"] = {
@@ -591,7 +591,7 @@ itemBases["荒野锁铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 376, EvasionBase = 376, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 376, ArmourBaseMax = 451, EvasionBaseMin = 376, EvasionBaseMax = 451, MovementPenalty = 3, },
 	req = { level = 60, str = 96, dex = 96, },
 }
 itemBases["连身龙鳞铠"] = {
@@ -600,7 +600,7 @@ itemBases["连身龙鳞铠"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 470, EvasionBase = 373, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 470, ArmourBaseMax = 541, EvasionBaseMin = 373, EvasionBaseMax = 429, MovementPenalty = 3, },
 	req = { level = 63, str = 115, dex = 94, },
 }
 itemBases["将军铠甲"] = {
@@ -609,7 +609,7 @@ itemBases["将军铠甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 415, EvasionBase = 415, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 415, ArmourBaseMax = 465, EvasionBaseMin = 415, EvasionBaseMax = 465, MovementPenalty = 3, },
 	req = { level = 66, str = 103, dex = 103, },
 }
 itemBases["胜利盔甲"] = {
@@ -618,7 +618,7 @@ itemBases["胜利盔甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_dex_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 380, EvasionBase = 477, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 380, ArmourBaseMax = 437, EvasionBaseMin = 477, EvasionBaseMax = 549, MovementPenalty = 3, },
 	req = { level = 69, str = 95, dex = 116, },
 }
 
@@ -628,7 +628,7 @@ itemBases["锁链背心"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 27, EnergyShieldBase = 8, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 27, ArmourBaseMax = 38, EnergyShieldBaseMin = 9, EnergyShieldBaseMax = 13, MovementPenalty = 5, },
 	req = { str = 10, int = 10, },
 }
 itemBases["链甲外衣"] = {
@@ -637,7 +637,7 @@ itemBases["链甲外衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 48, EnergyShieldBase = 12, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 48, ArmourBaseMax = 63, EnergyShieldBaseMin = 13, EnergyShieldBaseMax = 17, MovementPenalty = 5, },
 	req = { level = 8, str = 16, int = 16, },
 }
 itemBases["环甲外套"] = {
@@ -646,7 +646,7 @@ itemBases["环甲外套"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 97, EnergyShieldBase = 21, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 97, ArmourBaseMax = 121, EnergyShieldBaseMin = 22, EnergyShieldBaseMax = 28, MovementPenalty = 5, },
 	req = { level = 17, str = 28, int = 28, },
 }
 itemBases["护体锁甲"] = {
@@ -655,7 +655,7 @@ itemBases["护体锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 119, EnergyShieldBase = 25, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 119, ArmourBaseMax = 140, EnergyShieldBaseMin = 27, EnergyShieldBaseMax = 31, MovementPenalty = 5, },
 	req = { level = 21, str = 34, int = 34, },
 }
 itemBases["连身环甲"] = {
@@ -664,7 +664,7 @@ itemBases["连身环甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 156, EnergyShieldBase = 32, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 156, ArmourBaseMax = 180, EnergyShieldBaseMin = 34, EnergyShieldBaseMax = 39, MovementPenalty = 5, },
 	req = { level = 28, str = 43, int = 43, },
 }
 itemBases["连身锁甲"] = {
@@ -673,7 +673,7 @@ itemBases["连身锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 178, EnergyShieldBase = 36, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 178, ArmourBaseMax = 199, EnergyShieldBaseMin = 38, EnergyShieldBaseMax = 43, MovementPenalty = 5, },
 	req = { level = 32, str = 48, int = 48, },
 }
 itemBases["圣语锁甲"] = {
@@ -682,7 +682,7 @@ itemBases["圣语锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 194, EnergyShieldBase = 39, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 194, ArmourBaseMax = 233, EnergyShieldBaseMin = 41, EnergyShieldBaseMax = 49, MovementPenalty = 5, },
 	req = { level = 35, str = 53, int = 53, },
 }
 itemBases["精制环甲"] = {
@@ -691,7 +691,7 @@ itemBases["精制环甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 216, EnergyShieldBase = 43, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 216, ArmourBaseMax = 248, EnergyShieldBaseMin = 45, EnergyShieldBaseMax = 52, MovementPenalty = 5, },
 	req = { level = 39, str = 59, int = 59, },
 }
 itemBases["圣战锁甲"] = {
@@ -700,7 +700,7 @@ itemBases["圣战锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 237, EnergyShieldBase = 47, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 237, ArmourBaseMax = 266, EnergyShieldBaseMin = 50, EnergyShieldBaseMax = 55, MovementPenalty = 5, },
 	req = { level = 43, str = 64, int = 64, },
 }
 itemBases["华丽环甲"] = {
@@ -709,7 +709,7 @@ itemBases["华丽环甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 259, EnergyShieldBase = 51, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 259, ArmourBaseMax = 298, EnergyShieldBaseMin = 54, EnergyShieldBaseMax = 62, MovementPenalty = 5, },
 	req = { level = 47, str = 69, int = 69, },
 }
 itemBases["锁子长甲"] = {
@@ -718,7 +718,7 @@ itemBases["锁子长甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 281, EnergyShieldBase = 55, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 281, ArmourBaseMax = 314, EnergyShieldBaseMin = 58, EnergyShieldBaseMax = 65, MovementPenalty = 5, },
 	req = { level = 51, str = 75, int = 75, },
 }
 itemBases["虔诚链甲"] = {
@@ -727,7 +727,7 @@ itemBases["虔诚链甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 302, EnergyShieldBase = 59, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 302, ArmourBaseMax = 363, EnergyShieldBaseMin = 62, EnergyShieldBaseMax = 74, MovementPenalty = 5, },
 	req = { level = 55, str = 80, int = 80, },
 }
 itemBases["覆体环甲"] = {
@@ -736,7 +736,7 @@ itemBases["覆体环甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 325, EnergyShieldBase = 63, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 325, ArmourBaseMax = 374, EnergyShieldBaseMin = 66, EnergyShieldBaseMax = 76, MovementPenalty = 5, },
 	req = { level = 58, str = 84, int = 84, },
 }
 itemBases["征战锁甲"] = {
@@ -745,7 +745,7 @@ itemBases["征战锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 387, EnergyShieldBase = 75, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 387, ArmourBaseMax = 445, EnergyShieldBaseMin = 79, EnergyShieldBaseMax = 91, MovementPenalty = 5, },
 	req = { level = 61, str = 96, int = 96, },
 }
 itemBases["权贵环甲"] = {
@@ -754,7 +754,7 @@ itemBases["权贵环甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 377, EnergyShieldBase = 87, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 377, ArmourBaseMax = 433, EnergyShieldBaseMin = 92, EnergyShieldBaseMax = 105, MovementPenalty = 5, },
 	req = { level = 64, str = 90, int = 105, },
 }
 itemBases["圣者链甲"] = {
@@ -763,7 +763,7 @@ itemBases["圣者链甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 443, EnergyShieldBase = 73, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 443, ArmourBaseMax = 496, EnergyShieldBaseMin = 76, EnergyShieldBaseMax = 85, MovementPenalty = 5, },
 	req = { level = 67, str = 109, int = 94, },
 }
 itemBases["圣洁锁甲"] = {
@@ -772,7 +772,7 @@ itemBases["圣洁锁甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, str_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 401, EnergyShieldBase = 91, MovementPenalty = 5, },
+	armour = { ArmourBaseMin = 401, ArmourBaseMax = 461, EnergyShieldBaseMin = 96, EnergyShieldBaseMax = 110, MovementPenalty = 5, },
 	req = { level = 70, str = 99, int = 115, },
 }
 
@@ -782,7 +782,7 @@ itemBases["薄衬衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 27, EnergyShieldBase = 8, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 27, EvasionBaseMax = 38, EnergyShieldBaseMin = 9, EnergyShieldBaseMax = 13, MovementPenalty = 3, },
 	req = { dex = 10, int = 10, },
 }
 itemBases["防水背心"] = {
@@ -791,7 +791,7 @@ itemBases["防水背心"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 54, EnergyShieldBase = 13, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 54, EvasionBaseMax = 70, EnergyShieldBaseMin = 14, EnergyShieldBaseMax = 18, MovementPenalty = 3, },
 	req = { level = 9, dex = 17, int = 17, },
 }
 itemBases["长袖棉袄"] = {
@@ -800,7 +800,7 @@ itemBases["长袖棉袄"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 102, EnergyShieldBase = 22, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 102, EvasionBaseMax = 128, EnergyShieldBaseMin = 24, EnergyShieldBaseMax = 29, MovementPenalty = 3, },
 	req = { level = 18, dex = 30, int = 30, },
 }
 itemBases["防水外衣"] = {
@@ -809,7 +809,7 @@ itemBases["防水外衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 124, EnergyShieldBase = 26, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 124, EvasionBaseMax = 146, EnergyShieldBaseMin = 28, EnergyShieldBaseMax = 33, MovementPenalty = 3, },
 	req = { level = 22, dex = 35, int = 35, },
 }
 itemBases["炽红之衣"] = {
@@ -818,7 +818,7 @@ itemBases["炽红之衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 156, EnergyShieldBase = 32, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 156, EvasionBaseMax = 180, EnergyShieldBaseMin = 34, EnergyShieldBaseMax = 39, MovementPenalty = 3, },
 	req = { level = 28, dex = 43, int = 43, },
 }
 itemBases["蜡封束衣"] = {
@@ -827,7 +827,7 @@ itemBases["蜡封束衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 178, EnergyShieldBase = 36, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 178, EvasionBaseMax = 205, EnergyShieldBaseMin = 38, EnergyShieldBaseMax = 44, MovementPenalty = 3, },
 	req = { level = 32, dex = 48, int = 48, },
 }
 itemBases["骨制战甲"] = {
@@ -836,7 +836,7 @@ itemBases["骨制战甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 194, EnergyShieldBase = 39, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 194, EvasionBaseMax = 233, EnergyShieldBaseMin = 41, EnergyShieldBaseMax = 49, MovementPenalty = 3, },
 	req = { level = 35, dex = 53, int = 53, },
 }
 itemBases["菱纹外衣"] = {
@@ -845,7 +845,7 @@ itemBases["菱纹外衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 221, EnergyShieldBase = 44, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 221, EvasionBaseMax = 248, EnergyShieldBaseMin = 46, EnergyShieldBaseMax = 52, MovementPenalty = 3, },
 	req = { level = 40, dex = 60, int = 60, },
 }
 itemBases["滑布外套"] = {
@@ -854,7 +854,7 @@ itemBases["滑布外套"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 243, EnergyShieldBase = 48, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 243, EvasionBaseMax = 287, EnergyShieldBaseMin = 51, EnergyShieldBaseMax = 60, MovementPenalty = 3, },
 	req = { level = 44, dex = 65, int = 65, },
 }
 itemBases["绯红之衣"] = {
@@ -863,7 +863,7 @@ itemBases["绯红之衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 264, EnergyShieldBase = 52, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 264, EvasionBaseMax = 304, EnergyShieldBaseMin = 55, EnergyShieldBaseMax = 63, MovementPenalty = 3, },
 	req = { level = 48, dex = 71, int = 71, },
 }
 itemBases["漆彩束衣"] = {
@@ -872,7 +872,7 @@ itemBases["漆彩束衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 286, EnergyShieldBase = 56, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 286, EvasionBaseMax = 329, EnergyShieldBaseMin = 59, EnergyShieldBaseMax = 68, MovementPenalty = 3, },
 	req = { level = 52, dex = 76, int = 76, },
 }
 itemBases["地穴战甲"] = {
@@ -881,7 +881,7 @@ itemBases["地穴战甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 308, EnergyShieldBase = 60, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 308, EvasionBaseMax = 369, EnergyShieldBaseMin = 63, EnergyShieldBaseMax = 76, MovementPenalty = 3, },
 	req = { level = 56, dex = 82, int = 82, },
 }
 itemBases["哨兵之衣"] = {
@@ -890,7 +890,7 @@ itemBases["哨兵之衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 330, EnergyShieldBase = 64, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 330, EvasionBaseMax = 370, EnergyShieldBaseMin = 67, EnergyShieldBaseMax = 76, MovementPenalty = 3, },
 	req = { level = 59, dex = 86, int = 86, },
 }
 itemBases["映彩外套"] = {
@@ -899,7 +899,7 @@ itemBases["映彩外套"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 387, EnergyShieldBase = 75, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 387, EvasionBaseMax = 434, EnergyShieldBaseMin = 79, EnergyShieldBaseMax = 89, MovementPenalty = 3, },
 	req = { level = 62, dex = 96, int = 96, },
 }
 itemBases["血色之衣"] = {
@@ -908,7 +908,7 @@ itemBases["血色之衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 436, EnergyShieldBase = 70, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 436, EvasionBaseMax = 501, EnergyShieldBaseMin = 73, EnergyShieldBaseMax = 84, MovementPenalty = 3, },
 	req = { level = 65, dex = 107, int = 90, },
 }
 itemBases["狂虐者束衣"] = {
@@ -917,7 +917,7 @@ itemBases["狂虐者束衣"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 427, EnergyShieldBase = 88, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 427, EvasionBaseMax = 491, EnergyShieldBaseMin = 93, EnergyShieldBaseMax = 107, MovementPenalty = 3, },
 	req = { level = 68, dex = 103, int = 109, },
 }
 itemBases["禁礼之甲"] = {
@@ -927,7 +927,7 @@ itemBases["禁礼之甲"] = {
 	tags = { body_armour = true, armour = true, dex_int_armour = true, default = true, },
 	implicit = "+(20-25) 最大魔力",
 	implicitModTypes = { { "resource", "mana" }, },
-	armour = { EvasionBase = 353, EnergyShieldBase = 98, MovementPenalty = 3, },
+	armour = { EvasionBaseMin = 353, EvasionBaseMax = 388, EnergyShieldBaseMin = 103, EnergyShieldBaseMax = 113, MovementPenalty = 3, },
 	req = { level = 71, dex = 88, int = 122, },
 }
 
@@ -938,7 +938,7 @@ itemBases["祭礼束衣"] = {
 	tags = { body_armour = true, str_dex_int_armour = true, armour = true, not_for_sale = true, default = true, },
 	implicit = "所有瓦尔技能石等级 +1",
 	implicitModTypes = { { "gem" }, },
-	armour = { ArmourBase = 329, EvasionBase = 329, EnergyShieldBase = 64, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 329, ArmourBaseMax = 378, EvasionBaseMin = 329, EvasionBaseMax = 378, EnergyShieldBaseMin = 67, EnergyShieldBaseMax = 77, MovementPenalty = 3, },
 	req = { level = 72, str = 66, dex = 66, int = 66, },
 }
 itemBases["扼杀链甲"] = {
@@ -947,7 +947,7 @@ itemBases["扼杀链甲"] = {
 	socketLimit = 6,
 	tags = { body_armour = true, str_dex_int_armour = true, armour = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 217, EvasionBase = 217, EnergyShieldBase = 42, MovementPenalty = 3, },
+	armour = { ArmourBaseMin = 217, ArmourBaseMax = 250, EvasionBaseMin = 217, EvasionBaseMax = 250, EnergyShieldBaseMin = 44, EnergyShieldBaseMax = 51, MovementPenalty = 3, },
 	req = { level = 70, str = 60, dex = 60, int = 60, },
 }
 itemBases["黄金战甲"] = {
@@ -958,6 +958,6 @@ itemBases["黄金战甲"] = {
 	tags = { body_armour = true, str_dex_int_armour = true, demigods = true, armour = true, not_for_sale = true, default = true, },
 	implicit = "+(15-25)% 所有元素抗性",
 	implicitModTypes = { { "elemental", "resistance" }, },
-	armour = { ArmourBase = 75, EvasionBase = 75, EnergyShieldBase = 16, },
+	armour = { ArmourBaseMin = 75, ArmourBaseMax = 86, EvasionBaseMin = 75, EvasionBaseMax = 86, EnergyShieldBaseMin = 17, EnergyShieldBaseMax = 19, },
 	req = { level = 20, str = 8, dex = 8, int = 8, },
 }

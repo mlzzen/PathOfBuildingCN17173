@@ -231,7 +231,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="召唤生物格挡时回复它们 {0} 生命"
+					text="召唤生物在格挡时恢复 {0} 点生命"
 				}
 			}
 		},
@@ -343,6 +343,33 @@ return {
 			[1]="life_leech_from_any_damage_permyriad"
 		}
 	},
+	[15]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextRecently"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="使召唤生物的生命在它们近期内有过格挡的情况下每秒再生 {0}%"
+				}
+			}
+		},
+		name="minion_life_regen_if_blocked",
+		stats={
+			[1]="minion_life_regeneration_rate_per_minute_%_if_blocked_recently"
+		}
+	},
 	["attack_speed_+%_granted_from_skill"]=3,
 	["base_chaos_damage_resistance_%"]=12,
 	["base_movement_velocity_+%"]=6,
@@ -354,6 +381,7 @@ return {
 	["cast_speed_+%_granted_from_skill"]=5,
 	["damage_+%"]=4,
 	["life_leech_from_any_damage_permyriad"]=14,
+	["minion_life_regeneration_rate_per_minute_%_if_blocked_recently"]=15,
 	["minion_recover_X_life_on_block"]=9,
 	["monster_base_block_%"]=7,
 	parent="skill_stat_descriptions",

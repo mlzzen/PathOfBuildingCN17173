@@ -113,7 +113,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="该法术与召唤生物的总施法速度总增 {0}%"
+					text="该法术和召唤生物的施法速度总增 {0}%"
 				},
 				[2]={
 					[1]={
@@ -126,7 +126,7 @@ return {
 							[2]=-1
 						}
 					},
-					text="该法术与召唤生物的总施法速度总降 {0}%"
+					text="该法术和召唤生物的施法速度总降 {0}%"
 				}
 			}
 		},
@@ -172,6 +172,7 @@ return {
 				}
 			}
 		},
+		name="chance_for_1_additional_trap_mine",
 		stats={
 			[1]="support_additional_trap_mine_%_chance_for_1_additional_trap_mine"
 		}
@@ -194,6 +195,7 @@ return {
 				}
 			}
 		},
+		name="chance_for_2_additional_trap_mine",
 		stats={
 			[1]="support_additional_trap_mine_%_chance_for_2_additional_trap_mine"
 		}
@@ -216,6 +218,7 @@ return {
 				}
 			}
 		},
+		name="chance_for_3_additional_trap_mine",
 		stats={
 			[1]="support_additional_trap_mine_%_chance_for_3_additional_trap_mine"
 		}

@@ -6,14 +6,14 @@ local itemBases = ...
 itemBases["海灵护身符"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	implicit = "魔力回复速度提高 (20-30)%",
+	implicit = "魔力再生率提高 (20-30)%",
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { },
 }
 itemBases["珊瑚护身符"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	implicit = "(2-4) 每秒生命回复",
+	implicit = "生命每秒再生 (2-4)% ",
 	implicitModTypes = { { "flat_life_regen", "resource", "life" }, },
 	req = { },
 }
@@ -80,24 +80,31 @@ itemBases["血色护身符"] = {
 	implicitModTypes = { { "elemental", "fire", "resistance" }, },
 	req = { },
 }
+itemBases["潜能项链"] = {
+	type = "Amulet",
+	tags = { not_for_sale = true, default = true, amulet = true, },
+	implicit = "有 1 个插槽",
+	implicitModTypes = { {  }, },
+	req = { level = 5, },
+}
 itemBases["碧珠护身符"] = {
 	type = "Amulet",
 	tags = { amuletatlas1 = true, not_for_sale = true, atlas_base_type = true, amulet = true, default = true, },
-	implicit = "魔力回复速度提高 (48-56)%",
+	implicit = "魔力再生率提高 (48-56)%",
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { level = 77, },
 }
 itemBases["大理石护身符"] = {
 	type = "Amulet",
 	tags = { amuletatlas2 = true, not_for_sale = true, atlas_base_type = true, amulet = true, default = true, },
-	implicit = "每秒回复 (1.2-1.6)% 生命",
+	implicit = "生命每秒再生 (1.2-1.6)%",
 	implicitModTypes = { { "resource", "life" }, },
 	req = { level = 74, },
 }
 itemBases["海晶护符"] = {
 	type = "Amulet",
 	tags = { not_for_sale = true, atlas_base_type = true, amuletatlas3 = true, amulet = true, default = true, },
-	implicit = "能量护盾启动回复比平常快 (10-15)%",
+	implicit = "能量护盾充能时间提前 (10-15)%",
 	implicitModTypes = { { "energy_shield", "defences" }, },
 	req = { level = 74, },
 }
@@ -136,7 +143,7 @@ itemBases["脊骨魔符"] = {
 	type = "Amulet",
 	subType = "Talisman",
 	tags = { default = true, talisman = true, amulet = true, },
-	implicit = "最大魔力提高 (20-30)%",
+	implicit = "魔力上限提高 (20-30)%",
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { },
 }
@@ -168,7 +175,7 @@ itemBases["碎骨魔符"] = {
 	type = "Amulet",
 	subType = "Talisman",
 	tags = { default = true, talisman = true, amulet = true, },
-	implicit = "物理伤害提高 (20-30)%",
+	implicit = "全局物理伤害提高 (20-30)%",
 	implicitModTypes = { { "physical_damage", "damage", "physical" }, },
 	req = { },
 }
@@ -232,7 +239,7 @@ itemBases["皇骨魔符"] = {
 	type = "Amulet",
 	subType = "Talisman",
 	tags = { default = true, talisman = true, amulet = true, },
-	implicit = "每秒回复 2% 生命",
+	implicit = "生命每秒再生 2%",
 	implicitModTypes = { { "resource", "life" }, },
 	req = { },
 }
@@ -312,7 +319,7 @@ itemBases["齿鲨魔符"] = {
 	type = "Amulet",
 	subType = "Talisman",
 	tags = { default = true, talisman = true, amulet = true, },
-	implicit = "最大生命提高 (8-12)%",
+	implicit = "生命上限提高 (8-12)%",
 	implicitModTypes = { { "resource", "life" }, },
 	req = { },
 }
@@ -401,12 +408,5 @@ itemBases["狼王魔符"] = {
 	subType = "Talisman",
 	tags = { amulet = true, default = true, },
 	implicitModTypes = { },
-	req = { },
-}
-itemBases["Unset Amulet"] = {
-	type = "Amulet",
-	tags = { amulet = true, default = true, },
-	implicit = "有 1 个插槽",
-	implicitModTypes = { { }, },
 	req = { },
 }

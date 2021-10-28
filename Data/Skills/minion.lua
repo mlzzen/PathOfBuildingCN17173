@@ -7,7 +7,7 @@
 local skills, mod, flag, skill = ...
 
 skills["ChaosElementalCascadeSummoned"] = {
-name = "冰川之刺",
+	name = "Cascade",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 1.9800000190735,
@@ -39,7 +39,7 @@ name = "冰川之刺",
 	},
 }
 skills["SandstormChaosElementalSummoned"] = {
-name = "混沌光环",
+	name = "Chaos Aura",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 11,
@@ -69,10 +69,10 @@ name = "混沌光环",
 	},
 }
 skills["FireElementalFlameRedSummoned"] = {
-name = "献祭",
+	name = "Immolate",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.3999999761581,
+	baseEffectiveness = 1.8200000524521,
 	incrementalEffectiveness = 0.041999999433756,
 	description = "召唤一个图腾，它会持续的对附近的敌人喷射火焰.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Hit] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanMine] = true, [SkillType.Totem] = true, [SkillType.FireSkill] = true, },
@@ -102,10 +102,10 @@ name = "献祭",
 	},
 }
 skills["FireElementalMortarSummoned"] = {
-name = "岩浆球",
+	name = "Magma Ball",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 4.2666997909546,
+	baseEffectiveness = 5.5467000007629,
 	incrementalEffectiveness = 0.032000001519918,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Area] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
@@ -133,10 +133,10 @@ name = "岩浆球",
 	},
 }
 skills["FireElementalConeSummoned"] = {
-name = "火焰震波",
+	name = "Flame Wave",
 	hidden = true,
 	color = 3,
-	baseEffectiveness = 2.9867000579834,
+	baseEffectiveness = 3.8826999664307,
 	incrementalEffectiveness = 0.031700000166893,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Area] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.FireSkill] = true, [SkillType.AreaSpell] = true, [SkillType.SecondWindSupport] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -188,7 +188,7 @@ name = "火焰震波",
 	},
 }
 skills["IceElementalIceCyclone"] = {
-name = "旋风斩",
+	name = "Cyclone",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 0.85000002384186,
@@ -231,14 +231,14 @@ name = "旋风斩",
 		"cyclone_places_ground_ice",
 	},
 	levels = {
-		[1] = { 4, 75, 40, -20, 4000, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 4, 75, 40, 0, 4000, cooldown = 6, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
 skills["IceElementalSpearSummoned"] = {
-name = "冰矛",
+	name = "Ice Spear",
 	hidden = true,
 	color = 3,
-	baseEffectiveness = 2.5455000400543,
+	baseEffectiveness = 3.3092000484467,
 	incrementalEffectiveness = 0.032000001519918,
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Spell] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -262,10 +262,10 @@ name = "冰矛",
 	},
 }
 skills["LightningGolemArcSummoned"] = {
-name = "风暴之珠",
+	name = "Storm Orb",
 	hidden = true,
 	color = 3,
-	baseEffectiveness = 0.875,
+	baseEffectiveness = 1.1375000476837,
 	incrementalEffectiveness = 0.026000000536442,
 	skillTypes = { [SkillType.Duration] = true, [SkillType.LightningSkill] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.ProjectileDamage] = true, [SkillType.Spell] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -289,10 +289,10 @@ name = "风暴之珠",
 	},
 }
 skills["MonsterProjectileSpellLightningGolemSummoned"] = {
-name = "闪电投射物",
+	name = "Lightning Projectile",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 3.6749999523163,
+	baseEffectiveness = 4.7775001525879,
 	incrementalEffectiveness = 0.033500000834465,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -318,7 +318,7 @@ name = "闪电投射物",
 	},
 }
 skills["LightningGolemWrath"] = {
-name = "雷霆",
+	name = "Wrath",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.16249999403954,
@@ -363,7 +363,7 @@ name = "雷霆",
 	},
 }
 skills["SpectralSkullShieldCharge"] = {
-name = "重盾冲锋",
+	name = "Charge",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -448,7 +448,7 @@ skills["RagingSpiritMeleeAttack"] = {
 	},
 }
 skills["SkeletonMinionProjectileCold"] = {
-name = "冰霜投射物",
+	name = "Cold Projectile",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.6651999950409,
@@ -475,7 +475,7 @@ name = "冰霜投射物",
 	},
 }
 skills["SkeletonMinionProjectileFire"] = {
-name = "火焰投射物",
+	name = "Fire Projectile",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.6651999950409,
@@ -502,7 +502,7 @@ name = "火焰投射物",
 	},
 }
 skills["SkeletonMinionProjectileLightning"] = {
-name = "闪电投射物",
+	name = "Lightning Projectile",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.6651999950409,
@@ -529,7 +529,7 @@ name = "闪电投射物",
 	},
 }
 skills["RockGolemSlam"] = {
-name = "重击",
+	name = "Slam",
 	hidden = true,
 	color = 1,
 	baseEffectiveness = 0,
@@ -557,7 +557,7 @@ name = "重击",
 	},
 }
 skills["RockGolemMinionWhirlingBlades"] = {
-name = "回旋之刃",
+	name = "Roll",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -592,7 +592,7 @@ name = "回旋之刃",
 	},
 }
 skills["ZombieSlam"] = {
-name = "重击",
+	name = "Slam",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, },
@@ -707,7 +707,7 @@ skills["DancingDervishCyclone"] = {
 	},
 }
 skills["SummonPhantasmFadingProjectile"] = {
-name = "物理投射物",
+	name = "Physical Projectile",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.0099999904633,
@@ -734,7 +734,7 @@ name = "物理投射物",
 	},
 }
 skills["HeraldOfAgonyMinionMortar"] = {
-name = "炮击",
+	name = "Mortar",
 	hidden = true,
 	color = 4,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
@@ -766,7 +766,7 @@ name = "炮击",
 	},
 }
 skills["HeraldOfAgonyMinionTailSpike"] = {
-name = "尾刺",
+	name = "Tail Spike",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Hit] = true, [SkillType.Triggerable] = true, },
@@ -793,7 +793,7 @@ name = "尾刺",
 	},
 }
 skills["HeraldOfAgonyMinionCleave"] = {
-name = "横扫",
+	name = "Cleave",
 	hidden = true,
 	color = 1,
 	description = "在身体前方以弧状挥动武器（双持时则挥动两把武器）, 对前方区域的怪物造成伤害。限定斧类与剑类。",
@@ -825,7 +825,7 @@ name = "横扫",
 	},
 }
 skills["HeraldOfLightMinionSlam"] = {
-name = "重击",
+	name = "Slam",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, },
@@ -849,7 +849,7 @@ name = "重击",
 	},
 }
 skills["SentinelHolySlam"] = {
-name = "十字军猛击",
+	name = "Crusade Slam",
 	hidden = true,
 	color = 1,
 	baseEffectiveness = 0,
@@ -874,7 +874,7 @@ name = "十字军猛击",
 	},
 }
 skills["RelicTriggeredNova"] = {
-name = "新星",
+	name = "Nova",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.89999997615814,
@@ -884,7 +884,7 @@ name = "新星",
 	castTime = 1,
 	statMap = {
 		["base_life_regeneration_rate_per_minute"] = {
-mod("LifeRegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "圣物的祝福"}),
+			mod("LifeRegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Holy Relic's Boon"}),
 			div = 60,
 		},
 	},
@@ -1084,7 +1084,7 @@ skills["SummonedRhoaShieldCharge"] = {
 	},
 }
 skills["SummonedSnakeProjectile"] = {
-name = "混沌投射物",
+	name = "Chaos Projectile",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.8700000047684,
@@ -1174,7 +1174,7 @@ skills["DropBearSummonedRallyingCry"] = {
 	},
 }
 skills["BoneGolemMultiAttack"] = {
-name = "连击",
+	name = "Combo Attack",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.AttackCanRepeat] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, },
@@ -1207,7 +1207,7 @@ name = "连击",
 	},
 }
 skills["BoneGolemCascade"] = {
-name = "冰川之刺",
+	name = "Cascade",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.AttackCanRepeat] = true, [SkillType.Melee] = true, },
@@ -1270,7 +1270,7 @@ skills["BoneGolemLeapSlam"] = {
 	},
 }
 skills["SkitterbotWait"] = {
-name = "飞掠者待机",
+	name = "Skitterbot Wait",
 	hidden = true,
 	color = 4,
 	skillTypes = { },
@@ -1291,7 +1291,7 @@ name = "飞掠者待机",
 	},
 }
 skills["MinionInstability"] = {
-name = "召唤物聚能",
+	name = "Minion Instability",
 	hidden = true,
 	color = 4,
 	baseFlags = {
@@ -1315,7 +1315,7 @@ name = "召唤物聚能",
 	},
 }
 skills["SiegebreakerCausticGround"] = {
-name = "腐蚀毒云",
+	name = "Caustic Ground",
 	hidden = true,
 	color = 4,
 	baseFlags = {
@@ -1359,7 +1359,7 @@ skills["ReplicaSiegebreakerBurningGround"] = {
 	},
 }
 skills["InfernalLegion"] = {
-name = "炼狱军团",
+	name = "Infernal Legion",
 	hidden = true,
 	color = 4,
 	baseFlags = {
@@ -1379,29 +1379,7 @@ name = "炼狱军团",
 		[1] = { cost = { } },
 	},
 }
---lucifer
-skills["SiegebreakerBurningGround"] = {
-name = "燃烧地面",
-	hidden = true,
-	color = 4,
-	baseFlags = {
-		cast = true,
-		area = true,
-		fire = true,
-	},
-	skillTypes = { },
-	baseMods = {
-		skill("FireDot", 1, { type = "PerStat", stat = "Life", div = 5 }),
-		skill("dotIsArea", true),
-	},
-	qualityStats = {
-	},
-	stats = {
-	},
-	levels = {
-		[1] = { cost = { } },
-	},
-}
+
 skills["MeleeAtAnimationSpeedUnique"] = {
 	name = "Default Attack",
 	hidden = true,
@@ -1424,6 +1402,8 @@ skills["MeleeAtAnimationSpeedUnique"] = {
 		"skill_can_fire_arrows",
 		"skill_can_fire_wand_projectiles",
 		"action_attack_or_cast_time_uses_animation_length",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -25, levelRequirement = 1, statInterpolation = { }, cost = { }, },
@@ -1553,4 +1533,3 @@ skills["GASummonReaperComboLeftSlash"] = {
 		[2] = { 60, levelRequirement = 80, statInterpolation = { 2, }, cost = { }, },
 	},
 }
-

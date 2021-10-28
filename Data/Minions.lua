@@ -28,10 +28,6 @@ minions["RaisedZombie"] = {
 		mod("Armour", "INC", 40), -- MonsterImplicitDamageReduction1 [physical_damage_reduction_rating_+% = 40]
 		-- RaiseZombieStunThreshold [stun_threshold_+% = 30]
 	},
-	modListSP = {
-		"护甲提高 40%", 
-		"30 基础眩晕门槛", 
-	},
 }
 
 minions["SummonedChaosGolem"] = {
@@ -55,9 +51,7 @@ minions["SummonedChaosGolem"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-	modListSP = {
-		"怪物无物品掉落或经验获取", 
+		-- SummonedGolemLifeRegeneration [life_regeneration_rate_per_minute_% = 60]
 	},
 }
 
@@ -84,10 +78,7 @@ minions["SummonedFlameGolem"] = {
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 		-- MonsterSpeedAndDamageFixupLarge [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 22]
-	},
-	modListSP = {
-		"怪物无物品掉落或经验获取", 
-		"怪物速度和伤害调整（大）", 
+		-- SummonedGolemLifeRegeneration [life_regeneration_rate_per_minute_% = 60]
 	},
 }
 
@@ -112,9 +103,7 @@ minions["SummonedIceGolem"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-	modListSP = {
-		"怪物无物品掉落或经验获取", 
+		-- SummonedGolemLifeRegeneration [life_regeneration_rate_per_minute_% = 60]
 	},
 }
 
@@ -141,10 +130,7 @@ minions["SummonedLightningGolem"] = {
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 		-- MonsterSpeedAndDamageFixupLarge [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 22]
-	},
-	modListSP = {
-		"怪物无物品掉落或经验获取", 
-		"怪物速度和伤害调整（大）", 
+		-- SummonedGolemLifeRegeneration [life_regeneration_rate_per_minute_% = 60]
 	},
 }
 
@@ -169,8 +155,7 @@ minions["SummonedStoneGolem"] = {
 		"RockGolemMinionWhirlingBlades",
 	},
 	modList = {
-	},
-	modListSP = {
+		-- SummonedGolemLifeRegenerationStone [life_regeneration_rate_per_minute_% = 120]
 	},
 }
 
@@ -191,16 +176,11 @@ minions["SummonedRagingSpirit"] = {
 		"Melee",
 	},
 	modList = {
-		mod("PhysicalDamageConvertToFire", "BASE", 50), -- MonsterSummonedElementalFire [base_physical_damage_%_to_convert_to_fire = 50]
+		-- RagingSpiritConvertPhysToFire [base_physical_damage_%_to_convert_to_fire = 100]
 		mod("PhysicalMin", "BASE", 4, ModFlag.Attack), -- RagingSpiritAddedPhys [attack_minimum_added_physical_damage = 4] [attack_maximum_added_physical_damage = 5]
 		mod("PhysicalMax", "BASE", 5, ModFlag.Attack), -- RagingSpiritAddedPhys [attack_minimum_added_physical_damage = 4] [attack_maximum_added_physical_damage = 5]
 		-- CannotGainAfflictedMods [cannot_have_affliction_mods = 1]
 		mod("Speed", "MORE", 40, ModFlag.Attack), -- MonsterSummonedSkullFastAttack1 [active_skill_attack_speed_+%_final = 40]
-	},
-	modListSP = {
-		"50% 物理伤害转化为火焰伤害", 
-		"攻击附加 4 -5 物理点伤", 
-		"总攻击速度额外提高 40%", 
 	},
 }
 
@@ -224,10 +204,6 @@ minions["SummonedEssenceSpirit"] = {
 		mod("Speed", "MORE", 40, ModFlag.Attack), -- MonsterSummonedSkullFastAttack1 [active_skill_attack_speed_+%_final = 40]
 		mod("Condition:FullLife", "FLAG", true),
 	},
-	modListSP = {
-		"满血",
-		"总攻击速度额外提高 40%", 
-	},
 }
 
 minions["SummonedSpectralWolf"] = {
@@ -248,8 +224,6 @@ minions["SummonedSpectralWolf"] = {
 		"Melee",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 
@@ -276,9 +250,6 @@ minions["RaisedSkeleton"] = {
 		mod("BlockChance", "BASE", 30), -- MonsterAttackBlock30Bypass15 [monster_base_block_% = 30] [base_block_%_damage_taken = 15]
 		-- SummonSkeletonsSkeletonIsWarrior [summoned_skeleton_is_warrior = 1]
 	},
-	modListSP = {
-		"30% 攻击伤害格挡几率", 
-	},
 }
 
 minions["RaisedSkeletonCaster"] = {
@@ -302,8 +273,6 @@ minions["RaisedSkeletonCaster"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 
 minions["RaisedSkeletonArcher"] = {
@@ -325,8 +294,6 @@ minions["RaisedSkeletonArcher"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 
 minions["Clone"] = {
@@ -346,9 +313,6 @@ minions["Clone"] = {
 	},
 	modList = {
 		mod("EnergyShield", "BASE", 10), -- MirrorArrowEnergyShield [base_maximum_energy_shield = 10]
-	},
-	modListSP = {
-		"10 基础能量护盾", 
 	},
 }
 
@@ -372,9 +336,6 @@ minions["SpiderMinion"] = {
 	modList = {
 		-- SummonedSpiderPhasing [phase_through_objects = 1] [suppress_phasing_visual = 1]
 	},
-	modListSP = {
-		"【迷踪】状态", 
-	},
 }
 
 minions["AnimatedWeapon"] = {
@@ -394,9 +355,6 @@ minions["AnimatedWeapon"] = {
 	},
 	modList = {
 		-- EmergeSpeedLow [emerge_speed_+% = 100]
-	},
-	modListSP = {
-		"显现速度调整（低）", 
 	},
 }
 
@@ -421,9 +379,6 @@ minions["AnimatedArmour"] = {
 		mod("Speed", "MORE", 10, ModFlag.Attack, 0, { type = "Condition", var = "DualWielding" }),
 		mod("BlockChance", "BASE", 15, 0, 0, { type = "Condition", var = "DualWielding" }),
 	},
-	modListSP = {
-		"调整从箭矢和陷阱承受的伤害"
-	},
 }
 
 minions["IcyRagingSpirit"] = {
@@ -446,11 +401,6 @@ minions["IcyRagingSpirit"] = {
 		-- MonsterCannotBeChainedFrom_ [cannot_be_chained_from = 1]
 		mod("Speed", "MORE", 40, ModFlag.Attack), -- MonsterSummonedSkullFastAttack1 [active_skill_attack_speed_+%_final = 40]
 	},
-	modListSP = {
-		"50% 物理伤害转化为冰霜伤害", 
-		"无法被连锁", 
-		"总攻击速度额外提高 40%", 
-	},
 }
 
 minions["UniqueAnimatedWeapon"] = {
@@ -471,9 +421,6 @@ minions["UniqueAnimatedWeapon"] = {
 	},
 	modList = {
 		-- UniqueAnimateWeaponAura [disable_weapons = 1] [has_onslaught = 1]
-	},
-	modListSP = {
-		"猛攻", 
 	},
 }
 
@@ -497,8 +444,6 @@ minions["SummonedPhantasm"] = {
 		"SummonPhantasmFadingProjectile2",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 
@@ -526,15 +471,11 @@ minions["HeraldOfAgonySpiderPlated"] = {
 		-- MonsterCannotBeDamaged [cannot_be_damaged = 1]
 		mod("Condition:FullLife", "FLAG", true),
 	},
-	modListSP = {
-		"40% 物理伤害转换为混沌伤害", 
-		"满血", 
-	},
 }
 
 minions["AxisEliteSoldierHeraldOfLight"] = {
 	name = "纯净哨兵",
-	life = 5.6,
+	life = 3.4,
 	armour = 0.5,
 	fireResist = 40,
 	coldResist = 40,
@@ -554,8 +495,6 @@ minions["AxisEliteSoldierHeraldOfLight"] = {
 		"SentinelHolySlam",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 
@@ -579,9 +518,6 @@ minions["HolyLivingRelic"] = {
 	},
 	modList = {
 		-- EmergeSpeedHigh [emerge_speed_+% = 0]
-	},
-	modListSP = {
-		"显现速度调整（高）", 
 	},
 }
 
@@ -609,10 +545,6 @@ minions["AxisEliteSoldierDominatingBlow"] = {
 		-- MonsterCastsShieldChargeText [monster_casts_shield_charge_text = 1]
 		mod("BlockChance", "BASE", 40), -- MonsterAttackBlock40Bypass20 [monster_base_block_% = 40] [base_block_%_damage_taken = 20]
 	},
-	modListSP = {
-		"冲锋", 
-		"40% 攻击伤害格挡几率", 
-	},
 }
 
 minions["AbsolutionTemplarJudge"] = {
@@ -636,8 +568,6 @@ minions["AbsolutionTemplarJudge"] = {
 		"AbsolutionMinionEmpowered",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 
@@ -663,10 +593,6 @@ minions["RhoaUniqueSummoned"] = {
 		mod("CannotBeEvaded", "FLAG", true), -- MonsterAlwaysHits [global_always_hit = 1]
 		-- MonsterNearbyEnemiesAreIntimidated [is_intimidated = 1] [local_display_nearby_enemies_are_intimidated = 1]
 	},
-	modListSP = {
-		"必中", 
-		"周围的敌人会被恐吓", 
-	},
 }
 
 minions["SnakeSpitUniqueSummoned"] = {
@@ -690,10 +616,6 @@ minions["SnakeSpitUniqueSummoned"] = {
 		mod("PhysicalDamageConvertToChaos", "BASE", 30), -- MonsterSnakeChaos [base_physical_damage_%_to_convert_to_chaos = 30]
 		mod("CannotBeEvaded", "FLAG", true), -- MonsterAlwaysHits [global_always_hit = 1]
 	},
-	modListSP = {
-		"30% 物理伤害转换为混沌伤害", 
-		"必中", 
-	},
 }
 
 minions["DropBearUniqueSummoned"] = {
@@ -704,23 +626,20 @@ minions["DropBearUniqueSummoned"] = {
 	coldResist = 40,
 	lightningResist = 40,
 	chaosResist = 20,
-	damage = 2.55,
+	damage = 2.81,
 	damageSpread = 0.2,
 	attackTime = 1.1,
-	attackRange = 6,
+	attackRange = 10,
 	accuracy = 3.4,
 	weaponType1 = "One Handed Mace",
 	limit = "ActiveBeastMinionLimit",
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeedUnique",
 		"DropBearSummonedGroundSlam",
 		"DropBearSummonedRallyingCry",
 	},
 	modList = {
 		mod("CannotBeEvaded", "FLAG", true), -- MonsterAlwaysHits [global_always_hit = 1]
-	},
-	modListSP = {
-		"必中", 
 	},
 }
 
@@ -745,9 +664,7 @@ minions["SummonedCarrionGolem"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-	modListSP = {
-		"怪物无物品掉落或经验获取", 
+		-- SummonedGolemLifeRegeneration [life_regeneration_rate_per_minute_% = 60]
 	},
 }
 
@@ -770,8 +687,6 @@ minions["SkitterbotCold"] = {
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 	},
-	modListSP = {
-	},
 }
 
 minions["SkitterbotLightning"] = {
@@ -792,8 +707,6 @@ minions["SkitterbotLightning"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-	modListSP = {
 	},
 }
 
@@ -829,35 +742,5 @@ minions["SummonedReaper"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-	modListSP = {
-		"怪物无物品掉落或经验获取", 
-	},
-}
-
-
---lucifer2
-
-
-minions["TauntingContraption"] = {
-	name = "嘲讽装置",
-	life = 1.8,
-	fireResist = 40,
-	coldResist = 40,
-	lightningResist = 40,
-	chaosResist = 20,
-	damage = 1,
-	damageSpread = 0,
-	attackTime = 1,
-	attackRange = 6,
-	accuracy = 1,
-	skillList = {
-		"TauntingContraptionTaunt",
-	},
-	modList = {
-		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
-	},
-	modListSP = {
-		"怪物无物品掉落或经验获取", 
 	},
 }

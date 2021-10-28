@@ -186,7 +186,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="对带有烙印的敌人造成的伤害总增 {0}%"
+					text="击中伤害对带有烙印的敌人总增 {0}%"
 				},
 				[2]={
 					[1]={
@@ -199,13 +199,13 @@ return {
 							[2]=-1
 						}
 					},
-					text="对带有烙印的敌人造成的伤害最多总降 {0}%"
+					text="击中伤害对带有烙印的敌人总降 {0}%"
 				}
 			}
 		},
 		name="sigil_attached_target_damage_final",
 		stats={
-			[1]="sigil_attached_target_damage_+%_final"
+			[1]="sigil_attached_target_hit_damage_+%_final"
 		}
 	},
 	[10]={
@@ -300,7 +300,7 @@ return {
 	parent="skill_stat_descriptions",
 	["quality_display_base_duration_is_quality"]=4,
 	["secondary_skill_effect_duration"]=8,
-	["sigil_attached_target_damage_+%_final"]=9,
+	["sigil_attached_target_hit_damage_+%_final"]=9,
 	["sigil_repeat_frequency_ms"]=10,
 	["skill_effect_duration"]=11,
 	["tertiary_buff_effect_duration"]=12

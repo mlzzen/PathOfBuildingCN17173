@@ -118,7 +118,7 @@ return {
 							[2]=-1
 						}
 					},
-					text="增益效果使暴击率降低 {0}%"
+					text="增益效果暴击率使降低 {0}%"
 				}
 			}
 		},
@@ -265,6 +265,25 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="增益效果使法术伤害格挡率在持盾牌时 {0:+d}%"
+				}
+			}
+		},
+		name="shield_spell_block",
+		stats={
+			[1]="shield_spell_block_%"
+		}
+	},
+	[12]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
 					[1]={
 						k="reminderstring",
 						v="ReminderTextPhasing"
@@ -275,7 +294,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="增益效果获得【迷踪】状态"
+					text="增益效果提供迷踪状态"
 				}
 			}
 		},
@@ -284,7 +303,7 @@ return {
 			[1]="phase_through_objects"
 		}
 	},
-	[12]={
+	[13]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -307,7 +326,7 @@ return {
 			[1]="base_chance_to_shock_%"
 		}
 	},
-	[13]={
+	[14]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -339,7 +358,7 @@ return {
 			[1]="base_damage_taken_+%"
 		}
 	},
-	[14]={
+	[15]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -349,7 +368,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="增益效果提供免疫冰冻"
+					text="增益效果提供冻结免疫"
 				}
 			}
 		},
@@ -358,7 +377,7 @@ return {
 			[1]="base_immune_to_freeze"
 		}
 	},
-	[15]={
+	[16]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -390,7 +409,7 @@ return {
 			[1]="base_movement_velocity_+%"
 		}
 	},
-	[16]={
+	[17]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -409,7 +428,7 @@ return {
 			[1]="base_physical_damage_reduction_rating"
 		}
 	},
-	[17]={
+	[18]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -441,7 +460,7 @@ return {
 			[1]="berserk_spell_damage_+%_final"
 		}
 	},
-	[18]={
+	[19]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -465,7 +484,109 @@ return {
 			[2]="buff_added_spell_maximum_base_physical_damage_per_shield_quality"
 		}
 	},
-	[19]={
+	[20]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="羁绊对象在格挡时恢复 {0} 点生命"
+				}
+			}
+		},
+		name="bulwark_link_recover",
+		stats={
+			[1]="bulwark_link_grants_recover_X_life_on_block"
+		}
+	},
+	[21]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="羁绊对象的眩晕门槛提高 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="羁绊对象的眩晕门槛降低 {0}%"
+				}
+			}
+		},
+		name="bulwark_link_stun_threshold",
+		stats={
+			[1]="bulwark_link_grants_stun_threshold_+%"
+		}
+	},
+	[22]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="羁绊对象的命中值提高 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="羁绊对象的命中值降低 {0}%"
+				}
+			}
+		},
+		name="critical_link_accuracy",
+		stats={
+			[1]="critical_link_grants_accuracy_rating_+%"
+		}
+	},
+	[23]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="羁绊对象的暴击伤害加成 {0:+d}%"
+				}
+			}
+		},
+		name="critical_link_multiplier",
+		stats={
+			[1]="critical_link_grants_base_critical_strike_multiplier_+"
+		}
+	},
+	[24]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -488,7 +609,64 @@ return {
 			[1]="damage_taken_goes_to_mana_%"
 		}
 	},
-	[20]={
+	[25]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="羁绊对象的攻击伤害格挡率与你的相同\n羁绊对象的伤害格挡率上限与你的相同"
+				}
+			}
+		},
+		name="display_bulwark_link_override",
+		stats={
+			[1]="display_bulwark_link_overrides_attack_block_and_maximum_attack_block"
+		}
+	},
+	[26]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="羁绊对象的主手暴击率与你的相同"
+				}
+			}
+		},
+		name="display_critical_link_override",
+		stats={
+			[1]="display_critical_link_overrides_main_hand_critical_strike_chance"
+		}
+	},
+	[27]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="增益效果提供免疫流血"
+				}
+			}
+		},
+		name="display_immune_to_bleeding",
+		stats={
+			[1]="display_skill_buff_grants_bleeding_immunity"
+		}
+	},
+	[28]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -511,7 +689,30 @@ return {
 			[1]="energy_shield_lost_per_minute"
 		}
 	},
-	[21]={
+	[29]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextIgnite"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="羁绊对象有 {0}% 的几率点燃敌人"
+				}
+			}
+		},
+		name="flame_link_ignite_chance",
+		stats={
+			[1]="flame_link_grants_chance_to_ignite_%"
+		}
+	},
+	[30]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -591,7 +792,7 @@ return {
 			[3]="cannot_recover_above_low_life_except_flasks"
 		}
 	},
-	[22]={
+	[31]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -610,7 +811,7 @@ return {
 			[1]="physical_damage_reduction_%_per_endurance_charge"
 		}
 	},
-	[23]={
+	[32]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -642,7 +843,81 @@ return {
 			[1]="physical_damage_reduction_rating_+%"
 		}
 	},
-	[24]={
+	[33]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="生命偷取效果在满血时不会被移除\n生命偷取效果改为给羁绊对象恢复生命\n羁绊对象从偷取中得到的每秒生命总恢复量上限与你相同"
+				}
+			}
+		},
+		name="remora_link",
+		stats={
+			[1]="life_leech_is_applied_to_remora_link_targets_instead"
+		}
+	},
+	[34]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="羁绊对象的伤害在满血时提高 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="羁绊对象的伤害在满血时降低 {0}%"
+				}
+			}
+		},
+		name="remora_link_damage_on_full_life",
+		stats={
+			[1]="remora_link_grants_damage_+%_when_on_full_life"
+		}
+	},
+	[35]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="per_minute_to_per_second",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="增益效果使偷取的每秒生命总恢复量上限 {0:+d}% "
+				}
+			}
+		},
+		name="remora_link_leech_max",
+		stats={
+			[1]="remora_link_grants_maximum_life_leech_rate_%_per_minute"
+		}
+	},
+	[36]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -661,7 +936,7 @@ return {
 			[1]="resist_all_elements_%_per_endurance_charge"
 		}
 	},
-	[25]={
+	[37]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -680,7 +955,7 @@ return {
 			[1]="resist_all_%"
 		}
 	},
-	[26]={
+	[38]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -712,7 +987,7 @@ return {
 			[1]="skill_buff_effect_+%"
 		}
 	},
-	[27]={
+	[39]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -744,7 +1019,7 @@ return {
 			[1]="skill_buff_grants_attack_and_cast_speed_+%"
 		}
 	},
-	[28]={
+	[40]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -763,7 +1038,7 @@ return {
 			[1]="skill_buff_grants_chance_to_freeze_%"
 		}
 	},
-	[29]={
+	[41]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -795,7 +1070,26 @@ return {
 			[1]="skill_buff_grants_damage_+%"
 		}
 	},
-	[30]={
+	[42]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="增益效果提供免疫感电"
+				}
+			}
+		},
+		name="display_buff_shock_immune",
+		stats={
+			[1]="skill_display_buff_grants_shock_immunity"
+		}
+	},
+	[43]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -818,7 +1112,90 @@ return {
 			[1]="skill_grants_life_cost_%_mana_cost_while_not_on_low_life"
 		}
 	},
-	[31]={
+	[44]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="羁绊对象承受的伤害总增 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="羁绊对象承受的伤害总降 {0}%"
+				}
+			}
+		},
+		name="soul_link_damage_taken",
+		stats={
+			[1]="soul_link_grants_damage_taken_+%_final"
+		}
+	},
+	[45]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="羁绊对象的魔力再生率提高 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="羁绊对象的魔力再生率降低 {0}%"
+				}
+			}
+		},
+		name="soul_link_mana_regen",
+		stats={
+			[1]="soul_link_grants_mana_regeneration_+%"
+		}
+	},
+	[46]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="对目标造成的击中伤害有 {0}% 优先由你的能量护盾承受"
+				}
+			}
+		},
+		name="soul_link_transfer_percent",
+		stats={
+			[1]="soul_link_grants_take_%_of_hit_damage_from_soul_link_source_energy_shield_before_you"
+		}
+	},
+	[47]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -850,7 +1227,62 @@ return {
 			[1]="spell_damage_+%"
 		}
 	},
-	[32]={
+	[48]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="增益效果使能量护盾上限总增 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="增益效果使能量护盾上限总降 {0}%"
+				}
+			}
+		},
+		name="storm_blade_less_energy_shield",
+		stats={
+			[1]="storm_blade_energy_shield_+%_final"
+		}
+	},
+	[49]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUnaffectedBy"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="增益效果使你不受时空锁链影响"
+				}
+			}
+		},
+		name="unaffected_by_temporal_chains",
+		stats={
+			[1]="unaffected_by_temporal_chains"
+		}
+	},
+	[50]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -869,44 +1301,134 @@ return {
 			[1]="vaal_molten_shall_armour_+%_final"
 		}
 	},
+	[51]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="给羁绊对象附加 {0} 到 {1} 点火焰伤害"
+				}
+			}
+		},
+		name="flame_link_added_damage",
+		stats={
+			[1]="virtual_flame_link_minimum_fire_damage",
+			[2]="virtual_flame_link_maximum_fire_damage"
+		}
+	},
+	[52]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						},
+						[2]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="能量之刃有 {0} 到 {1} 点闪电伤害"
+				}
+			}
+		},
+		name="storm_blade_base_damage",
+		stats={
+			[1]="virtual_storm_blade_minimum_lightning_damage",
+			[2]="virtual_storm_blade_maximum_lightning_damage"
+		}
+	},
+	[53]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="羁绊在目标离开范围或超出视线 4 秒后中断\n每个目标身上只能有 1 种羁绊\n羁绊对象战败则你也战败"
+				}
+			}
+		},
+		name="link_stuff",
+		stats={
+			[1]="display_link_stuff"
+		}
+	},
 	["attack_maximum_added_cold_damage"]=2,
 	["attack_maximum_added_fire_damage"]=1,
 	["attack_maximum_added_lightning_damage"]=3,
 	["attack_minimum_added_cold_damage"]=2,
 	["attack_minimum_added_fire_damage"]=1,
 	["attack_minimum_added_lightning_damage"]=3,
-	["base_chance_to_shock_%"]=12,
-	["base_damage_taken_+%"]=13,
-	["base_immune_to_freeze"]=14,
-	["base_movement_velocity_+%"]=15,
-	["base_physical_damage_reduction_rating"]=16,
-	["berserk_spell_damage_+%_final"]=17,
-	["buff_added_spell_maximum_base_physical_damage_per_shield_quality"]=18,
-	["buff_added_spell_minimum_base_physical_damage_per_shield_quality"]=18,
-	["cannot_recover_above_low_life_except_flasks"]=21,
+	["base_chance_to_shock_%"]=13,
+	["base_damage_taken_+%"]=14,
+	["base_immune_to_freeze"]=15,
+	["base_movement_velocity_+%"]=16,
+	["base_physical_damage_reduction_rating"]=17,
+	["berserk_spell_damage_+%_final"]=18,
+	["buff_added_spell_maximum_base_physical_damage_per_shield_quality"]=19,
+	["buff_added_spell_minimum_base_physical_damage_per_shield_quality"]=19,
+	["bulwark_link_grants_recover_X_life_on_block"]=20,
+	["bulwark_link_grants_stun_threshold_+%"]=21,
+	["cannot_recover_above_low_life_except_flasks"]=30,
+	["critical_link_grants_accuracy_rating_+%"]=22,
+	["critical_link_grants_base_critical_strike_multiplier_+"]=23,
 	["critical_strike_chance_+%"]=5,
-	["damage_taken_goes_to_mana_%"]=19,
-	["energy_shield_lost_per_minute"]=20,
+	["damage_taken_goes_to_mana_%"]=24,
+	["display_bulwark_link_overrides_attack_block_and_maximum_attack_block"]=25,
+	["display_critical_link_overrides_main_hand_critical_strike_chance"]=26,
+	["display_link_stuff"]=53,
+	["display_skill_buff_grants_bleeding_immunity"]=27,
+	["energy_shield_lost_per_minute"]=28,
+	["flame_link_grants_chance_to_ignite_%"]=29,
 	["herald_of_ash_burning_damage_+%_final"]=6,
 	["herald_of_ash_spell_fire_damage_+%_final"]=7,
 	["herald_of_ice_cold_damage_+%"]=8,
 	["herald_of_thunder_lightning_damage_+%"]=9,
+	["life_leech_is_applied_to_remora_link_targets_instead"]=33,
 	parent="skill_stat_descriptions",
-	["petrified_blood_%_life_loss_below_half_from_hit_to_prevent"]=21,
-	["petrified_blood_%_prevented_life_loss_to_lose_over_time"]=21,
-	["phase_through_objects"]=11,
-	["physical_damage_reduction_%_per_endurance_charge"]=22,
-	["physical_damage_reduction_rating_+%"]=23,
-	["resist_all_%"]=25,
-	["resist_all_elements_%_per_endurance_charge"]=24,
-	["skill_buff_effect_+%"]=26,
-	["skill_buff_grants_attack_and_cast_speed_+%"]=27,
-	["skill_buff_grants_chance_to_freeze_%"]=28,
-	["skill_buff_grants_damage_+%"]=29,
-	["skill_grants_life_cost_%_mana_cost_while_not_on_low_life"]=30,
-	["spell_damage_+%"]=31,
+	["petrified_blood_%_life_loss_below_half_from_hit_to_prevent"]=30,
+	["petrified_blood_%_prevented_life_loss_to_lose_over_time"]=30,
+	["phase_through_objects"]=12,
+	["physical_damage_reduction_%_per_endurance_charge"]=31,
+	["physical_damage_reduction_rating_+%"]=32,
+	["remora_link_grants_damage_+%_when_on_full_life"]=34,
+	["remora_link_grants_maximum_life_leech_rate_%_per_minute"]=35,
+	["resist_all_%"]=37,
+	["resist_all_elements_%_per_endurance_charge"]=36,
+	["shield_spell_block_%"]=11,
+	["skill_buff_effect_+%"]=38,
+	["skill_buff_grants_attack_and_cast_speed_+%"]=39,
+	["skill_buff_grants_chance_to_freeze_%"]=40,
+	["skill_buff_grants_damage_+%"]=41,
+	["skill_display_buff_grants_shock_immunity"]=42,
+	["skill_grants_life_cost_%_mana_cost_while_not_on_low_life"]=43,
+	["soul_link_grants_damage_taken_+%_final"]=44,
+	["soul_link_grants_mana_regeneration_+%"]=45,
+	["soul_link_grants_take_%_of_hit_damage_from_soul_link_source_energy_shield_before_you"]=46,
+	["spell_damage_+%"]=47,
 	["spell_maximum_added_lightning_damage"]=4,
 	["spell_minimum_added_lightning_damage"]=4,
 	["stealth_+%"]=10,
-	["vaal_molten_shall_armour_+%_final"]=32
+	["storm_blade_energy_shield_+%_final"]=48,
+	["unaffected_by_temporal_chains"]=49,
+	["vaal_molten_shall_armour_+%_final"]=50,
+	["virtual_flame_link_maximum_fire_damage"]=51,
+	["virtual_flame_link_minimum_fire_damage"]=51,
+	["virtual_storm_blade_maximum_lightning_damage"]=52,
+	["virtual_storm_blade_minimum_lightning_damage"]=52
 }

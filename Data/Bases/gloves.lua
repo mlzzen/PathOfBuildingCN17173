@@ -9,7 +9,7 @@ itemBases["铁锻护手"] = {
 	socketLimit = 4,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 6, },
+	armour = { ArmourBaseMin = 6, ArmourBaseMax = 9, },
 	req = { str = 6, },
 }
 itemBases["坚铁护手"] = {
@@ -18,7 +18,7 @@ itemBases["坚铁护手"] = {
 	socketLimit = 4,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 39, },
+	armour = { ArmourBaseMin = 39, ArmourBaseMax = 50, },
 	req = { level = 11, str = 20, },
 }
 itemBases["青铜护手"] = {
@@ -27,7 +27,7 @@ itemBases["青铜护手"] = {
 	socketLimit = 4,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 77, },
+	armour = { ArmourBaseMin = 77, ArmourBaseMax = 96, },
 	req = { level = 23, str = 36, },
 }
 itemBases["冷钢护手"] = {
@@ -36,7 +36,7 @@ itemBases["冷钢护手"] = {
 	socketLimit = 4,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 116, },
+	armour = { ArmourBaseMin = 116, ArmourBaseMax = 127, },
 	req = { level = 35, str = 52, },
 }
 itemBases["古钢护手"] = {
@@ -45,7 +45,7 @@ itemBases["古钢护手"] = {
 	socketLimit = 4,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 129, },
+	armour = { ArmourBaseMin = 129, ArmourBaseMax = 154, },
 	req = { level = 39, str = 58, },
 }
 itemBases["远古护手"] = {
@@ -54,7 +54,7 @@ itemBases["远古护手"] = {
 	socketLimit = 4,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 154, },
+	armour = { ArmourBaseMin = 154, ArmourBaseMax = 173, },
 	req = { level = 47, str = 68, },
 }
 itemBases["巨灵护手"] = {
@@ -63,7 +63,7 @@ itemBases["巨灵护手"] = {
 	socketLimit = 4,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 174, },
+	armour = { ArmourBaseMin = 174, ArmourBaseMax = 200, },
 	req = { level = 53, str = 77, },
 }
 itemBases["瓦尔护手"] = {
@@ -72,7 +72,7 @@ itemBases["瓦尔护手"] = {
 	socketLimit = 4,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 232, },
+	armour = { ArmourBaseMin = 232, ArmourBaseMax = 266, },
 	req = { level = 63, str = 100, },
 }
 itemBases["巨人护手"] = {
@@ -81,7 +81,7 @@ itemBases["巨人护手"] = {
 	socketLimit = 4,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 242, },
+	armour = { ArmourBaseMin = 242, ArmourBaseMax = 278, },
 	req = { level = 69, str = 98, },
 }
 itemBases["沉重手甲"] = {
@@ -91,7 +91,7 @@ itemBases["沉重手甲"] = {
 	tags = { gloves = true, str_armour = true, not_for_sale = true, armour = true, default = true, },
 	implicit = "增助攻击的伤害提高 (25-30)%\n战吼技能冷却时间 +2 秒",
 	implicitModTypes = { { "attack" }, { "attack" }, },
-	armour = { ArmourBase = 35, },
+	armour = { ArmourBaseMin = 35, ArmourBaseMax = 41, },
 	req = { level = 10, str = 18, },
 }
 itemBases["磨人手甲"] = {
@@ -101,7 +101,7 @@ itemBases["磨人手甲"] = {
 	tags = { gloves = true, str_armour = true, not_for_sale = true, armour = true, default = true, },
 	implicit = "增助攻击的伤害提高 (30-40)%\n战吼技能冷却时间 +2 秒",
 	implicitModTypes = { { "attack" }, { "attack" }, },
-	armour = { ArmourBase = 132, },
+	armour = { ArmourBaseMin = 132, ArmourBaseMax = 152, },
 	req = { level = 40, str = 59, },
 }
 itemBases["衰弱手甲"] = {
@@ -111,7 +111,7 @@ itemBases["衰弱手甲"] = {
 	tags = { gloves = true, str_armour = true, not_for_sale = true, armour = true, default = true, },
 	implicit = "增助攻击的伤害提高 (40-50)%\n战吼技能冷却时间 +2 秒",
 	implicitModTypes = { { "attack" }, { "attack" }, },
-	armour = { ArmourBase = 236, },
+	armour = { ArmourBaseMin = 236, ArmourBaseMax = 271, },
 	req = { level = 70, str = 101, },
 }
 itemBases["扣钉手套"] = {
@@ -121,7 +121,7 @@ itemBases["扣钉手套"] = {
 	tags = { gloves = true, str_armour = true, not_for_sale = true, atlas_base_type = true, armour = true, glovesatlasstr = true, default = true, },
 	implicit = "近战伤害提高 (16-20)%",
 	implicitModTypes = { { "damage", "attack" }, },
-	armour = { ArmourBase = 220, },
+	armour = { ArmourBaseMin = 220, ArmourBaseMax = 253, },
 	req = { level = 70, str = 95, },
 }
 
@@ -131,7 +131,7 @@ itemBases["生皮手套"] = {
 	socketLimit = 4,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 13, },
+	armour = { EvasionBaseMin = 13, EvasionBaseMax = 18, },
 	req = { dex = 9, },
 }
 itemBases["羊皮手套"] = {
@@ -140,7 +140,7 @@ itemBases["羊皮手套"] = {
 	socketLimit = 4,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 32, },
+	armour = { EvasionBaseMin = 32, EvasionBaseMax = 42, },
 	req = { level = 9, dex = 17, },
 }
 itemBases["鹿皮手套"] = {
@@ -149,7 +149,7 @@ itemBases["鹿皮手套"] = {
 	socketLimit = 4,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 71, },
+	armour = { EvasionBaseMin = 71, EvasionBaseMax = 88, },
 	req = { level = 21, dex = 33, },
 }
 itemBases["砂影手套"] = {
@@ -158,7 +158,7 @@ itemBases["砂影手套"] = {
 	socketLimit = 4,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 109, },
+	armour = { EvasionBaseMin = 109, EvasionBaseMax = 122, },
 	req = { level = 33, dex = 50, },
 }
 itemBases["鳗皮手套"] = {
@@ -167,7 +167,7 @@ itemBases["鳗皮手套"] = {
 	socketLimit = 4,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 125, },
+	armour = { EvasionBaseMin = 125, EvasionBaseMax = 148, },
 	req = { level = 38, dex = 56, },
 }
 itemBases["鲨皮手套"] = {
@@ -176,7 +176,7 @@ itemBases["鲨皮手套"] = {
 	socketLimit = 4,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 148, },
+	armour = { EvasionBaseMin = 148, EvasionBaseMax = 163, },
 	req = { level = 45, dex = 66, },
 }
 itemBases["粗革手套"] = {
@@ -185,7 +185,7 @@ itemBases["粗革手套"] = {
 	socketLimit = 4,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 177, },
+	armour = { EvasionBaseMin = 177, EvasionBaseMax = 212, },
 	req = { level = 54, dex = 78, },
 }
 itemBases["匿踪手套"] = {
@@ -194,7 +194,7 @@ itemBases["匿踪手套"] = {
 	socketLimit = 4,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 231, },
+	armour = { EvasionBaseMin = 231, EvasionBaseMax = 265, },
 	req = { level = 62, dex = 97, },
 }
 itemBases["迷踪手套"] = {
@@ -203,7 +203,7 @@ itemBases["迷踪手套"] = {
 	socketLimit = 4,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 242, },
+	armour = { EvasionBaseMin = 242, EvasionBaseMax = 278, },
 	req = { level = 70, dex = 95, },
 }
 itemBases["笨重手套"] = {
@@ -213,7 +213,7 @@ itemBases["笨重手套"] = {
 	tags = { gloves = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
 	implicit = "主手攻击伤害降低 25%\n副手攻击伤害提高 (40-50)%",
 	implicitModTypes = { { "attack" }, { "attack" }, },
-	armour = { EvasionBase = 35, },
+	armour = { EvasionBaseMin = 35, EvasionBaseMax = 41, },
 	req = { level = 10, dex = 18, },
 }
 itemBases["南风手套"] = {
@@ -223,7 +223,7 @@ itemBases["南风手套"] = {
 	tags = { gloves = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
 	implicit = "主手攻击伤害降低 25%\n副手攻击伤害提高 (40-50)%",
 	implicitModTypes = { { "attack" }, { "attack" }, },
-	armour = { EvasionBase = 132, },
+	armour = { EvasionBaseMin = 132, EvasionBaseMax = 152, },
 	req = { level = 40, dex = 59, },
 }
 itemBases["左旋手套"] = {
@@ -233,7 +233,7 @@ itemBases["左旋手套"] = {
 	tags = { gloves = true, dex_armour = true, armour = true, not_for_sale = true, default = true, },
 	implicit = "主手攻击伤害降低 25%\n副手攻击伤害提高 (40-50)%",
 	implicitModTypes = { { "attack" }, { "attack" }, },
-	armour = { EvasionBase = 236, },
+	armour = { EvasionBaseMin = 236, EvasionBaseMax = 271, },
 	req = { level = 70, dex = 101, },
 }
 itemBases["擒拿手套"] = {
@@ -241,9 +241,9 @@ itemBases["擒拿手套"] = {
 	subType = "Evasion",
 	socketLimit = 4,
 	tags = { glovesatlasdex = true, gloves = true, not_for_sale = true, atlas_base_type = true, armour = true, dex_armour = true, default = true, },
-	implicit = "投射物的攻击伤害提高 (14-18)%",
+	implicit = "投射物攻击伤害提高 (14-18)%",
 	implicitModTypes = { { "damage", "attack" }, },
-	armour = { EvasionBase = 220, },
+	armour = { EvasionBaseMin = 220, EvasionBaseMax = 253, },
 	req = { level = 70, dex = 95, },
 }
 
@@ -253,7 +253,7 @@ itemBases["羊毛手套"] = {
 	socketLimit = 4,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 4, },
+	armour = { EnergyShieldBaseMin = 5, EnergyShieldBaseMax = 7, },
 	req = { int = 9, },
 }
 itemBases["丝绒手套"] = {
@@ -262,7 +262,7 @@ itemBases["丝绒手套"] = {
 	socketLimit = 4,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 9, },
+	armour = { EnergyShieldBaseMin = 10, EnergyShieldBaseMax = 13, },
 	req = { level = 12, int = 21, },
 }
 itemBases["丝绸手套"] = {
@@ -271,7 +271,7 @@ itemBases["丝绸手套"] = {
 	socketLimit = 4,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 17, },
+	armour = { EnergyShieldBaseMin = 18, EnergyShieldBaseMax = 23, },
 	req = { level = 25, int = 39, },
 }
 itemBases["刺绣手套"] = {
@@ -280,7 +280,7 @@ itemBases["刺绣手套"] = {
 	socketLimit = 4,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 24, },
+	armour = { EnergyShieldBaseMin = 25, EnergyShieldBaseMax = 28, },
 	req = { level = 36, int = 54, },
 }
 itemBases["缎布手套"] = {
@@ -289,7 +289,7 @@ itemBases["缎布手套"] = {
 	socketLimit = 4,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 27, },
+	armour = { EnergyShieldBaseMin = 28, EnergyShieldBaseMax = 33, },
 	req = { level = 41, int = 60, },
 }
 itemBases["绣布手套"] = {
@@ -298,7 +298,7 @@ itemBases["绣布手套"] = {
 	socketLimit = 4,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 30, },
+	armour = { EnergyShieldBaseMin = 32, EnergyShieldBaseMax = 37, },
 	req = { level = 47, int = 68, },
 }
 itemBases["咒者手套"] = {
@@ -307,7 +307,7 @@ itemBases["咒者手套"] = {
 	socketLimit = 4,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 35, },
+	armour = { EnergyShieldBaseMin = 37, EnergyShieldBaseMax = 44, },
 	req = { level = 55, int = 79, },
 }
 itemBases["秘术手套"] = {
@@ -316,7 +316,7 @@ itemBases["秘术手套"] = {
 	socketLimit = 4,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 43, },
+	armour = { EnergyShieldBaseMin = 45, EnergyShieldBaseMax = 52, },
 	req = { level = 60, int = 95, },
 }
 itemBases["术士手套"] = {
@@ -325,7 +325,7 @@ itemBases["术士手套"] = {
 	socketLimit = 4,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShieldBase = 47, },
+	armour = { EnergyShieldBaseMin = 49, EnergyShieldBaseMax = 57, },
 	req = { level = 69, int = 97, },
 }
 itemBases["雷线手套"] = {
@@ -333,9 +333,9 @@ itemBases["雷线手套"] = {
 	subType = "Energy Shield",
 	socketLimit = 4,
 	tags = { gloves = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	implicit = "最大魔力降低 30%\n你施放技能时有 (25-30)% 的几率得到等于其花费的魔力",
+	implicit = "魔力上限降低 30%\n你施放技能时有 (25-30)% 的几率得到等于其花费的魔力",
 	implicitModTypes = { { "resource", "mana" }, { "resource", "mana" }, },
-	armour = { EnergyShieldBase = 8, },
+	armour = { EnergyShieldBaseMin = 9, EnergyShieldBaseMax = 10, },
 	req = { level = 10, int = 18, },
 }
 itemBases["灵风手套"] = {
@@ -343,9 +343,9 @@ itemBases["灵风手套"] = {
 	subType = "Energy Shield",
 	socketLimit = 4,
 	tags = { gloves = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	implicit = "最大魔力降低 30%\n你施放技能时有 (25-30)% 的几率得到等于其花费的魔力",
+	implicit = "魔力上限降低 30%\n你施放技能时有 (25-30)% 的几率得到等于其花费的魔力",
 	implicitModTypes = { { "resource", "mana" }, { "resource", "mana" }, },
-	armour = { EnergyShieldBase = 26, },
+	armour = { EnergyShieldBaseMin = 28, EnergyShieldBaseMax = 32, },
 	req = { level = 40, int = 59, },
 }
 itemBases["枢纽手套"] = {
@@ -353,9 +353,9 @@ itemBases["枢纽手套"] = {
 	subType = "Energy Shield",
 	socketLimit = 4,
 	tags = { gloves = true, int_armour = true, armour = true, not_for_sale = true, default = true, },
-	implicit = "最大魔力降低 30%\n你施放技能时有 (25-30)% 的几率得到等于其花费的魔力",
+	implicit = "魔力上限降低 30%\n你施放技能时有 (25-30)% 的几率得到等于其花费的魔力",
 	implicitModTypes = { { "resource", "mana" }, { "resource", "mana" }, },
-	armour = { EnergyShieldBase = 45, },
+	armour = { EnergyShieldBaseMin = 47, EnergyShieldBaseMax = 54, },
 	req = { level = 70, int = 101, },
 }
 itemBases["丝绸手套"] = {
@@ -365,7 +365,7 @@ itemBases["丝绸手套"] = {
 	tags = { gloves = true, int_armour = true, not_for_sale = true, atlas_base_type = true, armour = true, glovesatlasint = true, default = true, },
 	implicit = "法术伤害提高 (12-16)%",
 	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
-	armour = { EnergyShieldBase = 43, },
+	armour = { EnergyShieldBaseMin = 45, EnergyShieldBaseMax = 52, },
 	req = { level = 70, int = 95, },
 }
 
@@ -375,7 +375,7 @@ itemBases["鱼鳞手套"] = {
 	socketLimit = 4,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 9, EvasionBase = 9, },
+	armour = { ArmourBaseMin = 9, ArmourBaseMax = 12, EvasionBaseMin = 9, EvasionBaseMax = 12, },
 	req = { str = 5, dex = 5, },
 }
 itemBases["铁影手套"] = {
@@ -384,7 +384,7 @@ itemBases["铁影手套"] = {
 	socketLimit = 4,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 28, EvasionBase = 28, },
+	armour = { ArmourBaseMin = 28, ArmourBaseMax = 37, EvasionBaseMin = 28, EvasionBaseMax = 37, },
 	req = { level = 15, str = 14, dex = 14, },
 }
 itemBases["铜影手套"] = {
@@ -393,7 +393,7 @@ itemBases["铜影手套"] = {
 	socketLimit = 4,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 50, EvasionBase = 50, },
+	armour = { ArmourBaseMin = 50, ArmourBaseMax = 62, EvasionBaseMin = 50, EvasionBaseMax = 62, },
 	req = { level = 27, str = 22, dex = 22, },
 }
 itemBases["钢影护手"] = {
@@ -402,7 +402,7 @@ itemBases["钢影护手"] = {
 	socketLimit = 4,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 65, EvasionBase = 65, },
+	armour = { ArmourBaseMin = 65, ArmourBaseMax = 75, EvasionBaseMin = 65, EvasionBaseMax = 75, },
 	req = { level = 36, str = 29, dex = 29, },
 }
 itemBases["蛇鳞手套"] = {
@@ -411,7 +411,7 @@ itemBases["蛇鳞手套"] = {
 	socketLimit = 4,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 78, EvasionBase = 78, },
+	armour = { ArmourBaseMin = 78, ArmourBaseMax = 87, EvasionBaseMin = 78, EvasionBaseMax = 87, },
 	req = { level = 43, str = 34, dex = 34, },
 }
 itemBases["蝮鳞手套"] = {
@@ -420,7 +420,7 @@ itemBases["蝮鳞手套"] = {
 	socketLimit = 4,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 88, EvasionBase = 88, },
+	armour = { ArmourBaseMin = 88, ArmourBaseMax = 104, EvasionBaseMin = 88, EvasionBaseMax = 104, },
 	req = { level = 49, str = 38, dex = 38, },
 }
 itemBases["火蝮鳞手套"] = {
@@ -429,7 +429,7 @@ itemBases["火蝮鳞手套"] = {
 	socketLimit = 4,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 106, EvasionBase = 106, },
+	armour = { ArmourBaseMin = 106, ArmourBaseMax = 122, EvasionBaseMin = 106, EvasionBaseMax = 122, },
 	req = { level = 59, str = 45, dex = 45, },
 }
 itemBases["龙鳞手套"] = {
@@ -438,7 +438,7 @@ itemBases["龙鳞手套"] = {
 	socketLimit = 4,
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 121, EvasionBase = 121, },
+	armour = { ArmourBaseMin = 121, ArmourBaseMax = 139, EvasionBaseMin = 121, EvasionBaseMax = 139, },
 	req = { level = 67, str = 51, dex = 51, },
 }
 
@@ -448,7 +448,7 @@ itemBases["链甲手套"] = {
 	socketLimit = 4,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 14, EnergyShieldBase = 3, },
+	armour = { ArmourBaseMin = 14, ArmourBaseMax = 20, EnergyShieldBaseMin = 4, EnergyShieldBaseMax = 6, },
 	req = { level = 7, str = 8, int = 8, },
 }
 itemBases["环甲手套"] = {
@@ -457,7 +457,7 @@ itemBases["环甲手套"] = {
 	socketLimit = 4,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 35, EnergyShieldBase = 7, },
+	armour = { ArmourBaseMin = 35, ArmourBaseMax = 46, EnergyShieldBaseMin = 8, EnergyShieldBaseMax = 10, },
 	req = { level = 19, str = 16, int = 16, },
 }
 itemBases["网眼手套"] = {
@@ -466,7 +466,7 @@ itemBases["网眼手套"] = {
 	socketLimit = 4,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 58, EnergyShieldBase = 12, },
+	armour = { ArmourBaseMin = 58, ArmourBaseMax = 67, EnergyShieldBaseMin = 12, EnergyShieldBaseMax = 14, },
 	req = { level = 32, str = 26, int = 26, },
 }
 itemBases["仪式手套"] = {
@@ -475,7 +475,7 @@ itemBases["仪式手套"] = {
 	socketLimit = 4,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 67, EnergyShieldBase = 13, },
+	armour = { ArmourBaseMin = 67, ArmourBaseMax = 77, EnergyShieldBaseMin = 14, EnergyShieldBaseMax = 16, },
 	req = { level = 37, str = 29, int = 29, },
 }
 itemBases["狂热者手套"] = {
@@ -484,7 +484,7 @@ itemBases["狂热者手套"] = {
 	socketLimit = 4,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 78, EnergyShieldBase = 15, },
+	armour = { ArmourBaseMin = 78, ArmourBaseMax = 92, EnergyShieldBaseMin = 16, EnergyShieldBaseMax = 19, },
 	req = { level = 43, str = 34, int = 34, },
 }
 itemBases["战士手套"] = {
@@ -493,7 +493,7 @@ itemBases["战士手套"] = {
 	socketLimit = 4,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 92, EnergyShieldBase = 18, },
+	armour = { ArmourBaseMin = 92, ArmourBaseMax = 103, EnergyShieldBaseMin = 19, EnergyShieldBaseMax = 21, },
 	req = { level = 51, str = 40, int = 40, },
 }
 itemBases["军团手套"] = {
@@ -502,7 +502,7 @@ itemBases["军团手套"] = {
 	socketLimit = 4,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 103, EnergyShieldBase = 20, },
+	armour = { ArmourBaseMin = 103, ArmourBaseMax = 121, EnergyShieldBaseMin = 21, EnergyShieldBaseMax = 25, },
 	req = { level = 57, str = 44, int = 44, },
 }
 itemBases["圣战手套"] = {
@@ -511,7 +511,7 @@ itemBases["圣战手套"] = {
 	socketLimit = 4,
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { ArmourBase = 121, EnergyShieldBase = 24, },
+	armour = { ArmourBaseMin = 121, ArmourBaseMax = 139, EnergyShieldBaseMin = 25, EnergyShieldBaseMax = 28, },
 	req = { level = 66, str = 51, int = 51, },
 }
 itemBases["药剂师手套"] = {
@@ -519,9 +519,9 @@ itemBases["药剂师手套"] = {
 	subType = "Armour/Energy Shield",
 	socketLimit = 4,
 	tags = { gloves = true, str_int_armour = true, not_for_sale = true, atlas_base_type = true, armour = true, glovesatlasstrint = true, default = true, },
-	implicit = "持续伤害效果提高 (14-18)%",
+	implicit = "持续伤害提高 (14-18)%",
 	implicitModTypes = { { "damage" }, },
-	armour = { ArmourBase = 108, EnergyShieldBase = 27, },
+	armour = { ArmourBaseMin = 108, ArmourBaseMax = 124, EnergyShieldBaseMin = 29, EnergyShieldBaseMax = 33, },
 	req = { level = 70, str = 46, int = 59, },
 }
 
@@ -531,7 +531,7 @@ itemBases["裹趾护手"] = {
 	socketLimit = 4,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 11, EnergyShieldBase = 3, },
+	armour = { EvasionBaseMin = 11, EvasionBaseMax = 15, EnergyShieldBaseMin = 3, EnergyShieldBaseMax = 5, },
 	req = { level = 5, dex = 6, int = 6, },
 }
 itemBases["扣环护手"] = {
@@ -540,7 +540,7 @@ itemBases["扣环护手"] = {
 	socketLimit = 4,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 30, EnergyShieldBase = 6, },
+	armour = { EvasionBaseMin = 30, EvasionBaseMax = 39, EnergyShieldBaseMin = 7, EnergyShieldBaseMax = 9, },
 	req = { level = 16, dex = 14, int = 14, },
 }
 itemBases["环带护手"] = {
@@ -549,7 +549,7 @@ itemBases["环带护手"] = {
 	socketLimit = 4,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 57, EnergyShieldBase = 11, },
+	armour = { EvasionBaseMin = 57, EvasionBaseMax = 65, EnergyShieldBaseMin = 12, EnergyShieldBaseMax = 14, },
 	req = { level = 31, dex = 25, int = 25, },
 }
 itemBases["猎人护手"] = {
@@ -558,7 +558,7 @@ itemBases["猎人护手"] = {
 	socketLimit = 4,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 65, EnergyShieldBase = 13, },
+	armour = { EvasionBaseMin = 65, EvasionBaseMax = 77, EnergyShieldBaseMin = 14, EnergyShieldBaseMax = 16, },
 	req = { level = 36, dex = 29, int = 29, },
 }
 itemBases["伏击护手"] = {
@@ -567,7 +567,7 @@ itemBases["伏击护手"] = {
 	socketLimit = 4,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 81, EnergyShieldBase = 16, },
+	armour = { EvasionBaseMin = 81, EvasionBaseMax = 91, EnergyShieldBaseMin = 17, EnergyShieldBaseMax = 19, },
 	req = { level = 45, dex = 35, int = 35, },
 }
 itemBases["禁礼护手"] = {
@@ -576,7 +576,7 @@ itemBases["禁礼护手"] = {
 	socketLimit = 4,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 90, EnergyShieldBase = 18, },
+	armour = { EvasionBaseMin = 90, EvasionBaseMax = 101, EnergyShieldBaseMin = 19, EnergyShieldBaseMax = 21, },
 	req = { level = 50, dex = 39, int = 39, },
 }
 itemBases["暗影护手"] = {
@@ -585,7 +585,7 @@ itemBases["暗影护手"] = {
 	socketLimit = 4,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 104, EnergyShieldBase = 20, },
+	armour = { EvasionBaseMin = 104, EvasionBaseMax = 123, EnergyShieldBaseMin = 21, EnergyShieldBaseMax = 25, },
 	req = { level = 58, dex = 45, int = 45, },
 }
 itemBases["暗影者护手"] = {
@@ -594,7 +594,7 @@ itemBases["暗影者护手"] = {
 	socketLimit = 4,
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EvasionBase = 121, EnergyShieldBase = 24, },
+	armour = { EvasionBaseMin = 121, EvasionBaseMax = 139, EnergyShieldBaseMin = 25, EnergyShieldBaseMax = 28, },
 	req = { level = 67, dex = 51, int = 51, },
 }
 
@@ -604,7 +604,7 @@ itemBases["符文手套"] = {
 	socketLimit = 4,
 	tags = { gloves = true, not_for_sale = true, armour = true, ward_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { WardBase = 20, },
+	armour = { WardBaseMin = 24, WardBaseMax = 28, },
 	req = { level = 24, str = 16, dex = 16, int = 16, },
 }
 itemBases["符文笼手"] = {
@@ -613,7 +613,7 @@ itemBases["符文笼手"] = {
 	socketLimit = 4,
 	tags = { gloves = true, not_for_sale = true, armour = true, ward_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { WardBase = 52, },
+	armour = { WardBaseMin = 62, WardBaseMax = 71, },
 	req = { level = 48, str = 31, dex = 31, int = 31, },
 }
 itemBases["符文手甲"] = {
@@ -622,7 +622,7 @@ itemBases["符文手甲"] = {
 	socketLimit = 4,
 	tags = { gloves = true, not_for_sale = true, armour = true, ward_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { WardBase = 85, },
+	armour = { WardBaseMin = 102, WardBaseMax = 117, },
 	req = { level = 69, str = 38, dex = 38, int = 38, },
 }
 

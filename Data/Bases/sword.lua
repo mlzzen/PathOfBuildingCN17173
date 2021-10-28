@@ -79,8 +79,8 @@ itemBases["钩爪剑"] = {
 	type = "One Handed Sword",
 	socketLimit = 3,
 	tags = { maraketh = true, onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
-	implicit = "4% 的几率躲避攻击击中",
-	implicitModTypes = { { "dodge" }, },
+	implicit = "击中时有 15% 的几率造成瘫痪",
+	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 28, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.15, Range = 11, },
 	req = { level = 34, str = 64, dex = 64, },
 }
@@ -151,8 +151,8 @@ itemBases["捕捉者"] = {
 	type = "One Handed Sword",
 	socketLimit = 3,
 	tags = { maraketh = true, onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
-	implicit = "4% 的几率躲避攻击击中",
-	implicitModTypes = { { "dodge" }, },
+	implicit = "击中时有 15% 的几率造成瘫痪",
+	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 44, PhysicalMax = 94, CritChanceBase = 5, AttackRateBase = 1.15, Range = 11, },
 	req = { level = 55, str = 99, dex = 99, },
 }
@@ -223,8 +223,8 @@ itemBases["虎钩"] = {
 	type = "One Handed Sword",
 	socketLimit = 3,
 	tags = { maraketh = true, onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
-	implicit = "6% 的几率躲避攻击击中",
-	implicitModTypes = { { "dodge" }, },
+	implicit = "击中时有 20% 的几率造成瘫痪",
+	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 37, PhysicalMax = 80, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
 	req = { level = 70, str = 119, dex = 119, },
 }

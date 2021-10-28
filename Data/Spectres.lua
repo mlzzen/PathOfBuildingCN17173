@@ -15,7 +15,7 @@ minions["Metadata/Monsters/Axis/AxisCaster"] = {
 	coldResist = 0,
 	lightningResist = 75,
 	chaosResist = 0,
-	damage = 0.6,
+	damage = 0.79,
 	damageSpread = 0.2,
 	attackTime = 1.305,
 	attackRange = 40,
@@ -23,20 +23,13 @@ minions["Metadata/Monsters/Axis/AxisCaster"] = {
 	weaponType1 = "Wand",
 	weaponType2 = "Shield",
 	skillList = {
-		"MeleeUseContactPoint",
-		"SkeletonSpark",
+		"MeleeAtAnimationSpeed",
+		"AxisCasterSpark",
 		"MonsterLightningThorns",
 		"AxisClaimSoldierMinions",
 	},
 	modList = {
-		-- MonsterCastsSparkText [monster_casts_spark_text = 1]
-		-- MonsterCastsLightningThornsText [monster_casts_lightning_thorns_text = 1]
 		-- MonsterSpellBlock25Bypass30___ [base_spell_block_% = 20] [base_block_%_damage_taken = 10]
-	},
-	modListSP = {
-		"施放电球", 
-		"施放闪电反伤盾", 
-		"20% 几率格挡法术，被格挡的击中对你造成 10% 伤害", 
 	},
 }
 minions["Metadata/Monsters/Axis/AxisCasterArc"] = {
@@ -47,7 +40,7 @@ minions["Metadata/Monsters/Axis/AxisCasterArc"] = {
 	coldResist = 0,
 	lightningResist = 75,
 	chaosResist = 0,
-	damage = 0.6,
+	damage = 0.79,
 	damageSpread = 0.2,
 	attackTime = 1.305,
 	attackRange = 40,
@@ -55,20 +48,13 @@ minions["Metadata/Monsters/Axis/AxisCasterArc"] = {
 	weaponType1 = "Wand",
 	weaponType2 = "Shield",
 	skillList = {
-		"MeleeUseContactPoint",
+		"MeleeAtAnimationSpeed",
 		"MonsterLightningThorns",
 		"AxisCasterArc",
 		"AxisClaimSoldierMinions",
 	},
 	modList = {
-		-- MonsterCastsArcText [monster_casts_arc_text = 1]
-		-- MonsterCastsLightningThornsText [monster_casts_lightning_thorns_text = 1]
 		-- MonsterSpellBlock25Bypass30___ [base_spell_block_% = 20] [base_block_%_damage_taken = 10]
-	},
-	modListSP = {
-		"施放电弧", 
-		"施放闪电反伤盾", 
-		"20% 几率格挡法术，被格挡的击中对你造成 10% 伤害", 
 	},
 }
 minions["Metadata/Monsters/Axis/AxisCasterLunaris"] = {
@@ -79,7 +65,7 @@ minions["Metadata/Monsters/Axis/AxisCasterLunaris"] = {
 	coldResist = 75,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 0.6,
+	damage = 0.79,
 	damageSpread = 0.2,
 	attackTime = 1.305,
 	attackRange = 40,
@@ -87,12 +73,11 @@ minions["Metadata/Monsters/Axis/AxisCasterLunaris"] = {
 	weaponType1 = "Wand",
 	weaponType2 = "Shield",
 	skillList = {
-		"MeleeUseContactPoint",
+		"MeleeAtAnimationSpeed",
 		"AxisCasterGlacialCascade",
 		"MonsterColdThorns",
 	},
 	modList = {
-		-- MonsterCastsGlacialCascade [monster_casts_glacial_cascade_text = 1]
 		-- MonsterSpellBlock25Bypass30___ [base_spell_block_% = 20] [base_block_%_damage_taken = 10]
 	},
 }
@@ -104,24 +89,22 @@ minions["Metadata/Monsters/Axis/AxisEliteSoldier3Champion"] = {
 	coldResist = 20,
 	lightningResist = 20,
 	chaosResist = 0,
-	damage = 1.13,
+	damage = 1.41,
 	damageSpread = 0.2,
 	attackTime = 1.245,
-	attackRange = 11,
+	attackRange = 14,
 	accuracy = 1,
 	weaponType1 = "Two Handed Sword",
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"BreachCleave",
 		"AxisDoubleStrikeTrigger",
 		"SummonFlamingAnimatedWeapons",
 		"SolarisChampionFlameVortex",
+		"DoubleStrikeMeleeAtAnimationSpeed",
 	},
 	modList = {
 		mod("PhysicalDamageGainAsFire", "BASE", 100), -- MonsterPhysicalAddedAsFireSkeletonMaps [physical_damage_%_to_add_as_fire = 100]
-	},
-	modListSP = {
-		"额外火焰伤害", 
 	},
 }
 minions["Metadata/Monsters/Axis/AxisExperimenter"] = {
@@ -132,25 +115,19 @@ minions["Metadata/Monsters/Axis/AxisExperimenter"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 75,
-	damage = 0.6,
+	damage = 1.2,
 	damageSpread = 0.2,
 	attackTime = 1.995,
 	attackRange = 40,
 	accuracy = 1,
 	weaponType1 = "Wand",
 	skillList = {
-		"MeleeUseContactPoint",
+		"MeleeAtAnimationSpeed",
 		"AxisTemporalChains",
 		"MonsterDetonateDeadExperimenter",
 		"ExperimenterEnrageDemon",
 	},
 	modList = {
-		-- MonsterCastsTemporalChainsText [monster_casts_temporal_chains_text = 1]
-		-- MonsterDetonatesCorpsesText [monster_detonates_corpses_text = 1]
-	},
-	modListSP = {
-		"施放时空锁链", 
-		"引爆灵柩", 
 	},
 }
 minions["Metadata/Monsters/Axis/AxisExperimenter2"] = {
@@ -161,27 +138,19 @@ minions["Metadata/Monsters/Axis/AxisExperimenter2"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 75,
-	damage = 0.6,
+	damage = 1.2,
 	damageSpread = 0.2,
 	attackTime = 1.995,
 	attackRange = 40,
 	accuracy = 1,
 	weaponType1 = "Wand",
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"AxisEnfeeble",
 		"MonsterProjectileWeakness",
 		"MonsterDetonateDeadExperimenter",
 	},
 	modList = {
-		-- MonsterDetonatesCorpsesText [monster_detonates_corpses_text = 1]
-		-- MonsterCastsEnfeebleCurseText [monster_casts_enfeeble_curse_text = 1]
-		-- MonsterCastsProjectileWeaknessCurseText [monster_casts_projectile_vulnerability_curse_text = 1]
-	},
-	modListSP = {
-		"引爆灵柩", 
-		"施放衰弱", 
-		"施放投射物要害", 
 	},
 }
 minions["Metadata/Monsters/Axis/AxisExperimenterRaiseZombie"] = {
@@ -192,25 +161,19 @@ minions["Metadata/Monsters/Axis/AxisExperimenterRaiseZombie"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 75,
-	damage = 0.6,
+	damage = 1.2,
 	damageSpread = 0.2,
 	attackTime = 1.995,
 	attackRange = 40,
 	accuracy = 1,
 	weaponType1 = "Wand",
 	skillList = {
-		"MeleeUseContactPoint",
+		"MeleeAtAnimationSpeed",
 		"AxisEnfeeble",
 		"NecromancerRaiseZombie",
 		"ExperimenterEnrageDemon",
 	},
 	modList = {
-		-- MonsterCastsEnfeebleCurseText [monster_casts_enfeeble_curse_text = 1]
-		-- MonsterRaisesZombiesText [monster_raises_zombies_text = 1]
-	},
-	modListSP = {
-		"施放衰弱", 
-		"施放魔卫复苏", 
 	},
 }
 -- Bandit
@@ -233,10 +196,6 @@ minions["Metadata/Monsters/Bandits/BanditBowExplosiveArrow"] = {
 		"EASBanditTauntBow",
 	},
 	modList = {
-		-- MonsterFiresExplosiveArrowText [monster_fires_explosive_arrows_text = 1]
-	},
-	modListSP = {
-		"爆炸箭矢", 
 	},
 }
 minions["Metadata/Monsters/Bandits/BanditBowPoisonArrow"] = {
@@ -258,10 +217,6 @@ minions["Metadata/Monsters/Bandits/BanditBowPoisonArrow"] = {
 		"EASBanditTauntBow",
 	},
 	modList = {
-		-- MonsterFiresCausticArrowsText [monster_fires_caustic_arrows_text = 1]
-	},
-	modListSP = {
-		"使用腐蚀箭矢", 
 	},
 }
 minions["Metadata/Monsters/Bandits/BanditMeleeWarlordsMarkMaul"] = {
@@ -284,10 +239,6 @@ minions["Metadata/Monsters/Bandits/BanditMeleeWarlordsMarkMaul"] = {
 		"EASBanditTaunt",
 	},
 	modList = {
-		-- MonsterCastsWarlordsMarkCurseText [monster_casts_warlords_mark_curse_text = 1]
-	},
-	modListSP = {
-		"施放督军印记", 
 	},
 }
 minions["Metadata/Monsters/Bandit/DockworkerChampion_"] = {
@@ -372,10 +323,6 @@ minions["Metadata/Monsters/Beasts/BeastCaveDegenAura"] = {
 		"ChaosDegenAura",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupComplete [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 33]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（完全）", 
 	},
 }
 minions["Metadata/Monsters/Beasts/BeastCleaveEnduringCry"] = {
@@ -397,20 +344,14 @@ minions["Metadata/Monsters/Beasts/BeastCleaveEnduringCry"] = {
 		"GABeastCleave",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupComplete [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 33]
 		-- MonsterUsesEnduringCryText [monster_uses_enduring_cry_text = 1]
 		-- MonsterCleavesText [monster_cleaves_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（完全）", 
-		"使用坚决战吼", 
-		"使用劈砍", 
 	},
 }
 -- Blood apes
 minions["Metadata/Monsters/BloodChieftain/MonkeyChiefBloodEnrage"] = {
 	name = "冷血酋长",
-	life = 1.5,
+	life = 2.4,
 	armour = 0.2,
 	fireResist = 75,
 	coldResist = 0,
@@ -419,31 +360,22 @@ minions["Metadata/Monsters/BloodChieftain/MonkeyChiefBloodEnrage"] = {
 	damage = 1.5,
 	damageSpread = 0.2,
 	attackTime = 1.905,
-	attackRange = 7,
+	attackRange = 13,
 	accuracy = 1,
-	damageFixup = 0.22,
 	weaponType1 = "One Handed Mace",
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"BloodChieftainSummonMonkeys",
 		"MassFrenzy",
 		"MonkeyThrow",
 		"TriggeredMonkeyBomb",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupLarge [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 22]
-		-- MonsterSummonsMonkeysText [monster_summons_monkeys_from_nearby_trees_text = 1]
-		-- MonsterCastsMassFrenzyText [monster_casts_mass_frenzy_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（大）", 
-		"呼唤树上猿猴", 
-		"友军狂暴", 
 	},
 }
 minions["Metadata/Monsters/BloodChieftain/MonkeyChiefBloodParasite"] = {
 	name = "宿主酋长",
-	life = 1.5,
+	life = 2.4,
 	armour = 0.2,
 	fireResist = 75,
 	coldResist = 0,
@@ -452,24 +384,15 @@ minions["Metadata/Monsters/BloodChieftain/MonkeyChiefBloodParasite"] = {
 	damage = 1.5,
 	damageSpread = 0.2,
 	attackTime = 1.905,
-	attackRange = 7,
+	attackRange = 13,
 	accuracy = 1,
-	damageFixup = 0.22,
 	weaponType1 = "One Handed Mace",
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"BloodChieftainSummonParasiteMonkeys",
 		"MassPower",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupLarge [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 22]
-		-- MonsterSummonsMonkeysText [monster_summons_monkeys_from_nearby_trees_text = 1]
-		-- MonsterUsesMassPowerText [monster_uses_mass_power_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（大）", 
-		"呼唤树上猿猴", 
-		"强化周围友军", 
 	},
 }
 -- Bone Stalker
@@ -494,8 +417,6 @@ minions["Metadata/Monsters/BoneStalker/BoneStalker"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 -- Bull
 minions["Metadata/Monsters/Bull/Bull"] = {
@@ -517,8 +438,6 @@ minions["Metadata/Monsters/Bull/Bull"] = {
 		"BullCharge",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 -- Cage Spider
@@ -542,8 +461,6 @@ minions["Metadata/Monster/CageSpider/CageSpider2"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 -- Cannibals
 minions["Metadata/Monsters/Cannibal/CannibalMaleChampion"] = {
@@ -565,9 +482,6 @@ minions["Metadata/Monsters/Cannibal/CannibalMaleChampion"] = {
 		"GTCannibalFlameBreathe",
 	},
 	modList = {
-		-- StanceScavengerRun [stance_movement_speed_+%_final = 100]
-	},
-	modListSP = {
 	},
 }
 -- Goatmen
@@ -592,10 +506,6 @@ minions["Metadata/Monsters/Goatman/GoatmanLeapSlam"] = {
 		"GAGoatmanLeapSlamDamage",
 	},
 	modList = {
-		-- MonsterLeapsOntoEnemiesText [monster_leaps_onto_enemies_text = 1]
-	},
-	modListSP = {
-		"跃击", 
 	},
 }
 minions["Metadata/Monsters/Goatman/GoatmanLightningLeapSlamMaps"] = {
@@ -620,11 +530,6 @@ minions["Metadata/Monsters/Goatman/GoatmanLightningLeapSlamMaps"] = {
 	},
 	modList = {
 		mod("PhysicalDamageGainAsLightning", "BASE", 100), -- MonsterPhysicalAddedAsLightningSkeletonMaps [physical_damage_%_to_add_as_lightning = 100]
-		-- MonsterLeapsOntoEnemiesText [monster_leaps_onto_enemies_text = 1]
-	},
-	modListSP = {
-		"额外闪电伤害", 
-		"跃击", 
 	},
 }
 minions["Metadata/Monsters/Goatman/GoatmanShamanFireball"] = {
@@ -647,16 +552,6 @@ minions["Metadata/Monsters/Goatman/GoatmanShamanFireball"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
-		mod("Speed", "INC", -50, ModFlag.Cast), -- MonsterGoatmanShamanCastSpeed [base_cast_speed_+% = -50]
-		-- MonsterCastsFireballText [monster_casts_fireball_text = 1]
-		-- MonsterCastsMoltenShellText [monster_casts_molten_shell_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
-		"羊人怪物施法速度调整", 
-		"施放火球", 
-		"施放熔岩护盾", 
 	},
 }
 minions["Metadata/Monsters/Goatman/GoatmanShamanFireChampion"] = {
@@ -681,10 +576,6 @@ minions["Metadata/Monsters/Goatman/GoatmanShamanFireChampion"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
-		"羊人怪物施法速度调整", 
-	},
 }
 minions["Metadata/Monsters/Goatman/GoatmanShamanLightning"] = {
 	name = "长须术师",
@@ -706,16 +597,7 @@ minions["Metadata/Monsters/Goatman/GoatmanShamanLightning"] = {
 		"MonsterSpark",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
 		mod("Speed", "INC", -50, ModFlag.Cast), -- MonsterGoatmanShamanCastSpeed [base_cast_speed_+% = -50]
-		-- MonsterCastsShockNovaText [monster_casts_shock_nova_text = 1]
-		-- MonsterCastsSparkText [monster_casts_spark_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
-		"羊人怪物施法速度调整", 
-		"施放闪电新星", 
-		"施放电球", 
 	},
 }
 minions["Metadata/Monsters/Goatman/MountainGoatmanChampion"] = {
@@ -738,10 +620,6 @@ minions["Metadata/Monsters/Goatman/MountainGoatmanChampion"] = {
 		"GoatmanMonsterSlam",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
 	},
 }
 minions["Metadata/Monsters/Goatman/MountainGoatmanShamanIceSpear"] = {
@@ -763,11 +641,6 @@ minions["Metadata/Monsters/Goatman/MountainGoatmanShamanIceSpear"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
-		"羊人怪物施法速度调整", 
-		"施放冰矛", 
-	},
 }
 -- Miscreation
 minions["Metadata/Monsters/DemonFemale/DemonFemale"] = {
@@ -788,9 +661,6 @@ minions["Metadata/Monsters/DemonFemale/DemonFemale"] = {
 	},
 	modList = {
 		-- MonsterChanceToVulnerabilityOnHit2 [curse_on_hit_%_vulnerability = 50]
-	},
-	modListSP = {
-		"击中时有一定概率造成脆弱", 
 	},
 }
 minions["Metadata/Monsters/DemonModular/DemonFemaleRanged"] = {
@@ -816,10 +686,6 @@ minions["Metadata/Monsters/DemonModular/DemonFemaleRanged"] = {
 	modList = {
 		mod("PhysicalDamageConvertToFire", "BASE", 50), -- MonsterConvertToFireDamage2 [base_physical_damage_%_to_convert_to_fire = 50]
 		-- MonsterRangeVarianceMedium [main_hand_base_maximum_attack_distance = 0]
-	},
-	modListSP = {
-		"造成火焰伤害", 
-		"主手攻击距离调整（中）", 
 	},
 }
 minions["Metadata/Monsters/DemonModular/DemonFemaleRanged2"] = {
@@ -860,8 +726,6 @@ minions["Metadata/Monsters/DemonModular/DemonModularBladeVortex"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 minions["Metadata/Monsters/DemonModular/DemonModularFire"] = {
 	name = "古灵实验者: 烈火",
@@ -884,9 +748,6 @@ minions["Metadata/Monsters/DemonModular/DemonModularFire"] = {
 	modList = {
 		-- MonsterCastsUnholyFireText [monster_casts_unholy_fire_text = 1]
 	},
-	modListSP = {
-		"施放邪恶之火", 
-	},
 }
 -- Maw
 minions["Metadata/Monsters/Frog/Frog"] = {
@@ -908,9 +769,6 @@ minions["Metadata/Monsters/Frog/Frog"] = {
 	modList = {
 		-- MonsterLeapsOntoEnemiesText [monster_leaps_onto_enemies_text = 1]
 	},
-	modListSP = {
-		"跃击", 
-	},
 }
 minions["Metadata/Monsters/Frog/Frog2"] = {
 	name = "阴暗之兽",
@@ -930,9 +788,6 @@ minions["Metadata/Monsters/Frog/Frog2"] = {
 	},
 	modList = {
 		-- MonsterLeapsOntoEnemiesText [monster_leaps_onto_enemies_text = 1]
-	},
-	modListSP = {
-		"跃击", 
 	},
 }
 -- Chimeral
@@ -956,10 +811,6 @@ minions["Metadata/Monsters/GemMonster/Iguana"] = {
 	modList = {
 		-- MonsterSuppressingFire [chance_to_apply_suppression_on_hit_% = 20]
 		-- DisplayMonsterSuppressingFire [display_monster_uses_suppressing_fire_text = 1]
-	},
-	modListSP = {
-		"击中几率释放火力压制", 
-		"火力压制", 
 	},
 }
 minions["Metadata/Monsters/GemMonster/IguanaChrome"] = {
@@ -995,23 +846,19 @@ minions["Metadata/Monsters/GhostPirates/GhostPirateBlackBowMaps"] = {
 	coldResist = 0,
 	lightningResist = 40,
 	chaosResist = 0,
-	damage = 0.48,
+	damage = 0.96,
 	damageSpread = 0.2,
-	attackTime = 1.995,
+	attackTime = 1.5,
 	attackRange = 40,
 	accuracy = 1,
 	weaponType1 = "Bow",
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"MonsterPuncture",
+		"MonsterLightningArrow",
 	},
 	modList = {
 		mod("PhysicalDamageGainAsLightning", "BASE", 100), -- MonsterPhysicalAddedAsLightningSkeletonMaps [physical_damage_%_to_add_as_lightning = 100]
-		-- MonsterCastsPunctureText [monster_casts_puncture_text = 1]
-	},
-	modListSP = {
-		"额外闪电伤害", 
-		"施放放血", 
 	},
 }
 minions["Metadata/Monsters/GhostPirates/GhostPirateBlackFlickerStrikeMaps"] = {
@@ -1022,26 +869,21 @@ minions["Metadata/Monsters/GhostPirates/GhostPirateBlackFlickerStrikeMaps"] = {
 	coldResist = 0,
 	lightningResist = 40,
 	chaosResist = 0,
-	damage = 0.8,
+	damage = 1.32,
 	damageSpread = 0.2,
-	attackTime = 1.65,
+	attackTime = 1.5,
 	attackRange = 8,
 	accuracy = 1,
 	weaponType1 = "One Handed Sword",
 	weaponType2 = "Shield",
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"MonsterFlickerStrikeExtraRange",
 	},
 	modList = {
 		mod("PhysicalDamageGainAsLightning", "BASE", 100), -- MonsterPhysicalAddedAsLightningSkeletonMaps [physical_damage_%_to_add_as_lightning = 100]
 		-- MonsterUsesFlickerStrikeText [monster_uses_flicker_strike_text = 1]
 		-- MonsterAttackSpellBlock20Bypass40 [monster_base_block_% = 20] [base_spell_block_% = 20] [base_block_%_damage_taken = 40]
-	},
-	modListSP = {
-		"额外闪电伤害", 
-		"使用闪现打击", 
-		"格挡攻击和法术", 
 	},
 }
 minions["Metadata/Monsters/GhostPirates/GhostPirateGreenBladeVortex"] = {
@@ -1052,25 +894,21 @@ minions["Metadata/Monsters/GhostPirates/GhostPirateGreenBladeVortex"] = {
 	coldResist = 0,
 	lightningResist = 40,
 	chaosResist = 0,
-	damage = 1,
+	damage = 1.65,
 	damageSpread = 0.2,
-	attackTime = 1.65,
+	attackTime = 1.5,
 	attackRange = 8,
 	accuracy = 1,
 	weaponType1 = "One Handed Sword",
 	weaponType2 = "Shield",
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"GhostPirateBladeVortex",
 		"GhostPirateBladeVortexSpectre",
 	},
 	modList = {
 		mod("PhysicalDamageConvertToLightning", "BASE", 50), -- MonsterElementalSkeletonLightning [base_physical_damage_%_to_convert_to_lightning = 50]
 		-- MonsterAttackSpellBlock20Bypass40 [monster_base_block_% = 20] [base_spell_block_% = 20] [base_block_%_damage_taken = 40]
-	},
-	modListSP = {
-		"造成闪电伤害", 
-		"格挡攻击和法术", 
 	},
 }
 -- Undying grappler
@@ -1097,11 +935,6 @@ minions["Metadata/Monsters/Grappler/Grappler"] = {
 		-- MonsterUsesFlickerStrikeText [monster_uses_flicker_strike_text = 1]
 		-- MonsterCastsDischargeText [monster_casts_discharge_text = 1]
 	},
-	modListSP = {
-		"同伴被杀时强化", 
-		"使用闪现打击", 
-		"施放解放", 
-	},
 }
 minions["Metadata/Monsters/Grappler/GrapplerLabyrinth"] = {
 	name = "阴影潜伏者",
@@ -1125,11 +958,6 @@ minions["Metadata/Monsters/Grappler/GrapplerLabyrinth"] = {
 		-- MonsterGainsPowerChargeOnKinDeath [monster_gain_power_charge_on_kin_death = 1]
 		-- MonsterUsesFlickerStrikeText [monster_uses_flicker_strike_text = 1]
 		-- MonsterCastsDischargeText [monster_casts_discharge_text = 1]
-	},
-	modListSP = {
-		"同伴被杀时强化", 
-		"使用闪现打击", 
-		"施放解放", 
 	},
 }
 -- Ribbon
@@ -1157,9 +985,6 @@ minions["Metadata/Monsters/Guardians/GuardianFire"] = {
 	modList = {
 		-- MonsterCastsAugmentedFireballsText [monster_casts_augmented_fireballs_text = 1]
 	},
-	modListSP = {
-		"施放强化火球", 
-	},
 }
 minions["Metadata/Monsters/Guardians/GuardianFire_BlueMaps"] = {
 	name = "寒霜哨带",
@@ -1181,8 +1006,6 @@ minions["Metadata/Monsters/Guardians/GuardianFire_BlueMaps"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 minions["Metadata/Monsters/Guardians/GuardianLightning"] = {
 	name = "雷电之带",
@@ -1202,9 +1025,6 @@ minions["Metadata/Monsters/Guardians/GuardianLightning"] = {
 	},
 	modList = {
 		-- MonsterChannelsLightningText [monster_channels_lightning_text = 1]
-	},
-	modListSP = {
-		"闪电通道", 
 	},
 }
 -- Gut flayer
@@ -1229,9 +1049,6 @@ minions["Metadata/Monsters/HalfSkeleton/HalfSkeleton"] = {
 	modList = {
 		-- MonsterCastsPunctureText [monster_casts_puncture_text = 1]
 	},
-	modListSP = {
-		"施放放血", 
-	},
 }
 -- Solar Guard
 minions["Metadata/Monsters/HolyFireElemental/HolyFireElementalSolarisBeam"] = {
@@ -1255,9 +1072,6 @@ minions["Metadata/Monsters/HolyFireElemental/HolyFireElementalSolarisBeam"] = {
 	modList = {
 		mod("PhysicalDamageGainAsFire", "BASE", 60), -- MonsterPhysicalAddedAsFireHolyFireElemental [physical_damage_%_to_add_as_fire = 60]
 	},
-	modListSP = {
-		"额外火焰伤害", 
-	},
 }
 -- Construct
 minions["Metadata/Monsters/incaminion/Fragment"] = {
@@ -1268,17 +1082,15 @@ minions["Metadata/Monsters/incaminion/Fragment"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 40,
-	damage = 0.84,
+	damage = 1.68,
 	damageSpread = 0.2,
-	attackTime = 1.995,
+	attackTime = 1.32,
 	attackRange = 25,
 	accuracy = 1,
 	skillList = {
 		"IncaMinionProjectile",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 -- Carrion queen
@@ -1301,9 +1113,6 @@ minions["Metadata/Monsters/InsectSpawner/InsectSpawner"] = {
 	modList = {
 		mod("PhysicalDamageConvertToFire", "BASE", 50), -- MonsterConvertToFireDamage2 [base_physical_damage_%_to_convert_to_fire = 50]
 	},
-	modListSP = {
-		"造成火焰伤害", 
-	},
 }
 -- Kaom's Warriors
 minions["Metadata/Monsters/KaomWarrior/KaomWarrior2"] = {
@@ -1325,8 +1134,6 @@ minions["Metadata/Monsters/KaomWarrior/KaomWarrior2"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 minions["Metadata/Monsters/KaomWarrior/KaomWarrior3"] = {
 	name = "卡鲁族勇士",
@@ -1346,8 +1153,6 @@ minions["Metadata/Monsters/KaomWarrior/KaomWarrior3"] = {
 		"KaomWarriorGroundSlam",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 minions["Metadata/Monsters/KaomWarrior/KaomWarrior7"] = {
@@ -1373,11 +1178,6 @@ minions["Metadata/Monsters/KaomWarrior/KaomWarrior7"] = {
 		mod("TotemLife", "INC", 250), -- KaomWarriorSlowFireBeam2 [totem_life_+% = 250]
 		-- MonsterKillTrapsMinesTotemsOnDeath [kill_traps_mines_and_totems_on_death = 1]
 	},
-	modListSP = {
-		"慢速火焰光线", 
-		"图腾生命提升", 
-		"死亡时取消施放的图腾陷阱和地雷", 
-	},
 }
 -- Kitava's Cultist
 minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearBloodDelve"] = {
@@ -1399,9 +1199,6 @@ minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearBloodDelve"] = {
 	},
 	modList = {
 		-- MonsterDelveDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
-	},
-	modListSP = {
-		"怪物掉落调整（矿坑）", 
 	},
 }
 minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearBloodChampionDelve"] = {
@@ -1425,9 +1222,6 @@ minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearBloodChampionDelve"] = 
 	modList = {
 		-- MonsterDelveDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
 	},
-	modListSP = {
-		"怪物掉落调整（矿坑）", 
-	},
 }
 minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearChaosDelve"] = {
 	name = "复活的瓦尔虔信者",
@@ -1448,9 +1242,6 @@ minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearChaosDelve"] = {
 	},
 	modList = {
 		-- MonsterDelveDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
-	},
-	modListSP = {
-		"怪物掉落调整（矿坑）", 
 	},
 }
 minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearChaosChampionDelve"] = {
@@ -1475,9 +1266,6 @@ minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearChaosChampionDelve"] = 
 	modList = {
 		-- MonsterDelveDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
 	},
-	modListSP = {
-		"怪物掉落调整（矿坑）", 
-	},
 }
 minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearFireDelve"] = {
 	name = "复活的瓦尔虔信者",
@@ -1498,9 +1286,6 @@ minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearFireDelve"] = {
 	},
 	modList = {
 		-- MonsterDelveDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
-	},
-	modListSP = {
-		"怪物掉落调整（矿坑）", 
 	},
 }
 minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearFireChampionDelve_"] = {
@@ -1524,9 +1309,6 @@ minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearFireChampionDelve_"] = 
 	modList = {
 		-- MonsterDelveDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
 	},
-	modListSP = {
-		"怪物掉落调整（矿坑）", 
-	},
 }
 minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearLightningDelve"] = {
 	name = "复活的瓦尔虔信者",
@@ -1547,9 +1329,6 @@ minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearLightningDelve"] = {
 	},
 	modList = {
 		-- MonsterDelveDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
-	},
-	modListSP = {
-		"怪物掉落调整（矿坑）", 
 	},
 }
 minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearLightningChampionDelve_"] = {
@@ -1573,9 +1352,6 @@ minions["Metadata/Monsters/KitavaCultist/VaalCultistSpearLightningChampionDelve_
 	},
 	modList = {
 		-- MonsterDelveDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
-	},
-	modListSP = {
-		"怪物掉落调整（矿坑）", 
 	},
 }
 -- Kitava's Herald
@@ -1605,10 +1381,6 @@ minions["Metadata/Monster/KitavaDemon/KitavaDemon"] = {
 		-- MonsterInflictsBleedingText [display_monster_may_inflict_bleeding = 1]
 		-- MonsterSpeedAndDamageFixupComplete [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 33]
 	},
-	modListSP = {
-		"一定几率造成流血", 
-		"怪物速度和伤害调整（完全）", 
-	},
 }
 -- Birdman
 minions["Metadata/Monsters/Kiweth/Kiweth"] = {
@@ -1630,12 +1402,7 @@ minions["Metadata/Monsters/Kiweth/Kiweth"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
 		-- MonsterLesserFarShot [monster_reverse_point_blank_damage_-%_at_minimum_range = 60] [projectile_damage_+% = 20] [display_monster_uses_far_shot_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
-		"远射", 
 	},
 }
 minions["Metadata/Monsters/Kiweth/KiwethSeagull"] = {
@@ -1657,12 +1424,7 @@ minions["Metadata/Monsters/Kiweth/KiwethSeagull"] = {
 		"BirdmanBloodProjectileMortar",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
 		-- MonsterLesserFarShot [monster_reverse_point_blank_damage_-%_at_minimum_range = 60] [projectile_damage_+% = 20] [display_monster_uses_far_shot_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
-		"远射", 
 	},
 }
 -- Delve League
@@ -1688,9 +1450,6 @@ minions["Metadata/Monsters/LeagueDelve/ProtoVaalWarriorElite"] = {
 	modList = {
 		-- MonsterDelveDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
 	},
-	modListSP = {
-		"怪物掉落调整（矿坑）", 
-	},
 }
 -- Hellion
 minions["Metadata/Monsters/Lion/LionDesertSkinPuncture"] = {
@@ -1712,9 +1471,6 @@ minions["Metadata/Monsters/Lion/LionDesertSkinPuncture"] = {
 	},
 	modList = {
 		-- MonsterCastsPunctureText [monster_casts_puncture_text = 1]
-	},
-	modListSP = {
-		"施放放血", 
 	},
 }
 minions["Metadata/Monsters/Lion/LionWolf3Champion"] = {
@@ -1760,9 +1516,6 @@ minions["Metadata/Monsters/MassSkeleton/MassSkeleton"] = {
 	modList = {
 		-- MonsterCastsPunctureText [monster_casts_puncture_text = 1]
 	},
-	modListSP = {
-		"施放放血", 
-	},
 }
 -- Miners
 minions["Metadata/Monsters/Miner/MinerLantern"] = {
@@ -1784,9 +1537,6 @@ minions["Metadata/Monsters/Miner/MinerLantern"] = {
 	modList = {
 		-- IgniteArtVariation [ignite_art_variation = 1]
 	},
-	modListSP = {
-		"特殊特效版本点燃", 
-	},
 }
 minions["Metadata/Monsters/Miner/MinerLanternCrystalVeins"] = {
 	name = "疮痕照明者",
@@ -1806,9 +1556,6 @@ minions["Metadata/Monsters/Miner/MinerLanternCrystalVeins"] = {
 	},
 	modList = {
 		-- IgniteArtVariation [ignite_art_variation = 1]
-	},
-	modListSP = {
-		"特殊特效版本点燃", 
 	},
 }
 -- Voidbearer
@@ -1830,8 +1577,6 @@ minions["Metadata/Monsters/Monkeys/FlameBearer"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 -- Stone golem
 minions["Metadata/Monsters/MossMonster/FireMonster"] = {
@@ -1842,25 +1587,17 @@ minions["Metadata/Monsters/MossMonster/FireMonster"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 1.5,
+	damage = 2.55,
 	damageSpread = 0.2,
-	attackTime = 1.695,
-	attackRange = 7,
+	attackTime = 1.17,
+	attackRange = 12,
 	accuracy = 1,
-	damageFixup = 0.33,
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"FireMonsterWhirlingBlades",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupComplete [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 33]
-		-- MonsterRollsOverEnemiesText [display_monster_uses_whirling_blades_text = 1]
 		-- ImmuneToLavaDamage [immune_to_lava_damage = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（完全）", 
-		"使用回旋之刃", 
-		"免疫熔岩伤害", 
 	},
 }
 -- Mother of Flames
@@ -1883,8 +1620,6 @@ minions["Metadata/Monsters/MotherOfFlames/MotherOfFlamesZombie"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 -- Necromancer
 minions["Metadata/Monsters/Necromancer/NecromancerConductivity"] = {
@@ -1895,10 +1630,10 @@ minions["Metadata/Monsters/Necromancer/NecromancerConductivity"] = {
 	coldResist = 0,
 	lightningResist = 75,
 	chaosResist = 0,
-	damage = 0.9,
+	damage = 1.35,
 	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 9,
+	attackTime = 1.17,
+	attackRange = 12,
 	accuracy = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1907,11 +1642,6 @@ minions["Metadata/Monsters/Necromancer/NecromancerConductivity"] = {
 	},
 	modList = {
 		-- MonsterRaisesUndeadText [monster_raises_undead_text = 1]
-	},
-	modListSP = {
-		"复活不死生物", 
-		"怪物诅咒施法速度惩罚", 
-		"施放导电", 
 	},
 }
 minions["Metadata/Monsters/Necromancer/NecromancerEnfeebleCurse"] = {
@@ -1922,10 +1652,10 @@ minions["Metadata/Monsters/Necromancer/NecromancerEnfeebleCurse"] = {
 	coldResist = 0,
 	lightningResist = 75,
 	chaosResist = 0,
-	damage = 0.9,
+	damage = 1.35,
 	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 9,
+	attackTime = 1.17,
+	attackRange = 12,
 	accuracy = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1936,11 +1666,6 @@ minions["Metadata/Monsters/Necromancer/NecromancerEnfeebleCurse"] = {
 	modList = {
 		-- MonsterRaisesUndeadText [monster_raises_undead_text = 1]
 	},
-	modListSP = {
-		"复活不死生物", 
-		"施放衰弱", 
-		"怪物诅咒施法速度惩罚", 
-	},
 }
 minions["Metadata/Monsters/Necromancer/NecromancerFlamability"] = {
 	name = "烈火咒师",
@@ -1950,10 +1675,10 @@ minions["Metadata/Monsters/Necromancer/NecromancerFlamability"] = {
 	coldResist = 0,
 	lightningResist = 75,
 	chaosResist = 0,
-	damage = 0.9,
+	damage = 1.35,
 	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 9,
+	attackTime = 1.17,
+	attackRange = 12,
 	accuracy = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1964,12 +1689,6 @@ minions["Metadata/Monsters/Necromancer/NecromancerFlamability"] = {
 		-- MonsterRaisesUndeadText [monster_raises_undead_text = 1]
 		-- ImmuneToLavaDamage [immune_to_lava_damage = 1]
 	},
-	modListSP = {
-		"复活不死生物", 
-		"施放易燃", 
-		"怪物诅咒施法速度惩罚", 
-		"免疫熔岩伤害", 
-	},
 }
 minions["Metadata/Monsters/Necromancer/NecromancerFrostbite"] = {
 	name = "死亡咒师",
@@ -1979,10 +1698,10 @@ minions["Metadata/Monsters/Necromancer/NecromancerFrostbite"] = {
 	coldResist = 0,
 	lightningResist = 75,
 	chaosResist = 0,
-	damage = 0.9,
+	damage = 1.35,
 	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 9,
+	attackTime = 1.17,
+	attackRange = 12,
 	accuracy = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1991,11 +1710,6 @@ minions["Metadata/Monsters/Necromancer/NecromancerFrostbite"] = {
 	},
 	modList = {
 		-- MonsterRaisesUndeadText [monster_raises_undead_text = 1]
-	},
-	modListSP = {
-		"复活不死生物", 
-		"怪物诅咒施法速度惩罚", 
-		"施放冻伤", 
 	},
 }
 minions["Metadata/Monsters/Necromancer/NecromancerElementalWeakness"] = {
@@ -2006,10 +1720,10 @@ minions["Metadata/Monsters/Necromancer/NecromancerElementalWeakness"] = {
 	coldResist = 0,
 	lightningResist = 75,
 	chaosResist = 0,
-	damage = 0.9,
+	damage = 1.35,
 	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 9,
+	attackTime = 1.17,
+	attackRange = 12,
 	accuracy = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2018,11 +1732,6 @@ minions["Metadata/Monsters/Necromancer/NecromancerElementalWeakness"] = {
 	},
 	modList = {
 		-- MonsterRaisesUndeadText [monster_raises_undead_text = 1]
-	},
-	modListSP = {
-		"复活不死生物", 
-		"施放元素要害", 
-		"怪物诅咒施法速度惩罚", 
 	},
 }
 minions["Metadata/Monsters/Necromancer/NecromancerProjectileWeakness"] = {
@@ -2033,10 +1742,10 @@ minions["Metadata/Monsters/Necromancer/NecromancerProjectileWeakness"] = {
 	coldResist = 0,
 	lightningResist = 75,
 	chaosResist = 0,
-	damage = 0.9,
+	damage = 1.35,
 	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 9,
+	attackTime = 1.17,
+	attackRange = 12,
 	accuracy = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2045,11 +1754,6 @@ minions["Metadata/Monsters/Necromancer/NecromancerProjectileWeakness"] = {
 	},
 	modList = {
 		-- MonsterRaisesUndeadText [monster_raises_undead_text = 1]
-	},
-	modListSP = {
-		"复活不死生物", 
-		"怪物诅咒施法速度惩罚", 
-		"施放衰弱", 
 	},
 }
 minions["Metadata/Monsters/Necromancer/NecromancerVulnerability"] = {
@@ -2060,10 +1764,10 @@ minions["Metadata/Monsters/Necromancer/NecromancerVulnerability"] = {
 	coldResist = 0,
 	lightningResist = 75,
 	chaosResist = 0,
-	damage = 0.9,
+	damage = 1.35,
 	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 9,
+	attackTime = 1.17,
+	attackRange = 12,
 	accuracy = 1,
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2072,11 +1776,6 @@ minions["Metadata/Monsters/Necromancer/NecromancerVulnerability"] = {
 	},
 	modList = {
 		-- MonsterRaisesUndeadText [monster_raises_undead_text = 1]
-	},
-	modListSP = {
-		"复活不死生物", 
-		"怪物诅咒施法速度惩罚", 
-		"施放脆弱", 
 	},
 }
 -- Undying bomber
@@ -2102,11 +1801,6 @@ minions["Metadata/Monsters/Pyromaniac/PyromaniacFire"] = {
 		-- MonsterExplodesOnItsTargetOnLowLifeText [monster_explodes_on_its_target_text = 2]
 		-- ImmuneToLavaDamage [immune_to_lava_damage = 1]
 	},
-	modListSP = {
-		"投掷火焰炸弹", 
-		"低血时自爆", 
-		"免疫熔岩伤害", 
-	},
 }
 minions["Metadata/Monsters/Pyromaniac/PyromaniacPoison"] = {
 	name = "不朽之毒",
@@ -2127,9 +1821,6 @@ minions["Metadata/Monsters/Pyromaniac/PyromaniacPoison"] = {
 	},
 	modList = {
 		-- MonsterThrowsPoisonBombsText [monster_throws_caustic_bombs_text = 1]
-	},
-	modListSP = {
-		"投掷腐蚀炸弹", 
 	},
 }
 -- Stygian revenant
@@ -2153,8 +1844,6 @@ minions["Metadata/Monsters/Revenant/Revenant"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 -- Sea witch
 minions["Metadata/Monsters/Seawitch/SeaWitchFrostBolt"] = {
@@ -2176,10 +1865,6 @@ minions["Metadata/Monsters/Seawitch/SeaWitchFrostBolt"] = {
 		"SeawitchWaveGeometrySpell",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
 	},
 }
 minions["Metadata/Monsters/Seawitch/SeaWitchScreech"] = {
@@ -2201,10 +1886,6 @@ minions["Metadata/Monsters/Seawitch/SeaWitchScreech"] = {
 		"SeawitchWaveGeometrySpell",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
 	},
 }
 minions["Metadata/Monsters/Seawitch/SeaWitchSpawnExploding"] = {
@@ -2227,12 +1908,6 @@ minions["Metadata/Monsters/Seawitch/SeaWitchSpawnExploding"] = {
 		"SSMSeawitchSpawnKamikaze",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
-		-- MonsterSummonsExplodingSpawnText [monster_summons_exploding_spawn_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
-		"召唤自爆仆从", 
 	},
 }
 minions["Metadata/Monsters/Seawitch/SeaWitchSpawnTemporalChains"] = {
@@ -2255,14 +1930,6 @@ minions["Metadata/Monsters/Seawitch/SeaWitchSpawnTemporalChains"] = {
 		"SeawitchWaveGeometrySpell",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
-		-- MonsterSummonsSpawnText [monster_summons_spawn_text = 1]
-		-- MonsterCastsTemporalChainsText [monster_casts_temporal_chains_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
-		"召唤仆从", 
-		"施放时空锁链", 
 	},
 }
 minions["Metadata/Monsters/Seawitch/SeaWitchVulnerabilityCurse"] = {
@@ -2284,12 +1951,6 @@ minions["Metadata/Monsters/Seawitch/SeaWitchVulnerabilityCurse"] = {
 		"SeawitchWaveGeometrySpell",
 	},
 	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
-		-- MonsterCastsVulnerabilityCurseText [monster_casts_vulnerability_curse_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
-		"施放脆弱", 
 	},
 }
 -- Skeleton
@@ -2316,10 +1977,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonBowPuncture"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- MonsterCastsPunctureText [monster_casts_puncture_text = 1]
 	},
-	modListSP = {
-		"亡灵生物", 
-		"施放放血", 
-	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonBowLightning"] = {
 	name = "盗猎者残骨",
@@ -2342,11 +1999,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonBowLightning"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- MonsterFiresLightningArrowsText [monster_fires_lightning_arrows_text = 1]
-	},
-	modListSP = {
-		"亡灵生物", 
-		"闪电箭矢", 
 	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonMeleeLarge"] = {
@@ -2369,9 +2021,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonMeleeLarge"] = {
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
-	modListSP = {
-		"亡灵生物", 
-	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonBowLightning3"] = {
 	name = "悲语之弦",
@@ -2392,11 +2041,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonBowLightning3"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- MonsterFiresLightningArrowsText [monster_fires_lightning_arrows_text = 1]
-	},
-	modListSP = {
-		"亡灵生物", 
-		"闪电箭矢", 
 	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonCasterColdMultipleProjectiles"] = {
@@ -2418,10 +2062,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonCasterColdMultipleProjectiles"] = {
 	modList = {
 		mod("ProjectileCount", "BASE", 2), -- MonsterMultipleProjectilesImplicit1 [number_of_additional_projectiles = 2]
 		-- MonsterNecromancerRaisable [undead_description = 1]
-	},
-	modListSP = {
-		"发射额外投射物", 
-		"亡灵生物", 
 	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonCasterFireMultipleProjectiles2"] = {
@@ -2446,11 +2086,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonCasterFireMultipleProjectiles2"] = 
 		mod("ProjectileCount", "BASE", 2), -- MonsterMultipleProjectilesImplicit1 [number_of_additional_projectiles = 2]
 		-- ImmuneToLavaDamage [immune_to_lava_damage = 1]
 	},
-	modListSP = {
-		"亡灵生物", 
-		"发射额外投射物", 
-		"免疫熔岩伤害", 
-	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonBowPoison"] = {
 	name = "瘟疫弓手",
@@ -2473,10 +2108,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonBowPoison"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- MonsterFiresCausticArrowsText [monster_fires_caustic_arrows_text = 1]
 	},
-	modListSP = {
-		"亡灵生物", 
-		"使用腐蚀箭矢", 
-	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonBowLightning2"] = {
 	name = "不灭之弦",
@@ -2497,11 +2128,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonBowLightning2"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- MonsterFiresLightningArrowsText [monster_fires_lightning_arrows_text = 1]
-	},
-	modListSP = {
-		"亡灵生物", 
-		"闪电箭矢", 
 	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonBowLightning4"] = {
@@ -2523,11 +2149,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonBowLightning4"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- MonsterFiresLightningArrowsText [monster_fires_lightning_arrows_text = 1]
-	},
-	modListSP = {
-		"亡灵生物", 
-		"闪电箭矢", 
 	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonCasterLightningSpark"] = {
@@ -2550,10 +2171,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonCasterLightningSpark"] = {
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- MonsterCastsSparkText [monster_casts_spark_text = 1]
-	},
-	modListSP = {
-		"亡灵生物", 
-		"施放电球", 
 	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonBlackCaster1_"] = {
@@ -2598,10 +2215,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonBowProjectileWeaknessCurse"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- MonsterCastsProjectileWeaknessCurseText [monster_casts_projectile_vulnerability_curse_text = 1]
 	},
-	modListSP = {
-		"亡灵生物", 
-		"施放投射物要害", 
-	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonMeleeKnightElementalSwordIncursionChampion"] = {
 	name = "强大的瓦尔堕灵",
@@ -2611,22 +2224,19 @@ minions["Metadata/Monsters/Skeletons/SkeletonMeleeKnightElementalSwordIncursionC
 	coldResist = 35,
 	lightningResist = 35,
 	chaosResist = 20,
-	damage = 1.5,
+	damage = 2.42,
 	damageSpread = 0.3,
-	attackTime = 1.605,
-	attackRange = 9,
+	attackTime = 1.32,
+	attackRange = 11,
 	accuracy = 1,
 	weaponType1 = "Two Handed Sword",
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"ElementalHitSkeletonKnightIncursion",
 		"IncursionLeapSlamChampion",
 	},
 	modList = {
-		-- MonsterCastsElementalHitText [monster_casts_elemental_hit_text = 1]
-		-- MonsterIncursionDropModifiers__ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 35] [monster_dropped_item_rarity_+% = 2500] [monster_no_map_drops = 1]
-	},
-	modListSP = {
+		-- MonsterIncursionDropModifiers__ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 35] [monster_dropped_item_rarity_+% = 1250] [monster_no_map_drops = 1]
 	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonBowKnightElemental"] = {
@@ -2648,9 +2258,6 @@ minions["Metadata/Monsters/Skeletons/SkeletonBowKnightElemental"] = {
 	},
 	modList = {
 		-- MonsterCastsElementalHitText [monster_casts_elemental_hit_text = 1]
-	},
-	modListSP = {
-		"击中造成点燃、冰冻、冰缓或感电效果", 
 	},
 }
 minions["Metadata/Monsters/Skeletons/SkeletonMeleeBlackAbyssBoneLance"] = {
@@ -2674,7 +2281,7 @@ minions["Metadata/Monsters/Skeletons/SkeletonMeleeBlackAbyssBoneLance"] = {
 	modList = {
 		-- MonsterAbyssDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 100] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
 		-- VariableEmergeSpeedAbyss [emerge_speed_+% = 0]
-		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66]
+		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66] [monster_hellscape_charge_+% = -66]
 		-- VariableEmergeSpeedAbyss [emerge_speed_+% = 0]
 	},
 }
@@ -2699,9 +2306,6 @@ minions["Metadata/Monsters/SkeletonCannon/SkeletonCannon1"] = {
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 	},
-	modListSP = {
-		"亡灵生物", 
-	},
 }
 -- Snake
 minions["Metadata/Monsters/Snake/SnakeMeleeSpit"] = {
@@ -2714,18 +2318,15 @@ minions["Metadata/Monsters/Snake/SnakeMeleeSpit"] = {
 	chaosResist = 30,
 	damage = 1,
 	damageSpread = 0.2,
-	attackTime = 1.65,
-	attackRange = 9,
+	attackTime = 1.095,
+	attackRange = 8,
 	accuracy = 1,
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"SnakeProjectile",
 	},
 	modList = {
 		mod("PhysicalDamageConvertToChaos", "BASE", 30), -- MonsterSnakeChaos [base_physical_damage_%_to_convert_to_chaos = 30]
-	},
-	modListSP = {
-		"造成混沌伤害", 
 	},
 }
 minions["Metadata/Monsters/Snake/SnakeScorpionMultiShot"] = {
@@ -2736,22 +2337,18 @@ minions["Metadata/Monsters/Snake/SnakeScorpionMultiShot"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 30,
-	damage = 0.75,
+	damage = 1.24,
 	damageSpread = 0.2,
-	attackTime = 1.65,
-	attackRange = 9,
+	attackTime = 1.095,
+	attackRange = 8,
 	accuracy = 1,
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"SnakeSpineProjectile",
 	},
 	modList = {
 		mod("PhysicalDamageConvertToChaos", "BASE", 30), -- MonsterSnakeChaos [base_physical_damage_%_to_convert_to_chaos = 30]
 		mod("ProjectileCount", "BASE", 2), -- MonsterMultipleProjectilesImplicit1 [number_of_additional_projectiles = 2]
-	},
-	modListSP = {
-		"造成混沌伤害", 
-		"发射额外投射物", 
 	},
 }
 -- Spider
@@ -2762,20 +2359,16 @@ minions["Metadata/Monsters/Spiders/SpiderThornFlickerStrike"] = {
 	coldResist = 0,
 	lightningResist = 40,
 	chaosResist = 0,
-	damage = 1,
+	damage = 1.44,
 	damageSpread = 0.2,
-	attackTime = 1.44,
-	attackRange = 8,
+	attackTime = 0.945,
+	attackRange = 13,
 	accuracy = 1,
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"MonsterFlickerStrike",
 	},
 	modList = {
-		-- MonsterUsesFlickerStrikeText [monster_uses_flicker_strike_text = 1]
-	},
-	modListSP = {
-		"使用闪现打击", 
 	},
 }
 -- Statue
@@ -2801,10 +2394,6 @@ minions["Metadata/Monsters/Statue/DaressoStatueLargeMaleSpear"] = {
 	modList = {
 		-- MonsterSpeedAndDamageFixupComplete [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 33]
 		-- MonsterCastsPunctureText [monster_casts_puncture_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（完全）", 
-		"施放放血", 
 	},
 }
 minions["Metadata/Monsters/Statue/StoneStatueMaleBow"] = {
@@ -2852,8 +2441,6 @@ minions["Metadata/Monsters/Taster/Taster"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 -- Templar
 minions["Metadata/Monsters/TemplarSlaveDriver/TemplarSlaveDriver"] = {
@@ -2879,9 +2466,6 @@ minions["Metadata/Monsters/TemplarSlaveDriver/TemplarSlaveDriver"] = {
 	modList = {
 		-- MonsterImplicitFastRun4 [base_movement_velocity_+% = 20]
 	},
-	modListSP = {
-	"快速移动", 
-	},
 }
 minions["Metadata/Monsters/TemplarSlaveDriver/TemplarSlaveDriverKitava"] = {
 	name = "疯狂驱刑者",
@@ -2906,9 +2490,6 @@ minions["Metadata/Monsters/TemplarSlaveDriver/TemplarSlaveDriverKitava"] = {
 	modList = {
 		-- MonsterImplicitFastRun4 [base_movement_velocity_+% = 20]
 	},
-	modListSP = {
-		"快速移动", 
-	},
 }
 -- Undying
 minions["Metadata/Monsters/Undying/CityStalkerMaleCasterArmour"] = {
@@ -2932,8 +2513,6 @@ minions["Metadata/Monsters/Undying/CityStalkerMaleCasterArmour"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 minions["Metadata/Monsters/Undying/UndyingOutcastPuncture"] = {
 	name = "不朽暗影",
@@ -2954,9 +2533,6 @@ minions["Metadata/Monsters/Undying/UndyingOutcastPuncture"] = {
 	modList = {
 		-- MonsterCastsPunctureText [monster_casts_puncture_text = 1]
 	},
-	modListSP = {
-		"施放放血", 
-	},
 }
 minions["Metadata/Monsters/Undying/UndyingOutcastWhirlingBlades"] = {
 	name = "不朽放逐者",
@@ -2975,8 +2551,6 @@ minions["Metadata/Monsters/Undying/UndyingOutcastWhirlingBlades"] = {
 		"UndyingWhirlingBlades",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 -- Wicker Man
@@ -3001,8 +2575,6 @@ minions["Metadata/Monsters/WickerMan/WickerMan"] = {
 		"MonsterRighteousFireWhileSpectred",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 -- Redemption Sentry
@@ -3032,8 +2604,6 @@ minions["Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieSeraphArcherS
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 -- Baranite Thaumaturge
 minions["Metadata/Monsters/AtlasExiles/CrusaderInfluenceMonsters/CrusaderMageguardCasterSpectre"] = {
@@ -3059,8 +2629,6 @@ minions["Metadata/Monsters/AtlasExiles/CrusaderInfluenceMonsters/CrusaderMagegua
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 -- Baranite Sister
 minions["Metadata/Monsters/AtlasExiles/CrusaderInfluenceMonsters/CrusaderBlessedSisterSpectre"] = {
@@ -3081,8 +2649,6 @@ minions["Metadata/Monsters/AtlasExiles/CrusaderInfluenceMonsters/CrusaderBlessed
 		"WalkEmergeAtlasInfluenceMonster",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 -- Baranite Preacher
@@ -3107,8 +2673,6 @@ minions["Metadata/Monsters/AtlasExiles/CrusaderInfluenceMonsters/CrusaderTemplar
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 -- Scale of Esh
 minions["Metadata/Monsters/SandLeaper/SandLeaperBreachSpectre_"] = {
@@ -3118,13 +2682,13 @@ minions["Metadata/Monsters/SandLeaper/SandLeaperBreachSpectre_"] = {
 	coldResist = 30,
 	lightningResist = 30,
 	chaosResist = 20,
-	damage = 1.2,
+	damage = 1.8,
 	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 8,
+	attackTime = 0.99,
+	attackRange = 7,
 	accuracy = 1,
 	skillList = {
-		"Melee",
+		"MeleeAtAnimationSpeed",
 		"SandLeaperDodgeLeft",
 		"SandLeaperDodgeRight",
 		"BreachLightningWhip",
@@ -3135,12 +2699,7 @@ minions["Metadata/Monsters/SandLeaper/SandLeaperBreachSpectre_"] = {
 	modList = {
 		-- MonsterBreachQuantityCommander [monster_dropped_item_quantity_+% = 700]
 		-- MonsterBreachRarityCommander [monster_dropped_item_rarity_+% = 1000]
-		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66]
-	},
-	modListSP = {
-	  "怪物掉落调整数量提高 700%", 
-		  "怪物掉落调整稀有度提高 1000%", 
-		  "怪物召唤超越传送门几率 -66%",
+		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66] [monster_hellscape_charge_+% = -66]
 	},
 }
 -- Scinteel Synthete
@@ -3168,12 +2727,6 @@ minions["Metadata/Monsters/LeagueSynthesis/SynthesisSoulstealer3Spectre"] = {
 		-- MonsterTagSynthesised
 		-- MonsterSynthesisLargeDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 700] [monster_dropped_item_rarity_+% = 1500] [monster_no_map_drops = 0]
 	},
-	modListSP = {
-	"忆境怪物",
-		"忆境怪物掉落加成（大）",
-		"怪物掉落物品数量+700%",
-		"怪物掉落物品稀有度+1500%",
-	},
 }
 -- Redemption Knight
 minions["Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieSeraphFighterSpectre_"] = {
@@ -3197,8 +2750,6 @@ minions["Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieSeraphFighter
 		"EmptyActionAttackEyrieFighter",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 -- Primal Crushclaw
@@ -3225,10 +2776,8 @@ minions["Metadata/Monsters/LeagueHarvest/Blue/HarvestNessaCrabT3Spectre"] = {
 	},
 	modList = {
 		-- MonsterHarvestT3DropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 720] [monster_dropped_item_rarity_+% = 1500] [monster_no_map_drops = 0]
-		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66]
+		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66] [monster_hellscape_charge_+% = -66]
 		-- MapMonsterReducedCurseEffect [unique_boss_curse_effect_on_self_+%_final = -33]
-	},
-	modListSP = {
 	},
 }
 -- Templar Tactician
@@ -3241,7 +2790,7 @@ minions["Metadata/Monsters/LegionLeague/LegionTemplarCaster1Spectre"] = {
 	coldResist = 20,
 	lightningResist = 20,
 	chaosResist = 0,
-	damage = 1.5,
+	damage = 1.25,
 	damageSpread = 0.2,
 	attackTime = 1.17,
 	attackRange = 10,
@@ -3255,9 +2804,7 @@ minions["Metadata/Monsters/LegionLeague/LegionTemplarCaster1Spectre"] = {
 	modList = {
 		-- MonsterIgnoresDelveDarkness [monster_ignores_delve_darkness_mechanic = 1]
 		-- MonsterLegionDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 125] [monster_dropped_item_rarity_+% = 750] [monster_no_map_drops = 1]
-		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66]
-	},
-	modListSP = {
+		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66] [monster_hellscape_charge_+% = -66]
 	},
 }
 -- Frost Auto-Scout
@@ -3282,8 +2829,6 @@ minions["Metadata/Monsters/LeagueHeist/Robot/RobotClockworkGolemColdSpectre"] = 
 	},
 	modList = {
 		-- MonsterNoMapDrops [monster_no_map_drops = 1]
-	},
-	modListSP = {
 	},
 }
 -- Syndicate Operative
@@ -3310,8 +2855,6 @@ minions["Metadata/Monsters/LeagueBetrayal/BetrayalSecretPolice2Spectre_"] = {
 	},
 	modList = {
 	},
-	modListSP = {
-	},
 }
 -- Cloud retch
 minions["Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieKiwethSpectre"] = {
@@ -3334,8 +2877,6 @@ minions["Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieKiwethSpectre
 		"AtlasEyrieKiwethMortarShards",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 -- Artless Assassin
@@ -3368,8 +2909,6 @@ minions["Metadata/Monsters/LeagueHeist/Thug/ThugRanged1EliteSpectre"] = {
 		-- MonsterNoMapDrops [monster_no_map_drops = 1]
 		-- MonsterHarvestT1DropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 100] [monster_dropped_item_rarity_+% = 525] [monster_no_map_drops = 1]
 	},
-	modListSP = {
-	},
 }
 -- Ashblessed Warden
 minions["Metadata/Monsters/LeagueHeist/Robot/RobotPyreKnightEliteSpectre"] = {
@@ -3399,8 +2938,6 @@ minions["Metadata/Monsters/LeagueHeist/Robot/RobotPyreKnightEliteSpectre"] = {
 		-- MonsterNoMapDrops [monster_no_map_drops = 1]
 		-- MonsterHarvestT1DropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 100] [monster_dropped_item_rarity_+% = 525] [monster_no_map_drops = 1]
 	},
-	modListSP = {
-	},
 }
 -- Snow Rhex
 minions["Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieArmouredBirdSpectre__"] = {
@@ -3424,8 +2961,6 @@ minions["Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieArmouredBirdS
 		"AtlasEyrieBirdBreathNoEffects",
 	},
 	modList = {
-	},
-	modListSP = {
 	},
 }
 -- Flickershade
@@ -3452,12 +2987,7 @@ minions["Metadata/Monsters/Maligaro/SecretDesecrateMonster"] = {
 		-- MonsterOneThirdDamageTaken [base_damage_taken_+% = -67]
 		mod("PhysicalDamageConvertToChaos", "BASE", 50), -- MonsterConvertToChaos1 [base_physical_damage_%_to_convert_to_chaos = 50]
 	},
-	modListSP = {
-		"承受的伤害降低 67%",
-		"50% 的物理伤害转换为混沌伤害"
-	},
 }
-
 -- Trail Galecaller
 minions["Metadata/Monsters/LeagueUltimatum/Guard/GuardBowColdWeakSpectre"] = {
 	name = "试炼飓风卫",
@@ -3478,662 +3008,12 @@ minions["Metadata/Monsters/LeagueUltimatum/Guard/GuardBowColdWeakSpectre"] = {
 		"UltimatumGuardConeArrowCold",
 	},
 	modList = {
-	},	
-	modListSP = {
-		
 	},
 }
-
---lucifer
-
-
-minions["Metadata/Monsters/Goatman/GoatmanShamanLightningChampion"] = {
-	name = "羊人唤空者",
-	life = 1.4,
-	energyShield = 0.2,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 75,
-	chaosResist = 0,
-	damage = 1,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 8,
-	accuracy = 1,
-	damageFixup = 0.11,
-	weaponType1 = "Staff",
-	skillList = {
-		"Melee",
-		"MonsterShockNova",
-		"MonsterSpark",
-		"OrbOfStormsGoatmanShamanChampion",
-	},
-	modList = {
-		-- MonsterSpeedAndDamageFixupSmall [monster_base_type_attack_cast_speed_+%_and_damage_-%_final = 11]
-		mod("Speed", "INC", -50, ModFlag.Cast), -- MonsterGoatmanShamanCastSpeed [base_cast_speed_+% = -50]
-		-- MonsterCastsShockNovaText [monster_casts_shock_nova_text = 1]
-		-- MonsterCastsSparkText [monster_casts_spark_text = 1]
-	},
-	modListSP = {
-		"怪物速度和伤害调整（小）", 
-		"羊人怪物施法速度调整", 
-		"施放闪电新星", 
-		"施放电球", 
-	},
-}
-
-
---Ancient Wraith
-minions["Metadata/Monsters/LeagueDelve/GhostEncounter/Wraith"] = {
-	name = "远古恶灵",
-	life = 1.68,
-	energyShield = 0.2,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 40,
-	chaosResist = 0,
-	damage = 1.2,
-	damageSpread = 0.2,
-	attackTime = 1.755,
-	attackRange = 6,
-	accuracy = 1,
-	skillList = {
-		"WraithEtherealKnives",
-		"Melee",
-	},
-	modList = {
-		-- MonsterDelveDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 300] [monster_no_map_drops = 1]
-		-- DelveMonsterEnfeebleOnHit [curse_on_hit_level_enfeeble = 8]
-		-- AdditionalCurseOnEnemies_ [number_of_additional_curses_allowed = 1]
-	},
-	modListSP = {
-		"怪物掉落调整（矿坑）", 
-		"DelveMonsterEnfeebleOnHit", 
-		"AdditionalCurseOnEnemies_", 
-	},
-}
-
-
---Ancient Suffering
-minions["Metadata/Monsters/LeagueDelve/GhostEncounter/WraithPurple"] = {
-	name = "远古冤魂",
-	life = 1.68,
-	energyShield = 0.2,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 40,
-	chaosResist = 0,
-	damage = 1.2,
-	damageSpread = 0.2,
-	attackTime = 1.755,
-	attackRange = 6,
-	accuracy = 1,
-	skillList = {
-		"DelveWraithScreechChaos",
-	},
-	modList = {
-		-- MonsterDelveLargeDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 200] [monster_dropped_item_rarity_+% = 1000] [monster_no_map_drops = 0]
-		-- MonsterChanceToTemporalChainsOnHit1 [curse_on_hit_%_temporal_chains = 100]
-		-- AdditionalCurseOnEnemies_ [number_of_additional_curses_allowed = 1]
-	},
-	modListSP = {
-		"MonsterDelveLargeDropModifiers_", 
-		"击中造成时空锁链", 
-		"AdditionalCurseOnEnemies_", 
-	},
-}
-
-
---Farric Tiger
-minions["Metadata/Monsters/LeagueBestiary/TigerBestiaryMinion"] = {
-	name = "大地之虎",
-	life = 6,
-	armour = 0.5,
-	fireResist = 40,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 0.9,
-	damageSpread = 0.2,
-	attackTime = 1.2,
-	attackRange = 9,
-	accuracy = 1,
-	skillList = {
-		"Melee",
-		"WalkEmergeBestiaryHellion",
-	},
-	modList = {
-		-- MonsterBestiaryDropModifiers [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 0] [monster_dropped_item_rarity_+% = 0] [monster_no_map_drops = 1]
-	},
-	modListSP = {
-		"MonsterBestiaryDropModifiers", 
-	},
-}
-
---Craicic Chimeral
-minions["Metadata/Monsters/LeagueBestiary/GemFrogCrabSpiritBossMinion_"] = {
-	name = "深海奇美拉",
-	life = 6,
-	fireResist = 0,
-	coldResist = 30,
-	lightningResist = 30,
-	chaosResist = 0,
-	damage = 0.9,
-	damageSpread = 0.2,
-	attackTime = 1.005,
-	attackRange = 9,
-	accuracy = 1,
-	skillList = {
-		"Melee",
-		"GemFrogLeapSlam",
-	},
-	modList = {
-		-- MonsterLeapsOntoEnemiesText [monster_leaps_onto_enemies_text = 1]
-	},
-	modListSP = {
-		"跃击", 
-	},
-}
-
---Undying Operator
-
-
-
-minions["Metadata/Monsters/Undying/CityStalkerMaleWorkerLightning2_"] = {
-	name = "不朽操作者",
-	life = 1,
-	armour = 0.3,
-	fireResist = 20,
-	coldResist = 20,
-	lightningResist = 20,
-	chaosResist = 0,
-	damage = 0.75,
-	damageSpread = 0.2,
-	attackTime = 1.245,
-	attackRange = 7,
-	accuracy = 1,
-	weaponType1 = "One Handed Sword",
-	skillList = {
-		"Melee",
-		"BreachLightningOrbsRefinery",
-		"CityStalkerStaticStrike",
-	},
-	modList = {
-	},
-	modListSP = {
-	},
-}
-
-
-minions["Metadata/Monsters/SlaveCatcher/SlaveCatcherKitava"] = {
-	name = "疯狂奴隶",
-	life = 1.2,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 40,
-	chaosResist = 0,
-	damage = 1,
-	damageSpread = 0.2,
-	attackTime = 1.755,
-	attackRange = 9,
-	accuracy = 1,
-	skillList = {
-		"Melee",
-		"SlaveCatcherNetThrow",
-		"DeceleratingProjectile",
-		"SpellNovaKitava",
-	},
-	modList = {
-	},
-	modListSP = {
-	},
-}
-
--- Heretical Guardian
-minions["Metadata/Monsters/ReligiousTemplar/ReligiousTemplarTwoHandedKitava"] = {
-	name = "异教卫士",
-	life = 1.88,
-	energyShield = 0.16,
-	armour = 0.4,
-	fireResist = 20,
-	coldResist = 20,
-	lightningResist = 20,
-	chaosResist = 0,
-	damage = 1.25,
-	damageSpread = 0.2,
-	attackTime = 1.95,
-	attackRange = 11,
-	accuracy = 1,
-	weaponType1 = "Two Handed Sword",
-	skillList = {
-		"Melee",
-		"ReligiousTemplarCultistWeaponThrow",
-		"MonsterProximityShield",
-	},
-	modList = {
-	},
-	modListSP = {
-	},
-}
-
--- Temple Guardian
-
-minions["Metadata/Monsters/ReligiousTemplar/ReligiousTemplarTwoHandedPure"] = {
-	name = "神寺卫士",
-	life = 1.88,
-	energyShield = 0.16,
-	armour = 0.4,
-	fireResist = 20,
-	coldResist = 20,
-	lightningResist = 20,
-	chaosResist = 0,
-	damage = 1.25,
-	damageSpread = 0.2,
-	attackTime = 1.95,
-	attackRange = 11,
-	accuracy = 1,
-	weaponType1 = "Two Handed Sword",
-	skillList = {
-		"Melee",
-		"ReligiousTemplarWeaponThrow",
-		"MonsterProximityShield",
-	},
-	modList = {
-	},
-	modListSP = {
-	},
-}
-
--- Gut Spiker
-minions["Metadata/Monsters/HalfSkeleton/HalfSkeletonRanged"] = {
-	name = "裂脏锋刃",
-	life = 1.21,
-	fireResist = 20,
-	coldResist = 20,
-	lightningResist = 20,
-	chaosResist = 0,
-	damage = 1.16,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 10,
-	accuracy = 1,
-	weaponType1 = "One Handed Mace",
-	skillList = {
-		"Melee",
-		"HalfSkeletonProjectile",
-	},
-	modList = {
-	},
-	modListSP = {
-	},
-}
-
--- Gorgol Alpha
-
-minions["Metadata/Monsters/LeagueDelve/QiongqiChampionSpikedSpawned"] = {
-	name = "穷奇首领",
-	life = 4.88,
-	armour = 1,
-	fireResist = 20,
-	coldResist = 20,
-	lightningResist = 20,
-	chaosResist = 0,
-	damage = 1.31,
-	damageSpread = 0.2,
-	attackTime = 1.305,
-	attackRange = 12,
-	accuracy = 1,
-	skillList = {
-		"DelveMeleeFire",
-		"DelveFlamethrowerLeftToRight",
-		"DelveFlamethrowerRightToLeft",
-		"DelveQiongqiSlash",
-		"DelveQiongqiSlam",
-		"EmptyActionQiongqiSpiked",
-		"DelveQiongqiTornado",
-	},
-	modList = {
-		-- MonsterDelveLargeDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 200] [monster_dropped_item_rarity_+% = 1000] [monster_no_map_drops = 0]
-		-- CannotBeUsedAsMinion [cannot_be_used_as_minion = 1]
-	},
-	modListSP = {
-		"MonsterDelveLargeDropModifiers_", 
-		"CannotBeUsedAsMinion", 
-	},
-}
-minions["Metadata/Monsters/LeagueDelve/QiongqiChampionSpiked"] = {
-	name = "穷奇首领",
-	life = 4.88,
-	armour = 1,
-	fireResist = 20,
-	coldResist = 20,
-	lightningResist = 20,
-	chaosResist = 0,
-	damage = 1.31,
-	damageSpread = 0.2,
-	attackTime = 1.305,
-	attackRange = 12,
-	accuracy = 1,
-	skillList = {
-		"DelveMeleeFire",
-		"DelveFlamethrowerLeftToRight",
-		"DelveFlamethrowerRightToLeft",
-		"DelveQiongqiSlash",
-		"DelveQiongqiSlam",
-		"EmptyActionQiongqiSpiked",
-		"DelveQiongqiTornado",
-	},
-	modList = {
-		-- MonsterDelveLargeDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 200] [monster_dropped_item_rarity_+% = 1000] [monster_no_map_drops = 0]
-	},
-	modListSP = {
-		"MonsterDelveLargeDropModifiers_", 
-	},
-}
- 
- 
---Sun Bleached Vanguard
-minions["Metadata/Monsters/SkeletonSoldier/SkeletonSoldierRangedTornadoShotBleached"] = {
-	name = "阳洁先锋",
-	life = 1.1,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 40,
-	chaosResist = 0,
-	damage = 1.1,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 40,
-	accuracy = 1,
-	weaponType1 = "Bow",
-	skillList = {
-		"Melee",
-		"SkeletonSoldierTornadoShot",
-	},
-	modList = {
-		-- MonsterNecromancerRaisable [undead_description = 1]
-	},
-	modListSP = {
-		"亡灵生物", 
-	},
-}
-
---Turong
-minions["Metadata/Monsters/LeagueDelve/TaowuChampionSpectre"] = {
-	name = "梼杌",
-	life = 5.25,
-	energyShield = 0.2,
-	armour = 0.5,
-	fireResist = 75,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.31,
-	damageSpread = 0.2,
-	attackTime = 1.335,
-	attackRange = 10,
-	accuracy = 1,
-	skillList = {		
-		"FireballTaowuDash",
-		"FireballTaowuCombo",
-		"DelveMeleeFire",
-		"EmptyActionAttackTaowuDash",
-		"AddBuffToTargetDelveDarkZone",
-		"DelveTaowuSlash",
-		"EmptyActionAttackTaowuDashSwipe",
-		"DelveTaowuDashAttack",
-		"DelveTaowuBackwardsSlash",
-		"WalkEmergeDelveWetaUpForward",
-	},
-	modList = {
-		-- MonsterDelveLargeDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 200] [monster_dropped_item_rarity_+% = 1000] [monster_no_map_drops = 0]
-	},
-	modListSP = {
-		"矿坑怪物掉落加成（大）",
-		"怪物掉落物品数量+200%",
-		"怪物掉落物品稀有度+1000%",
-		"怪物不掉落地图"
-		
-	},
-}
-
---Flayed Lookout
-minions["Metadata/Monsters/LeagueBetrayal/BetrayalSkeletonRangedSpectre"] = {
-	name = "无皮哨探",
-	life = 1.2,
-	armour = 0.15,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 40,
-	chaosResist = 0,
-	damage = 1.2,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 80,
-	accuracy = 1,
-	weaponType1 = "Bow",
-	skillList = {
-		"BetrayalSkeletonMelee",
-		"WalkEmergeBetrayal",
-		"BetrayalSkeletonSnipe",
-	},
-	modList = {
-		-- MonsterNecromancerRaisable [undead_description = 1]
-	},
-	modListSP = {
-		"亡灵生物", 
-	},
-}
-
-
--- Baranite Cleric
-minions["Metadata/Monsters/AtlasExiles/CrusaderInfluenceMonsters/CrusaderBlackguardClericSpectre"] = {
-	name = "追随巴兰的牧师",
-	life = 1.2,
-	energyShield = 0.4,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 40,
-	chaosResist = 0,
-	damage = 1.2,
-	damageSpread = 0.2,
-	attackTime = 1.995,
-	attackRange = 40,
-	accuracy = 1,
-	skillList = {
-		"AtlasExilesCrusaderClericBlast",
-		"WalkEmergeAtlasInfluenceMonster_SP",
-	},
-	modList = {
-  
-		-- AtlasCrusaderClericAuraSpectre [physical_damage_%_to_add_as_lightning = 20] [base_chance_to_shock_% = 10]
-		--   mod("ExtraAura", "LIST", { mod =  mod("PhysicalDamageGainAsLightning", "BASE", 20) }),
-		-- mod("ExtraAura", "LIST", { mod =  mod("EnemyShockChance", "BASE", 10) }),
-		 
-	},
-	modListSP = {
-		"巴兰牧师光环（10%感电几率、附加 20% 物理伤害的闪电伤害）", 
-	},
-}
-
-
---Snowcaller
-minions["Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieArcticCrystalCasterSpectre_"] = {
-	name = "唤雪者",
-	life = 4.05,
-	energyShield = 0.16,
-	fireResist = 0,
-	coldResist = 75,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.5,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 14,
-	accuracy = 1,
-	skillList = {
-		"WalkEmergeAtlasInfluenceMonster",
-		"AtlasExileEyrieCasterProjectile",
-		"AtlasEyrieIceSpear",
-		"AtlasEyrieArcticCasterBlast",
-	},
-	modList = {
-	},
-	modListSP = {
-		 
-	},
-}
-
---Mindweave Sentinel
-minions["Metadata/Monsters/LeagueSynthesis/SynthesisRibbonLargeColdSpectre"] = {
-	name = "织心哨兵",
-	life = 4.5,
-	energyShield = 0.4,
-	fireResist = 0,
-	coldResist = 85,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.2,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 6,
-	accuracy = 1,
-	skillList = {
-		"SynthesisRibbonProjectile",
-		"SynthesisRibbonMortar",
-		"SynthesisRibbonGeometryTrigger",
-		"SynthesisRibbonMassMortar",
-	},
-	modList = {
-		-- MonsterTagSynthesised
-		-- MonsterSynthesisLargeDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 700] [monster_dropped_item_rarity_+% = 1500] [monster_no_map_drops = 0]
-	},
-	modListSP = {
-		"忆境怪物",
-		"忆境怪物掉落加成（大）",
-		"怪物掉落物品数量+700%",
-		"怪物掉落物品稀有度+1500%",
-		"怪物不掉落地图",
-		 
-	},
-}
-
---Frosal Synthete
-minions["Metadata/Monsters/LeagueSynthesis/SynthesisSoulstealer2Spectre"] = {
-	name = "冰双融合体",
-	life = 5,
-	energyShield = 0.8,
-	fireResist = 0,
-	coldResist = 85,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.5,
-	damageSpread = 0.2,
-	attackTime = 1.305,
-	attackRange = 8,
-	accuracy = 1,
-	skillList = {
-		"SynthesisSoulstealerProjectileCold",
-		"EmptyActionSynthesisColdCascade",
-		"SynthesisColdCascadeObject",
-		"SynthesisColdCascadeGeometry",
-		"SynthesisColdRend",
-		"SynthesisIceSpear",
-	},
-	modList = {
-		-- MonsterTagSynthesised
-		-- MonsterSynthesisLargeDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 700] [monster_dropped_item_rarity_+% = 1500] [monster_no_map_drops = 0]
-	},
-	modListSP = {
-		 "忆境怪物",
-		"忆境怪物掉落加成（大）",
-		"怪物掉落物品数量+700%",
-		"怪物掉落物品稀有度+1500%",
-		"怪物不掉落地图",
-	},
-}
-
-
-
---Flaric Synthete
-minions["Metadata/Monsters/LeagueSynthesis/SynthesisSoulstealer1Spectre"] = {
-	name = "纤威融合体",
-	life = 5,
-	energyShield = 0.8,
-	fireResist = 85,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.5,
-	damageSpread = 0.2,
-	attackTime = 1.305,
-	attackRange = 8,
-	accuracy = 1,
-	skillList = {
-		"SynthesisSoulstealerProjectileFire",
-		"SynthesisSelfFlameblast",
-		"SynthesisEnergySlice",
-		"SynthesisSoulstealerFireStab",
-		"DashToTarget",
-	},
-	modList = {
-		-- MonsterTagSynthesised
-		-- MonsterSynthesisLargeDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 700] [monster_dropped_item_rarity_+% = 1500] [monster_no_map_drops = 0]
-	},
-	modListSP = {
-		  "忆境怪物",
-		"忆境怪物掉落加成（大）",
-		"怪物掉落物品数量+700%",
-		"怪物掉落物品稀有度+1500%",
-		"怪物不掉落地图",
-	},
-}
-
---Aurid Synthete
-minions["Metadata/Monsters/LeagueSynthesis/SynthesisSoulstealer4Spectre"] = {
-	name = "酸试融合体",
-	life = 5,
-	energyShield = 0.8,
-	fireResist = 42,
-	coldResist = 42,
-	lightningResist = 42,
-	chaosResist = 0,
-	damage = 1.5,
-	damageSpread = 0.2,
-	attackTime = 1.305,
-	attackRange = 8,
-	accuracy = 1,
-	skillList = {
-		"SynthesisSoulstealerProjectilePhysical",
-		"SynthesisSoulstealerQuicksand",
-		"SynthesisSoulstealerDrones",
-		"EmptyActionSynthesisEnrageDrones",
-		"SynthesisSoulstealerDroneEnrage",
-		"GeometrySpellSynthesisPhysical",
-		"SynthesisPhysicalTripleMortar",
-		"SynthesisSoulstealerBombDetonate",
-		"SynthesisSoulstealerDronesOnSelf",
-		"SynthesisPhysicalVolatileSlam",
-		"SynthesisQuicksandStartEffect",
-	},
-	modList = {
-		-- MonsterTagSynthesised
-		-- MonsterSynthesisLargeDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 700] [monster_dropped_item_rarity_+% = 1500] [monster_no_map_drops = 0]
-	},
-	modListSP = {
-		  "忆境怪物",
-		"忆境怪物掉落加成（大）",
-		"怪物掉落物品数量+700%",
-		"怪物掉落物品稀有度+1500%",
-		"怪物不掉落地图",
-	},
-}
-
---Winged Synthete
-minions["Metadata/Monsters/LeagueSynthesis/SynthesisWyvernSpectre"] = {
-	name = "展翼的融合体",
-	life = 0.9,
-	energyShield = 0.1,
+-- Hyrri's Watch
+minions["Metadata/Monsters/LegionLeague/LegionKaruiArcherSpectre"] = {
+	name = "西里的守望",
+	life = 2.25,
 	fireResist = 20,
 	coldResist = 20,
 	lightningResist = 20,
@@ -4141,112 +3021,16 @@ minions["Metadata/Monsters/LeagueSynthesis/SynthesisWyvernSpectre"] = {
 	damage = 1.1,
 	damageSpread = 0.2,
 	attackTime = 1.5,
-	attackRange = 12,
+	attackRange = 50,
 	accuracy = 1,
+	weaponType1 = "Bow",
 	skillList = {
-		"Melee",
-		"SynthesisWyvernProjectile",
-		"SynthesisWyvernMortar",
+		"MeleeKaruiArcher",
+		"LegionKaruiArcherSnipe",
 	},
 	modList = {
-		-- MonsterTagSynthesised
-		-- MonsterSynthesisLargeDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 700] [monster_dropped_item_rarity_+% = 1500] [monster_no_map_drops = 0]
-	},
-	modListSP = {
-		"忆境怪物",
-		"忆境怪物掉落加成（大）",
-		"怪物掉落物品数量+700%",
-		"怪物掉落物品稀有度+1500%",
-		"怪物不掉落地图",
-	},
-}
-
-
--- They of Tul
-minions["Metadata/Monsters/MinerLarge/MinerLargeCommanderBreachSpectre"] = {
-	name = "托沃的它",
-	life = 3,
-	armour = 0.5,
-	fireResist = 30,
-	coldResist = 30,
-	lightningResist = 30,
-	chaosResist = 20,
-	damage = 1.2,
-	damageSpread = 0.2,
-	attackTime = 1.755,
-	attackRange = 9,
-	accuracy = 1,
-	skillList = {
-		"Melee",
-		"BreachBlizzard",
-		"SummonBreachIceTotem",
-	},
-	modList = {
-		-- MonsterBreachQuantityCommander [monster_dropped_item_quantity_+% = 700]
-		-- MonsterBreachRarityCommander [monster_dropped_item_rarity_+% = 1000]
-		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66]
-		-- MonsterKillTrapsMinesTotemsOnDeath [kill_traps_mines_and_totems_on_death = 1]
-	},
-	modListSP = {
-		 "怪物掉落调整数量提高 700%", 
-		  "怪物掉落调整稀有度提高 1000%", 
-		  "怪物召唤超越传送门几率 -66%",
-		  
-	},
-}
-
--- Xoph's Favoured
-minions["Metadata/Monsters/Hellion/HellionBreachHowlSpectre"] = {
-	name = "索伏的青睐",
-	life = 4.68,
-	armour = 0.1,
-	fireResist = 40,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 7,
-	accuracy = 1,
-	weaponType1 = "One Handed Sword",
-	skillList = {
-		"Melee",
-		"EmpoweringHowlSpectre",
-		"BreachCleave",
-	},
-	modList = {
-		-- MonsterBreachQuantity [monster_dropped_item_quantity_+% = 100]
-		-- MonsterBreachRarity [monster_dropped_item_rarity_+% = 300]
-		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66]
-	},
-	modListSP = {
-		  "怪物掉落调整数量提高 100%", 
-		  "怪物掉落调整稀有度提高 300%", 
-		  "怪物召唤超越传送门几率 -66%",
-	},
-}
-
---Hyrri's Watch
-minions["Metadata/Monsters/LegionLeague/LegionKaruiArcher"] = {
-    name = "西里的守望",
-    life = 2.25,
-    fireResist = 20,
-    coldResist = 20,
-    lightningResist = 20,
-    chaosResist = 0,
-    damage = 1.1,
-    damageSpread = 0.2,
-    attackTime = 1.5,
-    attackRange = 50,
-    accuracy = 1,
-    weaponType1 = "Bow",
-    skillList = {
-        "MeleeKaruiArcher",
-        "LegionKaruiArcherSnipe",
-    },
-    modList = {
-    },modListSP = {
-		
+		-- MonsterIgnoresDelveDarkness [monster_ignores_delve_darkness_mechanic = 1]
+		-- MonsterLegionDropModifiers_ [monster_slain_experience_+% = 0] [monster_dropped_item_quantity_+% = 125] [monster_dropped_item_rarity_+% = 750] [monster_no_map_drops = 1]
+		-- BreachReducedBeyondPortalChance [monster_beyond_portal_chance_+%_final = -66] [monster_hellscape_charge_+% = -66]
 	},
 }

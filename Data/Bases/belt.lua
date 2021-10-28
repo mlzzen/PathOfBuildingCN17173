@@ -5,7 +5,7 @@ local itemBases = ...
 itemBases["素布腰带"] = {
 	type = "Belt",
 	tags = { belt = true, default = true, },
-	implicit = "物理伤害提高 (12-24)%",
+	implicit = "全局物理伤害提高 (12-24)%",
 	implicitModTypes = { { "physical_damage", "damage", "physical" }, },
 	req = { },
 }

@@ -127,14 +127,14 @@ itemBases["蛋白石戒指"] = {
 itemBases["朱砂之戒"] = {
 	type = "Ring",
 	tags = { ringatlas3 = true, not_for_sale = true, ring = true, atlas_base_type = true, default = true, },
-	implicit = "最大生命提高 (5-7)%",
+	implicit = "生命上限提高 (5-7)%",
 	implicitModTypes = { { "resource", "life" }, },
 	req = { level = 80, },
 }
 itemBases["天蓝之戒"] = {
 	type = "Ring",
 	tags = { not_for_sale = true, ring = true, atlas_base_type = true, ringatlas4 = true, default = true, },
-	implicit = "最大魔力提高 (8-10)%",
+	implicit = "魔力上限提高 (8-10)%",
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { level = 80, },
 }

@@ -79,7 +79,7 @@ skills["AxisDoubleStrikeTrigger"] = {
 	},
 }
 skills["BanditExplosiveArrowAtAnimationSpeed"] = {
-name = "爆炸箭矢",
+	name = "Explosive Arrow",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.866700053215,
@@ -130,7 +130,7 @@ name = "爆炸箭矢",
 	},
 }
 skills["BanditChampionBlastRainSpectre"] = {
-name = "爆裂箭雨",
+	name = "Blast Rain",
 	hidden = true,
 	color = 2,
 	description = "向天空射出箭矢，在一个区域降下箭雨。每一支箭矢落地时都造成范围伤害，并可以在目标地点叠加。",
@@ -165,7 +165,7 @@ name = "爆裂箭雨",
 	},
 }
 skills["GABeastCleave"] = {
-	name = "横扫",
+	name = "Cleave",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
@@ -189,7 +189,7 @@ skills["GABeastCleave"] = {
 	},
 }
 skills["BirdmanBloodProjectileMortar"] = {
-name = "鲜血投射物",
+	name = "Blood Projectile",
 	hidden = true,
 	color = 4,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
@@ -220,7 +220,7 @@ name = "鲜血投射物",
 	},
 }
 skills["BirdmanConsumeCorpse"] = {
-name = "亵渎",
+	name = "Consume Corpse",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Spell] = true, },
@@ -314,7 +314,7 @@ skills["BreachCleave"] = {
 	},
 }
 skills["BullCharge"] = {
-name = "重盾冲锋",
+	name = "Charge",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, },
@@ -382,7 +382,7 @@ skills["CageSpiderCycloneTriggerSandstorms"] = {
 	},
 }
 skills["CageSpiderSandSpark"] = {
-name = "沙尘暴",
+	name = "Sandstorm",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.64999997615814,
@@ -413,7 +413,7 @@ name = "沙尘暴",
 	},
 }
 skills["ChaosDegenAura"] = {
-name = "混沌光环",
+	name = "Chaos Aura",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.93330001831055,
@@ -438,7 +438,7 @@ name = "混沌光环",
 	},
 }
 skills["DelayedBlastSpectre"] = {
-name = "延时爆破",
+	name = "Delayed Blast",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.77999997138977,
@@ -464,7 +464,7 @@ name = "延时爆破",
 	},
 }
 skills["DelveProtovaalWhirlingCharge"] = {
-name = "旋转充能",
+	name = "Whirling Charge",
 	hidden = true,
 	color = 4,
 	skillTypes = { },
@@ -490,7 +490,7 @@ name = "旋转充能",
 	},
 }
 skills["DemonFemaleRangedProjectile"] = {
-name = "远程攻击",
+	name = "Ranged Attack",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.85000002384186,
@@ -516,7 +516,7 @@ name = "远程攻击",
 	},
 }
 skills["DemonFemaleRangedProjectile2"] = {
-name = "远程攻击",
+	name = "Ranged Attack",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.85000002384186,
@@ -544,7 +544,7 @@ name = "远程攻击",
 	},
 }
 skills["DemonModularBladeVortexSpectre"] = {
-name = "飞刃风暴",
+	name = "Blade Vortex",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 0.59500002861023,
@@ -578,7 +578,7 @@ name = "飞刃风暴",
 	},
 }
 skills["ElementalHitSkeletonKnight"] = {
-name = "火焰元素打击",
+	name = "Elemental Hit Fire",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 1.1667000055313,
@@ -609,13 +609,17 @@ name = "火焰元素打击",
 	stats = {
 		"active_skill_damage_+%_final",
 		"chance_to_freeze_shock_ignite_%",
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"action_attack_or_cast_time_uses_animation_length",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 		"is_area_damage",
 	},
 	levels = {
-		[1] = { 0, 25, baseMultiplier = 1.5, levelRequirement = 1, statInterpolation = { 2, 1, }, cost = { }, },
-		[2] = { 0, 25, baseMultiplier = 1.5, levelRequirement = 20, statInterpolation = { 2, 1, }, cost = { }, },
-		[3] = { 1, 25, baseMultiplier = 1.5, levelRequirement = 21, statInterpolation = { 2, 1, }, cost = { }, },
-		[4] = { 200, 25, baseMultiplier = 1.5, levelRequirement = 84, statInterpolation = { 2, 1, }, cost = { }, },
+		[1] = { 1, 25, baseMultiplier = 1.5, levelRequirement = 1, statInterpolation = { 2, 1, }, cost = { }, },
+		[3] = { 100, 25, baseMultiplier = 1.5, levelRequirement = 45, statInterpolation = { 2, 1, }, cost = { }, },
+		[4] = { 400, 25, baseMultiplier = 1.5, levelRequirement = 84, statInterpolation = { 2, 1, }, cost = { }, },
 	},
 }
 skills["ElementalHitSkeletonKnightIncursion"] = {
@@ -638,17 +642,21 @@ skills["ElementalHitSkeletonKnightIncursion"] = {
 	stats = {
 		"active_skill_damage_+%_final",
 		"chance_to_freeze_shock_ignite_%",
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"action_attack_or_cast_time_uses_animation_length",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0, 25, baseMultiplier = 1.5, levelRequirement = 1, statInterpolation = { 2, 1, }, cost = { }, },
-		[2] = { 0, 25, baseMultiplier = 1.5, levelRequirement = 20, statInterpolation = { 2, 1, }, cost = { }, },
-		[3] = { 1, 25, baseMultiplier = 1.5, levelRequirement = 21, statInterpolation = { 2, 1, }, cost = { }, },
+		[3] = { 1, 25, baseMultiplier = 1.5, levelRequirement = 45, statInterpolation = { 2, 1, }, cost = { }, },
 		[4] = { 200, 25, baseMultiplier = 1.5, levelRequirement = 84, statInterpolation = { 2, 1, }, cost = { }, },
 	},
 }
 skills["ExperimenterDetonateDead"] = {
-name = "爆灵术",
+	name = "Detonate Dead",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.5111000537872,
@@ -680,7 +688,7 @@ name = "爆灵术",
 	},
 }
 skills["FireballIncursionChaos"] = {
-name = "混沌之珠",
+	name = "Chaos Ball",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 2,
@@ -709,7 +717,7 @@ name = "混沌之珠",
 	},
 }
 skills["FireballIncusionFire"] = {
-name = "火球",
+	name = "Fireball",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.97219997644424,
@@ -738,7 +746,7 @@ name = "火球",
 	},
 }
 skills["FireballIncusionLightning"] = {
-name = "天雷之珠",
+	name = "Lightning Ball",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 1.0937999486923,
@@ -767,7 +775,7 @@ name = "天雷之珠",
 	},
 }
 skills["FireMonsterWhirlingBlades"] = {
-name = "火回旋之刃",
+	name = "Fire Roll",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.0888999700546,
@@ -811,7 +819,7 @@ name = "火回旋之刃",
 	},
 }
 skills["FlamebearerFlameBlue"] = {
-name = "蓝火舌图腾",
+	name = "Blue Flame",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.48330000042915,
@@ -848,7 +856,7 @@ name = "蓝火舌图腾",
 	},
 }
 skills["GhostPirateBladeVortexSpectre"] = {
-name = "飞刃风暴",
+	name = "Blade Vortex",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 0.59500002861023,
@@ -918,7 +926,7 @@ skills["GoatmanEarthquake"] = {
 	},
 }
 skills["GoatmanFireMagmaOrb"] = {
-name = "熔岩之核",
+	name = "Magma Orb",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 2.7778000831604,
@@ -956,7 +964,7 @@ name = "熔岩之核",
 	},
 }
 skills["GoatmanMoltenShell"] = {
-name = "熔岩护盾",
+	name = "Molten Shell",
 	hidden = true,
 	color = 1,
 	baseEffectiveness = 6.5,
@@ -1023,7 +1031,7 @@ name = "熔岩护盾",
 	},
 }
 skills["GoatmanMonsterSlam"] = {
-name = "重击",
+	name = "Slam",
 	hidden = true,
 	color = 1,
 	baseEffectiveness = 0,
@@ -1048,7 +1056,7 @@ name = "重击",
 	},
 }
 skills["GroundEffectsSlamDockworkerChampion"] = {
-name = "重击",
+	name = "Slam",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.7272999286652,
@@ -1079,7 +1087,7 @@ name = "重击",
 	},
 }
 skills["GuardianArc"] = {
-name = "电弧",
+	name = "Arc",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.85000002384186,
@@ -1110,7 +1118,7 @@ name = "电弧",
 	},
 }
 skills["HalfSkeletonPuncture"] = {
-name = "放血",
+	name = "Puncture",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 0,
@@ -1177,7 +1185,7 @@ skills["HolyFireElementalFireball"] = {
 	},
 }
 skills["IguanaProjectile"] = {
-name = "弹幕",
+	name = "Barrage",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.8700000047684,
@@ -1205,7 +1213,7 @@ name = "弹幕",
 	},
 }
 skills["IguanaProjectileChrome"] = {
-name = "弹幕",
+	name = "Barrage",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.8700000047684,
@@ -1234,14 +1242,14 @@ name = "弹幕",
 	},
 }
 skills["IncaMinionProjectile"] = {
-name = "混沌投射物",
+	name = "Chaos Projectile",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.3600000143051,
 	incrementalEffectiveness = 0.018999999389052,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1.65,
+	castTime = 1.33,
 	baseFlags = {
 		spell = true,
 		projectile = true,
@@ -1257,11 +1265,12 @@ name = "混沌投射物",
 		"spell_maximum_base_physical_damage",
 		"base_is_projectile",
 		"skill_range_+%",
+		"visual_hit_effect_chaos_is_green",
 	},
 	levels = {
-		[1] = { 0.27000001072884, 0.40000000596046, 0.40000000596046, 0.60000002384186, 1, -75, critChance = 5, levelRequirement = 4, statInterpolation = { 3, 3, 3, 3, 1, 1, }, cost = { Mana = 5, }, },
-		[2] = { 0.27000001072884, 0.40000000596046, 0.40000000596046, 0.60000002384186, 1, -75, critChance = 5, levelRequirement = 21, statInterpolation = { 3, 3, 3, 3, 1, 1, }, cost = { Mana = 4, }, },
-		[3] = { 0.6700000166893, 1.0099999904633, 1.0099999904633, 1.5199999809265, 1, -75, critChance = 5, levelRequirement = 68, statInterpolation = { 3, 3, 3, 3, 1, 1, }, cost = { Mana = 4, }, },
+		[1] = { 0.27000001072884, 0.40000000596046, 0.40000000596046, 0.60000002384186, 1, -75, critChance = 5, levelRequirement = 4, statInterpolation = { 3, 3, 3, 3, 1, 1, }, cost = { }, },
+		[2] = { 0.27000001072884, 0.40000000596046, 0.40000000596046, 0.60000002384186, 1, -75, critChance = 5, levelRequirement = 21, statInterpolation = { 3, 3, 3, 3, 1, 1, }, cost = { }, },
+		[3] = { 0.6700000166893, 1.0099999904633, 1.0099999904633, 1.5199999809265, 1, -75, critChance = 5, levelRequirement = 68, statInterpolation = { 3, 3, 3, 3, 1, 1, }, cost = { }, },
 	},
 }
 skills["IncursionLeapSlamChampion"] = {
@@ -1301,7 +1310,7 @@ skills["IncursionLeapSlamChampion"] = {
 	},
 }
 skills["IncursionMeteorUpheaval"] = {
-name = "混沌尾刺",
+	name = "Chaos Spikes",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.25,
@@ -1330,7 +1339,7 @@ name = "混沌尾刺",
 	},
 }
 skills["InsectSpawnerSpit"] = {
-name = "喷射",
+	name = "Spit",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.93999999761581,
@@ -1359,7 +1368,7 @@ name = "喷射",
 	},
 }
 skills["KaomFireBeamTotemSpectre"] = {
-name = "灼热奔流图腾",
+	name = "Scorching Ray Totem",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 3.039999961853,
@@ -1370,7 +1379,7 @@ name = "灼热奔流图腾",
 	castTime = 0.5,
 	statMap = {
 		["fire_beam_enemy_fire_resistance_%_per_stack"] = {
-			mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectStackVar = "灼热奔流图腾Stage", effectStackLimit = 24 }),
+			mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectStackVar = "KaomFireBeamTotemStage", effectStackLimit = 24 }),
 		},
 	},
 	baseFlags = {
@@ -1379,7 +1388,7 @@ name = "灼热奔流图腾",
 		duration = true,
 	},
 	baseMods = {
-		mod("Damage", "MORE", 60, 0, 0, { type = "Multiplier", actor = "parent", var = "灼热奔流图腾Stage", base = -60, limit = 8 }),
+		mod("Damage", "MORE", 60, 0, 0, { type = "Multiplier", actor = "parent", var = "KaomFireBeamTotemStage", base = -60, limit = 8 }),
 	},
 	qualityStats = {
 	},
@@ -1402,7 +1411,7 @@ name = "灼热奔流图腾",
 	},
 }
 skills["KaomWarriorGroundSlam"] = {
-name = "裂地之击",
+	name = "Ground Slam",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -1430,7 +1439,7 @@ name = "裂地之击",
 	},
 }
 skills["KaomWarriorMoltenStrike"] = {
-name = "熔岩之击",
+	name = "Molten Strike",
 	hidden = true,
 	color = 1,
 	baseEffectiveness = 0.69999998807907,
@@ -1585,7 +1594,7 @@ skills["KitavaDemonWhirlingBlades"] = {
 	},
 }
 skills["KitavaDemonXMortar"] = {
-name = "炮击",
+	name = "Mortar",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 3.5,
@@ -1619,7 +1628,7 @@ name = "炮击",
 	},
 }
 skills["MassFrenzy"] = {
-name = "群体狂乱",
+	name = "Mass Frenzy",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.8700000047684,
@@ -1637,11 +1646,11 @@ name = "群体狂乱",
 	stats = {
 	},
 	levels = {
-		[1] = { cooldown = 6, levelRequirement = 0, statInterpolation = { }, cost = { Mana = 100, }, },
+		[1] = { cooldown = 6, levelRequirement = 0, statInterpolation = { }, cost = { }, },
 	},
 }
 skills["MassPower"] = {
-name = "群体之力",
+	name = "Mass Power",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.8700000047684,
@@ -1659,11 +1668,11 @@ name = "群体之力",
 	stats = {
 	},
 	levels = {
-		[1] = { cooldown = 6, levelRequirement = 0, statInterpolation = { }, cost = { Mana = 100, }, },
+		[1] = { cooldown = 6, levelRequirement = 0, statInterpolation = { }, cost = { }, },
 	},
 }
 skills["MinerThrowFireSpectre"] = {
-name = "掷火",
+	name = "Throw Fire",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.2777999639511,
@@ -1705,7 +1714,7 @@ name = "掷火",
 	},
 }
 skills["MonsterArc"] = {
-name = "电弧",
+	name = "Arc",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.89999997615814,
@@ -1738,7 +1747,7 @@ name = "电弧",
 	},
 }
 skills["MonsterCausticArrow"] = {
-name = "腐蚀箭矢",
+	name = "Caustic Arrow",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 1.0666999816895,
@@ -1791,7 +1800,7 @@ skills["MonsterCausticArrowAtAnimationSpeed"] = {
 	color = 2,
 	baseEffectiveness = 1.0666999816895,
 	incrementalEffectiveness = 0.03999999910593,
-	description = "Fires an arrow which deals chaos damage in an area on impact, and spreads caustic ground. Enemies standing on the caustic ground take chaos damage over time.",
+	description = "射出一发带有腐蚀效果的箭矢, 对击中的敌人造成额外混沌伤害, 并且产生腐蚀地面。站在地面上的敌人将会持续的受到混沌伤害.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanMine] = true, [SkillType.SkillCanTotem] = true, [SkillType.DamageOverTime] = true, [SkillType.ChaosSkill] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
 		["Bow"] = true,
@@ -1825,7 +1834,7 @@ skills["MonsterCausticArrowAtAnimationSpeed"] = {
 	},
 }
 skills["MonsterCausticBomb"] = {
-name = "腐蚀炸弹",
+	name = "Caustic Bomb",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.2667000293732,
@@ -1867,7 +1876,7 @@ name = "腐蚀炸弹",
 	},
 }
 skills["MonsterDischarge"] = {
-name = "解放",
+	name = "Discharge",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 2.2111001014709,
@@ -1901,7 +1910,7 @@ name = "解放",
 	},
 }
 skills["MonsterEnduringCry"] = {
-name = "坚决战吼",
+	name = "Enduring Cry",
 	hidden = true,
 	color = 1,
 	baseEffectiveness = 0,
@@ -1960,8 +1969,8 @@ name = "坚决战吼",
 		[34] = { 2, 1000, 600, cooldown = 8, levelRequirement = 82, statInterpolation = { 1, 1, 1, }, cost = { }, },
 	},
 }
-skills["MonsterEnfeeble"] = {
-name = "衰弱",
+skills["AxisEnfeeble"] = {
+	name = "Enfeeble",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0,
@@ -1998,11 +2007,11 @@ name = "衰弱",
 		"enfeeble_damage_+%_vs_rare_or_unique_final",
 	},
 	levels = {
-		[1] = { 5000, 0, -40, -40, -15, levelRequirement = 4, statInterpolation = { 1, 1, 1, 1, 1, }, cost = { Mana = 35, }, },
+		[1] = { 5000, 0, -40, -40, -15, cooldown = 10, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
 skills["MonsterFireballContactPos"] = {
-name = "火球",
+	name = "Fireball",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 2.5,
@@ -2035,7 +2044,7 @@ name = "火球",
 	},
 }
 skills["MonsterFireBomb"] = {
-name = "火焰炸弹",
+	name = "Fire Bomb",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.8889000415802,
@@ -2073,7 +2082,7 @@ name = "火焰炸弹",
 	},
 }
 skills["MonsterFlickerStrike"] = {
-name = "闪现打击",
+	name = "Flicker Strike",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -2116,7 +2125,7 @@ name = "闪现打击",
 	},
 }
 skills["MonsterFlameRedCannibal"] = {
-name = "烧毁",
+	name = "Incinerate",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.3999999761581,
@@ -2153,7 +2162,7 @@ name = "烧毁",
 	},
 }
 skills["MonsterIceShot"] = {
-name = "冰霜射击",
+	name = "Ice Shot",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 0.85000002384186,
@@ -2210,7 +2219,7 @@ skills["MountainGoatmanIceSpear"] = {
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
-		"chill_duration_+%",
+		"active_skill_chill_duration_+%_final",
 		"ice_spear_second_form_damage_+%",
 		"base_is_projectile",
 		"projectile_uses_contact_position",
@@ -2221,7 +2230,7 @@ skills["MountainGoatmanIceSpear"] = {
 	},
 }
 skills["MonsterLeapSlam"] = {
-name = "跃击",
+	name = "Leap Slam",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -2259,7 +2268,7 @@ name = "跃击",
 	},
 }
 skills["MonsterLeapSlamFoothills"] = {
-	name = "跃击",
+	name = "Leap Slam",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -2298,7 +2307,7 @@ skills["MonsterLeapSlamFoothills"] = {
 	},
 }
 skills["MonsterLesserMultiFireballSpectre"] = {
-name = "低阶多重火球",
+	name = "Lesser Multi Fireball",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.88889998197556,
@@ -2329,7 +2338,7 @@ name = "低阶多重火球",
 	},
 }
 skills["MonsterLesserMultiIceSpear"] = {
-name = "低阶多重冰矛",
+	name = "Lesser Multi Ice Spear",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 1.5908999443054,
@@ -2359,7 +2368,7 @@ name = "低阶多重冰矛",
 	},
 }
 skills["MonsterLightningArrow"] = {
-name = "闪电箭矢",
+	name = "Lightning Arrow",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 1.0199999809265,
@@ -2396,7 +2405,7 @@ skills["SkeletonArcherLightningArrow"] = {
 	color = 2,
 	baseEffectiveness = 1.0199999809265,
 	incrementalEffectiveness = 0.019999999552965,
-	description = "Fires a charged arrow at the target, causing them to be struck by a bolt of lightning which damages nearby enemies.",
+	description = "射出一发充满闪电能量的箭矢, 对敌人造成伤害的同时也对附近额外 3 名敌人造成同等的伤害.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanMine] = true, [SkillType.LightningSkill] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
 		["Bow"] = true,
@@ -2423,7 +2432,7 @@ skills["SkeletonArcherLightningArrow"] = {
 	},
 }
 skills["MonsterLightningThorns"] = {
-name = "闪电荆棘",
+	name = "Lightning Thorns",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.7999999523163,
@@ -2447,7 +2456,7 @@ name = "闪电荆棘",
 	},
 }
 skills["MonsterMultiFireballSpectre"] = {
-name = "多重火球",
+	name = "Multi Fireball",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.77780002355576,
@@ -2478,7 +2487,7 @@ name = "多重火球",
 	},
 }
 skills["MonsterMultiIceSpear"] = {
-name = "多重冰矛",
+	name = "Multi Ice Spear",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 1.5908999443054,
@@ -2508,7 +2517,7 @@ name = "多重冰矛",
 	},
 }
 skills["MonsterProjectileWeakness"] = {
-name = "投射物要害",
+	name = "Projectile Weakness",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 0,
@@ -2545,7 +2554,7 @@ name = "投射物要害",
 	},
 }
 skills["MonsterProximityShield"] = {
-name = "近盾",
+	name = "Proximity Shield",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
@@ -2567,7 +2576,7 @@ name = "近盾",
 	},
 }
 skills["MonsterPuncture"] = {
-name = "放血",
+	name = "Puncture",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 0,
@@ -2605,7 +2614,7 @@ name = "放血",
 	},
 }
 skills["MonsterRighteousFireWhileSpectred"] = {
-name = "不洁之火",
+	name = "Unrighteous Fire",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 1.1110999584198,
@@ -2632,7 +2641,7 @@ name = "不洁之火",
 	},
 }
 skills["MonsterShockNova"] = {
-name = "闪电新星",
+	name = "Shock Nova",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 1.2374999523163,
@@ -2664,7 +2673,7 @@ name = "闪电新星",
 	},
 }
 skills["MonsterSpark"] = {
-name = "电球",
+	name = "Spark",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 1.5625,
@@ -2701,7 +2710,7 @@ name = "电球",
 	},
 }
 skills["MonsterSplitFireballSpectre"] = {
-name = "分裂火球",
+	name = "Split Fireball",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.95560002326965,
@@ -2732,7 +2741,7 @@ name = "分裂火球",
 	},
 }
 skills["MonsterSplitIceSpear"] = {
-name = "分裂冰矛",
+	name = "Split Ice Spear",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 1.5908999443054,
@@ -2762,7 +2771,7 @@ name = "分裂冰矛",
 	},
 }
 skills["MonsterWarlordsMark"] = {
-name = "督军印记",
+	name = "Warlord's Mark",
 	hidden = true,
 	color = 1,
 	baseEffectiveness = 0,
@@ -2840,7 +2849,7 @@ skills["MotherOfFlamesMagmaOrb3"] = {
 	},
 }
 skills["NecromancerConductivity"] = {
-name = "导电",
+	name = "Conductivity",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.85000002384186,
@@ -2881,7 +2890,7 @@ name = "导电",
 	},
 }
 skills["NecromancerElementalWeakness"] = {
-name = "元素要害",
+	name = "Elemental Weakness",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0,
@@ -2921,7 +2930,7 @@ name = "元素要害",
 	},
 }
 skills["NecromancerEnfeeble"] = {
-name = "衰弱",
+	name = "Enfeeble",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0,
@@ -2963,7 +2972,7 @@ name = "衰弱",
 	},
 }
 skills["NecromancerFlammability"] = {
-name = "易燃",
+	name = "Flammability",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.85000002384186,
@@ -3004,7 +3013,7 @@ name = "易燃",
 	},
 }
 skills["NecromancerFrostbite"] = {
-name = "冻伤",
+	name = "Frostbite",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.85000002384186,
@@ -3045,7 +3054,7 @@ name = "冻伤",
 	},
 }
 skills["NecromancerProjectileWeakness"] = {
-name = "投射物要害",
+	name = "Projectile Weakness",
 	hidden = true,
 	color = 2,
 	baseEffectiveness = 0,
@@ -3083,7 +3092,7 @@ name = "投射物要害",
 	},
 }
 skills["NecromancerRaiseZombie"] = {
-name = "魔卫复苏",
+	name = "Raise Zombie",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -3112,7 +3121,7 @@ name = "魔卫复苏",
 	},
 }
 skills["NecromancerVulnerability"] = {
-name = "脆弱",
+	name = "Vulnerability",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -3156,7 +3165,7 @@ name = "脆弱",
 	},
 }
 skills["PyroChaosFireball"] = {
-name = "混沌火球",
+	name = "Chaos Fireball",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.3555999994278,
@@ -3188,7 +3197,7 @@ name = "混沌火球",
 	},
 }
 skills["PyroFireball"] = {
-name = "火球",
+	name = "Fireball",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.1888999938965,
@@ -3219,7 +3228,7 @@ name = "火球",
 	},
 }
 skills["PyroSuicideExplosion"] = {
-name = "自爆",
+	name = "Suicide Explosion",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.2667000293732,
@@ -3252,7 +3261,7 @@ name = "自爆",
 	},
 }
 skills["RevenantSpellProjectileSpectre"] = {
-name = "闪电投射物",
+	name = "Lightning Projectile",
 	hidden = true,
 	color = 4,
 	incrementalEffectiveness = 0.052999999374151,
@@ -3283,7 +3292,7 @@ name = "闪电投射物",
 	},
 }
 skills["SeawitchFrostbolt"] = {
-name = "寒冰弹",
+	name = "Frostbolt",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 2.0455000400543,
@@ -3312,7 +3321,7 @@ name = "寒冰弹",
 	},
 }
 skills["SeaWitchScreech"] = {
-name = "尖哮",
+	name = "Screech",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.27270001173019,
@@ -3341,34 +3350,8 @@ name = "尖哮",
 		[2] = { 1.8500000238419, 2.8800001144409, -20, 1900, cooldown = 6.5, levelRequirement = 68, statInterpolation = { 3, 3, 1, 1, }, cost = { }, },
 	},
 }
-skills["SeaWitchWave"] = {
-name = "震波",
-	hidden = true,
-	color = 4,
-	baseEffectiveness = 1.4636000394821,
-	incrementalEffectiveness = 0.034200001507998,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, },
-	statDescriptionScope = "skill_stat_descriptions",
-	castTime = 1.5,
-	baseFlags = {
-		spell = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
-	stats = {
-		"spell_minimum_base_cold_damage",
-		"spell_maximum_base_cold_damage",
-		"base_is_projectile",
-	},
-	levels = {
-		[1] = { 0.80000001192093, 1.2000000476837, 1, critChance = 5, levelRequirement = 4, statInterpolation = { 3, 3, 1, }, cost = { Mana = 6, }, },
-		[2] = { 2.2400000095367, 3.3599998950958, 1, critChance = 5, levelRequirement = 68, statInterpolation = { 3, 3, 1, }, cost = { Mana = 6, }, },
-	},
-}
 skills["SkeletonBlackAbyssBoneLance"] = {
-name = "亵渎之矛",
+	name = "Unearth",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.5,
@@ -3403,7 +3386,7 @@ name = "亵渎之矛",
 	},
 }
 skills["SkeletonCannonMortar"] = {
-name = "炮击",
+	name = "Mortar",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 3.5,
@@ -3475,7 +3458,7 @@ skills["SkeletonCannonBoneMortar"] = {
 	},
 }
 skills["SkeletonCannonBoneNova"] = {
-name = "裂骨新星",
+	name = "Bone Nova",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Hit] = true, [SkillType.Triggerable] = true, },
@@ -3500,7 +3483,7 @@ name = "裂骨新星",
 	},
 }
 skills["SkeletonMassBowProjectile"] = {
-name = "放血",
+	name = "Puncture",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.8700000047684,
@@ -3528,7 +3511,7 @@ name = "放血",
 	},
 }
 skills["SkeletonProjectileBlack"] = {
-	name = "SkeletonProjectileBlack",
+	name = "",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 1.2699999809265,
@@ -3556,7 +3539,7 @@ skills["SkeletonProjectileBlack"] = {
 	},
 }
 skills["SkeletonSoldierTornadoShot"] = {
-name = "龙卷射击",
+	name = "Tornado Shot",
 	hidden = true,
 	color = 2,
 	description = "射出一支箭矢，在抵达目标地点前一直穿透敌人。然后从抵达地点向所有方向发射投射物，飞行很短时间后消失。",
@@ -3588,7 +3571,7 @@ name = "龙卷射击",
 	},
 }
 skills["SkeletonSpark"] = {
-name = "电球",
+	name = "Spark",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.75,
@@ -3624,8 +3607,8 @@ name = "电球",
 		[7] = { 2.2400000095367, 6.7300000190735, 3500, 1, 2, 1, damageEffectiveness = 0.7, critChance = 5, levelRequirement = 68, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { Mana = 40, }, },
 	},
 }
-skills["SkeletonTemporalChains"] = {
-name = "时空锁链",
+skills["AxisTemporalChains"] = {
+	name = "Temporal Chains",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -3663,11 +3646,11 @@ name = "时空锁链",
 		"temporal_chains_action_speed_+%_vs_rare_or_unique_final",
 	},
 	levels = {
-		[1] = { 4000, 0, -20, -40, 0, -10, levelRequirement = 0, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { Mana = 20, }, },
+		[1] = { 4000, 0, -20, -40, 0, -10, cooldown = 8, levelRequirement = 0, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
 skills["SkeletonVulnerability"] = {
-name = "脆弱",
+	name = "Vulnerability",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -3710,13 +3693,13 @@ name = "脆弱",
 	},
 }
 skills["SlavedriverFlameWhip"] = {
-name = "闪电奔腾",
+	name = "Lightning Surge",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 2.5,
 	incrementalEffectiveness = 0.045000001788139,
-	description = "释放怒焰之力对敌人进行攻击. 燃烧中的敌人将会受到更多伤害.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.FireSkill] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
+	description = "用汹涌的火焰打击前方的敌人。燃烧的敌人会受到更高伤害。如击中被点燃的敌人，则会在它身下产生燃烧地面。你的伤害词缀不能作用于燃烧地面。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.FireSkill] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.5,
 	baseFlags = {
@@ -3745,8 +3728,8 @@ skills["KitavaSlavedriverFlameWhip"] = {
 	color = 3,
 	baseEffectiveness = 2.2000000476837,
 	incrementalEffectiveness = 0.027499999850988,
-	description = "释放怒焰之力对敌人进行攻击. 燃烧中的敌人将会受到更多伤害.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.FireSkill] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
+	description = "用汹涌的火焰打击前方的敌人。燃烧的敌人会受到更高伤害。如击中被点燃的敌人，则会在它身下产生燃烧地面。你的伤害词缀不能作用于燃烧地面。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.FireSkill] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.5,
 	baseFlags = {
@@ -3770,7 +3753,7 @@ skills["KitavaSlavedriverFlameWhip"] = {
 	},
 }
 skills["SnakeSpineProjectile"] = {
-name = "脊柱攻击",
+	name = "Spine Attack",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.8700000047684,
@@ -3795,7 +3778,7 @@ name = "脊柱攻击",
 	},
 }
 skills["SolarisChampionFlameVortex"] = {
-name = "火焰漩涡",
+	name = "Flame Vortex",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.6000000238419,
@@ -3827,7 +3810,7 @@ name = "火焰漩涡",
 	},
 }
 skills["SpecialBeamCannon"] = {
-name = "光柱",
+	name = "Beam",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 4.1556000709534,
@@ -3855,7 +3838,7 @@ name = "光柱",
 	},
 }
 skills["TarMortarTaster"] = {
-name = "焦油投射物",
+	name = "Tar Projectile",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.3332999944687,
@@ -3890,7 +3873,7 @@ name = "焦油投射物",
 	},
 }
 skills["UndyingWhirlingBlades"] = {
-name = "回旋之刃",
+	name = "Whirling Blades",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -3925,7 +3908,7 @@ name = "回旋之刃",
 	},
 }
 skills["WalkingDoubleSlash"] = {
-name = "双重打击",
+	name = "Double Slash",
 	hidden = true,
 	color = 2,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.AttackCanRepeat] = true, [SkillType.Melee] = true, },
@@ -3999,7 +3982,7 @@ skills["WickerManMoltenStrike"] = {
 	},
 }
 skills["VaalincursionMortar"] = {
-name = "物理炮击",
+	name = "Physical Mortar",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.9550000429153,
@@ -4034,7 +4017,7 @@ name = "物理炮击",
 	},
 }
 skills["VaalIncursionFirestorm"] = {
-name = "烈炎风暴",
+	name = "Firestorm",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 4.4443998336792,
@@ -4067,7 +4050,7 @@ name = "烈炎风暴",
 	},
 }
 skills["VaalIncursionSpecialBeamCannonBlood"] = {
-name = "物理光柱",
+	name = "Physical Beam",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2,
@@ -4093,7 +4076,7 @@ name = "物理光柱",
 	},
 }
 skills["MeleeEyrieArrow"] = {
-name = "默认攻击",
+	name = "Default Attack",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -4127,7 +4110,7 @@ name = "默认攻击",
 	},
 }
 skills["AtlasEyrieArcherMortar"] = {
-name = "炮击",
+	name = "Mortar",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.5,
@@ -4161,7 +4144,7 @@ name = "炮击",
 	},
 }
 skills["AtlasEyrieArcherSnipe"] = {
-name = "狙击",
+	name = "Snipe",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Hit] = true, [SkillType.Triggerable] = true, },
@@ -4194,7 +4177,7 @@ name = "狙击",
 	},
 }
 skills["AtlasEyrieArcherCrystalImpact"] = {
-name = "晶体冲击",
+	name = "Crystal Impact",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.5,
@@ -4221,7 +4204,7 @@ name = "晶体冲击",
 	},
 }
 skills["AtlasExilesCrusaderMageguardProjectile"] = {
-name = "投射物法术",
+	name = "Projectile Spell",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.25,
@@ -4252,7 +4235,7 @@ name = "投射物法术",
 	},
 }
 skills["AtlasExileCrusaderMageguardBombExplodeSpectre"] = {
-name = "炸弹",
+	name = "Bombs",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2,
@@ -4279,7 +4262,7 @@ name = "炸弹",
 	},
 }
 skills["AtlasCrusaderMageguardBeam"] = {
-name = "光柱",
+	name = "Beam",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.5,
@@ -4306,7 +4289,7 @@ name = "光柱",
 	},
 }
 skills["AtlasCrusaderSisterMortarSpectre"] = {
-name = "炮击",
+	name = "Mortar",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.2999999523163,
@@ -4342,13 +4325,13 @@ name = "炮击",
 	},
 }
 skills["BreachLightningWhip"] = {
-name = "闪电奔腾",
+	name = "Breach Lightning Whip",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 1.5,
 	incrementalEffectiveness = 0.03999999910593,
-	description = "释放怒焰之力对敌人进行攻击. 燃烧中的敌人将会受到更多伤害.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.FireSkill] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
+	description = "用汹涌的火焰打击前方的敌人。燃烧的敌人会受到更高伤害。如击中被点燃的敌人，则会在它身下产生燃烧地面。你的伤害词缀不能作用于燃烧地面。",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.FireSkill] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.75,
 	baseFlags = {
@@ -4373,7 +4356,7 @@ name = "闪电奔腾",
 	},
 }
 skills["BreachArc"] = {
-name = "裂隙电弧",
+	name = "Breach Arc",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.82499998807907,
@@ -4404,7 +4387,7 @@ name = "裂隙电弧",
 	},
 }
 skills["BreachTeamWarp"] = {
-name = "裂隙团队曲线",
+	name = "Breach Team Warp",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, },
@@ -4431,7 +4414,7 @@ name = "裂隙团队曲线",
 	},
 }
 skills["BreachLightningOrbsCommander"] = {
-name = "裂隙雷球指挥",
+	name = "Breach Lightning Orbs Commander",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.85000002384186,
@@ -4460,7 +4443,7 @@ name = "裂隙雷球指挥",
 	},
 }
 skills["SandLeaperDodgeLeft"] = {
-name = "跳沙者左躲闪",
+	name = "Sand Leaper Dodge Left",
 	hidden = true,
 	color = 4,
 	skillTypes = { },
@@ -4481,7 +4464,7 @@ name = "跳沙者左躲闪",
 	},
 }
 skills["SandLeaperDodgeRight"] = {
-name = "跳沙者右躲闪",
+	name = "Sand Leaper Dodge Right",
 	hidden = true,
 	color = 4,
 	skillTypes = { },
@@ -4502,7 +4485,7 @@ name = "跳沙者右躲闪",
 	},
 }
 skills["SynthesisSoulstealerProjectileLightning"] = {
-name = "闪电投射物",
+	name = "Lightning Projectile",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.5,
@@ -4531,7 +4514,7 @@ name = "闪电投射物",
 	},
 }
 skills["SynthesisSoulstealerLaser"] = {
-name = "闪电激光",
+	name = "Lightning Laser",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.60000002384186,
@@ -4563,7 +4546,7 @@ name = "闪电激光",
 	},
 }
 skills["SynthesisSoulstealerBolt"] = {
-name = "雷霆万钧",
+	name = "Lightning Bolt",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0.60000002384186,
@@ -4595,7 +4578,7 @@ name = "雷霆万钧",
 	},
 }
 skills["MeleeCold"] = {
-name = "默认攻击",
+	name = "Default Attack",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -4626,12 +4609,12 @@ name = "默认攻击",
 	},
 }
 skills["AtlasCrusaderJudgeBallLightning"] = {
-name = "天雷之珠",
+	name = "Ball Lightning",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.41249999403954,
 	incrementalEffectiveness = 0.045000001788139,
-	description = "射出一个移动缓慢的天雷之珠, 将会周期性的对周围的敌人施放闪电并造成伤害.",
+	description = "射出一个移动缓慢的天雷之珠，将会周期性的对周围的敌人施放闪电并造成伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Hit] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Area] = true, [SkillType.SkillCanTotem] = true, [SkillType.SkillCanTrap] = true, [SkillType.SkillCanMine] = true, [SkillType.SpellCanRepeat] = true, [SkillType.Triggerable] = true, [SkillType.LightningSkill] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.6,
@@ -4657,7 +4640,7 @@ name = "天雷之珠",
 	},
 }
 skills["AtlasCruasderJudgeFadingNova"] = {
-name = "新星法术",
+	name = "Nova Spell",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 3,
@@ -4689,7 +4672,7 @@ name = "新星法术",
 	},
 }
 skills["HarvestCrabAbyssSlam"] = {
-name = "猛击",
+	name = "Slam Attack",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Hit] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, },
@@ -4723,7 +4706,7 @@ name = "猛击",
 	},
 }
 skills["LegionTemplarJudgeBallLightning"] = {
-name = "天雷之珠",
+	name = "Ball Lightning",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 0.51560002565384,
@@ -4756,7 +4739,7 @@ name = "天雷之珠",
 	},
 }
 skills["LegionTemplarJudgeStormCall"] = {
-name = "风暴呼唤",
+	name = "Storm Call",
 	hidden = true,
 	color = 3,
 	baseEffectiveness = 3,
@@ -4787,7 +4770,7 @@ name = "风暴呼唤",
 	},
 }
 skills["MPWHeistThugRangedBurningArrow"] = {
-name = "燃烧箭矢",
+	name = "Burning Arrow",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Hit] = true, [SkillType.Triggerable] = true, },
@@ -4822,7 +4805,7 @@ name = "燃烧箭矢",
 	},
 }
 skills["MPSHeistRobotClockworkGolemBasicProjectile"] = {
-name = "冰霜投射物",
+	name = "Frost Projectile",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 3.2000000476837,
@@ -4853,7 +4836,7 @@ name = "冰霜投射物",
 	},
 }
 skills["MMSHeistRobotClockworkGolemMortarSpectre"] = {
-name = "冰霜炮击",
+	name = "Frost Mortar",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2,
@@ -4887,7 +4870,7 @@ name = "冰霜炮击",
 	},
 }
 skills["HeistThugRangedExplosiveArrow"] = {
-name = "爆炸箭矢 (20 层)",
+	name = "Explosive Arrow (20 Fuses)",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.5,
@@ -4939,7 +4922,7 @@ name = "爆炸箭矢 (20 层)",
 		"explosive_arrow_explosion_maximum_added_fire_damage",
 		"explosive_arrow_explosion_base_damage_+permyriad",
 		"explosive_arrow_maximum_bonus_explosion_radius",
-		"explosive_arrow_hit_and_ailment_damage_+%_final_per_stack",
+		"explosive_arrow_hit_damage_+%_final_per_stack",
 		"explosive_arrow_stack_limit",
 		"base_is_projectile",
 		"use_scaled_contact_offset",
@@ -4951,7 +4934,7 @@ name = "爆炸箭矢 (20 层)",
 	},
 }
 skills["EmptyActionAttackSecretPoliceDaggers"] = {
-name = "Dagger Trigger Attack",
+	name = "Dagger Trigger Attack",
 	hidden = true,
 	color = 4,
 	skillTypes = { },
@@ -4973,7 +4956,7 @@ name = "Dagger Trigger Attack",
 	},
 }
 skills["BetrayalSecretPoliceCurveDagger1"] = {
-name = "秘密侦探匕首",
+	name = "Secret Police Daggers",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.5,
@@ -5006,7 +4989,7 @@ name = "秘密侦探匕首",
 	},
 }
 skills["AtlasEyrieKiwethMortarSpectre"] = {
-name = "炮击",
+	name = "Mortar",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.5,
@@ -5041,7 +5024,7 @@ name = "炮击",
 	},
 }
 skills["AtlasEyrieKiwethMortarShards"] = {
-name = "炮击碎片",
+	name = "Mortar Shards",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 1.5,
@@ -5070,7 +5053,7 @@ name = "炮击碎片",
 	},
 }
 skills["GAHeistThugRangedArrowShotgun"] = {
-name = "散弹箭矢",
+	name = "Arrow Shotgun",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
@@ -5096,7 +5079,7 @@ name = "散弹箭矢",
 	},
 }
 skills["GAHeistThugRangedShotgun"] = {
-name = "远程猎枪",
+	name = "Ranged Shotgun",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Channelled] = true, },
@@ -5126,7 +5109,7 @@ name = "远程猎枪",
 	},
 }
 skills["GSHeistRobotPyreBeamBlast"] = {
-name = "光束爆炸",
+	name = "Beam Blast",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 3.2000000476837,
@@ -5155,7 +5138,7 @@ name = "光束爆炸",
 	},
 }
 skills["GSHeistRobotPyreNukeBeam"] = {
-name = "光束",
+	name = "Nuke Beam",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 4,
@@ -5183,7 +5166,7 @@ name = "光束",
 	},
 }
 skills["GSHeistRobotPyreNukeBeamChannelled"] = {
-name = "持续吟唱光束",
+	name = "Nuke Beam Channelled",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 4,
@@ -5211,7 +5194,7 @@ name = "持续吟唱光束",
 	},
 }
 skills["GSHeistRobotPyreBeamSweepBeam"] = {
-name = "光束扫描",
+	name = "Beam Sweep",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 2.5,
@@ -5239,7 +5222,7 @@ name = "光束扫描",
 	},
 }
 skills["MeleeEyrieBird"] = {
-name = "击退攻击",
+	name = "Knockback Attack",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -5273,7 +5256,7 @@ name = "击退攻击",
 	},
 }
 skills["AtlasEyrieBirdBreath"] = {
-name = "寒气吐息",
+	name = "Chilling Breath",
 	hidden = true,
 	color = 4,
 	incrementalEffectiveness = 0.03999999910593,
@@ -5301,7 +5284,7 @@ name = "寒气吐息",
 	},
 }
 skills["SecretDesecrateMonsterEarthquakeTriggered"] = {
-name = "震地",
+	name = "Earthquake",
 	hidden = true,
 	color = 4,
 	description = "猛击地面，对周围造成大量伤害，并在地面上留下裂隙。一段时间过后，地面的裂隙将会释放冲击波造成更多的伤害。在冲击波还未释放前再次使用技能不会刷新地面的裂隙。需要斧类、锤类、短杖、长杖、徒手发动。",
@@ -5339,7 +5322,7 @@ name = "震地",
 	},
 }
 skills["SecretDesecrateMonsterMultiSlash"] = {
-name = "多重砍",
+	name = "Multi Slash",
 	hidden = true,
 	color = 1,
 	baseEffectiveness = 0,
@@ -5364,9 +5347,8 @@ name = "多重砍",
 		[1] = { attackSpeedMultiplier = -33, levelRequirement = 0, statInterpolation = { }, cost = { }, },
 	},
 }
-
 skills["UltimatumGuardMeleeCold"] = {
-	name = "冰箭",
+	name = "Cold Arrow",
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
@@ -5399,7 +5381,7 @@ skills["UltimatumGuardMeleeCold"] = {
 	},
 }
 skills["UltimatumGuardConeArrowCold"] = {
-	name = "锥形箭矢",
+	name = "Cone Arrow",
 	hidden = true,
 	color = 4,
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
@@ -5430,7 +5412,7 @@ skills["MeleeAtAnimationSpeed"] = {
 	hidden = true,
 	color = 4,
 	baseEffectiveness = 0,
-	description = "Strike your foes down with a powerful blow.",
+	description = "对你的敌人无情痛击.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, [SkillType.Melee] = true, [SkillType.SkillCanVolley] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -5453,4 +5435,67 @@ skills["MeleeAtAnimationSpeed"] = {
 	levels = {
 		[1] = { levelRequirement = 1, statInterpolation = { }, cost = { }, },
 	},
-} 
+}
+skills["MeleeKaruiArcher"] = {
+	name = "Cold Arrow",
+	hidden = true,
+	color = 4,
+	baseEffectiveness = 0,
+	description = "对你的敌人无情痛击.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.AttackCanRepeat] = true, [SkillType.Melee] = true, [SkillType.SkillCanVolley] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 1,
+	baseFlags = {
+		attack = true,
+		projectile = true,
+		melee = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"arrow_projectile_variation",
+		"skill_physical_damage_%_to_convert_to_cold",
+		"active_skill_damage_+%_final",
+		"skill_can_fire_arrows",
+	},
+	levels = {
+		[1] = { 18, 75, 0, levelRequirement = 1, statInterpolation = { 1, 1, 2, }, cost = { }, },
+		[2] = { 18, 75, 0, levelRequirement = 19, statInterpolation = { 1, 1, 2, }, cost = { }, },
+		[3] = { 18, 75, 1, levelRequirement = 20, statInterpolation = { 1, 1, 2, }, cost = { }, },
+		[4] = { 18, 75, 200, levelRequirement = 84, statInterpolation = { 1, 1, 2, }, cost = { }, },
+	},
+}
+skills["LegionKaruiArcherSnipe"] = {
+	name = "Snipe",
+	hidden = true,
+	color = 4,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.ProjectileAttack] = true, [SkillType.SkillCanMirageArcher] = true, [SkillType.Projectile] = true, [SkillType.SkillCanVolley] = true, [SkillType.Hit] = true, [SkillType.Triggerable] = true, },
+	statDescriptionScope = "skill_stat_descriptions",
+	castTime = 2.5,
+	baseFlags = {
+		attack = true,
+		projectile = true,
+		hit = true,
+	},
+	baseMods = {
+	},
+	qualityStats = {
+	},
+	stats = {
+		"skill_physical_damage_%_to_convert_to_cold",
+		"active_skill_attack_speed_+%_final",
+		"monster_projectile_variation",
+		"active_skill_damage_+%_final",
+		"base_is_projectile",
+		"always_pierce",
+		"skill_can_fire_arrows",
+	},
+	levels = {
+		[1] = { 75, -50, 69, 0, baseMultiplier = 1.65, cooldown = 10, levelRequirement = 1, statInterpolation = { 1, 1, 1, 2, }, cost = { }, },
+		[2] = { 75, -50, 69, 0, baseMultiplier = 1.65, cooldown = 10, levelRequirement = 20, statInterpolation = { 1, 1, 1, 2, }, cost = { }, },
+		[3] = { 75, -50, 69, 1, baseMultiplier = 1.65, cooldown = 10, levelRequirement = 21, statInterpolation = { 1, 1, 1, 2, }, cost = { }, },
+		[4] = { 75, -50, 69, 200, baseMultiplier = 1.65, cooldown = 10, levelRequirement = 84, statInterpolation = { 1, 1, 1, 2, }, cost = { }, },
+	},
+}
