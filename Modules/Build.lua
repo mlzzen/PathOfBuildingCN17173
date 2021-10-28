@@ -402,7 +402,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "SpellBlockChance", label = "法术格挡几率", fmt = "d%%", overCapStat = "SpellBlockChanceOverCap" },
 		{ stat = "AttackDodgeChance", label = "攻击躲避几率", fmt = "d%%", overCapStat = "AttackDodgeChanceOverCap" },
 		{ stat = "SpellDodgeChance", label = "法术躲避几率", fmt = "d%%", overCapStat = "SpellDodgeChanceOverCap" },
-		{ stat = "SpellSuppressionChance", label = "法术抑制几率", fmt = "d%%", overCapStat = "SpellSuppressionChanceOverCap" },
+		{ stat = "SpellSuppressionChance", label = "法术伤害压制率", fmt = "d%%", overCapStat = "SpellSuppressionChanceOverCap" },
 		{ },
 		{ stat = "FireResist", label = "火焰抗性", fmt = "d%%", color = colorCodes.FIRE, condFunc = function() return true end, overCapStat = "FireResistOverCap"},
 		{ stat = "FireResistOverCap", label = "火焰抗性溢出", fmt = "d%%", hideStat = true },

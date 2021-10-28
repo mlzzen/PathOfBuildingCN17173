@@ -1362,10 +1362,10 @@ flag = "rage",
 	{ label = "攻击躲避几率", { format = "{0:output:AttackDodgeChance}% (+{0:output:AttackDodgeChanceOverCap}%)", { modName = "AttackDodgeChance" }, }, },
 	{ label = "法术躲避几率", { format = "{0:output:SpellDodgeChance}% (+{0:output:SpellDodgeChanceOverCap}%)", { modName = "SpellDodgeChance" }, }, },
 } }, 
-{ defaultCollapsed = false, label = "法术抑制", data = {
+{ defaultCollapsed = false, label = "法术伤害压制", data = {
 	extra = "{0:output:SpellSuppressionChance}%",
-	{ label = "法术抑制几率", { format = "{0:output:SpellSuppressionChance}% (+{0:output:SpellSuppressionChanceOverCap}%)", { modName = "SpellSuppressionChance" }, }, },
-	{ label = "法术抑制效果", { format = "{0:output:SpellSuppressionEffect}%", { modName = "SpellSuppressionEffect" }, }, },
+	{ label = "法术伤害压制率", { format = "{0:output:SpellSuppressionChance}% (+{0:output:SpellSuppressionChanceOverCap}%)", { modName = "SpellSuppressionChance" }, }, },
+	{ label = "法术伤害压制效果", { format = "{0:output:SpellSuppressionEffect}%", { modName = "SpellSuppressionEffect" }, }, },
 } },
 { defaultCollapsed = true, label = "伤害避免", data = {
 	{ label = "避免物理伤害几率", haveOutput = "AvoidPhysicalDamageChance", { format = "{0:output:AvoidPhysicalDamageChance}%", { modName = "AvoidPhysicalDamageChance" }, }, },

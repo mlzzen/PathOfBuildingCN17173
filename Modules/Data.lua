@@ -205,7 +205,7 @@ data.powerStatList = {
 	{ stat="EffectiveMovementSpeedMod", label="移动速度" },
 	{ stat="BlockChance", label="攻击格挡几率" },
 	{ stat="SpellBlockChance", label="法术格挡几率" },
-	{ stat="SpellSuppressionChance", label="法术抑制几率" },
+	{ stat="SpellSuppressionChance", label="法术伤害压制率" },
 }
 
 data.skillColorMap = { colorCodes.STRENGTH, colorCodes.DEXTERITY, colorCodes.INTELLIGENCE, colorCodes.NORMAL }

@@ -463,10 +463,13 @@ local modNameList = {
 	-- Life/mana
 	["生命"] = "Life", --备注：life
 	["最大生命"] = "Life", --备注：maximum life
+	["生命上限"] = "Life", --备注：maximum life
 	["魔力"] = "Mana", --备注：mana
 	["最大魔力"] = "Mana", --备注：maximum mana
+	["魔力上限"] = "Mana", --备注：maximum mana
 	["魔力回复"] = "ManaRegen", --备注：mana regeneration
 	["魔力回复速度"] = "ManaRegen", --备注：mana regeneration rate
+	["魔力再生率"] = "ManaRegen", --备注：mana regeneration
 	["魔力消耗"] = "ManaCost", --备注：mana cost
 	["魔力消耗"] = "ManaCost", --备注：mana cost of
 	["技能魔力消耗"] = "ManaCost", --备注：mana cost of skills
@@ -478,6 +481,7 @@ local modNameList = {
 	["最大能量护盾"] = "EnergyShield", --备注：maximum energy shield
 	["能量护盾的回复速度"] = "EnergyShieldRecharge", --备注：energy shield recharge rate
 	["能量护盾启动回复"] = "EnergyShieldRechargeFaster", --备注：start of energy shield recharge
+	["能量护盾充能时间提前"] = "EnergyShieldRechargeFaster", --备注：start of energy shield recharge
 	["结界"] = "Ward", --备注：energy shield
 	["结界复原速度"] = "WardRechargeFaster",
 	["护甲"] = "Armour", --备注：armour
@@ -552,7 +556,7 @@ local modNameList = {
 	["to dodge spell damage"] = "SpellDodgeChance",
 	["躲避攻击和法术击中"] = { "AttackDodgeChance", "SpellDodgeChance" }, --备注：to dodge attacks and spells
 	["躲避攻击或法术击中"] = { "AttackDodgeChance", "SpellDodgeChance" }, --备注：to dodge attacks and spells
-	["抑制法术伤害"] = { "SpellSuppressionChance" },
+	["法术伤害压制率"] = { "SpellSuppressionChance" },
 	["to block"] = "BlockChance",
 	["to block attacks"] = "BlockChance",
 	["to block attack damage"] = "BlockChance",
@@ -620,6 +624,8 @@ local modNameList = {
 	["你身上的捷增益效果"] = { "BuffEffect", tag = { type = "SkillType", skillType = SkillType.Herald } }, --备注：effect of heralds on you
 	["战吼的增益效果"] = { "BuffEffect", keywordFlags = KeywordFlag.Warcry }, --备注：warcry effect
 	["【鸟之势】增益效果"] = { "BuffEffect", tag = { type = "SkillName", skillName = "鸟之势" } }, --备注：aspect of the avian buff effect
+	["护身上限"] = "MaximumFortification",
+	["fortification"] = "Multiplier:Fortification",
 	-- Charges
 	["暴击球数量上限"] = "PowerChargesMax", --备注：maximum power charge
 	["暴击球数量上限"] = "PowerChargesMax", --备注：maximum power charges
@@ -748,6 +754,7 @@ local modNameList = {
 	["攻击暴击率"] = { "CritChance", flags = ModFlag.Attack }, --备注：attack critical strike chance
 	["暴击伤害加成"] = "CritMultiplier", --备注：critical strike multiplier
 	["命中值"] = "Accuracy", --备注：accuracy
+	["总命中值"] = "Accuracy", --备注：accuracy
 	["攻击命中值"] = "Accuracy", --备注：accuracy rating
 	["minion accuracy rating"] = { "Accuracy", addToMinion = true },
 	["攻击速度"] = { "Speed", flags = ModFlag.Attack }, --备注：attack speed
@@ -2566,6 +2573,7 @@ local specialModList = {
 	["受到击中元素伤害的 (%d+)%% 转换为混沌伤害"] = function(num) return {  mod("ElementalDamageTakenAsChaos", "BASE", num)  } end,
 	["受到击中火焰伤害的 (%d+)%% 转化为物理伤害"] = function(num) return {  mod("FireDamageTakenAsPhysical", "BASE", num)  } end,
 	-- fuck 国服翻译
+	["能量护盾充能时间提前 (%d+)%%"] = function(num) return { mod("EnergyShieldRechargeFaster", "INC", num) } end,
 	["受到的闪电总伤害额外降低 (%d+)%%"] = function(num) return { mod("LightningDamageTaken", "MORE", -num) } end,
 	["受到的冰霜总伤害额外降低 (%d+)%%"] = function(num) return { mod("ColdDamageTaken", "MORE", -num) } end,
 	["受到的火焰总伤害额外降低 (%d+)%%"] = function(num) return { mod("FireDamageTaken", "MORE", -num) } end,
@@ -2593,6 +2601,7 @@ local specialModList = {
 	["每秒回复 ([%d%.]+)%% 能量护盾"]=function(num) return {  mod("EnergyShieldRegenPercent", "BASE", num)  } end,
 	["每秒回复 ([%d%.]+) 能量护盾"]=function(num) return {  mod("EnergyShieldRegen", "BASE", num)  } end,
 	["每秒回复 ([%d%.]+)%% 生命"]=function(num) return {  mod("LifeRegenPercent", "BASE", num)  } end,
+	["生命每秒再生 ([%d%.]+)%%"]=function(num) return {  mod("LifeRegenPercent", "BASE", num)  } end,
 	["每秒回复 ([%d%.]+)%% 魔力"]=function(num) return {  mod("ManaRegenPercent", "BASE", num)  } end,
 	["近期内你若被击中，则每秒回复 ([%d%.]+)%% 生命"]=function(num) return {  mod("LifeRegenPercent", "BASE", num,{ type = "Condition", var = "BeenHitRecently" })  } end,
 	["(%d+)%% 的攻击格挡率同样套用于法术格挡"]=function(num) return {  mod("BlockChanceConv", "BASE", num)  } end,
@@ -7223,8 +7232,8 @@ local jewelOtherFuncs = {
 	["范围内其他伤害类型的增减转换成火焰伤害"] = getSimpleConv({"PhysicalDamage","ColdDamage","LightningDamage","ChaosDamage"}, "FireDamage", "INC", true), --备注：Increases and Reductions to other Damage Types in Radius are Transformed to apply to Fire Damage
 	["范围内提高闪电抗性的天赋也会以 35% 的比例提高法术格挡率"] = getSimpleConv({"LightningResist","ElementalResist"}, "SpellBlockChance", "BASE", false, 0.35), --备注：Passives granting Lightning Resistance or all Elemental Resistances in Radius also grant Chance to Block Spells at 35% of its value
 	["范围内提高冰霜抗性的天赋也会以 35% 的比例提高躲避攻击击中几率"] = getSimpleConv({"ColdResist","ElementalResist"}, "AttackDodgeChance", "BASE", false, 0.35), --备注：Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Dodge Attacks at 35% of its value
-	["范围内提高冰霜抗性的天赋也会以 35% 的比例提高法术抑制几率"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.35),
-	["范围内提高冰霜抗性的天赋也会以 50% 的比例提高法术抑制几率"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.5),
+	["范围内提高冰霜抗性的天赋也会以 35% 的比例提高法术伤害压制率"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.35),
+	["范围内提高冰霜抗性的天赋也会以 50% 的比例提高法术伤害压制率"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.5),
 	["范围内提高火焰抗性的天赋也会以 35% 的比例提高攻击格挡率"] = getSimpleConv({"FireResist","ElementalResist"}, "BlockChance", "BASE", false, 0.35), --备注：Passives granting Fire Resistance or all Elemental Resistances in Radius also grant Chance to Block at 35% of its value
 	["范围内的近战和近战武器加成转换成弓类武器加成"] = function(node, out, data) --备注：Melee and Melee Weapon Type modifiers in Radius are Transformed to Bow Modifiers
 		if node then

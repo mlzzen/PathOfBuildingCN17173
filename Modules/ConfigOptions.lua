@@ -708,7 +708,7 @@ end },
 { var = "buffPhasing", type = "check", label = "你是否处于【迷踪】状态?", ifCond = "Phasing", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Phasing", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-{ var = "multiplierFortification", type = "count", label = "护体防卫层数: #", tooltip = "每层护体防卫层数使你受到的击中伤害降低1%\n默认层数上限为20层", apply = function(val, modList, enemyModList)
+{ var = "multiplierFortification", type = "count", label = "护身层数: #", tooltip = "每层护身层数使你受到的击中伤害降低1%\n默认层数上限为20层", apply = function(val, modList, enemyModList)
 	modList:NewMod("Multiplier:Fortification", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	modList:NewMod("Condition:Fortified", "FLAG", val >= 1, "Config", { type = "Condition", var = "Combat" })
 end },
