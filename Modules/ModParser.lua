@@ -6359,13 +6359,13 @@ local specialModList = {
 	["暴击时触发【(.+)】"] = function( _, skill) return triggerExtraSkill(skill, 1, true) end, --备注：trigger (.+) on critical strike
 	["你被暴击时触发【(.+)】"] = function( _, skill) return triggerExtraSkill(skill, 1, true) end, --备注：triggers? (.+) when you take a critical strike
 	["此物品上的【(.+)技能石】由 (%d+) 级的 (.+) 辅助"] = function(num, _, support) return { mod("ExtraSupport", "LIST", { skillId = FuckSkillSupportCnName(support) or FuckSkillSupportCnName(support:gsub("^increased ","")) or "Unknown", level = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end, --备注：socketed [%a+]* ?gems a?r?e? ?supported by level (%d+) (.+)
-	["插槽中的辅助宝石同时辅助你主手的技能"] = function (_, itemSlotName)
+	["插入的辅助宝石也能辅助你主手上的技能"] = function (_, itemSlotName)
 		local targetItemSlotName = "Weapon 1"
 		return {
 			mod("LinkedNonExceptionSupport", "LIST", { targetSlotName = targetItemSlotName }, { type = "SocketedIn", slotName = "{SlotName}" }),
 		}
 	end,
-	["插槽中的辅助宝石同时辅助你胸甲的技能"] = function (_, itemSlotName)
+	["插入的辅助宝石也能辅助你身体装备上的技能"] = function (_, itemSlotName)
 		local targetItemSlotName = "Body Armour"
 		return {
 			mod("LinkedNonExceptionSupport", "LIST", { targetSlotName = targetItemSlotName }, { type = "SocketedIn", slotName = "{SlotName}" }),

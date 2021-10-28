@@ -12,11 +12,11 @@ return {
 ]],
 [[
 乌尔尼多之誓
-夕暮护身符
+潜能项链
 等级需求: 72
 固定基底词缀: 1
 有 1 个插槽
-Socketed Non-Exceptional Support Gems can also Support Skills from your Body Armour
+插入的辅助宝石也能辅助你身体装备上的技能
 {tags:jewellery_resistance}+(-30-30)% 火焰抗性
 {tags:jewellery_resistance}+(-30-30)% 冰霜抗性
 {tags:jewellery_resistance}+(-30-30)% 闪电抗性
