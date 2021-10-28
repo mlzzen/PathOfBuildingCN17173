@@ -652,15 +652,15 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	if itemData.properties then
 		for _, property in pairs(itemData.properties) do
-if property.name == "品质" then
+			if property.name == "品质" then
 				item.quality = tonumber(property.values[1][1]:match("%d+"))
-elseif  property.name:find("品质（", 1, true)  then
+			elseif  property.name:find("品质（", 1, true)  then
 				item.qualityTitle = property.name
 				item.quality = tonumber(property.values[1][1]:match("%d+"))
 				--print(item.qualityTitle)
-elseif property.name == "范围" then
+			elseif property.name == "范围" then
 				item.jewelRadiusLabel = property.values[1][1]
-elseif property.name == "仅限" then
+			elseif property.name == "仅限" then
 				item.limit = tonumber(property.values[1][1])
 			elseif property.name == "Evasion Rating" then
 				if item.baseName == "Two-Toned Boots (Armour/Energy Shield)" then
@@ -673,6 +673,12 @@ elseif property.name == "仅限" then
 					-- Yet another hack for Two-Toned Boots
 					item.baseName = "Two-Toned Boots (Evasion/Energy Shield)"
 					item.base = self.build.data.itemBases[item.baseName]
+				end
+			end
+			if property.name == "Energy Shield" or property.name == "Ward" or property.name == "Armour" or property.name == "Evasion" then
+				item.armourData = item.armourData or { }
+				for _, value in ipairs(property.values) do
+					item.armourData[property.name:gsub(" ", "")] = (item.armourData[property.name:gsub(" ", "")] or 0) + tonumber(value[1])
 				end
 			end
 		end
