@@ -97,6 +97,7 @@ self.controls.compareCheck = new("CheckBoxControl", {"LEFT",self.controls.specSe
 main:OpenConfirmPopup("Reset Tree", "确定要重置天赋树吗?", "重置", function()			
 			
 			self.build.spec:ResetNodes()
+			self.build.spec:BuildAllDependsAndPaths()
 			--self.build.spec:resetAllocTimeJew(); 
 			self.build.spec:AddUndoState()
 			self.build.buildFlag = true
