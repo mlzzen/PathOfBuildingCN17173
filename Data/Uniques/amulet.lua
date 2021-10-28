@@ -1,7 +1,27 @@
 ﻿-- Item data (c) Grinding Gear Games
 return {
 -- Amulet
-
+[[
+扼杀之息
+黑曜护身符
+联盟: 灾魇
+等级需求: 52
+固定基底词缀: 1
+{tags:jewellery_attribute}+(10-16) 全属性
+可附加 3 种额外的附魔词缀
+]],
+[[
+乌尔尼多之誓
+夕暮护身符
+等级需求: 72
+固定基底词缀: 1
+有 1 个插槽
+Socketed Non-Exceptional Support Gems can also Support Skills from your Body Armour
+{tags:jewellery_resistance}+(-30-30)% 火焰抗性
+{tags:jewellery_resistance}+(-30-30)% 冰霜抗性
+{tags:jewellery_resistance}+(-30-30)% 闪电抗性
+{tags:chaos,jewellery_resistance}+(-23-23)% 混沌抗性
+]],
 [[
 冬之心【仿品】
 帝金护身符
@@ -1133,14 +1153,5 @@ Talisman Tier: 2
 {tags:jewellery_attribute}+(40-50) 敏捷
 周围友军击中造成的伤害特别幸运
 {tags:speed}移动速度提高 (5-8)%
-]],
-[[
-Stranglegasp
-黑曜护身符
-联盟: 寄生菌潮
-等级需求: 52
-固定基底词缀: 1
-{tags:jewellery_attribute}+(10-16) 全属性
-可以有 3 个额外附魔词缀
-]],
+]]
 }

@@ -2067,6 +2067,8 @@ local specialModList = {
 	["([%+%-]?%d+) 奉献"]= function(num) return {
 	mod("Devotion", "BASE", num)
 	}end,
+	["可附加第二种附魔词缀"] = { },
+	["可附加 (%d+) 种额外的附魔词缀"] = { },
 	--能量护盾回复问题
 	--（有带“的”的词缀解析为充能速度，不带“的”的解析为回复速度）
 	["能量护盾的回复速度提高 (%d+)%%"] = function(num) return {  mod("EnergyShieldRecharge", "INC", num)  } end,
@@ -6346,6 +6348,18 @@ local specialModList = {
 	["暴击时触发【(.+)】"] = function( _, skill) return triggerExtraSkill(skill, 1, true) end, --备注：trigger (.+) on critical strike
 	["你被暴击时触发【(.+)】"] = function( _, skill) return triggerExtraSkill(skill, 1, true) end, --备注：triggers? (.+) when you take a critical strike
 	["此物品上的【(.+)技能石】由 (%d+) 级的 (.+) 辅助"] = function(num, _, support) return { mod("ExtraSupport", "LIST", { skillId = FuckSkillSupportCnName(support) or FuckSkillSupportCnName(support:gsub("^increased ","")) or "Unknown", level = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end, --备注：socketed [%a+]* ?gems a?r?e? ?supported by level (%d+) (.+)
+	["插槽中的辅助宝石同时辅助你主手的技能"] = function (_, itemSlotName)
+		local targetItemSlotName = "Weapon 1"
+		return {
+			mod("LinkedNonExceptionSupport", "LIST", { targetSlotName = targetItemSlotName }, { type = "SocketedIn", slotName = "{SlotName}" }),
+		}
+	end,
+	["插槽中的辅助宝石同时辅助你胸甲的技能"] = function (_, itemSlotName)
+		local targetItemSlotName = "Body Armour"
+		return {
+			mod("LinkedNonExceptionSupport", "LIST", { targetSlotName = targetItemSlotName }, { type = "SocketedIn", slotName = "{SlotName}" }),
+		}
+	end,
 	-- Conversion
 	["召唤生物伤害提高或降低，将同样套用于自身"] = { flag("MinionDamageAppliesToPlayer") , mod("ImprovedMinionDamageAppliesToPlayer", "INC", 100) }, --备注：increases and reductions to minion damage also affects? you
 	["召唤生物攻击速度的加成同时套用于你身上"] = { flag("MinionAttackSpeedAppliesToPlayer") , mod("ImprovedMinionAttackSpeedAppliesToPlayer", "INC", 100)}, --备注：increases and reductions to minion attack speed also affects? you

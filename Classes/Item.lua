@@ -489,6 +489,27 @@ if combLine:match("%(%d+%-%d+ %- %d+%-%d+%)") or combLine:match("%(%-?[%d%.]+ %-
 						modList, extra = modLib.parseMod(rangedLine or line)
 					end
 				end
+
+				local lineLower = line:lower()
+				if lineLower == "this item can be anointed by cassia" then
+					self.canBeAnointed = true
+				elseif lineLower == "可附加第二种附魔词缀" then
+					self.canHaveTwoEnchants = true
+				elseif lineLower == "可附加 1 种额外的附魔词缀" then
+					self.canHaveTwoEnchants = true
+				elseif lineLower == "可附加 2 种额外的附魔词缀" then
+					self.canHaveTwoEnchants = true
+					self.canHaveThreeEnchants = true
+				elseif lineLower == "可附加 3 种额外的附魔词缀" then
+					self.canHaveTwoEnchants = true
+					self.canHaveThreeEnchants = true
+					self.canHaveFourEnchants = true
+				end
+
+				if data.itemBases[line] then
+					self.baseLines = self.baseLines or { }
+					self.baseLines[line] = { line = line, variantList = variantList}
+				end
 				
 				local modLines
 				if enchant or (crafted and #self.enchantModLines + #self.implicitModLines < implicitLines) then
