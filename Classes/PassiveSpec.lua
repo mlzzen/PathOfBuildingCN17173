@@ -28,21 +28,14 @@ local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, b
 
 	-- Make a local copy of the passive tree that we can modify
 	self.nodes = { }
-	self.nodesSP = { }
 	for _, treeNode in pairs(self.tree.nodes) do
 		-- Exclude proxy or groupless nodes, as well as expansion sockets
 		if treeNode.group and not treeNode.isProxy and not treeNode.group.isProxy and (not treeNode.expansionJewel or not treeNode.expansionJewel.parent) then 
 			self.nodes[treeNode.id] = setmetatable({ 
-			linked = { },
-				power = { }
-			}, treeNode)
-		else
-			self.nodesSP[treeNode.id] = setmetatable({ 
-			linked = { },
+				linked = { },
 				power = { }
 			}, treeNode)
 		end
-		 
 	end
 	for id, node in pairs(self.nodes) do
 		for _, otherId in ipairs(node.linkedId) do
