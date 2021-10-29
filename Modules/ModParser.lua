@@ -438,12 +438,12 @@ local modNameList = {
 	["技能保留效果"] = "Reserved",
 	["技能的保留"] = "Reserved",
 	["资源保留"] = { "Reserved" },
-	["技能的保留效率"] = "ReservationEfficiency",
+	["技能的保留效能"] = "ReservationEfficiency",
 	["技能保留效果"] = "ReservationEfficiency",
-	["魔力保留效率"] = "ManaReservationEfficiency",
-	["技能的生命保留效率"] = "LifeReservationEfficiency",
-	["技能的魔力保留效率"] = "ManaReservationEfficiency",
-	["生命保留效率"] = "LifeReservationEfficiency",
+	["魔力保留效能"] = "ManaReservationEfficiency",
+	["技能的生命保留效能"] = "LifeReservationEfficiency",
+	["技能的魔力保留效能"] = "ManaReservationEfficiency",
+	["生命保留效能"] = "LifeReservationEfficiency",
 	["赤炼球数量上限"] = "BloodChargesMax",
 	["for stance skills"] = { tag = { type = "SkillType", skillType = SkillType.StanceSkill } },
 	["of stance skills"] = { tag = { type = "SkillType", skillType = SkillType.StanceSkill } },
@@ -5558,7 +5558,7 @@ local specialModList = {
 	["装备时触发 (%d+) 级的主动技能【失明光环】"] = function(num) return {
 	mod("ExtraSkill", "LIST", {  skillId ="CastAuraBlinding", level = tonumber(num), triggered = true})   
 		} end,	
-	["每 5 秒触发 (%d+) 级的【血肉盛宴】"] = function(num) return {
+	["___每 5 秒触发 (%d+) 级的【血肉盛宴】"] = function(num) return {
 	mod("ExtraSkill", "LIST", {  skillId ="FeastOfFlesh", level = tonumber(num), triggered = true})   
 		} end,	
 	["插槽内的技能石被 (%d+) 级的 闪电支配 辅助"] = function(num) return { mod("ExtraSupport", "LIST", { skillId = 'SupportOnslaughtOnSlayingShockedEnemy', level = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
@@ -6015,7 +6015,9 @@ local specialModList = {
 	["你总共消耗 12 枚钢刃碎片后技能在 4 秒内发射 (%d+) 枚额外投射物"] = function(num) return { mod("ProjectileCount", "BASE", num, { type = "Condition", var = "Consumed12SteelShardsRecently" }) } end,
 	["近战暴击时触发一个插入的冰霜法术，它有 0.15 秒冷却时间"] = { mod("ExtraSupport", "LIST", { skillId = "SupportUniqueCosprisMaliceColdSpellsCastOnMeleeCriticalStrike", level = 1 }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 	["插入的技能石的保留效果降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Reserved", "INC", -num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
+	["插入的技能石的保留效率降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ReservationEfficiency", "INC", -num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["插入的技能石的保留效果提高 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Reserved", "INC", num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
+	["插入的技能石的保留效率提高 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ReservationEfficiency", "INC", num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["插入的诅咒宝石的保留效果降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Reserved", "INC", -num,nil,nil,KeywordFlag.Curse ) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["非满血状态时，每秒献祭 ([%d%.]+)%% 魔力来回复同等数值的生命"] = function(num) return {
 			mod("ManaDegen", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = num }, { type = "Condition", var = "FullLife", neg = true }),
