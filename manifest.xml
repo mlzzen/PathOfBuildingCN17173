@@ -100,7 +100,7 @@
 	<File name="Data/Uniques/sword.lua" part="program" sha1="26a2bdeeb19512096461905765fc2820d208182b" />
 	<File name="Data/Uniques/wand.lua" part="program" sha1="d20833abf20e8eed87b19ab06ff7f36f943a3b40" />
 	<File name="Data/Uniques/Special/Generated.lua" part="program" sha1="cd99affc898a11183383a2ee55e2249d454861e8" />
-	<File name="Data/Uniques/Special/New.lua" part="program" sha1="78d445c846d92645dae72caf1831eb1a1057443d" />
+	<File name="Data/Uniques/Special/New.lua" part="program" sha1="523eecb92e31023b5245f44d72f4190fc89ea2ed" />
 	<File name="Data/Uniques/Special/WatchersEye.lua" part="program" sha1="991d83e336df69bea692ef87804de2b667c4c7ec" />
 	<File name="Data/ClusterJewels.lua" part="program" sha1="664d7d7afd5196cfe26a9392b4592834f5d0b2ee" />
 	<File name="Data/Costs.lua" part="program" sha1="dd271938e2fbd51d1566405fafa124918714a8c8" />
