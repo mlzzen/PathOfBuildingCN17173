@@ -464,6 +464,7 @@ local modNameList = {
 	["生命"] = "Life", --备注：life
 	["最大生命"] = "Life", --备注：maximum life
 	["生命上限"] = "Life", --备注：maximum life
+	["生命再生率"] = "LifeRegen",
 	["魔力"] = "Mana", --备注：mana
 	["最大魔力"] = "Mana", --备注：maximum mana
 	["魔力上限"] = "Mana", --备注：maximum mana
@@ -871,6 +872,7 @@ local modFlagList = {
 	["攻击类技能造成的异常状态"] = { flags = ModFlag.Ailment, keywordFlags = KeywordFlag.Attack }, --备注：with ailments from attack skills
 	["双手近战武器攻击造成的"] = { flags = bor(ModFlag.Weapon2H, ModFlag.WeaponMelee) }, --备注：with two handed melee weapons
 	["双手近战武器的"] = { flags = bor(ModFlag.Weapon2H, ModFlag.WeaponMelee) }, --备注：with two handed melee weapons
+	["在使用双手近战武器时"] = { flags = bor(ModFlag.Weapon2H, ModFlag.WeaponMelee) }, --备注：with two handed melee weapons
 	["攻击技能的"] ={ tag = { type = "SkillType", skillType = SkillType.Attack } },
 	["攻击技能可使"] ={ tag = { type = "SkillType", skillType = SkillType.Attack } },
 	["图腾施放的技能"] = { keywordFlags = KeywordFlag.Totem }, --备注：with totem skills
