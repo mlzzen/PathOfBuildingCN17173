@@ -11,6 +11,7 @@
 	<File name="UpdateApply.lua" part="program" sha1="4f17937f2b37784e169a3792b235f2a0a3961e61" />
 	<File name="GameVersions.lua" part="program" sha1="9729b4851b46fa804bfaab7eeba85bb1b0bed529" />
 	<File name="changelog.txt" part="default" sha1="e1b085b1e4877a8cd29cc16c90201d6f6bfeed6a" />
+	<File name="Path of Building.exe" part="runtime" platform="win32" sha1="7486cf4f0289df72ccce93a69a4198ad069f79b9" />
 	<File name="lua51.dll" part="runtime" platform="win32" sha1="7a973d3c0b5121e6aad0dcb9323be5b432fc63e7" />
 	<File name="SimpleGraphic.dll" part="runtime" platform="win32" sha1="330f6f21f8c4ff0a687fb28c0e267b74df4938a5" />
 	<File name="libcurl.dll" part="runtime" platform="win32" sha1="5f68674e22a389dddeb72078b7d9d69d29881bdd" />
@@ -78,6 +79,7 @@
 	<File name="Classes/TooltipHost.lua" part="program" sha1="e89cc4424e5d681218959e09f39d06edffabc3ef" />
 	<File name="Classes/TreeTab.lua" part="program" sha1="c902e9d8e7f42d97d9be73ec9ab080a35f846968" />
 	<File name="Classes/UndoHandler.lua" part="program" sha1="7427064cafd393a1cabbfc2ebb45d5708bb737e7" />
+	<File name="Data/BlightPassives.lua" part="program" sha1="ec88bf5469ff0ac8ce0f310098853d699012ad28" />
 	<File name="Data/Global.lua" part="program" sha1="1d8069e671e0be0f3911aa2270bdd27e650bb18e" />
 	<File name="Data/Uniques/amulet.lua" part="program" sha1="2c3bd1f92fa2ab7524b4b8eaf3f0b96efdba3b71" />
 	<File name="Data/Uniques/axe.lua" part="program" sha1="fb2627009c866dc813a715edc861befca08feb1d" />
@@ -123,6 +125,11 @@
 	<File name="Data/ModJewelCluster.lua" part="program" sha1="fcef4c98af3b3046c392c2cfc5a46be84828eb29" />
 	<File name="Data/ModMaster.lua" part="program" sha1="3d41045cfb5158d4ea70094eb3ba5548f295ec16" />
 	<File name="Data/ModVeiled.lua" part="program" sha1="0ceafd073b4d563a987f4155ae81672f01f47c6d" />
+	<File name="Data/ModHarvestSeed.lua" part="program" sha1="2e5e9550cc9f059ef00fddf6600f049602c2a71c" />
+	<File name="Data/ModIncursion.lua" part="program" sha1="0c1c1fdf78e6a2e3fce7f6a63c1ebed39813ce9b" />
+	<File name="Data/ModHarvestSeed.lua" part="program" sha1="2e5e9550cc9f059ef00fddf6600f049602c2a71c" />
+	<File name="Data/ModSynthesised.lua" part="program" sha1="3584351d727120e3cf1c0f76574d953e55ac0d6f" />
+	<File name="Data/New.lua" part="program" sha1="bb9062b47678e0be6c70657a1554a289186a7a60" />
 	<File name="Data/Pantheons.lua" part="program" sha1="c9f22e5c94d38444abfa096369ca8a7b7f1e043d" />
 	<File name="Data/Rares.lua" part="program" sha1="24892142ea833b3d54350bcc54eeddb1b06a49ca" />
 	<File name="Data/SkillStatMap.lua" part="program" sha1="a5f40675ba6e28763bf7fb4d97935c551dc72db5" />
