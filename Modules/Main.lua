@@ -665,7 +665,7 @@ end
 
 function main:OpenUpdatePopup()
 	local changeList = { }
-	local changelogName = launch.devMode and "../changelog.txt" or "changelog.txt"
+	local changelogName = launch.devMode and "changelog.txt"
 	for line in io.lines(changelogName) do
 		local ver, date = line:match("^VERSION%[(.+)%]%[(.+)%]$")
 		if ver then
@@ -705,7 +705,7 @@ end
 
 function main:OpenAboutPopup()
 	local changeList = { }
-	local changelogName = launch.devMode and "../changelog.txt" or "changelog.txt"
+	local changelogName = launch.devMode and "changelog.txt"
 	for line in io.lines(changelogName) do
 		local ver, date = line:match("^VERSION%[(.+)%]%[(.+)%]$")
 		if ver then
@@ -728,7 +728,13 @@ OpenURL("https://gitee.com/echo28/PathOfBuildingCN17173/issues/new")
 controls.github = new("ButtonControl", nil, 0, 64, 450, 18, "项目: ^x4040FFhttps://gitee.com/echo28/PathOfBuildingCN17173", function(control)
 OpenURL("https://gitee.com/echo28/PathOfBuildingCN17173")
 	end)
-	controls.changelog = new("TextListControl", nil, 0, 100, 630, 290, nil, changeList)
+	controls.patreon = new("ButtonControl", {"TOPLEFT",nil,"TOPLEFT"}, 10, 10, 70, 70, "", function()
+		OpenURL("https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/tree/main/%E8%B5%9E%E8%B5%8F%E4%B8%80%E4%B8%8B.jpg")
+	end)
+controls.patreon:SetImage("Assets/patreon_logo.png")
+controls.patreon.tooltipText = "点击赞赏一下国服POB!"
+controls.verLabel = new("LabelControl", {"TOPLEFT",nil,"TOPLEFT"}, 10, 82, 0, 18, "点击图片打开")
+controls.changelog = new("TextListControl", nil, 0, 100, 630, 290, nil, changeList)
 self:OpenPopup(650, 400, "【  POB·国服版  】", controls)
 end
 
