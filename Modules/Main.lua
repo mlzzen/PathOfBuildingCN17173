@@ -665,7 +665,7 @@ end
 
 function main:OpenUpdatePopup()
 	local changeList = { }
-	local changelogName = launch.devMode and "changelog.txt"
+	local changelogName = launch.devMode and "changelog.txt" or "changelog.txt"
 	for line in io.lines(changelogName) do
 		local ver, date = line:match("^VERSION%[(.+)%]%[(.+)%]$")
 		if ver then
@@ -705,7 +705,7 @@ end
 
 function main:OpenAboutPopup()
 	local changeList = { }
-	local changelogName = launch.devMode and "changelog.txt"
+	local changelogName = launch.devMode and "changelog.txt" or "changelog.txt"
 	for line in io.lines(changelogName) do
 		local ver, date = line:match("^VERSION%[(.+)%]%[(.+)%]$")
 		if ver then
