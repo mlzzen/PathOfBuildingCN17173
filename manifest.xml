@@ -21,6 +21,7 @@
 	<File name="lua/dkjson.lua" part="runtime" sha1="16cbc26080996d9da827df42cb0844a25518eeb3" />
 	<File name="lua/sha1.lua" part="runtime" sha1="31e325cd40a9c0234c6265689cf70b97ef676f20" />
 	<File name="lua/xml.lua" part="runtime" sha1="859e09104842f91a4aaa9a4d9fadf667535877e2" />
+	<File name="Assets/patreon_logo.png" part="program" sha1="cf115b6387a7d7a98796751e41428bb3f76356c7" />
 	<File name="Assets/game_ui_small.png" part="program" sha1="c345cdcf374d271411aa424ab150c0edbb5a362d" />
 	<File name="Assets/range_guide.png" part="program" sha1="4ebea5031fd03771a9b637a3fdccf394344e4782" />
 	<File name="Assets/ring.png" part="program" sha1="e7ee7e5b6388facb7bf568517ecc401590757df7" />
