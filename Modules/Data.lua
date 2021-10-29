@@ -432,10 +432,6 @@ data.enchantments = {
 	["Body Armour"] = LoadModule("Data/EnchantmentBody"),
 	["Weapon"] = LoadModule("Data/EnchantmentWeapon"),
 }
-data.synthesisedMods = {
-		Item = LoadModule("Data/ModSynthesised"),
-		
-}
 data.essences = LoadModule("Data/Essence")
 data.veiledMods = LoadModule("Data/ModVeiled")
 data.pantheons = LoadModule("Data/Pantheons")
