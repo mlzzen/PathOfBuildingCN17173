@@ -652,7 +652,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					env.itemModDB.multipliers[item.baseName:gsub(" ","")] = (env.itemModDB.multipliers[item.baseName:gsub(" ","")] or 0) + 1
 				end
 				--灵能神盾
-				if item.type == "Shield" and env.allocNodes[45175] and env.allocNodes[45175].dn == "灵能神盾" then
+				if item.type == "Shield" and env.allocNodes[45175] and env.allocNodes[45175].dn == "灵能护盾" then
 					-- Special handling for Necromantic Aegis 
 					env.aegisModList = new("ModList")
 					for _, mod in ipairs(srcList) do
