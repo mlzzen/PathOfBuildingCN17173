@@ -480,6 +480,7 @@ local modNameList = {
 	["^技能的魔力保留"] = "ManaReserved", --备注：mana reservation of skills
 	-- Primary defences
 	["最大能量护盾"] = "EnergyShield", --备注：maximum energy shield
+	["能量护盾上限"] = "EnergyShield", --备注：maximum energy shield
 	["能量护盾的回复速度"] = "EnergyShieldRecharge", --备注：energy shield recharge rate
 	["能量护盾启动回复"] = "EnergyShieldRechargeFaster", --备注：start of energy shield recharge
 	["能量护盾充能时间提前"] = "EnergyShieldRechargeFaster", --备注：start of energy shield recharge
@@ -860,6 +861,7 @@ local modFlagList = {
 	["剑攻击"] = { flags = bor(ModFlag.Sword, ModFlag.Hit) },
 	["法杖攻击"] = { flags = bor(ModFlag.Wand, ModFlag.Hit) },
 	["弓类的"] =  { flags = bor(ModFlag.Bow, ModFlag.Hit) },
+	["弓类"] =  { flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["爪类的"] = { flags = bor(ModFlag.Claw, ModFlag.Hit) },
 	["爪类"] = { flags = bor(ModFlag.Claw, ModFlag.Hit) },
 	["匕首的"] =  { flags = bor(ModFlag.Dagger, ModFlag.Hit) },
@@ -6457,6 +6459,23 @@ local specialModList = {
 	["poison cursed enemies on hit"] = { mod("PoisonChance", "BASE", 100, { type = "ActorCondition", actor = "enemy", var = "Cursed" }) },
 	["当你拥有最大数量的狂怒球时，攻击使敌人中毒"] = { mod("PoisonChance", "BASE", 100, nil, ModFlag.Attack, { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }) }, --备注：wh[ie][ln]e? at maximum frenzy charges, attacks poison enemies
 	["陷阱和地雷击中时，有 (%d+)%% 几率使敌人中毒"] = function(num) return { mod("PoisonChance", "BASE", num, nil, 0, bor(KeywordFlag.Trap, KeywordFlag.Mine)) } end, --备注：traps and mines have a (%d+)%% chance to poison on hit
+	-- Suppression
+	["阻挡被压制的法术伤害 +(%+%d+)%%"] = function(num) return { mod("SpellSuppressionEffect", "BASE", num) } end,
+	["your chance to suppressed spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
+	["your chance to suppressed spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
+	["暴击率随法术伤害压制率提高"] = { flag("CritChanceIncreasedBySuppressionChance") }, 
+	["you take (%d+)%% reduced extra damage from suppressed critical strikes"] = function(num) return { mod("ReduceSuppressedCritExtraDamage", "BASE", num) } end,
+	["法术伤害压制率在你的脚部装备、头部装备和手部装备有闪避值的情况下 +(%+%d+)%%"] = function(num) return { 
+		mod("SpellSuppressionChance", "BASE", tonumber(num), 
+			{ type = "StatThreshold", stat = "EvasionOnBoots", threshold = 1}, 
+			{ type = "StatThreshold", stat = "EvasionOnHelmet", threshold = 1, uppper = true},
+			{ type = "StatThreshold", stat = "EvasionOnGloves", threshold = 1, uppper = true}
+		)
+	} end,
+	["法术伤害压制率按照你持握的每把匕首 +(%+%d+)%%"] = function(num) return { 
+		mod("SpellSuppressionChance", "BASE", num, { type = "ModFlag", modFlags = ModFlag.Dagger } ),
+		mod("SpellSuppressionChance", "BASE", num, { type = "Condition", var = "DualWieldingDaggers" } )
+	} end,
 	-- Buffs/debuffs
 	["【迷踪】状态"] = { flag("Condition:Phasing") }, --备注：phasing
 	["迷踪"] = { flag("Condition:Phasing") }, --备注：phasing
@@ -6772,48 +6791,28 @@ local specialModList = {
 	["药剂生效期间拥有终结效果"] = function(num) return { mod("CullPercent", "MAX", 10, { type = "Condition", var = "UsingFlask" })} end,
 
 	-- 3.16
+	["攻击伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,ModFlag.Attack ) } end,
 	["可以有 (%d+) 个额外附魔词缀"] = { },
 	["致盲效果提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("BlindEffect", "INC", num) }), } end,
-	["cannot recover energy shield to above armour"] = { flag("ArmourESRecoveryCap") },
-	["cannot recover energy shield to above evasion rating"] = { flag("EvasionESRecoveryCap") },
+	["恢复的能量护盾不能超过护甲值"] = { flag("ArmourESRecoveryCap") },
+	["恢复的能量护盾不能超过闪避值"] = { flag("EvasionESRecoveryCap") },
 	["shock duration on you"] = "SelfShockDuration",
 	["freeze duration on you"] = "SelfFreezeDuration",
 	["chill duration on you"] = "SelfChillDuration",
 	["ignite duration on you"] = "SelfIgniteDuration",
-	["duration of elemental ailments on you"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
+	["自身受到的元素异常状态时间"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
 	["duration of ailments on you"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfPoisonDuration", "SelfBleedDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
-	["elemental ailment duration on you"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfPoisonDuration", "SelfBleedDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
-	["intelligence provides no inherent bonus to energy shield"] = { flag("IntelligenceNoEnergyShieldBonus") },
-	["effect of shock on you"] = "SelfShockEffect",
-	["effect of chill and shock on you"] = { "SelfChillEffect", "SelfShockEffect"},
-	["modifiers to spell suppression instead apply to spell dodge at 50%% of their values"] = { 
+	["智慧不给能量护盾提供属性加成"] = { flag("IntelligenceNoEnergyShieldBonus") },
+	["你受到的感电效果"] = "SelfShockEffect",
+	["你身上的冰缓和感电效果"] = { "SelfChillEffect", "SelfShockEffect"},
+	["法术伤害压制率词缀改为有躲避法术击中率，其数值等于原有的 50%%"] = { 
 		flag("ConvertSpellSuppressionToSpellDodge"),
 		mod("SpellSuppressionChance", "OVERRIDE", 0, "Acrobatics"), 
 	},
-	["dexterity provides no inherent bonus to evasion rating"] = { flag("MageBane"), flag("NoDexBonusToEvasion") },
-	["converts all evasion rating to armour%. dexterity provides no bonus to evasion rating"] = { flag("NoDexBonusToEvasion"), flag("IronReflexes") },
-	["your chance to suppressed spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
-	["your chance to suppressed spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
-	["prevents +(%d+)%% of suppressed spell damage"] = function(num) return { mod("SpellSuppressionEffect", "BASE", num) } end,
-	-- Suppression
-	["your chance to suppressed spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
-	["your chance to suppressed spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
-	["prevent +(%+%d+)%% of suppressed spell damage"] = function(num) return { mod("SpellSuppressionEffect", "BASE", num) } end,
-	["critical strike chance is increased by chance to suppress spell damage"] = { flag("CritChanceIncreasedBySuppressionChance") }, 
-	["you take (%d+)%% reduced extra damage from suppressed critical strikes"] = function(num) return { mod("ReduceSuppressedCritExtraDamage", "BASE", num) } end,
-	["+(%d+)%% chance to suppress spell damage if your boots, helmet and gloves have evasion"] = function(num) return { 
-		mod("SpellSuppressionChance", "BASE", tonumber(num), 
-			{ type = "StatThreshold", stat = "EvasionOnBoots", threshold = 1}, 
-			{ type = "StatThreshold", stat = "EvasionOnHelmet", threshold = 1, uppper = true},
-			{ type = "StatThreshold", stat = "EvasionOnGloves", threshold = 1, uppper = true}
-		)
-	} end,
-	["+(%d+)%% chance to suppress spell damage for each dagger you're wielding"] = function(num) return { 
-		mod("SpellSuppressionChance", "BASE", num, { type = "ModFlag", modFlags = ModFlag.Dagger } ),
-		mod("SpellSuppressionChance", "BASE", num, { type = "Condition", var = "DualWieldingDaggers" } )
-	} end,
-	["intelligence is added to accuracy rating with wands"] = { mod("Accuracy", "BASE", 1, nil, ModFlag.Wand, { type = "PerStat", stat = "Int" } ) },
-	["%+(%d+)%% chance to ignite, freeze, shock, and poison cursed enemies"] = function(num) return {
+	["敏捷不给闪避值提供属性加成"] = { flag("MageBane"), flag("NoDexBonusToEvasion") },
+	["将所有闪避值转换为护甲，敏捷不再提供闪避值加成"] = { flag("NoDexBonusToEvasion"), flag("IronReflexes") },
+	["智慧可以为法杖命中值提供加值"] = { mod("Accuracy", "BASE", 1, nil, ModFlag.Wand, { type = "PerStat", stat = "Int" } ) },
+	["使被诅咒的敌人陷入点燃、冻结、感电、中毒状态的几率 %+(%d+)%%"] = function(num) return {
 		mod("EnemyIgniteChance", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Cursed" }),
 		mod("EnemyFreezeChance", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Cursed" }),
 		mod("EnemyShockChance", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Cursed" }),
