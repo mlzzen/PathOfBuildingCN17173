@@ -1104,11 +1104,11 @@ return {
 	["戒备打击"] = {
 		["MERCILESS"] = {
 			"【戒备打击】的伤害提高 25%",
-			"Vigilant Strike has 30% increased Fortification Duration",
+			"戒备打击的护身持续时间延长 30%",
 		},
 		["ENDGAME"] = {
 			"【戒备打击】的伤害提高 40%",
-			"Vigilant Strike has 45% increased Fortification Duration",
+			"戒备打击的护身持续时间延长 45%",
 		},
 	},
 	["战旗"] = {
@@ -2946,10 +2946,10 @@ return {
 	},
 	["龙卷风"] = {
 		["MERCILESS"] = {
-			"Tornado has 20% increased Movement Speed",
+			"龙卷旋风的移动速度加快 20%",
 		},
 		["ENDGAME"] = {
-			"Tornado has 30% increased Movement Speed",
+			"龙卷旋风的移动速度加快 30%",
 		},
 	},
 }

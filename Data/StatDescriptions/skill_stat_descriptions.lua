@@ -12037,6 +12037,19 @@ return {
 	[388]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUpfrontCost"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="在为该法术的预支花费和效果消耗了总共 {0} 点魔力的情况下获得秘术增强"
+				}
 			}
 		},
 		name="support_arcane_surge_chance",
@@ -16852,6 +16865,28 @@ return {
 	[555]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="增益效果的冷却回复率提高 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="增益效果的冷却回复率降低 {0}%"
+				}
 			}
 		},
 		name="chronomancer_buff_cooldown_speed_incr",
@@ -21768,6 +21803,32 @@ return {
 	[748]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUpfrontCost"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="有 {0}% 的几率当你在为该法术的预支花费和效果消耗魔力后获得一个启迪球"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUpfrontCost"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="当你在为该法术的预支花费和效果消耗魔力后获得一个启迪球"
+				}
 			}
 		},
 		name="righteous_charge_on_spend_mana",
@@ -23402,6 +23463,19 @@ return {
 	[807]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUpfrontCost"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="在为该技能的预支花费和效果消耗了总共 {0} 点魔力的情况下失去所有启迪球"
+				}
 			}
 		},
 		name="lose_righteous_charges_on_mana_use_threshold",
@@ -30323,6 +30397,19 @@ return {
 	[1060]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUpfrontCost"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="在为该技能的预支花费和效果消耗了总共 {0} 点生命的情况下获得赤炼状态"
+				}
 			}
 		},
 		name="support_lifetap_threshold",
@@ -31935,6 +32022,19 @@ return {
 	[1115]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="射程内的敌人被缓速，移动速度减慢 {0}%"
+				}
 			}
 		},
 		name="tornado_hinder",

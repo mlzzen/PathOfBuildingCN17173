@@ -729,7 +729,7 @@ controls.github = new("ButtonControl", nil, 0, 64, 450, 18, "项目: ^x4040FFhtt
 OpenURL("https://gitee.com/echo28/PathOfBuildingCN17173")
 	end)
 	controls.patreon = new("ButtonControl", {"TOPLEFT",nil,"TOPLEFT"}, 10, 10, 70, 70, "", function()
-		OpenURL("https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/tree/main/%E8%B5%9E%E8%B5%8F%E4%B8%80%E4%B8%8B.jpg")
+		OpenURL("https://gitee.com/echo28/PathOfBuildingCN17173/blob/main/%E8%B5%9E%E8%B5%8F%E4%B8%80%E4%B8%8B.jpg")
 	end)
 controls.patreon:SetImage("Assets/patreon_logo.png")
 controls.patreon.tooltipText = "点击赞赏一下国服POB!"
