@@ -4585,6 +4585,19 @@ return {
 	[153]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUpfrontCost"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="在为被辅助技能的预支花费和效果消耗了总共 {0} 点魔力\n的情况下获得获得秘术增强"
+				}
 			}
 		},
 		stats={
@@ -10004,6 +10017,32 @@ return {
 	[342]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUpfrontCost"
+					},
+					limit={
+						[1]={
+							[1]=1,
+							[2]=99
+						}
+					},
+					text="有 {0}% 的几率在为被辅助技能的预支花费和效果\n消耗魔力的情况下获得一个启迪球"
+				},
+				[2]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUpfrontCost"
+					},
+					limit={
+						[1]={
+							[1]=100,
+							[2]="#"
+						}
+					},
+					text="在为被辅助技能的预支花费和效果\n消耗魔力的情况下获得一个启迪球"
+				}
 			}
 		},
 		stats={
@@ -14411,6 +14450,23 @@ return {
 	[507]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUpfrontCost"
+					},
+					[2]={
+						k="reminderstring",
+						v="ReminderTextLifetap"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="在为被辅助技能的预支花费和效果消耗了总共 {0} 点生命\n的情况下获得赤炼状态"
+				}
 			}
 		},
 		stats={
@@ -15651,6 +15707,19 @@ return {
 	[549]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					[1]={
+						k="reminderstring",
+						v="ReminderTextUpfrontCost"
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="在为被辅助技能的预支花费和效果消耗了总共 {0} 点魔力的情况下失去所有启迪球"
+				}
 			}
 		},
 		stats={

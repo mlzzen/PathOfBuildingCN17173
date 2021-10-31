@@ -384,10 +384,10 @@ return {
 					icon = "Art/2DArt/SkillIcons/passives/LifeManaFlasksrecoverynode.png",
 					masteryIcon = "Art/2DArt/SkillIcons/passives/AltMasteryFlasks.png",
 					tag = "affliction_life_and_mana_recovery_from_flasks",
-					stats = { "药剂回复的生命提高 10%", "药剂回复的魔力提高 10%" },
+					stats = { "药剂给予的生命恢复提高 10%", "药剂给予的魔力恢复提高 10%" },
 					enchant = {
-						"增加的小天赋获得：药剂回复的生命提高 10%",
-						"增加的小天赋获得：药剂回复的魔力提高 10%",
+						"增加的小天赋获得：药剂给予的生命恢复提高 10%",
+						"增加的小天赋获得：药剂给予的魔力恢复提高 10%",
 					},
 				},
 			},
