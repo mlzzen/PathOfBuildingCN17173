@@ -475,7 +475,7 @@ local modNameList = {
 	["魔力消耗"] = "ManaCost", --备注：mana cost of
 	["技能魔力消耗"] = "ManaCost", --备注：mana cost of skills
 	["技能的总魔力消耗"] = "ManaCost", --备注：total mana cost of skills
-	["魔力保留效率"] = "ManaReservationEfficiency", --备注：mana reserved
+	["魔力保留效能"] = "ManaReservationEfficiency", --备注：mana reserved
 	["魔力保留"] = "ManaReserved", --备注：mana reservation
 	["^技能的魔力保留"] = "ManaReserved", --备注：mana reservation of skills
 	-- Primary defences
@@ -583,6 +583,7 @@ local modNameList = {
 	["damage taken from mana before life"] = "DamageTakenFromManaBeforeLife",
 	["你受到的诅咒效果"] = "CurseEffectOnSelf", --备注：effect of curses on you
 	["生命回复速度"] = "LifeRecoveryRate", --备注：life recovery rate
+	["生命回复率"] = "LifeRecoveryRate", --备注：life recovery rate
 	["mana recovery rate"] = "ManaRecoveryRate",
 	["energy shield recovery rate"] = "EnergyShieldRecoveryRate",
 	["recovery rate of life, mana and energy shield"] = { "LifeRecoveryRate", "ManaRecoveryRate", "EnergyShieldRecoveryRate" },
@@ -2011,6 +2012,7 @@ local specialModList = {
 	["能量护盾回复率提高 (%d+)%%"] = function(num) return {  mod("EnergyShieldRecoveryRate", "INC", num)  } end,
 	["魔力回复率提高 (%d+)%%"] = function(num) return {  mod("ManaRecoveryRate", "INC", num)  } end,
 	["生命回复率提高 (%d+)%%"] = function(num) return {  mod("LifeRecoveryRate", "INC", num)  } end,
+	--["生命回复率降低 (%d+)%%"] = function(num) return {  mod("LifeRecoveryRate", "INC", -num)  } end,
 	["passives in radius are conquered by the (%D+)"] = { },
 	["historic"] = { },
 	["获得(.+)麾下 (%d+) 名武士的领导权"]= function(_, npcName, num) return {  mod("JewelData", "LIST",
@@ -2519,6 +2521,8 @@ local specialModList = {
 	["暴击后的 8 秒内，火焰、冰霜和闪电总伤害额外提高 (%d+)%%"]= function(num) return {  mod("ElementalDamage", "MORE", num,{ type = "Condition", var = "CritInPast8Sec" })  } end,
 	["过去 8 秒你若有造成暴击，火焰、冰霜和闪电总伤害额外提高 (%d+)%%"]= function(num) return {  mod("ElementalDamage", "MORE", num,{ type = "Condition", var = "CritInPast8Sec" })  } end,
 	["若你过去 8 秒内造成暴击，则总元素伤害总增 (%d+)%%"]= function(num) return {  mod("ElementalDamage", "MORE", num,{ type = "Condition", var = "CritInPast8Sec" })  } end,
+	["在过去 8 秒内造成暴击的技能使击中和异常状态伤害总增 (%d+)%%"]= function(num) return {  mod("ElementalDamage", "MORE", num, nil,nil, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Condition", var = "CritInPast8Sec" })  } end,
+	["暴击造成的异常状态不在其内"] = { flag("AilmentsAreNeverFromCrit") },
 	["没有暴击伤害加成"] = { flag("NoCritMultiplier") },
 	["所承受伤害的前 (%d+)%% 会扣除魔力，而非生命"]= function(num) return {  mod("DamageTakenFromManaBeforeLife", "BASE", num)  } end,
 	["总魔力保留额外降低 (%d+)%%"]= function(num) return {  mod("ManaReserved", "MORE", -num)  } end,
@@ -2808,6 +2812,9 @@ local specialModList = {
 	["物理攻击伤害的 ([%d%.]+)%% 转化为魔力偷取"]= function(num) return {  mod("PhysicalDamageManaLeech", "BASE", num,nil, ModFlag.Attack)  } end,
 	["【(.+)】的魔力保留降低 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("ManaReserved", "INC",-num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
 	["【(.+)】的保留效果降低 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("Reserved", "INC",-num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
+	["(.+)的魔力保留效能提高 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("ManaReservationEfficiency", "INC", num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
+	["姿态技能的魔力保留效能提高 ([%d%.]+)%%"] = function(num) return { mod("ManaReservationEfficiency", "INC", num, { type = "SkillType", skillType = 104}) } end,
+	["技能的魔力保留效能提高 ([%d%.]+)%%"] = function(num) return { mod("ManaReservationEfficiency", "INC", num) } end,
 	["药剂持续期间，有 (%d+)%% 几率冰冻"]= function(num) return {mod("EnemyFreezeChance", "BASE", num,{ type = "Condition", var = "UsingFlask" }) } end,
 	["药剂持续期间，有 (%d+)%% 几率感电"]= function(num) return {mod("EnemyShockChance", "BASE", num,{ type = "Condition", var = "UsingFlask" }) } end,
 	["药剂持续期间，有 (%d+)%% 几率点燃"]= function(num) return {mod("EnemyIgniteChance", "BASE", num,{ type ="Condition", var = "UsingFlask" })  } end,
@@ -3942,6 +3949,9 @@ local specialModList = {
 	}end,
 	["无法造成混沌伤害"] = { flag("DealNoChaos") },
 	["若你近期内穿刺过敌人，你和周围友军获得护甲 %+(%d+)"] = function (num) return { mod("ExtraAura", "LIST", { mod = mod("Armour", "BASE", num) }, { type = "Condition", var = "ImpaledRecently" }) } end,
+	["有 (%d+)%% 的几率在击中时穿刺敌人"]= function(num) return {
+	mod("ImpaleChance", "BASE", num)
+	}end,
 	["攻击击中时有 (%d+)%% 几率穿刺敌人"]= function(num) return {
 	mod("ImpaleChance", "BASE", num, 0, 0, KeywordFlag.Attack)
 	}end,
@@ -4193,7 +4203,7 @@ local specialModList = {
 	["近期内你若有吞噬 1 个灵柩，你和你的召唤生物的范围效果提高 (%d+)%%"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "Condition", var = "ConsumedCorpseRecently" }), mod("MinionModifier", "LIST", { mod = mod("AreaOfEffect", "INC", num) }, { type = "Condition", var = "ConsumedCorpseRecently" }) } end,
 	["当周围有至少 1 个灵柩，你与周围友军的总伤害额外提高 (%d+)%%"] = function(num) return { mod("ExtraAura", "LIST", { mod = mod("Damage", "MORE", num) }, { type = "MultiplierThreshold", var = "NearbyCorpse", threshold = 1 }) } end,
 	["近期内，你或你的召唤生物每击败一个敌人则每秒回复你 (%d+)%% 能量护盾，每秒最多 (%d+)%%"] = function( _, num1,limit)  return { mod("EnergyShieldRegenPercent", "BASE", tonumber(num1), { type = "Multiplier", varList = {"EnemyKilledRecently","EnemyKilledByMinionsRecently"}, limit = tonumber(limit), limitTotal = true })   } end,
-	["激活的先祖图腾使增益效果提高 (%d+)%%"] = function(num) return {  mod("BuffEffect", "INC", num,{ type = "SkillName", skillNameList = {  "先祖卫士", "先祖战士长","瓦尔.先祖战士长"  } })  } end,
+	["先祖图腾激活后，它们提供的增益效果提高 (%d+)%%"] = function(num) return {  mod("BuffEffect", "INC", num,{ type = "SkillName", skillNameList = {  "先祖卫士", "先祖战士长","瓦尔.先祖战士长"  } })  } end,
 	["新星法术的总范围效果额外缩小 (%d+)%%"] = function(num) return {  mod("AreaOfEffect", "MORE", -num,{ type = "SkillName", skillNameList = {  "冰霜新星", "瓦尔.冰霜新星 ","闪电新星", "解放","漩涡","暗夜血契","瓦尔.枯萎","震波图腾","永恒窥视","电击地面","血肉盛宴","秘术苏醒","风暴之诫","烈火之诫","雷电之诫"} })  } end,
 	["新星法术的总范围效果缩小 (%d+)%%"] = function(num) return {  mod("AreaOfEffect", "MORE", -num,{ type = "SkillName", skillNameList = {  "冰霜新星", "瓦尔.冰霜新星 ","闪电新星", "解放","漩涡","暗夜血契","瓦尔.枯萎","震波图腾","永恒窥视","电击地面","血肉盛宴","秘术苏醒","风暴之诫","烈火之诫","雷电之诫"} })  } end,
 	["投射物攻击近距离目标时造成的总伤害最多额外提高 30%%，但攻击远距离目标时总伤害则会额外降低"] = { flag("PointBlank") },
@@ -4772,7 +4782,7 @@ local specialModList = {
 	mod("Armour", "INC", num, { type = "Multiplier", var = "WarcryPower", div = tonumber(mp), limit = tonumber(max_inc), limitTotal = true }, { type = "Condition", var = "UsedWarcryInPast8Seconds" })
 	} end,
 	["【鸟之势】也会使周围友军获得【鸟之力量】和【鸟之斗魄】"] = { mod("ExtraSkillMod", "LIST", { mod = mod("BuffEffectOnMinion", "MORE", 100) }, { type = "SkillName", skillName = "鸟之势" }) },
-	["被击中时，护甲值不对物理伤害生效，改为对火焰、冰霜、闪电伤害生效"] = {
+	["护甲值改为承受击中造成的火焰、冰霜、闪电伤害，而非物理伤害"] = {
 	flag("ArmourAppliesToFireDamageTaken"),
 	flag("ArmourAppliesToColdDamageTaken"),
 	flag("ArmourAppliesToLightningDamageTaken"),
@@ -4845,7 +4855,7 @@ local specialModList = {
 		} end,
 	["【燃烧箭矢】的减益效果提高 (%d+)%%"] = function(num) return { mod("DebuffEffect", "INC", num, { type = "SkillName", skillName = "燃烧箭矢"}) } end,
 	["【燃烧箭矢】提高等同 (%d+)%% 物理伤害的火焰伤害"] = function(num) return {  mod("PhysicalDamageGainAsFire", "BASE", num, { type = "SkillName", skillName = "燃烧箭矢"})  } end,
-	["所有战吼技能共享冷却时间"] = { flag("WarcryShareCooldown") },
+	["所有战吼共享冷却时间"] = { flag("WarcryShareCooldown") },
 	["你的暴击有 (%d+)%% 几率造成双倍伤害"] = function(num) return { mod("DoubleDamageChanceOnCrit", "BASE", num) } end,
 	["你的暴击有 (%d+)%% 的几率造成双倍伤害"] = function(num) return { mod("DoubleDamageChanceOnCrit", "BASE", num) } end,
 	["格挡击中造成的伤害无法规避能量护盾"] = { flag("BlockedDamageDoesntBypassES", { type = "Condition", var = "EVBypass", neg = true }) },
@@ -6019,9 +6029,9 @@ local specialModList = {
 	["你总共消耗 12 枚钢刃碎片后技能在 4 秒内发射 (%d+) 枚额外投射物"] = function(num) return { mod("ProjectileCount", "BASE", num, { type = "Condition", var = "Consumed12SteelShardsRecently" }) } end,
 	["近战暴击时触发一个插入的冰霜法术，它有 0.15 秒冷却时间"] = { mod("ExtraSupport", "LIST", { skillId = "SupportUniqueCosprisMaliceColdSpellsCastOnMeleeCriticalStrike", level = 1 }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 	["插入的技能石的保留效果降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Reserved", "INC", -num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
-	["插入的技能石的保留效率降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ReservationEfficiency", "INC", -num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
+	["插入的技能石的保留效能降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ReservationEfficiency", "INC", -num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["插入的技能石的保留效果提高 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Reserved", "INC", num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
-	["插入的技能石的保留效率提高 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ReservationEfficiency", "INC", num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
+	["插入的技能石的保留效能提高 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ReservationEfficiency", "INC", num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["插入的诅咒宝石的保留效果降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Reserved", "INC", -num,nil,nil,KeywordFlag.Curse ) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["非满血状态时，每秒献祭 ([%d%.]+)%% 魔力来回复同等数值的生命"] = function(num) return {
 			mod("ManaDegen", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = num }, { type = "Condition", var = "FullLife", neg = true }),
