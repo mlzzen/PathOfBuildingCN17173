@@ -1466,17 +1466,14 @@ end
 function ItemsTabClass:CraftClusterJewel()
 	local item = self.displayItem
 	wipeTable(item.enchantModLines)
-	t_insert(item.enchantModLines, { line = "附加 "..(item.clusterJewelNodeCount or item.clusterJewel.maxNodes).." 天赋点", crafted = true })
+	t_insert(item.enchantModLines, { line = "增加 "..(item.clusterJewelNodeCount or item.clusterJewel.maxNodes).." 个天赋技能", crafted = true })
+	if item.clusterJewel.size == "Large" then
+		t_insert(item.enchantModLines, { line = "其中 2 个增加的天赋为【珠宝槽】", crafted = true })
+	elseif item.clusterJewel.size == "Medium" then
+		t_insert(item.enchantModLines, { line = "其中 1 个增加的天赋为【珠宝槽】", crafted = true })
+	end
 	local skill = item.clusterJewel.skills[item.clusterJewelSkill]
-	
-	if skill.enchant then 
-		for i = 1,  #skill.enchant do
-			local str = skill.enchant[i]:gsub("^%s+", ""):gsub("%s+$", "")
-			t_insert(item.enchantModLines, { line = str, crafted = true })
-		end
-	end 
-	
-	
+	t_insert(item.enchantModLines, { line = table.concat(skill.enchant, "\n"), crafted = true })
 	item:BuildAndParseRaw()
 
 	-- Update affixes manually to force out affixes that may now be invalid
