@@ -569,9 +569,8 @@ local modNameList = {
 	["法术格挡率"] = "SpellBlockChance", --备注：to block spells
 	["to block spell damage"] = "SpellBlockChance",
 	["攻击及法术格挡率"] = { "BlockChance", "SpellBlockChance" }, --备注：chance to block attacks and spells
-	["攻击和法术格挡率上限"] = "BlockChanceMax", --备注：maximum block chance
-	["maximum chance to block attack damage"] = "BlockChanceMax",
-	["maximum chance to block spell damage"] = "SpellBlockChanceMax",
+	["攻击伤害格挡率上限"] = "BlockChanceMax", --备注：maximum block chance
+	["法术伤害格挡率上限"] = "SpellBlockChanceMax",
 	["避免被晕眩"] = "AvoidStun", --备注：to avoid being stunned
 	["避免被感电"] = "AvoidShock", --备注：to avoid being shocked
 	["避免被冰冻"] = "AvoidFrozen", --备注：to avoid being frozen
@@ -706,6 +705,7 @@ local modNameList = {
 	["fire trap burning ground duration"] = { "Duration", tag = { type = "SkillName", skillName = "火焰陷阱" } },
 	["冷却速度"] = "CooldownRecovery", --备注：cooldown recovery
 	["冷却回复速度"] = "CooldownRecovery", --备注：cooldown recovery speed
+	["冷却回复率"] = "CooldownRecovery", --备注：cooldown recovery speed
 	["weapon range"] = "WeaponRange",
 	["近战攻击范围"] = "MeleeWeaponRange", --备注：melee weapon range
 	["近战与空手范围"] = { "MeleeWeaponRange", "UnarmedRange" }, --备注：melee weapon and unarmed range
@@ -6791,18 +6791,30 @@ local specialModList = {
 	["药剂生效期间拥有终结效果"] = function(num) return { mod("CullPercent", "MAX", 10, { type = "Condition", var = "UsingFlask" })} end,
 
 	-- 3.16
+	["shock duration on you"] = "SelfShockDuration",
+	["freeze duration on you"] = "SelfFreezeDuration",
+	["chill duration on you"] = "SelfChillDuration",
+	["ignite duration on you"] = "SelfIgniteDuration",
+	["gain no inherent bonuses from strength"] = { flag("NoStrengthAttributeBonuses") },
+	["gain no inherent bonuses from dexterity"] = { flag("NoDexterityAttributeBonuses") },
+	["gain no inherent bonuses from intelligence"] = { flag("NoIntelligenceAttributeBonuses") },
+	["critical strike chance is increased by overcapped lightning resistance"] = { mod("CritChance", "INC", 1, { type = "PerStat", stat = "LightningResistOverCap", div = 1 }) },
+	["armour is increased by overcapped fire resistance"] = { mod("Armour", "INC", 1, { type = "PerStat", stat = "FireResistOverCap", div = 1 }) },
+	["evasion rating is increased by overcapped cold resistance"] = { mod("Evasion", "INC", 1, { type = "PerStat", stat = "ColdResistOverCap", div = 1 }) },
+	["(%d+)%% increased armour per (%d+) reserved mana"] = function(num, _, mana) return { mod("Armour", "INC", num, { type = "PerStat", stat = "ManaReserved", div = tonumber(mana) }) } end,
+	["(%d+)%% less flask charges gained from kills"] = function(num) return {
+		mod("FlaskChargesGained", "MORE", -num,"from Kills")
+	} end,
+	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str)
+		return {  mod("ExtraAura", "LIST", {onlyAllies = true, mod = mod("BlockChance", "BASE", block)}, {type = "PerStat", stat = "Str", div = tonumber(str)})} end,
 	["攻击伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,ModFlag.Attack ) } end,
 	["可以有 (%d+) 个额外附魔词缀"] = { },
 	["致盲效果提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("BlindEffect", "INC", num) }), } end,
 	["恢复的能量护盾不能超过护甲值"] = { flag("ArmourESRecoveryCap") },
 	["恢复的能量护盾不能超过闪避值"] = { flag("EvasionESRecoveryCap") },
-	["shock duration on you"] = "SelfShockDuration",
-	["freeze duration on you"] = "SelfFreezeDuration",
-	["chill duration on you"] = "SelfChillDuration",
-	["ignite duration on you"] = "SelfIgniteDuration",
 	["自身受到的元素异常状态时间"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
 	["duration of ailments on you"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfPoisonDuration", "SelfBleedDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
-	["智慧不给能量护盾提供属性加成"] = { flag("IntelligenceNoEnergyShieldBonus") },
+	["智慧不给能量护盾提供属性加成"] = { flag("NoIntBonusToES") },
 	["你受到的感电效果"] = "SelfShockEffect",
 	["你身上的冰缓和感电效果"] = { "SelfChillEffect", "SelfShockEffect"},
 	["法术伤害压制率词缀改为有躲避法术击中率，其数值等于原有的 50%%"] = { 
@@ -6818,55 +6830,33 @@ local specialModList = {
 		mod("EnemyShockChance", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Cursed" }),
 		mod("PoisonChance", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Cursed" }),
 	} end,
-	["per (%d+)%% chance to block on equipped shield"] = function(num) return { tag = { type = "PerStat", stat = "ShieldBlockChance", div = num } } end,
-	["per (%d+) evasion on boots"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBoots", div = num } } end,
-	["per (%d+) armour on gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnGloves", div = num } } end,
-	["per (%d+)%% chaos resistance"] = function(num) return { tag = { type = "PerStat", stat = "ChaosResist", div = num } } end,
-	["per endurance, frenzy or power charge"] = { tag = { type = "PerStat", stat = "TotalCharges" } },
-	["cannot be ignited while at maximum endurance charges"] = { mod("AvoidIgnite", "BASE", 100, {type = "StatThreshold", stat = "EnduranceCharges", thresholdStat = "EnduranceChargesMax" }) },
-	["cannot be chilled while at maximum frenzy charges"] = { mod("AvoidChill", "BASE", 100, {type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }) },
-	["cannot be shocked while at maximum power charges"] = { mod("AvoidShock", "BASE", 100, {type = "StatThreshold", stat = "PowerCharges", thresholdStat = "PowerChargesMax" }) },
-	["cannot be frozen if energy shield recharge has started recently"] = { mod("AvoidFreeze", "BASE", 100, { type = "Condition", var = "EnergyShieldRechargeRecently" }) },
-	["per allocated mastery passive skill"] = { tag = { type = "Multiplier", var = "PerAllocatedMastery" } },
-	["per allocated notable passive skill"] = { tag = { type = "Multiplier", var = "PerAllocatedNotable" } },
-	["^blink arrow and mirror arrow have "] = { tag = { type = "SkillName", skillNameList = { "Blink Arrow", "Mirror Arrow" } } },
-	["%+(%d+)%% chance to block attack damage if you have not blocked recently"] = function(num) return { mod("BlockChance", "BASE", num, { type = "Condition", var = "BlockedRecently", neg = true }) } end,
-	["intelligence provides no inherent bonus to energy shield"] = { flag("NoIntelligenceAttributeBonuses") },
-	["strength's damage bonus applies to all spell damage as well"] = { flag("IronWill") },
-	["enemies near your linked targets have fire, cold and lightning exposure"] = {
+	["攻击伤害格挡率上限 (%-?%d+)%%"] = function(num) return { mod("BlockChanceMax", "BASE", num)} end, --备注：maximum block chance
+	["攻击伤害格挡率按照已装备的盾牌上每 (%d+)%% 的格挡率 %+(%d+)%%"] = function(_,num1,num2) return { mod("BlockChance", "BASE", num2, { type = "PerStat", stat = "ShieldBlockChance", div = num1 })} end,
+	["能量护盾按照脚部装备上每 (%d+) 点闪避值 %+(%d+)"] = function(_,num1,num2) return { mod("EnergyShield", "BASE", num2 ,{ type = "PerStat", stat = "EvasionOnBoots", div = num1 })} end,
+	["闪避值按照手部装备上每 (%d+) 点护甲值 %+(%d+)"] = function(_,num1,num2) return { mod("Evasion", "BASE", num2 , { type = "PerStat", stat = "ArmourOnGloves", div = num1 } ) } end,
+	["持续混沌伤害加成按照每 (%d+) 点混沌抗性 %+(%d+)%%"] = function(_,num1,num2) return { mod("ChaosDotMultiplier", "BASE", num2 , { type = "PerStat", stat = "ChaosResist", div = num1 } ) } end,
+	["每个耐力球、狂怒球、暴击球都使"] = { tag = { type = "PerStat", stat = "TotalCharges" } },
+	["在耐力球达到上限时不能被点燃"] = { mod("AvoidIgnite", "BASE", 100, {type = "StatThreshold", stat = "EnduranceCharges", thresholdStat = "EnduranceChargesMax" }) },
+	["达到狂怒球数量上限时不能被冰缓"] = { mod("AvoidChill", "BASE", 100, {type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }) },
+	["在暴击球达到上限时不能被感电"] = { mod("AvoidShock", "BASE", 100, {type = "StatThreshold", stat = "PowerCharges", thresholdStat = "PowerChargesMax" }) },
+	["能量护盾在近期内开始充能的情况下不能被冻结"] = { mod("AvoidFreeze", "BASE", 100, { type = "Condition", var = "EnergyShieldRechargeRecently" }) },
+	["力量按照配置的每个专精天赋 %+(%d+)"] = function(num) return { mod("Str", "BASE", num, { type = "Multiplier", var = "PerAllocatedMastery" }) } end,
+	["敏捷按照配置的每个专精天赋 %+(%d+)"] = function(num) return { mod("Dex", "BASE", num, { type = "Multiplier", var = "PerAllocatedMastery" }) } end,
+	["智慧按照配置的每个专精天赋 %+(%d+)"] = function(num) return { mod("Int", "BASE", num, { type = "Multiplier", var = "PerAllocatedMastery" }) } end,
+	["闪现射击和镜像射击的冷却回复率提高 (%d+)%%"] = function(num) return { mod("CooldownRecovery", "INC", num, { type = "SkillName", skillNameList = { "Blink Arrow", "Mirror Arrow" } } ) } end,
+	["攻击伤害格挡率在你近期内没有格挡过敌人的情况下 %+(%d+)%%"] = function(num) return { mod("BlockChance", "BASE", num, { type = "Condition", var = "BlockedRecently", neg = true }) } end,
+	["力量可以给所有法术伤害提供伤害加成"] = { flag("IronWill") },
+	["在你的羁绊对象周围的敌人有畏火、畏寒和畏电状态"] = {
 		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
 		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
 		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -10, { type = "Condition", var = "NearLinkedTarget" }) }, { type = "Condition", var = "Effective" }),
 	},
-	["fire exposure you inflict applies an extra (%-?%d+)%% to fire resistance"] = function(num) return { mod("ExtraFireExposure", "BASE", num) } end,
-	["cold exposure you inflict applies an extra (%-?%d+)%% to cold resistance"] = function(num) return { mod("ExtraColdExposure", "BASE", num) } end,
-	["lightning exposure you inflict applies an extra (%-?%d+)%% to lightning resistance"] = function(num) return { mod("ExtraLightningExposure", "BASE", num) } end,
-	["exposure you inflict applies at least (%-%d+)%% to the affected resistance"] = function(num) return { mod("ExposureMin", "OVERRIDE", num) } end,
-	["all sockets are white"] = { },
-	["socketed non%-exceptional support gems can also support skills from your ([%a%s]+)"] = function (_, itemSlotName)
-		local targetItemSlotName = "Body Armour"
-		if itemSlotName == "main hand" then
-			targetItemSlotName = "Weapon 1"
-		end
-		return {
-			mod("LinkedNonExceptionSupport", "LIST", { targetSlotName = targetItemSlotName }, { type = "SocketedIn", slotName = "{SlotName}" }),
-		}
-	end,
-	["gain no inherent bonuses from strength"] = { flag("NoStrengthAttributeBonuses") },
-	["gain no inherent bonuses from dexterity"] = { flag("NoDexterityAttributeBonuses") },
-	["gain no inherent bonuses from intelligence"] = { flag("NoIntelligenceAttributeBonuses") },
-	["critical strike chance is increased by overcapped lightning resistance"] = { mod("CritChance", "INC", 1, { type = "PerStat", stat = "LightningResistOverCap", div = 1 }) },
-	["armour is increased by overcapped fire resistance"] = { mod("Armour", "INC", 1, { type = "PerStat", stat = "FireResistOverCap", div = 1 }) },
-	["evasion rating is increased by overcapped cold resistance"] = { mod("Evasion", "INC", 1, { type = "PerStat", stat = "ColdResistOverCap", div = 1 }) },
-	["(%d+)%% increased armour per (%d+) reserved mana"] = function(num, _, mana) return { mod("Armour", "INC", num, { type = "PerStat", stat = "ManaReserved", div = tonumber(mana) }) } end,
-	["(%d+)%% less flask charges gained from kills"] = function(num) return {
-		mod("FlaskChargesGained", "MORE", -num,"from Kills")
-	} end,
-	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str)
-		return {  mod("ExtraAura", "LIST", {onlyAllies = true, mod = mod("BlockChance", "BASE", block)}, {type = "PerStat", stat = "Str", div = tonumber(str)})} end,
-	["%+(%d+)%% chance to block spell damage for each (%d+)%% overcapped chance to block attack damage"] = function(num, _, div) return { mod("SpellBlockChance", "BASE", num, { type = "PerStat", stat = "BlockChanceOverCap", div = tonumber(div) }) } end,
-	["you can cast (%d+) additional brands"] = function(num) return { mod("ActiveBrandLimit", "BASE", num) } end,
-	["wand attacks fire an additional projectile"] = { mod("ProjectileCount", "BASE", 1, nil, ModFlag.Wand) },
+	["你施加的畏火使火焰抗性额外 (%-?%d+)%%"] = function(num) return { mod("ExtraFireExposure", "BASE", num) } end,
+	["你施加的畏寒效果也使冰霜抗性额外 (%-?%d+)%%"] = function(num) return { mod("ExtraColdExposure", "BASE", num) } end,
+	["你施加的曝露效果对受影响的抗性至少 (%-%d+)%%"] = function(num) return { mod("ExposureMin", "OVERRIDE", num) } end,
+	["所有插槽都是白色"] = { },
+	["法术伤害格挡率按照每 (%d+)%% 超量的攻击伤害格挡率 %+(%d+)%%"] = function(div, _, num) return { mod("SpellBlockChance", "BASE", num, { type = "PerStat", stat = "BlockChanceOverCap", div = tonumber(div) }) } end,
+	["法杖攻击发射一枚额外投射物"] = { mod("ProjectileCount", "BASE", 1, nil, ModFlag.Wand) },
 	["per green socket on main hand weapon"] = { tag = { type = "Multiplier", var = "GreenSocketInWeapon 1" } },
 	["per red socket on main hand weapon"] = { tag = { type = "Multiplier", var = "RedSocketInWeapon 1" } },
 	["charge duration"] = "ChargeDuration",
