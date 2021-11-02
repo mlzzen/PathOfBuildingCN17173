@@ -7623,6 +7623,7 @@ for notable in pairs(data.clusterJewels.notableSortOrder) do
 end
 for notable in pairs(data.clusterJewels.notableSortOrder) do
 	clusterJewelSkills["其中 1 个增加的天赋为【"..notable:lower().."】"] = { mod("ClusterJewelNotable", "LIST", notable) }
+	clusterJewelSkills["其中 1 个增加的天赋为"..notable:lower()] = { mod("ClusterJewelNotable", "LIST", notable) }
 end
 for _, keystone in ipairs(data.clusterJewels.keystones) do
 	clusterJewelSkills["adds "..keystone:lower()] = { mod("JewelData", "LIST", { key = "clusterJewelKeystone", value = keystone }) }

@@ -638,7 +638,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 						end 
 						tooltip:AddLine(16, "类型: "..tagsStr)
 					end
-					local notableName = mod[1] and mod[1]:match("其中 1 个增加的天赋为【(.+)】")
+					local notableName = mod[1] and (mod[1]:match("其中 1 个增加的天赋为【(.+)】") or mod[1]:match("其中 1 个增加的天赋为(.+)"))
 					
 					local node = notableName and self.build.spec.tree.clusterNodeMap[notableName]
 					if node then
