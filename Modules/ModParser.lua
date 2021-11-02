@@ -114,6 +114,7 @@ local formList = {
 	["^([%+%-]?%d+)%% 的几率"] = "CHANCE", 
 	
 	["穿透? (%d+)%%"] = "PEN", --备注：penetrates? (%d+)%%
+	["穿透 (%d+)%% 的"] = "PEN", --备注：penetrates? (%d+)%%
 	["penetrates (%d+)%% of"] = "PEN",
 	["penetrates (%d+)%% of enemy"] = "PEN",
 	["^([%d%.]+) (.+) regenerated per second"] = "REGENFLAT",
@@ -567,6 +568,7 @@ local modNameList = {
 	["to block with staves"] = { "BlockChance", tag = { type = "Condition", var = "UsingStaff" } },
 	["spell block chance"] = "SpellBlockChance",
 	["法术格挡率"] = "SpellBlockChance", --备注：to block spells
+	["法术伤害格挡率"] = "SpellBlockChance", --备注：to block spells
 	["to block spell damage"] = "SpellBlockChance",
 	["攻击及法术格挡率"] = { "BlockChance", "SpellBlockChance" }, --备注：chance to block attacks and spells
 	["攻击伤害格挡率上限"] = "BlockChanceMax", --备注：maximum block chance
@@ -1136,6 +1138,7 @@ local preFlagList = {
 	["^critical strikes deal "] = { tag = { type = "Condition", var = "CriticalStrike" } },
 	["^minions "] = { addToMinion = true },
 	["^召唤生物的"] = { addToMinion = true }, --备注：^minions [hd][ae][va][el] 
+	["召唤生物的攻击"] = { addToMinion = true, flags = ModFlag.Attack },
 	["召唤生物获得"] = { addToMinion = true }, --备注：^minions leech 
 	["^minions' attacks deal "] = { addToMinion = true, flags = ModFlag.Attack },
 	["魔像的"] = { addToMinion = true, addToMinionTag = { type = "SkillType", skillType = SkillType.Golem } }, --备注：^golems [hd][ae][va][el] 
@@ -1212,6 +1215,7 @@ local modTagList = {
 	["持锤, 短杖或长杖时，"] = { tag = { type = "Condition", varList = { "UsingMace", "UsingStaff" } } },
 	["持锤, 短杖或长杖时"] = { tag = { type = "Condition", varList = { "UsingMace", "UsingStaff" } } },
 	["持锤类、短杖、长杖时，"] = { tag = { type = "Condition", varList = { "UsingMace", "UsingStaff" } } },
+	["在持握长杖或盾牌时"] = { tag = { type = "Condition", varList = { "UsingShield", "UsingStaff" } } },
 	["盾牌上每有 (%d+) 能量护盾可获得  "] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num } } end,
 	["每 (%d+)%% 的攻击格挡率会使"] = function(num) return { tag = { type = "PerStat", stat = "BlockChance", div = num } } end,
 	["每 (%d+)%% 攻击伤害格挡几率"] = function(num) return { tag = { type = "PerStat", stat = "BlockChance", div = num } } end,
@@ -1223,66 +1227,66 @@ local modTagList = {
 	["持盾牌时造成的"] = { tag = { type = "Condition", var = "UsingShield" } },
 	["持盾牌时，"] = { tag = { type = "Condition", var = "UsingShield" } }, --备注：while holding a shield
 	["持盾时，"] = { tag = { type = "Condition", var = "UsingShield" } },
-		["你的副手未装备武器时，"] = { tag = { type = "Condition", var = "OffHandIsEmpty" } }, --备注：while your off hand is empty
-		["双持武器时，"] = { tag = { type = "Condition", var = "DualWielding" } },
-		["双持武器时"] = { tag = { type = "Condition", var = "DualWielding" } },
-		["双持时，"] = { tag = { type = "Condition", var = "DualWielding" } }, --备注：while dual wielding
-		["双持攻击时"] = { tag = { type = "Condition", var = "DualWielding" } }, --备注：while dual wielding
-		["双持攻击的"] = { tag = { type = "Condition", var = "DualWielding" } }, --备注：while dual wielding
-		["双持攻击"] = { tag = { type = "Condition", var = "DualWielding" } },
-		["双持爪时，"] = { tag = { type = "Condition", var = "DualWieldingClaws" } }, --备注：while dual wielding claws
-		["持斧时，"] = { tag = { type = "Condition", var = "UsingAxe" } }, --备注：while wielding an axe
-		["持弓时，"] = { tag = { type = "Condition", var = "UsingBow" } }, --备注：while wielding a bow
-		["持爪时，"] = { tag = { type = "Condition", var = "UsingClaw" } }, --备注：while wielding a claw
-		["持匕时，"] = { tag = { type = "Condition", var = "UsingDagger" } }, --备注：while wielding a dagger
-		["持锤时，"] = { tag = { type = "Condition", var = "UsingMace" } }, --备注：while wielding a mace
-		["持长杖时，"] = { tag = { type = "Condition", var = "UsingStaff" } }, --备注：while wielding a staff
-		["持剑时，"] = { tag = { type = "Condition", var = "UsingSword" } }, --备注：while wielding a sword
-		["持近战武器时，"] = { tag = { type = "Condition", var = "UsingMeleeWeapon" } }, --备注：while wielding a melee weapon
-		["持单手武器时，"] = { tag = { type = "Condition", var = "UsingOneHandedWeapon" } }, --备注：while wielding a one handed weapon
-		["持双手武器时，"] = { tag = { type = "Condition", var = "UsingTwoHandedWeapon" } }, --备注：while wielding a two handed weapon
-		["持双手近战武器时，"] =  { tagList = { { type = "Condition", var = "UsingTwoHandedWeapon" }, { type = "Condition", var = "UsingMeleeWeapon" } } },
-		["双持或持盾牌时，"] = { tag = { type = "Condition", varList = { "DualWielding", "UsingShield" } } }, --备注：while dual wielding or holding a shield
-		["持法杖时，"] = { tag = { type = "Condition", var = "UsingWand" } }, --备注：while wielding a wand
-		["空手时，"] = { tag = { type = "Condition", var = "Unarmed" } }, --备注：while unarmed
-		["静止时，"] = { tag = { type = "Condition", var = "Stationary" } }, --备注：while stationary
-		["移动时，"] = { tag = { type = "Condition", var = "Moving" } }, --备注：while moving
-		["当你没有暴击球时，"] = { tag = { type = "StatThreshold", stat = "PowerCharges", threshold = 0, upper = true } }, --备注：while you have no power charges
-		["当你没有狂怒球时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", threshold = 0, upper = true } }, --备注：while you have no frenzy charges
-		["当你身上没有狂怒球时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", threshold = 0, upper = true } }, 
-		["当你没有耐力球时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", threshold = 0, upper = true } }, --备注：while you have no endurance charges
-		["你拥有暴击球时，"] = { tag = { type = "StatThreshold", stat = "PowerCharges", threshold = 1 } }, --备注：while you have a power charge
-		["你拥有狂怒球时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 } }, --备注：while you have a frenzy charge
-		["你拥有耐力球时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 } },
-		["当暴击球达到上限时，"] = { tag = { type = "StatThreshold", stat = "PowerCharges", thresholdStat = "PowerChargesMax" } }, --备注：while at maximum power charges
-		["当狂怒球达到上限时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" } }, --备注：while at maximum frenzy charges
-		["当耐力球达到上限时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", thresholdStat = "EnduranceChargesMax" } }, --备注：while at maximum endurance charges
-		["当你有图腾存在时，"] = { tag = { type = "Condition", var = "HaveTotem" } }, --备注：while you have a totem
-		["有图腾存在时"] = { tag = { type = "Condition", var = "HaveTotem" } }, 
-		["当你拥有护体时，"] = { tag = { type = "Condition", var = "Fortify" } }, --备注：while you have fortify	
-		["【护体】状态下，"] = { tag = { type = "Condition", var = "Fortify" } },
-		["【迷踪】状态时，"] = { tag = { type = "Condition", var = "Phasing" } }, --备注：while phasing
-		["迷踪状态下"] = { tag = { type = "Condition", var = "Phasing" } }, --备注：while phasing
-		["拥有【提速尾流】时，"] = { tag = { type = "Condition", var = "Tailwind" } }, --备注：while you have tailwind
-		["拥有【猫之隐匿】时，"] = { tag = { type = "Condition", var = "AffectedBy猫之隐匿" } }, --备注：while you have cat's stealth
-		["拥有【鸟之力量】时，"] = { tag = { type = "Condition", var = "AffectedBy鸟之力量" } }, --备注：while you have avian's might
-		["拥有【鸟之斗魄】时，"] = { tag = { type = "Condition", var = "AffectedBy鸟之斗魄" } }, --备注：while you have avian's flight	
-		["拥有【猫之隐匿】时"] = { tag = { type = "Condition", var = "AffectedBy猫之隐匿" } }, --备注：while you have cat's stealth
-		["拥有【鸟之力量】时"] = { tag = { type = "Condition", var = "AffectedBy鸟之力量" } }, --备注：while you have avian's might
-		["拥有【鸟之斗魄】时"] = { tag = { type = "Condition", var = "AffectedBy鸟之斗魄" } }, --备注：while you have avian's flight
-		["受到【猫之势】影响时，"] = { tag = { type = "Condition", varList = { "AffectedBy猫之隐匿", "AffectedBy猫之敏捷" } } }, --备注：while affected by aspect of the cat
-		["偷取时，"] = { tag = { type = "Condition", var = "Leeching" } }, --备注：while leeching
-		["使用药剂时，"] = { tag = { type = "Condition", var = "UsingFlask" } }, --备注：while using a flask	
-		["在奉献地面上时，"] = { tag = { type = "Condition", var = "OnConsecratedGround" } }, --备注：while on consecrated ground
-		["被点燃时，"] = { tag = { type = "Condition", var = "Ignited" } }, --备注：while ignited
-		["冰冻时，"] = { tag = { type = "Condition", var = "Frozen" } }, --备注：while frozen
-		["被感电时，"] = { tag = { type = "Condition", var = "Shocked" } }, --备注：while shocked	
-		["流血时，"] = { tag = { type = "Condition", var = "Bleeding" } }, --备注：while bleeding
-		["中毒时，"] = { tag = { type = "Condition", var = "Poisoned" } }, --备注：while poisoned
-		["被诅咒时，"] = { tag = { type = "Condition", var = "Cursed" } }, --备注：while cursed
-		["未被诅咒时，"] = { tag = { type = "Condition", var = "Cursed", neg = true } }, --备注：while not cursed
-		["持长杖时 "] = { tag = { type = "Condition", var = "UsingStaff" } }, --备注：while wielding a staff
-		["获得护体时，"] = { tag = { type = "Condition", var = "Fortify" } }, --备注：while you have fortify
+	["你的副手未装备武器时，"] = { tag = { type = "Condition", var = "OffHandIsEmpty" } }, --备注：while your off hand is empty
+	["双持武器时，"] = { tag = { type = "Condition", var = "DualWielding" } },
+	["双持武器时"] = { tag = { type = "Condition", var = "DualWielding" } },
+	["双持时，"] = { tag = { type = "Condition", var = "DualWielding" } }, --备注：while dual wielding
+	["双持攻击时"] = { tag = { type = "Condition", var = "DualWielding" } }, --备注：while dual wielding
+	["双持攻击的"] = { tag = { type = "Condition", var = "DualWielding" } }, --备注：while dual wielding
+	["双持攻击"] = { tag = { type = "Condition", var = "DualWielding" } },
+	["双持爪时，"] = { tag = { type = "Condition", var = "DualWieldingClaws" } }, --备注：while dual wielding claws
+	["持斧时，"] = { tag = { type = "Condition", var = "UsingAxe" } }, --备注：while wielding an axe
+	["持弓时，"] = { tag = { type = "Condition", var = "UsingBow" } }, --备注：while wielding a bow
+	["持爪时，"] = { tag = { type = "Condition", var = "UsingClaw" } }, --备注：while wielding a claw
+	["持匕时，"] = { tag = { type = "Condition", var = "UsingDagger" } }, --备注：while wielding a dagger
+	["持锤时，"] = { tag = { type = "Condition", var = "UsingMace" } }, --备注：while wielding a mace
+	["持长杖时，"] = { tag = { type = "Condition", var = "UsingStaff" } }, --备注：while wielding a staff
+	["持剑时，"] = { tag = { type = "Condition", var = "UsingSword" } }, --备注：while wielding a sword
+	["持近战武器时，"] = { tag = { type = "Condition", var = "UsingMeleeWeapon" } }, --备注：while wielding a melee weapon
+	["持单手武器时，"] = { tag = { type = "Condition", var = "UsingOneHandedWeapon" } }, --备注：while wielding a one handed weapon
+	["持双手武器时，"] = { tag = { type = "Condition", var = "UsingTwoHandedWeapon" } }, --备注：while wielding a two handed weapon
+	["持双手近战武器时，"] =  { tagList = { { type = "Condition", var = "UsingTwoHandedWeapon" }, { type = "Condition", var = "UsingMeleeWeapon" } } },
+	["双持或持盾牌时，"] = { tag = { type = "Condition", varList = { "DualWielding", "UsingShield" } } }, --备注：while dual wielding or holding a shield
+	["持法杖时，"] = { tag = { type = "Condition", var = "UsingWand" } }, --备注：while wielding a wand
+	["空手时，"] = { tag = { type = "Condition", var = "Unarmed" } }, --备注：while unarmed
+	["静止时，"] = { tag = { type = "Condition", var = "Stationary" } }, --备注：while stationary
+	["移动时，"] = { tag = { type = "Condition", var = "Moving" } }, --备注：while moving
+	["当你没有暴击球时，"] = { tag = { type = "StatThreshold", stat = "PowerCharges", threshold = 0, upper = true } }, --备注：while you have no power charges
+	["当你没有狂怒球时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", threshold = 0, upper = true } }, --备注：while you have no frenzy charges
+	["当你身上没有狂怒球时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", threshold = 0, upper = true } }, 
+	["当你没有耐力球时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", threshold = 0, upper = true } }, --备注：while you have no endurance charges
+	["你拥有暴击球时，"] = { tag = { type = "StatThreshold", stat = "PowerCharges", threshold = 1 } }, --备注：while you have a power charge
+	["你拥有狂怒球时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 } }, --备注：while you have a frenzy charge
+	["你拥有耐力球时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 } },
+	["当暴击球达到上限时，"] = { tag = { type = "StatThreshold", stat = "PowerCharges", thresholdStat = "PowerChargesMax" } }, --备注：while at maximum power charges
+	["当狂怒球达到上限时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" } }, --备注：while at maximum frenzy charges
+	["当耐力球达到上限时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", thresholdStat = "EnduranceChargesMax" } }, --备注：while at maximum endurance charges
+	["当你有图腾存在时，"] = { tag = { type = "Condition", var = "HaveTotem" } }, --备注：while you have a totem
+	["有图腾存在时"] = { tag = { type = "Condition", var = "HaveTotem" } }, 
+	["当你拥有护体时，"] = { tag = { type = "Condition", var = "Fortify" } }, --备注：while you have fortify	
+	["【护体】状态下，"] = { tag = { type = "Condition", var = "Fortify" } },
+	["【迷踪】状态时，"] = { tag = { type = "Condition", var = "Phasing" } }, --备注：while phasing
+	["迷踪状态下"] = { tag = { type = "Condition", var = "Phasing" } }, --备注：while phasing
+	["拥有【提速尾流】时，"] = { tag = { type = "Condition", var = "Tailwind" } }, --备注：while you have tailwind
+	["拥有【猫之隐匿】时，"] = { tag = { type = "Condition", var = "AffectedBy猫之隐匿" } }, --备注：while you have cat's stealth
+	["拥有【鸟之力量】时，"] = { tag = { type = "Condition", var = "AffectedBy鸟之力量" } }, --备注：while you have avian's might
+	["拥有【鸟之斗魄】时，"] = { tag = { type = "Condition", var = "AffectedBy鸟之斗魄" } }, --备注：while you have avian's flight	
+	["拥有【猫之隐匿】时"] = { tag = { type = "Condition", var = "AffectedBy猫之隐匿" } }, --备注：while you have cat's stealth
+	["拥有【鸟之力量】时"] = { tag = { type = "Condition", var = "AffectedBy鸟之力量" } }, --备注：while you have avian's might
+	["拥有【鸟之斗魄】时"] = { tag = { type = "Condition", var = "AffectedBy鸟之斗魄" } }, --备注：while you have avian's flight
+	["受到【猫之势】影响时，"] = { tag = { type = "Condition", varList = { "AffectedBy猫之隐匿", "AffectedBy猫之敏捷" } } }, --备注：while affected by aspect of the cat
+	["偷取时，"] = { tag = { type = "Condition", var = "Leeching" } }, --备注：while leeching
+	["使用药剂时，"] = { tag = { type = "Condition", var = "UsingFlask" } }, --备注：while using a flask	
+	["在奉献地面上时，"] = { tag = { type = "Condition", var = "OnConsecratedGround" } }, --备注：while on consecrated ground
+	["被点燃时，"] = { tag = { type = "Condition", var = "Ignited" } }, --备注：while ignited
+	["冰冻时，"] = { tag = { type = "Condition", var = "Frozen" } }, --备注：while frozen
+	["被感电时，"] = { tag = { type = "Condition", var = "Shocked" } }, --备注：while shocked	
+	["流血时，"] = { tag = { type = "Condition", var = "Bleeding" } }, --备注：while bleeding
+	["中毒时，"] = { tag = { type = "Condition", var = "Poisoned" } }, --备注：while poisoned
+	["被诅咒时，"] = { tag = { type = "Condition", var = "Cursed" } }, --备注：while cursed
+	["未被诅咒时，"] = { tag = { type = "Condition", var = "Cursed", neg = true } }, --备注：while not cursed
+	["持长杖时 "] = { tag = { type = "Condition", var = "UsingStaff" } }, --备注：while wielding a staff
+	["获得护体时，"] = { tag = { type = "Condition", var = "Fortify" } }, --备注：while you have fortify
 	["受到你光环影响时，"] = { affectedByAura = true }, --备注：while affected by auras you cast	
 	["你和友军"] = { }, --备注：to you and allies
 	["你和周围友军的"] = { }, --备注：to you and allies
@@ -6817,6 +6821,9 @@ local specialModList = {
 	} end,
 	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str)
 		return {  mod("ExtraAura", "LIST", {onlyAllies = true, mod = mod("BlockChance", "BASE", block)}, {type = "PerStat", stat = "Str", div = tonumber(str)})} end,
+	["hexes from socketed skills can apply (%d) additional curses"] = function(num) return { mod("SocketedCursesHexLimitValue", "BASE", num), flag("SocketedCursesAdditionalLimit", { type = "SocketedIn", slotName = "{SlotName}" } )} end,
+	["hexes from socketed skills ignore curse limit"] = function(num) return { mod("SocketedCursesHexLimitValue", "BASE", 5), flag("SocketedCursesAdditionalLimit", { type = "SocketedIn", slotName = "{SlotName}" } )} end,
+
 	["攻击伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,ModFlag.Attack ) } end,
 	["可以有 (%d+) 个额外附魔词缀"] = { },
 	["致盲效果提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("BlindEffect", "INC", num) }), } end,
@@ -6867,35 +6874,33 @@ local specialModList = {
 	["所有插槽都是白色"] = { },
 	["法术伤害格挡率按照每 (%d+)%% 超量的攻击伤害格挡率 %+(%d+)%%"] = function(div, _, num) return { mod("SpellBlockChance", "BASE", num, { type = "PerStat", stat = "BlockChanceOverCap", div = tonumber(div) }) } end,
 	["法杖攻击发射一枚额外投射物"] = { mod("ProjectileCount", "BASE", 1, nil, ModFlag.Wand) },
-	["per green socket on main hand weapon"] = { tag = { type = "Multiplier", var = "GreenSocketInWeapon 1" } },
-	["per red socket on main hand weapon"] = { tag = { type = "Multiplier", var = "RedSocketInWeapon 1" } },
-	["charge duration"] = "ChargeDuration",
-	["increases and reductions to maximum mana also apply to shock effect at (%d+)%% of their value"] = function(num) return { flag("MaximumManaAppliesToShockEffect"), mod("ImprovedMaximumManaAppliesToShockEffect", "INC", num) } end,
-	["recover (%d+) energy shield when you block spell damage"] = function(num) return { mod("EnergyShieldOnSpellBlock", "BASE", num) } end,
-	["(%d+)%% chance to deal double damage with attacks if attack time is longer than 1 second"] = function(num) return { 
+	["护甲值按照主手武器上每个红色插槽提高 (%d+)%%"] = function(num) return { mod("Armour", "INC", num, { type = "Multiplier", var = "RedSocketInWeapon 1" } )} end,
+	["闪避值按照插在主手武器上每个绿色宝石提高 (%d+)%%"] = function(num) return { mod("Evasion", "INC", num, { type = "Multiplier", var = "GreenSocketInWeapon 1" } )} end,
+	["充能持续时间"] = "ChargeDuration",
+	["对魔力上限的增幅与减弱效果有 (%d+)%% 也作用于感电效果"] = function(num) return { flag("MaximumManaAppliesToShockEffect"), mod("ImprovedMaximumManaAppliesToShockEffect", "INC", num) } end,
+	["能量护盾在你格挡法术伤害时恢复 (%d+) 点"] = function(num) return { mod("EnergyShieldOnSpellBlock", "BASE", num) } end,
+	["攻击伤害在攻击时间超过 1 秒的情况下有 (%d+)%% 的几率翻倍"] = function(num) return { 
 		mod("DoubleDamageChance", "BASE", num, 0, 0, { type = "Condition", var = "OneSecondAttackTime" })
 	} end,
-	["hexes from socketed skills can apply (%d) additional curses"] = function(num) return { mod("SocketedCursesHexLimitValue", "BASE", num), flag("SocketedCursesAdditionalLimit", { type = "SocketedIn", slotName = "{SlotName}" } )} end,
 	-- This is being changed from ignoreHexLimit to SocketedCursesAdditionalLimit due to patch 3.16.0, which states that legacy versions "will be affected by this Curse Limit change, 
 	-- though they will only have 20% less Curse Effect of Curses triggered with Summon Doedre’s Effigy."
 	-- Legacy versions will still show that "Hexes from Socketed Skills ignore Curse limit", but will instead have an internal limit of 5 to match the current functionality.
-	["hexes from socketed skills ignore curse limit"] = function(num) return { mod("SocketedCursesHexLimitValue", "BASE", 5), flag("SocketedCursesAdditionalLimit", { type = "SocketedIn", slotName = "{SlotName}" } )} end,
-	["each mine applies (%d+)%% increased damage taken to enemies near it, up to (%d+)%%"] = function(num, _, limit) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "ActiveMineCount", limit = limit / num }) }) } end,
-	["each totem applies (%d+)%% increased damage taken to enemies near it"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
-	["all damage with maces and sceptres inflicts chill"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Chilled") }, { type = "Condition", var = "UsingMace" } )},
-	["non%-projectile chaining lightning skills chain %+(%d+) times"] = function (num) return { mod("ChainCountMax", "BASE", num, { type = "SkillType", skillType = SkillType.Projectile, neg = true }, { type = "SkillType", skillType = SkillType.Chaining }, { type = "SkillType", skillType = SkillType.LightningSkill }) } end,
+	["每个地雷使它附近敌人承受的伤害提高 (%d+)%%，最高 (%d+)%%"] = function(num, _, limit) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "ActiveMineCount", limit = limit / num }) }) } end,
+	["每个图腾都使其周围敌人承受的伤害提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
+	["锤类和短杖的所有伤害都施加冰缓状态"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Chilled") }, { type = "Condition", var = "UsingMace" } )},
+	["非投射物连锁的闪电技能连锁 %+(%d+) 次"] = function (num) return { mod("ChainCountMax", "BASE", num, { type = "SkillType", skillType = SkillType.Projectile, neg = true }, { type = "SkillType", skillType = SkillType.Chaining }, { type = "SkillType", skillType = SkillType.LightningSkill }) } end,
 	-- Poison and Bleed
-	["(%d+)%% increased damage with bleeding inflicted on poisoned enemies"] = function(num) return {
+	["对中毒敌人造成的流血伤害提高 (%d+)%%"] = function(num) return {
 		mod("BleedDamage", "INC", num, { type = "ActorCondition", actor = "enemy", var = "Poisoned"})
 	} end,
-	["corrupted blood cannot be inflicted on you"] = { flag("Condition:CorruptedBloodImmunity") },
-	["maximum fortification"] = "MaximumFortification",
-	["you have (%d+) fortification"] = function(num) return { 
+	["【腐化之血】无法施加于你"] = { flag("Condition:CorruptedBloodImmunity") },
+	["你有 (%d+) 层护身"] = function(num) return { 
 		mod("MaximumFortification", "OVERRIDE", num), 
 		mod("Multiplier:Fortification", "BASE", num),
 		flag("Condition:Fortified") 
 	} end,
-	["crush enemies on hit with maces and sceptres"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }, { type = "Condition", var = "UsingMace" } )},
+	["用锤类和短杖击中时碾压敌人"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }, { type = "Condition", var = "UsingMace" } )},
+	["召唤生物的攻击压制 (%d+)%% 物理伤害减免"] = function(num) return {  mod("EnemyPhysicalDamageReduction", "BASE", -num, { addToMinion = true, flags = ModFlag.Attack })  } end,
 
 }
 
