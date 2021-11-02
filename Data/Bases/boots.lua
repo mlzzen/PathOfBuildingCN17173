@@ -411,7 +411,7 @@ itemBases["龙鳞长靴"] = {
 	armour = { ArmourBaseMin = 121, ArmourBaseMax = 139, EvasionBaseMin = 121, EvasionBaseMax = 139, },
 	req = { level = 65, str = 62, dex = 62, },
 }
-itemBases["Two-Toned Boots (Armour/Evasion)"] = {
+itemBases["异色鞋（火冰）"] = {
 	type = "Boots",
 	subType = "Armour/Evasion",
 	socketLimit = 4,
@@ -494,7 +494,7 @@ itemBases["圣战长靴"] = {
 	armour = { ArmourBaseMin = 121, ArmourBaseMax = 139, EnergyShieldBaseMin = 25, EnergyShieldBaseMax = 28, },
 	req = { level = 64, str = 62, int = 62, },
 }
-itemBases["Two-Toned Boots (Armour/Energy Shield)"] = {
+itemBases["异色鞋（火闪）"] = {
 	type = "Boots",
 	subType = "Armour/Energy Shield",
 	socketLimit = 4,
@@ -596,7 +596,7 @@ itemBases["逃亡之靴"] = {
 	armour = { EvasionBaseMin = 112, EvasionBaseMax = 129, EnergyShieldBaseMin = 32, EnergyShieldBaseMax = 37, },
 	req = { level = 70, dex = 56, int = 76, },
 }
-itemBases["Two-Toned Boots (Evasion/Energy Shield)"] = {
+itemBases["异色鞋(冰闪)"] = {
 	type = "Boots",
 	subType = "Evasion/Energy Shield",
 	socketLimit = 4,

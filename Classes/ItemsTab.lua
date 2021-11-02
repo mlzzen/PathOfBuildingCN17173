@@ -1783,7 +1783,7 @@ function ItemsTabClass:CraftItem()
 		end
 		item.rarity = controls.rarity.list[raritySel].rarity
 		if raritySel >= 3 then
-			item.title = controls.title.buf:match("%S") and controls.title.buf or "新物品"
+			item.title = controls.title.buf:match("%S") and controls.title.buf or "自定义"
 		end
 		
 		if base.base.implicit then
