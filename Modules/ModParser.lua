@@ -7898,16 +7898,30 @@ local function parseMod(line, order)
 	return modList, line:match("%S") and line
 end
 
+local parseModEn, parseModCacheEn = LoadModule("Modules/ModParserEn", launch)
+local translation = LoadModule("TreeData/3_16/translation", launch)
+local function translateMod(line)
+	return translation[line]
+end
+
 local cache = { }
 local unsupported = { }
 local count = 0
 --local foo = io.open("../unsupported.txt", "w")
 --foo:close()
 return function(line, isComb)
+	
 	if not cache[line] then
-		local modList, extra = parseMod(line, 1)
-		if modList and extra then
-			modList, extra = parseMod(line, 2)
+		local modList, extra
+		local lineEn = translateMod(line)
+		if lineEn then
+			modList, extra = parseModEn(lineEn)
+		end
+		if not lineEn or not modList then
+			modList, extra = parseMod(line, 1)
+			if modList and extra then
+				modList, extra = parseMod(line, 2)
+			end
 		end
 		cache[line] = { modList, extra }
 		if foo and not isComb and not cache[line][1] then
