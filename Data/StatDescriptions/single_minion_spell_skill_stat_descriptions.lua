@@ -1,7 +1,7 @@
 return {
 	[1]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					[1]={
 						k="reminderstring",
@@ -93,7 +93,7 @@ return {
 	},
 	[2]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -121,7 +121,7 @@ return {
 	},
 	[3]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -153,7 +153,7 @@ return {
 	},
 	[4]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -185,7 +185,7 @@ return {
 	},
 	[5]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -217,7 +217,7 @@ return {
 	},
 	[6]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -236,7 +236,7 @@ return {
 	},
 	[7]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -268,7 +268,7 @@ return {
 	},
 	[8]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -300,7 +300,7 @@ return {
 	},
 	[9]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -332,7 +332,7 @@ return {
 	},
 	[10]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					[1]={
 						k="per_minute_to_per_second",
@@ -355,7 +355,7 @@ return {
 	},
 	[11]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -383,7 +383,7 @@ return {
 	},
 	[12]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					[1]={
 						k="divide_by_one_hundred",
@@ -410,7 +410,7 @@ return {
 	},
 	[13]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -428,7 +428,7 @@ return {
 	},
 	[14]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -447,7 +447,7 @@ return {
 	},
 	[15]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -479,7 +479,7 @@ return {
 	},
 	[16]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -511,7 +511,7 @@ return {
 	},
 	[17]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -530,7 +530,7 @@ return {
 	},
 	[18]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -554,7 +554,7 @@ return {
 	},
 	[19]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -573,7 +573,7 @@ return {
 	},
 	[20]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -605,7 +605,7 @@ return {
 	},
 	[21]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -624,7 +624,7 @@ return {
 	},
 	[22]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -656,7 +656,7 @@ return {
 	},
 	[23]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					[1]={
 						k="per_minute_to_per_second",
@@ -679,7 +679,7 @@ return {
 	},
 	[24]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
@@ -711,7 +711,7 @@ return {
 	},
 	[25]={
 		lang={
-			English={
+			["Simplified Chinese"]={
 				[1]={
 					limit={
 						[1]={
