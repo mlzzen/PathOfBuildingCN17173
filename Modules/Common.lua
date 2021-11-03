@@ -132,6 +132,16 @@ function new(className, ...)
 	return object
 end
 
+function urlEncode(s)  
+	s = string.gsub(s, "([^%w%.%- ])", function(c) return string.format("%%%02X", string.byte(c)) end)  
+	return string.gsub(s, " ", "+")  
+end  
+
+function urlDecode(s)  
+	s = string.gsub(s, '%%(%x%x)', function(h) return string.char(tonumber(h, 16)) end)  
+	return s  
+end  
+
 function codePointToUTF8(codePoint)
 	if codePoint >= 0xD800 and codePoint <= 0xDFFF then
 		return "?"

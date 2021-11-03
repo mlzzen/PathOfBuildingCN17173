@@ -35,13 +35,15 @@ return "^7角色导入状态: "..self.charImportStatus
 	
 
 	-- Stage: input account name
-self.controls.accountNameHeader = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, 6, 40, 200, 16, "^7请输入你的论坛名（登录官网论坛头像下的那个）:")
+	self.controls.accountNameHeader = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, 6, 40, 200, 16, "^7请输入你的论坛名（登录官网论坛头像下的那个）:")
 	self.controls.accountNameHeader.shown = function()
 		return self.charImportMode == "GETACCOUNTNAME"
 	end
 	self.controls.accountRealm = new("DropDownControl", {"TOPLEFT",self.controls.accountNameHeader,"BOTTOMLEFT"}, 0, 4, 100, 20, realmList )
 	self.controls.accountRealm:SelByValue( main.lastRealm or "PC", "id" )
-	self.controls.accountName = new("EditControl", {"LEFT",self.controls.accountRealm,"RIGHT"}, 8, 0, 200, 20, main.lastAccountName or "", nil, "%c")
+	local lastName = main.lastAccountName or ""
+	lastName = urlDecode(lastName)
+	self.controls.accountName = new("EditControl", {"LEFT",self.controls.accountRealm,"RIGHT"}, 8, 0, 200, 20, lastName, nil, "%c")
 	
  
 	self.controls.accountName.pasteFilter = function(text)
@@ -67,20 +69,22 @@ OpenURL("https://poe.game.qq.com/login/tencent")
 	-- Stage: input POESESSID
 	self.controls.sessionHeader = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, 6, 40, 200, 14)
 	self.controls.sessionHeader.label = function()
+		local name = urlDecode(self.controls.accountName.buf)
 		return [[
-^7无法获取账户']]..self.controls.accountName.buf..[['的角色列表，可能的原因有 :
-1. 账户名输入错误
-2、没有公开自己的角色
-如果这是你的账户，你可以考虑
-到官网的个人中心 --隐私设定 -取消勾选“隐藏角色标签”
-或者在下面输入你的 POESESSID。
-你可以在登录官网后浏览器的cookies中拿到。
+			^7无法获取账户“]]..name..[[”的角色列表，可能的原因有 :
+			1. 账户名输入错误
+			2、没有公开自己的角色
+			3、国服网页接口需要登录
+			如果这是你的账户，你可以考虑
+			到官网的个人中心 --隐私设定 -取消勾选“隐藏角色标签”
+			或者在下面输入你的 POESESSID。
+			你可以在登录官网后浏览器的cookies中拿到。
 		]]
 	end
 	self.controls.sessionHeader.shown = function()
 		return self.charImportMode == "GETSESSIONID"
 	end
-self.controls.sessionRetry = new("ButtonControl", {"TOPLEFT",self.controls.sessionHeader,"TOPLEFT"}, 0, 108, 60, 20, "重试", function()
+	self.controls.sessionRetry = new("ButtonControl", {"TOPLEFT",self.controls.sessionHeader,"TOPLEFT"}, 0, 118, 60, 20, "重试", function()
 		self.controls.sessionInput.buf = ""
 		self:DownloadCharacterList()
 	end)
@@ -89,12 +93,15 @@ self.controls.sessionCancel = new("ButtonControl", {"LEFT",self.controls.session
 		self.charImportStatus = "Idle"
 	end)
 	self.controls.sessionInput = new("EditControl", {"TOPLEFT",self.controls.sessionRetry,"BOTTOMLEFT"}, 0, 8, 350, 20, "", "POESESSID", "%X", 32)
-	self.controls.sessionGo = new("ButtonControl", {"LEFT",self.controls.sessionInput,"RIGHT"}, 8, 0, 60, 20, "Go", function()
+	self.controls.sessionGo = new("ButtonControl", {"LEFT",self.controls.sessionInput,"RIGHT"}, 8, 0, 60, 20, "继续", function()
 		self:DownloadCharacterList()
 	end)
 	self.controls.sessionGo.enabled = function()
 		return #self.controls.sessionInput.buf == 32
 	end
+	self.controls.sessionTutorialURL = new("ButtonControl", {"TOPLEFT",self.controls.sessionInput,"BOTTOMLEFT"}, 0, 10, 184, 18, "POESESSID的获取方式参考帖子", function()
+		OpenURL("http://bbs.17173.com/thread-11316406-1-1.html")
+			end)
 
 	-- Stage: select character and import data
 self.controls.charSelectHeader = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, 6, 40, 200, 16, "^7选择要导入的角色:")
@@ -257,7 +264,7 @@ function ImportTabClass:Load(xml, fileName)
 	if self.lastAccountHash then
 		for accountName in pairs(main.gameAccounts) do
 			if common.sha1(accountName) == self.lastAccountHash then
-				self.controls.accountName:SetText(accountName)
+				self.controls.accountName:SetText(urlDecode(accountName))
 			end
 		end
 	end
@@ -287,53 +294,61 @@ end
 
 function ImportTabClass:DownloadCharacterList()
 	self.charImportMode = "DOWNLOADCHARLIST"
-self.charImportStatus = "正在获取角色列表..."
+	self.charImportStatus = "正在获取角色列表..."
 	local accountName = self.controls.accountName.buf
 	local realm = realmList[self.controls.accountRealm.selIndex]
-	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and main.gameAccounts[accountName].sessionID)
-launch:DownloadPage("https://poe.game.qq.com/character-window/get-characters?accountName="..accountName.."&realm="..realm.realmCode, function(page, errMsg)
+	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and 		main.gameAccounts[accountName].sessionID)
+	launch:DownloadPage("https://poe.game.qq.com/character-window/get-characters?accountName="..accountName.."&realm="..realm.realmCode, function(page, errMsg)
 		if errMsg == "Response code: 403" then
-self.charImportStatus = colorCodes.NEGATIVE.."角色没有公开."
+			self.charImportStatus = colorCodes.NEGATIVE.."角色没有公开."
+			self.charImportMode = "GETSESSIONID"
+			return
+		elseif errMsg == "Response code: 401" then
+			self.charImportStatus = colorCodes.NEGATIVE.."获取角色信息失败，国服网页接口需要登录."
 			self.charImportMode = "GETSESSIONID"
 			return
 		elseif errMsg == "Response code: 404" then
-self.charImportStatus = colorCodes.NEGATIVE.."论坛名错误."
+			self.charImportStatus = colorCodes.NEGATIVE.."论坛名错误."
+			self.charImportMode = "GETACCOUNTNAME"
+			return
+		elseif errMsg == "Response code: 404" then
+			self.charImportStatus = colorCodes.NEGATIVE.."论坛名错误."
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		elseif errMsg then
-self.charImportStatus = colorCodes.NEGATIVE.."获取角色列表失败，请重试 ("..errMsg:gsub("\n"," ")..")"
+			self.charImportStatus = colorCodes.NEGATIVE.."获取角色列表失败，请重试 ("..errMsg:gsub("\n"," ")..")"
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
 		local charList, errMsg = self:ProcessJSON(page)
 		if errMsg then
-self.charImportStatus = colorCodes.NEGATIVE.."获取角色列表失败，请稍后重试"
+			self.charImportStatus = colorCodes.NEGATIVE.."获取角色列表失败，请稍后重试"
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
 		--ConPrintTable(charList)
 		if #charList == 0 then
-self.charImportStatus = colorCodes.NEGATIVE.."这个账户没有角色."
+			self.charImportStatus = colorCodes.NEGATIVE.."这个账户没有角色."
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
 		-- GGG's character API has an issue where for /get-characters the account name is not case-sensitive, but for /get-passive-skills and /get-items it is.
 		-- This workaround grabs the profile page and extracts the correct account name from one of the URLs.
-launch:DownloadPage(realm.profileURL..accountName, function(page, errMsg)
+		launch:DownloadPage(realm.profileURL..accountName, function(page, errMsg)
 			if errMsg then
-self.charImportStatus = colorCodes.NEGATIVE.."获取角色列表失败，请重试 ("..errMsg:gsub("\n"," ")..")"
+				self.charImportStatus = colorCodes.NEGATIVE.."获取角色列表失败，请重试 ("..errMsg:gsub("\n"," ")..")"
 				self.charImportMode = "GETACCOUNTNAME"
 				return
 			end
 			local realAccountName = page:match("/view%-profile/([^/]+)/characters"):gsub(".", function(c) if c:byte(1) > 127 then return string.format("%%%2X",c:byte(1)) else return c end end)
 			if not realAccountName then
-self.charImportStatus = colorCodes.NEGATIVE.."接收角色列表失败."
+				self.charImportStatus = colorCodes.NEGATIVE.."接收角色列表失败."
 				self.charImportMode = "GETSESSIONID"
 				return
 			end
 			self.controls.accountName:SetText(realAccountName)
 			accountName = realAccountName
-self.charImportStatus = "接收角色列表成功."
+			self.charImportStatus = "接收角色列表成功."
 			self.charImportMode = "SELECTCHAR"
 			self.lastRealm = realm.id
 			main.lastRealm = realm.id
