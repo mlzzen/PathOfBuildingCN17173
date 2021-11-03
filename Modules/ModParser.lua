@@ -4865,7 +4865,7 @@ local specialModList = {
 	["格挡击中造成的伤害无法规避能量护盾"] = { flag("BlockedDamageDoesntBypassES", { type = "Condition", var = "EVBypass", neg = true }) },
 	["非格挡击中造成的伤害始终规避能量护盾"] = { flag("UnblockedDamageDoesBypassES", { type = "Condition", var = "EVBypass", neg = true }) },
 	["你的召唤生物死亡时产生腐蚀地面，每秒造成等同它们 20%% 最大生命的混沌伤害"] = { mod("ExtraMinionSkill", "LIST", { skillId = "SiegebreakerCausticGround" }) },
-	["你的召唤生物死亡时产生燃烧地面，每秒造成等同它们最大生命 20%% 的火焰伤害"] = { mod("ExtraMinionSkill", "LIST", { skillId = "SiegebreakerBurningGround" }) },
+	["你的召唤生物死亡时产生燃烧地面，每秒造成等同它们最大生命 20%% 的火焰伤害"] = { mod("ExtraMinionSkill", "LIST", { skillId = "ReplicaSiegebreakerBurningGround" }) },
 	["%+(%d) 最大毒力"] = function(num) return { mod("Multiplier:VirulenceStacksMax", "BASE", num) } end,
 	["【凿击】创造 %+(%d+) 根尖刺"] = function(num) return { mod("Multiplier:PerforateMaxSpikes", "BASE", num) } end,
 	["燃尽的范围效果扩大 (%d+)%%"]  = function(num) return {  mod("AreaOfEffect", "INC", num, { type = "SkillName", skillName = "燃尽"})  } end,
