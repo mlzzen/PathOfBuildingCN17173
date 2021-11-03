@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <PoBVersion>
-	<Version branch="main" number="S17.0.6" platform="win32" />
+	<Version branch="main" number="S17.0.7" platform="win32" />
 	<Source part="program" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
 	<Source part="default" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
 	<Source part="tree" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
@@ -10,7 +10,7 @@
 	<File name="UpdateCheck.lua" part="program" sha1="f6c60cb8210d110c03fbd51cba5179e87b46a495" />
 	<File name="UpdateApply.lua" part="program" sha1="4f17937f2b37784e169a3792b235f2a0a3961e61" />
 	<File name="GameVersions.lua" part="program" sha1="9729b4851b46fa804bfaab7eeba85bb1b0bed529" />
-	<File name="changelog.txt" part="default" sha1="8a3beb850c0339da63e3c299ab1d1dd90c37e22e" />
+	<File name="changelog.txt" part="default" sha1="ac651a845c3112c925b58082f2974b7161ffb080" />
 	<File name="Path of Building.exe" part="runtime" platform="win32" sha1="7486cf4f0289df72ccce93a69a4198ad069f79b9" />
 	<File name="lua51.dll" part="runtime" platform="win32" sha1="7a973d3c0b5121e6aad0dcb9323be5b432fc63e7" />
 	<File name="SimpleGraphic.dll" part="runtime" platform="win32" sha1="330f6f21f8c4ff0a687fb28c0e267b74df4938a5" />
@@ -44,7 +44,7 @@
 	<File name="Classes/FolderListControl.lua" part="program" sha1="2f023f5bff3e83bff534c14ae394dd08f143a512" />
 	<File name="Classes/GemSelectControl.lua" part="program" sha1="ba07d2dc7025c138631d7d63412263b005d55bce" />
 	<File name="Classes/HorizontalLineControl.lua" part="program" sha1="ac90bf59c48bc7b2d2e487141fa58e6f1f71c15a" />
-	<File name="Classes/ImportTab.lua" part="program" sha1="56aae1e8e42d1342bb8e2ffbd4170c043eb50495" />
+	<File name="Classes/ImportTab.lua" part="program" sha1="b5d778eb6d5b6d407eb95d0619640451c41c6fe4" />
 	<File name="Classes/Item.lua" part="program" sha1="0d03b0d90d1c76950d9a9fcfc8fada18666c448c" />
 	<File name="Classes/ItemDBControl.lua" part="program" sha1="26e2c4973c66d47a013f73903ac4e25510a32074" />
 	<File name="Classes/ItemListControl.lua" part="program" sha1="90807cfc91330299de34184475296358ef7248c0" />
@@ -196,7 +196,7 @@
 	<File name="Modules/CalcSections.lua" part="program" sha1="b2361cfbd69a7ac57e6898ee79146b8bd55ca46e" />
 	<File name="Modules/CalcSetup.lua" part="program" sha1="4edc934db749f8242258b08462ae188f9a153322" />
 	<File name="Modules/CalcTools.lua" part="program" sha1="eb70e27d9658a0da5b4c9f31ee432b3b5d80fe28" />
-	<File name="Modules/Common.lua" part="program" sha1="da79cef963b04caaa4a5e842d8f0ee02d8d2656c" />
+	<File name="Modules/Common.lua" part="program" sha1="cac4cce84fae23706e812952f3aa428a67f3d9a9" />
 	<File name="Modules/ConfigOptions.lua" part="program" sha1="4319e91f5a6146032d4de32a3cf07ce16f616c37" />
 	<File name="Modules/Data.lua" part="program" sha1="66a06ec0ea826cb22a15fd1be9ef27744c6407fa" />
 	<File name="Modules/ItemTools.lua" part="program" sha1="233b099a4faae36122da8169d069c8a23ef04705" />
