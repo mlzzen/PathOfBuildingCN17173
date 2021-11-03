@@ -342,8 +342,8 @@ replica: true
 {variant:1}移动速度降低 10%
 {variant:1}你被感电的持续时间延长 50%
 不会受到暴击所造成的额外暴击伤害
-{variant:2}+(1-2) to all maximum Resistances
-{variant:2}Gain no inherent bonuses from Strength
+{variant:2}+(1-5)% 元素抗性上限
+{variant:2}力量不对最大生命提供加成
 ]],[[
 深海魔甲
 金耀之铠
