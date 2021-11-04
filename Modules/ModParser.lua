@@ -6042,6 +6042,9 @@ local specialModList = {
 	["插入的技能石的保留效能降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ReservationEfficiency", "INC", -num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["插入的技能石的保留效果提高 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Reserved", "INC", num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["插入的技能石的保留效能提高 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ReservationEfficiency", "INC", num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
+	["插入的宝石的保留效能降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ReservationEfficiency", "INC", -num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
+	["插入的宝石的保留效能提高 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ReservationEfficiency", "INC", num) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
+
 	["插入的诅咒宝石的保留效果降低 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Reserved", "INC", -num,nil,nil,KeywordFlag.Curse ) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["非满血状态时，每秒献祭 ([%d%.]+)%% 魔力来回复同等数值的生命"] = function(num) return {
 			mod("ManaDegen", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = num }, { type = "Condition", var = "FullLife", neg = true }),
