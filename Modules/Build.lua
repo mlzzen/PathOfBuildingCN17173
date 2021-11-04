@@ -1067,7 +1067,7 @@ function buildMode:OpenSaveAsPopup()
 			end
 		end
 	end
-controls.label = new("LabelControl", nil, 0, 20, 0, 16, "^7Enter new build name:")
+controls.label = new("LabelControl", nil, 0, 20, 0, 16, "^7请输入Build名称:")
 	controls.edit = new("EditControl", nil, 0, 40, 450, 20, self.dbFileName and self.buildName, nil, "\\/:%*%?\"<>|%c", 100, function(buf)
 		updateBuildName()
 	end)
