@@ -66,7 +66,7 @@ replica: true
 {tags:critical}+(23-28)% 攻击和法术暴击伤害加成
 {tags:attack,life}冰霜伤害的 (0.8-1)% 转化为生命偷取
 {variant:1}憎恨的总魔力保留额外降低 50%
-{variant:2}憎恨的总魔力保留效率额外提高 100%
+{variant:2}憎恨的总魔力保留效能额外提高 100%
 ]],
 [[
 阿兹里圣徽【仿品】
@@ -202,7 +202,7 @@ replica: true
 {tags:jewellery_attribute}+(20-30) 敏捷
 获得 22 级的主动技能【精准】，且可被此道具上的技能石辅助
 {variant:1,2}精准的保留效果总降 50%
-{variant:3}精准的保留效率总增 100%
+{variant:3}精准的保留效能总增 100%
 {tags:jewellery_attribute}+(25-35) 敏捷 
 {tags:attack,physical}攻击附加 (12-15) - (24-28) 基础物理伤害 
 {tags:jewellery_elemental,attack}攻击附加 (11-15) - (23-28) 基础冰霜伤害 
