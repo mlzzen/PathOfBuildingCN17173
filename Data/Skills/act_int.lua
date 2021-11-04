@@ -10818,10 +10818,10 @@ skills["FrostFury"] = {
 		["base_skill_show_average_damage_instead_of_dps"] = {
 		},
 		["frost_fury_fire_speed_+%_per_stage"] = {
-			mod("HitRate", "INC", nil, 0, 0, { type = "Multiplier", var = "WinterOrbStageAfterFirst" }),
+			mod("HitRate", "INC", nil, 0, 0, { type = "Multiplier", var = "寒冬宝珠StageAfterFirst" }),
 		},
 		["frost_fury_max_number_of_stages"] = {
-			mod("Multiplier:WinterOrbMaxStagesAfterFirst", "BASE", nil),
+			mod("Multiplier:寒冬宝珠MaxStagesAfterFirst", "BASE", nil),
 			div = 10 / 9,
 		},
 		["frost_fury_base_fire_interval_ms"] = {
@@ -10829,7 +10829,7 @@ skills["FrostFury"] = {
 			div = 1000,
 		},
 		["frost_fury_duration_+%_per_stage"] = {
-			mod("Duration", "INC", nil, 0, 0, { type = "Multiplier", var = "WinterOrbStageAfterFirst" }),
+			mod("Duration", "INC", nil, 0, 0, { type = "Multiplier", var = "寒冬宝珠StageAfterFirst" }),
 		},
 		["frost_fury_fire_speed_+%_final_while_channelling"] = {
 			mod("HitRate", "MORE", nil, 0, 0, { type = "SkillPart", skillPart = 1 }),
