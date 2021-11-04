@@ -561,16 +561,9 @@ local modNameList = {
 	["躲避攻击和法术击中"] = { "AttackDodgeChance", "SpellDodgeChance" }, --备注：to dodge attacks and spells
 	["躲避攻击或法术击中"] = { "AttackDodgeChance", "SpellDodgeChance" }, --备注：to dodge attacks and spells
 	["法术伤害压制率"] = { "SpellSuppressionChance" },
-	["to block"] = "BlockChance",
-	["to block attacks"] = "BlockChance",
-	["to block attack damage"] = "BlockChance",
 	["攻击格挡率"] = "BlockChance", --备注：block chance
-	["block chance with staves"] = { "BlockChance", tag = { type = "Condition", var = "UsingStaff" } },
-	["to block with staves"] = { "BlockChance", tag = { type = "Condition", var = "UsingStaff" } },
-	["spell block chance"] = "SpellBlockChance",
 	["法术格挡率"] = "SpellBlockChance", --备注：to block spells
 	["法术伤害格挡率"] = "SpellBlockChance", --备注：to block spells
-	["to block spell damage"] = "SpellBlockChance",
 	["攻击及法术格挡率"] = { "BlockChance", "SpellBlockChance" }, --备注：chance to block attacks and spells
 	["攻击伤害格挡率上限"] = "BlockChanceMax", --备注：maximum block chance
 	["法术伤害格挡率上限"] = "SpellBlockChanceMax",
@@ -580,20 +573,13 @@ local modNameList = {
 	["避免被冰缓"] = "AvoidChilled", --备注：to avoid being chilled
 	["避免被点燃"] = "AvoidIgnite", --备注：to avoid being ignited
 	["避免元素异常状态"] = { "AvoidShock", "AvoidFrozen", "AvoidChilled", "AvoidIgnite" }, --备注：to avoid elemental ailments
-	["to avoid elemental status ailments"] = { "AvoidShock", "AvoidFrozen", "AvoidChilled", "AvoidIgnite" },
 	["避免被流血"] = "AvoidBleed", --备注：to avoid bleeding
 	["的伤害优先从魔力扣除"] = "DamageTakenFromManaBeforeLife", --备注：damage is taken from mana before life
-	["damage taken from mana before life"] = "DamageTakenFromManaBeforeLife",
 	["你受到的诅咒效果"] = "CurseEffectOnSelf", --备注：effect of curses on you
 	["生命回复速度"] = "LifeRecoveryRate", --备注：life recovery rate
 	["生命回复率"] = "LifeRecoveryRate", --备注：life recovery rate
-	["mana recovery rate"] = "ManaRecoveryRate",
-	["energy shield recovery rate"] = "EnergyShieldRecoveryRate",
-	["recovery rate of life, mana and energy shield"] = { "LifeRecoveryRate", "ManaRecoveryRate", "EnergyShieldRecoveryRate" },
 	-- Stun/knockback modifiers
 	["晕眩回复和格挡回复"] = "StunRecovery", --备注：stun recovery
-	["stun and block recovery"] = "StunRecovery",
-	["block and stun recovery"] = "StunRecovery",
 	["晕眩门槛"] = "StunThreshold", --备注：stun threshold
 	["格挡回复"] = "BlockRecovery", --备注：block recovery
 	["敌人晕眩门槛"] = "EnemyStunThreshold", --备注：enemy stun threshold
@@ -604,10 +590,6 @@ local modNameList = {
 	["击退距离"] = "EnemyKnockbackDistance", --备注：knockback distance
 	-- Auras/curses/buffs
 	["非诅咒类光环的效果"] = "AuraEffect", --备注：aura effect
-	["effect of non-curse auras you cast"] = { "AuraEffect", tagList = { { type = "SkillType", skillType = SkillType.Aura }, { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true } } },
-	["effect of non-curse auras from your skills"] = { "AuraEffect", tagList = { { type = "SkillType", skillType = SkillType.Aura }, { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true } } },
-	["effect of non-curse auras from your skills on your minions"] = { "AuraEffectOnSelf", tagList = { { type = "SkillType", skillType = SkillType.Aura }, { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true } }, addToMinion = true },
-	["effect of non-curse auras"] = { "AuraEffect", tag = { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true } },	
 	["你所施放诅咒的效果"] = "CurseEffect", --备注：effect of your curses
 	["你身上的光环效果"] = "AuraEffectOnSelf", --备注：effect of auras on you
 	["召唤生物身上的光环效果"] = { "AuraEffectOnSelf", addToMinion = true }, --备注：effect of auras on your minions
