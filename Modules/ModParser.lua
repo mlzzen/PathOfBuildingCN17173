@@ -1299,6 +1299,7 @@ local modTagList = {
 	["每一级为你的"] = { tag = { type = "Multiplier", var = "Level" } },
 	["每一级在"] = { tag = { type = "Multiplier", var = "Level" } },
 	["每 (%d+) 点敏捷可使"] = function(num) return { tag = { type = "PerStat", stat = "Dex", div = num } } end, 
+	["按照每 (%d+) 点敏捷"] = function(num) return { tag = { type = "PerStat", stat = "Dex", div = num } } end, 	
 	["拥有最大数量的狂怒球时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" } }, --备注：while at maximum frenzy charges
 	["近期内你若打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["近期内你若有打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
