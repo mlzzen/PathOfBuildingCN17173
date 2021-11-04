@@ -140,6 +140,8 @@ replica: true
 [[
 柳树之赐
 翠玉护身符
+版本: 3.16.0以前
+版本: 当前
 等级需求: 52
 固定基底词缀: 1
 {tags:jewellery_attribute}+(20-30) 敏捷
@@ -147,8 +149,10 @@ replica: true
 {tags:jewellery_attribute}敏捷提高 15%
 {tags:jewellery_resistance}-(30-20)% 火焰抗性
 {tags:jewellery_resistance}+(30-40)% 冰霜抗性
-你创造的【护体】改为使总闪避值额外提高 30%
-{tags:caster,attack,speed}【护体】状态下，攻击和施法速度提高 (15-25)%
+{variant:1}你创造的【护体】改为使总闪避值额外提高 30%
+{variant:1}{tags:caster,attack,speed}【护体】状态下，攻击和施法速度提高 (15-25)%
+{variant:2}护身本身并不能降低你承受的伤害
+{variant:2}达到护身上限时攻击和施法速度加快 (15–25)%
 ]],
 [[
 愤怒之阀
@@ -594,13 +598,17 @@ Requires 77
 ]],[[
 辛格拉的凝视
 黑曜护身符
+版本: 3.16.0以前
+版本: 当前
 源: 任意预言
 等级需求: 20
 固定基底词缀: 1
 {tags:jewellery_attribute}+(10-16) 全属性
+{variant:1}(6-10)% 几率躲避攻击击中
+{variant:1}(6-10)% 几率躲避法术击中
+{variant:2}阻挡被压制的法术伤害 +3%
 {tags:attack}+1000 命中值
-(6-10)% 几率躲避攻击击中
-(6-10)% 几率躲避法术击中
+{variant:2}+(600-1000) 点闪避值
 不会被致盲
 ]],[[
 烈阳徽记

@@ -554,8 +554,7 @@ Requires Level: 59
 {variant:2,3,4,5,6}闪避值提高 (140-220)%
 敌人被冰缓的持续时间延长 25%
 {variant:1,2}移形换影
-{variant:3,4,5,6}10% 几率躲避攻击击中
-{variant:3,4,5,6}10% 几率躲避法术击中
+{variant:3,4,5,6}法术伤害压制率 +30%
 ]],[[
 金珏之缮
 精制皮甲
@@ -610,11 +609,11 @@ Requires Level: 59
 {variant:1}闪避值提高 (30-50)%
 {variant:2}闪避值提高 (80-100)%
 +(40-60) 最大生命
-{variant:1}10% chance to Suppress Spell Damage
-{variant:2}20% chance to Suppress Spell Damage
+{variant:1}法术伤害压制率 +10%
+{variant:2}法术伤害压制率 +20%
 【极地装甲】的增益效果提高 25%
 {variant:1}闪避值将随绝对冰霜抗性提高
-{variant:2}Evasion Rating is increased by Overcapped Cold Resistance
+{variant:2}闪避值随超量冰霜抗性提高
 ]],[[
 完美姿态
 星辰皮甲
@@ -1213,7 +1212,7 @@ Arctic Armour has no Reservation
 最大生命提高 (15-25)%
 召唤生物的最大生命提高 (20-30)%
 每秒回复 1% 生命
-召唤生物有额外 (6-10)% 躲避击中几率
+召唤生物的法术伤害压制率 +(12-15)%
 ]],[[
 致命之体
 映彩外套

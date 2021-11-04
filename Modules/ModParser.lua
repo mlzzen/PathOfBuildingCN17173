@@ -1212,6 +1212,8 @@ local modTagList = {
 	["持盾牌时，"] = { tag = { type = "Condition", var = "UsingShield" } }, --备注：while holding a shield
 	["持盾时，"] = { tag = { type = "Condition", var = "UsingShield" } },
 	["你的副手未装备武器时，"] = { tag = { type = "Condition", var = "OffHandIsEmpty" } }, --备注：while your off hand is empty
+	["你的副手为空时，"] = { tag = { type = "Condition", var = "OffHandIsEmpty" } }, --备注：while your off hand is empty
+	["在空出副手时"] = { tag = { type = "Condition", var = "OffHandIsEmpty" } }, --备注：while your off hand is empty
 	["双持武器时，"] = { tag = { type = "Condition", var = "DualWielding" } },
 	["双持武器时"] = { tag = { type = "Condition", var = "DualWielding" } },
 	["双持时，"] = { tag = { type = "Condition", var = "DualWielding" } }, --备注：while dual wielding
@@ -1477,6 +1479,7 @@ local modTagList = {
 	 ["若你近期内击中被诅咒的敌人，则"] = { tagList = { { type = "Condition", var = "HitRecently" }, { type = "ActorCondition", actor = "enemy", var = "Cursed" } } },
 	 ["能量护盾全满时"] = { tag = { type = "Condition", var = "FullEnergyShield" } },	 
 	 ["持续吟唱时，"] = { tag = { type = "Condition", var = "OnChannelling" } },	 
+	 ["在吟唱时"] = { tag = { type = "Condition", var = "OnChannelling" } },	 
 	 ["若你已经持续吟唱至少 1 秒,则 "] = { tag = { type = "Condition", var = "OnChannelling" } },	 
 	 ["若你近期内至少持续吟唱 1 秒,则 "] = { tag = { type = "Condition", var = "OnChannelling" } },	 
 	 ["若近期有击败敌人，则"] = { tag = { type = "Condition", var = "KilledRecently" } }, 
@@ -6865,7 +6868,7 @@ local specialModList = {
 	} end,
 	["用锤类和短杖击中时碾压敌人"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }, { type = "Condition", var = "UsingMace" } )},
 	["召唤生物的攻击压制 (%d+)%% 物理伤害减免"] = function(num) return {  mod("EnemyPhysicalDamageReduction", "BASE", -num, { addToMinion = true, flags = ModFlag.Attack })  } end,
-
+	["召唤生物的攻击速度提高 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num, { flags = ModFlag.Attack }) }) } end,
 }
 
 for _, name in pairs(data.keystones) do
@@ -7206,8 +7209,7 @@ local jewelOtherFuncs = {
 	["范围内其他伤害类型的增减转换成火焰伤害"] = getSimpleConv({"PhysicalDamage","ColdDamage","LightningDamage","ChaosDamage"}, "FireDamage", "INC", true), --备注：Increases and Reductions to other Damage Types in Radius are Transformed to apply to Fire Damage
 	["范围内提高闪电抗性的天赋也会以 35% 的比例提高法术格挡率"] = getSimpleConv({"LightningResist","ElementalResist"}, "SpellBlockChance", "BASE", false, 0.35), --备注：Passives granting Lightning Resistance or all Elemental Resistances in Radius also grant Chance to Block Spells at 35% of its value
 	["范围内提高冰霜抗性的天赋也会以 35% 的比例提高躲避攻击击中几率"] = getSimpleConv({"ColdResist","ElementalResist"}, "AttackDodgeChance", "BASE", false, 0.35), --备注：Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Dodge Attacks at 35% of its value
-	["范围内提高冰霜抗性的天赋也会以 35% 的比例提高法术伤害压制率"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.35),
-	["范围内提高冰霜抗性的天赋也会以 50% 的比例提高法术伤害压制率"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.5),
+	["给范围内提供冰霜抗性或所有元素抗性的天赋也提供法术伤害压制率，等于其数值的 50%"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.5),
 	["范围内提高火焰抗性的天赋也会以 35% 的比例提高攻击格挡率"] = getSimpleConv({"FireResist","ElementalResist"}, "BlockChance", "BASE", false, 0.35), --备注：Passives granting Fire Resistance or all Elemental Resistances in Radius also grant Chance to Block at 35% of its value
 	["范围内的近战和近战武器加成转换成弓类武器加成"] = function(node, out, data) --备注：Melee and Melee Weapon Type modifiers in Radius are Transformed to Bow Modifiers
 		if node then
