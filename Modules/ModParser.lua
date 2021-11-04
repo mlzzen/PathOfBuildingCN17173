@@ -4298,6 +4298,8 @@ local specialModList = {
 	["你在无负重状态下近战技能的攻击速度总增 (%d+)%%"] =function(num) return {  mod("Speed", "MORE", tonumber(num),nil,ModFlag.Attack,{ type = "Condition", var = "Unencumbered" })  } end,
 	["你在无负重状态下每 (%d+) 点敏捷都使近战技能附加 (%d+) 到 (%d+) 点物理伤害"] =function(_,num1,num2,num3) return {  mod("PhysicalMax", "BASE", tonumber(num3),{ type = "PerStat", stat = "Dex", div = tonumber(num1) },{ type = "Condition", var = "Unencumbered" }),
 	mod("PhysicalMin", "BASE", tonumber(num2),{ type = "PerStat", stat = "Dex", div = tonumber(num1) },{ type = "Condition", var = "Unencumbered" }),  } end,
+	["你在无负重状态下每 (%d+) 点敏捷都使近战技能附加 (%d+) 到 (%d+) 点物理攻击伤害"] =function(_,num1,num2,num3) return {  mod("PhysicalMax", "BASE", tonumber(num3),{ type = "PerStat", stat = "Dex", div = tonumber(num1) },{ type = "Condition", var = "Unencumbered" }),
+	mod("PhysicalMin", "BASE", tonumber(num2),{ type = "PerStat", stat = "Dex", div = tonumber(num1) },{ type = "Condition", var = "Unencumbered" }),  } end,
 	["受到你诅咒的敌人承受的伤害提高 (%d+)%%"] = function(num) return { mod("AffectedByCurseMod", "LIST", { mod = mod("DamageTaken", "INC", num) }) } end,
 	["每保留有 1 次连锁，则投射物伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num, nil, ModFlag.Projectile, { type = "PerStat", stat = "ChainRemaining" }) } end,
 	["面对被诅咒的敌人，有 (%d+)%% 几率躲避攻击击中"] = function(num) return { mod("AttackDodgeChance", "BASE",num,  { type = "ActorCondition", actor = "enemy", var = "Cursed" } ) } end,
