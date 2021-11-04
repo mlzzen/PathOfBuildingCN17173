@@ -295,7 +295,7 @@ end
 function ImportTabClass:DownloadCharacterList()
 	self.charImportMode = "DOWNLOADCHARLIST"
 	self.charImportStatus = "正在获取角色列表..."
-	local accountName = self.controls.accountName.buf
+	local accountName = urlEncode(self.controls.accountName.buf)
 	local realm = realmList[self.controls.accountRealm.selIndex]
 	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and 		main.gameAccounts[accountName].sessionID)
 	launch:DownloadPage("https://poe.game.qq.com/character-window/get-characters?accountName="..accountName.."&realm="..realm.realmCode, function(page, errMsg)
