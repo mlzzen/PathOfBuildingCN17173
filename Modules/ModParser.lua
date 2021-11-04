@@ -5292,6 +5292,7 @@ local specialModList = {
 	["召唤生物攻击击中时有 (%d+)%% 几率穿刺目标"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("ImpaleChance", "BASE", num, 0, 0, KeywordFlag.Attack) })  } end,
 	["召唤生物攻击击中时有 (%d+)%% 的几率穿刺目标"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("ImpaleChance", "BASE", num, 0, 0, KeywordFlag.Attack) })  } end,
 	["召唤生物的攻击击中有 (%d+)%% 的几率施加【穿刺】"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("ImpaleChance", "BASE", num, 0, 0, KeywordFlag.Attack) })  } end,
+	["召唤生物的攻击和施法速度加快 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num) }) } end,	
 	["近期内创造的召唤生物攻击和施法速度加快 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
 	["近期内创造的召唤生物移动速度加快 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
 	["近期所召唤的召唤生物的攻击和施法速度提高 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
@@ -7914,14 +7915,14 @@ return function(line, isComb)
 	
 	if not cache[line] then
 		local modList, extra
-		local lineEn = translateMod(line)
-		if lineEn then
-			modList, extra = parseModEn(lineEn)
+		modList, extra = parseMod(line, 1)
+		if modList and extra then
+			modList, extra = parseMod(line, 2)
 		end
-		if not lineEn or not modList then
-			modList, extra = parseMod(line, 1)
-			if modList and extra then
-				modList, extra = parseMod(line, 2)
+		if not modList or extra then
+			local lineEn = translateMod(line)
+			if lineEn then
+				modList, extra = parseModEn(lineEn)
 			end
 		end
 		cache[line] = { modList, extra }
