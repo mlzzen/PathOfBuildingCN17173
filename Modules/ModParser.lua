@@ -5170,6 +5170,7 @@ local specialModList = {
 	}end,
 	["暴击伤害特别幸运"] = { flag("CritLucky") },
 	["你击中稀有或传奇敌人时触发 (%d+) 级(.+)"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
+	["触发 (%d+) 级(.+)，条件为你击中稀有或传奇敌人且没有咒印"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
 	["格挡时用(%D+)诅咒敌人，其效果提高 (%d+)%%"] = function(_, skill, num) return {
 	mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill], level = 1, noSupports = true, triggered = true  }),
 	mod("CurseEffect", "INC", tonumber(num), { type = "SkillName", skillName = gemIdLookup[skill] }),
