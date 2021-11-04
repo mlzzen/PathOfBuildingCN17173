@@ -89,7 +89,7 @@
 	<File name="Data/Uniques/boots.lua" part="program" sha1="c046d13afcc311be3480a96a03f5fbce173ce1f9" />
 	<File name="Data/Uniques/bow.lua" part="program" sha1="de316fe9bb9c2be569ebc2244cf10d0383cecb12" />
 	<File name="Data/Uniques/claw.lua" part="program" sha1="a8c61c74400e04ec5b91f124490445be5e9fc9e7" />
-	<File name="Data/Uniques/dagger.lua" part="program" sha1="ceeeb18ee0f841b99254300f9437f0c82824022b" />
+	<File name="Data/Uniques/dagger.lua" part="program" sha1="a4755e787dc041809af626bdcf56c75a163ea767" />
 	<File name="Data/Uniques/fishing.lua" part="program" sha1="348fea473e90bbccf5aa94869ccba784291dc78d" />
 	<File name="Data/Uniques/flask.lua" part="program" sha1="356bc957d926fd29d3d6475a00f24f634b89266a" />
 	<File name="Data/Uniques/gloves.lua" part="program" sha1="3d3acae709e63907ebf6ccdb141ebe50f247ba29" />
@@ -118,7 +118,7 @@
 	<File name="Data/LegionPassives.lua" part="program" sha1="2b686a14a7007659abd829be24bc0913632dec0d" />
 	<File name="Data/Minions.lua" part="program" sha1="deff10ad54df510b9c4b36a668e225ac4b69dd6e" />
 	<File name="Data/Misc.lua" part="program" sha1="1a1b0760b8ff16de918d198b1a2c922d75f79480" />
-	<File name="Data/ModCache.lua" part="program" sha1="f6e08d7465453b9172835bb679da9e82af1158d5" />
+	<File name="Data/ModCache.lua" part="program" sha1="cbeac095a19b16069a9ef4f0be32f92b5ca39f07" />
 	<File name="Data/ModFlask.lua" part="program" sha1="e9490913bb3e6845b3921d5326ece37c6192a5ef" />
 	<File name="Data/ModItem.lua" part="program" sha1="092ffdb4234b3bb378dcdb4b6fb73a9feaaa63a8" />
 	<File name="Data/ModJewel.lua" part="program" sha1="b37b7319bae8cc6b3518bb48bbc59b8d41b485b0" />
