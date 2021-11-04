@@ -802,6 +802,7 @@ local modNameList = {
 	-- Misc modifiers
 	["移动速度"] = "MovementSpeed", --备注：movement speed
 	["攻击，施法和移动速度"] = { "Speed", "MovementSpeed" }, --备注：attack, cast and movement speed
+	["攻击、施法、移动速度"] = { "Speed", "MovementSpeed" }, --备注：attack, cast and movement speed
 	["照亮范围"] = "LightRadius", --备注：light radius
 	["物品稀有度"] = "LootRarity", --备注：rarity of items found
 	["物品掉落数量"] = "LootQuantity", --备注：quantity of items found
@@ -1452,6 +1453,7 @@ local modTagList = {
 	["每 (%d+) 点魔力会使"] = function(num) return { tag = { type = "PerStat", stat = "Mana", div = num } } end,
 	["每 (%d+) 点最大魔力会使"] = function(num) return { tag = { type = "PerStat", stat = "Mana", div = num } } end,
 	["【猛攻】效果持续时，"] = { tag = { type = "Condition", var = "Onslaught" } },
+	["你在猛攻状态下，"] = { tag = { type = "Condition", var = "Onslaught" } },
 	["近期内你若晕眩过敌人，则"] = { tag = { type = "Condition", var = "StunnedEnemyRecently" } },	
 	["近期内你若有晕眩敌人，则"] = { tag = { type = "Condition", var = "StunnedEnemyRecently" } },	
 	["若你近期内用双手近战武器使一名敌人眩晕，则"] = { flags = bor(ModFlag.Weapon2H, ModFlag.WeaponMelee), tag = { type = "Condition", var = "StunnedEnemyRecently" } },
