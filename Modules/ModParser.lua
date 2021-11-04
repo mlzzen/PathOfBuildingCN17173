@@ -2340,6 +2340,7 @@ local specialModList = {
 	:gsub("技能","all")
 	, key = "quality", value = tonumber(num) }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
 	-- 一些涉及到技能名称的
+	["号召的冷却回复率提高 (%d+)%%"] = function(num) return { mod("CooldownRecovery", "INC", num, { type = "SkillName", skillName = "号召" }) } end,
 	["奉献技能的持续时间降低 (%d+)%%"] =  function(num) return {  mod("Duration", "INC", -num,
 	{ type = "SkillName", skillNameList = { "骸骨奉献", "血肉奉献", "灵魂奉献" ,"血脉奉献"} } )  } end,
 	["奉献技能的效果降低 (%d+)%%"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("BuffEffect", "INC", -num) }, { type = "SkillName",
