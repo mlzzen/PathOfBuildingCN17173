@@ -758,17 +758,20 @@ local modNameList = {
 	["使敌人受到冰冻，感电与点燃"] = { "EnemyFreezeChance", "EnemyShockChance", "EnemyIgniteChance" }, --备注：to freeze, shock and ignite
 	["感电效果"] = "EnemyShockEffect", --备注：effect of shock
 	["冰缓效果"] = "EnemyChillEffect", --备注：effect of chill
-	["你受到的冰缓效果"] = "SelfChillEffect", --备注：effect of chill on you
 	["对敌人施加的非伤害性异常状态效果的伤害"] = { "EnemyShockEffect", "EnemyChillEffect", "EnemyFreezeEffech", "EnemyScorchEffect", "EnemyBrittleEffect", "EnemySapEffect"  }, --备注：effect of non-damaging ailments
 	["敌人的感电持续时间"] = "EnemyShockDuration", --备注：shock duration
 	["敌人被冰冻的持续时间"] = "EnemyFreezeDuration", --备注：freeze duration
 	["敌人被冰缓的持续时间"] = "EnemyChillDuration", --备注：chill duration
 	["敌人被点燃的持续时间"] = "EnemyIgniteDuration", --备注：ignite duration
 	["敌人受到的元素异常状态时间"] = { "EnemyShockDuration", "EnemyFreezeDuration", "EnemyChillDuration", "EnemyIgniteDuration" , "EnemyScorchDuration", "EnemyBrittleDuration", "EnemySapDuration" }, --备注：duration of elemental ailments
-	["duration of elemental status ailments"] = { "EnemyShockDuration", "EnemyFreezeDuration", "EnemyChillDuration", "EnemyIgniteDuration" , "EnemyScorchDuration", "EnemyBrittleDuration", "EnemySapDuration" },
-	["duration of ailments"] = { "EnemyShockDuration", "EnemyFreezeDuration", "EnemyChillDuration", "EnemyIgniteDuration", "EnemyPoisonDuration", "EnemyBleedDuration" , "EnemyScorchDuration", "EnemyBrittleDuration", "EnemySapDuration" },
 	["你施加的非伤害型异常状态效果"] = { "EnemyShockEffect", "EnemyChillEffect", "EnemyFreezeEffect", "EnemyScorchEffect", "EnemyBrittleEffect", "EnemySapEffect" },
 	["非伤害型异常状态效果"] = { "EnemyShockEffect", "EnemyChillEffect", "EnemyFreezeEffect", "EnemyScorchEffect", "EnemyBrittleEffect", "EnemySapEffect" },
+	["你受到的冰缓效果"] = "SelfChillEffect", --备注：effect of chill on you
+	["你受到的感电效果"] = "SelfShockEffect",
+	["你身上的冰缓和感电效果"] = { "SelfChillEffect", "SelfShockEffect"},
+	["自身受到的元素异常状态时间"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
+	["你被点燃的持续时间"] = "SelfIgniteDuration",
+
 	-- Other ailments
 	["to poison"] = "PoisonChance",
 	["to cause poison"] = "PoisonChance",
@@ -6798,11 +6801,8 @@ local specialModList = {
 	["致盲效果提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("BlindEffect", "INC", num) }), } end,
 	["恢复的能量护盾不能超过护甲值"] = { flag("ArmourESRecoveryCap") },
 	["恢复的能量护盾不能超过闪避值"] = { flag("EvasionESRecoveryCap") },
-	["自身受到的元素异常状态时间"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
 	["duration of ailments on you"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfPoisonDuration", "SelfBleedDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
 	["智慧不给能量护盾提供属性加成"] = { flag("NoIntBonusToES") },
-	["你受到的感电效果"] = "SelfShockEffect",
-	["你身上的冰缓和感电效果"] = { "SelfChillEffect", "SelfShockEffect"},
 	["法术伤害压制率词缀改为有躲避法术击中率，其数值等于原有的 50%%"] = { 
 		flag("ConvertSpellSuppressionToSpellDodge"),
 		mod("SpellSuppressionChance", "OVERRIDE", 0, "Acrobatics"), 
