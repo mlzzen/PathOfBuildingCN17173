@@ -410,13 +410,18 @@ function ImportTabClass:DownloadPassiveTree()
 	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and main.gameAccounts[accountName].sessionID)
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
-launch:DownloadPage("https://poe.game.qq.com/character-window/get-passive-skills?accountName="..accountName.."&character="..charData.name.."&realm="..realm.realmCode, function(page, errMsg)
+	launch:DownloadPage("https://poe.game.qq.com/character-window/get-passive-skills?accountName="..accountName.."&character="..charData.name.."&realm="..realm.realmCode, function(page, errMsg)
 		self.charImportMode = "SELECTCHAR"
 		if errMsg then
-self.charImportStatus = colorCodes.NEGATIVE.."导入角色装备失败，请重试 ("..errMsg:gsub("\n"," ")..")"
+			if errMsg == "Response code: 401" then
+				self.charImportStatus = colorCodes.NEGATIVE.."导入角色天赋树失败，国服网页接口需要登录"
+				self.charImportMode = "GETSESSIONID"
+			else
+				self.charImportStatus = colorCodes.NEGATIVE.."导入角色天赋树失败，请重试 ("..errMsg:gsub("\n"," ")..")"
+			end
 			return
 		elseif page == "false" then
-self.charImportStatus = colorCodes.NEGATIVE.."导入角色装备失败，请重试."
+			self.charImportStatus = colorCodes.NEGATIVE.."导入角色天赋树失败，请重试."
 			return
 		end
 		self.lastCharacterHash = common.sha1(charData.name)
@@ -426,19 +431,24 @@ end
 
 function ImportTabClass:DownloadItems()
 	self.charImportMode = "IMPORTING"
-self.charImportStatus = "获取角色装备中..."
-local realm = realmList[self.controls.accountRealm.selIndex]
+	self.charImportStatus = "获取角色装备中..."
+	local realm = realmList[self.controls.accountRealm.selIndex]
 	local accountName = self.controls.accountName.buf
 	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and main.gameAccounts[accountName].sessionID)
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
-launch:DownloadPage("https://poe.game.qq.com/character-window/get-items?accountName="..accountName.."&character="..charData.name.."&realm="..realm.realmCode, function(page, errMsg)
+	launch:DownloadPage("https://poe.game.qq.com/character-window/get-items?accountName="..accountName.."&character="..charData.name.."&realm="..realm.realmCode, function(page, errMsg)
 		self.charImportMode = "SELECTCHAR"
 		if errMsg then
-self.charImportStatus = colorCodes.NEGATIVE.."导入角色装备失败，请重试 ("..errMsg:gsub("\n"," ")..")"
+			if errMsg == "Response code: 401" then
+				self.charImportStatus = colorCodes.NEGATIVE.."导入角色装备失败，国服网页接口需要登录"
+				self.charImportMode = "GETSESSIONID"
+			else
+				self.charImportStatus = colorCodes.NEGATIVE.."导入角色装备失败，请重试 ("..errMsg:gsub("\n"," ")..")"
+			end
 			return
 		elseif page == "false" then
-self.charImportStatus = colorCodes.NEGATIVE.."导入角色装备失败，请重试."
+			self.charImportStatus = colorCodes.NEGATIVE.."导入角色装备失败，请重试."
 			return
 		end
 		self.lastCharacterHash = common.sha1(charData.name)
