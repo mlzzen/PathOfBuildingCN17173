@@ -221,6 +221,7 @@ local modNameList = {
 	["物理伤害减伤"] = "PhysicalDamageReduction", --备注：physical damage reduction
 	["造成流血"] = "BleedChance",
 	["元素抗性上限"] = { "FireResistMax", "ColdResistMax", "LightningResistMax"},
+	["所有元素抗性上限"] = { "FireResistMax", "ColdResistMax", "LightningResistMax"},
 	["所有元素抗性"] = "ElementalResist",
 	["元素抗性"] = "ElementalResist", --备注：all elemental resistances
 	["范围效果的"] = "AreaOfEffect", --备注：area of effect
