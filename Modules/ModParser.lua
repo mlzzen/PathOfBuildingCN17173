@@ -770,8 +770,8 @@ local modNameList = {
 	["你受到的感电效果"] = "SelfShockEffect",
 	["你身上的冰缓和感电效果"] = { "SelfChillEffect", "SelfShockEffect"},
 	["自身受到的元素异常状态时间"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
+	["自身受到的元素异常时间"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
 	["你被点燃的持续时间"] = "SelfIgniteDuration",
-
 	-- Other ailments
 	["to poison"] = "PoisonChance",
 	["to cause poison"] = "PoisonChance",
