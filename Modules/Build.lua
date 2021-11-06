@@ -1029,7 +1029,7 @@ function buildMode:OpenSavePopup(mode)
 	}
 	local controls = { }
 controls.label = new("LabelControl", nil, 0, 20, 0, 16, modeDesc[mode].."^7这个Build有修改的地方还没有保存.\n你想要保存它们吗? ")
-	controls.save = new("ButtonControl", nil, -90, 70, 80, 20, "Save", function()
+	controls.save = new("ButtonControl", nil, -90, 70, 80, 20, "保存", function()
 		main:ClosePopup()
 		self.actionOnSave = mode		
 		self:SaveDBFile()		
