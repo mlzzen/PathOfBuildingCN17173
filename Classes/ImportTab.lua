@@ -42,7 +42,6 @@ return "^7角色导入状态: "..self.charImportStatus
 	self.controls.accountRealm = new("DropDownControl", {"TOPLEFT",self.controls.accountNameHeader,"BOTTOMLEFT"}, 0, 4, 100, 20, realmList )
 	self.controls.accountRealm:SelByValue( main.lastRealm or "PC", "id" )
 	local lastName = main.lastAccountName or ""
-	lastName = urlDecode(lastName)
 	self.controls.accountName = new("EditControl", {"LEFT",self.controls.accountRealm,"RIGHT"}, 8, 0, 200, 20, lastName, nil, "%c")
 	
  
@@ -264,7 +263,7 @@ function ImportTabClass:Load(xml, fileName)
 	if self.lastAccountHash then
 		for accountName in pairs(main.gameAccounts) do
 			if common.sha1(accountName) == self.lastAccountHash then
-				self.controls.accountName:SetText(urlDecode(accountName))
+				self.controls.accountName:SetText(accountName)
 			end
 		end
 	end

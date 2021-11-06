@@ -86,7 +86,7 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 end)
 
 function EditClass:SetText(text, notify)
-	self.buf = tostring(text)
+	self.buf = urlDecode(tostring(text))
 	self.caret = utf8.len(self.buf) + 1
 	self.sel = nil
 	if notify and self.changeFunc then
