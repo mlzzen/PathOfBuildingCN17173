@@ -166,13 +166,13 @@ return launch.updateCheckRunning and launch.updateProgress or "检查更新"
 	end
 	self.controls.versionLabel = new("LabelControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, 144, -27, 0, 14, "")
 	self.controls.versionLabel.label = function()
-		return "^版本号: "..launch.versionNumber..(launch.versionBranch == "dev" and " (Dev)" or "")
+		return "^8Version: "..launch.versionNumber..(launch.versionBranch == "dev" and " (Dev)" or "")
 	end
 	self.controls.devMode = new("LabelControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, 0, -26, 0, 20, "^1Dev Mode")
 	self.controls.devMode.shown = function()
 		return launch.devMode
 	end
-	self.controls.dismissToast = new("ButtonControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, 0, function() return -self.mainBarHeight + self.toastHeight end, 80, 20, "忽略", function()
+	self.controls.dismissToast = new("ButtonControl", {"BOTTOMLEFT",self.anchorMain,"BOTTOMLEFT"}, 0, function() return -self.mainBarHeight + self.toastHeight end, 80, 20, "Dismiss", function()
 		self.toastMode = "HIDING"
 		self.toastStart = GetTime()
 	end)

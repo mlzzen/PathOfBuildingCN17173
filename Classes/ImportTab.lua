@@ -26,7 +26,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.build = build
 
 	self.charImportMode = "GETACCOUNTNAME"
-	self.charImportStatus = "未导入"
+	self.charImportStatus = "Idle"
 self.controls.sectionCharImport = new("SectionControl", {"TOPLEFT",self,"TOPLEFT"}, 10, 18, 600, 250, "【导入国服角色】")
 	
 	self.controls.charImportStatusLabel = new("LabelControl", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, 6, 14, 200, 16, function()
@@ -90,7 +90,7 @@ OpenURL("https://poe.game.qq.com/login/tencent")
 	end)
 self.controls.sessionCancel = new("ButtonControl", {"LEFT",self.controls.sessionRetry,"RIGHT"}, 8, 0, 60, 20, "取消", function()
 		self.charImportMode = "GETACCOUNTNAME"
-		self.charImportStatus = "未导入"
+		self.charImportStatus = "Idle"
 	end)
 	self.controls.sessionInput = new("EditControl", {"TOPLEFT",self.controls.sessionRetry,"BOTTOMLEFT"}, 0, 8, 350, 20, "", "POESESSID", "%X", 32)
 	self.controls.sessionGo = new("ButtonControl", {"LEFT",self.controls.sessionInput,"RIGHT"}, 8, 0, 60, 20, "继续", function()
@@ -144,7 +144,7 @@ self.controls.charImportItemsClearItems.tooltipText = "导入时不导入装备"
 self.controls.charBanditNote = new("LabelControl", {"TOPLEFT",self.controls.charImportHeader,"BOTTOMLEFT"}, 0, 50, 200, 14, "^7提示: 导入完成后要手动配置好盗贼任务和手动点亮星团珠宝的天赋,\n因为这些是不能导入的.")
 self.controls.charDone = new("ButtonControl", {"TOPLEFT",self.controls.charImportHeader,"BOTTOMLEFT"}, 0, 90, 60, 20, "关闭", function()
 		self.charImportMode = "GETACCOUNTNAME"
-		self.charImportStatus = "未导入"
+		self.charImportStatus = "Idle"
 	end)
 
 	-- Build import/export
