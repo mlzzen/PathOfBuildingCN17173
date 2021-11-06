@@ -9220,7 +9220,7 @@ c["站定时，脚下产生真菌地表"]={{[1]={flags=0,keywordFlags=0,name="Co
 c["该装备的护甲与能量护盾提高 225%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=225}},nil}
 c["此物品上的技能石受到 1 级的【肉盾】辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportMinionDefensiveStance"}}},nil}
 c["其中 1 个增加的天赋为【内省】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="内省"}},nil}
-c["所有元素抗性上限 -15%"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-15}},"上限  "}
+c["所有元素抗性上限 -15%"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=-15},[2]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=-15},[3]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=-15}},nil}
 c["持弓时效果区域扩大 20%"]={{[1]={[1]={type="Condition",var="UsingBow"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
 c["范围内配置的敏捷和力量总计 40 点时，虹光技能不能选择闪电效果"]={nil,"范围内配置的敏捷和力量总计 40 点时，虹光技能不能选择闪电效果 "}
 c["其中 1 个增加的天赋为【崇高之形】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="崇高之形"}},nil}
