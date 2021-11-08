@@ -1759,8 +1759,9 @@ Has Alt Variant: true
 仅限: 1
 {variant:1}+20 敏捷
 {variant:1}获得 +6% 火焰、冰霜、闪电抗性
-{variant:2}50% chance for Flasks you use to not consume Charges
-{variant:2}70% less Flask Charges gained from Kills
+{variant:2}药剂充能获取降低 20%
+{variant:2}药剂效果的持续时间延长 50%
+{variant:2}幸存
 ]],[[
 生存秘技
 钴蓝珠宝
@@ -1769,8 +1770,9 @@ Has Alt Variant: true
 仅限: 1
 {variant:1}3 每秒魔力回复
 {variant:1}火焰、冰霜、闪电伤害提高 10%
-{variant:2}Flasks gain 2 Charges every 3 seconds while they are inactive
-{variant:2}50% less Flask Effect Duration
+{variant:2}你身上的药剂效果降低 20%
+{variant:2}药剂在未启用的情况下每 3 秒获得 3 次充能
+{variant:2}幸存
 ]],[[
 生存技巧
 赤红珠宝
@@ -1779,8 +1781,9 @@ Has Alt Variant: true
 仅限: 1
 {variant:1}物理伤害提高 10%
 {variant:1}+50 护甲
-{variant:2}Flasks gain 2 Charges when you hit a Non-Unique Enemy, no more than once per second
-{variant:2}80% less Flask Charges gained from Kills
+{variant:2}药剂在你击中非传奇敌人时获得 2 次充能，最多每秒一次
+{variant:2}击败敌人的药剂充能获取率总降 80%
+{variant:2}幸存
 ]],[[
 督军之力
 赤红珠宝
