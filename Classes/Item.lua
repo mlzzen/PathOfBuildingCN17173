@@ -995,30 +995,23 @@ local function calcLocal(modList, name, type, flags)
 	local result
 	if type == "FLAG" then
 		result = false
+	elseif type == "MORE" then
+		result = 1
 	else
 		result = 0
 	end
 	local i = 1
 	while modList[i] do
-		local mod = modList[i]	
-		 
-		if mod.name == name and mod.type == type and mod.flags == flags and mod.keywordFlags == 0 and (not mod[1] or mod[1].type == "InSlot" or
-		(mod[1].stat == "QualityOnWeapon 1" or mod[1].stat == "QualityOnWeapon 2" )
-		) then
-			
+		local mod = modList[i]
+		if mod.name == name and mod.type == type and mod.flags == flags and mod.keywordFlags == 0 and (not mod[1] or mod[1].type == "InSlot") then
 			if type == "FLAG" then
 				result = result or mod.value
-			-- convert MORE to times modifier, e.g. 50% more = 1.5x, result = 1.5
+			-- convert MORE to times multiplier, e.g. 50% more = 1.5x, result = 1.5
 			elseif type == "MORE" then
-				if result == 0 then
-					result = (100 + mod.value) / 100
-				else
-					result = result * ((100 + mod.value) / 100)
-				end
-			else	
+				result = result * ((100 + mod.value) / 100)
+			else
 				result = result + mod.value
 			end
-			
 			t_remove(modList, i)
 		else
 			i = i + 1

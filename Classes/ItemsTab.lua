@@ -2861,9 +2861,9 @@ tooltip:AddLine(16, s_format("^x7F7F7F品质: "..colorCodes.MAGIC.."+%d%%", item
 
 		end
 		if not flaskData.lifeTotal and not flaskData.manaTotal then
-tooltip:AddLine(16, s_format("^x7F7F7F持续 %s%.2f ^x7F7F7F秒", main:StatColor(flaskData.duration, base.flask.duration), flaskData.duration))
+			tooltip:AddLine(16, s_format("^x7F7F7F持续 %s%.2f ^x7F7F7F秒", main:StatColor(flaskData.duration, base.flask.duration), flaskData.duration))
 		end
-tooltip:AddLine(16, s_format("^x7F7F7F每次使用消耗 %s%d ^x7F7F7F充能，共 %s%d ^x7F7F7F充能",
+			tooltip:AddLine(16, s_format("^x7F7F7F每次使用消耗 %s%d ^x7F7F7F充能，共 %s%d ^x7F7F7F充能",
 			main:StatColor(flaskData.chargesUsed, base.flask.chargesUsed), flaskData.chargesUsed,
 			main:StatColor(flaskData.chargesMax, base.flask.chargesMax), flaskData.chargesMax
 		))
