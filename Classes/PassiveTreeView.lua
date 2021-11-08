@@ -1,4 +1,4 @@
-﻿-- Path of Building
+-- Path of Building
 --
 -- Class: Passive Tree View
 -- Passive skill tree viewer.
@@ -1010,7 +1010,7 @@ tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 				pathOutput = calcFunc({ addNodes = pathNodes })
 			end
 		end
-		local count = build:AddStatComparesToTooltip(tooltip, calcBase, nodeOutput, realloc and "^7重点这个天赋点会让你:" or node.alloc and "7取消这个天赋点会让你:" or "^7点亮这个天赋点会给你:")
+		local count = build:AddStatComparesToTooltip(tooltip, calcBase, nodeOutput, realloc and "^7重点这个天赋点会让你:" or node.alloc and "^7取消这个天赋点会让你:" or "^7点亮这个天赋点会给你:")
 		if pathLength > 1 then
 			count = count + build:AddStatComparesToTooltip(tooltip, calcBase, pathOutput, node.alloc and "^7取消这个天赋点和关联节点会让你:" or "^7点亮这个天赋点和关联节点会给你:", pathLength)
 		end
