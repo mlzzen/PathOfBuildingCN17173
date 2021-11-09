@@ -54819,7 +54819,7 @@ return {
 		},
 		[65117]= {
 			["skill"]= 65117,
-			["name"]= "巫灵斗士",
+			["name"]= "蛊灵斗士",
 			["icon"]= "Art/2DArt/SkillIcons/passives/DmgWhenChannelSkillsNotable.png",
 			["stats"]= {
 				"持续吟唱时，攻击和施法速度提高 8%",
