@@ -7826,7 +7826,7 @@ c["其中 1 个增加的天赋为【天雷轰顶】"]={{[1]={flags=0,keywordFlag
 c["其中 1 个增加的天赋为【宏伟计划】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="宏伟计划"}},nil}
 c["其中 1 个增加的天赋为【屠夫呼唤】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="屠夫呼唤"}},nil}
 c["沙姿态下，范围效果扩大 25%"]={{[1]={[1]={type="Condition",var="SandStance"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}},nil}
-c["其中 1 个增加的天赋为【巫灵斗士】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="巫灵斗士"}},nil}
+c["其中 1 个增加的天赋为【蛊灵斗士】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="蛊灵斗士"}},nil}
 c["攻击击中时有 20% 的几率穿刺敌人"]={{[1]={flags=0,keywordFlags=65536,name="ImpaleChance",type="BASE",value=20}},nil}
 c["该装备的护甲与闪避提高 125%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=125}},nil}
 c["药剂持续期间，物品稀有度提高 60%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="LootRarity",type="INC",value=60}},nil}
