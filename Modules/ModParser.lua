@@ -7437,9 +7437,9 @@ local function getThreshold(attrib, name, modType, value, ...)
 end
 
 local jewelThresholdFuncs = {
-	["若范围内含有 40 点敏捷，【冰霜之刃】造成的近战伤害穿透 15% 冰霜抗性"] = getThreshold("Dex", "ColdPenetration", "BASE", 15, ModFlag.Melee, { type = "SkillName", skillName = "冰霜之刃" }), --备注：With at least 40 Dexterity in Radius, Frost Blades Melee Damage Penetrates 15% Cold Resistance
+	["若范围内含有 40 点敏捷，【冰霜之刃】造成 的近战伤害穿透 15% 冰霜抗性"] = getThreshold("Dex", "ColdPenetration", "BASE", 15, ModFlag.Melee, { type = "SkillName", skillName = "冰霜之刃" }), --备注：With at least 40 Dexterity in Radius, Frost Blades Melee Damage Penetrates 15% Cold Resistance
 	["若范围内含有 40 点敏捷，【冰霜之刃】造成的近战伤害穿透 15% 冰霜抗性"] = getThreshold("Dex", "ColdPenetration", "BASE", 15, ModFlag.Melee, { type = "SkillName", skillName = "冰霜之刃" }), --备注：With at least 40 Dexterity in Radius, Melee Damage dealt by Frost Blades Penetrates 15% Cold Resistance
-	["若范围内含有 40 点敏捷，\\n【冰霜之刃】的投射物速度提高 25%"] = getThreshold("Dex", "ProjectileSpeed", "INC", 25, { type = "SkillName", skillName = "冰霜之刃" }), --备注：With at least 40 Dexterity in Radius, Frost Blades has 25% increased Projectile Speed
+	["若范围内含有 40 点敏捷， 【冰霜之刃】的投射物速度提高 25%"] = getThreshold("Dex", "ProjectileSpeed", "INC", 25, { type = "SkillName", skillName = "冰霜之刃" }), --备注：With at least 40 Dexterity in Radius, Frost Blades has 25% increased Projectile Speed
 	["若范围配置了 40 点敏捷，【冰霜射击】的范围扩大 25%"] = getThreshold("Dex", "AreaOfEffect", "INC", 25, { type = "SkillName", skillName = "冰霜射击" }), --备注：With at least 40 Dexterity in Radius, Ice Shot has 25% increased Area of Effect
 	["若范围配置了 40 点敏捷，【冰霜射击】会穿透 5 个额外目标"] = getThreshold("Dex", "PierceCount", "BASE", 5, { type = "SkillName", skillName = "冰霜射击" }), --备注：Ice Shot Pierces 5 additional Targets with 40 Dexterity in Radius
 	["若范围配置了 40 点敏捷，【冰霜射击】会穿透 3 个额外目标"] = getThreshold("Dex", "PierceCount", "BASE", 3, { type = "SkillName", skillName = "冰霜射击" }), --备注：With at least 40 Dexterity in Radius, Ice Shot Pierces 3 additional Targets
