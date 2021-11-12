@@ -4409,7 +4409,7 @@ local specialModList = {
 	mod("ExtraSkillMod", "LIST", {
 	mod = mod("ElementalDamageTaken", "INC", tonumber(num),
 	{ type = "GlobalEffect", effectType = "Debuff", effectName = "死亡凋零", effectStackVar = "WitheredStack" }) }) } end,
-	["给敌人施加的每个【枯萎】都使它们从你的击中中受到的元素伤害提高 (%d+)%%"] = function(num) return {
+	["给敌人施加的每个【枯萎】 都使它们从你的击中中受到的元素伤害提高 (%d+)%%"] = function(num) return {
 	mod("ExtraSkillMod", "LIST", {
 	mod = mod("ElementalDamageTaken", "INC", tonumber(num),
 	{ type = "GlobalEffect", effectType = "Debuff", effectName = "死亡凋零", effectStackVar = "WitheredStack" }) }) } end,
