@@ -6333,7 +6333,7 @@ local specialModList = {
 	["击中时造成流血"] = { mod("BleedChance", "BASE", 100, { type = "Condition", var = "{Hand}Attack" }) }, --备注：causes bleeding on hit
 	["poisonous hit"] = { mod("PoisonChance", "BASE", 100, { type = "Condition", var = "{Hand}Attack" }) },
 	["此武器的攻击对冰缓的敌人造成双倍伤害"] = { mod("DoubleDamageChance", "BASE", 100, nil, ModFlag.Hit, { type = "Condition", var = "{Hand}Attack" }, { type = "ActorCondition", actor = "enemy", var = "Chilled" }) }, --备注：attacks with this weapon deal double damage to chilled enemies
-	["此武器的攻击对被冰缓的敌人伤害翻倍"] = { mod("DoubleDamageChance", "BASE", 100, nil, ModFlag.Hit, { type = "Condition", var = "{Hand}Attack" }, { type = "ActorCondition", actor = "enemy", var = "Chilled" }) }, --备注：attacks with this weapon deal double damage to chilled enemies
+	["该武器的攻击对被冰缓的敌人伤害翻倍"] = { mod("DoubleDamageChance", "BASE", 100, nil, ModFlag.Hit, { type = "Condition", var = "{Hand}Attack" }, { type = "ActorCondition", actor = "enemy", var = "Chilled" }) }, --备注：attacks with this weapon deal double damage to chilled enemies
 	["life leech from hits with this weapon applies instantly"] = { flag("InstantLifeLeech", { type = "Condition", var = "{Hand}Attack" }) },
 	["使用此武器击中敌人立即获得生命偷取"] = { flag("InstantLifeLeech", { type = "Condition", var = "{Hand}Attack" }) }, --备注：gain life from leech instantly from hits with this weapon
 	["立即回复"] = {  mod("FlaskInstantRecovery", "BASE", 100) }, --备注：instant recovery
