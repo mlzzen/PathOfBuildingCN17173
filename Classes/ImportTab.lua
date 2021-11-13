@@ -16,6 +16,15 @@ local realmList = {
 }
 local rarityMap = { [0] = "普通", "魔法", "稀有", "传奇", [9] = "遗产" }
 local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"] = "Weapon 1 Swap", ["Offhand2"] = "Weapon 2 Swap", ["Helm"] = "Helmet", ["BodyArmour"] = "Body Armour", ["Gloves"] = "Gloves", ["Boots"] = "Boots", ["Amulet"] = "Amulet", ["Ring"] = "Ring 1", ["Ring2"] = "Ring 2", ["Belt"] = "Belt" }
+local classesCn = {
+	Duelist = "决斗者", Slayer = "处刑者", Gladiator = "卫士", Champion = "冠军",
+	Marauder = "野蛮人", Juggernaut = "勇士", Berserker = "暴徒", Chieftain = "酋长",
+	Ranger = "游侠", Deadeye = "锐眼", Raider = "侠客", Pathfinder = "追猎者",
+	Shadow = "暗影刺客", Assassin = "刺客", Saboteur = "破坏者", Trickster = "欺诈师",
+	Witch = "女巫", Necromancer = "召唤师", Occultist = "秘术家", Elementalist = "元素使",
+	Templar = "圣堂武僧", Inquisitor = "判官", Hierophant = "圣宗", Guardian = "守护者",
+	Scion = "贵族", Ascendant = "升华使徒"
+}
 
 local influenceInfo = itemLib.influenceInfo
 
@@ -364,7 +373,7 @@ function ImportTabClass:DownloadCharacterList()
 			table.sort(leagueList)
 			wipeTable(self.controls.charSelectLeague.list)
 			t_insert(self.controls.charSelectLeague.list, {
-				label = "All",
+				label = "全部",
 			})
 			for _, league in ipairs(leagueList) do
 				t_insert(self.controls.charSelectLeague.list, {
@@ -383,7 +392,7 @@ function ImportTabClass:BuildCharacterList(league)
 	for i, char in ipairs(self.lastCharList) do
 		if not league or char.league == league then
 			t_insert(self.controls.charSelect.list, {
-label = string.format("%s: 等级 %d %s 在 %s", char.name or "?", char.level or 0, char.class or "?", char.league or "?"),
+			label = string.format("%s: 等级 %d %s 在 %s", char.name or "?", char.level or 0, classesCn[char.class] or "?", char.league or "?"),
 				char = char,
 			})
 		end
