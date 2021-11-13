@@ -37318,7 +37318,7 @@ return {
 		},
 		[35363] = {
 			["icon"] = "Art/2DArt/SkillIcons/passives/DmgWhenChannelSkillsNotable.png",
-			["name"] = "坚忍专注",
+			["name"] = "忍耐专注",
 			["skill"] = 35363,
 			["stats"] = {
 				"持续吟唱时，+3% 攻击伤害格挡几率",
