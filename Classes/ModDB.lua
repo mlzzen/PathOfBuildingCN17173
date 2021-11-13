@@ -29,6 +29,41 @@ function ModDBClass:AddMod(mod)
 	t_insert(self.mods[name], mod)
 end
 
+---ReplaceModInternal
+---  Replaces an existing matching mod with a new mod.
+---  If no matching mod exists, then the function returns false
+---@param mod table
+---@return boolean @Whether any mod was replaced
+function ModDBClass:ReplaceModInternal(mod)
+	local name = mod.name
+	if not self.mods[name] then
+		self.mods[name] = { }
+	end
+
+	-- Find the index of the existing mod, if it is in the table
+	local modList = self.mods[name]
+	local modIndex = -1
+	for i = 1, #modList do
+		local curMod = modList[i]
+		if mod.name == curMod.name and mod.type == curMod.type and mod.flags == curMod.flags and mod.keywordFlags == curMod.keywordFlags and mod.source == curMod.source then
+			modIndex = i
+			break;
+		end
+	end
+
+	-- Add or replace the mod
+	if modIndex > 0 then
+		modList[modIndex] = mod
+		return true
+	end
+
+	if self.parent then
+		return self.parent:ReplaceModInternal(mod)
+	end
+	
+	return false
+end
+
 function ModDBClass:AddList(modList)
 	local mods = self.mods
 	for i, mod in ipairs(modList) do

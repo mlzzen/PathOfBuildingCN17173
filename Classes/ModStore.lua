@@ -75,6 +75,25 @@ function ModStoreClass:NewMod(...)
 	self:AddMod(mod_createMod(...))
 end
 
+---ReplaceMod
+---  Replaces an existing matching mod with a new mod.
+---  A mod is considered the same if the name, type, flags, keywordFlags, and source exactly match.
+---  If no matching mod exists, the mod is added instead.
+---Notes:
+---    See calls to ModStoreClass:NewMod for additional parameter examples.
+---    1 (string): name
+---    2 (string): type
+---    3 (number): value
+---    4 (string): source
+---    5+ (optional, varies): additional options
+---@param ... any @Parameters to be passed along to the modLib.createMod function
+function ModStoreClass:ReplaceMod(...)
+	local mod = mod_createMod(...)
+	if not self:ReplaceModInternal(mod) then
+		self:AddMod(mod)
+	end
+end
+
 function ModStoreClass:Combine(modType, cfg, ...)
 	if modType == "MORE" then
 		return self:More(cfg, ...)
