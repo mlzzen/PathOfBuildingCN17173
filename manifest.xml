@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <PoBVersion>
-	<Version branch="main" number="S17.1.6" platform="win32" />
+	<Version branch="main" number="S17.1.7" platform="win32" />
 	<Source part="program" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
 	<Source part="default" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
 	<Source part="tree" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
@@ -10,7 +10,7 @@
 	<File name="UpdateCheck.lua" part="program" sha1="f6c60cb8210d110c03fbd51cba5179e87b46a495" />
 	<File name="UpdateApply.lua" part="program" sha1="4f17937f2b37784e169a3792b235f2a0a3961e61" />
 	<File name="GameVersions.lua" part="program" sha1="9729b4851b46fa804bfaab7eeba85bb1b0bed529" />
-	<File name="changelog.txt" part="default" sha1="5a0c5ae29b3560722f78e168a3ea6b50564db024" />
+	<File name="changelog.txt" part="default" sha1="1bddf9169579b3b78230af850979dab62ea2f791" />
 	<File name="Path of Building.exe" part="runtime" platform="win32" sha1="7486cf4f0289df72ccce93a69a4198ad069f79b9" />
 	<File name="lua51.dll" part="runtime" platform="win32" sha1="7a973d3c0b5121e6aad0dcb9323be5b432fc63e7" />
 	<File name="SimpleGraphic.dll" part="runtime" platform="win32" sha1="330f6f21f8c4ff0a687fb28c0e267b74df4938a5" />
@@ -54,7 +54,7 @@
 	<File name="Classes/LabelControl.lua" part="program" sha1="dc032e67fbda0e7531b55d60bec5298b38b99346" />
 	<File name="Classes/ListControl.lua" part="program" sha1="3a0484db32d7d927f8726a9c545bf4a7faadf854" />
 	<File name="Classes/MinionListControl.lua" part="program" sha1="453c13d190da47d9000f4a18be0d6f12a244f7c7" />
-	<File name="Classes/ModDB.lua" part="program" sha1="a13ac036727345febd38852333f03b766f36d0a0" />
+	<File name="Classes/ModDB.lua" part="program" sha1="9a9cbc631108e48d763141578fa29b894a001228" />
 	<File name="Classes/ModList.lua" part="program" sha1="2addfae1a68dedb9aae29a87db56b64ff27f3cbc" />
 	<File name="Classes/ModStore.lua" part="program" sha1="8e93443d85264c81357b52a4fd95d532014f2c67" />
 	<File name="Classes/NotesTab.lua" part="program" sha1="8b6bc60a188c0591a379bd372b86738fb7886285" />
@@ -118,7 +118,7 @@
 	<File name="Data/LegionPassives.lua" part="program" sha1="2b686a14a7007659abd829be24bc0913632dec0d" />
 	<File name="Data/Minions.lua" part="program" sha1="deff10ad54df510b9c4b36a668e225ac4b69dd6e" />
 	<File name="Data/Misc.lua" part="program" sha1="1a1b0760b8ff16de918d198b1a2c922d75f79480" />
-	<File name="Data/ModCache.lua" part="program" sha1="de1f70ae7fc7c666ad8769ea39342e5d54c0e662" />
+	<File name="Data/ModCache.lua" part="program" sha1="1318abf74300a1b8371d7cbd96a701a30410a28f" />
 	<File name="Data/ModFlask.lua" part="program" sha1="e9490913bb3e6845b3921d5326ece37c6192a5ef" />
 	<File name="Data/ModItem.lua" part="program" sha1="092ffdb4234b3bb378dcdb4b6fb73a9feaaa63a8" />
 	<File name="Data/ModJewel.lua" part="program" sha1="b37b7319bae8cc6b3518bb48bbc59b8d41b485b0" />
@@ -201,7 +201,7 @@
 	<File name="Modules/Data.lua" part="program" sha1="66a06ec0ea826cb22a15fd1be9ef27744c6407fa" />
 	<File name="Modules/ItemTools.lua" part="program" sha1="233b099a4faae36122da8169d069c8a23ef04705" />
 	<File name="Modules/Main.lua" part="program" sha1="9aa8c9598fb31dc551194ff95fea08ee08a4178c" />
-	<File name="Modules/ModParser.lua" part="program" sha1="1c173f56cb542779610c3492cc2b867deeb19724" />
+	<File name="Modules/ModParser.lua" part="program" sha1="879f7102b65e87c03ef528053d10dd29493ded65" />
 	<File name="Modules/ModParserEn.lua" part="program" sha1="d31bef86f522e425fecd61420bcb7072be807dfc" />
 	<File name="Modules/ModTools.lua" part="program" sha1="7b016dcf22cb643426f4e0e1b81abbe03010bd03" />
 	<File name="Modules/StatDescriber.lua" part="program" sha1="a702ea06164bf6c4ae6d0d12e0af7357d6cfd233" />
