@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <PoBVersion>
-	<Version branch="main" number="S17.1.5" platform="win32" />
+	<Version branch="main" number="S17.1.6" platform="win32" />
 	<Source part="program" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
 	<Source part="default" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
 	<Source part="tree" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
@@ -10,7 +10,7 @@
 	<File name="UpdateCheck.lua" part="program" sha1="f6c60cb8210d110c03fbd51cba5179e87b46a495" />
 	<File name="UpdateApply.lua" part="program" sha1="4f17937f2b37784e169a3792b235f2a0a3961e61" />
 	<File name="GameVersions.lua" part="program" sha1="9729b4851b46fa804bfaab7eeba85bb1b0bed529" />
-	<File name="changelog.txt" part="default" sha1="c1de2e2cc9446462ad732d3f4cfe8f2aadef696f" />
+	<File name="changelog.txt" part="default" sha1="5a0c5ae29b3560722f78e168a3ea6b50564db024" />
 	<File name="Path of Building.exe" part="runtime" platform="win32" sha1="7486cf4f0289df72ccce93a69a4198ad069f79b9" />
 	<File name="lua51.dll" part="runtime" platform="win32" sha1="7a973d3c0b5121e6aad0dcb9323be5b432fc63e7" />
 	<File name="SimpleGraphic.dll" part="runtime" platform="win32" sha1="330f6f21f8c4ff0a687fb28c0e267b74df4938a5" />
@@ -54,9 +54,9 @@
 	<File name="Classes/LabelControl.lua" part="program" sha1="dc032e67fbda0e7531b55d60bec5298b38b99346" />
 	<File name="Classes/ListControl.lua" part="program" sha1="3a0484db32d7d927f8726a9c545bf4a7faadf854" />
 	<File name="Classes/MinionListControl.lua" part="program" sha1="453c13d190da47d9000f4a18be0d6f12a244f7c7" />
-	<File name="Classes/ModDB.lua" part="program" sha1="a195922624a773ffd2d00309504bb2e6976fc379" />
+	<File name="Classes/ModDB.lua" part="program" sha1="a13ac036727345febd38852333f03b766f36d0a0" />
 	<File name="Classes/ModList.lua" part="program" sha1="2addfae1a68dedb9aae29a87db56b64ff27f3cbc" />
-	<File name="Classes/ModStore.lua" part="program" sha1="7c802918171499527e8a5059a0b8e17a1f2d0d02" />
+	<File name="Classes/ModStore.lua" part="program" sha1="8e93443d85264c81357b52a4fd95d532014f2c67" />
 	<File name="Classes/NotesTab.lua" part="program" sha1="8b6bc60a188c0591a379bd372b86738fb7886285" />
 	<File name="Classes/NotableDBControl.lua" part="program" sha1="b39d194c640a4e180756418071c028332aa5f4c9" />
 	<File name="Classes/PassiveMasteryControl.lua" part="program" sha1="f15e2d078e9b36d42616d11b652eb7160ffb0627" />
@@ -88,7 +88,7 @@
 	<File name="Data/Uniques/body.lua" part="program" sha1="9dc90e8535d82867e44b24f19bacda52447dd980" />
 	<File name="Data/Uniques/boots.lua" part="program" sha1="c046d13afcc311be3480a96a03f5fbce173ce1f9" />
 	<File name="Data/Uniques/bow.lua" part="program" sha1="de316fe9bb9c2be569ebc2244cf10d0383cecb12" />
-	<File name="Data/Uniques/claw.lua" part="program" sha1="2ab0c982658da2b9d85cd4e489bf831ba3f53a44" />
+	<File name="Data/Uniques/claw.lua" part="program" sha1="586dd05ed9ff71147939c0cc69a355a16ddcdbc1" />
 	<File name="Data/Uniques/dagger.lua" part="program" sha1="a4755e787dc041809af626bdcf56c75a163ea767" />
 	<File name="Data/Uniques/fishing.lua" part="program" sha1="348fea473e90bbccf5aa94869ccba784291dc78d" />
 	<File name="Data/Uniques/flask.lua" part="program" sha1="356bc957d926fd29d3d6475a00f24f634b89266a" />
