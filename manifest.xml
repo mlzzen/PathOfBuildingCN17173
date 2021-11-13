@@ -201,7 +201,7 @@
 	<File name="Modules/Data.lua" part="program" sha1="66a06ec0ea826cb22a15fd1be9ef27744c6407fa" />
 	<File name="Modules/ItemTools.lua" part="program" sha1="233b099a4faae36122da8169d069c8a23ef04705" />
 	<File name="Modules/Main.lua" part="program" sha1="9aa8c9598fb31dc551194ff95fea08ee08a4178c" />
-	<File name="Modules/ModParser.lua" part="program" sha1="879f7102b65e87c03ef528053d10dd29493ded65" />
+	<File name="Modules/ModParser.lua" part="program" sha1="575532a7662363068bc9cff328486d5851b1d65a" />
 	<File name="Modules/ModParserEn.lua" part="program" sha1="d31bef86f522e425fecd61420bcb7072be807dfc" />
 	<File name="Modules/ModTools.lua" part="program" sha1="7b016dcf22cb643426f4e0e1b81abbe03010bd03" />
 	<File name="Modules/StatDescriber.lua" part="program" sha1="a702ea06164bf6c4ae6d0d12e0af7357d6cfd233" />
