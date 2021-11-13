@@ -6877,6 +6877,7 @@ local specialModList = {
 	["用锤类和短杖击中时碾压敌人"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }, { type = "Condition", var = "UsingMace" } )},
 	["召唤生物的攻击压制 (%d+)%% 物理伤害减免"] = function(num) return {  mod("EnemyPhysicalDamageReduction", "BASE", -num, { addToMinion = true, flags = ModFlag.Attack })  } end,
 	["召唤生物的攻击速度提高 (%d+)%%"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num, { flags = ModFlag.Attack }) }) } end,
+	["至少有 400 点力量时，每秒回复 (%d+)%% 生命"] = function(num) return { mod("LifeRegenPercent", "BASE", num, { type = "StatThreshold", stat = "Str", threshold = 400 }) } end,
 }
 
 for _, name in pairs(data.keystones) do
