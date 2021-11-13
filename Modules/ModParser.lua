@@ -882,6 +882,7 @@ local modFlagList = {
 	["该装备 "] = { },
 	["在低血时，"] = { tag = { type = "Condition", var = "LowLife" } },
 	["低血时，"] = { tag = { type = "Condition", var = "LowLife" } }, --备注：wh[ie][ln]e? on low life
+	["在低血时"] = { tag = { type = "Condition", var = "LowLife" } },
 	["击中和异常状态的"] = { keywordFlags = bor(KeywordFlag.Hit, KeywordFlag.Ailment) }, --备注：with hits and ailments
 	["攻击技能可以"] = { tag = { type = "SkillType", skillType = SkillType.Attack } }, --备注：with attack skills
 	["攻击时"] = { keywordFlags = KeywordFlag.Attack }, 
@@ -1341,6 +1342,7 @@ local modTagList = {
 	["每拥有 1 个暴击球，有 "] = { tag = { type = "Multiplier", var = "PowerCharge" } }, --备注：per power charge
 	["在低血时，"] = { tag = { type = "Condition", var = "LowLife" } },
 	["低血时，"] = { tag = { type = "Condition", var = "LowLife" } },
+	["在低血时"] = { tag = { type = "Condition", var = "LowLife" } },
 	["移动时获得"] = { tag = { type = "Condition", var = "Moving" } }, --备注：while moving
 	["每 (%d+) 点智慧可使"] = function(num) return { tag = { type = "PerStat", stat = "Int", div = num } } end, --备注：per (%d+) intelligence
 	["每 (%d+) 点智慧可以为"] = function(num) return { tag = { type = "PerStat", stat = "Int", div = num } } end, --备注：per (%d+) intelligence
