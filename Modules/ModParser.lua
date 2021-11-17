@@ -2867,6 +2867,7 @@ local specialModList = {
 	mod("ChaosMax", "BASE", num2,{ type = "Multiplier", actor = "enemy", var = "Spider's WebStack" } ) } end,
 	["空手攻击时的物理总伤害额外提高 (%d+)%%"]= function(num) return { mod("PhysicalDamage", "MORE", num,nil, ModFlag.Unarmed ) } end,
 	["空手攻击时的物理伤害总增 (%d+)%%"]= function(num) return { mod("PhysicalDamage", "MORE", num,nil, ModFlag.Unarmed ) } end,
+	["徒手近战攻击的物理伤害总增 (%d+)%%"]= function(num) return { mod("PhysicalDamage", "MORE", num,nil, ModFlag.Unarmed ) } end,
 	["空手时攻击附加 (%d+) %- (%d+) 基础闪电伤害"] = function(_,num1,num2) return {
 	mod("LightningMin", "BASE", num1,nil,ModFlag.Unarmed ),
 	mod("LightningMax", "BASE", num2,nil,ModFlag.Unarmed  ) } end,
