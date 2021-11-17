@@ -3827,6 +3827,8 @@ local specialModList = {
 	["最小物理攻击总伤害额外降低 (%d+)%%"]= function(num) return {  mod("PhysicalMin", "MORE", -num, { type = "SkillType", skillType = SkillType.Attack } )   } end,
 	["最大物理攻击伤害总增 (%d+)%%"]= function(num) return {  mod("PhysicalMax", "MORE", num,{ type = "SkillType", skillType = SkillType.Attack })   } end,
 	["最小物理攻击伤害总降 (%d+)%%"]= function(num) return {  mod("PhysicalMin", "MORE", -num, { type = "SkillType", skillType = SkillType.Attack } )   } end,
+	["物理攻击伤害上限总增 (%d+)%%"]= function(num) return {  mod("PhysicalMax", "MORE", num,{ type = "SkillType", skillType = SkillType.Attack })   } end,
+	["物理攻击伤害下限总降 (%d+)%%"]= function(num) return {  mod("PhysicalMin", "MORE", -num, { type = "SkillType", skillType = SkillType.Attack } )   } end,
 	["每个幽灵护罩可使承受的伤害降低 (%d+)%%"]= function(num) return {  mod("DamageTaken", "INC", -num,{ type = "Multiplier", var = "GhostShroud" } )   } end,
 	["每层【鬼影缠身】会使承受的伤害降低 (%d+)%%"]= function(num) return {  mod("DamageTaken", "INC", -num,{ type = "Multiplier", var = "GhostShroud" })   } end,
 	["每层鬼影缠身可使攻击和施法速度提高 (%d+)%%"]= function(num) return {  mod("Speed", "INC", num,{ type = "Multiplier", var = "GhostShroud" })   } end,

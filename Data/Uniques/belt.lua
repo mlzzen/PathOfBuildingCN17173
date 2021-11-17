@@ -661,10 +661,10 @@ replica: true
 {tags:jewellery_attribute}+(20-40) 力量
 {tags:attack,physical}攻击附加 1 - (15-20) 基础物理伤害
 {tags:life}晕眩敌人时获得 50 生命
-{variant:1}{tags:attack,physical}最小物理攻击总伤害额外降低 20%
-{variant:1}{tags:attack,physical}最大物理攻击总伤害额外提高 20%
-{variant:2}{tags:attack,physical}最小物理攻击总伤害额外降低 (30-40)%
-{variant:2}{tags:attack,physical}最大物理攻击总伤害额外提高 (30-40)%
+{variant:1}{tags:attack,physical}物理攻击伤害上限总增 20%
+{variant:1}{tags:attack,physical}物理攻击伤害下限总降 20%
+{variant:2}{tags:attack,physical}物理攻击伤害上限总增 (30-40)%
+{variant:2}{tags:attack,physical}物理攻击伤害下限总降 (30-40)%
 ]],[[
 灵魂羁绊
 饰布腰带
