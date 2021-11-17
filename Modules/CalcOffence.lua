@@ -1760,10 +1760,7 @@ t_insert(breakdown[stat], s_format("x %.3f ^8(副手创建的实例部分)", off
 				-- Calculate Exerted Attack Uptime
 				-- There are various strategies a player could use to maximize either warcry effect stacking or staggering
 				-- 1) they don't pay attention and therefore we calculated exerted attack uptime as just the maximum uptime of any enabled warcries that exert attacks
-				globalOutput.ExertedAttackUptimeRatio =m_max( m_max(m_max(
-				m_max(globalOutput.AncestralUpTimeRatio or 0, globalOutput.InfernalUpTimeRatio or 0),
-				m_max(globalOutput.IntimidatingUpTimeRatio or 0, globalOutput.RallyingUpTimeRatio or 0)),
-				globalOutput.SeismicUpTimeRatio or 0),(globalOutput.GeneralsCryUpTimeRatio or 0))
+				globalOutput.ExertedAttackUptimeRatio = m_max(m_max(m_max(globalOutput.AncestralUpTimeRatio or 0, globalOutput.InfernalUpTimeRatio or 0), m_max(globalOutput.IntimidatingUpTimeRatio or 0, globalOutput.RallyingUpTimeRatio or 0)), globalOutput.SeismicUpTimeRatio or 0)
 				if globalBreakdown then
 					globalBreakdown.ExertedAttackUptimeRatio = { }
 					t_insert(globalBreakdown.ExertedAttackUptimeRatio, s_format("最大:"))
@@ -1790,7 +1787,7 @@ t_insert(breakdown[stat], s_format("x %.3f ^8(副手创建的实例部分)", off
 				
 				if globalOutput.ExertedAttackUptimeRatio > 0 then
 					local incExertedAttacks = skillModList:Sum("INC", cfg, "ExertIncrease")
-					local moreExertedAttacks = skillModList:More(cfg, "ExertIncrease")
+					local moreExertedAttacks = skillModList:Sum("MORE", cfg, "ExertIncrease")
 					if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 						skillModList:NewMod("Damage", "INC", incExertedAttacks, "增助攻击")
 						skillModList:NewMod("Damage", "MORE", moreExertedAttacks, "增助攻击")
