@@ -1214,7 +1214,7 @@ function ItemsTabClass:UpdateSockets()
 	-- Update the state of the active socket controls
 	self.lastSlot = self.slots[baseSlots[#baseSlots]]
 	for index, nodeId in ipairs(activeSocketList) do
-		self.sockets[nodeId].label = "Socket #"..index
+		self.sockets[nodeId].label = "珠宝槽 #"..index
 		self.lastSlot = self.sockets[nodeId]
 	end
 	
