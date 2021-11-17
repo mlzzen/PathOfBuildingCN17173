@@ -3760,6 +3760,7 @@ local specialModList = {
 	["能量护盾偷取总回复上限提高 (%d+)%%"] = function(num) return {  mod("MaxEnergyShieldLeechRate", "INC", num)  } end,
 	["不再获得生命回复效果"] = { flag("NoLifeRegen") },
 	["从能量护盾偷取中获得的每秒最大总恢复量提高翻倍"] = { mod("MaxEnergyShieldLeechRate", "MORE", 100) },
+	["偷取的每秒总能量护盾恢复量上限翻倍"] = { mod("MaxEnergyShieldLeechRate", "MORE", 100) },
 	["不再获得生命偷取，将其偷取效果套用于能量护盾"] = { flag("GhostReaver") },
 	["能量护盾偷取改为生命偷取"] = { flag("GhostReaver") },
 	["(%d+)%% 几率获得额外混沌伤害，其数值等同于非混沌伤害的 (%d+)%%"] = function(num, _, perc) return { mod("NonChaosDamageGainAsChaos", "BASE", num / 100 * tonumber(perc)) } end,
