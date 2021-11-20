@@ -6185,7 +6185,7 @@ local specialModList = {
 			mod("EnemyModifier", "LIST", { mod = mod("LightningResist", "BASE", minus, { type = "Condition", var = "HitByLightningDamage", neg = true }, { type = "Condition", varList={"HitByFireDamage","HitByColdDamage"} }) }),
 		}
 	end,
-	["hits that deal elemental damage remove exposure to those elements and inflict exposure to other elements exposure inflicted this way applies (%-%d+)%% to resistances"] = function(num) return {
+	["元素伤害击中时移除该种元素曝露，并施加其它元素曝露 通过这种方式施加的元素曝露使其抗性 (%-%d+)%%"] = function(num) return {
 		flag("ElementalEquilibrium"),
 		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", num, { type = "Condition", varList={ "HitByColdDamage","HitByLightningDamage" } }) }),
 		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", num, { type = "Condition", varList={ "HitByFireDamage","HitByLightningDamage" } }) }),

@@ -2436,18 +2436,13 @@ t_insert(breakdown[damageType], s_format("x %.3f ^8(有效 DPS 加成)", effMult
 		output.TotalMin = totalHitMin
 		output.TotalMax = totalHitMax
 
-		if skillModList:Flag(skillCfg, "ElementalEquilibrium") and not env.configInput.EEIgnoreHitDamage 
-		and (output.FireHitAverage + output.ColdHitAverage + output.LightningHitAverage > 0) 
-		and not skillFlags.minion
-		then
-		 
-			-- Update enemy hit-by-damage-type conditions		
-			--enemyDB.conditions.HitByFireDamage = output.FireHitAverage > 0
-			--enemyDB.conditions.HitByColdDamage = output.ColdHitAverage > 0
-			--enemyDB.conditions.HitByLightningDamage = output.LightningHitAverage > 0
-			
-			 
+		if skillModList:Flag(skillCfg, "ElementalEquilibrium") and not env.configInput.EEIgnoreHitDamage and (output.FireHitAverage + output.ColdHitAverage + output.LightningHitAverage > 0) then
+			-- Update enemy hit-by-damage-type conditions
+			enemyDB.conditions.HitByFireDamage = output.FireHitAverage > 0
+			enemyDB.conditions.HitByColdDamage = output.ColdHitAverage > 0
+			enemyDB.conditions.HitByLightningDamage = output.LightningHitAverage > 0
 		end
+		
 		local highestType = "Physical"
 		
 		-- For each damage type, calculate percentage of total damage. Also tracks the highest damage type and outputs a Condition:TypeIsHighestDamageType flag for whichever the highest type is
