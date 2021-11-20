@@ -1039,7 +1039,7 @@ local modFlagList = {
 	["ice golem"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "召唤寒冰魔像" } },
 	["lightning golem"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "召唤闪电魔像" } },
 	["stone golem"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "召唤巨石魔像" } },
-	["animated guardian"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "幻化守卫" } },
+	["幻化守卫的"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "幻化守卫" } },
 	-- Other
 	["全局"] = { tag = { type = "Global" } }, --备注：global
 	["从盾牌获取的"] = { tag = { type = "SlotName", slotName = "Weapon 2" } }, --备注：from equipped shield
@@ -1627,6 +1627,7 @@ local modTagList = {
 	["每个绿色插槽"] = { tag = { type = "Multiplier", var = "GreenSocketIn{SlotName}" } }, --备注：per green socket
 	["每个蓝色插槽"] = { tag = { type = "Multiplier", var = "BlueSocketIn{SlotName}" } }, --备注：per blue socket
 	["每个白色插槽会使"] = { tag = { type = "Multiplier", var = "WhiteSocketIn{SlotName}" } }, --备注：per white socket
+	["每把幻化武器可使"] = { tag = { type = "Multiplier", var = "AnimatedWeapon", actor = "parent" } },
 	-- Per stat
 	["每 (%d+) 点力量 "] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end, --备注：per (%d+) strength
 	["每 (%d+) 点敏捷 "] = function(num) return { tag = { type = "PerStat", stat = "Dex", div = num } } end, --备注：per (%d+) dexterity
@@ -6402,6 +6403,8 @@ local specialModList = {
 			mod("LinkedSupport", "LIST", { targetSlotName = targetItemSlotName }, { type = "SocketedIn", slotName = "{SlotName}" }),
 		}
 	end,
+	["当幻化守卫击败一个敌人时，触发 (%d+) 级的【(.+)】"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
+
 	-- Conversion
 	["召唤生物伤害提高或降低，将同样套用于自身"] = { flag("MinionDamageAppliesToPlayer") , mod("ImprovedMinionDamageAppliesToPlayer", "INC", 100) }, --备注：increases and reductions to minion damage also affects? you
 	["召唤生物攻击速度的加成同时套用于你身上"] = { flag("MinionAttackSpeedAppliesToPlayer") , mod("ImprovedMinionAttackSpeedAppliesToPlayer", "INC", 100)}, --备注：increases and reductions to minion attack speed also affects? you

@@ -277,6 +277,10 @@ modList:NewMod("Condition:CastOnFrostbolt", "FLAG", true, "Config", { type = "Sk
 	end },
 { label = "【召唤灵体】:", ifSkill = "召唤灵体" },
 
+{ label = "幻化武器:", ifSkillList = {"幻化武器","幻化守卫武器"} },
+{ var = "animateWeaponWeaponCount", type = "count", label = "幻化武器数量:", ifSkillList = {"幻化武器","幻化守卫武器"}, apply = function(val, modList, enemyModList)
+	modList:NewMod("Multiplier:AnimatedWeapon", "BASE", m_min(val, 50), "Config")
+end },
 { var = "animateWeaponLingeringBlade", type = "check", label = "幻化【徘徊之刃】?", ifSkill = "幻化武器", tooltip = "启用幻化【徘徊之刃】的伤害加成\n徘徊之刃的具体的武器基低尚不清楚，但是接近于匕首【玻璃利片】", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:AnimatingLingeringBlades", "FLAG", true, "Config")
 	end },
