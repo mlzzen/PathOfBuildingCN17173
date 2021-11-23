@@ -286,7 +286,7 @@ end },
 	end },
 { label = "威能法印:", ifSkill = "威能法印" },
 	{ var = "sigilOfPowerStages", type = "count", label = "层数:", ifSkill = "威能法印", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:威能法印Stage", "BASE", val, "Config")
+		modList:NewMod("Multiplier:SigilOfPowerStage", "BASE", val, "Config")
 	end },
 { label = "【虹吸陷阱】:", ifSkill = "虹吸陷阱" },
 { var = "siphoningTrapAffectedEnemies", type = "count", label = "# 受到影响的敌人数量:", ifSkill = "虹吸陷阱", tooltip = "设置受到【虹吸陷阱】影响的敌人数量.", apply = function(val, modList, enemyModList)
