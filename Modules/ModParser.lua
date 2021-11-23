@@ -1689,6 +1689,7 @@ local modTagList = {
 	["持双手武器时"] = { tag = { type = "Condition", var = "UsingTwoHandedWeapon" } }, --备注：while wielding a two handed weapon
 	["持法杖时"] = { tag = { type = "Condition", var = "UsingWand" } }, --备注：while wielding a wand
 	["空手时"] = { tag = { type = "Condition", var = "Unarmed" } }, --备注：while unarmed
+	["徒手"] = { tag = { type = "Condition", var = "Unarmed" } }, 
 	["装备 1 件普通物品时，"] = { tag = { type = "MultiplierThreshold", var = "NormalItem", threshold = 1 } }, --备注：with a normal item equipped
 	["装备 1 件魔法物品时，"] = { tag = { type = "MultiplierThreshold", var = "MagicItem", threshold = 1 } }, --备注：with a magic item equipped
 	["with a rare item equipped"] = { tag = { type = "MultiplierThreshold", var = "RareItem", threshold = 1 } },
@@ -6410,12 +6411,12 @@ local specialModList = {
 	["召唤生物攻击速度的加成同时套用于你身上"] = { flag("MinionAttackSpeedAppliesToPlayer") , mod("ImprovedMinionAttackSpeedAppliesToPlayer", "INC", 100)}, --备注：increases and reductions to minion attack speed also affects? you
 	["对法术伤害的增幅与减益也会套用于攻击上"] ={ flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", 100)  }, --备注：increases and reductions to spell damage also apply to attacks
 
-	["modifiers to claw damage also apply to unarmed"] = { flag("ClawDamageAppliesToUnarmed") },
 	["对爪类武器的伤害加成同时套用于空手攻击伤害上"] = { flag("ClawDamageAppliesToUnarmed") }, --备注：modifiers to claw damage also apply to unarmed attack damage
-	["modifiers to claw attack speed also apply to unarmed"] = { flag("ClawAttackSpeedAppliesToUnarmed") },
 	["对爪类武器的攻击速度加成同时套用于空手攻击速度上"] = { flag("ClawAttackSpeedAppliesToUnarmed") }, --备注：modifiers to claw attack speed also apply to unarmed attack speed
-	["modifiers to claw critical strike chance also apply to unarmed"] = { flag("ClawCritChanceAppliesToUnarmed") },
 	["对爪类武器的攻击暴击率加成同时套用于空手攻击暴击率上"] = { flag("ClawCritChanceAppliesToUnarmed") }, --备注：modifiers to claw critical strike chance also apply to unarmed attack critical strike chance
+	["调整爪类伤害的词缀也作用于近战技能的攻击伤害"] = { flag("ClawDamageAppliesToUnarmed") }, --备注：modifiers to claw damage also apply to unarmed attack damage
+	["调整爪类攻击速度的词缀也作用于近战技能的徒手攻击速度"] = { flag("ClawAttackSpeedAppliesToUnarmed") }, --备注：modifiers to claw attack speed also apply to unarmed attack speed
+	["调整爪类暴击率的词缀也作用于近战技能的徒手暴击率"] = { flag("ClawCritChanceAppliesToUnarmed") }, --备注：modifiers to claw critical strike chance also apply to unarmed attack critical strike chance
 	["照亮范围的扩大和缩小也同样作用于命中值"] = { flag("LightRadiusAppliesToAccuracy") }, --备注：increases and reductions to light radius also apply to accuracy
 	["施法速度的提高和降低也同样作用于陷阱投掷速度"] = { flag("CastSpeedAppliesToTrapThrowingSpeed") }, --备注：increases and reductions to cast speed also apply to trap throwing speed
 	["gain (%d+)%% of bow physical damage as extra damage of each element"] = function(num) return {
