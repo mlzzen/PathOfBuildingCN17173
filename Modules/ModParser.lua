@@ -6895,6 +6895,7 @@ local specialModList = {
 	["至少有 400 点力量时，每秒回复 (%d+)%% 生命"] = function(num) return { mod("LifeRegenPercent", "BASE", num, { type = "StatThreshold", stat = "Str", threshold = 400 }) } end,
 	["你身上的减益效果消失速度提高 (%d+)%%"] = {},
 	["在你的冰缓区域里的敌人身上的诅咒效果提高 (%d+)%%"] = function(num) return { mod("CurseEffect", "INC", num, { type = "ActorCondition", actor = "enemy", var = "InChillingArea" } ) } end,
+	["能量护盾不能充能"] = { flag("NoEnergyShieldRecharge") },
 
 }
 
