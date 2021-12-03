@@ -4413,14 +4413,16 @@ local specialModList = {
 	flag("Condition:CanWither"),
 	mod("Dummy", "DUMMY", 1, { type = "Condition", var = "CanWither" })
 	} end,
-	["你对敌人造成的每个凋零使其承受的击中元素伤害提高 (%d+)%%"] = function(num) return {
-	mod("ExtraSkillMod", "LIST", {
-	mod = mod("ElementalDamageTaken", "INC", tonumber(num),
-	{ type = "GlobalEffect", effectType = "Debuff", effectName = "死亡凋零", effectStackVar = "WitheredStack" }) }) } end,
-	["给敌人施加的每个【枯萎】 都使它们从你的击中中受到的元素伤害提高 (%d+)%%"] = function(num) return {
-	mod("ExtraSkillMod", "LIST", {
-	mod = mod("ElementalDamageTaken", "INC", tonumber(num),
-	{ type = "GlobalEffect", effectType = "Debuff", effectName = "死亡凋零", effectStackVar = "WitheredStack" }) }) } end,
+	-- ["你对敌人造成的每个凋零使其承受的击中元素伤害提高 (%d+)%%"] = function(num) return {
+	-- mod("ExtraSkillMod", "LIST", {
+	-- mod = mod("ElementalDamageTaken", "INC", tonumber(num),
+	-- { type = "GlobalEffect", effectType = "Debuff", effectName = "死亡凋零", effectStackVar = "WitheredStack" }) }) } end,
+	-- ["给敌人施加的每个【枯萎】 都使它们从你的击中中受到的元素伤害提高 (%d+)%%"] = function(num) return {
+	-- mod("ExtraSkillMod", "LIST", {
+	-- mod = mod("ElementalDamageTaken", "INC", tonumber(num),
+	-- { type = "GlobalEffect", effectType = "Debuff", effectName = "死亡凋零", effectStackVar = "WitheredStack" }) }) } end,
+	["你对敌人造成的每个凋零使其承受的击中元素伤害提高 (%d+)%%"] = { flag("Condition:CanElementalWithered") },
+	["给敌人施加的每个【枯萎】 都使它们从你的击中中受到的元素伤害提高 (%d+)%%"] = { flag("Condition:CanElementalWithered") },
 	["你的击中无法穿透或忽视元素抗性"] = { flag("CannotIgnoreElementalResistances"),flag("CannotElementalPenetration")},
 	["你的击中无法穿透或无视元素抗性"] = { flag("CannotIgnoreElementalResistances"),flag("CannotElementalPenetration")},
 	["无法造成非闪电伤害"] = {  flag("DealNoCold"), flag("DealNoFire"), flag("DealNoPhysical"), flag("DealNoChaos")},
