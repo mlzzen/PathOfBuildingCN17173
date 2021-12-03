@@ -30,7 +30,7 @@ function calcs.hitChance(evasion, accuracy)
 	if accuracy < 0 then
 		return 5
 	end
-	local rawChance = accuracy / (accuracy + (evasion / 4) ^ 0.8) * 115
+	local rawChance = accuracy / (accuracy + (evasion / 5) ^ 0.9) * 125
 	return m_max(m_min(round(rawChance), 100), 5)	
 end
 
@@ -81,14 +81,12 @@ function calcs.defence(env, actor)
 	for _, elem in ipairs(resistTypeList) do
 		local min, max, total
 		min = data.misc.ResistFloor
-		max = modDB:Override(nil, elem.."ResistMax") or m_min(90, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax"))
-		--total = modDB:Override(nil, elem.."Resist") or modDB:Sum("BASE", nil, elem.."Resist", isElemental[elem] and "ElementalResist")*(1+modDB:Sum("MORE", nil, elem.."Resist", isElemental[elem] and "ElementalResist")/100)
+			max = modDB:Override(nil, elem.."ResistMax") or m_min(data.misc.MaxResistCap, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax"))
 		total = modDB:Override(nil, elem.."Resist")
 		if not total then
 			local base = modDB:Sum("BASE", nil, elem.."Resist", isElemental[elem] and "ElementalResist")
 			total = base * calcLib.mod(modDB, nil, elem.."Resist", isElemental[elem] and "ElementalResist")
 		end
-		local final = m_min(total, max)
 		local final = m_max(m_min(total, max), min)
 		output[elem.."Resist"] = final
 		output[elem.."ResistTotal"] = total
@@ -103,6 +101,73 @@ function calcs.defence(env, actor)
 			}
 		end
 	end
+
+	-- Block
+	output.BlockChanceMax = modDB:Sum("BASE", nil, "BlockChanceMax")
+	output.BlockChanceOverCap = 0
+	output.SpellBlockChanceOverCap = 0
+	local baseBlockChance = 0
+	if actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].armourData then
+		baseBlockChance = baseBlockChance + actor.itemList["Weapon 2"].armourData.BlockChance
+	end
+	if actor.itemList["Weapon 3"] and actor.itemList["Weapon 3"].armourData then
+		baseBlockChance = baseBlockChance + actor.itemList["Weapon 3"].armourData.BlockChance
+	end
+	output.ShieldBlockChance = baseBlockChance
+	if modDB:Flag(nil, "MaxBlockIfNotBlockedRecently") then
+		output.BlockChance = output.BlockChanceMax
+	else
+		local totalBlockChance = (baseBlockChance + modDB:Sum("BASE", nil, "BlockChance")) * calcLib.mod(modDB, nil, "BlockChance")
+		output.BlockChance = m_min(totalBlockChance, output.BlockChanceMax)
+		output.BlockChanceOverCap = m_max(0, totalBlockChance - output.BlockChanceMax)
+	end
+	output.ProjectileBlockChance = m_min(output.BlockChance + modDB:Sum("BASE", nil, "ProjectileBlockChance") * calcLib.mod(modDB, nil, "BlockChance"), output.BlockChanceMax)
+	if modDB:Flag(nil, "SpellBlockChanceMaxIsBlockChanceMax") then
+		output.SpellBlockChanceMax = output.BlockChanceMax
+	else
+		output.SpellBlockChanceMax = modDB:Sum("BASE", nil, "SpellBlockChanceMax")
+	end
+	if modDB:Flag(nil, "SpellBlockChanceIsBlockChance") then
+		output.SpellBlockChance = output.BlockChance
+		output.SpellProjectileBlockChance = output.ProjectileBlockChance
+		output.SpellBlockChanceOverCap = output.BlockChanceOverCap
+	else
+		local totalSpellBlockChance = modDB:Sum("BASE", nil, "SpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance")
+		output.SpellBlockChance = m_min(totalSpellBlockChance, output.SpellBlockChanceMax)
+		output.SpellBlockChanceOverCap = m_max(0, totalSpellBlockChance - output.SpellBlockChanceMax)
+		output.SpellProjectileBlockChance = output.SpellBlockChance
+	end
+	if breakdown then
+		breakdown.BlockChance = {
+			"Base: "..baseBlockChance.."%",
+			"Max: "..output.BlockChanceMax.."%",
+			"Total: "..output.BlockChance+output.BlockChanceOverCap.."%",
+		}
+		breakdown.SpellBlockChance = {
+			"Max: "..output.SpellBlockChanceMax.."%",
+			"Total: "..output.SpellBlockChance+output.SpellBlockChanceOverCap.."%",
+		}
+	end
+	if modDB:Flag(nil, "CannotBlockAttacks") then
+		output.BlockChance = 0
+		output.ProjectileBlockChance = 0
+	end
+	if modDB:Flag(nil, "CannotBlockSpells") then
+		output.SpellBlockChance = 0
+		output.SpellProjectileBlockChance = 0
+	end
+	output.AverageBlockChance = (output.BlockChance + output.ProjectileBlockChance + output.SpellBlockChance + output.SpellProjectileBlockChance) / 4
+	output.BlockEffect = m_max(100 - modDB:Sum("BASE", nil, "BlockEffect"), 0)
+	if output.BlockEffect == 0 then
+		output.BlockEffect = 100
+	else
+		output.ShowBlockEffect = true
+		output.DamageTakenOnBlock = 100 - output.BlockEffect
+	end
+	output.LifeOnBlock = modDB:Sum("BASE", nil, "LifeOnBlock")
+	output.ManaOnBlock = modDB:Sum("BASE", nil, "ManaOnBlock")
+	output.EnergyShieldOnBlock = modDB:Sum("BASE", nil, "EnergyShieldOnBlock")
+	output.EnergyShieldOnSpellBlock = modDB:Sum("BASE", nil, "EnergyShieldOnSpellBlock")
 
 	-- Primary defences: Energy shield, evasion and armour
 	do
@@ -125,13 +190,9 @@ function calcs.defence(env, actor)
 		local slotCfg = wipeTable(tempTable1)
 		for _, slot in pairs({"Helmet","Body Armour","Gloves","Boots","Weapon 2","Weapon 3"}) do
 			local armourData = actor.itemList[slot] and actor.itemList[slot].armourData
-			
-			if actor.itemList[slot] and actor.itemList[slot].quality then 
-				output["QualityOn"..slot] = actor.itemList[slot].quality
-			end 
-			
+
 			if armourData then		
-				
+
 				slotCfg.slotName = slot
 				wardBase = armourData.Ward or 0
 				if wardBase > 0 then
@@ -312,7 +373,6 @@ function calcs.defence(env, actor)
 				breakdown.slot("Conversion", "Mana to Armour", nil, armourBase, total, "Armour", "ArmourAndEvasion", "Defences", "Mana")
 			end
 		end
-		
 		local convManaToES = modDB:Sum("BASE", nil, "ManaGainAsEnergyShield")
 		if convManaToES > 0 then
 			energyShieldBase = modDB:Sum("BASE", nil, "Mana") * convManaToES / 100
@@ -321,7 +381,6 @@ function calcs.defence(env, actor)
 				breakdown.slot("Conversion", "魔力 转 能量护盾", nil, energyShieldBase, nil, "EnergyShield", "Defences", "Mana")
 			end
 		end
-		
 		local convLifeToArmour = modDB:Sum("BASE", nil, "LifeGainAsArmour")
 		if convLifeToArmour > 0 then
 			armourBase = modDB:Sum("BASE", nil, "Life") * convLifeToArmour / 100
@@ -357,7 +416,6 @@ function calcs.defence(env, actor)
 				total = 1
 			else
 				total = energyShieldBase * calcLib.mod(modDB, nil, "Life", "EnergyShield", "Defences")
-				
 
 			end
 			energyShield = energyShield + total
@@ -367,7 +425,7 @@ function calcs.defence(env, actor)
 		end
 		local convEvasionToArmour = modDB:Sum("BASE", nil, "EvasionGainAsArmour")
 		if convEvasionToArmour > 0 then
-			armourBase = modDB:Sum("BASE", nil, "Evasion") * convEvasionToArmour / 100
+			armourBase = (modDB:Sum("BASE", nil, "Evasion") + gearEvasion) * convEvasionToArmour / 100
 			local total = armourBase * calcLib.mod(modDB, nil, "Evasion", "Armour", "ArmourAndEvasion", "Defences")
 			armour = armour + total
 			if breakdown then
@@ -408,11 +466,9 @@ function calcs.defence(env, actor)
 			output.ProjectileEvadeChance = 0
 		else
 			local enemyAccuracy = round(calcLib.val(enemyDB, "Accuracy"))
-			 
-			output.EvadeChance = 100 - (calcs.hitChance(output.Evasion, enemyAccuracy) - modDB:Sum("BASE", nil, "EvadeChance")) 
-			* calcLib.mod(enemyDB, nil, "HitChance")
-			output.MeleeEvadeChance = m_max(0, m_min(95, output.EvadeChance * calcLib.mod(modDB, nil, "EvadeChance", "MeleeEvadeChance")))
-			output.ProjectileEvadeChance = m_max(0, m_min(95, output.EvadeChance * calcLib.mod(modDB, nil, "EvadeChance", "ProjectileEvadeChance")))
+			output.EvadeChance = 100 - (calcs.hitChance(output.Evasion, enemyAccuracy) - modDB:Sum("BASE", nil, "EvadeChance")) * calcLib.mod(enemyDB, nil, "HitChance")
+			output.MeleeEvadeChance = m_max(0, m_min(data.misc.EvadeChanceCap, output.EvadeChance * calcLib.mod(modDB, nil, "EvadeChance", "MeleeEvadeChance")))
+			output.ProjectileEvadeChance = m_max(0, m_min(data.misc.EvadeChanceCap, output.EvadeChance * calcLib.mod(modDB, nil, "EvadeChance", "ProjectileEvadeChance")))
 			-- Condition for displayng evade chance only if melee or projectile evade chance have the same values
 			if output.MeleeEvadeChance ~= output.ProjectileEvadeChance then
 				output.splitEvade = true
@@ -420,8 +476,6 @@ function calcs.defence(env, actor)
 				output.EvadeChance = output.MeleeEvadeChance
 				output.dontSplitEvade = true
 			end
-			
-			
 			if breakdown then
 				breakdown.EvadeChance = {
 					s_format("敌人等级: %d ^8(%s 配置界面配置)", env.enemyLevel, env.configInput.enemyLevel and "覆盖了" or "可以从"),
@@ -438,83 +492,11 @@ s_format("近似近战闪避率: %d%%", output.MeleeEvadeChance),
 					s_format("平均敌人命中: %d", enemyAccuracy),
 					s_format("近似投射物闪避率: %d%%", output.ProjectileEvadeChance),
 				}
-				
 			end
-			 
-			
-		 
 		end
 	end
-	
-	
-		-- Block
-	output.BlockChanceMax = modDB:Sum("BASE", nil, "BlockChanceMax")
-	output.BlockChanceOverCap = 0
-	output.SpellBlockChanceOverCap = 0
-	local baseBlockChance = 0
-	if actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].armourData then
-		baseBlockChance = baseBlockChance + actor.itemList["Weapon 2"].armourData.BlockChance
-	end
-	if actor.itemList["Weapon 3"] and actor.itemList["Weapon 3"].armourData then
-		baseBlockChance = baseBlockChance + actor.itemList["Weapon 3"].armourData.BlockChance
-	end
-	output.ShieldBlockChance = baseBlockChance
-	if modDB:Flag(nil, "MaxBlockIfNotBlockedRecently") then
-		output.BlockChance = output.BlockChanceMax
-	else
-		local totalBlockChance = (baseBlockChance + modDB:Sum("BASE", nil, "BlockChance")) * calcLib.mod(modDB, nil, "BlockChance")
-		output.BlockChance = m_min(totalBlockChance, output.BlockChanceMax)
-		output.BlockChanceOverCap = m_max(0, totalBlockChance - output.BlockChanceMax)
-	end
-	output.ProjectileBlockChance = m_min(output.BlockChance + modDB:Sum("BASE", nil, "ProjectileBlockChance") * calcLib.mod(modDB, nil, "BlockChance"), output.BlockChanceMax) 
-	if modDB:Flag(nil, "SpellBlockChanceMaxIsBlockChanceMax") then
-		output.SpellBlockChanceMax = output.BlockChanceMax
-	else
-		output.SpellBlockChanceMax = modDB:Sum("BASE", nil, "SpellBlockChanceMax")
-	end
-	if modDB:Flag(nil, "SpellBlockChanceIsBlockChance") then
-		output.SpellBlockChance = output.BlockChance
-		output.SpellProjectileBlockChance = output.ProjectileBlockChance
-		output.SpellBlockChanceOverCap = output.BlockChanceOverCap
-	else
-		local totalSpellBlockChance = modDB:Sum("BASE", nil, "SpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance")
-		output.SpellBlockChance = m_min(totalSpellBlockChance, output.SpellBlockChanceMax)
-		output.SpellBlockChanceOverCap = m_max(0, totalSpellBlockChance - output.SpellBlockChanceMax)
-		output.SpellProjectileBlockChance = output.SpellBlockChance
-	end
-	if breakdown then
-		breakdown.BlockChance = {
-			"Base: "..baseBlockChance.."%",
-			"Max: "..output.BlockChanceMax.."%",
-			"Total: "..output.BlockChance+output.BlockChanceOverCap.."%",
-		}
-		breakdown.SpellBlockChance = {
-			"Max: "..output.SpellBlockChanceMax.."%",
-			"Total: "..output.SpellBlockChance+output.SpellBlockChanceOverCap.."%",
-		}
-	end
-	if modDB:Flag(nil, "CannotBlockAttacks") then
-		output.BlockChance = 0
-		output.ProjectileBlockChance = 0
-	end
-	if modDB:Flag(nil, "CannotBlockSpells") then
-		output.SpellBlockChance = 0
-		output.SpellProjectileBlockChance = 0
-	end
-	output.AverageBlockChance = (output.BlockChance + output.ProjectileBlockChance + output.SpellBlockChance + output.SpellProjectileBlockChance) / 4
-	output.BlockEffect = m_max(100 - modDB:Sum("BASE", nil, "BlockEffect"), 0)
-	if output.BlockEffect == 0 then
-		output.BlockEffect = 100
-	else
-		output.ShowBlockEffect = true
-		output.DamageTakenOnBlock = 100 - output.BlockEffect
-	end
-	output.LifeOnBlock = modDB:Sum("BASE", nil, "LifeOnBlock")
-	output.ManaOnBlock = modDB:Sum("BASE", nil, "ManaOnBlock")
-	output.EnergyShieldOnBlock = modDB:Sum("BASE", nil, "EnergyShieldOnBlock")
-	output.EnergyShieldOnSpellBlock = modDB:Sum("BASE", nil, "EnergyShieldOnSpellBlock")
+
 	-- Dodge
-	
 
 	-- Acrobatics Spell Suppression to Spell Dodge Chance conversion.
 	if modDB:Flag(nil, "ConvertSpellSuppressionToSpellDodge") then
@@ -639,17 +621,15 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 			lifeBase = lifeBase + output.Life * lifePercent / 100
 		end
 		if lifeBase > 0 then			
-			output.LifeRegen = lifeBase * output.LifeRecoveryRateMod * modDB:More(nil, "LifeRegen")
+			output.LifeRegen = lifeBase * output.LifeRecoveryRateMod * modDB:More(nil, "LifeRegen") * (1 + modDB:Sum("INC", nil, "LifeRegen") / 100)
 		else
 			output.LifeRegen = 0
 		end
 		-- Don't add life recovery mod for this
-		if output.LifeRegen and modDB:Flag(nil, "LifeRegenerationRecoversEnergyShield") then
-			modDB:NewMod("EnergyShieldRecovery", "BASE", lifeBase * modDB:More(nil, "LifeRegen"), "每秒生命回复也套用能量护盾回复")
-
+		if output.LifeRegen and modDB:Flag(nil, "LifeRegenerationRecoversEnergyShield") and output.EnergyShield > 0 then
+			modDB:NewMod("EnergyShieldRecovery", "BASE", lifeBase * modDB:More(nil, "LifeRegen") * (1 + modDB:Sum("INC", nil, "LifeRegen") / 100), "每秒生命回复也套用能量护盾回复")
 		end
 	end
-	
 	output.LifeRegen = output.LifeRegen - modDB:Sum("BASE", nil, "LifeDegen") + modDB:Sum("BASE", nil, "LifeRecovery") * output.LifeRecoveryRateMod
 	output.LifeRegenPercent = round(output.LifeRegen / output.Life * 100, 1)
 	if modDB:Flag(nil, "NoEnergyShieldRegen") then
@@ -671,6 +651,8 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 	output.EnergyShieldRegen = output.EnergyShieldRegen + modDB:Sum("BASE", nil, "EnergyShieldRecovery") * output.EnergyShieldRecoveryRateMod
 	output.EnergyShieldRegenPercent = round(output.EnergyShieldRegen / output.EnergyShield * 100, 1)
 	if modDB:Sum("BASE", nil, "RageRegen") > 0 then
+		modDB:NewMod("Condition:CanGainRage", "FLAG", true, "RageRegen")
+		modDB:NewMod("Dummy", "DUMMY", 1, "RageRegen", 0, { type = "Condition", var = "CanGainRage" }) -- Make the Configuration option appear
 		local base = modDB:Sum("BASE", nil, "RageRegen")
 		if modDB:Flag(nil, "ManaRegenToRageRegen") then
 			local mana = modDB:Sum("INC", nil, "ManaRegen")
@@ -737,11 +719,11 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 				})
 			end
 		end
-		output.EnergyShieldRechargeDelay = 2 / (1 + modDB:Sum("INC", nil, "EnergyShieldRechargeFaster") / 100)
+		output.EnergyShieldRechargeDelay = data.misc.EnergyShieldRechargeDelay / (1 + modDB:Sum("INC", nil, "EnergyShieldRechargeFaster") / 100)
 		if breakdown then
-			if output.EnergyShieldRechargeDelay ~= 2 then
+			if output.EnergyShieldRechargeDelay ~= data.misc.EnergyShieldRechargeDelay then
 				breakdown.EnergyShieldRechargeDelay = {
-					"2.00s ^8(基础)",
+					s_format("%.2fs ^8(基础)", data.misc.EnergyShieldRechargeDelay),
 					s_format("/ %.2f ^8(更快开始)", 1 + modDB:Sum("INC", nil, "EnergyShieldRechargeFaster") / 100),
 					s_format("= %.2fs", output.EnergyShieldRechargeDelay)
 				}
@@ -750,11 +732,11 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 	end
 	
 	-- Ward recharge
-	output.WardRechargeDelay = 5 / (1 + modDB:Sum("INC", nil, "WardRechargeFaster") / 100)
+	output.WardRechargeDelay = data.misc.WardRechargeDelay / (1 + modDB:Sum("INC", nil, "WardRechargeFaster") / 100)
 		if breakdown then
-			if output.WardRechargeDelay ~= 5 then
+			if output.WardRechargeDelay ~= data.misc.WardRechargeDelay then
 				breakdown.WardRechargeDelay = {
-					"5.00s ^8(基础)",
+					s_format("%.2fs ^8(基础)", data.misc.WardRechargeDelay),
 					s_format("/ %.2f ^8(更快开始)", 1 + modDB:Sum("INC", nil, "WardRechargeFaster") / 100),
 					s_format("= %.2fs", output.WardRechargeDelay)
 				}
@@ -821,7 +803,7 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 	output.CritExtraDamageReduction = m_min(modDB:Sum("BASE", nil, "ReduceCritExtraDamage"), 100)
 	output.LightRadiusMod = calcLib.mod(modDB, nil, "LightRadius")
 	if breakdown then
-		breakdown.LightRadiusMod = breakdown.mod(nil, "LightRadius")
+		breakdown.LightRadiusMod = breakdown.mod(modDB, nil, "LightRadius")
 	end
 
 	-- Ailment duration on self	
@@ -904,7 +886,7 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 				manatext = manatext.." + 未穿透能量护盾"
 				if output[damageType.."EnergyShieldBypass"] > 0 then
 					local manaProtected = (output.EnergyShieldRecoveryCap or output.EnergyShield) / (1 - output[damageType.."EnergyShieldBypass"] / 100) * (output[damageType.."EnergyShieldBypass"] / 100)
-					sourcePool = m_max(sourcePool - manaProtected, 0) + m_min(sourcePool, manaProtected)  / (output[damageType.."EnergyShieldBypass"] / 100)
+					sourcePool = m_max(sourcePool - manaProtected, 0) + m_min(sourcePool, manaProtected) / (output[damageType.."EnergyShieldBypass"] / 100)
 				else 
 					sourcePool = sourcePool + (output.EnergyShieldRecoveryCap or output.EnergyShield)
 				end
@@ -956,18 +938,19 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 			else
 				if output[damageType.."EnergyShieldBypass"] > 0 then
 					local poolProtected = (output.EnergyShieldRecoveryCap or output.EnergyShield) / (1 - output[damageType.."EnergyShieldBypass"] / 100) * (output[damageType.."EnergyShieldBypass"] / 100)
-					output[damageType.."TotalPool"] = m_max(output[damageType.."TotalPool"] - poolProtected, 0) + m_min(output[damageType.."TotalPool"], poolProtected)  / (output[damageType.."EnergyShieldBypass"] / 100)
+					output[damageType.."TotalPool"] = m_max(output[damageType.."TotalPool"] - poolProtected, 0) + m_min(output[damageType.."TotalPool"], poolProtected) / (output[damageType.."EnergyShieldBypass"] / 100)
 				else 
 					output[damageType.."TotalPool"] = output[damageType.."TotalPool"] + (output.EnergyShieldRecoveryCap or output.EnergyShield)
 				end
 				if output[damageType.."GuardAbsorbRate"] > 0 then
 					local guardRemain = output[damageType.."GuardAbsorb"] - (output[damageType.."GuardEffectiveLife"] - output.LifeUnreserved)
+					local espool = output[damageType.."TotalPool"] - output[damageType.."ManaEffectiveLife"]
 					if guardRemain > 0 then
 						local poolProtected = guardRemain / (output[damageType.."GuardAbsorbRate"] / 100) * (1 - output[damageType.."GuardAbsorbRate"] / 100)
 						if output[damageType.."GuardAbsorbRate"] >= 100 then
 							output[damageType.."GuardEffectivePool"] = guardRemain
 						else
-							output[damageType.."GuardEffectivePool"] = m_max(output[damageType.."TotalPool"] - poolProtected, 0) + m_min(output[damageType.."TotalPool"], poolProtected) / (1 - output[damageType.."GuardAbsorbRate"] / 100) - output[damageType.."TotalPool"]
+							output[damageType.."GuardEffectivePool"] = m_max(espool - poolProtected, 0) + m_min(espool, poolProtected) / (1 - output[damageType.."GuardAbsorbRate"] / 100) - espool
 						end
 						output[damageType.."TotalPool"] = output[damageType.."TotalPool"] + output[damageType.."GuardEffectivePool"]
 					end
@@ -1018,7 +1001,7 @@ modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 				takenInc = takenInc + modDB:Sum("INC", nil, "ElementalDamageTakenWhenHit")
 				takenMore = takenMore * modDB:More(nil, "ElementalDamageTakenWhenHit")
 			end
-			output[damageType.."TakenHit"] = (1 + takenInc / 100) * takenMore
+			output[damageType.."TakenHit"] = m_max((1 + takenInc / 100) * takenMore, 0)
 			do
 				-- Reflect
 				takenInc = takenInc + modDB:Sum("INC", nil, damageType.."ReflectedDamageTaken")
@@ -1175,6 +1158,7 @@ label = "持续伤害加成:",
 		output.NetLifeRegen = output.NetLifeRegen - totalLifeDegen
 		output.NetManaRegen = output.NetManaRegen - totalManaDegen
 		output.NetEnergyShieldRegen = output.NetEnergyShieldRegen - totalEnergyShieldDegen
+		output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen
 		if breakdown then
 			t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(总生命消减)", output.LifeRegen))
 			t_insert(breakdown.NetLifeRegen, s_format("- %.1f ^8(总生命消减)", totalLifeDegen))
@@ -1185,6 +1169,12 @@ label = "持续伤害加成:",
 			t_insert(breakdown.NetEnergyShieldRegen, s_format("%.1f ^8(总能量护盾消减)", output.EnergyShieldRegen))
 			t_insert(breakdown.NetEnergyShieldRegen, s_format("- %.1f ^8(总能量护盾消减)", totalEnergyShieldDegen))
 			t_insert(breakdown.NetEnergyShieldRegen, s_format("= %.1f", output.NetEnergyShieldRegen))
+			breakdown.TotalNetRegen = {
+				s_format("Net Life Regen: %.1f", output.NetLifeRegen),
+				s_format("+ Net Mana Regen: %.1f", output.NetManaRegen),
+				s_format("+ Net Energy Shield Regen: %.1f", output.NetEnergyShieldRegen),
+				s_format("= Total Net Regen: %.1f", output.TotalNetRegen)
+			}
 		end
 	end
 	
@@ -1320,7 +1310,8 @@ label = "持续伤害加成:",
 	output.MeleeNotHitChance = 100 - (1 - output.MeleeEvadeChance / 100) * (1 - output.AttackDodgeChance / 100) * 100
 	output.ProjectileNotHitChance = 100 - (1 - output.ProjectileEvadeChance / 100) * (1 - output.AttackDodgeChance / 100) * 100
 	output.SpellNotHitChance = 100 - (1 - output.SpellDodgeChance / 100) * 100
-	output.AverageNotHitChance = (output.MeleeNotHitChance + output.ProjectileNotHitChance + output.SpellNotHitChance) / 3
+	output.SpellProjectileNotHitChance = output.SpellNotHitChance
+	output.AverageNotHitChance = (output.MeleeNotHitChance + output.ProjectileNotHitChance + output.SpellNotHitChance + output.SpellProjectileNotHitChance) / 4
 	if breakdown then
 		breakdown.MeleeNotHitChance = { }
 		breakdown.multiChain(breakdown.MeleeNotHitChance, {
@@ -1385,7 +1376,9 @@ label = "持续伤害加成:",
 				})
 			else
 				breakdown.multiChain(breakdown[outputName], {
-					total = s_format("= %d%% ^8(Suppressed damage taken from spells)", 100 - output[outputName]),				})
+					{ "%.2f ^8(chance for suppression to fail)", 1 - suppressionChance / 100 },
+					total = s_format("= %d%% ^8(Suppressed damage taken from spells)", 100 - output[outputName]),
+				})
 			end
 		end
 	end
@@ -1516,10 +1509,10 @@ label = "持续伤害加成:",
 			breakdown[damageType.."NumberOfHits"] = {
 				s_format("EHP 计算模式: %s", damageCategoryConfig),
 				s_format("总资源池: %d", output[damageType.."TotalPool"]),
-				s_format("减伤前的伤害: %d", damage),			
+				s_format("减伤前的伤害: %d", damage),
 				s_format("每次击中承受伤害: %.2f", damage * output[damageType..minimumDamageConvertedType.."BaseTakenHitMult"]),
 				s_format("%s 不被击中的几率: %d%%", damageCategory, output[damageCategory.."NotHitChance"]),
-				s_format("%s 被击中时不承受伤害的几率: %d%%", DamageType, output[minimumDamageConvertedType..damageCategory.."DamageChance"]),
+				s_format("%s 被击中时不承受伤害的几率: %d%%", damageCategory, output[minimumDamageConvertedType..damageCategory.."DamageChance"]),
 				s_format("Average Number of hits you can take: %.2f", output[damageType.."NumberOfHits"]),
 			}
 		end
