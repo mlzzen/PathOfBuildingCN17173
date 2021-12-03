@@ -4958,6 +4958,9 @@ local specialModList = {
 	["非持续吟唱技能总魔力消耗 %-(%d+)"] = function(num) return {
 	mod("ManaCost", "BASE", -num,{ type = "SkillType", skillType = SkillType.Channelled, neg = true } ),
 	} end,
+	["非吟唱技能的总魔力消耗 %-(%d+)"] = function(num) return {
+		mod("ManaCost", "BASE", -num,{ type = "SkillType", skillType = SkillType.Channelled, neg = true } ),
+	} end,
 	["受到【清晰】影响时，非持续吟唱技能的总魔力消耗 %-(%d+)"] = function(num) return {
 	mod("ManaCost", "BASE", -num,{ type = "SkillType", skillType = SkillType.Channelled, neg = true },{ type = "Condition", var = "AffectedBy清晰" } ),
 	} end,
