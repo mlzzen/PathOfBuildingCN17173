@@ -3560,6 +3560,9 @@ local specialModList = {
 	["周围敌人获得 (%-%d+)%% 火焰抗性"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("FireResist", "BASE", num) }) } end,
 	["周围敌人获得 (%-%d+)%% 冰霜抗性"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("ColdResist", "BASE", num) }) } end,
 	["周围敌人获得 (%-%d+)%% 闪电抗性"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("LightningResist", "BASE", num) }) } end,
+	["周围敌人的火焰抗性 (%-%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("FireResist", "BASE", num) }) } end,
+	["周围敌人的冰霜抗性 (%-%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("ColdResist", "BASE", num) }) } end,
+	["周围敌人的闪电抗性 (%-%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("LightningResist", "BASE", num) }) } end,
 	["每一个周围的敌人 %+(%d+)%% 攻击暴击伤害加成，最大%+(%d+)%%"] = function(_,num1,num2) return {  mod("CritMultiplier", "BASE", tonumber(num1),{ type = "Multiplier", var = "NearbyEnemy", limit = tonumber(num2), limitTotal = true }) } end,
 	["每装备 1 个未腐化的物品，每秒回复 (%d+) 生命"]= function(num) return {  mod("LifeRegen", "BASE", tonumber(num),{ type = "Multiplier", var = "NonCorruptedItem" })  } end,
 	["每装备一个未腐化的物品，便每秒回复 (%d+) 生命"]= function(num) return {  mod("LifeRegen", "BASE", tonumber(num),{ type = "Multiplier", var = "NonCorruptedItem" })  } end,
@@ -6310,6 +6313,7 @@ local specialModList = {
 	-- Occultist
 	["被你诅咒的敌人会遭受【恶语术】影响"] = { mod("AffectedByCurseMod", "LIST", { mod = flag("HasMalediction") }) }, --备注：enemies you curse have malediction
 	["周围敌人获得 (%-%d+)%% 混沌抗性"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("ChaosResist", "BASE", num) }) } end, --备注：nearby enemies have (%-%d+)%% to chaos resistance
+	["周围敌人的混沌抗性 (%-%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("ChaosResist", "BASE", num) }) } end, --备注：nearby enemies have (%-%d+)%% to chaos resistance
 	["当你击败敌人时，敌人身上每有 1 个诅咒，便给予你等同 (%d+)%% 非混沌伤害的额外混沌伤害，持续 4 秒"] = function(num) return {  --备注：when you kill an enemy, for each curse on that enemy, gain (%d+)%% of non%-chaos damage as extra chaos damage for 4 seconds
 		mod("NonChaosDamageGainAsChaos", "BASE", num, { type = "Condition", var = "KilledRecently" }, { type = "Multiplier", var = "CurseOnEnemy" }),
 	} end,
