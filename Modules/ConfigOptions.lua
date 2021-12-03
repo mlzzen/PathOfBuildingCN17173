@@ -55,6 +55,7 @@ return {
 		modList:NewMod("Condition:MinionsCreatedRecently", "FLAG", true, "Config")
 	end },
 { var = "igniteMode", type = "list", label = "异常计算模式:", tooltip = "目前以基础点伤来计算异常效果:\n平均伤害：异常是基于平均伤害计算，区分暴击和非暴击.\n暴击伤害：异常基于暴击计算.", list = {{val="AVERAGE",label="平均伤害"},{val="CRIT",label="暴击伤害"}} },
+{ var = "physMode", type = "list", label = "随机元素模式:", ifFlag = "randomPhys", tooltip = "控制随机转元素词缀该如何选择一种元素\n\t平均: 词缀会使得同时获得各三分之一的物理转火焰、冰霜、闪电效果\n\t火焰/冰霜/闪电: 词缀会根据选择的元素类型获得全额元素转换效果\n若一条词缀只在两种元素之间随机选择，那么全额数值只能在这两种元素之间分配", list = {{val="AVERAGE",label="平均"},{val="FIRE",label="火焰"},{val="COLD",label="冰霜"},{val="LIGHTNING",label="闪电"}} },
 { var = "armourCalculationMode", type = "list", label = "护甲计算模式:", 
 tooltip = "配置护甲的计算方式\n\t最小：不计算双倍护甲\n\t平均：根据双倍护甲的几率进行计算预期减伤\n\t最大：始终使用100% 双倍护甲计算，如果有 100% 几率双倍护甲，那么此配置无效\n\t", 
 list = {{val="MIN",label="最小"},{val="AVERAGE",label="平均"},{val="MAX",label="最大"}} },
