@@ -4176,11 +4176,15 @@ t_insert(breakdown.DecayDuration, s_format("/ %.2f ^8(更快或较慢 debuff消�
 				if damageType == "Physical" then
 					resist = enemyDB:Sum("BASE", nil, "PhysicalDamageReduction")
 				else
-					resist = enemyDB:Sum("BASE", nil, damageType.."Resist")
-					if isElemental[damageType] then
-						local base = resist + enemyDB:Sum("BASE", dotTypeCfg, "ElementalResist")
-						resist = base * calcLib.mod(enemyDB, nil, damageType.."Resist")
-						takenInc = takenInc + enemyDB:Sum("INC", dotTypeCfg, "ElementalDamageTaken")
+					if env.modDB:Flag(nil, "Enemy"..damageType.."ResistEqualToYours") then
+						resist = env.player.output[damageType.."Resist"]
+					else
+						resist = enemyDB:Sum("BASE", nil, damageType.."Resist")
+						if isElemental[damageType] then
+							local base = resist + enemyDB:Sum("BASE", dotTypeCfg, "ElementalResist")
+							resist = base * calcLib.mod(enemyDB, nil, damageType.."Resist")
+							takenInc = takenInc + enemyDB:Sum("INC", dotTypeCfg, "ElementalDamageTaken")
+						end
 					end
 					resist = m_min(resist, data.misc.EnemyMaxResist)
 				end

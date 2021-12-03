@@ -4431,12 +4431,8 @@ local specialModList = {
 	["你的击中无法穿透或无视元素抗性"] = { flag("CannotIgnoreElementalResistances"),flag("CannotElementalPenetration")},
 	["无法造成非闪电伤害"] = {  flag("DealNoCold"), flag("DealNoFire"), flag("DealNoPhysical"), flag("DealNoChaos")},
 	["不造成非闪电伤害"] = {  flag("DealNoCold"), flag("DealNoFire"), flag("DealNoPhysical"), flag("DealNoChaos")},
-	["周围敌人的闪电抗性等同于你"] = {
-	flag("LightningResistIsEnemy")
-	},
-	["周围敌人的闪电抗性等同于你的闪电抗性"] = {
-	flag("LightningResistIsEnemy")
-	},
+	["周围敌人的闪电抗性等同于你"] = { flag("EnemyLightningResistEqualToYours") } ,
+	["周围敌人的闪电抗性等同于你的闪电抗性"] = { flag("EnemyLightningResistEqualToYours") } ,
 	["用该武器击中时，获得额外冰霜或闪电伤害，其数值等同于物理伤害的 (%d+)%%"]= function(num) return {
 	mod("PhysicalDamageGainAsCold", "BASE", tonumber(num), nil, ModFlag.Weapon,{ type = "Condition", var = "PhysicsRandomElementCold" }),
 	mod("PhysicalDamageGainAsLightning", "BASE", tonumber(num), nil, ModFlag.Weapon,{ type = "Condition", var = "PhysicsRandomElementLightning" }),

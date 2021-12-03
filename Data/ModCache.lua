@@ -136,7 +136,7 @@ c["若有敌人被你施加咒印，则它周围的敌人对你造成的伤害�
 c["装备时施放 7 级的【艾贝拉斯之怒】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=7,skillId="RepeatingShockwave",triggered=true}}},nil}
 c["陷阱伤害提高 10%"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=10}},nil}
 c["物理伤害提高 190%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=190}},nil}
-c["周围敌人的闪电抗性等同于你"]={{[1]={flags=0,keywordFlags=0,name="LightningResistIsEnemy",type="FLAG",value=true}},nil}
+c["周围敌人的闪电抗性等同于你"]={{[1]={flags=0,keywordFlags=0,name="EnemyLightningResistEqualToYours",type="FLAG",value=true}},nil}
 c["你使用药剂时移除瘫痪和缓速状态"]={nil,"Remove Maim and Hinder when you use a Flask "}
 c["你对瘫痪敌人施加的【流血】伤害提高 35%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Maimed"},flags=0,keywordFlags=4194304,name="Damage",type="INC",value=35}},nil}
 c["其中 1 个增加的天赋为【寒冰导体】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="寒冰导体"}},nil}
