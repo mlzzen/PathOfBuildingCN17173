@@ -177,7 +177,6 @@ modList:NewMod("Multiplier:BannerStage", "BASE", m_min(val, 50), "Config", { typ
 		modList:NewMod("BonechillEffect", "OVERRIDE", m_min(val, 30), "Config")
 		modList:NewMod("DesiredBonechillEffect", "BASE", m_min(val, 30), "Config")
 	end },
-
 { label = "烙印技能:", ifSkillList = { "末日烙印", "风暴烙印","奥法烙印" ,"忏悔烙印","冬潮烙印"} }, -- I barely resisted the temptation to label this "Generic Brand:"
 { var = "BrandsAttachedToEnemy", type = "count", label = "附着到敌人身上的烙印：", ifSkillList = {  "末日烙印", "风暴烙印","奥法烙印" ,"忏悔烙印","冬潮烙印"}, apply = function(val, modList, enemyModList)
 	
@@ -269,13 +268,17 @@ modList:NewMod("Condition:CastOnFrostbolt", "FLAG", true, "Config", { type = "Sk
 	{ var = "physicalAegisDepleted", type = "check", label = "物理神盾耗尽了?", ifSkill = "物理神盾", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:PhysicalAegisDepleted", "FLAG", true, "Config")
 	end },
-	{ label = "【尊严】:", ifSkill = "尊严" },
-	{ var = "prideEffect", type = "list", label = "尊严光环效果:", ifSkill = "尊严", 
-	list = {{val="MIN",label="初始效果"},{val="MAX",label="最大效果"}}, apply = function(val, modList, enemyModList)
-		if val == "MAX" then
-			modList:NewMod("Condition:PrideMaxEffect", "FLAG", true, "Config")
-		end
-	end },
+{ label = "【尊严】:", ifSkill = "尊严" },
+{ var = "prideEffect", type = "list", label = "尊严光环效果:", ifSkill = "尊严", 
+list = {{val="MIN",label="初始效果"},{val="MAX",label="最大效果"}}, apply = function(val, modList, enemyModList)
+	if val == "MAX" then
+		modList:NewMod("Condition:PrideMaxEffect", "FLAG", true, "Config")
+	end
+end },
+{ label = "怒火漩涡:", ifSkill = "怒火漩涡" },
+{ var = "sacrificedRageCount", type = "count", label = "献祭的怒火值:", ifSkill = "怒火漩涡", apply = function(val, modList, enemyModList)
+	modList:NewMod("Multiplier:RageSacrificed", "BASE", val, "Config")
+end },
 { label = "【召唤灵体】:", ifSkill = "召唤灵体" },
 
 { label = "幻化武器:", ifSkillList = {"幻化武器","幻化守卫武器"} },
