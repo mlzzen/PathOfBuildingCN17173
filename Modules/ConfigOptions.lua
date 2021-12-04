@@ -177,6 +177,10 @@ modList:NewMod("Multiplier:BannerStage", "BASE", m_min(val, 50), "Config", { typ
 		modList:NewMod("BonechillEffect", "OVERRIDE", m_min(val, 30), "Config")
 		modList:NewMod("DesiredBonechillEffect", "BASE", m_min(val, 30), "Config")
 	end },
+	{ label = "七伤破:", ifSkill = "七伤破" },
+	{ var = "boneshatterTraumaStacks", type = "count", label = "# 层创伤:", ifSkill = "七伤破", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:TraumaStacks", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+	end },
 { label = "烙印技能:", ifSkillList = { "末日烙印", "风暴烙印","奥法烙印" ,"忏悔烙印","冬潮烙印"} }, -- I barely resisted the temptation to label this "Generic Brand:"
 { var = "BrandsAttachedToEnemy", type = "count", label = "附着到敌人身上的烙印：", ifSkillList = {  "末日烙印", "风暴烙印","奥法烙印" ,"忏悔烙印","冬潮烙印"}, apply = function(val, modList, enemyModList)
 	
