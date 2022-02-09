@@ -655,7 +655,7 @@ function TreeTabClass:SaveMasteryPopup(node, listControl)
 	local effect = self.build.spec.tree.masteryEffects[listControl.selValue.id]
 	node.sd = effect.sd
 	node.allMasteryOptions = false
-	node.reminderText = { "Tip: Right click to select a different effect" }
+	node.reminderText = { "提示: 鼠标右键单击选择其他效果" }
 	self.build.spec.tree:ProcessStats(node)
 	self.build.spec.masterySelections[node.id] = effect.id
 	if not node.alloc then
