@@ -397,6 +397,7 @@ data.misc = { -- magic numbers
 	MaxEnemyLevel = 84,
 	LowPoolThreshold = 0.5,
 	AccuracyPerDexBase = 2,
+	BrandAttachmentRangeBase = 30,
 
 	MurderousEyeJewelMaxCritChancePercent = 100,
 	MurderousEyeJewelMaxCritCritMultiplierPercent = 50,
