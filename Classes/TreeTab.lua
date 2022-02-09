@@ -36,6 +36,10 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 			self:OpenSpecManagePopup()
 		end
 	end)
+	self.controls.specSelect.maxDroppedWidth = 1000
+	self.controls.specSelect.enableDroppedWidth = true
+	self.controls.specSelect.enableChangeBoxWidth = true
+	self.controls.specSelect.controls.scrollBar.enabled = true
 	self.controls.specSelect.tooltipFunc = function(tooltip, mode, selIndex, selVal)
 		tooltip:Clear()
 		if mode ~= "OUT" then
@@ -93,6 +97,9 @@ self.controls.compareCheck = new("CheckBoxControl", {"LEFT",self.controls.specSe
 		end
 	end)
 	self.controls.compareSelect.shown = false
+	self.controls.compareSelect.maxDroppedWidth = 1000
+	self.controls.compareSelect.enableDroppedWidth = true
+	self.controls.compareSelect.enableChangeBoxWidth = true
 	self.controls.reset = new("ButtonControl", {"LEFT",self.controls.compareCheck,"RIGHT"}, 8, 0, 60, 20, "重置", function()
 main:OpenConfirmPopup("Reset Tree", "确定要重置天赋树吗?", "重置", function()			
 			

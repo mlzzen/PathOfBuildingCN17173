@@ -326,6 +326,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
+	self.controls.displayItemVariant.maxDroppedWidth = 1000
 	self.controls.displayItemVariant.shown = function()
 		return self.displayItem.variantList and #self.displayItem.variantList > 1
 	end
@@ -335,6 +336,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
+	self.controls.displayItemAltVariant.maxDroppedWidth = 1000
 	self.controls.displayItemAltVariant.shown = function()
 		return self.displayItem.hasAltVariant
 	end
@@ -344,6 +346,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
+	self.controls.displayItemAltVariant.maxDroppedWidth = 1000
 	self.controls.displayItemAltVariant2.shown = function()
 		return self.displayItem.hasAltVariant2
 	end
@@ -354,9 +357,31 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
+	self.controls.displayItemAltVariant.maxDroppedWidth = 1000
 	self.controls.displayItemAltVariant3.shown = function()
 		return self.displayItem.hasAltVariant3
 	end
+	self.controls.displayItemAltVariant4 = new("DropDownControl", {"TOPLEFT",self.controls.displayItemAltVariant3,"BOTTOMLEFT"}, 0, 4, 300, 20, nil, function(index, value)
+		self.displayItem.variantAlt4 = index
+		self.displayItem:BuildAndParseRaw()
+		self:UpdateDisplayItemTooltip()
+		self:UpdateDisplayItemRangeLines()
+	end)
+	self.controls.displayItemAltVariant4.maxDroppedWidth = 1000
+	self.controls.displayItemAltVariant4.shown = function()
+		return self.displayItem.hasAltVariant4
+	end
+	self.controls.displayItemAltVariant5 = new("DropDownControl", {"TOPLEFT",self.controls.displayItemAltVariant4,"BOTTOMLEFT"}, 0, 4, 300, 20, nil, function(index, value)
+		self.displayItem.variantAlt5 = index
+		self.displayItem:BuildAndParseRaw()
+		self:UpdateDisplayItemTooltip()
+		self:UpdateDisplayItemRangeLines()
+	end)
+	self.controls.displayItemAltVariant5.maxDroppedWidth = 1000
+	self.controls.displayItemAltVariant5.shown = function()
+		return self.displayItem.hasAltVariant5
+	end
+
 	-- Section: Sockets and Links
 	self.controls.displayItemSectionSockets = new("Control", {"TOPLEFT",self.controls.displayItemSectionVariant,"BOTTOMLEFT"}, 0, 0, 0, function()
 		return self.displayItem and self.displayItem.selectableSocketCount > 0 and 28 or 0
