@@ -10,7 +10,7 @@ local t_sort = table.sort
 local m_min = math.min
 local m_max = math.max
 local m_floor = math.floor
-local toolTipText = "Prefix tag searches with a colon. EG. ice:melee or :fire:spell"
+local toolTipText = "可以使用引号+标签进行搜索，或使用引号+横杠+标签进行排除. 例如 :fire:lightning:-cold:area"
 local altQualMap = {
 	["Default"] = "",
 	["Alternate1"] = "异常 ",
@@ -19,7 +19,7 @@ local altQualMap = {
 }
 
 local GemSelectClass = newClass("GemSelectControl", "EditControl", function(self, anchor, x, y, width, height, skillsTab, index, changeFunc)
-	self.EditControl(anchor, x, y, width, height, nil, nil, "^ %a':")
+	self.EditControl(anchor, x, y, width, height, nil, nil, "^ %a':-")
 	self.controls.scrollBar = new("ScrollBarControl", {"TOPRIGHT",self,"TOPRIGHT"}, -1, 0, 18, 0, (height - 4) * 4)
 	self.controls.scrollBar.y = function()
 		local width, height = self:GetSize()
@@ -65,6 +65,7 @@ function GemSelectClass:BuildList(buf)
 	self.controls.scrollBar.offset = 0
 	wipeTable(self.list)
 	self.searchStr = buf
+	-- if self.searchStr:match("%S") then
 	if #self.searchStr > 0 then
 		local added = { }
 
