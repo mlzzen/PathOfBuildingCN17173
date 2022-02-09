@@ -524,7 +524,7 @@ self.charImportStatus = colorCodes.NEGATIVE.."处理角色物品和技能错误�
 		return
 	end
 	 
-	local mainSkillEmpty = #self.build.controls.mainSocketGroup.list == 1 and self.build.controls.mainSocketGroup.list[1]["label"] == "<未添加技能>"
+	local mainSkillEmpty = #self.build.skillsTab.socketGroupList == 0
 	local skillOrder
 	if self.controls.charImportItemsClearSkills.state then
 		skillOrder = { }
@@ -977,8 +977,8 @@ function ImportTabClass:GuessMainSocketGroup()
 	local largestGroupSize = 0
 	local largestGroupIndex = 1
 	for i, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
-		if #socketGroup["gemList"] > largestGroupSize then
-			largestGroupSize = #socketGroup["gemList"]
+		if #socketGroup.gemList > largestGroupSize then
+			largestGroupSize = #socketGroup.gemList
 			largestGroupIndex = i
 		end
 	end
