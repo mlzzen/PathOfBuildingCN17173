@@ -697,6 +697,10 @@ function ItemClass:GetModSpawnWeight(mod, extraTags)
 	return weight
 end
 
+function ItemClass:CheckIfModIsDelve(mod)
+	return mod.affix == "地心的" or mod.affix == "地下之"
+end
+
 function ItemClass:BuildRaw()
 	local rawLines = { }
 t_insert(rawLines, "稀 有 度: "..self.rarity)

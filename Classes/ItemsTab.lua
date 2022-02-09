@@ -1557,7 +1557,7 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	end
 	local affixList = { }
 	for modId, mod in pairs(item.affixes) do
-		if mod.type == type and not excludeGroups[mod.group] and item:GetModSpawnWeight(mod, extraTags) > 0 then
+		if mod.type == type and not excludeGroups[mod.group] and item:GetModSpawnWeight(mod, extraTags) > 0 and not item:CheckIfModIsDelve(mod) then
 			t_insert(affixList, modId)
 		end
 	end
@@ -2536,6 +2536,25 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					return a.defaultOrder < b.defaultOrder
 				end
 			end)
+		elseif sourceId == "DELVE" then
+			for i, mod in pairs(self.displayItem.affixes) do
+				if self.displayItem:CheckIfModIsDelve(mod) and self.displayItem:GetModSpawnWeight(mod) > 0 then
+					t_insert(modList, {
+						label =  table.concat(mod, "/") .. " (" .. mod.type .. ")",
+						mod = mod,
+						affixType = mod.type,
+						type = "custom",
+						defaultOrder = i,
+					})
+				end
+			end
+			table.sort(modList, function(a, b)
+				if a.affixType ~= b.affixType then
+					return a.affixType == "Prefix" and b.affixType == "Suffix"
+				else
+					return a.defaultOrder < b.defaultOrder
+				end
+			end)
 		end
 	end
 	
@@ -2554,11 +2573,13 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	and (self.displayItem.rarity == "魔法" or self.displayItem.rarity == "稀有")
 	then
 		t_insert(sourceList, { label = "精华", sourceId = "ESSENCE" })
-		t_insert(sourceList, { label = "地心", sourceId = "DELVE" })
 		t_insert(sourceList, { label = "穿越", sourceId = "INCURSION" })
 	end
 	if self.displayItem.type ~= "Jewel" and self.displayItem.type ~= "Flask" then
 		t_insert(sourceList, { label = "影匿", sourceId = "VEILED"})
+	end
+	if self.displayItem.type ~= "Flask" then
+		t_insert(sourceList, { label = "地心", sourceId = "DELVE"})
 	end
 	if self.displayItem.type == "Amulet" or self.displayItem.name=='扼息者, 火蝮鳞手套' 	
 	 or self.displayItem.name=='孢囊守卫, 圣者链甲'   or self.displayItem.name=='奔逃之, 暗影之靴'  
