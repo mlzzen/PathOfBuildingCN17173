@@ -524,9 +524,20 @@ self.charImportStatus = colorCodes.NEGATIVE.."处理角色物品和技能错误�
 		return
 	end
 	 
+	local mainSkillEmpty = #self.build.controls.mainSocketGroup.list == 1 and self.build.controls.mainSocketGroup.list[1]["label"] == "<未添加技能>"
 	local skillOrder
-	 
-self.charImportStatus = colorCodes.POSITIVE.."物品和技能导入成功."
+	if self.controls.charImportItemsClearSkills.state then
+		skillOrder = { }
+		for _, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
+			for _, gem in ipairs(socketGroup.gemList) do
+				if gem.grantedEffect and not gem.grantedEffect.support then
+					t_insert(skillOrder, gem.grantedEffect.name)
+				end
+			end
+		end
+		wipeTable(self.build.skillsTab.socketGroupList)
+	end
+	self.charImportStatus = colorCodes.POSITIVE.."物品和技能导入成功."
 	--ConPrintTable(charItemData)
 	if not self.controls.charImportItemsClearItems.state then
 		for _, itemData in pairs(charItemData.items) do	
@@ -591,6 +602,9 @@ self.charImportStatus = colorCodes.POSITIVE.."物品和技能导入成功."
 				return orderA
 			end
 		end)
+	end
+	if mainSkillEmpty then
+		self.build.mainSocketGroup = self:GuessMainSocketGroup()
 	end
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
@@ -946,6 +960,18 @@ elseif property.name == "品质" then
 	end	
 end
 
+-- Return the index of the group with the most gems
+function ImportTabClass:GuessMainSocketGroup()
+	local largestGroupSize = 0
+	local largestGroupIndex = 1
+	for i, socketGroup in ipairs(self.build.skillsTab.socketGroupList) do
+		if #socketGroup["gemList"] > largestGroupSize then
+			largestGroupSize = #socketGroup["gemList"]
+			largestGroupIndex = i
+		end
+	end
+	return largestGroupIndex
+end
 
 function ImportTabClass:SupportHybridSkillName(typeLine)
 	if typeLine == "震波" then 
