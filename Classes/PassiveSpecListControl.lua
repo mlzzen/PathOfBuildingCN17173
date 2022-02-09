@@ -41,6 +41,7 @@ self.controls.new = new("ButtonControl", {"RIGHT",self.controls.rename,"LEFT"}, 
 		newSpec:SelectAscendClass(treeTab.build.spec.curAscendClassId)
 		self:RenameSpec(newSpec, true)
 	end)
+	self:UpdateItemsTabPassiveTreeDropdown()
 end)
 
 function PassiveSpecListClass:RenameSpec(spec, addOnName)
@@ -57,20 +58,21 @@ controls.save = new("ButtonControl", nil, -45, 70, 80, 20, "保存", function()
 			self.selIndex = #self.list
 			self.selValue = spec
 		end
+		self:UpdateItemsTabPassiveTreeDropdown()
 		main:ClosePopup()
 	end)
 	controls.save.enabled = false
 controls.cancel = new("ButtonControl", nil, 45, 70, 80, 20, "取消", function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(370, 100, spec.title and "Rename" or "Set Name", controls, "save", "edit")
+	main:OpenPopup(370, 100, spec.title and "Rename" or "设置名称", controls, "save", "edit")
 end
 
 function PassiveSpecListClass:GetRowValue(column, index, spec)
 	if column == 1 then
 		local used = spec:CountAllocNodes()
 		return (spec.treeVersion ~= latestTreeVersion and ("["..treeVersions[spec.treeVersion].display.."] ") or "")
-			.. (spec.title or "Default") 
+			.. (spec.title or "默认天赋树") 
 			.. " (" .. (spec.curAscendClassName ~= "None" and spec.curAscendClassName or spec.curClassName) .. ", " .. used .. " 点)" 
 			.. (index == self.treeTab.activeSpec and "  ^9(当前)" or "")
 	end
@@ -79,6 +81,7 @@ end
 function PassiveSpecListClass:OnOrderChange()
 	self.treeTab.activeSpec = isValueInArray(self.list, self.treeTab.build.spec)
 	self.treeTab.modFlag = true
+	self:UpdateItemsTabPassiveTreeDropdown()
 end
 
 function PassiveSpecListClass:OnSelClick(index, spec, doubleClick)
@@ -89,7 +92,7 @@ end
 
 function PassiveSpecListClass:OnSelDelete(index, spec)
 	if #self.list > 1 then
-main:OpenConfirmPopup("Delete Spec", "你确定要删除 '"..(spec.title or "Default").."'?", "删除", function()
+main:OpenConfirmPopup("Delete Spec", "你确定要删除 '"..(spec.title or "默认天赋树").."'?", "删除", function()
 			t_remove(self.list, index)
 			self.selIndex = nil
 			self.selValue = nil
@@ -99,6 +102,7 @@ main:OpenConfirmPopup("Delete Spec", "你确定要删除 '"..(spec.title or "Def
 				self.treeTab.activeSpec = isValueInArray(self.list, self.treeTab.build.spec)
 			end
 			self.treeTab.modFlag = true
+			self:UpdateItemsTabPassiveTreeDropdown()
 		end)
 	end
 end
@@ -107,4 +111,15 @@ function PassiveSpecListClass:OnSelKeyDown(index, spec, key)
 	if key == "F2" then
 		self:RenameSpec(spec)
 	end
+end
+
+-- Update the passive tree dropdown control in itemsTab
+function PassiveSpecListClass:UpdateItemsTabPassiveTreeDropdown()
+	local secondarySpecList = self.treeTab.build.itemsTab.controls.specSelect
+	local newSpecList = { }
+	for i = 1, #self.list do
+		newSpecList[i] = self.list[i].title or "默认天赋树"
+	end
+	secondarySpecList:SetList(newSpecList)
+	secondarySpecList.selIndex = self.treeTab.activeSpec
 end

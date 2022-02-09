@@ -218,19 +218,23 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 	self.viewer.compareSpec = self.isComparing and self.specList[self.activeCompareSpec] or nil
 	self.viewer:Draw(self.build, treeViewPort, inputEvents)
 
+	local newSpecList = { }
 	self.controls.compareSelect.selIndex = self.activeCompareSpec
 	wipeTable(self.controls.compareSelect.list)
 	for id, spec in ipairs(self.specList) do
-		t_insert(self.controls.compareSelect.list, (spec.treeVersion ~= latestTreeVersion and ("["..treeVersions[spec.treeVersion].display.."] ") or "")..(spec.title or "默认天赋树"))
+		t_insert(newSpecList, (spec.treeVersion ~= latestTreeVersion and ("["..treeVersions[spec.treeVersion].display.."] ") or "")..(spec.title or "默认天赋树"))
 	end
+	self.controls.compareSelect:SetList(newSpecList)
 
 	self.controls.specSelect.selIndex = self.activeSpec
-	wipeTable(self.controls.specSelect.list)
+	wipeTable(newSpecList)
 	for id, spec in ipairs(self.specList) do
-		t_insert(self.controls.specSelect.list, (spec.treeVersion ~= latestTreeVersion and ("["..treeVersions[spec.treeVersion].display.."] ") or "")..(spec.title or "默认天赋树"))
+		t_insert(newSpecList, (spec.treeVersion ~= latestTreeVersion and ("["..treeVersions[spec.treeVersion].display.."] ") or "")..(spec.title or "默认天赋树"))
 
 	end
-	t_insert(self.controls.specSelect.list, "管理天赋树...")
+	self.build.itemsTab.controls.specSelect:SetList(copyTable(newSpecList)) -- Update the passive tree dropdown control in itemsTab
+	t_insert(newSpecList, "管理天赋树...")
+	self.controls.specSelect:SetList(newSpecList)
 	
 	if not self.controls.treeSearch.hasFocus then
 		self.controls.treeSearch:SetText(self.viewer.searchStr)
@@ -347,6 +351,8 @@ function TreeTabClass:SetActiveSpec(specId)
 		-- Update item slots if items have been loaded already
 		self.build.itemsTab:PopulateSlots()
 	end
+	-- Update the passive tree dropdown control in itemsTab
+	self.build.itemsTab.controls.specSelect.selIndex = specId
 end
 
 function TreeTabClass:SetCompareSpec(specId)
@@ -361,7 +367,7 @@ end
 function TreeTabClass:OpenSpecManagePopup()
 main:OpenPopup(370, 290, "天赋树管理", {
 		new("PassiveSpecListControl", nil, 0, 50, 350, 200, self),
-		new("ButtonControl", nil, 0, 260, 90, 20, "Done", function()
+		new("ButtonControl", nil, 0, 260, 90, 20, "完成", function()
 			main:ClosePopup()
 		end),
 	})

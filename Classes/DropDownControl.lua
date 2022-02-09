@@ -560,3 +560,54 @@ function DropDownClass:OnKeyUp(key)
 	end
 	return self.dropped and self
 end
+
+function DropDownClass:GetHoverIndex(key)
+	return self.hoverSel or self.selIndex
+end
+
+function DropDownClass:SetList(textList)
+	if textList then
+		wipeTable(self.list)
+		self.list = textList
+		  --check width on new list
+		self:CheckDroppedWidth(self.enableDroppedWidth)
+	end
+end
+
+function DropDownClass:CheckDroppedWidth(enable)
+	self.enableDroppedWidth = enable
+	if self.enableDroppedWidth and self.list then
+		local scrollWidth = 0
+		if self.dropped and self.controls.scrollBar.enabled then
+			scrollWidth = self.controls.scrollBar.width
+		end
+		local lineHeight = self.height - 4
+
+		  -- do not be smaller than the created width
+		local dWidth = self.width
+		for _, line in ipairs(self.list) do
+			if type(line) == "table" then
+				line = line.label
+			end
+			  -- +10 to stop clipping
+			dWidth = m_max(dWidth, DrawStringWidth(lineHeight, "VAR", line) + 10)
+		end
+		  -- no greater than self.maxDroppedWidth
+		self.droppedWidth = m_min(dWidth + scrollWidth, self.maxDroppedWidth)
+		if self.enableChangeBoxWidth then
+			local line = self.list[self.selIndex]
+			if type(line) == "table" then
+				line = line.label
+			end
+			-- add 20 to account for the 'down arrow' in the box
+			local boxWidth
+			boxWidth = DrawStringWidth(lineHeight, "VAR", line or "") + 20
+			self.width = m_max(m_min(boxWidth, 390), 190)
+		end
+		
+		self.controls.scrollBar.x = self.droppedWidth - self.width - 1
+	else
+		self.droppedWidth = self.width
+		self.controls.scrollBar.x = -1
+	end
+end

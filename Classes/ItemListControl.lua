@@ -47,15 +47,38 @@ self.controls.sort = new("ButtonControl", {"RIGHT",self.controls.deleteAll,"LEFT
 	end)
 end)
 
+function ItemListClass:FindSocketedJewel(itemId, excludeActiveSpec)
+	local treeTab = self.itemsTab.build.treeTab
+	local matchActive = false
+	local outputString = ""
+	for i = #treeTab.specList, 1, -1 do
+		for _, v in pairs(treeTab.specList[i].jewels) do
+			if v == itemId then
+				if excludeActiveSpec and (i == treeTab.activeSpec or matchActive) then
+					matchActive = true
+					outputString = ""
+				else
+					outputString = treeTab.specList[i].title
+				end
+			end
+		end
+	end
+	return outputString
+end
+
 function ItemListClass:GetRowValue(column, index, itemId)
 	local item = self.itemsTab.items[itemId]
 	if column == 1 then
-		local used = ""
-		local slot, itemSet = self.itemsTab:GetEquippedSlotForItem(item)
-		if not slot then
-used = "  ^9(未使用)"
-		elseif itemSet then
-used = "  ^9(装备在 '" .. (itemSet.title or "Default") .. "')"
+		local used = self:FindSocketedJewel(itemId, true)
+		if used == "" then
+			local slot, itemSet = self.itemsTab:GetEquippedSlotForItem(item)
+			if not slot then
+				used = "  ^9(未使用)"
+			elseif itemSet then
+				used = "  ^9(装备在 '" .. (itemSet.title or "Default") .. "')"
+			end
+		else
+			used = "  ^9(装备在 '" .. used .. "')"
 		end
 		return colorCodes[item.rarity] .. item.name .. used
 	end
