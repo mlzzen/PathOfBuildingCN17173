@@ -920,7 +920,7 @@ total = s_format("= %.2f ^8每秒", output.MineLayingSpeed),
 				attachLimit = attachLimit + 1
 		end
 		
-		output.BrandAttachmentRange = calcLib.mod(skillModList, skillCfg, "BrandAttachmentRange")
+		output.BrandAttachmentRange = baseBrandAttachmentRange * calcLib.mod(skillModList, skillCfg, "BrandAttachmentRange")
 		output.ActiveBrandLimit = skillModList:Sum("BASE", skillCfg, "ActiveBrandLimit")	
 		output.BrandsAttachedToEnemy = attachLimit
 		 

@@ -336,6 +336,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "CombinedAvg", label = "合计 总伤害", fmt = ".1f", compPercent = true, flag = "showAverage", condFunc = function(v,o) return (v ~= o.AverageDamage and (o.TotalDot or 0) == 0) and (v ~= o.WithImpaleDPS or v ~= o.WithPoisonDPS or v ~= o.WithIgniteDPS or v ~= o.WithBleedDPS) end },
 		{ stat = "Cooldown", label = "技能冷却时间", fmt = ".2fs", lowerIsBetter = true },
 		{ stat = "AreaOfEffectRadius", label = "范围半径", fmt = "d" },
+		{ stat = "BrandAttachmentRange", label = "附着范围", fmt = "d", flag = "brand" },
 		{ stat = "BrandTicks", label = "烙印激活频率", fmt = "d", flag = "brand" },
 		{ stat = "ManaCost", label = "魔力消耗", fmt = "d", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return v > 0 end },
 		{ stat = "LifeCost", label = "生命消耗", fmt = "d", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return v > 0 end },

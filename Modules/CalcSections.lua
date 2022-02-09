@@ -570,7 +570,7 @@ return {
 
 { label = "配置的附身数量", flag = "brand",{ format = "{0:output:BrandsAttachedToEnemy}", }},
 { label = "可施放数量",flag = "brand", { format = "{0:output:ActiveBrandLimit}",{ modName = "ActiveBrandLimit"} }},
-{ label = "附着范围加成", flag = "brand", { format = "x {2:output:BrandAttachmentRange}",
+{ label = "附着范围加成", flag = "brand", { format = "{0:output:BrandAttachmentRange}",
 		{ breakdown = "BrandAttachmentRange" },
 		{ modName = "BrandAttachmentRange", cfg = "skill"},
 	}, },
