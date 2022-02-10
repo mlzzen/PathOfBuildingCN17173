@@ -62,13 +62,30 @@ return "^7角色导入状态: "..self.charImportStatus
 		--	end)
 		--end)
 	end
-self.controls.accountNameGo = new("ButtonControl", {"LEFT",self.controls.accountName,"RIGHT"}, 8, 0, 60, 20, "开始", function()
+
+	-- accountHistory Control
+	if not historyList then
+		historyList = { }
+		for accountName, account in pairs(main.gameAccounts) do
+			t_insert(historyList, urlDecode(accountName))
+			historyList[accountName] = true
+		end
+		table.sort(historyList)
+	end -- don't load the list many times
+
+	self.controls.accountNameGo = new("ButtonControl", {"LEFT",self.controls.accountName,"RIGHT"}, 8, 0, 60, 20, "开始", function()
 		self.controls.sessionInput.buf = ""
 		self:DownloadCharacterList()
 	end)
 	self.controls.accountNameGo.enabled = function()
 		return self.controls.accountName.buf:match("%S")
 	end
+
+	self.controls.accountHistory = new("DropDownControl", {"LEFT",self.controls.accountNameGo,"RIGHT"}, 8, 0, 200, 20, historyList, function()
+		self.controls.accountName.buf = urlDecode(self.controls.accountHistory.list[self.controls.accountHistory.selIndex])
+	end)
+	self.controls.accountHistory:SelByValue(urlDecode(main.lastAccountName))
+
 self.controls.accountNameUnicode = new("LabelControl", {"TOPLEFT",self.controls.accountRealm,"BOTTOMLEFT"}, 0, 16, 0, 14, "^7注意！你需要先去官网公开你的角色.")
 self.controls.accountNameURLEncoder = new("ButtonControl", {"TOPLEFT",self.controls.accountNameUnicode,"BOTTOMLEFT"}, 0, 4, 170, 18, "不能快速安全登录的都是假官网", function()
 OpenURL("https://poe.game.qq.com/login/tencent")
@@ -150,7 +167,7 @@ self.controls.charImportItemsClearSkills.tooltipText = "导入时不导入技能
 self.controls.charImportItemsClearItems = new("CheckBoxControl", {"LEFT",self.controls.charImportItems,"RIGHT"}, 220, 0, 18, "不导入装备:")
 self.controls.charImportItemsClearItems.tooltipText = "导入时不导入装备"
 self.controls.charBanditNote = new("LabelControl", {"TOPLEFT",self.controls.charImportHeader,"BOTTOMLEFT"}, 0, 50, 200, 14, "^7提示: 导入完成后要手动配置好盗贼任务和手动点亮星团珠宝的天赋,\n因为这些是不能导入的.")
-self.controls.charDone = new("ButtonControl", {"TOPLEFT",self.controls.charImportHeader,"BOTTOMLEFT"}, 0, 90, 60, 20, "关闭", function()
+self.controls.charCancel = new("ButtonControl", {"TOPLEFT",self.controls.charImportHeader,"BOTTOMLEFT"}, 0, 90, 60, 20, "取消", function()
 		self.charImportMode = "GETACCOUNTNAME"
 		self.charImportStatus = "未导入"
 	end)
@@ -382,7 +399,10 @@ function ImportTabClass:DownloadCharacterList()
 				})
 			end				
 			self.lastCharList = charList
-			self:BuildCharacterList()
+			self:BuildCharacterList(self.controls.charSelectLeague:GetSelValue("league"))
+
+			-- We only get here if the accountname was correct, found, and not private, so add it to the account history.
+			self:SaveAccountHistory()
 		end, sessionID and "POESESSID="..sessionID)
 	end, sessionID and "POESESSID="..sessionID)
 end
@@ -408,6 +428,18 @@ function ImportTabClass:BuildCharacterList(league)
 				break
 			end
 		end
+	end
+end
+
+function ImportTabClass:SaveAccountHistory()
+	if not historyList[self.controls.accountName.buf] then
+		t_insert(historyList, urlDecode(self.controls.accountName.buf))
+		historyList[self.controls.accountName.buf] = true
+		self.controls.accountHistory:SelByValue(urlDecode(self.controls.accountName.buf))
+		table.sort(historyList, function(a,b)
+			return a:lower() < b:lower()
+		end)
+		self.controls.accountHistory:CheckDroppedWidth(true)
 	end
 end
 
