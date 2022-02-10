@@ -707,6 +707,7 @@ end },
 	end },
 { var = "buffLifetap", type = "check", label = "是否处于赤炼效果期间?", ifCond = "Lifetap", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Lifetap", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("FlaskLifeRecovery", "INC", 20, "Lifetap")
 	end },
 { var = "conditionOnChannelling", type = "check", label = "你是否处于持续吟唱状态?", ifCond = "OnChannelling", tooltip = "当你处于持续吟唱状态时的词缀生效", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:OnChannelling", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
