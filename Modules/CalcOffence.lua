@@ -808,6 +808,11 @@ output.ChainMaxString = "无法连锁"
 			breakdown.CurseEffectMod = breakdown.mod(skillCfg, "CurseEffect")
 		end
 	end
+	if (skillFlags.trap or skillFlags.mine) and not (skillData.trapCooldown or skillData.cooldown) then
+		skillFlags.notAverage = true
+		skillFlags.showAverage = false
+		skillData.showAverage = false
+	end
 	if skillFlags.trap then
 		local baseSpeed = 1 / skillModList:Sum("BASE", skillCfg, "TrapThrowingTime")
 		local timeMod = calcLib.mod(skillModList, skillCfg, "SkillTrapThrowingTime")
