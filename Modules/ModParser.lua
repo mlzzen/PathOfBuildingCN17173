@@ -6896,7 +6896,7 @@ local specialModList = {
 	["在你的冰缓区域里的敌人身上的诅咒效果提高 (%d+)%%"] = function(num) return { mod("CurseEffect", "INC", num, { type = "ActorCondition", actor = "enemy", var = "InChillingArea" } ) } end,
 	["能量护盾不能充能"] = { flag("NoEnergyShieldRecharge") },
 	["【骸骨奉献】提供的额外攻击伤害格挡几率 %+(%d+)%%"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("BlockChance", "BASE", num, { type = "GlobalEffect", effectType = "Buff" }) }, { type = "SkillName", skillName = "骸骨奉献" }) } end,
-	
+	["最左边的 (%d+) 个魔法非恢复类药剂给你持续提供药剂效果"] = function(num) return { mod("ActiveMagicUtilityFlasks", "BASE", num) } end,
 }
 
 for _, name in pairs(data.keystones) do
