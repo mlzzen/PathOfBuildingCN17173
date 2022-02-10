@@ -643,6 +643,10 @@ return {
 { label = "第三半径", haveOutput = "AreaOfEffectRadiusTertiary", { format = "{0:output:AreaOfEffectRadiusTertiary}", { breakdown = "AreaOfEffectRadiusTertiary" }, }, },
 
 { label = "武器范围", haveOutput = "WeaponRange", { format = "{0:output:WeaponRange}", { breakdown = "WeaponRange" }, }, },
+{ label = "烙印附着范围", flag = "brand", { format = "{0:output:BrandAttachmentRange}",
+		{ breakdown = "BrandAttachmentRange" },
+		{ modName = "BrandAttachmentRange", cfg = "skill"},
+	}, },
 { label = "陷阱投掷速率", flag = "trap", { format = "{2:output:TrapThrowingSpeed}", 
 		{ breakdown = "TrapThrowingSpeed" },
 		{ modName = "TrapThrowingSpeed", cfg = "skill" }, 
