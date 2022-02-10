@@ -167,7 +167,7 @@ self.controls.charImportItemsClearSkills.tooltipText = "导入时不导入技能
 self.controls.charImportItemsClearItems = new("CheckBoxControl", {"LEFT",self.controls.charImportItems,"RIGHT"}, 220, 0, 18, "不导入装备:")
 self.controls.charImportItemsClearItems.tooltipText = "导入时不导入装备"
 self.controls.charBanditNote = new("LabelControl", {"TOPLEFT",self.controls.charImportHeader,"BOTTOMLEFT"}, 0, 50, 200, 14, "^7提示: 导入完成后要手动配置好盗贼任务和手动点亮星团珠宝的天赋,\n因为这些是不能导入的.")
-self.controls.charCancel = new("ButtonControl", {"TOPLEFT",self.controls.charImportHeader,"BOTTOMLEFT"}, 0, 90, 60, 20, "取消", function()
+self.controls.charClose = new("ButtonControl", {"TOPLEFT",self.controls.charImportHeader,"BOTTOMLEFT"}, 0, 90, 60, 20, "关闭", function()
 		self.charImportMode = "GETACCOUNTNAME"
 		self.charImportStatus = "未导入"
 	end)
