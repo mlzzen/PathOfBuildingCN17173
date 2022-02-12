@@ -11,19 +11,19 @@ return {
 					[1] = { line = "若过去的 2 秒内你被晕眩或是格挡晕眩，你将无法再被晕眩", value = { 1 }, },
 				},
 			},
-			[2] = { name = "海之雄狮娜萨",
+			[2] = { name = "恐惧之雷",
 				mods = {
 					-- base_stun_recovery_+%
 					[1] = { line = "晕眩回复和格挡回复提高 30%", value = { 30 }, },
 				},
 			},
-			[3] = { name = "漆黑祈者丽塔纽斯",
+			[3] = { name = "挑战者普鲁纳",
 				mods = {
 					-- base_avoid_freeze_%
 					[1] = { line = "不能被冻结", value = { 100 }, },
 				},
 			},
-			[4] = { name = "高塔波波弱",
+			[4] = { name = "已捕获的幽足坦纳尔队长",
 				mods = {
 					-- chill_effectiveness_on_self_+%
 					[1] = { line = "你受到的冰缓效果降低 50%", value = { -50 }, },
@@ -40,13 +40,13 @@ return {
 					[1] = { line = "受到的持续性伤害降低 10%", value = { -10 }, },
 				},
 			},
-			[2] = { name = "泽歌蒙戈斯",
+			[2] = { name = "黑寡妇",
 				mods = {
 					-- life_and_energy_shield_recovery_rate_+%_if_stopped_taking_damage_over_time_recently
 					[1] = { line = "近期内若你停止受到持续伤害，则生命和能量护盾回复速度提高 20%", value = { 20 }, },
 				},
 			},
-			[3] = { name = "黑寡妇",
+			[3] = { name = "丛林皇蛛",
 				mods = {
 					-- debuff_time_passed_+%
 					[1] = { line = "你身上的减益效果消失速度提高 20%", value = { 20 }, },
@@ -71,19 +71,19 @@ return {
 					[2] = { line = "有 20% 的几率使受到的范围总伤害额外降低 50%", value = { 20 }, },
 				},
 			},
-			[2] = { name = "正义之视",
+			[2] = { name = "桑特",
 				mods = {
 					-- elemental_damage_taken_+%_if_not_hit_recently
 					[1] = { line = "若你近期内没有被击中，则受到的元素伤害降低 8%", value = { -8 }, },
 				},
 			},
-			[3] = { name = "好战之灵",
+			[3] = { name = "正义之视",
 				mods = {
 					-- self_take_no_extra_damage_from_critical_strikes_if_have_been_crit_recently
 					[1] = { line = "近期你若受到过暴击伤害，则不再受到暴击的额外伤害", value = { 1 }, },
 				},
 			},
-			[4] = { name = "毁灭者奇塔弗",
+			[4] = { name = "狱炎之王",
 				mods = {
 					-- avoid_ailments_%_from_crit
 					[1] = { line = "被暴击时有 50% 的几率免疫异常状态", value = { 50 }, },
@@ -102,7 +102,7 @@ return {
 					[2] = { line = "身边每有 1 个敌人，自己的移动速度提高 1%，最多 8%", value = { 1 }, },
 				},
 			},
-			[2] = { name = "隧道陷阱",
+			[2] = { name = "新月之纪瑟伯特",
 				mods = {
 					-- base_avoid_projectiles_%_chance
 					[1] = { line = "10% 的几率免疫投射物", value = { 10 }, },
@@ -169,7 +169,7 @@ return {
 					[2] = { line = "有 50% 的几率反射魔蛊", value = { 50 }, },
 				},
 			},
-			[2] = { name = "微光巨侍法赫西",
+			[2] = { name = "天雷之使派蒂",
 				mods = {
 					-- curse_effect_on_self_+%
 					[1] = { line = "你受到的诅咒效果降低 30%", value = { -30 }, },
@@ -207,7 +207,7 @@ return {
 					[1] = { line = "物理伤害减免在静止时每秒额外获得 3%，最多可额外获得 9%", value = { 3 }, },
 				},
 			},
-			[2] = { name = "起乱者塔辛",
+			[2] = { name = "诅咒之王",
 				mods = {
 					-- life_regeneration_rate_per_minute_%_while_stationary
 					[1] = { line = "静止时每秒回复 2% 生命", value = { 120 }, },
@@ -221,7 +221,7 @@ return {
 			[1] = { name = "万面之主 拉克斯之魂",
 				mods = {
 					-- physical_damage_over_time_taken_+%_while_moving
-					[1] = { line = "移动时受到的物理持续伤害降低 25%", value = { -25 }, },
+					[1] = { line = "持续物理伤害在移动时降低 25%", value = { -25 }, },
 					-- no_extra_bleed_damage_while_moving
 					[2] = { line = "流血状态下移动不再承受额外的伤害", value = { 1 }, },
 				},
@@ -262,7 +262,7 @@ return {
 					[1] = { line = "若你近期内没使用生命药剂，则生命药剂每 3 秒获得 3 充能", value = { 3 }, },
 				},
 			},
-			[2] = { name = "唤阳者阿莎",
+			[2] = { name = "被遗忘的士兵",
 				mods = {
 					-- life_recovery_+%_from_flasks_while_on_low_life
 					[1] = { line = "低血时，使用药剂会提高 60% 生命回复量", value = { 60 }, },

@@ -5,7 +5,7 @@
 --
 
 colorCodes = {
-普通 = "^xC8C8C8",
+	普通 = "^xC8C8C8",
 	魔法 = "^x8888FF",
 	稀有 = "^xFFFF77",
 	传奇 = "^xAF6025",
@@ -24,9 +24,9 @@ colorCodes = {
 	UNSUPPORTED = "^xF05050",
 	WARNING = "^xFF9922",
 	TIP = "^x80A080",
-	FIRE = "^xD02020",
-	COLD = "^x60A0E7",
-	LIGHTNING = "^xFFD700",
+	FIRE = "^xB97123",
+	COLD = "^x3F6DB3",
+	LIGHTNING = "^xADAA47",
 	CHAOS = "^xD02090",
 	POSITIVE = "^x33FF77",
 	NEGATIVE = "^xDD0022",
@@ -46,20 +46,28 @@ colorCodes = {
 	SHAPER = "^x55BBFF",
 	ELDER = "^xAA77CC",
 	FRACTURED = "^xA29160",
-	CRUSADER = "^xE22F1F",
-	REDEEMER = "^xAAB7B8",
-	HUNTER = "^xB4FB7E",
-	WARLORD = "^xF4E46A",
 	ADJUDICATOR = "^xE9F831",
 	BASILISK = "^x00CB3A",
+	CRUSADER = "^x2946FC",
 	EYRIE = "^xAAB7B8",
-
+	CHILLBG = "^x151e26",
+	FREEZEBG = "^x0c262b",
+	SHOCKBG = "^x191732",
+	SCORCHBG = "^x270b00",
+	BRITTLEBG = "^x00122b",
+	SAPBG = "^x261500",
+	SCOURGE = "^xFF6E25",
 }
 colorCodes.STRENGTH = colorCodes.MARAUDER
 colorCodes.DEXTERITY = colorCodes.RANGER
 colorCodes.INTELLIGENCE = colorCodes.WITCH
 
-colorCodes.WARD = colorCodes.WARLORD
+colorCodes.LIFE = colorCodes.MARAUDER
+colorCodes.MANA = colorCodes.WITCH
+colorCodes.ES = colorCodes.SOURCE
+colorCodes.WARD = colorCodes.RARE
+colorCodes.EVASION = colorCodes.POSITIVE
+colorCodes.RAGE = colorCodes.WARNING
 
 ModFlag = { }
 -- Damage modes
@@ -147,9 +155,8 @@ function MatchKeywordFlags(keywordFlags, modKeywordFlags)
 end
 
 -- Active skill types, used in ActiveSkills.dat and GrantedEffects.dat
--- Had to reverse engineer this, not sure what all of the values mean
+-- Names taken from ActiveSkillType.dat as of PoE 3.17
 SkillType = {
-
 	Attack = 1,
 	Spell = 2,
 	Projectile = 3, -- Specifically skills which fire projectiles
@@ -270,11 +277,12 @@ SkillType = {
 	Link = 118,
 	Blessing = 119,
 }
+
 GlobalCache = { 
 	cachedData = { MAIN = {}, CALCS = {}, CALCULATOR = {}, CACHE = {}, },
 	deleteGroup = { },
-
 	excludeFullDpsList = { },
 	dontUseCache = nil,
 	useFullDPS = false,
+	numActiveSkillInFullDPS = 0,
 }
