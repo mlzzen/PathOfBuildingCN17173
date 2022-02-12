@@ -1,8 +1,9 @@
 ﻿
-local treeVersion = "3_16"
+local treeVersion = "3_17"
 -- Retrieve the file at the given URL
 local function getFile(URL)
-	local file1 = io.input("./Tools/Tree/fullscreen-passive-skill-tree")
+	-- local file1 = io.input("./Tools/Tree/fullscreen-passive-skill-tree")
+	local file1 = io.input("./Tools/Tree/data_fixed.json")
 	local data = io.read("*a");
 	return data
 end
@@ -37,7 +38,7 @@ if treeData then
 	treeText = "local tree=" .. jsonToLua(page:match("var passiveSkillTreeData = (%b{})"))
 	treeText = treeText .. "return tree"
 else
-	treeText = "return " .. jsonToLua(page)
+	treeText = "local tree=" .. jsonToLua(page) .. "\nreturn tree"
 end
 
 treeFile = io.open("./Tools/Tree/"..treeVersion..".lua", "w")
