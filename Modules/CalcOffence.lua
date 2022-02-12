@@ -785,7 +785,7 @@ output.ChainMaxString = "无法连锁"
 			end 
 		end
 	end
-	if activeSkill.skillTypes[SkillType.ManaCostReserved] then
+	if activeSkill.skillTypes[SkillType.HasReservation] then
 		for _, pool in ipairs({"Life", "Mana"}) do
 			output[pool .. "ReservedMod"] = calcLib.mod(skillModList, skillCfg, pool .. "Reserved", "Reserved") * calcLib.mod(skillModList, skillCfg, "SupportManaMultiplier") / calcLib.mod(skillModList, skillCfg, pool .. "ReservationEfficiency", "ReservationEfficiency")
 			if breakdown then
@@ -1467,7 +1467,9 @@ t_insert(breakdown[stat], s_format("x %.3f ^8(副手创建的实例部分)", off
 				skillFlags.showAverage = false
 				skillData.showAverage = false
 			end
-			output.Speed = m_min(output.Speed, data.misc.ServerTickRate)
+			if not activeSkill.skillTypes[SkillType.Channel] then
+				output.Speed = m_min(output.Speed, data.misc.ServerTickRate * output.Repeats)
+			end
 			
 			if output.Speed == 0 then 
 				output.Time = 0
@@ -1561,7 +1563,7 @@ t_insert(breakdown[stat], s_format("x %.3f ^8(副手创建的实例部分)", off
 
 		if env.mode_buffs then
 			-- Iterative over all the active skills to account for exerted attacks provided by warcries
-			if (activeSkill.activeEffect.grantedEffect.name == "瓦尔.裂地之击" or not activeSkill.skillTypes[SkillType.Vaal]) and not activeSkill.skillTypes[SkillType.Channelled] and not activeSkill.skillModList:Flag(cfg, "SupportedByMultistrike") then
+			if (activeSkill.activeEffect.grantedEffect.name == "瓦尔.裂地之击" or not activeSkill.skillTypes[SkillType.Vaal]) and not activeSkill.skillTypes[SkillType.Channel] and not activeSkill.skillModList:Flag(cfg, "SupportedByMultistrike") then
 			
 				for index, value in ipairs(actor.activeSkillList) do
 				
@@ -1721,7 +1723,7 @@ t_insert(breakdown[stat], s_format("x %.3f ^8(副手创建的实例部分)", off
 						globalOutput.TheoreticalMaxOffensiveWarcryEffect = globalOutput.TheoreticalMaxOffensiveWarcryEffect * globalOutput.RallyingMaxHitEffect
 						globalOutput.RallyingCryCalculated = true
 
-					elseif  not activeSkill.skillTypes[SkillType.Channelled]  and value.activeEffect.grantedEffect.name == "震地战吼" and activeSkill.skillTypes[SkillType.SlamSkill] and not globalOutput.SeismicCryCalculated then
+					elseif  not activeSkill.skillTypes[SkillType.Channelled]  and value.activeEffect.grantedEffect.name == "震地战吼" and activeSkill.skillTypes[SkillType.Slam] and not globalOutput.SeismicCryCalculated then
 						globalOutput.CreateWarcryOffensiveCalcSection = true
 						globalOutput.SeismicCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB)
 						globalOutput.SeismicCryCooldown = calcSkillCooldown(value.skillModList, value.skillCfg, value.skillData)
@@ -1875,7 +1877,7 @@ t_insert(breakdown[stat], s_format("x %.3f ^8(副手创建的实例部分)", off
 
 			globalOutput.FistOfWarCooldown = skillModList:Sum("BASE", cfg, "FistOfWarCooldown") or 0
 			-- If Fist of War & Active Skill is a Slam Skill & NOT a Vaal Skill
-			if globalOutput.FistOfWarCooldown ~= 0 and activeSkill.skillTypes[SkillType.SlamSkill] and not activeSkill.skillTypes[SkillType.Vaal] then
+			if globalOutput.FistOfWarCooldown ~= 0 and activeSkill.skillTypes[SkillType.Slam] and not activeSkill.skillTypes[SkillType.Vaal] then
 				globalOutput.FistOfWarHitMultiplier = skillModList:Sum("BASE", cfg, "FistOfWarHitMultiplier") / 100
 				globalOutput.FistOfWarAilmentMultiplier = skillModList:Sum("BASE", cfg, "FistOfWarAilmentMultiplier") / 100
 				globalOutput.FistOfWarUptimeRatio = m_min( (1 / output.Speed) / globalOutput.FistOfWarCooldown, 1) * 100
@@ -4203,7 +4205,7 @@ t_insert(breakdown.DecayDuration, s_format("/ %.2f ^8(更快或较慢 debuff消�
 			local inc = skillModList:Sum("INC", dotTypeCfg, "Damage", damageType.."Damage", isElemental[damageType] and "ElementalDamage" or nil)
 			local more = round(skillModList:More(dotTypeCfg, "Damage", damageType.."Damage", isElemental[damageType] and "ElementalDamage" or nil), 2)
 			local mult = skillModList:Sum("BASE", dotTypeCfg, "DotMultiplier", damageType.."DotMultiplier")
-			local aura = activeSkill.skillTypes[SkillType.Aura] and not activeSkill.skillTypes[SkillType.Mine] and calcLib.mod(skillModList, dotTypeCfg, "AuraEffect")
+			local aura = activeSkill.skillTypes[SkillType.Aura] and not activeSkill.skillTypes[SkillType.RemoteMined] and calcLib.mod(skillModList, dotTypeCfg, "AuraEffect")
 			
 			local total = baseVal * (1 + inc/100) * more * (1 + mult/100) * (aura or 1) * effMult
 			if output[damageType.."Dot"] == 0 or output[damageType.."Dot"] == nil then

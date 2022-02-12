@@ -448,8 +448,8 @@ local modNameList = {
 	["技能的魔力保留效能"] = "ManaReservationEfficiency",
 	["生命保留效能"] = "LifeReservationEfficiency",
 	["赤炼球数量上限"] = "BloodChargesMax",
-	["for stance skills"] = { tag = { type = "SkillType", skillType = SkillType.StanceSkill } },
-	["of stance skills"] = { tag = { type = "SkillType", skillType = SkillType.StanceSkill } },
+	["for stance skills"] = { tag = { type = "SkillType", skillType = SkillType.Stance } },
+	["of stance skills"] = { tag = { type = "SkillType", skillType = SkillType.Stance } },
 	["效果区域"] = "AreaOfEffect",
 	["耐力球、狂怒球、暴击球下限"] = { "PowerChargesMin", "FrenzyChargesMin", "EnduranceChargesMin" },
 	["持续混沌伤害"] = { "ChaosDamage", KeywordFlag.ChaosDot },
@@ -673,7 +673,7 @@ local modNameList = {
 	["魔像数量上限"] = "ActiveGolemLimit", --备注：maximum number of golems
 	["maximum number of summoned golems"] = "ActiveGolemLimit",
 	["召唤愤怒狂灵的最大数量"] = "ActiveRagingSpiritLimit", --备注：maximum number of summoned raging spirits
-	["召唤生物持续时间"] = { "Duration", tag = { type = "SkillType", skillType = SkillType.CreateMinion } }, --备注：minion duration
+	["召唤生物持续时间"] = { "Duration", tag = { type = "SkillType", skillType = SkillType.CreatesMinion } }, --备注：minion duration
 	["魔侍的持续时间"] = { "Duration", tag = { type = "SkillName", skillName = "召唤魔侍" } }, --备注：skeleton duration
 	-- Other skill modifiers
 	["半径"] = "AreaOfEffect", --备注：radius
@@ -876,9 +876,9 @@ local modFlagList = {
 	["近战单手武器的"] = { flags = bor(ModFlag.Weapon1H, ModFlag.WeaponMelee, ModFlag.Hit) }, --备注：with one handed melee weapons
 	["弓类攻击造成的"] =  { flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["攻击技能造成的"] ={ tag = { type = "SkillType", skillType = SkillType.Attack } },
-	["持续吟唱技能造成的"] = { tag = { type = "SkillType", skillType = SkillType.Channelled } },
-	["持续吟唱技能"] = { tag = { type = "SkillType", skillType = SkillType.Channelled } },
-	["持续吟唱技能的"] = { tag = { type = "SkillType", skillType = SkillType.Channelled } },
+	["持续吟唱技能造成的"] = { tag = { type = "SkillType", skillType = SkillType.Channel } },
+	["持续吟唱技能"] = { tag = { type = "SkillType", skillType = SkillType.Channel } },
+	["持续吟唱技能的"] = { tag = { type = "SkillType", skillType = SkillType.Channel } },
 	["该装备 "] = { },
 	["在低血时，"] = { tag = { type = "Condition", var = "LowLife" } },
 	["低血时，"] = { tag = { type = "Condition", var = "LowLife" } }, --备注：wh[ie][ln]e? on low life
@@ -935,7 +935,7 @@ local modFlagList = {
 	["爪或匕首攻击时，"] = { flags = ModFlag.Hit, tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
 	["爪类或匕首的"] = { tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
 	["爪类或匕首"] = { tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Claw, ModFlag.Dagger) } },
-	["吟唱技能的"] = { tag = { type = "SkillType", skillType = SkillType.Channelled } },
+	["吟唱技能的"] = { tag = { type = "SkillType", skillType = SkillType.Channel } },
 	["弓技能的"] = { keywordFlags = KeywordFlag.Bow },
 	["魔蛊技能的"] = { tag = { type = "SkillType", skillType = SkillType.Hex } },
 		["魔蛊的"] = { tag = { type = "SkillType", skillType = SkillType.Hex } },
@@ -1026,7 +1026,7 @@ local modFlagList = {
 	["火焰技能"] = { keywordFlags = KeywordFlag.Fire }, --备注：with fire skills
 	["火焰、冰霜、闪电技能"] = { keywordFlags = bor(KeywordFlag.Lightning, KeywordFlag.Cold, KeywordFlag.Fire) }, --备注：with elemental skills
 	["混沌技能"] = { keywordFlags = KeywordFlag.Chaos }, --备注：with chaos skills
-	["引导技能"] = { tag = { type = "SkillType", skillType = SkillType.Channelled } }, --备注：with channelling skills
+	["引导技能"] = { tag = { type = "SkillType", skillType = SkillType.Channel } }, --备注：with channelling skills
 	["魔卫"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "魔卫复苏" } }, --备注：zombie
 	["raised zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "魔卫复苏" } },
 	["魔侍的"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "召唤魔侍" } }, --备注：skeleton
@@ -1070,12 +1070,12 @@ local preFlagList = {
 	["^火焰法术的"] = { keywordFlags = KeywordFlag.Fire, flags = ModFlag.Spell },
 	["^法术技能的"] = {  flags = ModFlag.Spell },
 	["^位移技能的"] = { type = "SkillType", skillType = SkillType.MovementSkill },
-	["^持续吟唱技能造成的"] = { tag = { type = "SkillType", skillType = SkillType.Channelled } },
-	["^持续吟唱技能的"] = { tag = { type = "SkillType", skillType = SkillType.Channelled } },
-	["^持续吟唱技能"] = { tag = { type = "SkillType", skillType = SkillType.Channelled } },
+	["^持续吟唱技能造成的"] = { tag = { type = "SkillType", skillType = SkillType.Channel } },
+	["^持续吟唱技能的"] = { tag = { type = "SkillType", skillType = SkillType.Channel } },
+	["^持续吟唱技能"] = { tag = { type = "SkillType", skillType = SkillType.Channel } },
 	["地雷所使用的技能"] = { keywordFlags = KeywordFlag.Mine },
 	["^你和友军受你的光环技能影响时，"] = { affectedByAura = true },
-	["^防卫技能的"] = { tag = { type = "SkillType", skillType = SkillType.GuardSkill } },
+	["^防卫技能的"] = { tag = { type = "SkillType", skillType = SkillType.Guard } },
 	-- Weapon types
 		["^斧攻击造成的"] = { flags = ModFlag.Axe },
 		["^斧类攻击造成的"] = { flags = ModFlag.Axe },
@@ -3121,7 +3121,7 @@ local specialModList = {
 	mod("MinionModifier", "LIST", { mod = mod("EnemyShockChance", "BASE", num) }),
 	mod("MinionModifier", "LIST", { mod = mod("EnemyIgniteChance", "BASE", num) }),
 	} end,
-	["持续吟唱技能总魔力消耗 ([%+%-]?%d+)"] =function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ManaCost", "BASE", num, nil, 0, { type = "SkillType", skillType = SkillType.Channelled }) })}end,
+	["持续吟唱技能总魔力消耗 ([%+%-]?%d+)"] =function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ManaCost", "BASE", num, nil, 0, { type = "SkillType", skillType = SkillType.Channel }) })}end,
 	["插槽内的移动技能不消耗魔力"] = function() return { mod("ExtraSkillMod", "LIST", { mod = mod("ManaCost", "MORE", -100, nil, 0,  KeywordFlag.Movement) }, { type = "SocketedIn", slotName = "{SlotName}" })}end,
 	["插槽内攻击技能的总魔力消耗 ([%+%-]?%d+)"]= function(num) return { mod("ManaCost", "BASE",num, { type = "SocketedIn", slotName = "{SlotName}", keyword = "attack" }  ) } end,
 	["插槽内的法术魔力消耗降低 (%d+)%%"]= function(num) return { mod("ManaCost", "INC",-num, { type = "SocketedIn", slotName = "{SlotName}", keyword = "spell" }  ) } end,
@@ -4100,10 +4100,10 @@ local specialModList = {
 	= function(num) return { mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageConvertToLightning", "BASE", num) },{ type = "Multiplier", var = "BlueSocketIn{SlotName}" }) } end,
 	["每个白色插槽使召唤生物 (%d+)%% 的物理伤害转化为混沌伤害"]
 	= function(num) return { mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageConvertToChaos", "BASE", num) },{ type = "Multiplier", var = "WhiteSocketIn{SlotName}" }) } end,
-	["旅行技能冷却回复速度提高 (%d+)%%"]= function(num) return {  mod("CooldownRecovery", "INC", num,{ type = "SkillType", skillType = SkillType.TravelSkill })  } end,
-	["旅行技能的冷却回复速度提高 (%d+)%%"]= function(num) return {  mod("CooldownRecovery", "INC", num,{ type = "SkillType", skillType = SkillType.TravelSkill })  } end,
-	["每个狂怒球可使旅行技能冷却回复速度提高 (%d+)%%"]= function(num) return {  mod("CooldownRecovery", "INC", tonumber(num),{ type = "SkillType", skillType = SkillType.TravelSkill },{ type = "Multiplier", var = "FrenzyCharge" })  } end,
-	["每个狂怒球使旅行技能的冷却回复速度提高 (%d+)%%"]= function(num) return {  mod("CooldownRecovery", "INC", tonumber(num),{ type = "SkillType", skillType = SkillType.TravelSkill },{ type = "Multiplier", var = "FrenzyCharge" })  } end,
+	["旅行技能冷却回复速度提高 (%d+)%%"]= function(num) return {  mod("CooldownRecovery", "INC", num,{ type = "SkillType", skillType = SkillType.Travel })  } end,
+	["旅行技能的冷却回复速度提高 (%d+)%%"]= function(num) return {  mod("CooldownRecovery", "INC", num,{ type = "SkillType", skillType = SkillType.Travel })  } end,
+	["每个狂怒球可使旅行技能冷却回复速度提高 (%d+)%%"]= function(num) return {  mod("CooldownRecovery", "INC", tonumber(num),{ type = "SkillType", skillType = SkillType.Travel },{ type = "Multiplier", var = "FrenzyCharge" })  } end,
+	["每个狂怒球使旅行技能的冷却回复速度提高 (%d+)%%"]= function(num) return {  mod("CooldownRecovery", "INC", tonumber(num),{ type = "SkillType", skillType = SkillType.Travel },{ type = "Multiplier", var = "FrenzyCharge" })  } end,
 	["你的移动速度变为基础值的 (%d+)%%"] = function(num) return {
 	mod("MovementSpeed", "OVERRIDE", tonumber(num)/100 )
 	} end,
@@ -4956,13 +4956,13 @@ local specialModList = {
 	mod("ManaCost", "INC", -num,nil,nil, KeywordFlag.Totem,{ type = "SkillType", skillType = SkillType.Aura }),
 	} end,
 	["非持续吟唱技能总魔力消耗 %-(%d+)"] = function(num) return {
-	mod("ManaCost", "BASE", -num,{ type = "SkillType", skillType = SkillType.Channelled, neg = true } ),
+	mod("ManaCost", "BASE", -num,{ type = "SkillType", skillType = SkillType.Channel, neg = true } ),
 	} end,
 	["非吟唱技能的总魔力消耗 %-(%d+)"] = function(num) return {
-		mod("ManaCost", "BASE", -num,{ type = "SkillType", skillType = SkillType.Channelled, neg = true } ),
+		mod("ManaCost", "BASE", -num,{ type = "SkillType", skillType = SkillType.Channel, neg = true } ),
 	} end,
 	["受到【清晰】影响时，非持续吟唱技能的总魔力消耗 %-(%d+)"] = function(num) return {
-	mod("ManaCost", "BASE", -num,{ type = "SkillType", skillType = SkillType.Channelled, neg = true },{ type = "Condition", var = "AffectedBy清晰" } ),
+	mod("ManaCost", "BASE", -num,{ type = "SkillType", skillType = SkillType.Channel, neg = true },{ type = "Condition", var = "AffectedBy清晰" } ),
 	} end,
 	["装备在主手时，召唤的魔侍复制此武器"] =
 	{ mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "minionUses", value = "Weapon 1" }) },
@@ -5106,8 +5106,8 @@ local specialModList = {
 	mod("ColdDamage", "INC", tonumber(num2),{ type = "PerStat", stat = "MissingColdResist", div = tonumber(num1) } )  } end,
 	["每失去 (%d+)%% 火焰抗性，就使火焰伤害提高 (%d+)%%"]= function(_,num1,num2) return {
 	mod("FireDamage", "INC", tonumber(num2),{ type = "PerStat", stat = "MissingFireResist", div = tonumber(num1) } )  } end,
-	["插入的旅行技能的总伤害额外提高 (%d+)%%"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Damage", "MORE", num) }, { type = "SocketedIn", slotName = "{SlotName}" }, { type = "SkillType", skillType = SkillType.TravelSkill } ) } end,
-	["插入的旅行技能的伤害总增 (%d+)%%"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Damage", "MORE", num) }, { type = "SocketedIn", slotName = "{SlotName}" }, { type = "SkillType", skillType = SkillType.TravelSkill } ) } end,
+	["插入的旅行技能的总伤害额外提高 (%d+)%%"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Damage", "MORE", num) }, { type = "SocketedIn", slotName = "{SlotName}" }, { type = "SkillType", skillType = SkillType.Travel } ) } end,
+	["插入的旅行技能的伤害总增 (%d+)%%"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("Damage", "MORE", num) }, { type = "SocketedIn", slotName = "{SlotName}" }, { type = "SkillType", skillType = SkillType.Travel } ) } end,
 	["若你的耐力球、狂怒球或暴击球总共有 (%d+) 个时，将伤害的 ([%d%.]+)%% 转化为生命偷取"] = function(_,num1,num2) return {
 	mod("DamageLifeLeech", "BASE", tonumber(num2),{ type = "MultiplierThreshold", var = "TotalCharges", threshold = tonumber(num1) } )  } end,
 	["你格挡时触发 (%d+) 级(.+)"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
@@ -5783,9 +5783,9 @@ local specialModList = {
 	["青春永驻"] = { mod("Keystone", "LIST", "青春永驻") },
 	["灭亡之日"] = { mod("Keystone", "LIST", "灭亡之日") },
 	["攻击技能可以额外召唤 %+1 个弩炮图腾"] = function(num) return { mod("ActiveBallistaLimit", "BASE", 1,
-	{ type = "SkillType", skillType = SkillType.ProjectileAttack }) } end, -- Mark plz
+	{ type = "SkillType", skillType = SkillType.RangedAttack }) } end, -- Mark plz
 	["攻击技能获得 %+1 召唤弩炮图腾数量上限"] = function(num) return { mod("ActiveBallistaLimit", "BASE", 1,
-	{ type = "SkillType", skillType = SkillType.ProjectileAttack }) } end, -- Mark plz
+	{ type = "SkillType", skillType = SkillType.RangedAttack }) } end, -- Mark plz
 	["药剂持续期间，能量护盾充能速度提高 (%d+)%%"]= function(num) return {mod("EnergyShieldRecharge", "INC", num,{ type = "Condition", var = "UsingFlask" })
 	 } end,
 	["【将军之吼】 ([%+%-]%d) 蜃影武士数量上限"] = function(num) return { mod("GeneralsCryDoubleMaxCount", "BASE", num) } end,
@@ -5951,20 +5951,20 @@ local specialModList = {
 	["诅咒光环类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num, { type = "SkillType", skillType = SkillType.Hex }   )  } end,
 	["旗帜类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num,{ type = "SkillType", skillType = SkillType.Banner }  )  } end,
 	["旗帜技能的保留效果降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num,{ type = "SkillType", skillType = SkillType.Banner }  )  } end,
-	["姿态类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num, { type = "SkillType", skillType = SkillType.StanceSkill } )  } end,
-	["姿态技能的保留效果降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num, { type = "SkillType", skillType = SkillType.StanceSkill } )  } end,
+	["姿态类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num, { type = "SkillType", skillType = SkillType.Stance } )  } end,
+	["姿态技能的保留效果降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num, { type = "SkillType", skillType = SkillType.Stance } )  } end,
 	["捷技能的保留效果降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num,{ type = "SkillType", skillType = SkillType.Herald }  )  } end,
 	["以光环形式施放时，【(.+)】的保留降低 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("Reserved", "INC",-num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
 	["【(.+)】的保留降低 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("Reserved", "INC",-num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
 	----消耗
-	["持续吟唱类技能的资源消耗降低 (%d+)%%"]=function(num) return {  mod("Cost", "INC", -num ,{ type = "SkillType", skillType = SkillType.Channelled} )  } end,
-	["吟唱技能的消耗降低 (%d+)%%"]=function(num) return {  mod("Cost", "INC", -num ,{ type = "SkillType", skillType = SkillType.Channelled} )  } end,
+	["持续吟唱类技能的资源消耗降低 (%d+)%%"]=function(num) return {  mod("Cost", "INC", -num ,{ type = "SkillType", skillType = SkillType.Channel} )  } end,
+	["吟唱技能的消耗降低 (%d+)%%"]=function(num) return {  mod("Cost", "INC", -num ,{ type = "SkillType", skillType = SkillType.Channel} )  } end,
 	["投掷陷阱类技能的资源消耗降低 (%d+)%%"]=function(num) return {  mod("Cost", "INC", -num,{ type = "SkillType", skillType = SkillType.Trap}  )  } end,
 	["投掷陷阱的技能消耗降低 (%d+)%%"]=function(num) return {  mod("Cost", "INC", -num,{ type = "SkillType", skillType = SkillType.Trap}  )  } end,
 	["技能资源消耗降低 (%d+)%%"]=function(num) return {  mod("Cost", "INC", -num  )  } end,
 	["技能消耗降低 (%d+)%%"]=function(num) return {  mod("Cost", "INC", -num  )  } end,
-	["持续吟唱类技能的总资源消耗 %-(%d+)"]=function(num) return {  mod("Cost", "BASE", -num ,{ type = "SkillType", skillType = SkillType.Channelled} )  } end,
-	["吟唱技能的总魔力消耗 %-(%d+)"]=function(num) return {  mod("ManaCost", "BASE", -num ,{ type = "SkillType", skillType = SkillType.Channelled} )  } end,
+	["持续吟唱类技能的总资源消耗 %-(%d+)"]=function(num) return {  mod("Cost", "BASE", -num ,{ type = "SkillType", skillType = SkillType.Channel} )  } end,
+	["吟唱技能的总魔力消耗 %-(%d+)"]=function(num) return {  mod("ManaCost", "BASE", -num ,{ type = "SkillType", skillType = SkillType.Channel} )  } end,
 	--
 	["若你近期内换过姿态，则攻击速度加快 (%d+)%%"]=function(num) return {  mod("Speed", "INC", num,nil, ModFlag.Attack,{ type = "Condition", var = "ChangedStanceRecently" } )  } end,
 	["近期内你若晕眩过敌人，则每秒回复 ([%d%.]+)%% 生命"]=function(num) return {  mod("LifeRegenPercent ", "BASE", num,{ type = "Condition", var = "StunnedEnemyRecently" }  )  } end,
@@ -6877,7 +6877,7 @@ local specialModList = {
 	["每个地雷使它附近敌人承受的伤害提高 (%d+)%%，最高 (%d+)%%"] = function(num, _, limit) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "ActiveMineCount", limit = limit / num }) }) } end,
 	["每个图腾都使其周围敌人承受的伤害提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
 	["锤类和短杖的所有伤害都施加冰缓状态"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Chilled") }, { type = "Condition", var = "UsingMace" } )},
-	["非投射物连锁的闪电技能连锁 %+(%d+) 次"] = function (num) return { mod("ChainCountMax", "BASE", num, { type = "SkillType", skillType = SkillType.Projectile, neg = true }, { type = "SkillType", skillType = SkillType.Chaining }, { type = "SkillType", skillType = SkillType.LightningSkill }) } end,
+	["非投射物连锁的闪电技能连锁 %+(%d+) 次"] = function (num) return { mod("ChainCountMax", "BASE", num, { type = "SkillType", skillType = SkillType.Projectile, neg = true }, { type = "SkillType", skillType = SkillType.Chains }, { type = "SkillType", skillType = SkillType.Lightning }) } end,
 	-- Poison and Bleed
 	["对中毒敌人造成的流血伤害提高 (%d+)%%"] = function(num) return {
 		mod("BleedDamage", "INC", num, { type = "ActorCondition", actor = "enemy", var = "Poisoned"})
@@ -7513,9 +7513,9 @@ local jewelThresholdFuncs = {
 	["范围内智慧和敏捷总计 40 点时，【元素打击】和【狂野打击】的总火焰伤害额外降低 50%"] =getThreshold({"Int","Dex"}, "FireDamage", "MORE", -50, { type = "SkillName", skillNameList = { "元素打击", "野性打击" }}),
 	["范围内力量和智慧总计 40 点时，【元素打击】和【狂野打击】的总冰霜伤害额外降低 50%"] =getThreshold({"Str","Int"}, "ColdDamage", "MORE", -50, { type = "SkillName", skillNameList = { "元素打击", "野性打击" }}),
 	["若范围内含有 40 点智慧，造成的枯萎效果持续 2 秒"] = getThreshold({"Int"}, "Dummy", "DUMMY", 1, { type = "Condition", var = "CanWither" }, { type = "SkillName", skillName = "枯萎" } , flag("Condition:CanWither")),
-	["范围内配置的敏捷和力量总计 40 点时，虹光技能的闪电伤害总降 50%"] =getThreshold({"Dex","Str"}, "LightningDamage", "MORE", -50, { type = "SkillType",  skillType = SkillType.Prismatic}),
-	["范围内配置的智慧和敏捷总计 40 点时，虹光技能的火焰伤害总降 50%"] =getThreshold({"Int","Dex"}, "FireDamage", "MORE", -50, { type = "SkillType",  skillType = SkillType.Prismatic}),
-	["范围内配置的智慧和力量总计 40 点时，虹光技能的冰霜伤害总降 50%"] =getThreshold({"Str","Int"}, "ColdDamage", "MORE", -50, { type = "SkillType",  skillType = SkillType.Prismatic}),
+	["范围内配置的敏捷和力量总计 40 点时，虹光技能的闪电伤害总降 50%"] =getThreshold({"Dex","Str"}, "LightningDamage", "MORE", -50, { type = "SkillType",  skillType = SkillType.RandomElement}),
+	["范围内配置的智慧和敏捷总计 40 点时，虹光技能的火焰伤害总降 50%"] =getThreshold({"Int","Dex"}, "FireDamage", "MORE", -50, { type = "SkillType",  skillType = SkillType.RandomElement}),
+	["范围内配置的智慧和力量总计 40 点时，虹光技能的冰霜伤害总降 50%"] =getThreshold({"Str","Int"}, "ColdDamage", "MORE", -50, { type = "SkillType",  skillType = SkillType.RandomElement}),
 	["若范围内含有 40 点智慧，造成的枯萎效果持续 2 秒"] = getThreshold({"Int"}, "Dummy", "DUMMY", 1, { type = "Condition", var = "CanWither" }, { type = "SkillName", skillName = "枯萎" } , flag("Condition:CanWither")),
 	
 	
