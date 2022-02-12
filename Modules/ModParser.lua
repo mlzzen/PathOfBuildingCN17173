@@ -7893,7 +7893,7 @@ local function parseMod(line, order)
 end
 
 local parseModEn, parseModCacheEn = LoadModule("Modules/ModParserEn", launch)
-local translation = LoadModule("TreeData/3_16/translation", launch)
+local translation = LoadModule("TreeData/".. "3_17" .."/translation", launch)
 local function translateMod(line)
 	return translation[line]
 end
