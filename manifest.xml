@@ -44,13 +44,13 @@
 	<File name="Classes/FolderListControl.lua" part="program" sha1="2f023f5bff3e83bff534c14ae394dd08f143a512" />
 	<File name="Classes/GemSelectControl.lua" part="program" sha1="fd0c50b8ed92a94f18f0e43c835d4f0be8626008" />
 	<File name="Classes/HorizontalLineControl.lua" part="program" sha1="ac90bf59c48bc7b2d2e487141fa58e6f1f71c15a" />
-	<File name="Classes/ImportTab.lua" part="program" sha1="df87b0e1c58a709b9b5bdd73c170fa61d8d3664f" />
+	<File name="Classes/ImportTab.lua" part="program" sha1="99bda7222674d944f74a00bb3058a91431571b8a" />
 	<File name="Classes/Item.lua" part="program" sha1="2f11503cbb4d068b0ff48cf2c66bb0c8ac8c027c" />
 	<File name="Classes/ItemDBControl.lua" part="program" sha1="364c0bccc3e3aefb413009f6044e8f1e074693d9" />
 	<File name="Classes/ItemListControl.lua" part="program" sha1="03dd32a22548a98f34abf7a8c4e5d30e897e7b07" />
 	<File name="Classes/ItemSetListControl.lua" part="program" sha1="513442c485186bbd72f8631c30bdfddc24b90612" />
 	<File name="Classes/ItemSlotControl.lua" part="program" sha1="2a5f4ada594c39530f3a480b3827e3d4028280a9" />
-	<File name="Classes/ItemsTab.lua" part="program" sha1="0f9f6072c5d6d57f2221754adec40641d9ffed20" />
+	<File name="Classes/ItemsTab.lua" part="program" sha1="185a3456b38587c2af5ae3ddb8dca2cf5fa2771d" />
 	<File name="Classes/LabelControl.lua" part="program" sha1="dc032e67fbda0e7531b55d60bec5298b38b99346" />
 	<File name="Classes/ListControl.lua" part="program" sha1="3a0484db32d7d927f8726a9c545bf4a7faadf854" />
 	<File name="Classes/MinionListControl.lua" part="program" sha1="453c13d190da47d9000f4a18be0d6f12a244f7c7" />
@@ -196,7 +196,7 @@
 	<File name="Modules/CalcSections.lua" part="program" sha1="953a91546e9091d19e00081e4d0372d2dfae0764" />
 	<File name="Modules/CalcSetup.lua" part="program" sha1="bbe4e41047d13cd5471557e9cac06a16c128b8d2" />
 	<File name="Modules/CalcTools.lua" part="program" sha1="5e81e9bf01b836be9b8c0847d33f092fafce700b" />
-	<File name="Modules/Common.lua" part="program" sha1="38ff1d63734d9ce0121a718ffb475d74364bcbd4" />
+	<File name="Modules/Common.lua" part="program" sha1="bcffbc3a1a3280d1dcfda207726fb9ce49f94146" />
 	<File name="Modules/ConfigOptions.lua" part="program" sha1="ce9f67c7bbe75f7dd4b3cb5cc376e54103a5e09b" />
 	<File name="Modules/Data.lua" part="program" sha1="ba2abc5d354ceb2aa0a7807c9cd2ff29a42c7379" />
 	<File name="Modules/ItemTools.lua" part="program" sha1="724d7cff560b70338784267d275556e014e3f4cc" />
