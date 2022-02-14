@@ -458,11 +458,14 @@ local modNameList = {
 	["力量"] = "Str", --备注：strength
 	["敏捷"] = "Dex", --备注：dexterity
 	["智慧"] = "Int", --备注：intelligence
-	["力量和敏捷"] = { "Str", "Dex" }, --备注：strength and dexterity
-	["力量和智慧"] = { "Str", "Int" }, --备注：strength and intelligence
-	["敏捷和智慧"] = { "Dex", "Int" }, --备注：dexterity and intelligence
-	["属性"] = { "Str", "Dex", "Int" }, --备注：attributes
-	["全属性"] = { "Str", "Dex", "Int" }, --备注：all attributes
+	["力量和敏捷"] = { "Str", "Dex", "StrDex" }, --备注：strength and dexterity
+	["力量和智慧"] = { "Str", "Int", "StrInt" }, --备注：strength and intelligence
+	["敏捷和智慧"] = { "Dex", "Int", "DexInt" }, --备注：dexterity and intelligence
+	["力量与敏捷"] = { "Str", "Dex", "StrDex" }, --备注：strength and dexterity
+	["力量与智慧"] = { "Str", "Int", "StrInt" }, --备注：strength and intelligence
+	["敏捷与智慧"] = { "Dex", "Int", "DexInt" }, --备注：dexterity and intelligence
+	["属性"] = { "Str", "Dex", "Int", "All" }, --备注：attributes
+	["全属性"] = { "Str", "Dex", "Int", "All" }, --备注：all attributes
 	-- Life/mana
 	["生命"] = "Life", --备注：life
 	["最大生命"] = "Life", --备注：maximum life
@@ -798,6 +801,7 @@ local modNameList = {
 	["力量需求"] = "StrRequirement", --备注：strength requirement
 	["dexterity requirement"] = "DexRequirement",
 	["智慧需求"] = "IntRequirement", --备注：intelligence requirement
+	["全知需求"] = "OmniRequirement",
 	["属性需求"] = { "StrRequirement", "DexRequirement", "IntRequirement" }, --备注：attribute requirements
 	["插槽内的珠宝效果"] = "SocketedJewelEffect", --备注：effect of socketed jewels
 	-- Flask modifiers
@@ -1324,8 +1328,8 @@ local modTagList = {
 	["每 (%d+) 点智慧会使"] = function(num) return { tag = { type = "PerStat", stat = "Int", div = num } } end, --备注：per (%d+) intelligence
 	["每 (%d+) 点敏捷会使"] = function(num) return { tag = { type = "PerStat", stat = "Dex", div = num } } end, 
 	["每 (%d+) 点力量会使 "] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end, --备注：per (%d+) strength
-	["每 (%d+) 点力量会使"] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end, --备注：per (%d+) strength
 	["每有 (%d+) 点力量，"] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end, 
+	["每 (%d+) 点全知会使"] = function(num) return { tag = { type = "PerStat", stat = "Omni", div = num } } end,
 	["近期若打出过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["近期内若造成暴击则给"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["近期内你若被击中过，则"] = { tag = { type = "Condition", var = "BeenHitRecently" } },
@@ -1348,6 +1352,7 @@ local modTagList = {
 	["每 (%d+) 点智慧可以为"] = function(num) return { tag = { type = "PerStat", stat = "Int", div = num } } end, --备注：per (%d+) intelligence
 	["每 (%d+) 点敏捷可以为"] = function(num) return { tag = { type = "PerStat", stat = "Dex", div = num } } end, 
 	["每 (%d+) 点力量可以为 "] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end, --备注：per (%d+) strength
+	["每 (%d+) 点全知可以为"] = function(num) return { tag = { type = "PerStat", stat = "Omni", div = num } } end, 
 	["对冰缓的目标的"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Chilled" } },
 	["对致盲的敌人时，"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Blinded" } },
 	["每个暴击球为"] = { tag = { type = "Multiplier", var = "PowerCharge" } }, --备注：per power charge
@@ -1632,6 +1637,7 @@ local modTagList = {
 	["每 (%d+) 点力量 "] = function(num) return { tag = { type = "PerStat", stat = "Str", div = num } } end, --备注：per (%d+) strength
 	["每 (%d+) 点敏捷 "] = function(num) return { tag = { type = "PerStat", stat = "Dex", div = num } } end, --备注：per (%d+) dexterity
 	["每 (%d+) 点智慧 "] = function(num) return { tag = { type = "PerStat", stat = "Int", div = num } } end, --备注：per (%d+) intelligence
+	["每 (%d+) 点全知 "] = function(num) return { tag = { type = "PerStat", stat = "Omni", div = num } } end, --备注：per (%d+) intelligence
 	["你最低的属性每有 (%d+) 点，"] = function(num) return { tag = { type = "PerStat", stat = "LowestAttribute", div = num } } end, --备注：per (%d+) of your lowest attribute
 	["每 (%d+) 点闪避值可使"] = function(num) return { tag = { type = "PerStat", stat = "Evasion", div = num } } end, --备注：per (%d+) evasion rating
 	["per (%d+) evasion rating, up to (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Evasion", div = num, limit = tonumber(limit), limitTotal = true } } end,
@@ -6899,6 +6905,13 @@ local specialModList = {
 	["最左边的 (%d+) 个魔法非恢复类药剂给你持续提供药剂效果"] = function(num) return { mod("ActiveMagicUtilityFlasks", "BASE", num) } end,
 	-- 3.17
 	["元素抗性被你最高的元素抗性上限封顶"] = { flag("ElementalResistMaxIsHighestResistMax") },
+	["属性词缀改为适配全知"] = { flag("Omniscience") },
+	["所有元素抗性按照每 (%d+) 点全知 %+(%d+)%%"] = function(_,num1,num2) return { mod("ElementalResist", "BASE", tonumber(num2),{ type = "PerStat", stat = "Omni", div = tonumber(num1) })  } end,
+	["元素抗性按照每 (%d+) 点全知穿透 (%d+)%%"] = function(_,num1,num2) return { mod("ElementalPenetration", "BASE", tonumber(num2),{ type = "PerStat", stat = "Omni", div = tonumber(num1) })  } end,
+	["属性需求可由 (%d+)%% 的全知满足"] = function(num) return { 
+		mod("OmniAttributeRequirements", "INC", num),
+		flag("OmniscienceRequirements")
+	} end,
 }
 
 for _, name in pairs(data.keystones) do
