@@ -156,14 +156,23 @@ function ItemListClass:OnSelDelete(index, itemId)
 	local equipSlot, equipSet = self.itemsTab:GetEquippedSlotForItem(item)
 	if equipSlot then
 		local inSet = equipSet and (" in set '"..(equipSet.title or "Default").."'") or ""
-main:OpenConfirmPopup("Delete Item", item.name.." 已经装备在了 "..equipSlot.label..inSet..".\n你确定要删除吗?", "删除", function()
+		main:OpenConfirmPopup("Delete Item", item.name.." 已经装备在了 "..equipSlot.label..inSet..".\n你确定要删除吗?", "删除", function()
 			self.itemsTab:DeleteItem(item)
 			self.selIndex = nil
 			self.selValue = nil
 		end)
 	else
-		self.itemsTab:DeleteItem(item)
-		self.selIndex = nil
-		self.selValue = nil
+		local equipTree = self:FindSocketedJewel(itemId, true)
+		if equipTree ~= "" then
+			main:OpenConfirmPopup("Delete Item", item.name.." 在天赋树 '"..equipTree.."'中被使用.\n你确定要删除吗?", "删除", function()
+				self.itemsTab:DeleteItem(item)
+				self.selIndex = nil
+				self.selValue = nil
+			end)
+		else
+			self.itemsTab:DeleteItem(item)
+			self.selIndex = nil
+			self.selValue = nil
+		end
 	end
 end
