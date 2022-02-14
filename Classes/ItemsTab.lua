@@ -1821,6 +1821,7 @@ function ItemsTabClass:CraftItem()
 		item.baseName = base.name
 		item.buffModLines = { }
 		item.enchantModLines = { }
+		item.classRequirementModLines = { }
 		item.scourgeModLines = { }
 		item.implicitModLines = { }
 		item.explicitModLines = { }
