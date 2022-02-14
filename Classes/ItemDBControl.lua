@@ -225,7 +225,7 @@ function ItemDBClass:ListBuilder()
 	end)
 
 	self.list = list
-	self.defaultText = "^7No items found that match those filters."
+	self.defaultText = "^7未找到符合条件的装备"
 end
 
 function ItemDBClass:Draw(viewPort)
