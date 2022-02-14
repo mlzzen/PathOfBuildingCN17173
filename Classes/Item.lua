@@ -161,6 +161,7 @@ if self.rarity == "普通" or self.rarity == "魔法" then
 	end
 	self.base = data.itemBases[self.baseName]
 	self.sockets = { }
+	self.classRequirementModLines = { }
 	self.buffModLines = { }
 	self.enchantModLines = { }
 	self.scourgeModLines = { }
@@ -277,12 +278,17 @@ elseif processInfluenceLine(line) then
 			if not specName then
 				specName, specVal = line:match("^(augmented) (.+)$")--lucifer
 			end
+			if not specName then
+				specName, specVal = line:match("^(需求 职业) (.+)$")
+			end
 			if specName then
 				
 				if specName == "Unique ID" then
 					self.uniqueID = specVal
 elseif specName == "物品等级" then
 					self.itemLevel = tonumber(specVal)
+				elseif specName == "需求 职业" then
+					self.classRestriction = specVal
 elseif specName == "品质" then
 					self.quality = tonumber(specVal)
 					
@@ -447,6 +453,7 @@ local varSpec = line:match("{variant:([%d,]+)}")
 				local rangeSpec = line:match("{range:([%d.]+)}")
 
 				local enchant = line:match(" %(enchant%)")
+				local classReq = line:find("Requires Class")
 				local scourge = line:match("{scourge}") or line:match(" %(scourge%)")
 				local crafted = line:match("{crafted}") or line:match(" %(crafted%)") or enchant
 
@@ -522,6 +529,8 @@ if combLine:match("%(%d+%-%d+ %- %d+%-%d+%)") or combLine:match("%(%-?[%d%.]+ %-
 					modLines = self.enchantModLines
 				elseif scourge then
 					modLines = self.scourgeModLines
+				elseif classReq then
+					modLines = self.classRequirementModLines
 				elseif implicit or (not crafted and #self.enchantModLines + #self.scourgeModLines + #self.implicitModLines < implicitLines) then
 					modLines = self.implicitModLines
 				else
@@ -850,6 +859,9 @@ t_insert(rawLines, "范围: "..self.jewelRadiusLabel)
 	if self.limit then
 t_insert(rawLines, "仅限: "..self.limit)
 	end
+	if self.classRestriction then
+		t_insert(rawLines, "需求 职业: "..self.classRestriction)
+	end
 t_insert(rawLines, "固定基底词缀: "..(#self.enchantModLines + #self.implicitModLines + #self.scourgeModLines))
 
 local function writeModLine(modLine)
@@ -885,6 +897,9 @@ local function writeModLine(modLine)
 		writeModLine(modLine)
 	end
 	for _, modLine in ipairs(self.scourgeModLines) do
+		writeModLine(modLine)
+	end
+	for _, modLine in ipairs(self.classRequirementModLines) do
 		writeModLine(modLine)
 	end
 	for _, modLine in ipairs(self.implicitModLines) do
@@ -1295,33 +1310,36 @@ function ItemClass:BuildModList()
 		end
 	end
 	local function processModLine(modLine)
-		if not modLine.extra and self:CheckModLineVariant(modLine) then
-			if modLine.range then
-				
-				local strippedModeLine = modLine.line:gsub("\n"," ")
-				-- Look at the min and max of the range to confirm it's *actually* a range
-				local rangeMin, rangeMax = itemLib.getLineRangeMinMax(strippedModeLine)
-				if rangeMin ~= rangeMax then
-					local catalystScalar = getCatalystScalar(self.catalyst, modLine.modTags, self.catalystQuality)
-					-- Put the modified value into the string
-					local line = itemLib.applyRange(strippedModeLine, modLine.range, catalystScalar)
-					-- Check if we can parse it before adding the mods
-					local list, extra = modLib.parseMod(line)
-					if list and not extra then
-						modLine.modList = list
-						t_insert(self.rangeLineList, modLine)
+		if self:CheckModLineVariant(modLine) then
+			-- special section for variant over-ride of pre-modifier item parameters
+			if modLine.line:find("Requires Class") then
+				self.classRestriction = modLine.line:gsub("{variant:([%d,]+)}", ""):match("Requires Class (.+)")
+			end
+			-- handle understood modifier variable properties
+			if not modLine.extra then
+				if modLine.range then
+					local strippedModeLine = modLine.line:gsub("\n"," ")
+					-- Look at the min and max of the range to confirm it's *actually* a range
+					local rangeMin, rangeMax = itemLib.getLineRangeMinMax(strippedModeLine)
+					if rangeMin ~= rangeMax then
+						local catalystScalar = getCatalystScalar(self.catalyst, modLine.modTags, self.catalystQuality)
+						-- Put the modified value into the string
+						local line = itemLib.applyRange(strippedModeLine, modLine.range, catalystScalar)
+						-- Check if we can parse it before adding the mods
+						local list, extra = modLib.parseMod(line)
+						if list and not extra then
+							modLine.modList = list
+							t_insert(self.rangeLineList, modLine)
+						end
 					end
 				end
-			end
-			for _, mod in ipairs(modLine.modList) do
-				mod.source = self.modSource
-				if type(mod.value) == "table" and mod.value.mod then
-					mod.value.mod.source = mod.source
+				for _, mod in ipairs(modLine.modList) do
+					mod = modLib.setSource(mod, self.modSource)
+					baseList:AddMod(mod)
 				end
-				baseList:AddMod(mod)
-			end
-			if modLine.modTags and #modLine.modTags > 0 then
-				self.hasModTags = true
+				if modLine.modTags and #modLine.modTags > 0 then
+					self.hasModTags = true
+				end
 			end
 		end
 	end
@@ -1329,6 +1347,9 @@ function ItemClass:BuildModList()
 		processModLine(modLine)
 	end
 	for _, modLine in ipairs(self.scourgeModLines) do
+		processModLine(modLine)
+	end
+	for _, modLine in ipairs(self.classRequirementModLines) do
 		processModLine(modLine)
 	end
 	for _, modLine in ipairs(self.implicitModLines) do

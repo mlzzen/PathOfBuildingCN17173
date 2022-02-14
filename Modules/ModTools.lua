@@ -170,6 +170,14 @@ function modLib.formatMod(mod)
 	return modLib.formatValue(mod.value) .. " = " .. modLib.formatModParams(mod)
 end
 
+function modLib.setSource(mod, source)
+	mod.source = source
+	if type(mod.value) == "table" and mod.value.mod then
+		mod.value.mod.source = source
+	end
+	return mod
+end
+
 function modLib.extractModTags(mod)
 	local modIndex = 1
 	local list = {}

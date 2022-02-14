@@ -650,5 +650,6 @@ for _, type in pairs(itemTypes) do
 	data.uniques[type] = LoadModule("Data/Uniques/"..type)
 end
 
+LoadModule("Data/Uniques/Special/Generated")
 LoadModule("Data/New")
  

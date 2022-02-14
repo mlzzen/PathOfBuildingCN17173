@@ -111,6 +111,7 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 	-- Build maps of class name -> class table
 	self.classNameMap = { }
 	self.ascendNameMap = { }
+	self.classNotables = { }
 	for classId, class in pairs(self.classes) do
 		if versionNum >= 3.10  then
 			-- Migrate to old format			
@@ -274,7 +275,7 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 	end
 
 	ConPrintf("Processing tree...")
-	
+	self.ascendancyMap = { }
 	self.keystoneMap = { }
 	self.notableMap  = { }
 	self.notableAscendancyNameMap  = { }
@@ -338,9 +339,8 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			node.type = "Keystone"
 			self.keystoneMap[node.dn] = node
 		elseif node["not"] or node.isNotable then
-			if  node["ascendancyName"] == nil then
-				node.type = "Notable"
-				if not node.ascendancyName then
+			node.type = "Notable"
+			if not node.ascendancyName then
 				-- Some nodes have duplicate names in the tree data for some reason, even though they're not on the tree
 				-- Only add them if they're actually part of a group (i.e. in the tree)
 				-- Add everything otherwise, because cluster jewel notables don't have a group
@@ -349,14 +349,24 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 				elseif node.g then
 					self.notableMap[node.dn:lower()] = node
 				end
+			else
+				self.ascendancyMap[node.dn:lower()] = node
+				if not self.classNotables[self.ascendNameMap[node.ascendancyName].class.name] then
+					self.classNotables[self.ascendNameMap[node.ascendancyName].class.name] = { }
 				end
-			else 
-				node.type = "Notable"
-				self.notableAscendancyNameMap[node.dn:lower()] = node
-			
-			end 
+				if self.ascendNameMap[node.ascendancyName].class.name ~= "贵族" then
+					t_insert(self.classNotables[self.ascendNameMap[node.ascendancyName].class.name], node.dn)
+				end
+			end
 		else
 			node.type = "Normal"
+			if node.ascendancyName == "升华使徒" and not node.dn:find(" ") and node.dn ~= "Dexterity" and
+				node.dn ~= "Intelligence" and node.dn ~= "Strength" then
+				if not self.classNotables[self.ascendNameMap[node.ascendancyName].class.name] then
+					self.classNotables[self.ascendNameMap[node.ascendancyName].class.name] = { }
+				end
+				t_insert(self.classNotables[self.ascendNameMap[node.ascendancyName].class.name], node.dn)
+			end
 		end
 
 		 
@@ -474,6 +484,9 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 
 		self:ProcessStats(node)
 	end
+
+	-- Late load the Generated data so we can take advantage of a tree existing
+	buildTreeDependentUniques(self)
 end)
 
 function PassiveTreeClass:ProcessStats(node)

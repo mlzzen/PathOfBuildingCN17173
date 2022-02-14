@@ -2952,6 +2952,9 @@ tooltip:AddLine(16, s_format("^x7F7F7F品质: "..colorCodes.MAGIC.."+%d%%", item
 		if item.limit then
 tooltip:AddLine(16, "^x7F7F7F仅限: ^7"..item.limit)
 		end
+		if item.classRestriction then
+			tooltip:AddLine(16, "^x7F7F7F需求 职业: "..(self.build.spec.curClassName == item.classRestriction and colorCodes.POSITIVE or colorCodes.NEGATIVE)..item.classRestriction)
+		end
 		if item.jewelRadiusLabel  then
 tooltip:AddLine(16, "^x7F7F7F范围: ^7"..item.jewelRadiusLabel)
 		end
