@@ -10,7 +10,7 @@
 	<File name="UpdateCheck.lua" part="program" sha1="f6c60cb8210d110c03fbd51cba5179e87b46a495" />
 	<File name="UpdateApply.lua" part="program" sha1="4f17937f2b37784e169a3792b235f2a0a3961e61" />
 	<File name="GameVersions.lua" part="program" sha1="fd167261ed8934214789cc33adec995c9e16aed1" />
-	<File name="changelog.txt" part="default" sha1="0583bfc74643482fea18fc4269971821db2b9312" />
+	<File name="changelog.txt" part="default" sha1="dd8267df239948a992082d2b8c3781b38116fd21" />
 	<File name="Path of Building.exe" part="runtime" platform="win32" sha1="7486cf4f0289df72ccce93a69a4198ad069f79b9" />
 	<File name="lua51.dll" part="runtime" platform="win32" sha1="7a973d3c0b5121e6aad0dcb9323be5b432fc63e7" />
 	<File name="SimpleGraphic.dll" part="runtime" platform="win32" sha1="330f6f21f8c4ff0a687fb28c0e267b74df4938a5" />
@@ -427,4 +427,12 @@
 	<File name="TreeData/3_16/mastery-disabled-3.png" part="tree" sha1="2401a6162eb0a9d831c15f987d972145e530bb77" />
 	<File name="TreeData/3_16/skills-3.jpg" part="tree" sha1="c638888d1c61852c9fbcafd49a54a9f9c7208598" />
 	<File name="TreeData/3_16/skills-disabled-3.jpg" part="tree" sha1="f637d86d9457c569e3327a424f34586b93bd1753" />
+	<File name="TreeData/3_17/tree.lua" part="tree" sha1="dc256e7fb852856518b0140df5056e1c7e3f05b0" />
+	<File name="TreeData/3_17/translation.lua" part="tree" sha1="a32d9aa8e4c5691d42bd33a5dcde6f84b9e3d953" />
+	<File name="TreeData/3_17/mastery-active-effect-3.png" part="tree" sha1="3b1613343bd48d7467688a4573f92e29f5b0fd07" />
+	<File name="TreeData/3_17/mastery-active-selected-3.png" part="tree" sha1="9e53068c88e0a6675e9d0c7ad07e640d1e487438" />
+	<File name="TreeData/3_17/mastery-connected-3.png" part="tree" sha1="a54994c71e2afe4ee6580dfd2fc2e95d2870cf97" />
+	<File name="TreeData/3_17/mastery-disabled-3.png" part="tree" sha1="70b70f9eb03ef55c945c0208f7d867e91085d9d7" />
+	<File name="TreeData/3_17/skills-3.jpg" part="tree" sha1="087f3fd8551af0e5664404e3d5330af5c3e15a74" />
+	<File name="TreeData/3_17/skills-disabled-3.jpg" part="tree" sha1="f321b6fa69bb70a390eb935b7aacf42b14c51aaf" />
 </PoBVersion>
