@@ -386,7 +386,7 @@ function calcs.buildOutput(build, mode)
 			end
 			if activeSkill.minion then
 				if activeSkill.minion.mainSkill == nil then
-					ConPrinf("gggg")
+					-- ConPrinf("gggg")
 				end
 				for	_, activeSkill in ipairs(activeSkill.minion.activeSkillList) do
 					env.skillsUsed[activeSkill.activeEffect.grantedEffect.id] = true
