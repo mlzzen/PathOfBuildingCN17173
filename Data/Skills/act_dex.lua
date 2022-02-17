@@ -798,7 +798,7 @@ skills["ChargedAttack"] = {
 		["base_skill_show_average_damage_instead_of_dps"] = {
 		},
 		["charged_attack_damage_per_stack_+%_final"] = {
-			mod("Damage", "MORE", nil, 0, bit.bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Multiplier", var = "BladeFlurryStage" }),
+			mod("Damage", "MORE", nil, 0, bit.bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Multiplier", var = "刀刃乱舞Stage" }),
 		},
 		["blade_flurry_elemental_damage_+%_while_channeling"] = {
 			mod("ElementalDamage", "INC", nil, 0, 0, { type = "SkillPart", skillPart = 1 })
@@ -813,8 +813,8 @@ skills["ChargedAttack"] = {
 		area = true,
 	},
 	baseMods = {
-		mod("Multiplier:BladeFlurryMaxStages", "BASE", 6),
-		skill("numStages", 1, { type = "Multiplier", var = "BladeFlurryStage" }),
+		mod("Multiplier:刀刃乱舞MaxStages", "BASE", 6),
+		skill("numStages", 1, { type = "Multiplier", var = "刀刃乱舞Stage" }),
 		skill("stackMultiplier", 2, { type = "SkillPart", skillPart = 2 }),
 		skill("radius", 14),
 	},
@@ -1789,7 +1789,7 @@ skills["ChargedDash"] = {
 			mod("chargedDashFinalDamageModifier", "INC", nil, 0, 0, { type = "SkillPart", skillPart = 3 }),
 		},
 		["charged_dash_damage_+%_final_per_stack"] = {
-			mod("chargedDashFinalDamageModifier", "INC", nil, 0, 0, { type = "Multiplier", var = "ChargedDashStage" }, { type = "SkillPart", skillPart = 3 }),
+			mod("chargedDashFinalDamageModifier", "INC", nil, 0, 0, { type = "Multiplier", var = "蓄力疾风闪Stage" }, { type = "SkillPart", skillPart = 3 }),
 		},
 		["charged_dash_channelling_damage_at_full_stacks_+%_final"] = {
 			mod("Damage", "MORE", nil, 0, 0, { type = "SkillPart", skillPart = 2 }),
@@ -1806,7 +1806,7 @@ skills["ChargedDash"] = {
 		skill("radiusSecondary", 26),
 		skill("radiusSecondaryLabel", "End of Dash:"),
 		skill("hitTimeMultiplier", 2, { type = "Skill", skillPartList = { 1, 2 } }),
-		mod("Multiplier:ChargedDashMaxStages", "BASE", 15),
+		mod("Multiplier:蓄力疾风闪MaxStages", "BASE", 15),
 		skill("showAverage", true, { type = "SkillPart", skillPart = 3 }),
 	},
 	qualityStats = {
@@ -2107,7 +2107,7 @@ skills["Cyclone"] = {
 	castTime = 1,
 	statMap = {
 		["cyclone_max_number_of_stages"] = {
-			mod("Multiplier:CycloneMaxStages", "BASE", nil),
+			mod("Multiplier:旋风斩MaxStages", "BASE", nil),
 		},
 		["cyclone_area_of_effect_+%_per_additional_melee_range"] = {
 			mod("AreaOfEffect", "INC", nil, 0, 0, { type = "Multiplier", var = "AdditionalMeleeRange"}),
@@ -2133,7 +2133,7 @@ skills["Cyclone"] = {
 	},
 	baseMods = {
 		skill("radius", 11),
-		skill("radiusExtra", 1, { type = "Multiplier", var = "CycloneStage" }),
+		skill("radiusExtra", 1, { type = "Multiplier", var = "旋风斩Stage" }),
 	},
 	qualityStats = {
 		Default = {
@@ -6698,7 +6698,7 @@ skills["Reave"] = {
 	castTime = 1,
 	statMap = {
 		["reave_area_of_effect_+%_final_per_stage"] = {
-			mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "ReaveStage" }),
+			mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "冲击波Stage" }),
 		},
 	},
 	baseFlags = {
@@ -6708,7 +6708,7 @@ skills["Reave"] = {
 	},
 	baseMods = {
 		skill("radius", 20),
-		mod("Multiplier:ReaveMaxStages", "BASE", 8),
+		mod("Multiplier:冲击波MaxStages", "BASE", 8),
 	},
 	qualityStats = {
 		Default = {
@@ -6788,7 +6788,7 @@ skills["VaalReave"] = {
 	castTime = 1,
 	statMap = {
 		["reave_area_of_effect_+%_final_per_stage"] = {
-			mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "ReaveStage" }),
+			mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "冲击波Stage" }),
 		},
 	},
 	baseFlags = {
@@ -6799,7 +6799,7 @@ skills["VaalReave"] = {
 	},
 	baseMods = {
 		skill("radius", 12),
-		mod("Multiplier:ReaveMaxStages", "BASE", 8),
+		mod("Multiplier:冲击波MaxStages", "BASE", 8),
 	},
 	qualityStats = {
 		Default = {
@@ -6963,7 +6963,7 @@ skills["ScourgeArrow"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	initialFunc = function(activeSkill, output)
-		activeSkill.skillData.dpsMultiplier = 1 / math.max(activeSkill.skillModList:Sum("BASE", cfg, "Multiplier:ScourgeArrowStage"), 1)
+		activeSkill.skillData.dpsMultiplier = 1 / math.max(activeSkill.skillModList:Sum("BASE", cfg, "Multiplier:天灾之箭Stage"), 1)
 	end,
 	parts = {
 		{
@@ -6977,7 +6977,7 @@ skills["ScourgeArrow"] = {
 	},
 	statMap = {
 		["virulent_arrow_damage_+%_final_per_stage"] = {
-			mod("Damage", "MORE", nil, 0, bit.bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Multiplier", var = "ScourgeArrowStage" }),
+			mod("Damage", "MORE", nil, 0, bit.bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Multiplier", var = "天灾之箭Stage" }),
 		},
 		["virulent_arrow_pod_projectile_damage_+%_final"] = {
 			mod("Damage", "MORE", nil, 0, 0, { type= "SkillPart", skillPart = 2 }),
@@ -6988,7 +6988,7 @@ skills["ScourgeArrow"] = {
 		projectile = true,
 	},
 	baseMods = {
-		mod("Multiplier:ScourgeArrowMaxStages", "BASE", 5),
+		mod("Multiplier:天灾之箭MaxStages", "BASE", 5),
 	},
 	qualityStats = {
 		Default = {
