@@ -467,6 +467,13 @@ local function runSkillFunc(name)
 			end
 		end
 	end
+	if skillModList:Flag(nil, "ProjectileSpeedAppliesToBowDamage") then
+		-- Bow mastery projectile speed to damage with bows conversion
+		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ProjectileSpeed")) do
+			local mod = value.mod
+			skillModList:NewMod("Damage", mod.type, mod.value, mod.source, ModFlag.Bow, mod.keywordFlags, unpack(mod))
+		end
+	end
 	if skillModList:Flag(nil, "MaximumManaAppliesToShockEffect") then
 		-- Maximum Mana conversion from Lightning Mastery
 		local multiplier = getConversionMultiplier("INC", "ImprovedMaximumManaAppliesToShockEffect")
