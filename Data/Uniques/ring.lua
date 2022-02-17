@@ -296,10 +296,10 @@ Has Alt Variant: true
 {tags:attack,physical}附加 (8-10) - (13-15) 基础物理伤害
 {tags:jewellery_defense}+(350-400) 护甲
 {variant:1}【纯净之捷】的增益效果提高 (40-60)%
-{variant:2}纯净之捷的保留效果降低 (15-20)%
+{variant:2}纯净之捷的魔力保留效能提高 (30-40)%
 {variant:3}{tags:physical}受到【纯净之捷】影响时，获得额外 4% 物理伤害减免
 {variant:4}{tags:physical}受到【纯净之捷】影响时，物理伤害提高 (40-60)%
-{variant:5}召唤的纯净哨兵伤害提高 (70-100)%
+{variant:5}【纯净哨兵】的伤害提高 (70-100)%
 忆境物品
 ]],[[
 罪恶之环(分裂)
@@ -341,9 +341,9 @@ Has Alt Variant: true
 {tags:jewellery_elemental}附加 (20-25) - (26-35) 基础冰霜伤害
 {tags:jewellery_resistance}+(20-30)% 冰霜抗性
 {variant:1}【寒冰之捷】的增益效果提高 (40-60)%
-{variant:2}寒冰之捷的保留效果降低 (15-20)%
+{variant:2}寒冰之捷的魔力保留效能提高 (30-40)%
 {variant:3}{tags:jewellery_resistance}受到【寒冰之捷】影响时，+(50-60)% 冰霜抗性
-{variant:4}{tags:jewellery_resistance}受到【寒冰之捷】影响时，+1% 冰霜抗性上限
+{variant:4}{tags:jewellery_resistance}受到【寒冰之捷】影响时，最大冰霜抗性 +1%
 {variant:5}受到【寒冰之捷】影响时，冰霜伤害提高 (40-60)%
 忆境物品
 ]],
@@ -387,9 +387,9 @@ Has Alt Variant: true
 {tags:jewellery_elemental}附加 (20-25) - (26-35) 基础火焰伤害
 {tags:jewellery_resistance}+(20-30)% 火焰抗性
 {variant:1}【灰烬之捷】的增益效果提高 (40-60)%
-{variant:2}灰烬之捷的保留效果降低 (15-20)%
+{variant:2}灰烬之捷的魔力保留效能提高 (30-40)%
 {variant:3}{tags:jewellery_resistance}受到【灰烬之捷】影响时，+(50-60)% 火焰抗性
-{variant:4}{tags:jewellery_resistance}受到【灰烬之捷】影响时，+1% 火焰抗性上限
+{variant:4}{tags:jewellery_resistance}受到【灰烬之捷】影响时，最大火焰抗性 +1%
 {variant:5}{tags:jewellery_elemental}受到【灰烬之捷】影响时，火焰伤害提高 (40-60)%
 忆境物品
 ]],
@@ -433,10 +433,10 @@ Has Alt Variant: true
 {tags:chaos}附加 (15-20) - (21-30) 基础混沌伤害
 {tags:jewellery_resistance,chaos}+(17-23)% 混沌抗性
 {variant:1}【苦痛之捷】的增益效果提高 (40-60)%
-{variant:2}苦痛之捷的保留效果降低 (15-20)%
+{variant:2}苦痛之捷的魔力保留效能提高 (30-40)%
 {variant:3}{tags:jewellery_resistance}受到【苦痛之捷】影响时，+(31-43)% 混沌抗性
 {variant:4}{tags:chaos}受到【苦痛之捷】影响时，混沌伤害提高 (40-60)%
-{variant:5}召唤的苦痛爬行者伤害提高 (70-100)%
+{variant:5}苦痛爬行者的伤害提高 (70-100)%
 忆境物品
 ]],[[
 乡愁之环(分裂)

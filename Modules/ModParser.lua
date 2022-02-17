@@ -515,10 +515,13 @@ local modNameList = {
 	["physical damage reduction from hits"] = "PhysicalDamageReductionWhenHit",
 	["火焰抗性"] = "FireResist", --备注：fire resistance
 	["火焰抗性上限"] = "FireResistMax", --备注：maximum fire resistance
+	["最大火焰抗性"] = "FireResistMax", --备注：maximum fire resistance
 	["冰霜抗性"] = "ColdResist", --备注：cold resistance
 	["冰霜抗性上限"] = "ColdResistMax", --备注：maximum cold resistance
+	["最大冰霜抗性"] = "ColdResistMax", --备注：maximum cold resistance
 	["闪电抗性"] = "LightningResist", --备注：lightning resistance
 	["闪电抗性上限"] = "LightningResistMax", --备注：maximum lightning resistance
+	["最大闪电抗性	"] = "LightningResistMax", --备注：maximum lightning resistance
 	["混沌抗性"] = "ChaosResist", --备注：chaos resistance
 	["火焰和冰霜抗性"] = { "FireResist", "ColdResist" }, --备注：fire and cold resistances
 	["火焰和闪电抗性"] = { "FireResist", "LightningResist" }, --备注：fire and lightning resistances
@@ -3142,6 +3145,7 @@ local specialModList = {
 	["若你有 3 个起源天赋珠宝，召唤魔像的数量 %+(%d)"] = function(num) return { mod("ActiveGolemLimit", "BASE", num, { type = "MultiplierThreshold", var = "PrimordialItem", threshold = 3 }) } end,
 	["你身上的每层中毒状态使你获得 %+(%d+)%% 混沌抗性"]= function(num) return {  mod("ChaosResist", "BASE", num, { type = "Multiplier", var = "PoisonStack" } )  } end,
 	["【苦痛爬行者】的伤害提高 (%d+)%%"]= function(num) return {  mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num) }, { type = "SkillId", skillId = "HeraldOfAgony" })   } end,
+	["苦痛爬行者的伤害提高 (%d+)%%"]= function(num) return {  mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num) }, { type = "SkillId", skillId = "HeraldOfAgony" })   } end,
 	["召唤的苦痛爬行者伤害提高 (%d+)%%"]= function(num) return {  mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num) }, { type = "SkillId", skillId = "HeraldOfAgony" })   } end,
 	["召唤的苦痛爬行者额外发射 (%d+) 的投射物"]= function(num) return {  mod("MinionModifier", "LIST", { mod = mod("ProjectileCount", "BASE", num) }, { type = "SkillId", skillId = "HeraldOfAgony" })   } end,
 	["受到【愤怒】影响时，(%d+)%% 的物理伤害转化为火焰伤害"]= function(num) return {  mod("PhysicalDamageConvertToFire", "BASE", num,{ type = "Condition", var = "AffectedBy愤怒" })  } end,
