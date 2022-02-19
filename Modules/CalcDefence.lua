@@ -1832,7 +1832,7 @@ function calcs.defence(env, actor)
 		local totalEnergyShieldDegen = 0
 		if breakdown then
 			breakdown.NetLifeRegen = { 
-					label = "总生命消减",
+					label = "最终生命回复",
 					rowList = { },
 					colList = {
 						{ label = "【类型】", key = "type" },
@@ -1840,7 +1840,7 @@ function calcs.defence(env, actor)
 					},
 				}
 			breakdown.NetManaRegen = { 
-					label = "总魔力消减",
+					label = "最终魔力回复",
 					rowList = { },
 					colList = {
 						{ label = "【类型】", key = "type" },
@@ -1848,7 +1848,7 @@ function calcs.defence(env, actor)
 					},
 				}
 			breakdown.NetEnergyShieldRegen = { 
-					label = "总能量护盾消减",
+					label = "最终能量护盾回复",
 					rowList = { },
 					colList = {
 						{ label = "【类型】", key = "type" },
@@ -1899,13 +1899,13 @@ function calcs.defence(env, actor)
 		output.NetEnergyShieldRegen = output.NetEnergyShieldRegen - totalEnergyShieldDegen
 		output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen
 		if breakdown then
-			t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(总生命消减)", output.LifeRegen))
+			t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(最终生命回复)", output.LifeRegen))
 			t_insert(breakdown.NetLifeRegen, s_format("- %.1f ^8(总生命消减)", totalLifeDegen))
 			t_insert(breakdown.NetLifeRegen, s_format("= %.1f", output.NetLifeRegen))
-			t_insert(breakdown.NetManaRegen, s_format("%.1f ^8(总魔力消减)", output.ManaRegen))
+			t_insert(breakdown.NetManaRegen, s_format("%.1f ^8(最终魔力回复)", output.ManaRegen))
 			t_insert(breakdown.NetManaRegen, s_format("- %.1f ^8(总魔力消减)", totalManaDegen))
 			t_insert(breakdown.NetManaRegen, s_format("= %.1f", output.NetManaRegen))
-			t_insert(breakdown.NetEnergyShieldRegen, s_format("%.1f ^8(总能量护盾消减)", output.EnergyShieldRegen))
+			t_insert(breakdown.NetEnergyShieldRegen, s_format("%.1f ^8(最终能量护盾回复)", output.EnergyShieldRegen))
 			t_insert(breakdown.NetEnergyShieldRegen, s_format("- %.1f ^8(总能量护盾消减)", totalEnergyShieldDegen))
 			t_insert(breakdown.NetEnergyShieldRegen, s_format("= %.1f", output.NetEnergyShieldRegen))
 			breakdown.TotalNetRegen = {
