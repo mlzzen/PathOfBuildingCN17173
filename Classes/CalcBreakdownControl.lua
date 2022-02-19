@@ -203,9 +203,9 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 		if (sectionData.gearOnly) then
 		-- Only show basic table for gear and base ES/Armour/Evasion value
 			colList = {
-				{ label = "Value", key = "base", right = true },
+				{ label = "【值】", key = "base", right = true },
 				{ label = "【来源】", key = "source" },
-				{ label = "【名称】", key = "sourceLabel" },
+				{ label = "【来源名称】", key = "sourceLabel" },
 			}
 			rowList = {}
 			for _, row in pairs(breakdown.slots) do
@@ -220,7 +220,7 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 				{ label = "【额外 提高/降低】", key = "more" },
 				{ label = "【总】", key = "total", right = true },
 				{ label = "【来源】", key = "source" },
-				{ label = "【名称】", key = "sourceLabel" },
+				{ label = "【来源名称】", key = "sourceLabel" },
 			}
 			rowList = breakdown.slots
 		end

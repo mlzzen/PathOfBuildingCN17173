@@ -171,6 +171,8 @@ data.powerStatList = {
 	{ stat="Life", label="生命" },
 	{ stat="LifeRegen", label="生命回复" },
 	{ stat="LifeLeechRate", label="生命偷取" },
+	{ stat="Armour", label="护甲" },
+	{ stat="Evasion", label="闪避" },
 	{ stat="EnergyShield", label=" 能量护盾" },
 	{ stat="EnergyShieldRecoveryCap", label="可回复的能量护盾" },
 	{ stat="EnergyShieldRegen", label="能量护盾回复" },
@@ -186,11 +188,7 @@ data.powerStatList = {
 	{ stat="MeleeAvoidChance", label="近战伤害避免几率" },
 	{ stat="SpellAvoidChance", label="法术伤害避免几率" },
 	{ stat="ProjectileAvoidChance", label="投射物伤害避免几率" },
-	{ stat="PhysicalTotalEHP", label="eHP-对抗物理击中" },
-	{ stat="LightningTotalEHP", label="eHP-对抗闪电击中" },
-	{ stat="ColdTotalEHP", label="eHP-对抗冰霜击中" },
-	{ stat="FireTotalEHP", label="eHP-对抗火焰击中" },
-	{ stat="ChaosTotalEHP", label="eHP-对抗混沌击中" },
+	{ stat="TotalEHP", label="合计有效血池" },
 	{ stat="PhysicalTakenHitMult", label="承受物理伤害", transform=function(value) return 1-value end },
 	{ stat="LightningTakenDotMult", label="承受闪电伤害", transform=function(value) return 1-value end },
 	{ stat="ColdTakenDotMult", label="承受冰霜伤害", transform=function(value) return 1-value end },
@@ -245,6 +243,8 @@ data.jewelRadii = {
 data.jewelRadius = data.setJewelRadiiGlobally(latestTreeVersion)
 
 data.enchantmentSource = {
+	{ name = "ENKINDLING", label = "Enkindling Orb" },
+	{ name = "INSTILLING", label = "Instilling Orb" },
 	{ name = "HEIST", label = "夺宝" },
 	{ name = "HARVEST", label = "庄园" },
 	{ name = "DEDICATION", label = "潜能终极帝王迷宫-女神祭献" },
@@ -254,9 +254,25 @@ data.enchantmentSource = {
 	{ name = "NORMAL", label = "帝王试炼" },
 }
 
-data.monsterExperienceLevelMap = { [71] = 70.94, [72] = 71.82, [73] = 72.64, [74] = 73.40, [75] = 74.10, [76] = 74.74, [77] = 75.32, [78] = 75.84, [79] = 76.30, [80] = 76.70, [81] = 77.04, [82] = 77.32, [83] = 77.54, [84] = 77.70, }
-for i = 1, 70 do
-	data.monsterExperienceLevelMap[i] = i
+local maxPenaltyFreeAreaLevel = 70
+local maxAreaLevel = 87 -- T16 map + side area + three watchstones that grant +1 level
+local penaltyMultiplier = 0.06
+
+---@param areaLevel number
+---@return number
+local function effectiveMonsterLevel(areaLevel)
+	--- Areas with area level above a certain penalty-free level are considered to have
+	--- a scaling lower effective monster level for experience penalty calculations.
+	if areaLevel <= maxPenaltyFreeAreaLevel then
+		return areaLevel
+	end
+	return areaLevel - triangular(areaLevel - maxPenaltyFreeAreaLevel) * penaltyMultiplier
+end
+
+---@type table<number, number>
+data.monsterExperienceLevelMap = {}
+for i = 1, maxAreaLevel do
+	data.monsterExperienceLevelMap[i] = effectiveMonsterLevel(i)
 end
 
 data.weaponTypeInfo = {
@@ -410,7 +426,13 @@ data.misc = { -- magic numbers
 	MurderousEyeJewelMaxCritChancePercent = 100,
 	MurderousEyeJewelMaxCritCritMultiplierPercent = 50,
 	GhastlyEyeJewelMaxMinionsDOTMultiplierPercent = 30,
-	HypnoticEyeJewelMaxArcaneSurgeEffect = 40
+	HypnoticEyeJewelMaxArcaneSurgeEffect = 40,
+	-- Expected values to calculate EHP
+	stdBossDPSMult = 4 / 4.25,
+	shaperDPSMult = 8 / 4.25,
+	shaperPen = 25 / 5,
+	sirusDPSMult = 10 / 4.25,
+	sirusPen = 40 / 5,
 	
 }
 

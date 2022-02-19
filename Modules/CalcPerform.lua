@@ -1143,6 +1143,15 @@ local function doActorMisc(env, actor)
 	end	
 end
 
+function calcs.actionSpeedMod(actor)
+	local modDB = actor.modDB
+	local actionSpeedMod = 1 + (m_max(-data.misc.TemporalChainsEffectCap, modDB:Sum("INC", nil, "TemporalChainsActionSpeed")) + modDB:Sum("INC", nil, "ActionSpeed")) / 100
+	if modDB:Flag(nil, "ActionSpeedCannotBeBelowBase") then
+		actionSpeedMod = m_max(1, actionSpeedMod)
+	end
+	return actionSpeedMod
+end
+
 -- Finalises the environment and performs the stat calculations:
 -- 1. Merges keystone modifiers
 -- 2. Initialises minion skills
@@ -1743,9 +1752,9 @@ function calcs.perform(env, avoidCache)
 					breakdown["Req"..attr] = {
 						rowList = { },
 						colList = {
-							{ label = attr, key = "req" },
-							{ label = "Source", key = "source" },
-							{ label = "Source Name", key = "sourceName" },
+							{ label = "【值】", key = "req" },
+							{ label = "【来源】", key = "source" },
+							{ label = "【来源名称】", key = "sourceName" },
 						}
 					}
 					output["Req"..attr.."String"] = "无视属性需求"
@@ -1766,9 +1775,9 @@ function calcs.perform(env, avoidCache)
 					breakdown["Req"..attr] = {
 						rowList = { },
 						colList = {
-							{ label = attr, key = "req" },
-							{ label = "Source", key = "source" },
-							{ label = "Source Name", key = "sourceName" },
+							{ label = "【值】", key = "req" },
+							{ label = "【来源】", key = "source" },
+							{ label = "【来源名称】", key = "sourceName" },
 						}
 					}
 				end
@@ -2356,7 +2365,7 @@ function calcs.perform(env, avoidCache)
 	
 	for _, activeSkill in ipairs(env.player.activeSkillList) do -- Do another pass on the SkillList to catch effects of buffs, if needed
 		if activeSkill.activeEffect.grantedEffect.name == "枯萎" and activeSkill.skillPart == 2 then
-			local rate = (1 / 0.3) * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "Speed")
+			local rate = (1 / activeSkill.activeEffect.grantedEffect.castTime) * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "Speed") * calcs.actionSpeedMod(env.player)
 			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
 			local maximum = m_min((m_floor(rate * duration) - 1), 19)
 			activeSkill.skillModList:NewMod("Multiplier:枯萎MaxStagesAfterFirst", "BASE", maximum, "Base")
@@ -2370,7 +2379,7 @@ function calcs.perform(env, avoidCache)
 			activeSkill.skillModList:NewMod("Multiplier:忏悔烙印StageAfterFirst", "BASE", ticks, "Base")
 		end
 		if activeSkill.activeEffect.grantedEffect.name == "灼热光线" and activeSkill.skillPart == 2 then
-			local rate = (1 / 0.5) * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "Speed")
+			local rate = (1 / activeSkill.activeEffect.grantedEffect.castTime) * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "Speed") * calcs.actionSpeedMod(env.player)
 			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
 			local maximum = m_min((m_floor(rate * duration) - 1), 7)
 			activeSkill.skillModList:NewMod("Multiplier:灼热光线MaxStagesAfterFirst", "BASE", maximum, "Base")
