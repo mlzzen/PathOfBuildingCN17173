@@ -6947,6 +6947,8 @@ local specialModList = {
 		mod("Damage", "MORE", num, "Damage", ModFlag.Attack, { type = "Condition", var = "副手AccRatingHigherThanMaxLife" }, { type = "Condition", var = "OffHandAttack" } ),
 	} end,
 	["不能造成暴击"] = { flag("NeverCrit"), flag("Condition:NeverCrit") },
+	["左戒指栏位：你点燃敌人时在接下来 5 秒使其被灰烬缠身"] = { mod("CoveredInAshEffect", "BASE", 20, { type = "SlotNumber", num = 1 }, { type = "ActorCondition", actor = "enemy", var = "Ignited" }) },
+	["右戒指栏位：你冻结敌人时在接下来 5 秒使其被冰霜附体"] = { mod("CoveredInFrostEffect", "BASE", 20, { type = "SlotNumber", num = 2 }, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) },
 
 }
 

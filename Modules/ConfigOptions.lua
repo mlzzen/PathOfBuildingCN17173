@@ -1321,6 +1321,9 @@ end },
 		
 		
 	end },
+	{ var = "conditionEnemyCoveredInFrost", type = "check", label = "敌人【冰霜附体】?", tooltip = "这个会附加词缀:\n\t提高 20% 敌人承受的冰霜伤害\n\t敌人暴击几率总降 50%", apply = function(val, modList, enemyModList)
+		modList:NewMod("CoveredInFrostEffect", "BASE", 20, "冰霜附体")
+	end },
 { var = "conditionEnemyRareOrUnique", type = "check", label = "敌人是传奇或稀有怪物?", ifEnemyCond  = "EnemyRareOrUnique", tooltip = "如果boss类型选项选择的是boss，那么这里会默认为传奇或稀有怪物.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
