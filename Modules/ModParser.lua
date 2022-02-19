@@ -211,6 +211,7 @@ local modNameList = {
 	["攻击与法术暴击率"] = { "CritChance" , tag = { type = "Global" }},
 	["攻击和法术暴击率"] = { "CritChance" , tag = { type = "Global" }},
 	["总魔力保留"] = "ManaReserved",
+	["技能的魔力保留"] = "ManaReserved",
 	["药剂持续期间间"] = "FlaskDuration",-- 官网的sx翻译
 	["闪电伤害击中时有 ([%+%-]?%d+)%% 几率使敌人受到感电效果影响"] = "EnemyShockChance", --备注：to shock
 	["法杖攻击伤害"] = { "Damage", flags = bor(ModFlag.Wand, ModFlag.Hit) },
@@ -508,7 +509,7 @@ local modNameList = {
 	["chance to evade"] = "EvadeChance",
 	["to evade attacks"] = "EvadeChance",
 	["闪避攻击"] = "EvadeChance", --备注：chance to evade attacks
-	["chance to evade projectile attacks"] = "ProjectileEvadeChance",
+	["对投射物攻击的总闪避率"] = "ProjectileEvadeChance",
 	["chance to evade melee attacks"] = "MeleeEvadeChance",
 	-- Resistances
 	["物理伤害减免"] = "PhysicalDamageReduction", --备注：physical damage reduction
@@ -1457,7 +1458,8 @@ local modTagList = {
 	["【猛攻】效果持续时，"] = { tag = { type = "Condition", var = "Onslaught" } },
 	["你在猛攻状态下，"] = { tag = { type = "Condition", var = "Onslaught" } },
 	["近期内你若晕眩过敌人，则"] = { tag = { type = "Condition", var = "StunnedEnemyRecently" } },	
-	["近期内你若有晕眩敌人，则"] = { tag = { type = "Condition", var = "StunnedEnemyRecently" } },	
+	["近期内你若有晕眩敌人，则"] = { tag = { type = "Condition", var = "StunnedEnemyRecently" } },
+	["在你近期内没有被攻击击中的情况下"] = { tag = { type = "Condition", var = "BeenHitByAttackRecently", neg = true } },
 	["若你近期内用双手近战武器使一名敌人眩晕，则"] = { flags = bor(ModFlag.Weapon2H, ModFlag.WeaponMelee), tag = { type = "Condition", var = "StunnedEnemyRecently" } },
 	["近期内你若有击中敌人，"] = { tag = { type = "Condition", var = "HitRecently" } },	
 	["敌人身上每层穿刺效果可以为"] = { tag = { type = "Multiplier", var = "ImpaleStack", actor = "enemy" }},
@@ -4248,6 +4250,11 @@ local specialModList = {
 	["近期内如果没有被击中，则承受的总伤害额外降低 (%d+)%%"] = function(num) return {  mod("DamageTaken", "MORE", -num,{ type = "Condition", var = "BeenHitRecently", neg = true })  }
 	end,
 	["近期内如果没有被击中，则总闪避值额外降低 (%d+)%%"] = function(num) return {  mod("Evasion", "MORE", -num,{ type = "Condition", var = "BeenHitRecently", neg = true })  } end,
+	["承受的攻击伤害在你近期内没有被攻击击中的情况下总降 (%d+)%%"] = function(num) return {  mod("AttackDamageTaken", "MORE", -num,{ type = "Condition", var = "BeenHitByAttackRecently", neg = true })  }
+	end,
+	["闪避值在你近期内被攻击击中的情况下总增 (%d+)%%"] = function(num) return {  mod("Evasion", "MORE", num,{ type = "Condition", var = "BeenHitByAttackRecently" })  } end,
+	["承受的攻击伤害在你近期内被攻击击中的情况下总增 (%d+)%%"] = function(num) return {  mod("AttackDamageTaken", "MORE", num,{ type = "Condition", var = "BeenHitByAttackRecently" })  }
+	end,
 	["盾牌上每 (%d+) 点护甲值或闪避值都使攻击伤害提高 (%d+)%%"]= function(_,num1,num2) return {  mod("Damage", "INC", tonumber(num2),{ type = "PerStat", stat = "EvasionOnWeapon 2", div = tonumber(num1) } ),
 	mod("Damage", "INC", tonumber(num2),{ type = "PerStat", stat = "ArmourOnWeapon 2", div = tonumber(num1) } )
 	}end,
@@ -5947,7 +5954,7 @@ local specialModList = {
 	} end,
 	["移除所有魔力"] = { mod("Mana", "MORE", -100) },
 	["技能消耗生命而非魔力"] = { flag("BloodMagicCost") },
-	["技能保留生命而非魔力"] = { flag("BloodMagicReserved") },
+	["保留生命而非魔力"] = { flag("BloodMagicReserved") },
 	["技能效果需要消耗生命而非魔力"] = { },
 	["技能优先消耗能量护盾，而非魔力"] = { },
 	["消耗魔力的技能在消耗魔力前先消耗能量护盾"] = { },
@@ -6928,6 +6935,18 @@ local specialModList = {
 		mod("SelfBrittleDuration", "INC", -num2, { type = "PerStat", stat = "Int", div = num1 } ),
 		mod("SelfSapDuration", "INC", -num2, { type = "PerStat", stat = "Int", div = num1 } ),
 	} end,
+	["有 (%d+)%% 的几率以 (%d+)%% 护甲值进行防御"] = function(numChance, _, numArmourMultiplier) return {
+		mod("ArmourDefense", "MAX", tonumber(numArmourMultiplier) - 100, "Armour Mastery: Max Calc", { type = "Condition", var = "ArmourMax"}),
+		mod("ArmourDefense", "MAX", math.min(numChance / 100, 1.0) * (tonumber(numArmourMultiplier) - 100), "Armour Mastery: Average Calc", { type = "Condition", var = "ArmourAvg"}),
+		mod("ArmourDefense", "MAX", math.min(math.floor(numChance / 100), 1.0) * (tonumber(numArmourMultiplier) - 100), "Armour Mastery: Min Calc", { type = "Condition", var = "ArmourMax" , neg = true}, { type = "Condition", var = "ArmourAvg" , neg = true}),
+	 } end,
+	["任何伤害类型的最大伤害减免为 (%d+)%%"] = function(num) return { mod("DamageReductionMax", "OVERRIDE", num) } end,
+	["躲避法术击中的上限为 (%d+)%%"] = function(num) return { mod("SpellDodgeChanceMax", "OVERRIDE", num, "Acrobatics") } end,
+	["攻击伤害在命中值大于生命上限的情况下总增 (%d+)%%"] = function(num) return { 
+		mod("Damage", "MORE", num, "Damage", ModFlag.Attack, { type = "Condition", var = "主手AccRatingHigherThanMaxLife" }, { type = "Condition", var = "MainHandAttack" } ),
+		mod("Damage", "MORE", num, "Damage", ModFlag.Attack, { type = "Condition", var = "副手AccRatingHigherThanMaxLife" }, { type = "Condition", var = "OffHandAttack" } ),
+	} end,
+	["不能造成暴击"] = { flag("NeverCrit"), flag("Condition:NeverCrit") },
 
 }
 

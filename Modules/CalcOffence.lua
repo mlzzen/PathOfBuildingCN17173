@@ -1412,6 +1412,10 @@ t_insert(breakdown[stat], s_format("x %.3f ^8(副手创建的实例部分)", off
 			
 		end
 
+		-- Check Precise Technique Keystone condition per pass as MH/OH might have different values
+		local condName = pass.label:gsub(" ", "") .. "AccRatingHigherThanMaxLife"
+		skillModList.conditions[condName] = output.Accuracy > env.player.output.LifeUnreserved
+
 		-- Calculate attack/cast speed
 		if activeSkill.activeEffect.grantedEffect.castTime == 0 and not skillData.castTimeOverride then
 			output.Time = 0
