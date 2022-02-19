@@ -780,6 +780,7 @@ local modNameList = {
 	["自身受到的元素异常时间"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
 	["你被点燃的持续时间"] = "SelfIgniteDuration",
 	["你身上的异常状态持续时间"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfPoisonDuration", "SelfBleedDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration"  },
+	["元素异常状态持续时间"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration"  },
 
 	-- Other ailments
 	["to poison"] = "PoisonChance",
@@ -6832,7 +6833,6 @@ local specialModList = {
 	["致盲效果提高 (%d+)%%"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("BlindEffect", "INC", num) }), } end,
 	["恢复的能量护盾不能超过护甲值"] = { flag("ArmourESRecoveryCap") },
 	["恢复的能量护盾不能超过闪避值"] = { flag("EvasionESRecoveryCap") },
-	["duration of ailments on you"] = { "SelfShockDuration", "SelfFreezeDuration", "SelfChillDuration", "SelfIgniteDuration", "SelfPoisonDuration", "SelfBleedDuration", "SelfScorchDuration", "SelfBrittleDuration", "SelfSapDuration" },
 	["智慧不给能量护盾提供属性加成"] = { flag("NoIntBonusToES") },
 	["法术伤害压制率词缀改为有躲避法术击中率，其数值等于原有的 50%%"] = {
 		flag("ConvertSpellSuppressionToSpellDodge"),
@@ -6919,6 +6919,15 @@ local specialModList = {
 	} end,
 	["元素抗性减少 (%d+)%%"] = function(num) return { mod("ElementalResist", "BASE", -num) } end,
 	["元素技能造成三倍伤害"] = { mod("TripleDamageChance", "BASE", 100, { type = "SkillType", skillTypeList = { SkillType.Cold, SkillType.Fire, SkillType.Lightning } } ), },
+	["元素异常状态持续时间按照每 (%d+) 点智慧降低 (%d+)%%"] = function(_,num1,num2) return { 
+		mod("SelfShockDuration", "INC", -num2, { type = "PerStat", stat = "Int", div = num1 } ),
+		mod("SelfFreezeDuration", "INC", -num2, { type = "PerStat", stat = "Int", div = num1 } ),
+		mod("SelfChillDuration", "INC", -num2, { type = "PerStat", stat = "Int", div = num1 } ),
+		mod("SelfIgniteDuration", "INC", -num2, { type = "PerStat", stat = "Int", div = num1 } ),
+		mod("SelfScorchDuration", "INC", -num2, { type = "PerStat", stat = "Int", div = num1 } ),
+		mod("SelfBrittleDuration", "INC", -num2, { type = "PerStat", stat = "Int", div = num1 } ),
+		mod("SelfSapDuration", "INC", -num2, { type = "PerStat", stat = "Int", div = num1 } ),
+	} end,
 
 }
 
