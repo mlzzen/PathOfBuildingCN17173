@@ -1857,18 +1857,31 @@ function calcs.perform(env, avoidCache)
 		if add then
 			t_insert(extraAuraModList, copyTable(value.mod, true))
 		end
-		
 	end
-	local heraldList = { }
-	for _, activeSkill in ipairs(env.player.activeSkillList) do
-		if activeSkill.skillTypes[SkillType.Herald] then
-			heraldList[activeSkill.skillCfg.skillName] = true
+
+	-- Calculate number of active heralds
+	if env.mode_buffs then
+		local heraldList = { }
+		for _, activeSkill in ipairs(env.player.activeSkillList) do
+			if activeSkill.skillTypes[SkillType.Herald] and not heraldList[activeSkill.skillCfg.skillName] then
+				heraldList[activeSkill.skillCfg.skillName] = true
+				modDB.multipliers["Herald"] = (modDB.multipliers["Herald"] or 0) + 1
+				modDB.conditions["AffectedByHerald"] = true
+			end
 		end
 	end
-	for _, herald in pairs(heraldList) do
-		modDB.multipliers["Herald"] = (modDB.multipliers["Herald"] or 0) + 1
-		modDB.conditions["AffectedByHerald"] = true
+
+	-- Calculate number of active auras affecting self
+	if env.mode_buffs then
+		local auraList = { }
+		for _, activeSkill in ipairs(env.player.activeSkillList) do
+			if activeSkill.skillTypes[SkillType.Aura] and not activeSkill.skillTypes[SkillType.RemoteMined] and not activeSkill.skillData.auraCannotAffectSelf and not auraList[activeSkill.skillCfg.skillName] then
+				auraList[activeSkill.skillCfg.skillName] = true
+				modDB.multipliers["AuraAffectingSelf"] = (modDB.multipliers["AuraAffectingSelf"] or 0) + 1
+			end
+		end
 	end
+	
 	-- Apply effect of Bonechill support
 	if env.mode_effective and output.BonechillEffect then 
 		enemyDB:NewMod("ColdDamageTaken", "INC", output.BonechillEffect, 
