@@ -786,7 +786,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			matchedName[name].matched = true
 			local node = env.spec.tree.ascendancyMap[name]
 			if node and (not override.removeNodes or not override.removeNodes[node.id]) then
-				if env.itemModDB.conditions["ForbiddenFlesh"] == env.spec.curClassName and env.itemModDB.conditions["ForbiddenFlame"] == env.spec.curClassName then
+				if env.itemModDB.conditions["禁断之肉"] == env.spec.curClassName and env.itemModDB.conditions["禁断之火"] == env.spec.curClassName then
 					env.allocNodes[node.id] = node
 					env.grantedPassives[node.id] = true
 				end

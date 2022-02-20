@@ -274,32 +274,34 @@ elseif processInfluenceLine(line) then
 			end
 			if not specName then
 				specName, specVal = line:match("^(.+): (.+)$") --lucifer
+				if line:find("需求 职业") then
+					specName = nil
+					specVal = nil
+				end
 			end
 			if not specName then
 				specName, specVal = line:match("^(augmented) (.+)$")--lucifer
 			end
 			if not specName then
-				specName, specVal = line:match("^(需求 职业) (.+)$")
+				specName, specVal = line:match("^(需求 职业): (.+)$")
 			end
 			if specName then
 				
 				if specName == "Unique ID" then
 					self.uniqueID = specVal
-elseif specName == "物品等级" then
+				elseif specName == "物品等级" then
 					self.itemLevel = tonumber(specVal)
 				elseif specName == "需求 职业" then
 					self.classRestriction = specVal
-elseif specName == "品质" then
+				elseif specName == "品质" then
 					self.quality = tonumber(specVal)
-					
-					
-elseif specName == "品质说明" then
+				elseif specName == "品质说明" then
 					self.qualityTitle = specVal
-elseif  specName:find("品质（", 1, true)  then
-self.quality = tonumber(specVal)
-self.qualityTitle = specName
+				elseif  specName:find("品质（", 1, true)  then
+					self.quality = tonumber(specVal)
+					self.qualityTitle = specName
 		
-elseif specName == "插槽" then
+				elseif specName == "插槽" then
 					local group = 0
 					for c in specVal:gmatch(".") do
 						if c:match("[RGBWA]") then
@@ -308,7 +310,7 @@ elseif specName == "插槽" then
 							group = group + 1
 						end
 					end
-elseif specName == "范围" and self.type == "Jewel" then
+				elseif specName == "范围" and self.type == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^.+")
 					
 					if specVal:match("^.+") == "Variable" or specVal:match("^.+") == "变量"  then
@@ -322,9 +324,9 @@ elseif specName == "范围" and self.type == "Jewel" then
                             end 
 						end
 					end
-elseif specName == "仅限" and self.type == "Jewel" then
+				elseif specName == "仅限" and self.type == "Jewel" then
 					self.limit = tonumber(specVal)
-elseif specName == "版本" then
+				elseif specName == "版本" then
 					if not self.variantList then
 						self.variantList = { }
 					end
@@ -436,12 +438,12 @@ elseif specName == "能量护盾" then
 					
 end
 
-if line == "前缀:" then
+			if line == "前缀:" then
 				foundExplicit = true
 				gameModeStage = "EXPLICIT"
 			end
 			if not specName or foundExplicit or foundImplicit then
-local varSpec = line:match("{variant:([%d,]+)}")
+				local varSpec = line:match("{variant:([%d,]+)}")
 				local variantList
 				if varSpec then
 					variantList = { }
@@ -453,7 +455,10 @@ local varSpec = line:match("{variant:([%d,]+)}")
 				local rangeSpec = line:match("{range:([%d.]+)}")
 
 				local enchant = line:match(" %(enchant%)")
-				local classReq = line:find("Requires Class")
+				local classReq = line:find("需求 职业")
+				if classReq then
+					local int = 1
+				end
 				local scourge = line:match("{scourge}") or line:match(" %(scourge%)")
 				local crafted = line:match("{crafted}") or line:match(" %(crafted%)") or enchant
 
@@ -536,7 +541,7 @@ if combLine:match("%(%d+%-%d+ %- %d+%-%d+%)") or combLine:match("%(%-?[%d%.]+ %-
 				else
 					modLines = self.explicitModLines
 				end
-				if modList and  string.find(line,":")==nil then --lucifer
+				if modList and (line:find("需求 职业") or string.find(line,":")==nil)   then --lucifer
 					t_insert(modLines, { line = line, extra = extra, modList = modList, modTags = modTags, variantList = variantList, scourge = scourge, crafted = crafted, custom = custom, fractured = fractured, implicit = implicit, range = rangedLine and (tonumber(rangeSpec) or 0.5), valueScalar = catalystScalar })
 					if mode == "GAME" then
 						if gameModeStage == "FINDIMPLICIT" then
@@ -990,6 +995,8 @@ function ItemClass:CheckModLineVariant(modLine)
 		or (self.hasAltVariant and modLine.variantList[self.variantAlt])
 		or (self.hasAltVariant2 and modLine.variantList[self.variantAlt2])
 		or (self.hasAltVariant3 and modLine.variantList[self.variantAlt3])
+		or (self.hasAltVariant4 and modLine.variantList[self.variantAlt4])
+		or (self.hasAltVariant5 and modLine.variantList[self.variantAlt5])
 end
 
 -- Return the name of the slot this item is equipped in
@@ -1312,8 +1319,8 @@ function ItemClass:BuildModList()
 	local function processModLine(modLine)
 		if self:CheckModLineVariant(modLine) then
 			-- special section for variant over-ride of pre-modifier item parameters
-			if modLine.line:find("Requires Class") then
-				self.classRestriction = modLine.line:gsub("{variant:([%d,]+)}", ""):match("Requires Class (.+)")
+			if modLine.line:find("需求 职业") then
+				self.classRestriction = modLine.line:gsub("{variant:([%d,]+)}", ""):match("需求 职业: (.+)")
 			end
 			-- handle understood modifier variable properties
 			if not modLine.extra then
