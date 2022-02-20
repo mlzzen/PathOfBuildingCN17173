@@ -1186,6 +1186,8 @@ local preFlagList = {
 	["^此物品上的技能石"] = { addToSkill = { type = "SocketedIn", slotName = "{SlotName}" } }, --备注：^socketed gems [hgd][ae][via][enl] 
 	["插槽内的攻击技能获得"] = { addToSkill = { type = "SocketedIn", slotName = "{SlotName}", keyword = "attack" } }, --备注：^socketed attacks [hgd][ae][via][enl] 
 	["插槽内的法术获得"] = { addToSkill = { type = "SocketedIn", slotName = "{SlotName}", keyword = "spell" } }, --备注：^socketed spells [hgd][ae][via][enl] 
+	["插入的投射物法术的"] = { addToSkill = { type = "SocketedIn", slotName = "{SlotName}", keywordList = { "projectile", "spell" } } },
+	["插入的投射物法术"] = { addToSkill = { type = "SocketedIn", slotName = "{SlotName}", keywordList = { "projectile", "spell" } } },
 	["此物品上的诅咒技能石"] = { addToSkill = { type = "SocketedIn", slotName = "{SlotName}", keyword = "curse" } }, --备注：^socketed curse gems [hgd][ae][via][enl] 
 	["插槽内的的近战技能石"] = { addToSkill = { type = "SocketedIn", slotName = "{SlotName}", keyword = "melee" } }, --备注：^socketed melee gems [hgd][ae][via][enl] 
 	["^socketed golem gems [hgd][ae][via][enl] "] = { addToSkill = { type = "SocketedIn", slotName = "{SlotName}", keyword = "golem" } },
@@ -3079,6 +3081,7 @@ local specialModList = {
 	["近期内你若使用过移动技能，则每秒回复 (%d+) 魔力"]= function(num) return {  mod("ManaRegen", "BASE", num, { type = "Condition", var = "UsedMovementSkillRecently" })  } end,
 	["技能可以额外发射 (%d+) 个投射物"]= function(num) return {  mod("ProjectileCount", "BASE", num)  } end,
 	["技能会发射 (%d+) 枚额外投射物"]= function(num) return {  mod("ProjectileCount", "BASE", num)  } end,
+	["发射 (%d+) 枚额外投射物"]= function(num) return {  mod("ProjectileCount", "BASE", num)  } end,
 	["技能会发射一枚额外投射物"]= function() return {  mod("ProjectileCount", "BASE", 1)  } end,
 	["近期内你若被击中，技能可以额外发射 (%d+) 个投射物"]= function(num) return {  mod("ProjectileCount", "BASE", num, { type = "Condition", var = "BeenHitRecently" })  } end,
 	["武器上的每个红色插槽使物理伤害提高 (%d+)%%"]= function(num) return {  mod("PhysicalDamage", "INC", num,nil, ModFlag.Weapon, { type = "Multiplier", var = "RedSocketIn{SlotName}" })  } end,
@@ -6953,6 +6956,8 @@ local specialModList = {
 	["右戒指栏位：你冻结敌人时在接下来 5 秒使其被冰霜附体"] = { mod("CoveredInFrostEffect", "BASE", 20, { type = "SlotNumber", num = 2 }, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) },
 	["禁断(.+)上有匹配的词缀则配置 (.+)"] = function(_, side, ascendancy) return { mod("GrantedAscendancyNode", "LIST", { side = side, name = ascendancy }) } end,
 	["有 (%d+)%% 的几率在攻击击中时施加腐蚀"] = { flag("Condition:CanCorrode") },
+	["插入的投射物法术发射 (%d+) 枚额外投射物"]= function(num) return {  mod("ProjectileCount", "BASE", num, { type = "SocketedIn", slotName = "{SlotName}", keywordList = { "projectile", "spell" } } )  } end,
+
 }
 
 for _, name in pairs(data.keystones) do
