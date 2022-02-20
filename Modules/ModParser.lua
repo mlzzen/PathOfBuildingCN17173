@@ -6950,6 +6950,7 @@ local specialModList = {
 	["左戒指栏位：你点燃敌人时在接下来 5 秒使其被灰烬缠身"] = { mod("CoveredInAshEffect", "BASE", 20, { type = "SlotNumber", num = 1 }, { type = "ActorCondition", actor = "enemy", var = "Ignited" }) },
 	["右戒指栏位：你冻结敌人时在接下来 5 秒使其被冰霜附体"] = { mod("CoveredInFrostEffect", "BASE", 20, { type = "SlotNumber", num = 2 }, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) },
 	["禁断(.+)上有匹配的词缀则配置 (.+)"] = function(_, side, ascendancy) return { mod("GrantedAscendancyNode", "LIST", { side = side, name = ascendancy }) } end,
+	["有 (%d+)%% 的几率在攻击击中时施加腐蚀"] = { flag("Condition:CanCorrode") },
 }
 
 for _, name in pairs(data.keystones) do

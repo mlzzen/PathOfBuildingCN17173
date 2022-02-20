@@ -1205,6 +1205,11 @@ end },
 { var = "multiplierPoisonOnEnemy", type = "count", label = "敌人身上的中毒层数:", implyCond = "Poisoned", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:PoisonStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
+{ var = "multiplierCorrosionStackCount", type = "count", label = "# 层腐蚀:", ifFlag = "Condition:CanCorrode", tooltip = "每层腐蚀使敌人 -5000 总护甲值和 -1000 总闪避值.\n腐蚀持续 4 秒且获得新的层数时刷新持续时间\n腐蚀无叠加次数上限", apply = function(val, modList, enemyModList)
+	enemyModList:NewMod("Multiplier:CorrosionStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
+	enemyModList:NewMod("Armour", "BASE", -5000, "Corrosion", { type = "Multiplier", var = "CorrosionStack" })
+	enemyModList:NewMod("Evasion", "BASE", -1000, "Corrosion", { type = "Multiplier", var = "CorrosionStack" })
+end },
 { var = "multiplierEnsnaredStackCount", type = "count", label = "# 圈套数量:", ifCond = "CanEnsnare", tooltip = "被捕获的敌人从攻击击中承受的投射物伤害提高, 每个敌人最多 3 个圈套.\n被诱捕的敌人始终视为在移动，并以更缓慢的速度试图突破圈套。\n一旦被捕猎的敌人离开范围效果，该圈套就被破坏。", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:EnsnareStackCount", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 		enemyModList:NewMod("Condition:Moving", "FLAG", true, "Config", { type = "MultiplierThreshold", actor = "enemy", var = "EnsnareStackCount", threshold = 1 })

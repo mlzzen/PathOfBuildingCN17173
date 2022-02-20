@@ -2270,12 +2270,12 @@ t_insert(breakdown[damageType], s_format("x %.2f ^8(【无情一击】加成)", 
 							else
 								output.impaleStoredHitAvg = output.impaleStoredHitAvg + damageTypeHitAvg * (1 - output.CritChance / 100)
 							end
-							local enemyArmour = calcLib.val(enemyDB, "Armour")
+							local enemyArmour = m_max(calcLib.val(enemyDB, "Armour"), 0)
 							local armourReduction = calcs.armourReductionF(enemyArmour, damageTypeHitAvg)
 							if skillModList:Flag(cfg, "IgnoreEnemyPhysicalDamageReduction") then
 								resist = 0
 							else
-								resist = m_max(0, enemyDB:Sum("BASE", nil, "PhysicalDamageReduction") + skillModList:Sum("BASE", cfg, "EnemyPhysicalDamageReduction") + armourReduction)
+								resist = m_min(m_max(0, enemyDB:Sum("BASE", nil, "PhysicalDamageReduction") + skillModList:Sum("BASE", cfg, "EnemyPhysicalDamageReduction") + armourReduction), data.misc.DamageReductionCap)
 							end
 						
 						else
