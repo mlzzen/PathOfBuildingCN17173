@@ -205,6 +205,7 @@ local modNameList = {
 	["攻击和移动速度"] = { "Speed", "MovementSpeed" },
 	["攻击速度，施法速度和移动速度"] = { "Speed", "MovementSpeed" },
 	["不被攻击击中"] = "AttackDodgeChance", 
+	["全局暴击伤害加成"] = {"CritMultiplier", tag = { type = "Global" }}, --备注：critical strike multiplier
 	["攻击和法术暴击伤害加成"] = {"CritMultiplier"}, --备注：critical strike multiplier -- 这个需要提到前面来
 	["攻击和法术基础暴击伤害加成"] = {"CritMultiplier", ModFlag.Hit}, --备注：critical strike multiplier -- 
 	["攻击和法术暴击伤害"] = {"CritMultiplier", ModFlag.Hit}, --备注：critical strike multiplier -- 
@@ -1259,6 +1260,7 @@ local modTagList = {
 	["当你没有耐力球时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", threshold = 0, upper = true } }, --备注：while you have no endurance charges
 	["你拥有暴击球时，"] = { tag = { type = "StatThreshold", stat = "PowerCharges", threshold = 1 } }, --备注：while you have a power charge
 	["你拥有狂怒球时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 } }, --备注：while you have a frenzy charge
+	["在你有狂怒球的情况下"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 } }, --备注：while you have a frenzy charge
 	["你拥有耐力球时，"] = { tag = { type = "StatThreshold", stat = "EnduranceCharges", threshold = 1 } },
 	["当暴击球达到上限时，"] = { tag = { type = "StatThreshold", stat = "PowerCharges", thresholdStat = "PowerChargesMax" } }, --备注：while at maximum power charges
 	["当狂怒球达到上限时，"] = { tag = { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" } }, --备注：while at maximum frenzy charges
