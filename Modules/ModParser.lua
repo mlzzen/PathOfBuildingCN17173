@@ -2833,6 +2833,7 @@ local specialModList = {
 	["【(.+)】的魔力保留降低 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("ManaReserved", "INC",-num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
 	["【(.+)】的保留效果降低 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("Reserved", "INC",-num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
 	["诅咒光环技能的魔力保留效能提高 ([%d%.]+)%%"] = function(num) return { mod("ManaReservationEfficiency", "INC", tonumber(num), nil, nil, KeywordFlag.Curse, { type = "SkillType", skillType = SkillType.Aura }) } end,
+	["捷技能的魔力保留效能提高 ([%d%.]+)%%"] = function(num) return { mod("ManaReservationEfficiency", "INC", num, { type = "SkillType", skillType = SkillType.Herald}) } end,
 	["(.+)的魔力保留效能提高 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("ManaReservationEfficiency", "INC", num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
 	["姿态技能的魔力保留效能提高 ([%d%.]+)%%"] = function(num) return { mod("ManaReservationEfficiency", "INC", num, { type = "SkillType", skillType = 104}) } end,
 	["技能的魔力保留效能提高 ([%d%.]+)%%"] = function(num) return { mod("ManaReservationEfficiency", "INC", num) } end,
