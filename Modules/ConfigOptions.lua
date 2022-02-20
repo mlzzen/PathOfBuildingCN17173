@@ -732,12 +732,9 @@ modList:NewMod("LuckyHits", "FLAG", true, "Config", { type = "Condition", varLis
 { type = "SkillName", skillNameList = { "电弧", "瓦尔.电弧" } })
 
 end },
-{ var = "buffElusive", type = "check", label = "你是否处于【灵巧】状态?", tooltip="这个会启用【灵巧】buff (\n·15% 的机率避免伤害 \n·移动速度提高 30%)\n灵巧效果会随着时间不断削弱，每秒降低 20%\n在已经获得【灵巧】的情况下，无法再次获得【灵巧】)",
-ifCond = "CanBeElusive", apply = function(val, modList, enemyModList)
-	
+	{ var = "buffElusive", type = "check", label = "你是否处于【灵巧】状态?", ifFlag = "Condition:CanBeElusive", tooltip = "使得带有“灵巧时”的加成生效\n并会启用【灵巧】buff:\n\t15% 的机率避免击中伤害\n\t移动速度提高 30%\n灵巧效果会随着时间不断削弱.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Elusive", "FLAG", true, "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanBeElusive" })
 		modList:NewMod("Elusive", "FLAG", true, "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var = "CanBeElusive" })
-
 	end },
 { var = "multiplierBuffElusiveHasLasted", type = "count", label = "【灵巧】持续几秒了:",ifCond = "CanBeElusive", tooltip="灵巧效果会随着时间不断削弱，每秒降低 20%\n在已经获得【灵巧】的情况下，无法再次获得【灵巧】",apply = function(val, modList, enemyModList)
 		modList:NewMod("ElusiveEffectOnSelf", "INC", val*(-20), "Config")

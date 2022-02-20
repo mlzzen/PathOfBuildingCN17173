@@ -948,8 +948,11 @@ local function doActorMisc(env, actor)
 			modDB.multipliers["BuffOnSelf"] = (modDB.multipliers["BuffOnSelf"] or 0) + (output.ActivePhantasmLimit or 1) - 1 -- slight hack to not double count the initial buff
 		end
 		if modDB:Flag(nil, "Elusive") then
-			local maxSkillInc = modDB:Max({ source = "Skill" }, "ElusiveEffect")
+			local maxSkillInc = modDB:Max({ source = "Skill" }, "ElusiveEffect") or 0
 			local inc = modDB:Sum("INC", nil, "ElusiveEffect", "BuffEffectOnSelf")
+			if actor.mainSkill.skillModList:Flag(nil, "SupportedByNightblade") then
+				inc = inc + modDB:Sum("INC", nil, "NightbladeSupportedElusiveEffect")
+			end
 			inc = inc + maxSkillInc
 			output.ElusiveEffectMod = (1 + inc / 100) * modDB:More(nil, "ElusiveEffect", "BuffEffectOnSelf") * 100
 			-- if we want the max skill to not be noted as its own breakdown table entry, comment out below

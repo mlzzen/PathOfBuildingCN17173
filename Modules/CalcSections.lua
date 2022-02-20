@@ -1380,6 +1380,7 @@ flag = "rage",
 
 { 1, "MiscDefences", 3, colorCodes.DEFENCE, {{ defaultCollapsed = false, label = "其他防御", data = {
 { label = "移动速度", { format = "x {2:output:EffectiveMovementSpeedMod}", { breakdown = "EffectiveMovementSpeedMod" }, { modName = "MovementSpeed" }, }, },
+{ label = "灵巧效果", haveOutput = "ElusiveEffectMod", { format = "{0:output:ElusiveEffectMod}%", { breakdown = "ElusiveEffectMod" }, { modName = { "ElusiveEffect", "BuffEffectOnSelf", "NightbladeSupportedElusiveEffect" }, }, } },
 { label = "晕眩持续时间", { format = "{2:output:StunDuration}s", 
 		{ breakdown = "StunDuration" },
 		{ modName = "StunRecovery" },
