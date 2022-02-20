@@ -4057,6 +4057,9 @@ local specialModList = {
 	mod("ColdDamageTakenAsFire", "BASE", num),
 	mod("LightningDamageTakenAsFire", "BASE", num),
 	} end,
+	["承受的冰霜伤害有 (%d+)%% 视为火焰伤害"] = function(num) return { mod("ColdDamageTakenAsFire", "BASE", num) } end,	
+	["承受的闪电伤害有 (%d+)%% 视为火焰伤害"] = function(num) return { mod("LightningDamageTakenAsFire", "BASE", num) } end,	
+	["承受的物理伤害有 (%d+)%% 视为火焰伤害"] = function(num) return { mod("PhysicalDamageTakenAsFire", "BASE", num) } end,
 	["受到的元素伤害有 (%d+)%% 视为混沌伤害"]= function(num) return {
 	mod("ColdDamageTakenAsChaos", "BASE", num),
 	mod("LightningDamageTakenAsChaos", "BASE", num),
