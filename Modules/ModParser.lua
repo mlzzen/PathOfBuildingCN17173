@@ -7050,8 +7050,8 @@ local skillNameList = {
 }
 local preSkillNameList = { }
 	--【中文化程序额外添加开始】
-	 skillNameList["【旋涡】"] = { tag = { type = "SkillName", skillName = “漩涡” } }
-	  skillNameList["先祖战士长图腾"] = { tag = { type = "SkillName", skillName = 先祖战士长 } }
+	 skillNameList["【旋涡】"] = { tag = { type = "SkillName", skillName = "漩涡" } }
+	  skillNameList["先祖战士长图腾"] = { tag = { type = "SkillName", skillName = "先祖战士长" } }
 	--【中文化程序额外添加结束】
 for gemId, gemData in pairs(data.gems) do
 	local grantedEffect = gemData.grantedEffect
