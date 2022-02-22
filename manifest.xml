@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <PoBVersion>
-	<Version branch="main" number="S18.0.1" platform="win32" />
+	<Version branch="main" number="S18.0.2" platform="win32" />
 	<Source part="program" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
 	<Source part="default" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
 	<Source part="tree" url="https://echo28.coding.net/p/pathofbuildingcn17173/d/PathOfBuildingCN17173-Release/git/raw/{branch}/" />
@@ -10,7 +10,7 @@
 	<File name="UpdateCheck.lua" part="program" sha1="f6c60cb8210d110c03fbd51cba5179e87b46a495" />
 	<File name="UpdateApply.lua" part="program" sha1="4f17937f2b37784e169a3792b235f2a0a3961e61" />
 	<File name="GameVersions.lua" part="program" sha1="fd167261ed8934214789cc33adec995c9e16aed1" />
-	<File name="changelog.txt" part="default" sha1="dd8267df239948a992082d2b8c3781b38116fd21" />
+	<File name="changelog.txt" part="default" sha1="7b4d1c15aa185c032df6dcaf29b82cf9a1d62715" />
 	<File name="Path of Building.exe" part="runtime" platform="win32" sha1="7486cf4f0289df72ccce93a69a4198ad069f79b9" />
 	<File name="lua51.dll" part="runtime" platform="win32" sha1="7a973d3c0b5121e6aad0dcb9323be5b432fc63e7" />
 	<File name="SimpleGraphic.dll" part="runtime" platform="win32" sha1="330f6f21f8c4ff0a687fb28c0e267b74df4938a5" />
@@ -93,7 +93,7 @@
 	<File name="Data/Uniques/fishing.lua" part="program" sha1="348fea473e90bbccf5aa94869ccba784291dc78d" />
 	<File name="Data/Uniques/flask.lua" part="program" sha1="356bc957d926fd29d3d6475a00f24f634b89266a" />
 	<File name="Data/Uniques/gloves.lua" part="program" sha1="63d8db2358a2537ab27cba240cba878972c960ae" />
-	<File name="Data/Uniques/helmet.lua" part="program" sha1="7f3462b8c59bd9e65f446d618825ef9ac30f7d75" />
+	<File name="Data/Uniques/helmet.lua" part="program" sha1="f6e6901c30b9e7c87e4f334c0089c972e18bec6b" />
 	<File name="Data/Uniques/jewel.lua" part="program" sha1="04bcacf05d3984989ed1a73447d0944203a14dc7" />
 	<File name="Data/Uniques/mace.lua" part="program" sha1="c06bf075e7abe238043d8f10c44b84b4dafef54b" />
 	<File name="Data/Uniques/quiver.lua" part="program" sha1="7b475f678ad4a8f5942e8a4305eefffe30f4b17c" />
@@ -201,7 +201,7 @@
 	<File name="Modules/Data.lua" part="program" sha1="7e0a81a28c9066971976bd38e94d149f331d3d1e" />
 	<File name="Modules/ItemTools.lua" part="program" sha1="724d7cff560b70338784267d275556e014e3f4cc" />
 	<File name="Modules/Main.lua" part="program" sha1="9aa8c9598fb31dc551194ff95fea08ee08a4178c" />
-	<File name="Modules/ModParser.lua" part="program" sha1="096b80e96509fbdef35a8b5629ef8c9e553b68eb" />
+	<File name="Modules/ModParser.lua" part="program" sha1="f3c0c380304557920c576856c12e2d3710e6ab0a" />
 	<File name="Modules/ModParserEn.lua" part="program" sha1="46d9f3331d618498a4d3221be73aca35afbd1504" />
 	<File name="Modules/ModTools.lua" part="program" sha1="c7821047abc6d32a3facbcb456a6e18a15bfb666" />
 	<File name="Modules/StatDescriber.lua" part="program" sha1="a702ea06164bf6c4ae6d0d12e0af7357d6cfd233" />
