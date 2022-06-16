@@ -3236,7 +3236,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="召唤生物造成的致盲时间延长 {0}% "
+					text="召唤生物造成的致盲时间延长 {0}%"
 				},
 				[2]={
 					[1]={
@@ -6753,7 +6753,7 @@ return {
 							[2]=99
 						}
 					},
-					text="有 {0}% 的几率在召唤生物击中传奇敌人时获得一层暴走能量"
+					text="有 {0}% 的几率在召唤生物击中稀有敌人或传奇敌人时获得一层暴走能量"
 				},
 				[2]={
 					limit={
@@ -6762,13 +6762,13 @@ return {
 							[2]="#"
 						}
 					},
-					text="在召唤生物击中传奇敌人时获得一层暴走能量"
+					text="在召唤生物击中稀有敌人或传奇敌人时获得一层暴走能量"
 				}
 			}
 		},
 		name="minion_grants_rampage_on_hit",
 		stats={
-			[1]="minion_grants_rampage_kill_to_parent_on_hitting_unique_enemy_%"
+			[1]="minion_grants_rampage_kill_to_parent_on_hitting_rare_or_unique_enemy_%"
 		}
 	},
 	[225]={
@@ -8981,7 +8981,7 @@ return {
 	["mine_throwing_speed_+%_per_frenzy_charge"]=220,
 	["minimum_added_cold_damage_per_frenzy_charge"]=221,
 	["minion_fire_damage_%_of_maximum_life_taken_per_minute"]=223,
-	["minion_grants_rampage_kill_to_parent_on_hitting_unique_enemy_%"]=224,
+	["minion_grants_rampage_kill_to_parent_on_hitting_rare_or_unique_enemy_%"]=224,
 	["minion_life_leech_from_elemental_damage_permyriad"]=225,
 	["minion_recover_%_maximum_life_on_hit"]=226,
 	["minions_cannot_taunt_enemies"]=227,

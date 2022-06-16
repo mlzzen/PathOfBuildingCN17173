@@ -4,6 +4,50 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+    {
+        "name": "生成天赋树翻译",
+        "type": "lua",
+        "request": "launch",
+        "stopOnEntry": true,
+        "program": "${workspaceFolder}/Tools/Tree/generate_translation.lua",
+        "cwd": "${workspaceFolder}",
+        "path": "${workspaceFolder}/?.lua",
+        "cpath": "${workspaceFolder}/?.dll",
+        "arg": [],
+        "consoleCoding": "utf8"
+    },
+        {
+            "name": "Python: 当前文件",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "DowloadTreeData",
+            "type": "lua",
+            "request": "launch",
+            "stopOnEntry": true,
+            "program": "${workspaceFolder}/Tools/Tree/download_latest_tree.lua",
+            "cwd": "${workspaceFolder}",
+            "path": "${workspaceFolder}/?.lua",
+            "cpath": "${workspaceFolder}/?.dll",
+            "arg": [],
+            "consoleCoding": "utf8"
+        },
+        {
+            "name": "GenerateTranslation",
+            "type": "lua",
+            "request": "launch",
+            "stopOnEntry": true,
+            "program": "${workspaceFolder}/Tools/Tree/generate_translation.lua",
+            "cwd": "${workspaceFolder}",
+            "path": "${workspaceFolder}/?.lua",
+            "cpath": "${workspaceFolder}/?.dll",
+            "arg": [],
+            "consoleCoding": "utf8"
+        },
         {
             "type": "emmylua_new",
             "request": "launch",

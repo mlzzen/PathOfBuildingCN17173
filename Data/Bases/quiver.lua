@@ -45,7 +45,7 @@ itemBases["轻巧箭袋"] = {
 itemBases["锯齿箭袋"] = {
 	type = "Quiver",
 	hidden = true,
-	tags = { quiver = true, default = true, },
+	tags = { trade_market_legacy_item = true, quiver = true, default = true, },
 	implicit = "弓类攻击附加 1 到 4 点物理伤害",
 	implicitModTypes = { { "physical_damage", "damage", "physical", "attack" }, },
 	req = { level = 5, },
@@ -53,7 +53,7 @@ itemBases["锯齿箭袋"] = {
 itemBases["双锋箭袋"] = {
 	type = "Quiver",
 	hidden = true,
-	tags = { quiver = true, default = true, },
+	tags = { trade_market_legacy_item = true, quiver = true, default = true, },
 	implicit = "命中值提高 (20-30)%",
 	implicitModTypes = { { "attack" }, },
 	req = { level = 4, },
@@ -61,7 +61,7 @@ itemBases["双锋箭袋"] = {
 itemBases["鲨齿箭袋"] = {
 	type = "Quiver",
 	hidden = true,
-	tags = { quiver = true, default = true, },
+	tags = { trade_market_legacy_item = true, quiver = true, default = true, },
 	implicit = "你的攻击击中每个敌人会回复 +(3-4) 生命",
 	implicitModTypes = { { "resource", "life", "attack" }, },
 	req = { level = 10, },
@@ -69,7 +69,7 @@ itemBases["鲨齿箭袋"] = {
 itemBases["钝矢箭袋"] = {
 	type = "Quiver",
 	hidden = true,
-	tags = { quiver = true, default = true, },
+	tags = { trade_market_legacy_item = true, quiver = true, default = true, },
 	implicit = "敌人被晕眩时间延长 (25-35)%",
 	implicitModTypes = { {  }, },
 	req = { level = 16, },
@@ -77,7 +77,7 @@ itemBases["钝矢箭袋"] = {
 itemBases["火灵箭袋"] = {
 	type = "Quiver",
 	hidden = true,
-	tags = { quiver = true, default = true, },
+	tags = { trade_market_legacy_item = true, quiver = true, default = true, },
 	implicit = "弓类攻击附加 4 到 8 点火焰伤害",
 	implicitModTypes = { { "elemental_damage", "damage", "elemental", "fire", "attack" }, },
 	req = { level = 22, },
@@ -85,7 +85,7 @@ itemBases["火灵箭袋"] = {
 itemBases["宽矢箭袋"] = {
 	type = "Quiver",
 	hidden = true,
-	tags = { quiver = true, default = true, },
+	tags = { trade_market_legacy_item = true, quiver = true, default = true, },
 	implicit = "弓类攻击附加 6 到 12 点物理伤害",
 	implicitModTypes = { { "physical_damage", "damage", "physical", "attack" }, },
 	req = { level = 28, },
@@ -93,7 +93,7 @@ itemBases["宽矢箭袋"] = {
 itemBases["穿射箭袋"] = {
 	type = "Quiver",
 	hidden = true,
-	tags = { quiver = true, default = true, },
+	tags = { trade_market_legacy_item = true, quiver = true, default = true, },
 	implicit = "箭矢会穿透 1 个额外目标",
 	implicitModTypes = { { "attack" }, },
 	req = { level = 36, },
@@ -101,7 +101,7 @@ itemBases["穿射箭袋"] = {
 itemBases["刺锋箭袋"] = {
 	type = "Quiver",
 	hidden = true,
-	tags = { quiver = true, default = true, },
+	tags = { trade_market_legacy_item = true, quiver = true, default = true, },
 	implicit = "攻击和法术暴击率提高 (20-30)%",
 	implicitModTypes = { { "critical" }, },
 	req = { level = 45, },

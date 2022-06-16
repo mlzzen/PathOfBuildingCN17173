@@ -87,22 +87,6 @@ itemBases["双玉戒指"] = {
 	implicitModTypes = { { "elemental", "fire", "lightning", "resistance" }, },
 	req = { level = 20, },
 }
-itemBases["双玉戒指"] = {
-	type = "Ring",
-	hidden = true,
-	tags = { ring = true, twostonering = true, default = true, },
-	implicit = "+(12-16)% 冰霜与闪电抗性",
-	implicitModTypes = { { "elemental", "cold", "lightning", "resistance" }, },
-	req = { level = 20, },
-}
-itemBases["双玉戒指"] = {
-	type = "Ring",
-	hidden = true,
-	tags = { ring = true, twostonering = true, default = true, },
-	implicit = "+(12-16)% 火焰与冰霜抗性",
-	implicitModTypes = { { "elemental", "fire", "cold", "resistance" }, },
-	req = { level = 20, },
-}
 itemBases["潜能之戒"] = {
 	type = "Ring",
 	tags = { ring = true, unset_ring = true, default = true, },
@@ -144,13 +128,6 @@ itemBases["青石戒指"] = {
 	implicit = "混沌伤害提高 (17-23)%",
 	implicitModTypes = { { "chaos_damage", "damage", "chaos" }, },
 	req = { level = 80, },
-}
-itemBases["双玉戒指"] = {
-	type = "Ring",
-	tags = { ring = true, twostonering = true, default = true, },
-	implicit = "+(12-16)% 火焰与闪电抗性",
-	implicitModTypes = { { "elemental", "fire", "lightning", "resistance" }, },
-	req = { level = 20, },
 }
 itemBases["双玉戒指(火闪)"] = {
 	type = "Ring",

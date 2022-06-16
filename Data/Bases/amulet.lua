@@ -13,7 +13,7 @@ itemBases["海灵护身符"] = {
 itemBases["珊瑚护身符"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	implicit = "生命每秒再生 (2-4)% ",
+	implicit = "生命每秒再生 (2-4)%",
 	implicitModTypes = { { "flat_life_regen", "resource", "life" }, },
 	req = { },
 }

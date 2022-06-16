@@ -649,7 +649,7 @@ minions["Metadata/Monsters/Goatman/MountainGoatmanShamanIceSpear"] = {
 }
 -- Miscreation
 minions["Metadata/Monsters/DemonFemale/DemonFemale"] = {
-	name = "古灵实验者: 长鞭",
+	name = "古灵实验者:长鞭",
 	life = 0.99,
 	fireResist = 0,
 	coldResist = 0,
@@ -669,7 +669,7 @@ minions["Metadata/Monsters/DemonFemale/DemonFemale"] = {
 	},
 }
 minions["Metadata/Monsters/DemonModular/DemonFemaleRanged"] = {
-	name = "古灵实验者: 扫荡者",
+	name = "古灵实验者:扫荡者",
 	life = 0.96,
 	fireResist = 0,
 	coldResist = 0,
@@ -733,7 +733,7 @@ minions["Metadata/Monsters/DemonModular/DemonModularBladeVortex"] = {
 	},
 }
 minions["Metadata/Monsters/DemonModular/DemonModularFire"] = {
-	name = "古灵实验者: 烈火",
+	name = "古灵实验者:烈火",
 	life = 1,
 	fireResist = 40,
 	coldResist = 0,

@@ -1,4 +1,4 @@
-﻿local version = "3_17"
+﻿local version = "3_18"
 local treeFilePathCn = "F:/POE/PathOfBuildingCN17173/TreeData/"
 local treeFilePathEn = "F:/POE/PathOfBuilding/src/TreeData/"
 

@@ -11,7 +11,7 @@ return {
 					[1] = { line = "若过去的 2 秒内你被晕眩或是格挡晕眩，你将无法再被晕眩", value = { 1 }, },
 				},
 			},
-			[2] = { name = "恐惧之雷",
+			[2] = { name = "被诅咒的克莱奔船长",
 				mods = {
 					-- base_stun_recovery_+%
 					[1] = { line = "晕眩回复和格挡回复提高 30%", value = { 30 }, },
@@ -52,7 +52,7 @@ return {
 					[1] = { line = "你身上的减益效果消失速度提高 20%", value = { 20 }, },
 				},
 			},
-			[4] = { name = "幻象恐蛛",
+			[4] = { name = "寡妇制造者阿玛拉",
 				mods = {
 					-- additional_chaos_resistance_against_damage_over_time_%
 					[1] = { line = "对持续伤害有 +40% 混沌抗性", value = { 40 }, },
@@ -71,7 +71,7 @@ return {
 					[2] = { line = "有 20% 的几率使受到的范围总伤害额外降低 50%", value = { 20 }, },
 				},
 			},
-			[2] = { name = "桑特",
+			[2] = { name = "烈焰之森",
 				mods = {
 					-- elemental_damage_taken_+%_if_not_hit_recently
 					[1] = { line = "若你近期内没有被击中，则受到的元素伤害降低 8%", value = { -8 }, },
@@ -108,13 +108,13 @@ return {
 					[1] = { line = "10% 的几率免疫投射物", value = { 10 }, },
 				},
 			},
-			[3] = { name = "天雷之兆",
+			[3] = { name = "微光巨侍法赫西",
 				mods = {
 					-- elemental_damage_taken_+%_if_been_hit_recently
 					[1] = { line = "承受的元素伤害在你近期内被击中的情况下降低 6%", value = { -6 }, },
 				},
 			},
-			[4] = { name = "玫红女妖",
+			[4] = { name = "恐惧之雷",
 				mods = {
 					-- avoid_chained_projectile_%_chance
 					[1] = { line = "避免被连锁弹射的投射物击中", value = { 100 }, },
@@ -169,7 +169,7 @@ return {
 					[2] = { line = "有 50% 的几率反射魔蛊", value = { 50 }, },
 				},
 			},
-			[2] = { name = "天雷之使派蒂",
+			[2] = { name = "苦痛主教",
 				mods = {
 					-- curse_effect_on_self_+%
 					[1] = { line = "你受到的诅咒效果降低 30%", value = { -30 }, },
@@ -226,7 +226,7 @@ return {
 					[2] = { line = "流血状态下移动不再承受额外的伤害", value = { 1 }, },
 				},
 			},
-			[2] = { name = "权利猎人德里克",
+			[2] = { name = "超灵之体",
 				mods = {
 					-- cannot_gain_corrupted_blood_while_you_have_at_least_5_stacks
 					[1] = { line = "若你身上至少有 5 层腐化之血，则腐化之血不能再施加给你", value = { 1 }, },
@@ -243,7 +243,7 @@ return {
 					[1] = { line = "你受到的感电效果降低 60%", value = { -60 }, },
 				},
 			},
-			[2] = { name = "无边沙丘潜行者",
+			[2] = { name = "权利猎人德里克",
 				mods = {
 					-- cannot_be_blinded
 					[1] = { line = "免疫致盲", value = { 1 }, },
@@ -262,7 +262,7 @@ return {
 					[1] = { line = "若你近期内没使用生命药剂，则生命药剂每 3 秒获得 3 充能", value = { 3 }, },
 				},
 			},
-			[2] = { name = "被遗忘的士兵",
+			[2] = { name = "利希斯啸夜",
 				mods = {
 					-- life_recovery_+%_from_flasks_while_on_low_life
 					[1] = { line = "低血时，使用药剂会提高 60% 生命回复量", value = { 60 }, },

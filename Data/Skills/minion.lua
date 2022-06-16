@@ -687,7 +687,6 @@ skills["DancingDervishCycloneChannelled"] = {
 		melee = true,
 	},
 	baseMods = {
-		skill("dpsMultiplier", 2),
 		skill("radiusIsWeaponRange", true),
 	},
 	qualityStats = {
@@ -881,12 +880,6 @@ skills["RelicTriggeredNova"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
-	statMap = {
-		["base_life_regeneration_rate_per_minute"] = {
-			mod("LifeRegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Holy Relic's Boon"}),
-			div = 60,
-		},
-	},
 	baseFlags = {
 		spell = true,
 	},

@@ -80,4 +80,9 @@ treeVersions = {
 		num = 3.17,
 		url = "https://www.pathofexile.com/passive-skill-tree/3.17.0/",
 	},
+	["3_18"] = {
+		display = "3.18（灵能护卫）",
+		num = 3.18,
+		url = "https://www.pathofexile.com/passive-skill-tree/3.18.0/",
+	},
 }
