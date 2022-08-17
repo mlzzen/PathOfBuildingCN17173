@@ -571,14 +571,18 @@ Has Alt Variant: true
 ]],[[
 幽暗之语
 锻铁戒指
+版本: 3.19.0以前
+版本: 当前
 升级: 使用 预言【虚空】 升级为 传奇【虚空心灵】
 等级需求: 2
 固定基底词缀: 1
 {tags:attack,physical}攻击附加 1 - 4 基础物理伤害
-{tags:life}+(20-30) 最大生命
-{tags:attack,chaos}攻击附加 1 - 3 基础混沌伤害
-{tags:physical}物理伤害提高 5%
-{tags:life}(2-4) 每秒生命回复
+{variant:1}{tags:life}+(20-30) 最大生命
+{variant:1}{tags:attack,chaos}攻击附加 1 - 3 基础混沌伤害
+{variant:2}{tags:attack,chaos}攻击附加 (10-15) - (20-25) 基础混沌伤害
+{variant:1}{tags:physical}物理伤害提高 5%
+{variant:1}{tags:life}(2-4) 每秒生命回复
+{variant:2}{tags:life}(10-15) 每秒生命回复
 10% 几率使敌人逃跑
 ]],[[
 虚空心灵

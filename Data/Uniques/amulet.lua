@@ -273,6 +273,7 @@ replica: true
 琥珀护身符
 版本: 1.3.0以前
 版本: 2.6.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 45
 固定基底词缀: 1
@@ -281,26 +282,32 @@ replica: true
 {tags:caster,speed}施法速度降低 10%
 {tags:jewellery_defense}+(400-500) 护甲
 {variant:1}{tags:life}格挡时回复 +(30-40) 生命
-{variant:2,3}{tags:life}格挡时回复 +(34-48) 生命
+{variant:2,3,4}{tags:life}格挡时回复 +(34-48) 生命
 {variant:1}{tags:mana}格挡时回复 +(10-20) 魔力
-{variant:2,3}{tags:mana}格挡时回复 +(10-24) 魔力
+{variant:2,3,4}{tags:mana}格挡时回复 +(10-24) 魔力
 {variant:1}{tags:speed}移动速度降低 20%
 {variant:2}{tags:speed}移动速度降低 10%
 +3% 攻击和法术格挡率上限
 {variant:1}10% 攻击格挡率
 {variant:2,3}8% 攻击格挡率
+{variant:4}(10-15)% 攻击格挡率
 {variant:1}{tags:physical}格挡攻击时反射 200 - 250 物理伤害
-{variant:2,3}{tags:physical}格挡攻击时反射 240 - 300 物理伤害
+{variant:2,3,4}{tags:physical}格挡攻击时反射 240 - 300 物理伤害
 ]],[[
 隐灵之符
 珊瑚护身符
+版本: 3.19.0以前
+版本: 当前
 升级: 使用 预言【伪神之林】 升级为 传奇【努葛玛呼之像】
 固定基底词缀: 1
 {tags:life}(2-4) 每秒生命回复
-{tags:jewellery_defense,life}低血时闪避值提高 +100
+{variant:1}{tags:jewellery_defense,life}低血时闪避值提高 +100
+{variant:2}{tags:jewellery_defense,life}闪避值随着生命减少提高 150-250
 {tags:life}+(30-50) 最大生命
 {tags:jewellery_resistance}+(20-30)% 火焰抗性
-{tags:life}低血时每秒回复 1% 生命
+{variant:1}{tags:life}低血时每秒回复 1% 生命
+{variant:2}低血时获得灵巧
+{variant:2}低血时获得暗影迷踪
 ]],[[
 努葛玛呼之像
 珊瑚护身符
@@ -391,7 +398,7 @@ Talisman Tier: 2
 堕落之血
 琥珀护身符
 源: 由 传奇【纯净之泪】 使用 通货【瓦尔宝珠】 升级
-等级需求: 20
+等级需求: 5
 固定基底词缀: 1
 {tags:jewellery_attribute}+(20-30) 力量
 获得 10 级的主动技能【元素之愈】
