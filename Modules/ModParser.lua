@@ -208,6 +208,7 @@ local modNameList = {
 	["全局暴击伤害加成"] = {"CritMultiplier", tag = { type = "Global" }}, --备注：critical strike multiplier
 	["攻击和法术暴击伤害加成"] = {"CritMultiplier"}, --备注：critical strike multiplier -- 这个需要提到前面来
 	["攻击和法术基础暴击伤害加成"] = {"CritMultiplier", ModFlag.Hit}, --备注：critical strike multiplier -- 
+	["法术伤害的暴击伤害加成"] = {"CritMultiplier", flags = ModFlag.Spell },
 	["攻击和法术暴击伤害"] = {"CritMultiplier", ModFlag.Hit}, --备注：critical strike multiplier -- 
 	["攻击与法术暴击率"] = { "CritChance" , tag = { type = "Global" }},
 	["攻击和法术暴击率"] = { "CritChance" , tag = { type = "Global" }},
@@ -301,6 +302,7 @@ local modNameList = {
 	["物品掉落稀有度"] = "LootRarity", --备注：rarity of items found
 	["近战武器范围"] = "MeleeWeaponRange",
 	["法术伤害"] = {"Damage",  flags = ModFlag.Spell }, 
+	["法术伤害的"] = {"Damage",  flags = ModFlag.Spell }, 
 	["点燃敌人"] = "EnemyIgniteChance", --备注：to ignite
 	["施加【点燃】"] = "EnemyIgniteChance", --备注：to ignite
 	["力量与敏捷"] = { "Str", "Dex" }, --备注：strength and dexterity
@@ -1219,6 +1221,7 @@ local modTagList = {
 	["持锤, 短杖或长杖时"] = { tag = { type = "Condition", varList = { "UsingMace", "UsingStaff" } } },
 	["持锤类、短杖、长杖时，"] = { tag = { type = "Condition", varList = { "UsingMace", "UsingStaff" } } },
 	["在持握长杖或盾牌时"] = { tag = { type = "Condition", varList = { "UsingShield", "UsingStaff" } } },
+	["在持握长杖时"] = { tag = { type = "Condition", varList = { "UsingStaff" } } },
 	["盾牌上每有 (%d+) 能量护盾可获得  "] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num } } end,
 	["每 (%d+)%% 的攻击格挡率会使"] = function(num) return { tag = { type = "PerStat", stat = "BlockChance", div = num } } end,
 	["每 (%d+)%% 攻击伤害格挡几率"] = function(num) return { tag = { type = "PerStat", stat = "BlockChance", div = num } } end,
