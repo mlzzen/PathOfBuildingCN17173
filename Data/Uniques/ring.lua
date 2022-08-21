@@ -129,13 +129,18 @@ replica: true
 [[
 绿林豪侠
 金光戒指
+版本: 3.19.0以前
+版本: 当前
 等级需求: 44
 固定基底词缀: 1
 物品稀有度提高 (6-15)%
 物品稀有度提高 (15-25)%
-{tags:speed}移动速度提高 5%
-击中时有 25% 几率偷取暴击，狂怒和耐力球
-若你的耐力球、狂怒球或暴击球总共有 5 个时，将伤害的 0.5% 转化为生命偷取
+{variant:1}{tags:speed}移动速度提高 5%
+{variant:2}{tags:speed}移动速度提高 (5-10)%
+{variant:1}击中时有 25% 几率偷取暴击，狂怒和耐力球
+{variant:2}击中时有 100% 几率偷取暴击，狂怒和耐力球
+{variant:1}若你的耐力球、狂怒球或暴击球总共有 5 个时，将伤害的 0.5% 转化为生命偷取
+{variant:2}将伤害的 1% 转化为生命偷取
 生命偷取每秒总恢复量翻倍
 ]],
 [[
@@ -670,26 +675,33 @@ Has Alt Variant: true
 紫晶戒指
 联盟: 猛攻
 版本: 2.6.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 46
 固定基底词缀: 1
-{tags:jewellery_resistance,chaos}+(9-13)% 混沌抗性
-{tags:attack}+(300-350) 命中值
+{variant:1,2}{tags:jewellery_resistance,chaos}+(9-13)% 混沌抗性
+{variant:1,2}{tags:attack}+(300-350) 命中值
 {variant:1}{tags:jewellery_defense}+(60-80) 护甲
 {variant:2}{tags:jewellery_defense}+(260-300) 护甲
 {variant:2}{tags:life}+(40-50) 最大生命
-{tags:jewellery_resistance,chaos}+(15-20)% 混沌抗性
-{tags:attack,life,physical}物理攻击伤害的 (0.6-0.8)% 会转化为生命偷取
+{variant:1,2}{tags:jewellery_resistance,chaos}+(15-20)% 混沌抗性
+{variant:1,2}{tags:attack,life,physical}物理攻击伤害的 (0.6-0.8)% 会转化为生命偷取
 {variant:1}击败敌人时获得 2 秒【猛攻】状态
 {variant:2}击败敌人时获得 4 秒【猛攻】状态
+{variant:3}击杀时恢复 5% 生命值
+{variant:3}击杀时获得肾上腺素，持续3秒
 ]],[[
 德瑞的魔具
 海灵戒指
+版本: 3.19.0以前
+版本: 当前
 等级需求: 5
 固定基底词缀: 1
 {tags:mana}+(20-25) 最大魔力
-{tags:jewellery_attribute}+(5-10) 智慧
-{tags:jewellery_resistance}获得 +5% 火焰、冰霜、闪电抗性
+{variant:1}{tags:jewellery_attribute}+(5-10) 智慧
+{variant:2}{tags:jewellery_attribute}+(5-20) 智慧
+{variant:1}{tags:jewellery_resistance}获得 +5% 火焰、冰霜、闪电抗性
+{variant:2}{tags:jewellery_resistance}获得 +(5-20)% 火焰、冰霜、闪电抗性
 {tags:mana}击败敌人回复 +5 魔力
 {tags:caster}可以对敌人施放 1 个额外诅咒
 ]],[[
@@ -783,12 +795,14 @@ Has Alt Variant: true
 珊瑚戒指
 升级: 使用 预言【国王之道】 升级为 传奇【冈姆之路】
 版本: 2.0.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 4
 固定基底词缀: 1
 {tags:life}+(20-30) 最大生命
 {tags:jewellery_attribute}+(10-20) 力量
-{tags:attack,life}你的攻击击中每个敌人会回复 +(2-4) 生命
+{variant:1,2}{tags:attack,life}你的攻击击中每个敌人会回复 +(2-4) 生命
+{variant:3}获得 10 级主动技能 坚决战吼
 +1 耐力球数量上限
 ]],[[
 冈姆之路
@@ -810,6 +824,7 @@ Has Alt Variant: true
 黄玉戒指
 版本: 2.6.0以前
 版本: 3.16.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 20
 固定基底词缀: 1
@@ -817,10 +832,11 @@ Has Alt Variant: true
 {tags:jewellery_attribute}+(10-15) 全属性
 {variant:1}{tags:life}(13-17) 每秒生命回复
 {variant:2,3}{tags:life}每级获得每秒回复 1 生命
+{variant:4}{tags:life}每级获得每秒回复 3 生命
 {tags:mana}魔力回复速度提高 (20-40)%
 {variant:1}{tags:caster}你受到的诅咒效果降低 20%
 {variant:2}{tags:caster}你受到的诅咒效果降低 40%
-{variant:3}{tags:caster}你受到的诅咒效果降低 60%
+{variant:3,4}{tags:caster}你受到的诅咒效果降低 60%
 ]],[[
 英灵宝环
 锻铁戒指
@@ -903,6 +919,7 @@ Has Alt Variant: true
 紫晶戒指
 版本: 2.6.0以前
 版本: 3.0.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 69
 固定基底词缀: 1
@@ -910,22 +927,30 @@ Has Alt Variant: true
 {variant:1}{tags:life}最大生命降低 15%
 {variant:2}{tags:life}最大生命降低 10%
 {variant:3}{tags:life}最大生命降低 (5-10)%
+{variant:4}{tags:life}生命上限降低 25%
 {variant:1}{tags:jewellery_defense}最大能量护盾降低 15%
 {variant:2}{tags:jewellery_defense}最大能量护盾降低 10%
 {variant:3}{tags:jewellery_defense}最大能量护盾降低 (5-10)%
+{variant:4}{tags:jewellery_defense}能量护盾上限降低 25%
 {tags:jewellery_resistance,chaos}+(40-50)% 混沌抗性
-{tags:chaos,physical}获得额外混沌伤害，其数值等同于物理伤害的 20%
+{variant:1,2,3}{tags:chaos,physical}获得额外混沌伤害，其数值等同于物理伤害的 20%
+{variant:4}{tags:chaos,physical}获得额外混沌伤害，其数值等同于物理伤害的 (40-60)%
 ]],[[
 莫考之拥
 红玉戒指
+版本: 3.19.0以前
+版本: 当前
 等级需求: 16
 固定基底词缀: 1
 {tags:jewellery_resistance}+(20-30)% 火焰抗性
-{tags:jewellery_elemental}火焰伤害提高 (15-25)%
+{variant:1}{tags:jewellery_elemental}火焰伤害提高 (15-25)%
 {tags:jewellery_resistance}+(25-40)% 冰霜抗性
-{tags:jewellery_elemental}火焰伤害击中时有 (5-10)% 几率点燃敌人
-{tags:attack,speed}被点燃时攻击速度提高 20%
-{tags:caster,speed}被点燃时施法速度提高 20%
+{variant:1}{tags:jewellery_elemental}火焰伤害击中时有 (5-10)% 几率点燃敌人
+{variant:2}所有击中伤害都能点燃你
+{variant:1}{tags:attack,speed}被点燃时攻击速度提高 20%
+{variant:2}{tags:attack,speed}被点燃时攻击速度提高 (25-40)%
+{variant:1}{tags:caster,speed}被点燃时施法速度提高 20%
+{variant:2}{tags:caster,speed}被点燃时施法速度提高 (25-40)%
 {tags:jewellery_elemental}+25% 几率被点燃
 ]],[[
 哑风封印
@@ -951,6 +976,7 @@ Has Alt Variant: true
 红玉戒指
 联盟: 血族
 版本: 2.6.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 29
 固定基底词缀: 1
@@ -958,11 +984,12 @@ Has Alt Variant: true
 {tags:jewellery_attribute}+(15-25) 力量
 {variant:1}{tags:jewellery_elemental,attack}攻击附加 (8-10) - (12-14) 基础火焰伤害
 {variant:2}{tags:jewellery_elemental,attack,caster}附加 (8-10) - (12-14) 基础火焰伤害
+{variant:3}{tags:jewellery_elemental,attack,caster}附加 (20-25) - (30-35) 基础火焰伤害
 {variant:1}{tags:life}攻击击中每个点燃的敌人会回复 +(4-5) 生命
-{variant:2}{tags:life}当你点燃 1 个敌人时，回复 (20-30) 生命
+{variant:2,3}{tags:life}当你点燃 1 个敌人时，回复 (20-30) 生命
 敌人被点燃的持续时间延长 15%
 {variant:1}{tags:jewellery_elemental}火焰伤害击中时有 5% 几率点燃敌人
-{variant:2}{tags:jewellery_elemental}火焰伤害击中时有 10% 几率点燃敌人
+{variant:2,3}{tags:jewellery_elemental}火焰伤害击中时有 10% 几率点燃敌人
 ]],[[
 草民
 潜能之戒
@@ -1040,17 +1067,19 @@ Has Alt Variant: true
 瑞佛之冠
 双玉戒指
 版本: 3.5.0以前
+版本: 3.19.0以前
 版本: 当前
 联盟: 魔符
 源: 传奇Boss【狼王瑞佛】 专属掉落 (等级 60+)
 等级需求: 49
 固定基底词缀: 1
 {tags:jewellery_resistance}+(12-16)% 火焰与冰霜抗性
-{tags:jewellery_elemental}火焰伤害提高 (20-30)%
-{tags:jewellery_elemental}冰霜伤害提高 (20-30)%
+{variant:1,2}{tags:jewellery_elemental}火焰伤害提高 (20-30)%
+{variant:1,2}{tags:jewellery_elemental}冰霜伤害提高 (20-30)%
 {tags:mana}魔力回复速度提高 (20-30)%
 {variant:1}击败敌人时有 5% 几率触发 18 级的【召唤幽狼】
 {variant:2}击败敌人时有 10% 几率触发 18 级的【召唤幽狼】
+{variant:3}击败敌人时触发 10 级的【召唤幽狼】
 ]],[[
 罗米拉的潜力之环
 宝钻戒指
@@ -1074,6 +1103,7 @@ Has Alt Variant: true
 联盟: 混乱, 猛攻
 版本: 1.2.0以前
 版本: 2.6.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 30
 固定基底词缀: 1
@@ -1082,8 +1112,11 @@ Has Alt Variant: true
 右戒指栏位：不能回复魔力
 {variant:1}{tags:jewellery_defense}右戒指栏位：每秒回复 4% 能量护盾
 {variant:2,3}{tags:jewellery_defense}右戒指栏位：每秒回复 3% 能量护盾
+{variant:4}{tags:jewellery_defense}右戒指栏位：每秒回复 6% 能量护盾
 {variant:3}{tags:mana}右戒指栏位：+100 最大魔力
+{variant:4}{tags:mana}右戒指栏位：+250 最大魔力
 {variant:3}{tags:jewellery_defense}左戒指栏位：+100 最大能量护盾
+{variant:4}{tags:jewellery_defense}左戒指栏位：+250 最大能量护盾
 {variant:1,2}{tags:mana}左戒指栏位：魔力回复速度提高 100%
 {variant:3}{tags:mana}左戒指栏位：每秒回复 40 魔力
 左戒指栏位：不能回复能量护盾
@@ -1181,21 +1214,21 @@ Has Alt Variant: true
 版本: 1.0.0以前
 版本: 1.1.0以前
 版本: 2.6.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 30
 固定基底词缀: 2
-{variant:1}{tags:jewellery_resistance}获得 +(8-12)% 火焰、冰霜、闪电抗性
-{variant:2,3,4}{tags:jewellery_resistance}获得 +(8-10)% 火焰、冰霜、闪电抗性
 {variant:1,2}物品掉落数量提高 (15-25)%
-{variant:3,4}物品掉落数量提高 (10-16)%
+{variant:3,4,5}物品掉落数量提高 (10-16)%
 不能使用其他戒指
 {variant:1,2,3}{tags:jewellery_resistance}获得 +(8-12)% 火焰、冰霜、闪电抗性
 {variant:4}{tags:jewellery_resistance}获得 +(16-24)% 火焰、冰霜、闪电抗性
+{variant:5}{tags:jewellery_resistance}+(25-40)% 所有元素抗性
 {tags:caster}你受到的诅咒效果降低 50%
 {variant:1,2,3}{tags:attack,life}你的攻击击中每个敌人会回复 +(20-30) 生命
-{variant:4}{tags:attack,life}你的攻击击中每个敌人会回复 +(40-60) 生命
+{variant:4,5}{tags:attack,life}你的攻击击中每个敌人会回复 +(40-60) 生命
 {variant:1,2,3}{tags:attack,mana}你的攻击击中每个敌人会回复 +15 魔力
-{variant:4}{tags:attack,mana}你的攻击击中每个敌人会回复 +30 魔力
+{variant:4,5}{tags:attack,mana}你的攻击击中每个敌人会回复 +30 魔力
 ]],[[
 时光之握
 月光石戒指
@@ -1218,14 +1251,20 @@ Has Alt Variant: true
 时空扭曲
 月光石戒指
 源: 由 传奇【时光之握】 使用 预言【时空裂隙】 升级
+版本: 3.19.0以前
+版本: 当前
 等级需求: 64
 固定基底词缀: 1
 {tags:jewellery_defense}+(15-25) 最大能量护盾
 {tags:attack,speed}攻击速度提高 (10-15)%
-{tags:caster,speed}施法速度提高 (5-10)%
-{tags:jewellery_defense}+(30-50) 最大能量护盾
-{tags:mana}魔力回复速度提高 15%
-技能效果持续时间延长 +(-10-10)%
+{variant:1}{tags:caster,speed}施法速度提高 (5-10)%
+{variant:2}{tags:caster,speed}施法速度提高 (10-15)%
+{variant:1}{tags:jewellery_defense}+(30-50) 最大能量护盾
+{variant:1}{tags:mana}魔力回复速度提高 15%
+{variant:2}受到的伤害 (6-12)% 转化为生命回复
+{variant:2}受到的伤害 (6-12)% 转化为魔力回复
+{variant:1}技能效果持续时间延长 +(-10-10)%
+{variant:2}技能效果持续时间延长 +(-20-20)%
 不受时空锁链影响
 ]],[[
 瓦拉库之印

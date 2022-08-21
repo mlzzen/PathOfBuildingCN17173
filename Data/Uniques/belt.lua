@@ -85,16 +85,22 @@ return {
 [[
 幻彩菱织【仿品】
 素布腰带
+版本: 3.19.0以前
+版本: 当前
 等级需求: 25
 replica: true
 联盟: 夺宝奇兵
 固定基底词缀: 1
 {tags:physical}物理伤害提高 (12-24)%
-{tags:jewellery_elemental,caster}法术附加 (7-8) - (15-16) 基础火焰伤害
-{tags:jewellery_elemental,caster}法术附加 (5-6) - (12-14) 基础冰霜伤害
-{tags:jewellery_elemental,caster}法术附加 1 - (30-34) 基础闪电伤害
-{tags:jewellery_resistance}+(6-8)% 所有元素抗性
-{tags:jewellery_elemental}元素伤害提高 10%
+{variant:1}{tags:jewellery_elemental,caster}法术附加 (7-8) - (15-16) 基础火焰伤害
+{variant:2}{tags:jewellery_elemental,caster}法术附加 (14-16) - (30-32) 基础火焰伤害
+{variant:1}{tags:jewellery_elemental,caster}法术附加 (5-6) - (12-14) 基础冰霜伤害
+{variant:2}{tags:jewellery_elemental,caster}法术附加 (10-12) - (24-28) 基础冰霜伤害
+{variant:1}{tags:jewellery_elemental,caster}法术附加 1 - (30-34) 基础闪电伤害
+{variant:2}{tags:jewellery_elemental,caster}法术附加 1 - (60-68) 基础闪电伤害
+{variant:1}{tags:jewellery_resistance}+(60-80)% 所有元素抗性
+{variant:2}{tags:jewellery_resistance}+(6-15)% 所有元素抗性
+{variant:1}{tags:jewellery_elemental}元素伤害提高 10%
 {tags:jewellery_elemental}药剂持续期间，元素伤害提高 30%
 ]],
 [[
@@ -507,15 +513,17 @@ replica: true
 皮革腰带
 版本: 1.3.0以前
 版本: 2.6.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 50
 固定基底词缀: 1
 {tags:life}+(25-40) 最大生命
 {tags:life}+(75-100) 最大生命
-{tags:life}(67-75) 每秒生命回复
+{variant:1,2,3}{tags:life}(67-75) 每秒生命回复
+{variant:4}{tags:life}(200-350) 每秒生命回复
 {tags:mana}(8-10) 每秒魔力回复
 {variant:1}获得 -40% 火焰、冰霜、闪电抗性
-{variant:3}获得 -(25-15)% 火焰、冰霜、闪电抗性
+{variant:3,4}获得 -(25-15)% 火焰、冰霜、闪电抗性
 {variant:1}-10% 全部抗性上限
 {variant:2}-5% 全部抗性上限
 {tags:physical}承受攻击造成的物理伤害 -(50-40)
@@ -526,14 +534,16 @@ replica: true
 升级: 使用 预言【北方的精神支柱】 升级为 传奇【谋士之环】
 升级: 使用 预言【北方的伟大领袖】升级为 传奇【游牧之环】
 版本: 2.6.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 16
 固定基底词缀: 1
 敌人被晕眩时间延长 (20-30)% 
-{tags:physical}物理伤害提高 (25-40)%
+{variant:1,2}{tags:physical}物理伤害提高 (25-40)%
 {tags:jewellery_attribute}+(40-50) 力量
 药剂充能获取提高 50%
-{variant:2}至少有 200 点力量时，+(20-25)% 火焰、冰霜、闪电抗性
+{variant:2}至少有 200 点力量时，+(20-25)% 火焰、冰霜、闪电抗性，10% 几率造成2倍伤害
+{variant:3}至少有 400 点力量时，5% 几率造成3倍伤害
 ]],[[
 游牧之环
 扣钉腰带
@@ -574,11 +584,12 @@ replica: true
 梅吉诺德的力量泉源
 重革腰带
 版本: 2.0.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 8
 固定基底词缀: 1
 {tags:jewellery_attribute}+(25-35) 力量
-{variant:1}{tags:attack,physical}攻击附加 10 - 20 基础物理伤害
+{variant:1,3}{tags:attack,physical}攻击附加 10 - 20 基础物理伤害
 {variant:2}{tags:attack,physical}攻击附加 5 - 15 基础物理伤害
 {tags:jewellery_attribute}+25 力量
 {tags:life}最大生命提高 10%
@@ -619,6 +630,7 @@ replica: true
 素布腰带
 版本: 2.6.0以前
 版本: 3.0.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 25
 固定基底词缀: 1
@@ -627,11 +639,15 @@ replica: true
 {variant:3}攻击技能的火焰、冰霜、闪电伤害提高 10%
 {variant:1}{tags:jewellery_elemental,attack}攻击附加 (3-4) - (7-8) 基础火焰伤害
 {variant:2,3}{tags:jewellery_elemental,attack}攻击附加 (7-8) - (15-16) 基础火焰伤害
+{variant:4}{tags:jewellery_elemental,attack}攻击附加 (14-16) - (30-32) 基础火焰伤害
 {variant:1}{tags:jewellery_elemental,attack}攻击附加 (2-3) - (5-7) 基础冰霜伤害
 {variant:2,3}{tags:jewellery_elemental,attack}攻击附加 (5-6) - (12-14) 基础冰霜伤害
+{variant:4}{tags:jewellery_elemental,attack}攻击附加 (10-12) - (24-28) 基础冰霜伤害
 {variant:1}{tags:jewellery_elemental,attack}攻击附加 1 - (13-17) 基础闪电伤害
 {variant:2,3}{tags:jewellery_elemental,attack}攻击附加 1 - (30-34) 基础闪电伤害
-{tags:jewellery_resistance}获得 +(6-8)% 火焰、冰霜、闪电抗性
+{variant:4}{tags:jewellery_elemental,attack}攻击附加 1 - (60-68) 基础闪电伤害
+{variant:1,2,3}{tags:jewellery_resistance}获得 +(6-8)% 火焰、冰霜、闪电抗性
+{variant:4}{tags:jewellery_resistance}获得 +(6-15)% 火焰、冰霜、闪电抗性
 {variant:1,2}{tags:jewellery_elemental,attack}药剂持续期间，攻击技能造成的火焰、冰霜、闪电伤害提高 30%
 {variant:3}{tags:jewellery_elemental,attack}药剂持续期间，攻击技能造成的火焰、冰霜、闪电伤害提高 30%
 ]],[[
@@ -696,13 +712,19 @@ replica: true
 ]],[[
 日炎
 饰布腰带
+版本: 3.19.0以前
+版本: 当前
 等级需求: 37
 固定基底词缀: 1
 晕眩回复和格挡回复提高 (15-25)%
-陷阱伤害提高 (30-40)%
-{tags:mana}魔力回复速度提高 20%
+{variant:1}陷阱伤害提高 (30-40)%
+{variant:2}投掷 1-3 个额外陷阱
+{variant:2}目标方向随机投掷
+{variant:2}陷阱不能被敌人触发
+{variant:1}{tags:mana}魔力回复速度提高 20%
 {tags:jewellery_resistance}+(20-30)% 火焰抗性
-陷阱持续时间缩短 80%
+{variant:1}陷阱持续时间缩短 80%
+{variant:2}陷阱持续时间缩短 50%
 照亮范围扩大 25%
 ]],[[
 不朽系命
@@ -718,14 +740,19 @@ replica: true
 ]],[[
 龙蜕之带
 皮革腰带
-等级需求: 8
+等级需求: 41
 固定基底词缀: 1
 {tags:life}+(25-40) 最大生命
 {tags:jewellery_attribute}+(20-30) 力量
 {tags:jewellery_attribute}+(20-30) 智慧
-{tags:jewellery_resistance}+(10-20)% 冰霜抗性
-{tags:attack,life,physical}物理攻击伤害的 0.4% 会转化为生命偷取
-{tags:attack,mana,physical}物理攻击伤害的 0.4% 转化为魔力偷取
+{variant:1}{tags:jewellery_resistance}+(10-20)% 冰霜抗性
+{variant:2}{tags:jewellery_resistance}+(20-30)% 冰霜抗性
+{variant:1}{tags:attack,life,physical}物理攻击伤害的 0.4% 会转化为生命偷取
+{variant:2}{tags:attack,life,physical}物理攻击伤害的 2% 会转化为生命偷取
+{variant:1}{tags:attack,mana,physical}物理攻击伤害的 0.4% 转化为魔力偷取
+{variant:2}{tags:attack,mana,physical}物理攻击伤害的 2% 转化为魔力偷取
+{variant:2}生命偷取的每秒总恢复量提高 (500-1000)%
+{variant:2}魔力偷取的每秒总恢复量提高 (500-1000)%
 ]],[[
 奴役之索
 重革腰带

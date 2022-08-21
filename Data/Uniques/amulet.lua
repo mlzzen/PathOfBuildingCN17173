@@ -136,13 +136,17 @@ replica: true
 [[
 复仇的魅力
 黄晶护身符
+版本: 3.19.0以前
+版本: 当前
 联盟: 古灵庄园
 等级需求: 20
 固定基底词缀: 1
 {tags:jewellery_attribute}+(16-24) 力量和敏捷
-对致盲的敌人的击中和异常状态伤害提高 (25-40)%
-{tags:critical}对致盲的敌人时，攻击和法术暴击率提高 (30-50)%
-{tags:critical}暴击时有 (40-50)% 几率致盲敌人
+{variant:1}对致盲的敌人的击中和异常状态伤害提高 (25-40)%
+{variant:1}{tags:critical}对致盲的敌人时，攻击和法术暴击率提高 (30-50)%
+{variant:1}{tags:critical}暴击时有 (40-50)% 几率致盲敌人
+{variant:2}被击中时有 (10-20)% 的几率获得狂怒球
+{variant:2}击中时有 (10-20)% 的几率使敌人致盲
 目盲不影响你的照亮范围
 你施加的目盲反作用到你身上
 ]],
@@ -224,17 +228,21 @@ replica: true
 等级需求: 7
 版本: 3.7.0以前
 版本: 3.16.0以前
+版本: 3.19.0以前
 版本: 当前
 固定基底词缀: 1
-{tags:jewellery_attribute}+(20-30) 敏捷
+{variant:1,2,3}{tags:jewellery_attribute}+(20-30) 敏捷
+{variant:4}{tags:jewellery_attribute}+(40-80) 敏捷
 获得 22 级的主动技能【精准】，且可被此道具上的技能石辅助
 {variant:1,2}精准的保留效果总降 50%
-{variant:3}精准的保留效能总增 100%
-{tags:jewellery_attribute}+(25-35) 敏捷 
-{tags:attack,physical}攻击附加 (12-15) - (24-28) 基础物理伤害 
-{tags:jewellery_elemental,attack}攻击附加 (11-15) - (23-28) 基础冰霜伤害 
-{tags:critical}+(23-28)% 攻击和法术暴击伤害加成
-{tags:attack,life,physical}物理攻击伤害的 (0.8-1)% 会转化为生命偷取
+{variant:3,4}精准的保留效能总增 100%
+{tags:jewellery_attribute}+(25-35) 敏捷
+{variant:1,2,3}{tags:attack,physical}攻击附加 (12-15) - (24-28) 基础物理伤害 
+{variant:1,2,3}{tags:jewellery_elemental,attack}攻击附加 (11-15) - (23-28) 基础冰霜伤害 
+{variant:1,2,3}{tags:critical}+(23-28)% 攻击和法术暴击伤害加成
+{variant:4}{tags:critical}+(25-50)% 攻击和法术暴击伤害加成
+{variant:1,2,3}{tags:attack,life,physical}物理攻击伤害的 (0.8-1)% 会转化为生命偷取
+{variant:4}弓攻击终结
 ]],
 [[
 圣令
@@ -643,15 +651,20 @@ Requires 77
 ]],[[
 烈阳徽记
 帝金护身符
+版本: 3.19.0以前
+版本: 当前
 升级: 使用 【盲信】 升级为 【耀阳徽记】
 等级需求: 8
 固定基底词缀: 1
 物品稀有度提高 (12-20)%
-{tags:jewellery_attribute}+10 敏捷
-{tags:jewellery_elemental,attack}攻击附加 12 - 24 基础火焰伤害
+{variant:1}{tags:jewellery_attribute}+10 敏捷
+{variant:1}{tags:jewellery_elemental,attack}攻击附加 12 - 24 基础火焰伤害
+{variant:2}{tags:jewellery_elemental,attack}攻击附加 (18-24) - (32-40) 基础火焰伤害
 {tags:attack}+(100-150) 命中值
 {tags:jewellery_defense}+(100-150) 点闪避值
 {tags:jewellery_resistance}+20% 火焰抗性
+{variant:2}+20% 照亮范围
+{variant:2}周围敌人致盲
 ]],[[
 耀阳徽记
 帝金护身符
@@ -795,16 +808,20 @@ Talisman Tier: 1
 拉什卡德的耐心
 翠玉护身符
 版本: 3.0.0以前
+版本: 3.19.0以前
 版本: 当前
-等级需求: 61
+等级需求: 48
 固定基底词缀: 1
 {tags:jewellery_attribute}+(20-30) 敏捷
 {tags:life}+(40-80) 最大生命
 {tags:mana}+(20-40) 最大魔力
 {variant:1}{tags:jewellery_elemental}敌人受到的元素异常状态时间延长 20%
 {variant:2}{tags:jewellery_elemental}敌人受到的元素异常状态时间延长 20%
-装备和技能石的属性需求降低 10%
-{tags:jewellery_elemental}5% 几率造成冰冻、感电与点燃效果
+{variant:3}{tags:jewellery_elemental}敌人受到的元素异常状态时间缩短 20%
+{variant:1,2}装备和技能石的属性需求降低 10%
+{variant:3}装备和技能石的属性需求提高 10%
+{variant:1,2}{tags:jewellery_elemental}5% 几率造成冰冻、感电与点燃效果
+{variant:3}{tags:jewellery_elemental}100% 几率造成冰冻、感电与点燃效果
 无法获得暴击球
 ]],[[
 瑞佛诅咒
@@ -826,27 +843,35 @@ Talisman Tier: 2
 塑界者之籽
 玛瑙护身符
 版本: 2.6.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 16
 固定基底词缀: 1
 {tags:jewellery_attribute}+(16-24) 力量和智慧
-{tags:mana}魔力回复速度提高 (30-50)%
-{tags:life}每秒回复 2% 生命
+{variant:1,2}{tags:mana}魔力回复速度提高 (30-50)%
+{variant:3}{tags:mana}魔力回复速度提高 (60-100)%
+{variant:1,2}{tags:life}每秒回复 2% 生命
+{variant:3}{tags:life}每秒回复 4% 生命
 {variant:1}{tags:life}周围友军获得每秒回复 1% 生命
 {variant:2}{tags:life}周围友军获得每秒回复 2% 生命
-{tags:mana}周围友军获得 40% 魔力回复
+{variant:3}{tags:life}周围友军获得每秒回复 4% 生命
+{variant:1,2}{tags:mana}周围友军获得 40% 魔力回复
+{variant:3}{tags:mana}周围友军获得 80% 魔力回复
 ]],[[
 魔灵之符
 海灵护身符
 版本: 3.0.0以前
 版本: 3.8.0以前
+版本: 3.19.0以前
 版本: 当前
 固定基底词缀: 1
 {tags:mana}魔力回复速度提高 (20-30)%
 {tags:jewellery_resistance}+25% 冰霜抗性
 {variant:1,2}{tags:physical}物理攻击伤害的 0.2% 转化为魔力偷取
 {variant:3}召唤生物附加 (5-9) - (11-15) 基础冰霜伤害
-{tags:speed}召唤生物的移动速度提高 (10-15)%
+{variant:4}召唤生物附加 (25-35) - (60-65) 基础冰霜伤害
+{variant:1,2,3}{tags:speed}召唤生物的移动速度提高 (10-15)%
+{variant:4}召唤生物 50% 物理伤害转化为冰霜伤害，且不能造成非冰霜伤害
 召唤生物的最大生命提高 (10-15)%
 召唤生物的伤害提高 (10-15)%
 {variant:2,3}{tags:mana}召唤生物技能的魔力消耗降低 (10-15)%
@@ -873,27 +898,33 @@ Talisman Tier: 2
 拉兹瓦的灵石
 海玉护身符
 版本: 3.4.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 5
 固定基底词缀: 1
 {tags:jewellery_attribute}+(20-30) 智慧
-{tags:caster,speed}施法速度提高 (10-15)%
-{tags:mana}+(30-50) 最大魔力
+{variant:1,2}{tags:caster,speed}施法速度提高 (10-15)%
+{variant:3}{tags:caster,speed}施法速度提高 (15-20)%
+{variant:1,2}{tags:mana}+(30-50) 最大魔力
+{variant:3}{tags:mana}+(40-70) 最大魔力
 {variant:1}50% 的攻击格挡率同样套用于法术格挡
-{variant:2}(12-15)% 法术伤害格挡几率
+{variant:2,3}(12-15)% 法术伤害格挡几率
 ]],[[
 纯净之泪
 海玉护身符
 版本: 3.16.0以前
+版本: 3.19.0以前
 版本: 当前
-等级需求: 20
+等级需求: 5
 固定基底词缀: 1
 {tags:jewellery_attribute}+(20-30) 智慧
 获得 10 级的主动技能【元素净化】，且可被此道具上的技能石辅助
-{tags:jewellery_attribute}+(5-10) 全属性
+{variant:1,2}{tags:jewellery_attribute}+(5-10) 全属性
+{variant:3}{tags:jewellery_attribute}+(10-20) 全属性
 {tags:life}+(20-40) 最大生命
 {variant:1}5% 几率避免元素异常状态
 {variant:2}+5% 所有元素抗性
+{variant:3}+(5-10)% 所有元素抗性
 ]],[[
 恩吉尔的和谐
 青玉护身符
@@ -980,6 +1011,7 @@ Talisman Tier: 2
 时空扭曲
 青玉护身符
 版本: 3.11.0以前
+版本: 3.19.0以前
 版本: 当前
 等级需求: 50
 固定基底词缀: 1
@@ -990,11 +1022,15 @@ Talisman Tier: 2
 {variant:2}{tags:attack,speed}攻击速度提高 (10-15)%
 {variant:2}{tags:caster,speed}施法速度提高 (10-15)%
 {variant:2}{tags:speed}移动速度提高 (10-15)%
+{variant:3}{tags:attack,speed}攻击速度提高 (10-25)%
+{variant:3}{tags:caster,speed}施法速度提高 (10-25)%
+{variant:3}{tags:speed}移动速度提高 (10-20)%
 {variant:1}技能效果持续时间缩短 (8-12)%
-{variant:2}技能效果持续时间缩短 (10-15)%
+{variant:2,3}技能效果持续时间缩短 (10-15)%
 {variant:1}{tags:life}每秒生命偷取提高 30%
 {variant:1}{tags:mana}每秒魔力偷取提高 30%
 {variant:2}偷取每秒总恢复量提高 30%
+{variant:3}负面效果持续时间缩短速度提高 100%
 ]],[[
 冬之心
 帝金护身符
