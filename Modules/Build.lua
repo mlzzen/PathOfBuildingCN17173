@@ -135,7 +135,7 @@ self.controls.back = new("ButtonControl", {"LEFT",self.anchorTopBarLeft,"RIGHT"}
 		DrawImage(nil, x + 92, y + 1, self.strWidth + 4, 18)
 		SetDrawColor(1, 1, 1)
 		SetViewport(x, y + 2, self.strWidth + 94, 16)
-DrawString(0, 0, "LEFT", 16, "VAR", "当前的 build :  "..self.buildName)
+DrawString(0, 0, "LEFT", 16, "VAR", "当前build :  "..self.buildName)
 		SetViewport()
 		if control:IsMouseInBounds() then
 			SetDrawLayer(nil, 10)
