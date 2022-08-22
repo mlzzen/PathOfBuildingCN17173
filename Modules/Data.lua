@@ -243,8 +243,8 @@ data.jewelRadii = {
 data.jewelRadius = data.setJewelRadiiGlobally(latestTreeVersion)
 
 data.enchantmentSource = {
-	{ name = "ENKINDLING", label = "Enkindling Orb" },
-	{ name = "INSTILLING", label = "Instilling Orb" },
+	{ name = "ENKINDLING", label = "启明石" },
+	{ name = "INSTILLING", label = "灌顶石" },
 	{ name = "HEIST", label = "夺宝" },
 	{ name = "HARVEST", label = "庄园" },
 	{ name = "DEDICATION", label = "潜能终极帝王迷宫-女神祭献" },
@@ -465,6 +465,7 @@ data.enchantments = {
 	["Belt"] = LoadModule("Data/EnchantmentBelt"),
 	["Body Armour"] = LoadModule("Data/EnchantmentBody"),
 	["Weapon"] = LoadModule("Data/EnchantmentWeapon"),
+	["Flask"] = LoadModule("Data/EnchantmentFlask"),
 }
 data.synthesisedMods = {
 		Item = LoadModule("Data/ModSynthesised"),

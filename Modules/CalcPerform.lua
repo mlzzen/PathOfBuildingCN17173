@@ -1558,7 +1558,7 @@ function calcs.perform(env, avoidCache)
 			local slotName = slot.slotName
 			local item = env.build.itemsTab.items[slot.selItemId]
 			if item and item.type == "Flask" then
-				local mageblood_applies = item.rarity == "MAGIC" and not (item.baseName:match("生命药剂") or
+				local mageblood_applies = item.rarity == "魔法" and not (item.baseName:match("生命药剂") or
 					item.baseName:match("魔力药剂") or item.baseName:match("复合药剂")) and
 					curActiveMagicUtilityCount < maxActiveMagicUtilityCount
 				if mageblood_applies then
