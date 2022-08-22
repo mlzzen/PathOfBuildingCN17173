@@ -233,7 +233,7 @@ self.controls.generateCodePastebin.label = "生成Pastebin地址"
 	end
 self.controls.generateCodeNote = new("LabelControl", {"TOPLEFT",self.controls.generateCodeOut,"BOTTOMLEFT"}, 0, 4, 0, 14, "^7注意: 这个代码很长，你可以用【生成Pastebin链接】来简化.")
 self.controls.importCodeHeader = new("LabelControl", {"TOPLEFT",self.controls.generateCodeNote,"BOTTOMLEFT"}, 0, 26, 0, 16, "^7从代码中导入（仅限POB国服版代码）:")
-self.controls.importCodeIn = new("EditControl", {"TOPLEFT",self.controls.importCodeHeader,"BOTTOMLEFT"}, 0, 4, 250, 20, "", nil, "^%w_%-=", nil, function(buf)
+self.controls.importCodeIn = new("EditControl", {"TOPLEFT",self.controls.importCodeHeader,"BOTTOMLEFT"}, 0, 4, 250, 20, "", nil, nil, nil, function(buf)
 		if #buf == 0 then
 			self.importCodeState = nil
 			return

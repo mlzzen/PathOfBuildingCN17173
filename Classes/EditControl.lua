@@ -132,7 +132,7 @@ end
 
 function EditClass:Insert(text)
 	text = utf8.gsub(text, "\r", "")
-	if utf8.match(text, self.filterPattern) then
+	if self.filterPattern ~= "[]" and utf8.match(text, self.filterPattern) then
 		return
 	end
 	local newBuf = utf8.sub(self.buf, 1, self.caret - 1) .. text .. utf8.sub(self.buf, self.caret)
