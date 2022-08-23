@@ -98,6 +98,7 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		self:SetActiveItemSet(self.itemSetOrderList[index])
 		self:AddUndoState()
 	end)
+	self.controls.setSelect.enableDroppedWidth = true
 	self.controls.setSelect.enabled = function()
 		return #self.itemSetOrderList > 1
 	end
@@ -135,13 +136,13 @@ self.controls.setManage = new("ButtonControl", {"LEFT",self.controls.setSelect,"
 				return not self.activeItemSet.useSecondWeaponSet
 			end
 			local swapSlot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Swap", slotName)
-			addSlot(swapSlot)			
+			addSlot(swapSlot)
 			swapSlot.weaponSet = 2
 			swapSlot.shown = function()
 				return self.activeItemSet.useSecondWeaponSet
 			end
 			for i = 1, 6 do
-				local abyssal = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.."Swap Abyssal Socket "..i, "Abyssal #"..i)				
+				local abyssal = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.."Swap Abyssal Socket "..i, "Abyssal #"..i)			
 				addSlot(abyssal)
 				abyssal.parentSlot = swapSlot
 				abyssal.weaponSet = 2
@@ -152,9 +153,9 @@ self.controls.setManage = new("ButtonControl", {"LEFT",self.controls.setSelect,"
 			end
 		end
 		if slotName == "Weapon 1" or slotName == "Weapon 2" or slotName == "Helmet" or slotName == "Gloves" or slotName == "Body Armour" or slotName == "Boots" or slotName == "Belt" then
-		-- Add Abyssal Socket slots
+			-- Add Abyssal Socket slots
 			for i = 1, 6 do
-				local abyssal = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Abyssal Socket "..i, "Abyssal #"..i)					
+				local abyssal = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Abyssal Socket "..i, "Abyssal #"..i)
 				addSlot(abyssal)
 				abyssal.parentSlot = slot
 				if slotName:match("Weapon") then
@@ -290,8 +291,8 @@ self.controls.newDisplayItem = new("ButtonControl", {"TOPLEFT",self.controls.cra
 你可以按下Ctrl+鼠标点击来装备到身上，或者拖放到目标位置上，
 一样可以加入你的build中（如果是内置传奇或金装模板中的装备的话）。
 如果有2个位置都可以装备那件物品，那么想快捷装备到第二个位置，那么多按一个Shift键。]])
-	self.controls.sharedItemList = new("SharedItemListControl", {"TOPLEFT",self.controls.craftDisplayItem, "BOTTOMLEFT"}, 0, 232, 340, 308, self)
-	
+	self.controls.sharedItemList = new("SharedItemListControl", {"TOPLEFT",self.controls.craftDisplayItem, "BOTTOMLEFT"}, 0, 232, 340, 308, self, true)
+
 	-- Display item
 	self.displayItemTooltip = new("Tooltip")
 	self.displayItemTooltip.maxWidth = 458
@@ -313,12 +314,17 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 		self:SetDisplayItem()
 	end)
 
-	-- Section: Variant(s)	
+	-- Section: Variant(s)
 	self.controls.displayItemSectionVariant = new("Control", {"TOPLEFT",self.controls.addDisplayItem,"BOTTOMLEFT"}, 0, 8, 0, function()
 		if not self.controls.displayItemVariant:IsShown() then
 			return 0
 		end
-		return 28 + (self.displayItem.hasAltVariant and 24 or 0) + (self.displayItem.hasAltVariant2 and 24 or 0) + (self.displayItem.hasAltVariant3 and 24 or 0)
+		return (28 + 
+		(self.displayItem.hasAltVariant and 24 or 0) + 
+		(self.displayItem.hasAltVariant2 and 24 or 0) + 
+		(self.displayItem.hasAltVariant3 and 24 or 0) +
+		(self.displayItem.hasAltVariant4 and 24 or 0) + 
+		(self.displayItem.hasAltVariant5 and 24 or 0))
 	end)
 	self.controls.displayItemVariant = new("DropDownControl", {"TOPLEFT", self.controls.displayItemSectionVariant,"TOPLEFT"}, 0, 0, 300, 20, nil, function(index, value)
 		self.displayItem.variant = index
@@ -346,7 +352,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
-	self.controls.displayItemAltVariant.maxDroppedWidth = 1000
+	self.controls.displayItemAltVariant2.maxDroppedWidth = 1000
 	self.controls.displayItemAltVariant2.shown = function()
 		return self.displayItem.hasAltVariant2
 	end
@@ -357,7 +363,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 		self:UpdateDisplayItemTooltip()
 		self:UpdateDisplayItemRangeLines()
 	end)
-	self.controls.displayItemAltVariant.maxDroppedWidth = 1000
+	self.controls.displayItemAltVariant3.maxDroppedWidth = 1000
 	self.controls.displayItemAltVariant3.shown = function()
 		return self.displayItem.hasAltVariant3
 	end
@@ -563,7 +569,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 			if self.displayItem.crafted then
 				for i = 1, self.displayItem.affixLimit do
 					-- Force affix selectors to update
-					local drop = self.controls["displayItemAffix"..i]					
+					local drop = self.controls["displayItemAffix"..i]
 					drop.selFunc(drop.selIndex, drop.list[drop.selIndex])
 				end
 			end
@@ -640,8 +646,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 		local prev = self.controls["displayItemAffix"..(i-1)] or self.controls.displayItemSectionAffix
 		local drop, slider
 		drop = new("DropDownControl", {"TOPLEFT",prev,"TOPLEFT"}, i==1 and 40 or 0, 0, 418, 20, nil, function(index, value)
-
-		local affix = { modId = "None" }
+			local affix = { modId = "None" }
 			if value.modId then
 
 				affix.modId = value.modId
@@ -651,7 +656,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 				local index, range = slider:GetDivVal()
 				affix.modId = value.modList[index]
 				affix.range = range
-			end 
+			end
 			self.displayItem[drop.outputTable][drop.outputIndex] = affix
 			self.displayItem:Craft()
 			self:UpdateDisplayItemTooltip()
@@ -828,7 +833,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 		drop.slider = slider
 		self.controls["displayItemAffix"..i] = drop
 		self.controls["displayItemAffixLabel"..i] = new("LabelControl", {"RIGHT",drop,"LEFT"}, -4, 0, 0, 14, function()
-return drop.outputTable == "prefixes" and "^7前缀:" or "^7后缀:"
+			return drop.outputTable == "prefixes" and "^7前缀:" or "^7后缀:"
 		end)
 		self.controls["displayItemAffixRange"..i] = slider
 		self.controls["displayItemAffixRangeLabel"..i] = new("LabelControl", {"RIGHT",slider,"LEFT"}, -4, 0, 0, 14, function()
@@ -840,7 +845,7 @@ return drop.outputTable == "prefixes" and "^7前缀:" or "^7后缀:"
 	self.controls.displayItemSectionCustom = new("Control", {"TOPLEFT",self.controls.displayItemSectionAffix,"BOTTOMLEFT"}, 0, 0, 0, function()
 		return self.controls.displayItemAddCustom:IsShown() and 28 + self.displayItem.customCount * 22 or 0
 	end)
-self.controls.displayItemAddCustom = new("ButtonControl", {"TOPLEFT",self.controls.displayItemSectionCustom,"TOPLEFT"}, 0, 0, 120, 20, "增加词缀...", function()
+	self.controls.displayItemAddCustom = new("ButtonControl", {"TOPLEFT",self.controls.displayItemSectionCustom,"TOPLEFT"}, 0, 0, 120, 20, "增加词缀...", function()
 		self:AddCustomModifierToDisplayItem()
 	end)
 	self.controls.displayItemAddCustom.shown = function()
@@ -933,6 +938,14 @@ function ItemsTabClass:Load(xml, dbFileName)
 				item.hasAltVariant3 = true
 				item.variantAlt3 = tonumber(node.attrib.variantAlt3)
 			end
+			if node.attrib.variantAlt4 then
+				item.hasAltVariant4 = true
+				item.variantAlt4 = tonumber(node.attrib.variantAlt4)
+			end
+			if node.attrib.variantAlt5 then
+				item.hasAltVariant5 = true
+				item.variantAlt5 = tonumber(node.attrib.variantAlt5)
+			end
 			for _, child in ipairs(node) do
 				if type(child) == "string" then
 					item:ParseRaw(child)
@@ -1004,7 +1017,10 @@ function ItemsTabClass:Save(xml)
 				id = tostring(id), 
 				variant = item.variant and tostring(item.variant), 
 				variantAlt = item.variantAlt and tostring(item.variantAlt), 
-				variantAlt2 = item.variantAlt2 and tostring(item.variantAlt2) 
+				variantAlt2 = item.variantAlt2 and tostring(item.variantAlt2),
+				variantAlt3 = item.variantAlt3 and tostring(item.variantAlt3), 
+				variantAlt4 = item.variantAlt4 and tostring(item.variantAlt4), 
+				variantAlt5 = item.variantAlt5 and tostring(item.variantAlt5)
 			} 
 		}
 		item:BuildAndParseRaw()
@@ -1051,7 +1067,6 @@ function ItemsTabClass:Save(xml)
 		end
 		t_insert(xml, child)
 	end
-	self.modFlag = false
 end
 
 function ItemsTabClass:Draw(viewPort, inputEvents)
@@ -1101,6 +1116,12 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 				if newItem then
 					self:CreateDisplayItemFromRaw(newItem, true)
 				end
+			elseif event.key == "e" then
+				local mOverControl = self:GetMouseOverControl()
+				if mOverControl and mOverControl._className == "ItemSlotControl" and mOverControl.selItemId ~= 0 then
+					-- Trigger itemList's double click procedure
+					self.controls.itemList:OnSelClick(0, mOverControl.selItemId, true)
+				end
 			elseif event.key == "z" and IsKeyDown("CTRL") then
 				self:Undo()
 				self.build.buildFlag = true
@@ -1141,14 +1162,15 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 
 	main:DrawBackground(viewPort)
 
-	wipeTable(self.controls.setSelect.list)
+	local newItemList = { }
 	for index, itemSetId in ipairs(self.itemSetOrderList) do
 		local itemSet = self.itemSets[itemSetId]
-		t_insert(self.controls.setSelect.list, itemSet.title or "默认套装")
+		t_insert(newItemList, itemSet.title or "默认套装")
 		if itemSetId == self.activeItemSetId then
 			self.controls.setSelect.selIndex = index
 		end
 	end
+	self.controls.setSelect:SetList(newItemList)
 
 	if self.displayItem then
 		local x, y = self.controls.displayItemTooltipAnchor:GetPos()
@@ -1241,7 +1263,7 @@ function ItemsTabClass:EquipItemInSet(item, itemSetId)
 	end
 	self:PopulateSlots()
 	self:AddUndoState()
-	self.build.buildFlag = true	
+	self.build.buildFlag = true
 end
 
 -- Update the item lists for all the slot controls
@@ -1271,7 +1293,6 @@ function ItemsTabClass:UpdateSockets()
 		self.sockets[nodeId].label = "珠宝槽 #"..index
 		self.lastSlot = self.sockets[nodeId]
 	end
-	
 	if main.portraitMode then
 		self.controls.itemList:SetAnchor("TOPRIGHT",self.lastSlot,"BOTTOMRIGHT", 0, 40)
 	end
@@ -1313,6 +1334,7 @@ function ItemsTabClass:AddItem(item, noAutoEquip, index)
 	local replacing = self.items[item.id]
 	self.items[item.id] = item
 	item:BuildModList()
+
 
 	if replacing and (replacing.clusterJewel or item.clusterJewel or replacing.baseName == "永恒珠宝") then
 		-- We're replacing an existing item, and either the new or old one is a cluster jewel
@@ -1372,7 +1394,7 @@ function ItemsTabClass:SortItemList()
 end
 
 -- Deletes an item
-function ItemsTabClass:DeleteItem(item)
+function ItemsTabClass:DeleteItem(item, deferUndoState)
 	for slotName, slot in pairs(self.slots) do
 		if slot.selItemId == item.id then
 			slot:SetSelItemId(0)
@@ -1394,9 +1416,11 @@ function ItemsTabClass:DeleteItem(item)
 		end
 	end
 	for _, spec in pairs(self.build.treeTab.specList) do
+		local rebuildClusterJewelGraphs = false
 		for nodeId, itemId in pairs(spec.jewels) do
 			if itemId == item.id then
 				spec.jewels[nodeId] = 0
+				rebuildClusterJewelGraphs = true
 				-- Deallocate all nodes that required this jewel
 				if spec.nodes[nodeId] then
 					for depNodeId, depNode in ipairs(spec.nodes[nodeId].depends) do
@@ -1408,12 +1432,15 @@ function ItemsTabClass:DeleteItem(item)
 				end
 			end
 		end
-		-- Rebuild cluster jewel graphs
-		spec:BuildClusterJewelGraphs()
+		if rebuildClusterJewelGraphs and not deferUndoState then
+			spec:BuildClusterJewelGraphs()
+		end
 	end
 	self.items[item.id] = nil
-	self:PopulateSlots()	 
-	self:AddUndoState()
+	if not deferUndoState then
+		self:PopulateSlots()
+		self:AddUndoState()
+	end
 end
 
 -- Attempt to create a new item from the given item raw text and sets it as the new display item
@@ -1437,23 +1464,36 @@ function ItemsTabClass:SetDisplayItem(item)
 		self.snapHScroll = "RIGHT"
 		self.controls.displayItemVariant.list = item.variantList
 		self.controls.displayItemVariant.selIndex = item.variant
+		self.controls.displayItemVariant:CheckDroppedWidth(true)
 		if item.hasAltVariant then
 			self.controls.displayItemAltVariant.list = item.variantList
 			self.controls.displayItemAltVariant.selIndex = item.variantAlt
+			self.controls.displayItemAltVariant:CheckDroppedWidth(true)
 		end
 		if item.hasAltVariant2 then
 			self.controls.displayItemAltVariant2.list = item.variantList
 			self.controls.displayItemAltVariant2.selIndex = item.variantAlt2
+			self.controls.displayItemAltVariant2:CheckDroppedWidth(true)
 		end
 		if item.hasAltVariant3 then
 			self.controls.displayItemAltVariant3.list = item.variantList
 			self.controls.displayItemAltVariant3.selIndex = item.variantAlt3
+			self.controls.displayItemAltVariant3:CheckDroppedWidth(true)
+		end
+		if item.hasAltVariant4 then
+			self.controls.displayItemAltVariant4.list = item.variantList
+			self.controls.displayItemAltVariant4.selIndex = item.variantAlt4
+			self.controls.displayItemAltVariant4:CheckDroppedWidth(true)
+		end
+		if item.hasAltVariant5 then
+			self.controls.displayItemAltVariant5.list = item.variantList
+			self.controls.displayItemAltVariant5.selIndex = item.variantAlt5
+			self.controls.displayItemAltVariant5:CheckDroppedWidth(true)
 		end
 		self:UpdateSocketControls()
 		if item.crafted then
 			self:UpdateAffixControls()
 		end
-		
 		-- Set both influence dropdowns
 		local influence1 = 1
 		local influence2 = 1
@@ -1549,22 +1589,6 @@ function ItemsTabClass:CraftClusterJewel()
 	end
 end
 
-function ItemsTabClass:UpdateDisplayItemTooltip()
-	self.displayItemTooltip:Clear()
-	self:AddItemTooltip(self.displayItemTooltip, self.displayItem)
-	self.displayItemTooltip.center = false
-end
-
-function ItemsTabClass:UpdateSocketControls()
-	local sockets = self.displayItem.sockets
-	for i = 1, #sockets - self.displayItem.abyssalSocketCount do
-		self.controls["displayItemSocket"..i]:SelByValue(sockets[i].color, "color")
-		if i > 1 then
-			self.controls["displayItemLink"..(i-1)].state = sockets[i].group == sockets[i-1].group
-		end
-	end
-end
-
 -- Update affix selection controls
 function ItemsTabClass:UpdateAffixControls()
 	local item = self.displayItem
@@ -1612,9 +1636,6 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	table.sort(affixList, function(a, b)
 		local modA = item.affixes[a]
 		local modB = item.affixes[b]
-		if item.type == "Flask" then
-			return modA.affix < modB.affix
-		end
 		for i = 1, m_max(#modA, #modB) do
 			if not modA[i] then
 				return true
@@ -1631,9 +1652,9 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	control.outputTable = outputTable
 	control.outputIndex = outputIndex
 	control.slider.shown = false
-	control.slider.val = 0.5
+	control.slider.val = main.defaultItemAffixQuality or 0.5
 	local selAffix = item[outputTable][outputIndex].modId
-	if item.type == "Flask" or (item.type == "Jewel" and item.base.subType ~= "Abyss") then
+	if (item.type == "Jewel" and item.base.subType ~= "Abyss") then
 		for i, modId in pairs(affixList) do
 			local mod = item.affixes[modId]
 			if selAffix == modId then
@@ -1765,17 +1786,10 @@ end
 -- For example, a shield is not valid for Weapon 2 if Weapon 1 is a staff, and a wand is not valid for Weapon 2 if Weapon 1 is a dagger
 function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 	itemSet = itemSet or self.activeItemSet
-	
 	local slotType, slotId = slotName:match("^([%a ]+) (%d+)$")
 	if not slotType then
 		slotType = slotName
 	end
-	if not item.base then 
-		print("没有基底")
-		print_r(item)
-		return false
-	end 
-	
 	if slotType == "Jewel" then
 		-- Special checks for jewel sockets
 		local node = self.build.spec.tree.nodes[tonumber(slotId)] or self.build.spec.nodes[tonumber(slotId)]
@@ -1799,7 +1813,7 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 		return item.base.weapon ~= nil
 	elseif slotName == "Weapon 2" or slotName == "Weapon 2 Swap" then
 		local weapon1Sel = itemSet[slotName == "Weapon 2" and "Weapon 1" or "Weapon 1 Swap"].selItemId or 0
-		local weapon1Type = weapon1Sel > 0 and self.items[weapon1Sel].base.type or "None"
+		local weapon1Type = self.items[weapon1Sel] and self.items[weapon1Sel].base.type or "None"
 		if weapon1Type == "None" then
 			return item.type == "Shield" or (self.build.data.weaponTypeInfo[item.type] and self.build.data.weaponTypeInfo[item.type].oneHand)
 		elseif weapon1Type == "Bow" then
@@ -1820,7 +1834,7 @@ function ItemsTabClass:OpenItemSetManagePopup()
 	controls.close = new("ButtonControl", nil, 0, 260, 90, 20, "完成", function()
 		main:ClosePopup()
 	end)
-main:OpenPopup(630, 290, "套装管理", controls)
+	main:OpenPopup(630, 290, "套装管理", controls)
 end
 
 -- Opens the item crafting popup
@@ -1851,7 +1865,6 @@ function ItemsTabClass:CraftItem()
 		if raritySel >= 3 then
 			item.title = controls.title.buf:match("%S") and controls.title.buf or "自定义"
 		end
-		
 		if base.base.implicit then
 			local implicitIndex = 1
 			for line in base.base.implicit:gmatch("[^\n]+") do
@@ -1864,20 +1877,20 @@ function ItemsTabClass:CraftItem()
 		item:BuildAndParseRaw()
 		return item
 	end
-controls.rarityLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 50, 20, 0, 16, "稀有度:")
+	controls.rarityLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 50, 20, 0, 16, "稀有度:")
 	controls.rarity = new("DropDownControl", nil, -80, 20, 100, 18, rarityDropList)
 	controls.rarity.selIndex = self.lastCraftRaritySel or 3
-controls.title = new("EditControl", nil, 70, 20, 190, 18, "", "名称")
+	controls.title = new("EditControl", nil, 70, 20, 190, 18, "", "名称")
 	controls.title.shown = function()
 		return controls.rarity.selIndex >= 3
 	end
-controls.typeLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 50, 45, 0, 16, "类型:")
+	controls.typeLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 50, 45, 0, 16, "类型:")
 	controls.type = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 55, 45, 295, 18, self.build.data.itemBaseTypeList, function(index, value)
 		controls.base.list = self.build.data.itemBaseLists[self.build.data.itemBaseTypeList[index]]
 		controls.base.selIndex = 1
 	end)
 	controls.type.selIndex = self.lastCraftTypeSel or 1
-controls.baseLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 50, 70, 0, 16, "基底:")
+	controls.baseLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 50, 70, 0, 16, "基底:")
 	controls.base = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 55, 70, 200, 18, self.build.data.itemBaseLists[self.build.data.itemBaseTypeList[controls.type.selIndex]])
 	controls.base.selIndex = self.lastCraftBaseSel or 1
 	controls.base.tooltipFunc = function(tooltip, mode, index, value)
@@ -1886,18 +1899,18 @@ controls.baseLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 50, 70, 0, 
 			self:AddItemTooltip(tooltip, makeItem(value), nil, true)
 		end
 	end
-controls.save = new("ButtonControl", nil, -45, 100, 80, 20, "创建", function()
+	controls.save = new("ButtonControl", nil, -45, 100, 80, 20, "创建", function()
 		main:ClosePopup()
 		local item = makeItem(controls.base.list[controls.base.selIndex])
 		self:SetDisplayItem(item)
-if not item.crafted and item.rarity ~= "普通" then
+		if not item.crafted and item.rarity ~= "普通" then
 			self:EditDisplayItemText()
 		end
 		self.lastCraftRaritySel = controls.rarity.selIndex
 		self.lastCraftTypeSel = controls.type.selIndex
 		self.lastCraftBaseSel = controls.base.selIndex
 	end)
-controls.cancel = new("ButtonControl", nil, 45, 100, 80, 20, "取消", function()
+	controls.cancel = new("ButtonControl", nil, 45, 100, 80, 20, "取消", function()
 		main:ClosePopup()
 	end)
 	main:OpenPopup(370, 130, "装备制作", controls)
@@ -1942,19 +1955,19 @@ controls.save = new("ButtonControl", nil, -45, 470, 80, 20, self.displayItem and
 		if item.base then
 			self:AddItemTooltip(tooltip, item, nil, true)
 		else
-tooltip:AddLine(14, "物品格式解析失败.")
-tooltip:AddLine(14, "检查下物品名称或物品基底的名称是否正确。")
-tooltip:AddLine(14, "稀有或传奇物品的前2行，必须由装备名称和装备基底名称构成，例如：")
-tooltip:AddLine(14, "艾贝拉斯之角")
-tooltip:AddLine(14, "羊角法杖")
-tooltip:AddLine(14, "对于普通或魔法物品，物品基底的名称必须包含在第一行中，例如:")
-tooltip:AddLine(14, "神秘学者的喜悦之白金波刃")
+			tooltip:AddLine(14, "物品格式解析失败.")
+			tooltip:AddLine(14, "检查下物品名称或物品基底的名称是否正确。")
+			tooltip:AddLine(14, "稀有或传奇物品的前2行，必须由装备名称和装备基底名称构成，例如：")
+			tooltip:AddLine(14, "艾贝拉斯之角")
+			tooltip:AddLine(14, "羊角法杖")
+			tooltip:AddLine(14, "对于普通或魔法物品，物品基底的名称必须包含在第一行中，例如:")
+			tooltip:AddLine(14, "神秘学者的喜悦之白金波刃")
 		end
 	end	
-controls.cancel = new("ButtonControl", nil, 45, 470, 80, 20, "取消", function()
+	controls.cancel = new("ButtonControl", nil, 45, 470, 80, 20, "取消", function()
 		main:ClosePopup()
 	end)
-main:OpenPopup(500, 500, self.displayItem and "编辑装备文本" or "从文本中创建自定义物品", controls, nil, "edit")
+	main:OpenPopup(500, 500, self.displayItem and "编辑装备文本" or "从文本中创建自定义物品", controls, nil, "edit")
 end
 
 -- Opens the item enchanting popup
@@ -2043,19 +2056,19 @@ function ItemsTabClass:EnchantDisplayItem(enchantSlot)
 		return item
 	end
 	if haveSkills then
-controls.skillLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 20, 0, 16, "^7技能:")
+		controls.skillLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 20, 0, 16, "^7技能:")
 		controls.skill = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 20, 180, 18, skillList, function(index, value)
 			buildEnchantmentSourceList()
 			buildEnchantmentList()
 			controls.enchantment:SetSel(1)
 		end)
-controls.allSkills = new("CheckBoxControl", {"TOPLEFT",nil,"TOPLEFT"}, 350, 20, 18, "所有技能:", function(state)
+		controls.allSkills = new("CheckBoxControl", {"TOPLEFT",nil,"TOPLEFT"}, 350, 20, 18, "所有技能:", function(state)
 			buildSkillList(not state)
 			controls.skill:SetSel(1)
 			buildEnchantmentList()
 			controls.enchantment:SetSel(1)
 		end)
-controls.allSkills.tooltipText = "显示所有技能，不仅是本build包含的."
+		controls.allSkills.tooltipText = "显示所有技能，不仅是本build包含的."
 		if not next(skillsUsed) then
 			controls.allSkills.state = true
 			controls.allSkills.enabled = false
@@ -2066,9 +2079,9 @@ controls.allSkills.tooltipText = "显示所有技能，不仅是本build包含�
 		buildEnchantmentList()
 		controls.enchantment:SetSel(m_min(controls.enchantment.selIndex, #enchantmentList))
 	end)
-controls.enchantmentLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 70, 0, 16, "^7附魔:")
+	controls.enchantmentLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 70, 0, 16, "^7附魔:")
 	controls.enchantment = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 70, 440, 18, enchantmentList)
-controls.save = new("ButtonControl", nil, -45, 100, 80, 20, "附魔", function()
+	controls.save = new("ButtonControl", nil, -45, 100, 80, 20, "附魔", function()
 		self:SetDisplayItem(enchantItem())
 		main:ClosePopup()
 	end)
@@ -3464,7 +3477,10 @@ tooltip:AddLine(14, "^7有效药剂状态:")
 				tooltip:AddLine(14, stat)
 			end
 		end
+		local storedGlobalCacheDPSView = GlobalCache.useFullDPS
+		GlobalCache.useFullDPS = GlobalCache.numActiveSkillInFullDPS > 0
 		local output = calcFunc({ toggleFlask = item }, {})
+		GlobalCache.useFullDPS = storedGlobalCacheDPSView
 		local header
 		if self.build.calcsTab.mainEnv.flasks[item] then
 header = "^7取消激活这个药剂会让你:"
@@ -3482,10 +3498,19 @@ header = "^7激活这个药剂会给你:"
 			end
 		end
 		table.sort(compareSlots, function(a, b)
+			if a ~= b then
+				if slot == a then
+					return true
+				end
+				if slot == b then
+					return false
+				end
+			end
 			if a.selItemId ~= b.selItemId then
 				if item == self.items[a.selItemId] then
 					return true
-				elseif item == self.items[b.selItemId] then
+				end
+				if item == self.items[b.selItemId] then
 					return false
 				end
 			end
@@ -3499,19 +3524,22 @@ header = "^7激活这个药剂会给你:"
 		end)
 
 		-- Add comparisons for each slot
-		for _, slot in pairs(compareSlots) do
-			local selItem = self.items[slot.selItemId]
-			local storedGlobalCacheDPSView = GlobalCache.useFullDPS
-			GlobalCache.useFullDPS = calcBase.FullDPS ~= nil
-			local output = calcFunc({ repSlotName = slot.slotName, repItem = item ~= selItem and item }, {})
-			GlobalCache.useFullDPS = storedGlobalCacheDPSView
-			local header
-			if item == selItem then
-header = "^7从 "..slot.label.." 移除本装备会让你:"
-			else
-header = string.format("^7装备本物品到 %s 会让你:%s", slot.label, selItem and "\n(替换掉 "..colorCodes[selItem.rarity]..selItem.name.."^7)" or "")
+		for _, compareSlot in pairs(compareSlots) do
+			if not main.slotOnlyTooltips or (slot and (slot.nodeId == compareSlot.nodeId or slot.slotName == compareSlot.slotName)) or not slot or slot == compareSlot then
+				local selItem = self.items[compareSlot.selItemId]
+				local storedGlobalCacheDPSView = GlobalCache.useFullDPS
+				GlobalCache.useFullDPS = GlobalCache.numActiveSkillInFullDPS > 0
+				local output = calcFunc({ repSlotName = compareSlot.slotName, repItem = item ~= selItem and item }, {})
+				GlobalCache.useFullDPS = storedGlobalCacheDPSView
+				local header
+				if item == selItem then
+					header = "^7从 "..compareSlot.label.." 移除本装备会让你:"
+				else
+					header = string.format("^7装备本物品到 %s 会让你:%s", compareSlot.label, selItem and "\n(替换掉 "..colorCodes[selItem.rarity]..selItem.name.."^7)" or "")
+				end
+				self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)
 			end
-			self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)
+
 		end
 	end
 
@@ -3527,7 +3555,10 @@ end
 function ItemsTabClass:CreateUndoState()
 	local state = { }
 	state.activeItemSetId = self.activeItemSetId
-	state.items = copyTableSafe(self.items, false, true)
+	state.items = { }
+	for k, v in pairs(self.items) do
+		state.items[k] = copyTableSafe(self.items[k], true, true)
+	end
 	state.itemOrderList = copyTable(self.itemOrderList)
 	state.slotSelItemId = { }
 	for slotName, slot in pairs(self.slots) do
@@ -3555,5 +3586,4 @@ function ItemsTabClass:RestoreUndoState(state)
 	self.activeItemSetId = state.activeItemSetId
 	self.activeItemSet = self.itemSets[self.activeItemSetId]
 	self:PopulateSlots()
-	self.build.spec:BuildClusterJewelGraphs()
 end

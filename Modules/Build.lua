@@ -7,6 +7,7 @@
 
 local pairs = pairs
 local ipairs = ipairs
+local next = next
 local t_insert = table.insert
 local m_min = math.min
 local m_max = math.max
@@ -69,7 +70,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 	if self.targetVersion ~= liveTargetVersion then
 		self.targetVersion = nil
 		self:OpenConversionPopup()
-		return		
+		return
 	end
 
 	self.abortSave = true
@@ -80,14 +81,11 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 
 	-- Controls: top bar, left side
 	self.anchorTopBarLeft = new("Control", nil, 4, 4, 0, 20)
-self.controls.back = new("ButtonControl", {"LEFT",self.anchorTopBarLeft,"RIGHT"}, 0, 0, 60, 20, "<< 返回", function()
+	self.controls.back = new("ButtonControl", {"LEFT",self.anchorTopBarLeft,"RIGHT"}, 0, 0, 60, 20, "<< 返回", function()
 		if self.unsaved then
 			self:OpenSavePopup("LIST")
 		else
-			 
-		
 			self:CloseBuild()
-			--self.spec:resetAll(); 
 		end
 	end)
 	self.controls.buildName = new("Control", {"LEFT",self.controls.back,"RIGHT"}, 8, 0, 0, 20)
@@ -107,7 +105,7 @@ self.controls.back = new("ButtonControl", {"LEFT",self.anchorTopBarLeft,"RIGHT"}
 		DrawImage(nil, x + 92, y + 1, self.strWidth + 4, 18)
 		SetDrawColor(1, 1, 1)
 		SetViewport(x, y + 2, self.strWidth + 94, 16)
-DrawString(0, 0, "LEFT", 16, "VAR", "当前build :  "..self.buildName)
+		DrawString(0, 0, "LEFT", 16, "VAR", "当前build :  "..self.buildName)
 		SetViewport()
 		if control:IsMouseInBounds() then
 			SetDrawLayer(nil, 10)
@@ -121,13 +119,13 @@ DrawString(0, 0, "LEFT", 16, "VAR", "当前build :  "..self.buildName)
 			SetDrawLayer(nil, 0)
 		end
 	end
-self.controls.save = new("ButtonControl", {"LEFT",self.controls.buildName,"RIGHT"}, 8, 0, 50, 20, "保存", function()
+	self.controls.save = new("ButtonControl", {"LEFT",self.controls.buildName,"RIGHT"}, 8, 0, 50, 20, "保存", function()
 		self:SaveDBFile()
 	end)
 	self.controls.save.enabled = function()
 		return not self.dbFileName or self.unsaved
 	end
-self.controls.saveAs = new("ButtonControl", {"LEFT",self.controls.save,"RIGHT"}, 8, 0, 70, 20, "另存为", function()
+	self.controls.saveAs = new("ButtonControl", {"LEFT",self.controls.save,"RIGHT"}, 8, 0, 70, 20, "另存为", function()
 		self:OpenSaveAsPopup()
 	end)
 	self.controls.saveAs.enabled = function()
@@ -645,42 +643,6 @@ self.aboutTab = new("AboutTab", self)--lucifer
 	self.legacyLoaders = { -- Special loaders for legacy sections
 		["Spec"] = self.treeTab,
 	}
-	-- so we ran into problems with converted trees, trying to check passive tree routes and also consider thread jewels
-	-- but we cant check jewel info because items have not been loaded yet, and they come after passives in the xml.
-	-- the simplest solution seems to be making sure passive trees (which contain jewel sockets) are loaded last.
-	local deferredPassiveTrees = { }
-	for _, node in ipairs(self.xmlSectionList) do
-		-- Check if there is a saver that can load this section
-		local saver = self.savers[node.elem] or self.legacyLoaders[node.elem]
-		if saver then
-			-- if the saver is treetab, defer it until everything is is loaded
-			if saver == self.treeTab  then
-				t_insert( deferredPassiveTrees, node )
-			else
-				if saver:Load(node, self.dbFileName) then
-					self:CloseBuild()
-					return
-				end
-			end
-		end
-	end
-	for _, node in ipairs(deferredPassiveTrees) do
-		-- Check if there is a saver that can load this section
-		if self.treeTab:Load(node, self.dbFileName) then
-			self:CloseBuild()
-			return
-		end
-	end
-	for _, saver in pairs(self.savers) do
-		if saver.PostLoad then
-			saver:PostLoad()
-		end
-	end
-
-	if next(self.configTab.input) == nil then
-		-- Check for old calcs tab settings
-		self.configTab:ImportCalcSettings()
-	end
 	
 	-- Initialise class dropdown
 	for classId, class in pairs(self.latestTree.classes) do
