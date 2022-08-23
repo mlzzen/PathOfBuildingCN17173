@@ -250,8 +250,7 @@ function DropDownClass:IsMouseOver()
 	return mOver, mOverComp
 end
 
-
-function DropDownClass:Draw(viewPort)
+function DropDownClass:Draw(viewPort, noTooltip)
 	local x, y = self:GetPos()
 	local width, height = self:GetSize()
 	local enabled = self:IsEnabled()
@@ -301,7 +300,7 @@ function DropDownClass:Draw(viewPort)
 	DrawImage(nil, x, y, width, height)
 	if self.dropped then
 		SetDrawLayer(nil, 5)
-		DrawImage(nil, x, dropY, width, dropExtra)
+		DrawImage(nil, x, dropY, self.droppedWidth, dropExtra)
 		SetDrawLayer(nil, 0)
 	end
 	if not enabled then
@@ -325,7 +324,7 @@ function DropDownClass:Draw(viewPort)
 	if self.dropped then
 		SetDrawLayer(nil, 5)
 		SetDrawColor(0, 0, 0)
-		DrawImage(nil, x + 1, dropY + 1, width - 2, dropExtra - 2)
+		DrawImage(nil, x + 1, dropY + 1, self.droppedWidth - 2, dropExtra - 2)
 		SetDrawLayer(nil, 0)
 	end
 	if self.otherDragSource then
@@ -334,7 +333,8 @@ function DropDownClass:Draw(viewPort)
 	end
 
 	-- draw dropdown bar
-	if (mOver or self.dropped) and mOverComp ~= "DROP" then
+	if enabled then
+		if (mOver or self.dropped) and mOverComp ~= "DROP" and not noTooltip then
 			SetDrawLayer(nil, 100)
 			self:DrawTooltip(
 				x, y - (self.dropped and self.dropUp and dropExtra or 0), 
@@ -342,9 +342,7 @@ function DropDownClass:Draw(viewPort)
 				viewPort,
 				mOver and "BODY" or "OUT", self.selIndex, self.list[self.selIndex])
 			SetDrawLayer(nil, 0)
-	end
-	if enabled then
-		
+		end
 		SetDrawColor(1, 1, 1)
 	else
 		SetDrawColor(0.66, 0.66, 0.66)
@@ -352,40 +350,12 @@ function DropDownClass:Draw(viewPort)
 	-- draw selected label or search term
 	local selLabel
 	if self:IsSearchActive() then
-		selLabel = "搜索: " .. self:GetSearchTermPretty()
+		selLabel = "Search: " .. self:GetSearchTermPretty()
 	else
 		selLabel = self.list[self.selIndex]
 		if type(selLabel) == "table" then
 			selLabel = selLabel.label
 		end
-		 
-			if  self.cnKey=="slotListCN" then
-				
-				for index in pairs(slotListCN) do
-					if selLabel==slotListCN[index].slotName then
-						selLabel=slotListCN[index].label
-					end
-				end
-			elseif self.cnKey=="typeListCN" then 
-					for index in pairs(typeListCN) do
-						if selLabel==typeListCN[index].slotName then
-							selLabel=typeListCN[index].label
-						end
-					end
-			elseif self.cnKey=="sortDropListCN" then 
-					for index in pairs(sortDropListCN) do
-						if selLabel==sortDropListCN[index].slotName then
-							selLabel=sortDropListCN[index].label
-						end
-					end	
-			elseif self.cnKey=="searchModeCN" then 
-					for index in pairs(searchModeCN) do
-						if selLabel==searchModeCN[index].slotName then
-							selLabel=searchModeCN[index].label
-						end
-					end
-					
-			end
 	end
 	SetViewport(x + 2, y + 2, width - height, lineHeight)
 	DrawString(0, 0, "LEFT", lineHeight, "VAR", selLabel or "")
@@ -395,6 +365,7 @@ function DropDownClass:Draw(viewPort)
 	if self.dropped then
 		SetDrawLayer(nil, 5)
 		self:DrawControls(viewPort)
+		width = self.droppedWidth
 
 		-- draw tooltip for hovered item
 		local cursorX, cursorY = GetCursorPos()
@@ -403,7 +374,7 @@ function DropDownClass:Draw(viewPort)
 		if self.hoverSel and not self.list[self.hoverSel] then
 			self.hoverSel = nil
 		end
-		if self.hoverSel then
+		if self.hoverSel and not noTooltip then
 			SetDrawLayer(nil, 100)
 			self:DrawTooltip(
 				x, dropY + 2 + (self.hoverSelDrop - 1) * lineHeight - scrollBar.offset,
@@ -435,44 +406,13 @@ function DropDownClass:Draw(viewPort)
 				end
 				-- draw actual item label with search match highlight if available
 				local label = StripEscapes(type(listVal) == "table" and listVal.label or listVal)
-				
-				
-				
-				if  self.cnKey=="slotListCN" then
-				
-				for index in pairs(slotListCN) do
-					if label==slotListCN[index].slotName then
-						label=slotListCN[index].label
-					end
-				end
-			elseif self.cnKey=="typeListCN" then 
-					for index in pairs(typeListCN) do
-						if label==typeListCN[index].slotName then
-							label=typeListCN[index].label
-						end
-					end
-			elseif self.cnKey=="sortDropListCN" then 
-					for index in pairs(sortDropListCN) do
-						if label==sortDropListCN[index].slotName then
-							label=sortDropListCN[index].label
-						end
-					end	
-			elseif self.cnKey=="searchModeCN" then 
-					for index in pairs(searchModeCN) do
-						if label==searchModeCN[index].slotName then
-							label=searchModeCN[index].label
-						end
-					end
-					
-			end
-				
 				DrawString(0, y, "LEFT", lineHeight, "VAR", label)
 				self:DrawSearchHighlights(label, searchInfo, 0, y, width - 4, lineHeight)
 			end
 		end
 		SetDrawColor(1, 1, 1)
 		if self:IsSearchActive() and self:GetMatchCount() == 0 then
-			DrawString(0, 0 , "LEFT", lineHeight, "VAR", "<无>")
+			DrawString(0, 0 , "LEFT", lineHeight, "VAR", "<No matches>")
 		end
 		SetViewport()
 		SetDrawLayer(nil, 0)
