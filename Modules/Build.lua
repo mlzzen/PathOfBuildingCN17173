@@ -588,7 +588,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 	self.controls.statBox = new("TextListControl", {"TOPLEFT",self.controls.statBoxAnchor,"BOTTOMLEFT"}, 0, 2, 300, 0, {{x=170,align="RIGHT_X"},{x=174,align="LEFT"}})
 	self.controls.statBox.height = function(control)
 		local x, y = control:GetPos()
-		local warnHeight = #self.controls.warnings.lines > 0 and 18 or 0
+		local warnHeight = main.showWarnings and #self.controls.warnings.lines > 0 and 18 or 0
 		return main.screenH - main.mainBarHeight - 4 - y - warnHeight
 	end
 	self.controls.warnings = new("Control",{"TOPLEFT",self.controls.statBox,"BOTTOMLEFT",true}, 0, 0, 0, 18)
@@ -627,7 +627,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 	self.treeTab = new("TreeTab", self)
 	self.skillsTab = new("SkillsTab", self)
 	self.calcsTab = new("CalcsTab", self)
-self.aboutTab = new("AboutTab", self)--lucifer
+	self.aboutTab = new("AboutTab", self)--lucifer
 	-- Load sections from the build file
 	self.savers = {
 		["Config"] = self.configTab,
@@ -638,12 +638,15 @@ self.aboutTab = new("AboutTab", self)--lucifer
 		["Skills"] = self.skillsTab,
 		["Calcs"] = self.calcsTab,
 		["Import"] = self.importTab,
-			["AboutTab"]=self.aboutTab ,--
+		["AboutTab"]=self.aboutTab ,--
 	}
 	self.legacyLoaders = { -- Special loaders for legacy sections
 		["Spec"] = self.treeTab,
 	}
 	
+	--special rebuild to properly initialise boss placeholders
+	self.configTab:BuildModList()
+
 	-- Initialise class dropdown
 	for classId, class in pairs(self.latestTree.classes) do
 		local ascendancies = {}
@@ -658,7 +661,7 @@ self.aboutTab = new("AboutTab", self)--lucifer
 		t_insert(self.controls.classDrop.list, {
 			label = class.name,
 			classId = classId,
-			ascendencies = ascendancies,
+			ascendancies = ascendancies,
 		})
 	end
 	table.sort(self.controls.classDrop.list, function(a, b) return a.label < b.label end)
@@ -712,6 +715,8 @@ self.aboutTab = new("AboutTab", self)--lucifer
 	self:RefreshStatList()
 	self.buildFlag = false
 
+	self.spec:SetWindowTitleWithBuildClass()
+
 	--[[
 	local testTooltip = new("Tooltip")
 	for _, item in pairs(main.uniqueDB.list) do
@@ -733,7 +738,7 @@ self.aboutTab = new("AboutTab", self)--lucifer
 		self.calcsTab:PowerBuilder()
 	end
 	SetProfiling(false)
-	ConPrintf("Power build time: %d msec", GetTime() - start)
+	ConPrintf("Power build time: %d ms", GetTime() - start)
 	--]]
 
 	self.abortSave = false
@@ -778,8 +783,7 @@ function buildMode:Load(xml, fileName)
 		self.viewMode = xml.attrib.viewMode
 	end
 	self.characterLevel = tonumber(xml.attrib.level) or 1
-	
-	for _, diff in pairs({"bandit", "pantheonMajorGod", "pantheonMinorGod"}) do
+	for _, diff in pairs({ "bandit", "pantheonMajorGod", "pantheonMinorGod" }) do
 		self[diff] = xml.attrib[diff] or "None"
 	end
 	self.mainSocketGroup = tonumber(xml.attrib.mainSkillIndex) or tonumber(xml.attrib.mainSocketGroup) or 1
@@ -808,14 +812,30 @@ function buildMode:Save(xml)
 	for _, id in ipairs(self.spectreList) do
 		t_insert(xml, { elem = "Spectre", attrib = { id = id } })
 	end
-	local addedStatNames = { SkillDPS = true }
+	local addedStatNames = { }
 	for index, statData in ipairs(self.displayStats) do
 		if not statData.flag or self.calcsTab.mainEnv.player.mainSkill.skillFlags[statData.flag] then
 			if statData.stat and not addedStatNames[statData.stat] then
-				local statVal = self.calcsTab.mainOutput[statData.stat]
-				if statVal and (statData.condFunc and statData.condFunc(statVal, self.calcsTab.mainOutput) or true) then
-					t_insert(xml, { elem = "PlayerStat", attrib = { stat = statData.stat, value = tostring(statVal) } })
+				if statData.stat == "SkillDPS" then
+					local statVal = self.calcsTab.mainOutput[statData.stat]
+					for _, skillData in ipairs(statVal) do
+						local triggerStr = ""
+						if skillData.trigger and skillData.trigger ~= "" then
+							triggerStr = skillData.trigger
+						end
+						local lhsString = skillData.name
+						if skillData.count >= 2 then
+							lhsString = tostring(skillData.count).."x "..skillData.name
+						end
+						t_insert(xml, { elem = "FullDPSSkill", attrib = { stat = lhsString, value = tostring(skillData.dps * skillData.count), skillPart = skillData.skillPart or "", source = skillData.source or skillData.trigger or "" } })
+					end
 					addedStatNames[statData.stat] = true
+				else
+					local statVal = self.calcsTab.mainOutput[statData.stat]
+					if statVal and (statData.condFunc and statData.condFunc(statVal, self.calcsTab.mainOutput) or true) then
+						t_insert(xml, { elem = "PlayerStat", attrib = { stat = statData.stat, value = tostring(statVal) } })
+						addedStatNames[statData.stat] = true
+					end
 				end
 			end
 		end
@@ -836,11 +856,21 @@ function buildMode:Save(xml)
 			end
 		end
 	end
+end
+
+function buildMode:ResetModFlags()
 	self.modFlag = false
+	self.notesTab.modFlag = false
+	self.configTab.modFlag = false
+	self.treeTab.modFlag = false
+	self.spec.modFlag = false
+	self.skillsTab.modFlag = false
+	self.itemsTab.modFlag = false
+	self.calcsTab.modFlag = false
 end
 
 function buildMode:OnFrame(inputEvents)
--- Stop at drawing the background if the loaded build needs to be converted
+	-- Stop at drawing the background if the loaded build needs to be converted
 	if not self.targetVersion then
 		main:DrawBackground(main.viewPort)
 		return
@@ -859,7 +889,10 @@ function buildMode:OnFrame(inputEvents)
 					self:CloseBuild()
 				end
 		elseif IsKeyDown("CTRL") then
-				if event.key == "s" then
+				if event.key == "i" then
+						self.viewMode = "IMPORT"
+					self.importTab:SelectControl(self.importTab.controls.importCodeIn)
+				elseif event.key == "s" then
 					self:SaveDBFile()
 					inputEvents[id] = nil
 				elseif event.key == "w" then
@@ -878,14 +911,16 @@ function buildMode:OnFrame(inputEvents)
 					self.viewMode = "CALCS"
 				elseif event.key == "5" then
 					self.viewMode = "CONFIG"
+				elseif event.key == "6" then
+					self.viewMode = "NOTES"
 				end
 			end
 		end
 	end
-	self:ProcessControlsInput(inputEvents, main.viewPort)	
+	self:ProcessControlsInput(inputEvents, main.viewPort)
 
 	self.controls.classDrop:SelByValue(self.spec.curClassId, "classId")
-	self.controls.ascendDrop.list = self.controls.classDrop:GetSelValue("ascendencies")
+	self.controls.ascendDrop.list = self.controls.classDrop:GetSelValue("ascendancies")
 	self.controls.ascendDrop:SelByValue(self.spec.curAscendClassId, "ascendClassId")
 
 	local checkFabricatedGroups = self.buildFlag
@@ -1060,6 +1095,7 @@ controls.save = new("ButtonControl", nil, -45, 225, 80, 20, "保存", function()
 		self.buildName = newBuildName
 		self.dbFileSubPath = controls.folder.subPath
 		self:SaveDBFile()
+		self.spec:SetWindowTitleWithBuildClass()
 	end)
 	controls.save.enabled = false
 controls.close = new("ButtonControl", nil, 45, 225, 80, 20, "取消", function()
@@ -1144,14 +1180,18 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						t_insert(controls.mainSkillPart.list, { val = i, label = part.name })
 					end
 					controls.mainSkillPart.selIndex = activeEffect.srcInstance["skillPart"..suffix] or 1
+					if activeEffect.grantedEffect.parts[activeEffect.srcInstance["skillPart"..suffix]].stages then
+						controls.mainSkillStageCount.shown = true
+						controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or activeEffect.grantedEffect.parts[activeEffect.srcInstance["skillPart"..suffix]].stagesMin or 1)
+					end
 				end
 				if activeSkill.skillFlags.mine then
 					controls.mainSkillMineCount.shown = true
 					controls.mainSkillMineCount.buf = tostring(activeEffect.srcInstance["skillMineCount"..suffix] or "")
 				end
-				if activeSkill.skillFlags.multiStage then
+				if activeSkill.skillFlags.multiStage and not (activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1) then
 					controls.mainSkillStageCount.shown = true
-					controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or "")
+					controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or activeSkill.skillData.stagesMin or 1)
 				end
 				if not activeSkill.skillFlags.disable and (activeEffect.grantedEffect.minionList or activeSkill.minionList[1]) then
 					wipeTable(controls.mainSkillMinion.list)
@@ -1197,6 +1237,9 @@ function buildMode:FormatStat(statData, statVal, overCapStatVal)
 	if type(statVal) == "table" then return "" end
 	local val = statVal * ((statData.pc or statData.mod) and 100 or 1) - (statData.mod and 100 or 0)
 	local color = (statVal >= 0 and "^7" or statData.chaosInoc and "^8" or colorCodes.NEGATIVE)
+	if statData.label == "Unreserved Life" and statVal == 0 then
+		color = colorCodes.NEGATIVE
+	end
 	local valStr = s_format("%"..statData.fmt, val)
 	valStr:gsub("%.", main.decimalSeparator)
 	valStr = color .. formatNumSep(valStr)
@@ -1208,7 +1251,7 @@ function buildMode:FormatStat(statData, statVal, overCapStatVal)
 	self.lastShowThousandsSeparators = main.showThousandsSeparators
 	self.lastShowThousandsSeparator = main.thousandsSeparator
 	self.lastShowDecimalSeparator = main.decimalSeparator
-	self.lastShowTitlebarName = main.showTitlebarName	
+	self.lastShowTitlebarName = main.showTitlebarName
 	return valStr
 end
 
@@ -1488,12 +1531,14 @@ main:OpenMessagePopup("错误", "不能保存当前bd文件:\n"..self.dbFileName
 	file:close()
 	local action = self.actionOnSave
 	self.actionOnSave = nil
+	-- Reset all modFlags
+	self:ResetModFlags()
 	if action == "LIST" then
 		self:CloseBuild()
 	elseif action == "EXIT" then
 		Exit()
 	elseif action == "UPDATE" then
-		launch:ApplyUpdate(launch.updateAvailable)	
+		launch:ApplyUpdate(launch.updateAvailable)
 	end
 end
 
