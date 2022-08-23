@@ -459,36 +459,38 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Multiplier:PerAllocatedMastery", "BASE", env.spec.allocatedMasteryCount, "")
 
 		-- Add bandit mods
-		if build.bandit == "Alira" then
-				modDB:NewMod("ManaRegen", "BASE", 5, "Bandit")
-				modDB:NewMod("CritMultiplier", "BASE", 20, "Bandit")
-				modDB:NewMod("ElementalResist", "BASE", 15, "Bandit")
-			elseif build.bandit == "Kraityn" then
-				modDB:NewMod("Speed", "INC", 6, "Bandit")
-				modDB:NewMod("AttackDodgeChance", "BASE", 3, "Bandit")
-				modDB:NewMod("MovementSpeed", "INC", 6, "Bandit")
-			elseif build.bandit == "Oak" then
-				modDB:NewMod("LifeRegenPercent", "BASE", 1, "Bandit")
-				modDB:NewMod("PhysicalDamageReduction", "BASE", 2, "Bandit")
-				modDB:NewMod("PhysicalDamage", "INC", 20, "Bandit")
-			else
-				modDB:NewMod("ExtraPoints", "BASE", 2, "Bandit")
+		if env.configInput.bandit == "Alira" then
+			modDB:NewMod("ManaRegen", "BASE", 5, "Bandit")
+			modDB:NewMod("CritMultiplier", "BASE", 20, "Bandit")
+			modDB:NewMod("ElementalResist", "BASE", 15, "Bandit")
+		elseif env.configInput.bandit == "Kraityn" then
+			modDB:NewMod("Speed", "INC", 6, "Bandit")
+			for _, ailment in ipairs(env.data.elementalAilmentTypeList) do
+				modDB:NewMod("Avoid"..ailment, "BASE", 10, "Bandit")
+			end
+			modDB:NewMod("MovementSpeed", "INC", 6, "Bandit")
+		elseif env.configInput.bandit == "Oak" then
+			modDB:NewMod("LifeRegenPercent", "BASE", 1, "Bandit")
+			modDB:NewMod("PhysicalDamageReduction", "BASE", 2, "Bandit")
+			modDB:NewMod("PhysicalDamage", "INC", 20, "Bandit")
+		else
+			modDB:NewMod("ExtraPoints", "BASE", 2, "Bandit")
 		end
 		
 		-- Add Pantheon mods
 		local parser = modLib.parseMod
 		-- Major Gods
-		if build.pantheonMajorGod ~= "None" then
-			local majorGod = env.data.pantheons[build.pantheonMajorGod]
+		if env.configInput.pantheonMajorGod ~= "None" then
+			local majorGod = env.data.pantheons[env.configInput.pantheonMajorGod]
 			pantheon.applySoulMod(modDB, parser, majorGod)
 		end
 		-- Minor Gods
-		if build.pantheonMinorGod ~= "None" then
-			local minorGod = env.data.pantheons[build.pantheonMinorGod]
+		if env.configInput.pantheonMinorGod ~= "None" then
+			local minorGod = env.data.pantheons[env.configInput.pantheonMinorGod]
 			pantheon.applySoulMod(modDB, parser, minorGod)
 		end
+
 		-- Initialise enemy modifier database
-		
 		calcs.initModDB(env, enemyDB)
 		enemyDB:NewMod("Accuracy", "BASE", env.data.monsterAccuracyTable[env.enemyLevel], "Base")
 		enemyDB:NewMod("Evasion", "BASE", env.data.monsterEvasionTable[env.enemyLevel], "Base")

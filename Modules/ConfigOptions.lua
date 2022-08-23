@@ -7,16 +7,71 @@
 local m_min = math.min
 local m_max = math.max
 
+
+local function applyPantheonDescription(tooltip, mode, index, value)
+	tooltip:Clear()
+	if value.val == "None" then
+		return
+	end
+	local applyModes = { BODY = true, HOVER = true }
+	if applyModes[mode] then
+		local god = data.pantheons[value.val]
+		for _, soul in ipairs(god.souls) do
+			local name = soul.name
+			local lines = { }
+			for _, mod in ipairs(soul.mods) do
+				table.insert(lines, mod.line)
+			end
+			tooltip:AddLine(20, '^8'..name)
+			tooltip:AddLine(14, '^6'..table.concat(lines, '\n'))
+			tooltip:AddSeparator(10)
+		end
+	end
+end
+
+local function banditTooltip(tooltip, mode, index, value)
+	local banditBenefits = {
+		["None"] = "获得 2 天赋点数",
+		["Oak"] = "每秒回复 1% 最大生命\n获得 2% 额外物理伤害减免\n物理伤害提高 20%",
+		["Kraityn"] = "攻击和施法速度提高 6%\n有 10% 的几率避免元素异常状态\n移动速度提高 6%",
+		["Alira"] = "每秒回复 5 魔力\n+20% 暴击伤害加成\n+15% 元素抗性",
+	}
+	local applyModes = { BODY = true, HOVER = true }
+	tooltip:Clear()
+	if applyModes[mode] then
+		tooltip:AddLine(14, '^8'..banditBenefits[value.val])
+	end
+end
+
 return {
 	-- Section: General options
-{ section = "常规", col = 1 },
-{ var = "resistancePenalty", type = "list", label = "抗性 惩罚:",  list = {{val=0,label="无"},{val=-30,label="第五章 (-30%)"},{val=nil,label="第十章 (-60%)"}} },
-{ var = "enemyLevel", type = "count", label = "敌人 等级:", tooltip = "敌人等级的设置会影响你命中率和闪避率的估算\n默认的等级和你角色等级相同，上限是84级\n这个估算和游戏中的面板中相同。" },
-{ var = "enemyHit", type = "count", label = "敌人击中伤害:", tooltip = "这个会影响你的护甲所能带来的伤害减免的估算\n 默认是 1.5 倍敌人的基础伤害\n这个估算和游戏中的面板中相同。" },
-{ var = "detonateDeadCorpseLife", type = "count", label = "敌人尸体的生命:", tooltip = "设置【爆灵术】和类似的灵柩爆炸技能.\n作为参考，70级怪物的生命为："..data.monsterLifeTable[70].." ，80级怪物的生命为： "..data.monsterLifeTable[80]..".", apply = function(val, modList, enemyModList)
+	{ section = "常规", col = 1 },
+	{ var = "resistancePenalty", type = "list", label = "抗性 惩罚:",  list = {{val=0,label="无"},{val=-30,label="第五章 (-30%)"},{val=nil,label="第十章 (-60%)"}} },
+	{ var = "enemyLevel", type = "count", label = "敌人 等级:", tooltip = "敌人等级的设置会影响你命中率和闪避率的估算\n默认的等级和你角色等级相同，上限是84级\n这个估算和游戏中的面板中相同。" },
+	{ var = "enemyHit", type = "count", label = "敌人击中伤害:", tooltip = "这个会影响你的护甲所能带来的伤害减免的估算\n 默认是 1.5 倍敌人的基础伤害\n这个估算和游戏中的面板中相同。" },
+	{ var = "bandit", type = "list", label = "盗贼任务:", tooltipFunc = banditTooltip, list = {{val="None",label="全杀"},{val="Oak",label="帮助欧克"},{val="Kraityn",label="帮助克雷顿"},{val="Alira",label="帮助阿莉亚"}} },
+	{ var = "pantheonMajorGod", type = "list", label = "大神:", tooltipFunc = applyPantheonDescription, list = {
+		{ label = "无", val = "None" },
+		{ label = "惊海之王", val = "TheBrineKing" },
+		{ label = "月影女神", val = "Lunaris" },
+		{ label = "日耀女神", val = "Solaris" },
+		{ label = "阿拉卡力", val = "Arakaali" },
+	} },
+	{ var = "pantheonMinorGod", type = "list", label = "小神:", tooltipFunc = applyPantheonDescription, list = {
+		{ label = "无", val = "None" },
+		{ label = "格鲁丝克", val = "Gruthkul" },
+		{ label = "尤格尔", val = "Yugul" },
+		{ label = "艾贝拉斯", val = "Abberath" },
+		{ label = "图克哈玛", val = "Tukohama" },
+		{ label = "格鲁坎", val = "Garukhan" },
+		{ label = "古斯特", val = "Ralakesh" },
+		{ label = "瑞斯拉萨", val = "Ryslatha" },
+		{ label = "沙卡丽", val = "Shakari" },
+	} },
+	{ var = "detonateDeadCorpseLife", type = "count", label = "敌人尸体的生命:", tooltip = "设置【爆灵术】和类似的灵柩爆炸技能.\n作为参考，70级怪物的生命为："..data.monsterLifeTable[70].." ，80级怪物的生命为： "..data.monsterLifeTable[80]..".", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "corpseLife", value = val }, "Config")
 	end },
-{ var = "conditionStationary", type = "count", label = "你静止不移动?", ifCond = "Stationary", 
+	{ var = "conditionStationary", type = "count", label = "你静止不移动?", ifCond = "Stationary", 
 		tooltip = "可使词缀 `静止时` 和 `静止时每秒`生效",
 		apply = function(val, modList, enemyModList)
 		if type(val) == "boolean" then
@@ -30,13 +85,13 @@ return {
 		end
 	end },
 
-{ var = "conditionMoving", type = "check", label = "你处于移动状态?", ifCond = "Moving", apply = function(val, modList, enemyModList)
+	{ var = "conditionMoving", type = "check", label = "你处于移动状态?", ifCond = "Moving", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Moving", "FLAG", true, "Config")
 	end },
-{ var = "conditionFullLife", type = "check", label = "你处于满血状态?", tooltip = "如果你有【异灵之体】天赋，你会自动被认为是满血的\n如果有必要，你可以勾选这个来认为你是满血的.", apply = function(val, modList, enemyModList)
+	{ var = "conditionFullLife", type = "check", label = "你处于满血状态?", tooltip = "如果你有【异灵之体】天赋，你会自动被认为是满血的\n如果有必要，你可以勾选这个来认为你是满血的.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FullLife", "FLAG", true, "Config")
 	end },
-{ var = "conditionLowLife", type = "check", label = "你处于低血状态?", ifCond = "LowLife", tooltip = "当你至少有 50% 生命保留的时候会自动认为是低血状态,\n如果有必要，你可以勾选这个来认为你是低血的.", apply = function(val, modList, enemyModList)
+	{ var = "conditionLowLife", type = "check", label = "你处于低血状态?", ifCond = "LowLife", tooltip = "当你至少有 50% 生命保留的时候会自动认为是低血状态,\n如果有必要，你可以勾选这个来认为你是低血的.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:LowLife", "FLAG", true, "Config")
 	end },
 	{ var = "conditionLowMana", type = "check", label = "你处于低魔状态?", ifCond = "LowMana", tooltip = "当你至少有 50% 魔力保留的时候会自动认为是低魔状态,\n如果有必要，你可以勾选这个来认为你是低魔的.", apply = function(val, modList, enemyModList)
@@ -1071,7 +1126,7 @@ end },
 		modList:NewMod("Condition:UsedColdSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:UsedSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-{ var = "conditionUsedMinionSkillRecently", type = "check", label = "近期内你有使用过召唤生物技能?", ifCond = "UsedMinionSkillRecently", implyCond = "UsedSkillRecently", tooltip = "这也意味着你近期有使用过技能\n如果你的主要技能是召唤生物技能，那么自动默认你近期内有使用过召唤生物技能,\n如果必要，可以在这里变更.", apply = function(val, modList, enemyModList)
+	{ var = "conditionUsedMinionSkillRecently", type = "check", label = "近期内你有使用过召唤生物技能?", ifCond = "UsedMinionSkillRecently", implyCond = "UsedSkillRecently", tooltip = "这也意味着你近期有使用过技能\n如果你的主要技能是召唤生物技能，那么自动默认你近期内有使用过召唤生物技能,\n如果必要，可以在这里变更.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:UsedMinionSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:UsedSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },

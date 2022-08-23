@@ -14,34 +14,6 @@ local m_floor = math.floor
 local m_abs = math.abs
 local s_format = string.format
 
-local fooBanditDropList = {
-{ label = "全杀（2点天赋点）", banditId = "None" },
-{ label = "欧克 (生命回复，物理伤害，物理减伤)", banditId = "Oak" },
-{ label = "克雷顿 (攻击/施法速度，攻击躲避，移动速度)", banditId = "Kraityn" },
-{ label = "阿莉亚 (魔力回复，暴击伤害，抗性)", banditId = "Alira" },
-}
-
-
-local PantheonMajorGodDropList = {
-	{ label = "无", id = "None" },
-	{ label = "惊海之王 索亚格斯之魂", id = "TheBrineKing" },
-	{ label = "月影女神之魂", id = "Lunaris" },
-	{ label = "日耀女神之魂", id = "Solaris" },
-	{ label = "暗影女皇 阿拉卡力之魂", id = "Arakaali" },
-}
-
-local PantheonMinorGodDropList = {
-	{ label = "无", id = "None" },
-	{ label = "绝望之母 格鲁丝克之魂", id = "Gruthkul" },
-	{ label = "恐惧之源 尤格尔之魂", id = "Yugul" },
-	{ label = "割裂者 艾贝拉斯之魂", id = "Abberath" },
-	{ label = "战争之父 图克哈玛之魂", id = "Tukohama" },
-	{ label = "风暴女神 格鲁坎之魂", id = "Garukhan" },
-	{ label = "万面之主 拉克斯之魂", id = "Ralakesh" },
-	{ label = "傀儡女王 瑞斯拉萨之魂", id = "Ryslatha" },
-	{ label = "沙之女神 沙卡丽之魂", id = "Shakari" },
-}
-
 
 local buildMode = new("ControlHost")
 
@@ -484,93 +456,49 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 
 	-- Controls: Side bar
 	self.anchorSideBar = new("Control", nil, 4, 36, 0, 0)
-self.controls.modeImport = new("ButtonControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, 0, 0, 72, 20,"导入/导出", function()
+	self.controls.modeImport = new("ButtonControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, 0, 0, 72, 20,"导入/导出", function()
 		self.viewMode = "IMPORT"
 	end)
 	self.controls.modeImport.locked = function() return self.viewMode == "IMPORT" end
---self.controls.modeNotes = new("ButtonControl", {"LEFT",self.controls.modeImport,"RIGHT"}, 4, 0, 58, 20, "BD备注", function()
-self.controls.modeNotes =new("ButtonControl", {"LEFT",self.controls.modeImport,"RIGHT"},  4, 0, 72, 20, "BD备注", function()
+	--self.controls.modeNotes = new("ButtonControl", {"LEFT",self.controls.modeImport,"RIGHT"}, 4, 0, 58, 20, "BD备注", function()
+	self.controls.modeNotes =new("ButtonControl", {"LEFT",self.controls.modeImport,"RIGHT"},  4, 0, 72, 20, "BD备注", function()
 	
 		self.viewMode = "NOTES"
 	end)
 	self.controls.modeNotes.locked = function() return self.viewMode == "NOTES" end
---self.controls.modeConfig = new("ButtonControl", {"TOPRIGHT",self.anchorSideBar,"TOPLEFT"}, 300, 0, 100, 20, "配置", function()
-self.controls.modeConfig = new("ButtonControl", {"TOPRIGHT",self.anchorSideBar,"TOPLEFT"}, 225, 0, 72, 20, "配置", function()
+	--self.controls.modeConfig = new("ButtonControl", {"TOPRIGHT",self.anchorSideBar,"TOPLEFT"}, 300, 0, 100, 20, "配置", function()
+	self.controls.modeConfig = new("ButtonControl", {"TOPRIGHT",self.anchorSideBar,"TOPLEFT"}, 225, 0, 72, 20, "配置", function()
 
 
 		self.viewMode = "CONFIG"
 	end)
 	
 	-- lucifer
-self.controls.aboutTab = new("ButtonControl",  {"TOPRIGHT",self.anchorSideBar,"TOPLEFT"}, 300, 0, 72, 20, "国服版", function()
+	self.controls.aboutTab = new("ButtonControl",  {"TOPRIGHT",self.anchorSideBar,"TOPLEFT"}, 300, 0, 72, 20, "国服版", function()
 		self.viewMode = "ABOUT"
 	end)
 	self.controls.aboutTab.locked = function() return self.viewMode == "ABOUT" end
 	--
 	self.controls.modeConfig.locked = function() return self.viewMode == "CONFIG" end
-self.controls.modeTree = new("ButtonControl",{"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, 0, 26, 72, 20, "天赋树", function()
+	self.controls.modeTree = new("ButtonControl",{"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, 0, 26, 72, 20, "天赋树", function()
 		self.viewMode = "TREE"
 	end)
 	self.controls.modeTree.locked = function() return self.viewMode == "TREE" end
-self.controls.modeSkills = new("ButtonControl",{"LEFT",self.controls.modeTree,"RIGHT"}, 4, 0, 72, 20, "技能组", function()
+	self.controls.modeSkills = new("ButtonControl",{"LEFT",self.controls.modeTree,"RIGHT"}, 4, 0, 72, 20, "技能组", function()
 		self.viewMode = "SKILLS"
 	end)
 	self.controls.modeSkills.locked = function() return self.viewMode == "SKILLS" end
-self.controls.modeItems =new("ButtonControl", {"LEFT",self.controls.modeSkills,"RIGHT"}, 4, 0, 72, 20, "装备物品", function()
+	self.controls.modeItems =new("ButtonControl", {"LEFT",self.controls.modeSkills,"RIGHT"}, 4, 0, 72, 20, "装备物品", function()
 		self.viewMode = "ITEMS"
 	end)
 	self.controls.modeItems.locked = function() return self.viewMode == "ITEMS" end
-self.controls.modeCalcs = new("ButtonControl", {"LEFT",self.controls.modeItems,"RIGHT"}, 4, 0, 72, 20, "计算", function()
+	self.controls.modeCalcs = new("ButtonControl", {"LEFT",self.controls.modeItems,"RIGHT"}, 4, 0, 72, 20, "计算", function()
 		self.viewMode = "CALCS"
 	end)
 	self.controls.modeCalcs.locked = function() return self.viewMode == "CALCS" end
 	
-	self.controls.bandit = new("DropDownControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, 0, 70, 300, 16, fooBanditDropList, function(index, value)
-			self.bandit = value.banditId
-			self.modFlag = true
-			self.buildFlag = true
-		end)
-	self.controls.bandit.maxDroppedWidth = 500
-	self.controls.bandit:CheckDroppedWidth(true)
-	self.controls.banditLabel = new("LabelControl", {"BOTTOMLEFT",self.controls.bandit,"TOPLEFT"}, 0, 0, 0, 14, "^7盗贼:")
-
--- The Pantheon
-	local function applyPantheonDescription(tooltip, mode, index, value)
-		tooltip:Clear()
-		if value.id == "None" then
-			return
-		end
-		local applyModes = { BODY = true, HOVER = true }
-		if applyModes[mode] then
-			local god = self.data.pantheons[value.id]
-			for _, soul in ipairs(god.souls) do
-				local name = soul.name
-				local lines = { }
-				for _, mod in ipairs(soul.mods) do
-					t_insert(lines, mod.line)
-				end
-				tooltip:AddLine(20, '^8'..name)
-				tooltip:AddLine(14, '^6'..table.concat(lines, '\n'))
-				tooltip:AddSeparator(10)
-			end
-		end
-	end
-	self.controls.pantheonMajorGod = new("DropDownControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, 0, 110, 300, 16, PantheonMajorGodDropList, function(index, value)
-		self.pantheonMajorGod = value.id
-		self.modFlag = true
-		self.buildFlag = true
-	end)
-	self.controls.pantheonMajorGod.tooltipFunc = applyPantheonDescription
-	self.controls.pantheonMinorGod = new("DropDownControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, 0, 130, 300, 16, PantheonMinorGodDropList, function(index, value)
-		self.pantheonMinorGod = value.id
-		self.modFlag = true
-		self.buildFlag = true
-	end)
-	self.controls.pantheonMinorGod.tooltipFunc = applyPantheonDescription
-	self.controls.pantheonLabel = new("LabelControl", {"BOTTOMLEFT",self.controls.pantheonMajorGod,"TOPLEFT"}, 0, 0, 0, 14, "^7万神殿 :")
-	
-self.controls.mainSkillLabel = new("LabelControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, 0, 155, 300, 16, "^7主要技能：")
-	self.controls.mainSocketGroup = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillLabel,"BOTTOMLEFT"},  0, 2, 300, 16, nil, function(index, value)
+	self.controls.mainSkillLabel = new("LabelControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, 0, 54, 300, 16, "^7主要技能：")
+	self.controls.mainSocketGroup = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillLabel,"BOTTOMLEFT"},  0, 2, 300, 18, nil, function(index, value)
 		self.mainSocketGroup = index
 		self.modFlag = true
 		self.buildFlag = true
@@ -582,20 +510,20 @@ self.controls.mainSkillLabel = new("LabelControl", {"TOPLEFT",self.anchorSideBar
 			self.skillsTab:AddSocketGroupTooltip(tooltip, socketGroup)
 		end
 	end
-	self.controls.mainSkill = new("DropDownControl", {"TOPLEFT",self.controls.mainSocketGroup,"BOTTOMLEFT"}, 0, 2, 300, 16, nil, function(index, value)
+	self.controls.mainSkill = new("DropDownControl", {"TOPLEFT",self.controls.mainSocketGroup,"BOTTOMLEFT"}, 0, 2, 300, 18, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		mainSocketGroup.mainActiveSkill = index
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.mainSkillPart = new("DropDownControl", {"TOPLEFT",self.controls.mainSkill,"BOTTOMLEFT",true}, 0, 2, 200, 18, nil, function(index, value)
+	self.controls.mainSkillPart = new("DropDownControl", {"TOPLEFT",self.controls.mainSkill,"BOTTOMLEFT",true}, 0, 2, 300, 18, nil, function(index, value)
 		local mainSocketGroup = self.skillsTab.socketGroupList[self.mainSocketGroup]
 		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
 		srcInstance.skillPart = index
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-self.controls.mainSkillStageCountLabel = new("LabelControl", {"TOPLEFT",self.controls.mainSkillPart,"BOTTOMLEFT",true}, 0, 3, 0, 16, "^7层数:") {
+	self.controls.mainSkillStageCountLabel = new("LabelControl", {"TOPLEFT",self.controls.mainSkillPart,"BOTTOMLEFT",true}, 0, 3, 0, 16, "^7层数:") {
 		shown = function()
 			return self.controls.mainSkillStageCount:IsShown()
 		end,
@@ -645,10 +573,10 @@ self.controls.mainSkillStageCountLabel = new("LabelControl", {"TOPLEFT",self.con
 		if value.itemSetId then
 			self.itemsTab:AddItemSetTooltip(tooltip, self.itemsTab.itemSets[value.itemSetId])
 			tooltip:AddSeparator(14)
-tooltip:AddLine(14, colorCodes.TIP.."提示: 你可以拖放装备到这里来装备到召唤物身上.")
+			tooltip:AddLine(14, colorCodes.TIP.."提示: 你可以拖放装备到这里来装备到召唤物身上.")
 		end
 	end
-self.controls.mainSkillMinionLibrary = new("ButtonControl", {"LEFT",self.controls.mainSkillMinion,"RIGHT"}, 2, 0, 120, 18, "灵体管理...", function()
+	self.controls.mainSkillMinionLibrary = new("ButtonControl", {"LEFT",self.controls.mainSkillMinion,"RIGHT"}, 2, 0, 120, 18, "灵体管理...", function()
 		self:OpenSpectreLibrary()
 	end)
 	self.controls.mainSkillMinionSkill = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillMinion,"BOTTOMLEFT",true}, 0, 2, 200, 16, nil, function(index, value)
@@ -773,6 +701,49 @@ self.aboutTab = new("AboutTab", self)--lucifer
 	end
 	table.sort(self.controls.classDrop.list, function(a, b) return a.label < b.label end)
 
+	
+	-- Load legacy bandit and pantheon choices from build section
+	for _, control in ipairs({ "bandit", "pantheonMajorGod", "pantheonMinorGod" }) do
+		self.configTab.input[control] = self[control]
+	end
+
+	-- so we ran into problems with converted trees, trying to check passive tree routes and also consider thread jewels
+	-- but we can't check jewel info because items have not been loaded yet, and they come after passives in the xml.
+	-- the simplest solution seems to be making sure passive trees (which contain jewel sockets) are loaded last.
+	local deferredPassiveTrees = { }
+	for _, node in ipairs(self.xmlSectionList) do
+		-- Check if there is a saver that can load this section
+		local saver = self.savers[node.elem] or self.legacyLoaders[node.elem]
+		if saver then
+			-- if the saver is treeTab, defer it until everything is loaded
+			if saver == self.treeTab  then
+				t_insert(deferredPassiveTrees, node)
+			else
+				if saver:Load(node, self.dbFileName) then
+					self:CloseBuild()
+					return
+				end
+			end
+		end
+	end
+	for _, node in ipairs(deferredPassiveTrees) do
+		-- Check if there is a saver that can load this section
+		if self.treeTab:Load(node, self.dbFileName) then
+			self:CloseBuild()
+			return
+		end
+	end
+	for _, saver in pairs(self.savers) do
+		if saver.PostLoad then
+			saver:PostLoad()
+		end
+	end
+
+	if next(self.configTab.input) == nil then
+		-- Check for old calcs tab settings
+		self.configTab:ImportCalcSettings()
+	end
+
 	-- Build calculation output tables
 	self.outputRevision = 1
 	self.calcsTab:BuildOutput()
@@ -867,9 +838,9 @@ function buildMode:Save(xml)
 		level = tostring(self.characterLevel),
 		className = self.spec.curClassName,
 		ascendClassName = self.spec.curAscendClassName,
-		bandit = self.bandit,		
-		pantheonMajorGod = self.pantheonMajorGod,
-		pantheonMinorGod = self.pantheonMinorGod,
+		bandit = self.configTab.input.bandit,
+		pantheonMajorGod = self.configTab.input.pantheonMajorGod,
+		pantheonMinorGod = self.configTab.input.pantheonMinorGod,
 		mainSocketGroup = tostring(self.mainSocketGroup),
 	}
 	for _, id in ipairs(self.spectreList) do
@@ -955,11 +926,6 @@ function buildMode:OnFrame(inputEvents)
 	self.controls.ascendDrop.list = self.controls.classDrop:GetSelValue("ascendencies")
 	self.controls.ascendDrop:SelByValue(self.spec.curAscendClassId, "ascendClassId")
 
-	for _, diff in pairs({"bandit", "pantheonMajorGod", "pantheonMinorGod"}) do
-		if self.controls[diff] then
-			self.controls[diff]:SelByValue(self[diff], "id")
-		end
-	end
 	local checkFabricatedGroups = self.buildFlag
 	if self.buildFlag then
 		-- Wipe Global Cache

@@ -127,7 +127,7 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 					end
 				end
 				control.tooltipText = function()
-return "这个是 '"..self.build.spec.nodes[varData.ifNode].dn.."'."..(varData.tooltip and "\n"..varData.tooltip or "".." 的专门配置选项")
+					return "这个是 '"..self.build.spec.nodes[varData.ifNode].dn.."'."..(varData.tooltip and "\n"..varData.tooltip or "".." 的专门配置选项")
 				end
 			elseif varData.ifOption then
 				control.shown = function()
