@@ -1013,7 +1013,7 @@ replica: true
 {variant:5}你被冰冻的持续时间缩短 80%
 {variant:3}每秒回复 1% 生命
 {variant:4}每秒回复 3% 生命
-{variant:5}每秒再生 30-50 生命
+{variant:5}每秒再生 (30-50) 生命
 {variant:1,2}低血时每秒回复 6% 生命
 {variant:3}低血时每秒回复 5% 生命
 {variant:4}低血时每秒回复 3% 生命

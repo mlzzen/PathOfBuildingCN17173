@@ -356,6 +356,32 @@ function DropDownClass:Draw(viewPort, noTooltip)
 		if type(selLabel) == "table" then
 			selLabel = selLabel.label
 		end
+		if self.cnKey=="slotListCN" then
+			for index in pairs(slotListCN) do
+				if selLabel==slotListCN[index].slotName then
+					selLabel=slotListCN[index].label
+				end
+			end
+		elseif self.cnKey=="typeListCN" then 
+				for index in pairs(typeListCN) do
+					if selLabel==typeListCN[index].slotName then
+						selLabel=typeListCN[index].label
+					end
+				end
+		elseif self.cnKey=="sortDropListCN" then 
+				for index in pairs(sortDropListCN) do
+					if selLabel==sortDropListCN[index].slotName then
+						selLabel=sortDropListCN[index].label
+					end
+				end	
+		elseif self.cnKey=="searchModeCN" then 
+				for index in pairs(searchModeCN) do
+					if selLabel==searchModeCN[index].slotName then
+						selLabel=searchModeCN[index].label
+					end
+				end
+				
+		end
 	end
 	SetViewport(x + 2, y + 2, width - height, lineHeight)
 	DrawString(0, 0, "LEFT", lineHeight, "VAR", selLabel or "")

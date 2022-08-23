@@ -6,6 +6,7 @@ Kalandra's Touch
 锻铁戒指
 联盟: 卡兰德
 反射你的另一枚戒指
+已复制
 ]],
 [[
 毁灭激波
@@ -685,7 +686,7 @@ Has Alt Variant: true
 版本: 当前
 等级需求: 46
 固定基底词缀: 1
-{variant:1,2}{tags:jewellery_resistance,chaos}+(9-13)% 混沌抗性
+{variant:1,2,3}{tags:jewellery_resistance,chaos}+(9-13)% 混沌抗性
 {variant:1,2}{tags:attack}+(300-350) 命中值
 {variant:1}{tags:jewellery_defense}+(60-80) 护甲
 {variant:2}{tags:jewellery_defense}+(260-300) 护甲

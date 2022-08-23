@@ -235,7 +235,7 @@ replica: true
 {variant:4}{tags:jewellery_attribute}+(40-80) 敏捷
 获得 22 级的主动技能【精准】，且可被此道具上的技能石辅助
 {variant:1,2}精准的保留效果总降 50%
-{variant:3,4}精准的保留效能总增 100%
+{variant:3,4}精准的魔力保留效能提高 100%
 {tags:jewellery_attribute}+(25-35) 敏捷
 {variant:1,2,3}{tags:attack,physical}攻击附加 (12-15) - (24-28) 基础物理伤害 
 {variant:1,2,3}{tags:jewellery_elemental,attack}攻击附加 (11-15) - (23-28) 基础冰霜伤害 
@@ -310,7 +310,7 @@ replica: true
 固定基底词缀: 1
 {tags:life}(2-4) 每秒生命回复
 {variant:1}{tags:jewellery_defense,life}低血时闪避值提高 +100
-{variant:2}{tags:jewellery_defense,life}闪避值随着生命减少提高 150-250
+{variant:2}{tags:jewellery_defense,life}低血时闪避值提高 +(150-250)
 {tags:life}+(30-50) 最大生命
 {tags:jewellery_resistance}+(20-30)% 火焰抗性
 {variant:1}{tags:life}低血时每秒回复 1% 生命
@@ -871,7 +871,8 @@ Talisman Tier: 2
 {variant:3}召唤生物附加 (5-9) - (11-15) 基础冰霜伤害
 {variant:4}召唤生物附加 (25-35) - (60-65) 基础冰霜伤害
 {variant:1,2,3}{tags:speed}召唤生物的移动速度提高 (10-15)%
-{variant:4}召唤生物 50% 物理伤害转化为冰霜伤害，且不能造成非冰霜伤害
+{variant:4}召唤生物 50% 的物理伤害转化为冰霜伤害
+{variant:4}召唤生物不会造成冰霜以外的伤害
 召唤生物的最大生命提高 (10-15)%
 召唤生物的伤害提高 (10-15)%
 {variant:2,3}{tags:mana}召唤生物技能的魔力消耗降低 (10-15)%

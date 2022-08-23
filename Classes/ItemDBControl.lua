@@ -42,8 +42,8 @@ for leagueName in item.league:gmatch(" ?(.+),?") do
 		t_insert(self.leagueList, leagueName)
 	end
 	table.sort(self.leagueList)
-t_insert(self.leagueList, 1, "任意联盟")
-t_insert(self.leagueList, 2, "非联盟专属")
+	t_insert(self.leagueList, 1, "任意联盟")
+	t_insert(self.leagueList, 2, "非联盟专属")
 	self.typeList = { }
 	for type in pairs(typeFlag) do
 		t_insert(self.typeList, type)

@@ -117,7 +117,7 @@ function calcLib.gemIsType(gem, type)
 			or (type == "chaos_spell" and (gem.tags.chaos and gem.tags.spell)) 		
 			
 			or (type == "warcry" and (gem.tags.warcry)) 		
-			
+			or (type == "non-vaal" and not gem.tags.vaal)
 			or (type == "trap or mine" and (gem.tags.trap or gem.tags.mine)) 
 			or (type == gem.name:lower()) 
 			or gem.tags[type])
