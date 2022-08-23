@@ -23,6 +23,8 @@ itemLib.influenceInfo = {
 	{ key="redeemer", display="救赎者物品", color=colorCodes.REDEEMER },
 	
 	{ key="synthesised", display="忆境物品", color=colorCodes.REDEEMER },
+	{ key="cleansing", display="焚界者物品", color=colorCodes.CLEANSING },
+	{ key="tangle", display="灭界者物品", color=colorCodes.TANGLE },
 	 
 	
 }
