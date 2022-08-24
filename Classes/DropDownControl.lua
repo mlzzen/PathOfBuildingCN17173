@@ -73,6 +73,8 @@ local searchModeCN = {
 	{ label = "词缀", slotName = "Modifiers" },
 }
 
+local cnMaps = { slotListCN = slotListCN, typeListCN = typeListCN, sortDropListCN = sortDropListCN, searchModeCN = searchModeCN }
+
 local DropDownClass = newClass("DropDownControl", "Control", "ControlHost", "TooltipHost", "SearchHost", function(self, anchor, x, y, width, height, list, selFunc, tooltipText)
 	self.Control(anchor, x, y, width, height)
 	self.ControlHost()
@@ -356,31 +358,13 @@ function DropDownClass:Draw(viewPort, noTooltip)
 		if type(selLabel) == "table" then
 			selLabel = selLabel.label
 		end
-		if self.cnKey=="slotListCN" then
-			for index in pairs(slotListCN) do
-				if selLabel==slotListCN[index].slotName then
-					selLabel=slotListCN[index].label
+		-- to chinese labels
+		if self.cnKey then
+			for index in pairs(cnMaps[self.cnKey]) do
+				if selLabel == cnMaps[self.cnKey][index].slotName then
+					selLabel = cnMaps[self.cnKey][index].label
 				end
 			end
-		elseif self.cnKey=="typeListCN" then 
-				for index in pairs(typeListCN) do
-					if selLabel==typeListCN[index].slotName then
-						selLabel=typeListCN[index].label
-					end
-				end
-		elseif self.cnKey=="sortDropListCN" then 
-				for index in pairs(sortDropListCN) do
-					if selLabel==sortDropListCN[index].slotName then
-						selLabel=sortDropListCN[index].label
-					end
-				end	
-		elseif self.cnKey=="searchModeCN" then 
-				for index in pairs(searchModeCN) do
-					if selLabel==searchModeCN[index].slotName then
-						selLabel=searchModeCN[index].label
-					end
-				end
-				
 		end
 	end
 	SetViewport(x + 2, y + 2, width - height, lineHeight)
@@ -432,6 +416,14 @@ function DropDownClass:Draw(viewPort, noTooltip)
 				end
 				-- draw actual item label with search match highlight if available
 				local label = StripEscapes(type(listVal) == "table" and listVal.label or listVal)
+				-- to chinese labels
+				if self.cnKey then
+					for index in pairs(cnMaps[self.cnKey]) do
+						if label == cnMaps[self.cnKey][index].slotName then
+							label = cnMaps[self.cnKey][index].label
+						end
+					end
+				end
 				DrawString(0, y, "LEFT", lineHeight, "VAR", label)
 				self:DrawSearchHighlights(label, searchInfo, 0, y, width - 4, lineHeight)
 			end
