@@ -359,7 +359,7 @@ function DropDownClass:Draw(viewPort, noTooltip)
 			selLabel = selLabel.label
 		end
 		-- to chinese labels
-		if self.cnKey then
+		if self.cnKey and cnMaps[self.cnKey] then
 			for index in pairs(cnMaps[self.cnKey]) do
 				if selLabel == cnMaps[self.cnKey][index].slotName then
 					selLabel = cnMaps[self.cnKey][index].label
