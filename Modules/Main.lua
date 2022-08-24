@@ -586,53 +586,73 @@ end
 
 function main:OpenOptionsPopup()
 	local controls = { }
+	-- proxy
 	controls.proxyType = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 150, 20, 80, 18, {
 		{ label = "HTTP", scheme = "http" },
 		{ label = "SOCKS", scheme = "socks5" },
 		{ label = "SOCKS5H", scheme = "socks5h" },
 	})
-controls.proxyLabel = new("LabelControl", {"RIGHT",controls.proxyType,"LEFT"}, -4, 0, 0, 16, "^7代理服务器:")
+	controls.proxyLabel = new("LabelControl", {"RIGHT",controls.proxyType,"LEFT"}, -4, 0, 0, 16, "^7代理服务器:")
 	controls.proxyURL = new("EditControl", {"LEFT",controls.proxyType,"RIGHT"}, 4, 0, 206, 18)
 	if launch.proxyURL then
 		local scheme, url = launch.proxyURL:match("(%w+)://(.+)")
 		controls.proxyType:SelByValue(scheme, "scheme")
 		controls.proxyURL:SetText(url)
 	end
-	controls.buildPath = new("EditControl", {"TOPLEFT",nil,"TOPLEFT"}, 150, 44, 290, 18)
-controls.buildPathLabel = new("LabelControl", {"RIGHT",controls.buildPath,"LEFT"}, -4, 0, 0, 16, "^7Build 保存路径:")
+
+	-- repo
+	controls.repoURL = new("EditControl", {"TOPLEFT", nil, "TOPLEFT"}, 150, 44, 230, 18)
+	controls.repoURLLabel = new("LabelControl", {"RIGHT",controls.repoURL,"LEFT"}, -4, 0, 0, 16, "^7代码仓库地址:")
+	controls.RepoFetchButton = new("ButtonControl", {"LEFT",controls.repoURL,"RIGHT"}, 4, 0, 56, 18, "更新", function()
+		local newRepoURL = launch.UpdateRepoUrl()
+		controls.repoURL:SetText(newRepoURL)
+	end)
+	local currentRepo = launch.ReadCurrentRepoUrl()
+	controls.repoURL:SetText(currentRepo)
+
+	-- build save path
+	controls.buildPath = new("EditControl", {"TOPLEFT",nil,"TOPLEFT"}, 150, 68, 290, 18)
+	controls.buildPathLabel = new("LabelControl", {"RIGHT",controls.buildPath,"LEFT"}, -4, 0, 0, 16, "^7Build 保存路径:")
 	if self.buildPath ~= self.defaultBuildPath then
 		controls.buildPath:SetText(self.buildPath)
 	end
-controls.buildPath.tooltipText = "覆盖默认的build保存路径.\n默认路径为: '"..self.defaultBuildPath.."'"
-	controls.nodePowerTheme = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 150, 68, 100, 18, {
+	controls.buildPath.tooltipText = "覆盖默认的build保存路径.\n默认路径为: '"..self.defaultBuildPath.."'"
+
+	-- power theme
+	controls.nodePowerTheme = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 150, 92, 100, 18, {
 		{ label = "Red & Blue", theme = "RED/BLUE" },
 		{ label = "Red & Green", theme = "RED/GREEN" },
 		{ label = "Green & Blue", theme = "GREEN/BLUE" },
 	}, function(index, value)
 		self.nodePowerTheme = value.theme
 	end)
-controls.nodePowerThemeLabel = new("LabelControl", {"RIGHT",controls.nodePowerTheme,"LEFT"}, -4, 0, 0, 16, "^7天赋树节点高亮颜色:")
-controls.nodePowerTheme.tooltipText = "修改天赋树中节点的高亮颜色."
+	controls.nodePowerThemeLabel = new("LabelControl", {"RIGHT",controls.nodePowerTheme,"LEFT"}, -4, 0, 0, 16, "^7天赋树节点高亮颜色:")
+	controls.nodePowerTheme.tooltipText = "修改天赋树中节点的高亮颜色."
 	controls.nodePowerTheme:SelByValue(self.nodePowerTheme, "theme")
 	
-controls.separatorLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 210, 94, 0, 16, "^7显示千位分隔符:")	
-	controls.thousandsSeparators = new("CheckBoxControl", {"TOPLEFT",nil,"TOPLEFT"}, 280, 92, 20, nil, function(state)
+	-- seperator checkbox
+	controls.separatorLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 210, 120, 0, 16, "^7显示千位分隔符:")	
+	controls.thousandsSeparators = new("CheckBoxControl", {"TOPLEFT",nil,"TOPLEFT"}, 280, 118, 20, nil, function(state)
 		self.showThousandsSeparators = state
 	end)
 	controls.thousandsSeparators.state = self.showThousandsSeparators
 
-	controls.thousandsSeparator = new("EditControl", {"TOPLEFT",nil,"TOPLEFT"}, 280, 116, 20, 20, self.thousandsSeparator, nil, "%%^", 1, function(buf)
+	-- seperator 1
+	controls.thousandsSeparator = new("EditControl", {"TOPLEFT",nil,"TOPLEFT"}, 280, 140, 20, 20, self.thousandsSeparator, nil, "%%^", 1, function(buf)
 		self.thousandsSeparator = buf
 	end)
-	controls.thousandsSeparatorLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 210, 116, 92, 16, "千位分隔符:")
-	controls.decimalSeparator = new("EditControl", {"TOPLEFT",nil,"TOPLEFT"}, 280, 138, 20, 20, self.decimalSeparator, nil, "%%^", 1, function(buf)
+	controls.thousandsSeparatorLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 210, 140, 92, 16, "千位分隔符:")
+	
+	-- seperator 2
+	controls.decimalSeparator = new("EditControl", {"TOPLEFT",nil,"TOPLEFT"}, 280, 160, 20, 20, self.decimalSeparator, nil, "%%^", 1, function(buf)
 		self.decimalSeparator = buf
 	end)
-	controls.decimalSeparatorLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 210, 138, 92, 16, "小数分隔符:")
+	controls.decimalSeparatorLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 210, 160, 92, 16, "小数分隔符:")
 
+	-- save button
 	local initialNodePowerTheme = self.nodePowerTheme
 	local initialThousandsSeparatorDisplay = self.showThousandsSeparators
-local initialThousandsSeparator = self.thousandsSeparator
+	local initialThousandsSeparator = self.thousandsSeparator
 	local initialDecimalSeparator = self.decimalSeparator
 	controls.save = new("ButtonControl", nil, -45, 182, 80, 20, "保存", function()
 		if controls.proxyURL.buf:match("%w") then
@@ -675,21 +695,21 @@ function main:OpenUpdatePopup()
 			if #changeList > 0 then
 				t_insert(changeList, { height = 12 })
 			end
-t_insert(changeList, { height = 20, "^7版本 "..ver.." ("..date..")" })
+			t_insert(changeList, { height = 20, "^7版本 "..ver.." ("..date..")" })
 		else
 			t_insert(changeList, { height = 14, "^7"..line })
 		end
 	end
 	local controls = { }
 	controls.changeLog = new("TextListControl", nil, 0, 20, 780, 192, nil, changeList)
-controls.update = new("ButtonControl", nil, -45, 220, 80, 20, "更新", function()
+	controls.update = new("ButtonControl", nil, -45, 220, 80, 20, "更新", function()
 		self:ClosePopup()
 		local ret = self:CallMode("CanExit", "UPDATE")
 		if ret == nil or ret == true then
 			launch:ApplyUpdate(launch.updateAvailable)
 		end
 	end)
-controls.cancel = new("ButtonControl", nil, 45, 220, 80, 20, "取消", function()
+		controls.cancel = new("ButtonControl", nil, 45, 220, 80, 20, "取消", function()
 		self:ClosePopup()
 	end)
 	--[[
