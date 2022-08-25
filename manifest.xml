@@ -60,7 +60,7 @@
 	<File sha1="8b6bc60a188c0591a379bd372b86738fb7886285" name="Classes/NotesTab.lua" part="program" />
 	<File sha1="b39d194c640a4e180756418071c028332aa5f4c9" name="Classes/NotableDBControl.lua" part="program" />
 	<File sha1="f15e2d078e9b36d42616d11b652eb7160ffb0627" name="Classes/PassiveMasteryControl.lua" part="program" />
-	<File sha1="d0ef3f04f9d617f584cefc0032a556f2e95e999e" name="Classes/PassiveSpec.lua" part="program" />
+	<File sha1="5b4f54fd528fccf93e155e89d6e985f4ac4d9adc" name="Classes/PassiveSpec.lua" part="program" />
 	<File sha1="3b46c25add81ca272f7b8f1afac10e69bd780fba" name="Classes/PassiveSpecListControl.lua" part="program" />
 	<File sha1="c8817355dcb59faedade4e2adffb31af5d7af33c" name="Classes/PassiveTree.lua" part="program" />
 	<File sha1="a75bd1452e9b93b74fb7dd0c3c296516c4f337f2" name="Classes/PassiveTreeView.lua" part="program" />
@@ -195,7 +195,7 @@
 	<File sha1="a261a3367a3b81c199e8626bc07b12a4d293ed89" name="Modules/Calcs.lua" part="program" />
 	<File sha1="f08c1adfade15dd0be3280c10c351a6a3cb3d477" name="Modules/CalcSections.lua" part="program" />
 	<File sha1="0c6d093729ff0bc819d8a095907cc39e79c67ffb" name="Modules/CalcSetup.lua" part="program" />
-	<File sha1="cb1a71be754a0d4cf030d41bedb72419910704b8" name="Modules/CalcTools.lua" part="program" />
+	<File sha1="9b0ac58815826dd25f168e4d788892f9a509e18a" name="Modules/CalcTools.lua" part="program" />
 	<File sha1="e02f891b3615b1c7ba17e85d124b98dd51447e88" name="Modules/Common.lua" part="program" />
 	<File sha1="fe5f30fefd0475f976180d4f09494d131638ca72" name="Modules/ConfigOptions.lua" part="program" />
 	<File sha1="08e3e097ae45172c6fbd4098a50f39ff62509e56" name="Modules/Data.lua" part="program" />
