@@ -62,7 +62,7 @@ itemBases["鲨齿箭袋"] = {
 	type = "Quiver",
 	hidden = true,
 	tags = { trade_market_legacy_item = true, quiver = true, default = true, },
-	implicit = "你的攻击击中每个敌人会回复 +(3-4) 生命",
+	implicit = "你的攻击击中每个敌人会回复 (3-4) 生命",
 	implicitModTypes = { { "resource", "life", "attack" }, },
 	req = { level = 10, },
 }
@@ -130,7 +130,7 @@ itemBases["火灵箭袋"] = {
 itemBases["鲨齿箭袋"] = {
 	type = "Quiver",
 	tags = { quiver = true, default = true, },
-	implicit = "你的攻击击中每个敌人会回复 +(6-8) 生命",
+	implicit = "你的攻击击中每个敌人会回复 (6-8) 生命",
 	implicitModTypes = { { "resource", "life", "attack" }, },
 	req = { level = 14, },
 }

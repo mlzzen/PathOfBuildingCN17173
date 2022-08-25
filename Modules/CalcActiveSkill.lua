@@ -413,7 +413,7 @@ activeSkill.disableReason = "技能被禁用"
 
 	-- Apply gem/quality modifiers from support gems
 	for _, value in ipairs(skillModList:List(activeSkill.skillCfg, "SupportedGemProperty")) do
-		if value.keyword == "active_skill" then
+		if value.keyword == "active_skill" and activeSkill.activeEffect.gemData then
 			activeEffect[value.key] = activeEffect[value.key] + value.value
 		end
 	end
@@ -421,7 +421,7 @@ activeSkill.disableReason = "技能被禁用"
 	-- Add active gem modifiers
 	activeEffect.actorLevel = activeSkill.actor.minionData and activeSkill.actor.level
 	calcs.mergeSkillInstanceMods(env, skillModList, activeEffect, skillModList:List(activeSkill.skillCfg, "ExtraSkillStat"))
-activeEffect.grantedEffectLevel = activeGrantedEffect.levels[activeEffect.level]
+	activeEffect.grantedEffectLevel = activeGrantedEffect.levels[activeEffect.level]
 
 	-- Add extra modifiers from granted effect level
 	local level = activeEffect.grantedEffectLevel

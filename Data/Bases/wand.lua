@@ -204,9 +204,29 @@ itemBases["蓄能法杖"] = {
 itemBases["召集法杖"] = {
 	type = "Wand",
 	socketLimit = 3,
-	tags = { onehand = true, not_for_sale = true, wandatlas1 = true, weapon_can_roll_minion_modifiers = true, default = true, wand = true, atlas_base_type = true, ranged = true, one_hand_weapon = true, weapon = true, },
-	implicit = "可以附着召唤生物属性",
-	implicitModTypes = { { "minion" }, },
+	tags = { onehand = true, ranged = true, wandatlas1 = true, weapon_can_roll_minion_modifiers = true, wand = true, atlas_base_type = true, default = true, one_hand_weapon = true, weapon = true, },
+	implicit = "召唤生物的伤害提高 (26-30)%",
+	implicitModTypes = { { "damage", "minion" }, },
 	weapon = { PhysicalMin = 30, PhysicalMax = 55, CritChanceBase = 7, AttackRateBase = 1.4, Range = 120, },
 	req = { level = 72, int = 242, },
+}
+
+itemBases["召唤法杖"] = {
+	type = "Wand",
+	socketLimit = 3,
+	tags = { weapon_can_roll_minion_modifiers = true, onehand = true, wand = true, weapon = true, ranged = true, one_hand_weapon = true, default = true, },
+	implicit = "召唤生物的伤害提高 (12-16)%",
+	implicitModTypes = { { "damage", "minion" }, },
+	weapon = { PhysicalMin = 13, PhysicalMax = 25, CritChanceBase = 7, AttackRateBase = 1.4, Range = 120, },
+	req = { level = 20, int = 81, },
+}
+
+itemBases["召集法杖"] = {
+	type = "Wand",
+	socketLimit = 3,
+	tags = { weapon_can_roll_minion_modifiers = true, onehand = true, wand = true, weapon = true, ranged = true, one_hand_weapon = true, default = true, },
+	implicit = "召唤生物的伤害提高 (20-24)%",
+	implicitModTypes = { { "damage", "minion" }, },
+	weapon = { PhysicalMin = 27, PhysicalMax = 50, CritChanceBase = 7, AttackRateBase = 1.4, Range = 120, },
+	req = { level = 50, int = 183, },
 }

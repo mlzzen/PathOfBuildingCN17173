@@ -94,6 +94,13 @@ itemBases["潜能之戒"] = {
 	implicitModTypes = { {  }, },
 	req = { level = 5, },
 }
+itemBases["骨环"] = {
+	type = "Ring",
+	tags = { ring = true, ring_can_roll_minion_modifiers = true, default = true, },
+	implicit = "召唤生物获得 +(10-15)% 元素抗性",
+	implicitModTypes = { { "elemental", "resistance", "minion" }, },
+	req = { level = 25, },
+}
 itemBases["合金戒指"] = {
 	type = "Ring",
 	tags = { not_for_sale = true, ring = true, ringatlas1 = true, atlas_base_type = true, default = true, },
@@ -163,6 +170,61 @@ itemBases["地线戒指"] = {
 	implicit = "允许的前缀 +1\n允许的后缀 -1\n基底词缀不能改变",
 	implicitModTypes = { {  }, {  }, {  }, },
 	req = { level = 24, },
+}
+itemBases["Dusk Ring"] = {
+	type = "Ring",
+	tags = { ring = true, not_for_sale = true, default = true, },
+	implicit = "Left ring slot: 15% reduced Skill Effect Duration\nRight ring slot: 15% increased Skill Effect Duration",
+	implicitModTypes = { {  }, {  }, },
+	req = { level = 24, },
+}
+itemBases["Penumbra Ring"] = {
+	type = "Ring",
+	tags = { ring = true, not_for_sale = true, default = true, },
+	implicit = "Left ring slot: 30% reduced Effect of Curses on you\nRight ring slot: 30% increased Effect of Curses on you",
+	implicitModTypes = { { "curse" }, { "curse" }, },
+	req = { level = 24, },
+}
+itemBases["Gloam Ring"] = {
+	type = "Ring",
+	tags = { ring = true, ring_can_roll_minion_modifiers = true, not_for_sale = true, default = true, },
+	implicit = "Left ring slot: Minions take 15% reduced Damage\nRight ring slot: Minions take 15% increased Damage",
+	implicitModTypes = { { "minion" }, { "minion" }, },
+	req = { level = 24, },
+}
+itemBases["Tenebrous Ring"] = {
+	type = "Ring",
+	tags = { ring = true, not_for_sale = true, default = true, },
+	implicit = "Left ring slot: 30% reduced Duration of Ailments on You\nRight ring slot: 30% increased Duration of Ailments on You",
+	implicitModTypes = { { "ailment" }, { "ailment" }, },
+	req = { level = 24, },
+}
+itemBases["Shadowed Ring"] = {
+	type = "Ring",
+	tags = { ring = true, not_for_sale = true, default = true, },
+	implicit = "Left ring slot: 25% of Cold Damage from Hits taken as Fire Damage\nRight ring slot: 25% of Fire Damage from Hits taken as Cold Damage",
+	implicitModTypes = { { "elemental", "fire", "cold" }, { "elemental", "fire", "cold" }, },
+	req = { level = 24, },
+}
+itemBases["Shadowed Ring"] = {
+	type = "Ring",
+	tags = { ring = true, not_for_sale = true, default = true, },
+	implicit = "Left ring slot: 25% of Fire Damage from Hits taken as Lightning Damage\nRight ring slot: 25% of Lightning Damage from Hits taken as Fire Damage",
+	implicitModTypes = { { "elemental", "fire", "lightning" }, { "elemental", "fire", "lightning" }, },
+	req = { level = 24, },
+}
+itemBases["Shadowed Ring"] = {
+	type = "Ring",
+	tags = { ring = true, not_for_sale = true, default = true, },
+	implicit = "Left ring slot: 25% of Lightning Damage from Hits taken as Cold Damage\nRight ring slot: 25% of Cold Damage from Hits taken as Lightning Damage",
+	implicitModTypes = { { "elemental", "cold", "lightning" }, { "elemental", "cold", "lightning" }, },
+	req = { level = 24, },
+}
+itemBases["戒指"] = {
+	type = "Ring",
+	tags = { ring = true, not_for_sale = true, default = true, },
+	implicitModTypes = { },
+	req = { },
 }
 
 itemBases["裂隙戒指"] = {

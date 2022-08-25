@@ -277,7 +277,8 @@ itemBases["能量之刃"] = {
 }
 
 itemBases["锈刺剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -286,7 +287,8 @@ itemBases["锈刺剑"] = {
 	req = { dex = 20, },
 }
 itemBases["鲸骨细刃"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -295,7 +297,8 @@ itemBases["鲸骨细刃"] = {
 	req = { level = 7, dex = 32, },
 }
 itemBases["钝刃细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -304,7 +307,8 @@ itemBases["钝刃细剑"] = {
 	req = { level = 12, dex = 47, },
 }
 itemBases["练武者细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -313,7 +317,8 @@ itemBases["练武者细剑"] = {
 	req = { level = 17, dex = 62, },
 }
 itemBases["锯状薄刃"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -322,7 +327,8 @@ itemBases["锯状薄刃"] = {
 	req = { level = 22, dex = 77, },
 }
 itemBases["古代细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -331,7 +337,8 @@ itemBases["古代细剑"] = {
 	req = { level = 26, dex = 89, },
 }
 itemBases["贵族细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -340,7 +347,8 @@ itemBases["贵族细剑"] = {
 	req = { level = 30, dex = 101, },
 }
 itemBases["棘刺细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+35% 攻击和法术暴击伤害加成",
@@ -349,7 +357,8 @@ itemBases["棘刺细剑"] = {
 	req = { level = 34, dex = 113, },
 }
 itemBases["小剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { maraketh = true, rapier = true, onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "击中时 15% 的几率造成流血",
@@ -358,7 +367,8 @@ itemBases["小剑"] = {
 	req = { level = 36, dex = 124, },
 }
 itemBases["龙骨细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -367,7 +377,8 @@ itemBases["龙骨细剑"] = {
 	req = { level = 37, dex = 122, },
 }
 itemBases["冷芒刺剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -376,7 +387,8 @@ itemBases["冷芒刺剑"] = {
 	req = { level = 40, dex = 131, },
 }
 itemBases["穿甲刺剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -385,7 +397,8 @@ itemBases["穿甲刺剑"] = {
 	req = { level = 43, dex = 140, },
 }
 itemBases["锯齿细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -394,7 +407,8 @@ itemBases["锯齿细剑"] = {
 	req = { level = 46, dex = 149, },
 }
 itemBases["古典刺剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -403,7 +417,8 @@ itemBases["古典刺剑"] = {
 	req = { level = 49, dex = 158, },
 }
 itemBases["华丽细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -412,7 +427,8 @@ itemBases["华丽细剑"] = {
 	req = { level = 52, dex = 167, },
 }
 itemBases["锐锋细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+35% 攻击和法术暴击伤害加成",
@@ -421,7 +437,8 @@ itemBases["锐锋细剑"] = {
 	req = { level = 55, dex = 176, },
 }
 itemBases["花魁之剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { maraketh = true, rapier = true, onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "击中时 15% 的几率造成流血",
@@ -430,7 +447,8 @@ itemBases["花魁之剑"] = {
 	req = { level = 57, dex = 190, },
 }
 itemBases["龙骨细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -439,7 +457,8 @@ itemBases["龙骨细剑"] = {
 	req = { level = 58, dex = 185, },
 }
 itemBases["强化细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -448,7 +467,8 @@ itemBases["强化细剑"] = {
 	req = { level = 60, dex = 212, },
 }
 itemBases["寒光刺剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -457,7 +477,8 @@ itemBases["寒光刺剑"] = {
 	req = { level = 62, dex = 212, },
 }
 itemBases["螺纹细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -466,7 +487,8 @@ itemBases["螺纹细剑"] = {
 	req = { level = 64, dex = 212, },
 }
 itemBases["瓦尔细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -475,7 +497,8 @@ itemBases["瓦尔细剑"] = {
 	req = { level = 66, dex = 212, },
 }
 itemBases["宝饰细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+25% 攻击和法术暴击伤害加成",
@@ -484,7 +507,8 @@ itemBases["宝饰细剑"] = {
 	req = { level = 68, dex = 212, },
 }
 itemBases["魔喙细剑"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { onehand = true, rapier = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "+35% 攻击和法术暴击伤害加成",
@@ -493,7 +517,8 @@ itemBases["魔喙细剑"] = {
 	req = { level = 70, dex = 212, },
 }
 itemBases["骑兵军刀"] = {
-	type = "Thrusting One Handed Sword",
+	type = "One Handed Sword",
+	subType = "Thrusting",
 	socketLimit = 3,
 	tags = { maraketh = true, rapier = true, onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicit = "击中时 20% 的几率造成流血",

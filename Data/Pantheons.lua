@@ -17,13 +17,13 @@ return {
 					[1] = { line = "晕眩回复和格挡回复提高 30%", value = { 30 }, },
 				},
 			},
-			[3] = { name = "挑战者普鲁纳",
+			[3] = { name = "光明姐妹娥拉",
 				mods = {
 					-- base_avoid_freeze_%
 					[1] = { line = "不能被冻结", value = { 100 }, },
 				},
 			},
-			[4] = { name = "已捕获的幽足坦纳尔队长",
+			[4] = { name = "复生者莫薇儿",
 				mods = {
 					-- chill_effectiveness_on_self_+%
 					[1] = { line = "你受到的冰缓效果降低 50%", value = { -50 }, },
@@ -40,7 +40,7 @@ return {
 					[1] = { line = "受到的持续性伤害降低 10%", value = { -10 }, },
 				},
 			},
-			[2] = { name = "黑寡妇",
+			[2] = { name = "巨猿原祖",
 				mods = {
 					-- life_and_energy_shield_recovery_rate_+%_if_stopped_taking_damage_over_time_recently
 					[1] = { line = "近期内若你停止受到持续伤害，则生命和能量护盾回复速度提高 20%", value = { 20 }, },
@@ -52,7 +52,7 @@ return {
 					[1] = { line = "你身上的减益效果消失速度提高 20%", value = { 20 }, },
 				},
 			},
-			[4] = { name = "寡妇制造者阿玛拉",
+			[4] = { name = "虚空之异",
 				mods = {
 					-- additional_chaos_resistance_against_damage_over_time_%
 					[1] = { line = "对持续伤害有 +40% 混沌抗性", value = { 40 }, },
@@ -71,19 +71,19 @@ return {
 					[2] = { line = "有 20% 的几率使受到的范围总伤害额外降低 50%", value = { 20 }, },
 				},
 			},
-			[2] = { name = "烈焰之森",
+			[2] = { name = "炎灵密卡拉",
 				mods = {
 					-- elemental_damage_taken_+%_if_not_hit_recently
 					[1] = { line = "若你近期内没有被击中，则受到的元素伤害降低 8%", value = { -8 }, },
 				},
 			},
-			[3] = { name = "正义之视",
+			[3] = { name = "炽怒之灵",
 				mods = {
 					-- self_take_no_extra_damage_from_critical_strikes_if_have_been_crit_recently
 					[1] = { line = "近期你若受到过暴击伤害，则不再受到暴击的额外伤害", value = { 1 }, },
 				},
 			},
-			[4] = { name = "狱炎之王",
+			[4] = { name = "毁灭者奇塔弗",
 				mods = {
 					-- avoid_ailments_%_from_crit
 					[1] = { line = "被暴击时有 50% 的几率免疫异常状态", value = { 50 }, },
@@ -108,18 +108,28 @@ return {
 					[1] = { line = "10% 的几率免疫投射物", value = { 10 }, },
 				},
 			},
-			[3] = { name = "微光巨侍法赫西",
+			[3] = { name = "骨法师伯托克",
 				mods = {
 					-- elemental_damage_taken_+%_if_been_hit_recently
 					[1] = { line = "承受的元素伤害在你近期内被击中的情况下降低 6%", value = { -6 }, },
 				},
 			},
-			[4] = { name = "恐惧之雷",
+			[4] = { name = "丛林巨石",
 				mods = {
 					-- avoid_chained_projectile_%_chance
 					[1] = { line = "避免被连锁弹射的投射物击中", value = { 100 }, },
 				},
 			},
+		},
+	},
+	["Minor God 1"] = {
+		isMajorGod = false,
+		souls = {
+		},
+	},
+	["Minor God 2"] = {
+		isMajorGod = false,
+		souls = {
 		},
 	},
 	["Abberath"] = {
@@ -139,6 +149,11 @@ return {
 					[2] = { line = "在燃烧地面上时，移动速度提高 10%", value = { 10 }, },
 				},
 			},
+		},
+	},
+	["Minor God 4"] = {
+		isMajorGod = false,
+		souls = {
 		},
 	},
 	["Gruthkul"] = {
@@ -215,6 +230,11 @@ return {
 			},
 		},
 	},
+	["Minor God 9"] = {
+		isMajorGod = false,
+		souls = {
+		},
+	},
 	["Ralakesh"] = {
 		isMajorGod = false,
 		souls = {
@@ -226,7 +246,7 @@ return {
 					[2] = { line = "流血状态下移动不再承受额外的伤害", value = { 1 }, },
 				},
 			},
-			[2] = { name = "超灵之体",
+			[2] = { name = "玫红女妖",
 				mods = {
 					-- cannot_gain_corrupted_blood_while_you_have_at_least_5_stacks
 					[1] = { line = "若你身上至少有 5 层腐化之血，则腐化之血不能再施加给你", value = { 1 }, },
@@ -243,7 +263,7 @@ return {
 					[1] = { line = "你受到的感电效果降低 60%", value = { -60 }, },
 				},
 			},
-			[2] = { name = "权利猎人德里克",
+			[2] = { name = "瓦瑟瑞斯",
 				mods = {
 					-- cannot_be_blinded
 					[1] = { line = "免疫致盲", value = { 1 }, },

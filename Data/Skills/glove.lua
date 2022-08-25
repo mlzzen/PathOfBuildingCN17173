@@ -10,8 +10,6 @@ skills["EnchantmentOfBladesOnHit"] = {
 	name = "刀锋之誓",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.7000000476837,
-	incrementalEffectiveness = 0.037000000476837,
 	description = "发射一连串的虚空飞刀。此技能有短暂冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -22,31 +20,18 @@ skills["EnchantmentOfBladesOnHit"] = {
 		spell = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
-		"number_of_chains",
-		"cast_on_hit_%",
-		"skill_art_variation",
-		"number_of_additional_projectiles",
-		"base_is_projectile",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1, 1.6000000238419, 3, 100, 0, 2, critChance = 7, cooldown = 5, levelRequirement = 32, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 1, 1.6000000238419, critChance = 7, cooldown = 5, levelRequirement = 32, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfBladesOnHit2"] = {
 	name = "刀锋之律",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.7000000476837,
-	incrementalEffectiveness = 0.037000000476837,
 	description = "发射一连串的虚空飞刀。此技能有短暂冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -57,31 +42,18 @@ skills["EnchantmentOfBladesOnHit2"] = {
 		spell = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
-		"number_of_chains",
-		"cast_on_hit_%",
-		"skill_art_variation",
-		"number_of_additional_projectiles",
-		"base_is_projectile",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1.5, 2.2999999523163, 3, 100, 0, 2, critChance = 7, cooldown = 5, levelRequirement = 53, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 1.5, 2.2999999523163, critChance = 7, cooldown = 5, levelRequirement = 53, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfBladesOnHit3"] = {
 	name = "刀锋之令",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.7000000476837,
-	incrementalEffectiveness = 0.037000000476837,
 	description = "发射一连串的虚空飞刀。此技能有短暂冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -92,31 +64,18 @@ skills["EnchantmentOfBladesOnHit3"] = {
 		spell = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
-		"number_of_chains",
-		"cast_on_hit_%",
-		"skill_art_variation",
-		"number_of_additional_projectiles",
-		"base_is_projectile",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2, 3, 3, 100, 0, 2, critChance = 7, cooldown = 5, levelRequirement = 66, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 2, 3, critChance = 7, cooldown = 5, levelRequirement = 66, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfBladesOnHit4"] = {
 	name = "刀锋之诫",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.7000000476837,
-	incrementalEffectiveness = 0.037000000476837,
 	description = "发射一连串的虚空飞刀。此技能有短暂冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -127,31 +86,18 @@ skills["EnchantmentOfBladesOnHit4"] = {
 		spell = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
-		"number_of_chains",
-		"cast_on_hit_%",
-		"skill_art_variation",
-		"number_of_additional_projectiles",
-		"base_is_projectile",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2.4000000953674, 3.7999999523163, 4, 100, 0, 2, critChance = 7, cooldown = 5, levelRequirement = 75, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 2.4000000953674, 3.7999999523163, critChance = 7, cooldown = 5, levelRequirement = 75, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfFlamesOnHit"] = {
 	name = "烈火之誓",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.7777999639511,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "释放一个火焰的新星, 有短暂冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -162,28 +108,18 @@ skills["EnchantmentOfFlamesOnHit"] = {
 		spell = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
-		"cast_on_hit_%",
-		"is_area_damage",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1.2000000476837, 1.7999999523163, 100, critChance = 5, cooldown = 5, levelRequirement = 32, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[1] = { 1.2000000476837, 1.7999999523163, critChance = 5, cooldown = 5, levelRequirement = 32, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfFlamesOnHit2"] = {
 	name = "烈火之律",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.7777999639511,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "释放一个火焰的新星, 有短暂冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -194,28 +130,18 @@ skills["EnchantmentOfFlamesOnHit2"] = {
 		spell = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
-		"cast_on_hit_%",
-		"is_area_damage",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1.7000000476837, 2.5, 100, critChance = 5, cooldown = 5, levelRequirement = 53, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[1] = { 1.7000000476837, 2.5, critChance = 5, cooldown = 5, levelRequirement = 53, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfFlamesOnHit3"] = {
 	name = "烈火之令",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.7777999639511,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "释放一个火焰的新星, 有短暂冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -226,28 +152,18 @@ skills["EnchantmentOfFlamesOnHit3"] = {
 		spell = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
-		"cast_on_hit_%",
-		"is_area_damage",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2.2000000476837, 3.2000000476837, 100, critChance = 5, cooldown = 5, levelRequirement = 66, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[1] = { 2.2000000476837, 3.2000000476837, critChance = 5, cooldown = 5, levelRequirement = 66, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfFlamesOnHit4"] = {
 	name = "烈火之诫",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.7777999639511,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "释放一个火焰的新星, 有短暂冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -258,20 +174,12 @@ skills["EnchantmentOfFlamesOnHit4"] = {
 		spell = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
-		"cast_on_hit_%",
-		"is_area_damage",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2.5999999046326, 4, 100, critChance = 5, cooldown = 5, levelRequirement = 75, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[1] = { 2.5999999046326, 4, critChance = 5, cooldown = 5, levelRequirement = 75, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfForceOnHit"] = {
@@ -288,17 +196,10 @@ skills["EnchantmentOfForceOnHit"] = {
 		attack = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"attack_trigger_on_hit_%",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 100, damageEffectiveness = 1.35, cooldown = 5, baseMultiplier = 1.35, levelRequirement = 32, statInterpolation = { 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 1.35, cooldown = 5, baseMultiplier = 1.35, levelRequirement = 32, },
 	},
 }
 skills["EnchantmentOfForceOnHit2"] = {
@@ -315,17 +216,10 @@ skills["EnchantmentOfForceOnHit2"] = {
 		attack = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"attack_trigger_on_hit_%",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 100, damageEffectiveness = 1.89, cooldown = 5, baseMultiplier = 1.89, levelRequirement = 53, statInterpolation = { 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 1.89, cooldown = 5, baseMultiplier = 1.89, levelRequirement = 53, },
 	},
 }
 skills["EnchantmentOfForceOnHit3"] = {
@@ -342,17 +236,10 @@ skills["EnchantmentOfForceOnHit3"] = {
 		attack = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"attack_trigger_on_hit_%",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 100, damageEffectiveness = 2.43, cooldown = 5, baseMultiplier = 2.43, levelRequirement = 66, statInterpolation = { 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 2.43, cooldown = 5, baseMultiplier = 2.43, levelRequirement = 66, },
 	},
 }
 skills["EnchantmentOfForceOnHit4"] = {
@@ -369,25 +256,16 @@ skills["EnchantmentOfForceOnHit4"] = {
 		attack = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"attack_trigger_on_hit_%",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 100, damageEffectiveness = 2.97, cooldown = 5, baseMultiplier = 2.97, levelRequirement = 75, statInterpolation = { 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 2.97, cooldown = 5, baseMultiplier = 2.97, levelRequirement = 75, },
 	},
 }
 skills["EnchantmentOfFrostOnKill"] = {
 	name = "寒冰之誓",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.6363999843597,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "向你周围所有方向发射寒冰投射物。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -398,31 +276,18 @@ skills["EnchantmentOfFrostOnKill"] = {
 		spell = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
-		"skill_art_variation",
-		"chance_to_cast_on_kill_%_target_self",
-		"number_of_additional_projectiles",
-		"base_is_projectile",
-		"projectiles_nova",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1, 1.6000000238419, 1, 100, 8, critChance = 5, cooldown = 5, levelRequirement = 32, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { }, },
+		[1] = { 1, 1.6000000238419, critChance = 5, cooldown = 5, levelRequirement = 32, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfFrostOnKill2"] = {
 	name = "寒冰之律",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.6363999843597,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "向你周围所有方向发射寒冰投射物。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -433,31 +298,18 @@ skills["EnchantmentOfFrostOnKill2"] = {
 		spell = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
-		"skill_art_variation",
-		"chance_to_cast_on_kill_%_target_self",
-		"number_of_additional_projectiles",
-		"base_is_projectile",
-		"projectiles_nova",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1.5, 2.2999999523163, 1, 100, 8, critChance = 5, cooldown = 5, levelRequirement = 53, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { }, },
+		[1] = { 1.5, 2.2999999523163, critChance = 5, cooldown = 5, levelRequirement = 53, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfFrostOnKill3"] = {
 	name = "寒冰之令",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.6363999843597,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "向你周围所有方向发射寒冰投射物。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -468,31 +320,18 @@ skills["EnchantmentOfFrostOnKill3"] = {
 		spell = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
-		"skill_art_variation",
-		"chance_to_cast_on_kill_%_target_self",
-		"number_of_additional_projectiles",
-		"base_is_projectile",
-		"projectiles_nova",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2, 3, 1, 100, 8, critChance = 5, cooldown = 5, levelRequirement = 66, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { }, },
+		[1] = { 2, 3, critChance = 5, cooldown = 5, levelRequirement = 66, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfFrostOnKill4"] = {
 	name = "寒冰之诫",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.6363999843597,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "向你周围所有方向发射寒冰投射物。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -503,30 +342,18 @@ skills["EnchantmentOfFrostOnKill4"] = {
 		spell = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
-		"skill_art_variation",
-		"chance_to_cast_on_kill_%_target_self",
-		"number_of_additional_projectiles",
-		"base_is_projectile",
-		"projectiles_nova",
-		"spell_uncastable_if_triggerable",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2.4000000953674, 3.7999999523163, 1, 100, 8, critChance = 5, cooldown = 5, levelRequirement = 75, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { }, },
+		[1] = { 2.4000000953674, 3.7999999523163, critChance = 5, cooldown = 5, levelRequirement = 75, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfFuryOnHit"] = {
 	name = "狂怒之誓",
 	hidden = true,
 	color = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "发射一个定必穿透敌人的你的武器的复制品或是投射物的投射物. 此技能有短暂冷却时间. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -552,33 +379,16 @@ skills["EnchantmentOfFuryOnHit"] = {
 		attack = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"attack_trigger_on_hit_%",
-		"projectile_spiral_nova_time_ms",
-		"projectile_spiral_nova_angle",
-		"base_number_of_projectiles_in_spiral_nova",
-		"skill_art_variation",
-		"skill_physical_damage_%_to_convert_to_fire",
-		"projectile_spiral_nova_starting_angle_offset",
-		"projectile_base_number_of_targets_to_pierce",
-		"base_is_projectile",
-		"skill_can_fire_arrows",
-		"skill_can_fire_wand_projectiles",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 100, 800, 180, 10, 1, 50, -90, 2, damageEffectiveness = 1.5, cooldown = 5, baseMultiplier = 1.5, levelRequirement = 32, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 1.5, cooldown = 5, baseMultiplier = 1.5, levelRequirement = 32, },
 	},
 }
 skills["EnchantmentOfFuryOnHit2"] = {
 	name = "狂怒之律",
 	hidden = true,
 	color = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "发射一个定必穿透敌人的你的武器的复制品或是投射物的投射物. 此技能有短暂冷却时间. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -604,33 +414,16 @@ skills["EnchantmentOfFuryOnHit2"] = {
 		attack = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"attack_trigger_on_hit_%",
-		"projectile_spiral_nova_time_ms",
-		"projectile_spiral_nova_angle",
-		"base_number_of_projectiles_in_spiral_nova",
-		"skill_art_variation",
-		"skill_physical_damage_%_to_convert_to_fire",
-		"projectile_spiral_nova_starting_angle_offset",
-		"projectile_base_number_of_targets_to_pierce",
-		"base_is_projectile",
-		"skill_can_fire_arrows",
-		"skill_can_fire_wand_projectiles",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 100, 800, 180, 10, 1, 50, -90, 3, damageEffectiveness = 2.1, cooldown = 5, baseMultiplier = 2.1, levelRequirement = 53, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 2.1, cooldown = 5, baseMultiplier = 2.1, levelRequirement = 53, },
 	},
 }
 skills["EnchantmentOfFuryOnHit3"] = {
 	name = "狂怒之令",
 	hidden = true,
 	color = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "发射一个定必穿透敌人的你的武器的复制品或是投射物的投射物. 此技能有短暂冷却时间. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -656,33 +449,16 @@ skills["EnchantmentOfFuryOnHit3"] = {
 		attack = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"attack_trigger_on_hit_%",
-		"projectile_spiral_nova_time_ms",
-		"projectile_spiral_nova_angle",
-		"base_number_of_projectiles_in_spiral_nova",
-		"skill_art_variation",
-		"skill_physical_damage_%_to_convert_to_fire",
-		"projectile_spiral_nova_starting_angle_offset",
-		"projectile_base_number_of_targets_to_pierce",
-		"base_is_projectile",
-		"skill_can_fire_arrows",
-		"skill_can_fire_wand_projectiles",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 100, 800, 180, 10, 1, 50, -90, 4, damageEffectiveness = 2.7, cooldown = 5, baseMultiplier = 2.7, levelRequirement = 66, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 2.7, cooldown = 5, baseMultiplier = 2.7, levelRequirement = 66, },
 	},
 }
 skills["EnchantmentOfFuryOnHit4"] = {
 	name = "狂怒之诫",
 	hidden = true,
 	color = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "发射一个定必穿透敌人的你的武器的复制品或是投射物的投射物. 此技能有短暂冷却时间. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -708,34 +484,16 @@ skills["EnchantmentOfFuryOnHit4"] = {
 		attack = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"attack_trigger_on_hit_%",
-		"projectile_spiral_nova_time_ms",
-		"projectile_spiral_nova_angle",
-		"base_number_of_projectiles_in_spiral_nova",
-		"skill_art_variation",
-		"skill_physical_damage_%_to_convert_to_fire",
-		"projectile_spiral_nova_starting_angle_offset",
-		"projectile_base_number_of_targets_to_pierce",
-		"base_is_projectile",
-		"skill_can_fire_arrows",
-		"skill_can_fire_wand_projectiles",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 100, 800, 180, 10, 1, 50, -90, 5, damageEffectiveness = 3.3, cooldown = 5, baseMultiplier = 3.3, levelRequirement = 75, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 3.3, cooldown = 5, baseMultiplier = 3.3, levelRequirement = 75, },
 	},
 }
 skills["EnchantmentOfInfernoOnKill"] = {
 	name = "炼狱之誓",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 3.5555999279022,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "从天上降下一颗陨石. 此技能有短暂冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -747,31 +505,18 @@ skills["EnchantmentOfInfernoOnKill"] = {
 		area = true,
 		hit = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
-		"base_skill_effect_duration",
-		"fire_storm_fireball_delay_ms",
-		"skill_override_pvp_scaling_time_ms",
-		"chance_to_cast_on_kill_%_target_self",
-		"base_skill_show_average_damage_instead_of_dps",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1, 1.6000000238419, 2000, 100, 450, 100, critChance = 5, cooldown = 10, levelRequirement = 32, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 1, 1.6000000238419, critChance = 5, cooldown = 10, levelRequirement = 32, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfInfernoOnKill2"] = {
 	name = "炼狱之律",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 3.5555999279022,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "从天上降下一颗陨石. 此技能有短暂冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -783,31 +528,18 @@ skills["EnchantmentOfInfernoOnKill2"] = {
 		area = true,
 		hit = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
-		"base_skill_effect_duration",
-		"fire_storm_fireball_delay_ms",
-		"skill_override_pvp_scaling_time_ms",
-		"chance_to_cast_on_kill_%_target_self",
-		"base_skill_show_average_damage_instead_of_dps",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1.5, 2.2999999523163, 2000, 100, 450, 100, critChance = 5, cooldown = 10, levelRequirement = 53, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 1.5, 2.2999999523163, critChance = 5, cooldown = 10, levelRequirement = 53, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfInfernoOnKill3"] = {
 	name = "炼狱之令",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 3.5555999279022,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "从天上降下一颗陨石. 此技能有短暂冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -819,31 +551,18 @@ skills["EnchantmentOfInfernoOnKill3"] = {
 		area = true,
 		hit = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
-		"base_skill_effect_duration",
-		"fire_storm_fireball_delay_ms",
-		"skill_override_pvp_scaling_time_ms",
-		"chance_to_cast_on_kill_%_target_self",
-		"base_skill_show_average_damage_instead_of_dps",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2, 3, 2000, 100, 450, 100, critChance = 5, cooldown = 10, levelRequirement = 66, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 2, 3, critChance = 5, cooldown = 10, levelRequirement = 66, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfInfernoOnKill4"] = {
 	name = "炼狱之诫",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 3.5555999279022,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "从天上降下一颗陨石. 此技能有短暂冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -855,31 +574,18 @@ skills["EnchantmentOfInfernoOnKill4"] = {
 		area = true,
 		hit = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
-		"base_skill_effect_duration",
-		"fire_storm_fireball_delay_ms",
-		"skill_override_pvp_scaling_time_ms",
-		"chance_to_cast_on_kill_%_target_self",
-		"base_skill_show_average_damage_instead_of_dps",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2.4000000953674, 3.7999999523163, 2000, 100, 450, 100, critChance = 5, cooldown = 10, levelRequirement = 75, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 2.4000000953674, 3.7999999523163, critChance = 5, cooldown = 10, levelRequirement = 75, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfIreWhenHit"] = {
 	name = "雷霆之誓",
 	hidden = true,
 	color = 2,
-	baseEffectiveness = 1.2000000476837,
-	incrementalEffectiveness = 0.019999999552965,
 	description = "复制并释放出一个你所使用的武器或其投射物, 并带有闪电在一个定点旋转, 对区域中的敌人造成伤害. 有 10 秒冷却时间. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -906,30 +612,16 @@ skills["EnchantmentOfIreWhenHit"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"extra_gore_chance_override_%",
-		"melee_counterattack_trigger_on_hit_%",
-		"skill_physical_damage_%_to_convert_to_lightning",
-		"is_area_damage",
-		"attack_unusable_if_triggerable",
-		"attack_is_not_melee_override",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 5000, 30, 100, 50, damageEffectiveness = 0.6, cooldown = 10, baseMultiplier = 0.6, levelRequirement = 32, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 0.6, cooldown = 10, baseMultiplier = 0.6, levelRequirement = 32, },
 	},
 }
 skills["EnchantmentOfIreWhenHit2"] = {
 	name = "雷霆之律",
 	hidden = true,
 	color = 2,
-	baseEffectiveness = 1.2000000476837,
-	incrementalEffectiveness = 0.019999999552965,
 	description = "复制并释放出一个你所使用的武器或其投射物, 并带有闪电在一个定点旋转, 对区域中的敌人造成伤害. 有 10 秒冷却时间. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -956,30 +648,16 @@ skills["EnchantmentOfIreWhenHit2"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"extra_gore_chance_override_%",
-		"melee_counterattack_trigger_on_hit_%",
-		"skill_physical_damage_%_to_convert_to_lightning",
-		"is_area_damage",
-		"attack_unusable_if_triggerable",
-		"attack_is_not_melee_override",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 5000, 30, 100, 50, damageEffectiveness = 0.9, cooldown = 10, baseMultiplier = 0.9, levelRequirement = 53, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 0.9, cooldown = 10, baseMultiplier = 0.9, levelRequirement = 53, },
 	},
 }
 skills["EnchantmentOfIreWhenHit3"] = {
 	name = "雷霆之令",
 	hidden = true,
 	color = 2,
-	baseEffectiveness = 1.2000000476837,
-	incrementalEffectiveness = 0.019999999552965,
 	description = "复制并释放出一个你所使用的武器或其投射物, 并带有闪电在一个定点旋转, 对区域中的敌人造成伤害. 有 10 秒冷却时间. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -1006,30 +684,16 @@ skills["EnchantmentOfIreWhenHit3"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"extra_gore_chance_override_%",
-		"melee_counterattack_trigger_on_hit_%",
-		"skill_physical_damage_%_to_convert_to_lightning",
-		"is_area_damage",
-		"attack_unusable_if_triggerable",
-		"attack_is_not_melee_override",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 5000, 30, 100, 50, damageEffectiveness = 1.2, cooldown = 10, baseMultiplier = 1.2, levelRequirement = 66, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 1.2, cooldown = 10, baseMultiplier = 1.2, levelRequirement = 66, },
 	},
 }
 skills["EnchantmentOfIreWhenHit4"] = {
 	name = "雷霆之诫",
 	hidden = true,
 	color = 2,
-	baseEffectiveness = 1.2000000476837,
-	incrementalEffectiveness = 0.019999999552965,
 	description = "复制并释放出一个你所使用的武器或其投射物, 并带有闪电在一个定点旋转, 对区域中的敌人造成伤害. 有 10 秒冷却时间. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -1056,22 +720,10 @@ skills["EnchantmentOfIreWhenHit4"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"extra_gore_chance_override_%",
-		"melee_counterattack_trigger_on_hit_%",
-		"skill_physical_damage_%_to_convert_to_lightning",
-		"is_area_damage",
-		"attack_unusable_if_triggerable",
-		"attack_is_not_melee_override",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 5000, 30, 100, 50, damageEffectiveness = 1.5, cooldown = 10, baseMultiplier = 1.5, levelRequirement = 75, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 1.5, cooldown = 10, baseMultiplier = 1.5, levelRequirement = 75, },
 	},
 }
 skills["EnchantmentOfLightWhenCrit"] = {
@@ -1089,19 +741,10 @@ skills["EnchantmentOfLightWhenCrit"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"life_regeneration_rate_per_minute_%",
-		"attack_trigger_when_critically_hit_%",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 5000, 360, 100, damageEffectiveness = 1.35, cooldown = 5, baseMultiplier = 1.35, levelRequirement = 32, statInterpolation = { 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 1.35, cooldown = 5, baseMultiplier = 1.35, levelRequirement = 32, },
 	},
 }
 skills["EnchantmentOfLightWhenCrit2"] = {
@@ -1119,19 +762,10 @@ skills["EnchantmentOfLightWhenCrit2"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"life_regeneration_rate_per_minute_%",
-		"attack_trigger_when_critically_hit_%",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 5000, 360, 100, damageEffectiveness = 1.89, cooldown = 5, baseMultiplier = 1.89, levelRequirement = 53, statInterpolation = { 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 1.89, cooldown = 5, baseMultiplier = 1.89, levelRequirement = 53, },
 	},
 }
 skills["EnchantmentOfLightWhenCrit3"] = {
@@ -1149,19 +783,10 @@ skills["EnchantmentOfLightWhenCrit3"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"life_regeneration_rate_per_minute_%",
-		"attack_trigger_when_critically_hit_%",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 5000, 360, 100, damageEffectiveness = 2.43, cooldown = 5, baseMultiplier = 2.43, levelRequirement = 66, statInterpolation = { 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 2.43, cooldown = 5, baseMultiplier = 2.43, levelRequirement = 66, },
 	},
 }
 skills["EnchantmentOfLightWhenCrit4"] = {
@@ -1179,19 +804,10 @@ skills["EnchantmentOfLightWhenCrit4"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"life_regeneration_rate_per_minute_%",
-		"attack_trigger_when_critically_hit_%",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 5000, 360, 100, damageEffectiveness = 2.97, cooldown = 5, baseMultiplier = 2.97, levelRequirement = 75, statInterpolation = { 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 2.97, cooldown = 5, baseMultiplier = 2.97, levelRequirement = 75, },
 	},
 }
 skills["EnchantmentOfReflectionWhenHit"] = {
@@ -1216,22 +832,10 @@ skills["EnchantmentOfReflectionWhenHit"] = {
 		minion = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"minion_damage_+%",
-		"minion_maximum_life_+%",
-		"display_minion_monster_type",
-		"display_minion_monster_level",
-		"cast_when_hit_%",
-		"active_skill_minion_damage_+%_final",
 	},
 	levels = {
-		[1] = { 5000, 1, 80, 150, 4, 32, 100, 100, cooldown = 10, levelRequirement = 32, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 10, levelRequirement = 32, },
 	},
 }
 skills["EnchantmentOfReflectionWhenHit2"] = {
@@ -1256,22 +860,10 @@ skills["EnchantmentOfReflectionWhenHit2"] = {
 		minion = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"minion_damage_+%",
-		"minion_maximum_life_+%",
-		"display_minion_monster_type",
-		"display_minion_monster_level",
-		"cast_when_hit_%",
-		"active_skill_minion_damage_+%_final",
 	},
 	levels = {
-		[1] = { 5000, 1, 100, 150, 4, 53, 100, 200, cooldown = 10, levelRequirement = 53, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 10, levelRequirement = 53, },
 	},
 }
 skills["EnchantmentOfReflectionWhenHit3"] = {
@@ -1296,22 +888,10 @@ skills["EnchantmentOfReflectionWhenHit3"] = {
 		minion = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"minion_damage_+%",
-		"minion_maximum_life_+%",
-		"display_minion_monster_type",
-		"display_minion_monster_level",
-		"cast_when_hit_%",
-		"active_skill_minion_damage_+%_final",
 	},
 	levels = {
-		[1] = { 5000, 1, 120, 150, 4, 66, 100, 300, cooldown = 10, levelRequirement = 66, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 10, levelRequirement = 66, },
 	},
 }
 skills["EnchantmentOfReflectionWhenHit4"] = {
@@ -1336,29 +916,16 @@ skills["EnchantmentOfReflectionWhenHit4"] = {
 		minion = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"minion_damage_+%",
-		"minion_maximum_life_+%",
-		"display_minion_monster_type",
-		"display_minion_monster_level",
-		"cast_when_hit_%",
-		"active_skill_minion_damage_+%_final",
 	},
 	levels = {
-		[1] = { 5000, 1, 140, 150, 4, 75, 100, 400, cooldown = 10, levelRequirement = 75, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 10, levelRequirement = 75, },
 	},
 }
 skills["EnchantmentOfSpiteWhenHit"] = {
 	name = "怨恨之誓",
 	hidden = true,
 	color = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "基于你的武器，发射一圈投射物，在它们的路径上留下冰缓地面。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.ChillingArea] = true, [SkillType.Cold] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -1384,33 +951,16 @@ skills["EnchantmentOfSpiteWhenHit"] = {
 		attack = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_projectile_ground_effect_duration",
-		"number_of_additional_projectiles",
-		"melee_counterattack_trigger_on_hit_%",
-		"skill_art_variation",
-		"skill_physical_damage_%_to_convert_to_cold",
-		"projectiles_drop_ground_ice",
-		"projectiles_drop_ground_effects_on_client",
-		"base_is_projectile",
-		"projectiles_nova",
-		"skill_can_fire_arrows",
-		"skill_can_fire_wand_projectiles",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2000, 9, 100, 2, 50, damageEffectiveness = 1.5, cooldown = 5, baseMultiplier = 1.5, levelRequirement = 32, statInterpolation = { 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 1.5, cooldown = 5, baseMultiplier = 1.5, levelRequirement = 32, },
 	},
 }
 skills["EnchantmentOfSpiteWhenHit2"] = {
 	name = "怨恨之律",
 	hidden = true,
 	color = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "基于你的武器，发射一圈投射物，在它们的路径上留下冰缓地面。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.ChillingArea] = true, [SkillType.Cold] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -1436,33 +986,16 @@ skills["EnchantmentOfSpiteWhenHit2"] = {
 		attack = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_projectile_ground_effect_duration",
-		"number_of_additional_projectiles",
-		"melee_counterattack_trigger_on_hit_%",
-		"skill_art_variation",
-		"skill_physical_damage_%_to_convert_to_cold",
-		"projectiles_drop_ground_ice",
-		"projectiles_drop_ground_effects_on_client",
-		"base_is_projectile",
-		"projectiles_nova",
-		"skill_can_fire_arrows",
-		"skill_can_fire_wand_projectiles",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2000, 9, 100, 2, 50, damageEffectiveness = 2.1, cooldown = 5, baseMultiplier = 2.1, levelRequirement = 53, statInterpolation = { 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 2.1, cooldown = 5, baseMultiplier = 2.1, levelRequirement = 53, },
 	},
 }
 skills["EnchantmentOfSpiteWhenHit3"] = {
 	name = "怨恨之令",
 	hidden = true,
 	color = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "基于你的武器，发射一圈投射物，在它们的路径上留下冰缓地面。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.ChillingArea] = true, [SkillType.Cold] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -1488,33 +1021,16 @@ skills["EnchantmentOfSpiteWhenHit3"] = {
 		attack = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_projectile_ground_effect_duration",
-		"number_of_additional_projectiles",
-		"melee_counterattack_trigger_on_hit_%",
-		"skill_art_variation",
-		"skill_physical_damage_%_to_convert_to_cold",
-		"projectiles_drop_ground_ice",
-		"projectiles_drop_ground_effects_on_client",
-		"base_is_projectile",
-		"projectiles_nova",
-		"skill_can_fire_arrows",
-		"skill_can_fire_wand_projectiles",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2000, 9, 100, 2, 50, damageEffectiveness = 2.7, cooldown = 5, baseMultiplier = 2.7, levelRequirement = 66, statInterpolation = { 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 2.7, cooldown = 5, baseMultiplier = 2.7, levelRequirement = 66, },
 	},
 }
 skills["EnchantmentOfSpiteWhenHit4"] = {
 	name = "怨恨之诫",
 	hidden = true,
 	color = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "基于你的武器，发射一圈投射物，在它们的路径上留下冰缓地面。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.ChillingArea] = true, [SkillType.Cold] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -1540,34 +1056,16 @@ skills["EnchantmentOfSpiteWhenHit4"] = {
 		attack = true,
 		projectile = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_projectile_ground_effect_duration",
-		"number_of_additional_projectiles",
-		"melee_counterattack_trigger_on_hit_%",
-		"skill_art_variation",
-		"skill_physical_damage_%_to_convert_to_cold",
-		"projectiles_drop_ground_ice",
-		"projectiles_drop_ground_effects_on_client",
-		"base_is_projectile",
-		"projectiles_nova",
-		"skill_can_fire_arrows",
-		"skill_can_fire_wand_projectiles",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2000, 9, 100, 2, 50, damageEffectiveness = 3.3, cooldown = 5, baseMultiplier = 3.3, levelRequirement = 75, statInterpolation = { 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { damageEffectiveness = 3.3, cooldown = 5, baseMultiplier = 3.3, levelRequirement = 75, },
 	},
 }
 skills["EnchantmentOfTempestOnHit"] = {
 	name = "风暴之誓",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "在短暂聚能之后释放, 对你周围的敌人造成伤害. 有短暂的冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1579,30 +1077,18 @@ skills["EnchantmentOfTempestOnHit"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
-		"base_skill_area_of_effect_+%",
-		"skill_art_variation",
-		"cast_on_hit_%",
-		"base_skill_effect_duration",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1, 1.6000000238419, 0, 0, 100, 2000, critChance = 7, cooldown = 10, levelRequirement = 32, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 1, 1.6000000238419, critChance = 7, cooldown = 10, levelRequirement = 32, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfTempestOnHit2"] = {
 	name = "风暴之律",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "在短暂聚能之后释放, 对你周围的敌人造成伤害. 有短暂的冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1614,30 +1100,18 @@ skills["EnchantmentOfTempestOnHit2"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
-		"base_skill_area_of_effect_+%",
-		"skill_art_variation",
-		"cast_on_hit_%",
-		"base_skill_effect_duration",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1.5, 2.2999999523163, 0, 0, 100, 2000, critChance = 7, cooldown = 10, levelRequirement = 53, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 1.5, 2.2999999523163, critChance = 7, cooldown = 10, levelRequirement = 53, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfTempestOnHit3"] = {
 	name = "风暴之令",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "在短暂聚能之后释放, 对你周围的敌人造成伤害. 有短暂的冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1649,30 +1123,18 @@ skills["EnchantmentOfTempestOnHit3"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
-		"base_skill_area_of_effect_+%",
-		"skill_art_variation",
-		"cast_on_hit_%",
-		"base_skill_effect_duration",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2, 3, 0, 0, 100, 2000, critChance = 7, cooldown = 10, levelRequirement = 66, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 2, 3, critChance = 7, cooldown = 10, levelRequirement = 66, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfTempestOnHit4"] = {
 	name = "风暴之诫",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 4,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "在短暂聚能之后释放, 对你周围的敌人造成伤害. 有短暂的冷却时间. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1684,22 +1146,12 @@ skills["EnchantmentOfTempestOnHit4"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
-		"base_skill_area_of_effect_+%",
-		"skill_art_variation",
-		"cast_on_hit_%",
-		"base_skill_effect_duration",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2.4000000953674, 3.7999999523163, 0, 0, 100, 2000, critChance = 7, cooldown = 10, levelRequirement = 75, statInterpolation = { 3, 3, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 2.4000000953674, 3.7999999523163, critChance = 7, cooldown = 10, levelRequirement = 75, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfTheGraveOnKill"] = {
@@ -1721,21 +1173,10 @@ skills["EnchantmentOfTheGraveOnKill"] = {
 		minion = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"chance_to_cast_on_owned_kill_%",
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"display_minion_monster_type",
-		"display_minion_monster_level",
-		"minions_explode_on_death_for_%_max_life_at_end_of_duration",
-		"minions_cannot_taunt_enemies",
 	},
 	levels = {
-		[1] = { 100, 5000, 3, 10, 32, 20, cooldown = 5, levelRequirement = 32, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 5, levelRequirement = 32, },
 	},
 }
 skills["EnchantmentOfTheGraveOnKill2"] = {
@@ -1757,21 +1198,10 @@ skills["EnchantmentOfTheGraveOnKill2"] = {
 		minion = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"chance_to_cast_on_owned_kill_%",
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"display_minion_monster_type",
-		"display_minion_monster_level",
-		"minions_explode_on_death_for_%_max_life_at_end_of_duration",
-		"minions_cannot_taunt_enemies",
 	},
 	levels = {
-		[1] = { 100, 5000, 3, 10, 53, 20, cooldown = 5, levelRequirement = 53, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 5, levelRequirement = 53, },
 	},
 }
 skills["EnchantmentOfTheGraveOnKill3"] = {
@@ -1793,21 +1223,10 @@ skills["EnchantmentOfTheGraveOnKill3"] = {
 		minion = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"chance_to_cast_on_owned_kill_%",
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"display_minion_monster_type",
-		"display_minion_monster_level",
-		"minions_explode_on_death_for_%_max_life_at_end_of_duration",
-		"minions_cannot_taunt_enemies",
 	},
 	levels = {
-		[1] = { 100, 5000, 3, 10, 66, 20, cooldown = 5, levelRequirement = 66, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 5, levelRequirement = 66, },
 	},
 }
 skills["EnchantmentOfTheGraveOnKill4"] = {
@@ -1829,29 +1248,16 @@ skills["EnchantmentOfTheGraveOnKill4"] = {
 		minion = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"chance_to_cast_on_owned_kill_%",
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"display_minion_monster_type",
-		"display_minion_monster_level",
-		"minions_explode_on_death_for_%_max_life_at_end_of_duration",
-		"minions_cannot_taunt_enemies",
 	},
 	levels = {
-		[1] = { 100, 5000, 3, 10, 75, 20, cooldown = 5, levelRequirement = 75, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 5, levelRequirement = 75, },
 	},
 }
 skills["EnchantmentOfThunderOnKill"] = {
 	name = "雷电之誓",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.625,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "在你的四周造成锥形的闪电伤害。此技能有短暂冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.TotemCastsWhenNotDetached] = true, [SkillType.Lightning] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1863,27 +1269,18 @@ skills["EnchantmentOfThunderOnKill"] = {
 		area = true,
 		hit = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
-		"chance_to_cast_on_kill_%_target_self",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1, 1.6000000238419, 100, critChance = 7, cooldown = 5, levelRequirement = 32, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[1] = { 1, 1.6000000238419, critChance = 7, cooldown = 5, levelRequirement = 32, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfThunderOnKill2"] = {
 	name = "雷电之律",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.625,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "在你的四周造成锥形的闪电伤害。此技能有短暂冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.TotemCastsWhenNotDetached] = true, [SkillType.Lightning] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1895,27 +1292,18 @@ skills["EnchantmentOfThunderOnKill2"] = {
 		area = true,
 		hit = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
-		"chance_to_cast_on_kill_%_target_self",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1.5, 2.2999999523163, 100, critChance = 7, cooldown = 5, levelRequirement = 53, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[1] = { 1.5, 2.2999999523163, critChance = 7, cooldown = 5, levelRequirement = 53, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfThunderOnKill3"] = {
 	name = "雷电之令",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.625,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "在你的四周造成锥形的闪电伤害。此技能有短暂冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.TotemCastsWhenNotDetached] = true, [SkillType.Lightning] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1927,27 +1315,18 @@ skills["EnchantmentOfThunderOnKill3"] = {
 		area = true,
 		hit = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
-		"chance_to_cast_on_kill_%_target_self",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2, 3, 100, critChance = 7, cooldown = 5, levelRequirement = 66, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[1] = { 2, 3, critChance = 7, cooldown = 5, levelRequirement = 66, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfThunderOnKill4"] = {
 	name = "雷电之诫",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.625,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "在你的四周造成锥形的闪电伤害。此技能有短暂冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.TotemCastsWhenNotDetached] = true, [SkillType.Lightning] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1959,19 +1338,12 @@ skills["EnchantmentOfThunderOnKill4"] = {
 		area = true,
 		hit = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
-		"chance_to_cast_on_kill_%_target_self",
-		"is_area_damage",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2.4000000953674, 3.7999999523163, 100, critChance = 7, cooldown = 5, levelRequirement = 75, statInterpolation = { 3, 3, 1, }, cost = { }, },
+		[1] = { 2.4000000953674, 3.7999999523163, critChance = 7, cooldown = 5, levelRequirement = 75, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfWarOnKill"] = {
@@ -2003,18 +1375,10 @@ skills["EnchantmentOfWarOnKill"] = {
 		attack = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"attack_trigger_on_kill_%",
-		"active_skill_minion_damage_+%_final",
 	},
 	levels = {
-		[1] = { 10000, 1, 100, 50, cooldown = 5, levelRequirement = 32, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 5, levelRequirement = 32, },
 	},
 }
 skills["EnchantmentOfWarOnKill2"] = {
@@ -2046,18 +1410,10 @@ skills["EnchantmentOfWarOnKill2"] = {
 		attack = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"attack_trigger_on_kill_%",
-		"active_skill_minion_damage_+%_final",
 	},
 	levels = {
-		[1] = { 10000, 1, 100, 100, cooldown = 5, levelRequirement = 53, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 5, levelRequirement = 53, },
 	},
 }
 skills["EnchantmentOfWarOnKill3"] = {
@@ -2089,18 +1445,10 @@ skills["EnchantmentOfWarOnKill3"] = {
 		attack = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"attack_trigger_on_kill_%",
-		"active_skill_minion_damage_+%_final",
 	},
 	levels = {
-		[1] = { 10000, 1, 100, 150, cooldown = 5, levelRequirement = 66, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 5, levelRequirement = 66, },
 	},
 }
 skills["EnchantmentOfWarOnKill4"] = {
@@ -2132,26 +1480,16 @@ skills["EnchantmentOfWarOnKill4"] = {
 		attack = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
-		"base_skill_effect_duration",
-		"number_of_monsters_to_summon",
-		"attack_trigger_on_kill_%",
-		"active_skill_minion_damage_+%_final",
 	},
 	levels = {
-		[1] = { 10000, 1, 100, 200, cooldown = 5, levelRequirement = 75, statInterpolation = { 1, 1, 1, 1, }, cost = { }, },
+		[1] = { cooldown = 5, levelRequirement = 75, },
 	},
 }
 skills["EnchantmentOfWinterWhenHit"] = {
 	name = "冬之誓",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.0908999443054,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "释放出带有冰霜脉冲的冰冻投射物。有短暂的冷却时间.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2163,29 +1501,18 @@ skills["EnchantmentOfWinterWhenHit"] = {
 		projectile = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
-		"skill_art_variation",
-		"cast_when_hit_%",
-		"is_area_damage",
-		"base_is_projectile",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1, 1.6000000238419, 1, 100, critChance = 5, cooldown = 10, levelRequirement = 32, statInterpolation = { 3, 3, 1, 1, }, cost = { }, },
+		[1] = { 1, 1.6000000238419, critChance = 5, cooldown = 10, levelRequirement = 32, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfWinterWhenHit2"] = {
 	name = "冬之律",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.0908999443054,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "释放出带有冰霜脉冲的冰冻投射物。有短暂的冷却时间.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2197,29 +1524,18 @@ skills["EnchantmentOfWinterWhenHit2"] = {
 		projectile = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
-		"skill_art_variation",
-		"cast_when_hit_%",
-		"is_area_damage",
-		"base_is_projectile",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 1.5, 2.2999999523163, 1, 100, critChance = 5, cooldown = 10, levelRequirement = 53, statInterpolation = { 3, 3, 1, 1, }, cost = { }, },
+		[1] = { 1.5, 2.2999999523163, critChance = 5, cooldown = 10, levelRequirement = 53, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfWinterWhenHit3"] = {
 	name = "冬之令",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.0908999443054,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "释放出带有冰霜脉冲的冰冻投射物。有短暂的冷却时间.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2231,29 +1547,18 @@ skills["EnchantmentOfWinterWhenHit3"] = {
 		projectile = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
-		"skill_art_variation",
-		"cast_when_hit_%",
-		"is_area_damage",
-		"base_is_projectile",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2, 3, 1, 100, critChance = 5, cooldown = 10, levelRequirement = 66, statInterpolation = { 3, 3, 1, 1, }, cost = { }, },
+		[1] = { 2, 3, critChance = 5, cooldown = 10, levelRequirement = 66, statInterpolation = { 3, 3, }, },
 	},
 }
 skills["EnchantmentOfWinterWhenHit4"] = {
 	name = "冬之诫",
 	hidden = true,
 	color = 4,
-	baseEffectiveness = 1.0908999443054,
-	incrementalEffectiveness = 0.035000000149012,
 	description = "释放出带有冰霜脉冲的冰冻投射物。有短暂的冷却时间.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2265,20 +1570,11 @@ skills["EnchantmentOfWinterWhenHit4"] = {
 		projectile = true,
 		area = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
-		"skill_art_variation",
-		"cast_when_hit_%",
-		"is_area_damage",
-		"base_is_projectile",
-		"damage_cannot_be_reflected",
 	},
 	levels = {
-		[1] = { 2.4000000953674, 3.7999999523163, 1, 100, critChance = 5, cooldown = 10, levelRequirement = 75, statInterpolation = { 3, 3, 1, 1, }, cost = { }, },
+		[1] = { 2.4000000953674, 3.7999999523163, critChance = 5, cooldown = 10, levelRequirement = 75, statInterpolation = { 3, 3, }, },
 	},
 }
