@@ -17,7 +17,7 @@ SetMainObject(launch)
 
 function launch:OnInit()
 	-- This is the path to emmy_core.dll. The ?.dll at the end is intentional.
-	package.cpath = package.cpath .. ";C:/Users/A/.vscode/extensions/tangzx.emmylua-0.3.49/debugger/emmy/windows/x86/?.dll"
+	package.cpath = package.cpath .. ";C:/Users/echo/.vscode/extensions/tangzx.emmylua-0.5.8/debugger/emmy/windows/x86/?.dll"
 	local dbg = require("emmy_core")
 	-- This port must match the Visual Studio Code configuration. Default is 9966.
 	dbg.tcpListen("localhost", 9966)
@@ -317,6 +317,72 @@ function launch:CheckForUpdate(inBackground)
 		self.updateCheckRunning = true
 	end
 	update:close()
+end
+
+function launch:Curl(url)
+	local curl = require("lcurl.safe")
+	for i = 1, 5 do
+		if i > 1 then
+			ConPrintf("Retrying... (%d of 5)", i)
+		end
+		local text = ""
+		local easy = curl.easy()
+		easy:setopt_url(url)
+		easy:setopt_httpheader({ "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:33.0) Gecko/20100101 Firefox/33.0"  })
+		
+		easy:setopt(curl.OPT_ACCEPT_ENCODING, "")
+		easy:setopt_writefunction(function(data)
+			text = text..data 
+			return true
+		end)
+		local _, error = easy:perform()
+		easy:close()
+		if not error then
+			return text
+		end
+		ConPrintf("Curl failed (%s)", error:msg())
+	end
+end
+
+function launch:ReadCurrentRepoUrl()
+	local xml = require("xml")
+	local localManXML = xml.LoadXMLFile("manifest.xml") or xml.LoadXMLFile("../manifest.xml")
+	if localManXML and localManXML[1].elem == "PoBVersion" then
+		for _, node in ipairs(localManXML[1]) do
+			if type(node) == "table" then
+				if node.elem == "Source" then
+					return node.attrib.url
+				end
+			end
+		end
+	end
+	return nil
+end
+
+function launch:UpdateRepoUrl()
+	local repoURL = launch:Curl("https://pastebin.com/raw/Ydg65xUi")
+	-- local oldRepoURL = launch:ReadCurrentRepoUrl()
+	-- local manifestFile = io.open("manifest.xml", "r")
+	-- local content = manifestFile:read("*a")
+	-- manifestFile:close()
+	-- local newContent, count = content:gsub(oldRepoURL, repoURL)
+	-- manifestFile = io.open("manifest.xml", "w+")
+	-- manifestFile:write(newContent)
+	-- manifestFile:close()
+	
+	local xml = require("xml")
+	local localManXML = xml.LoadXMLFile("manifest.xml") or xml.LoadXMLFile("../manifest.xml")
+	if localManXML and localManXML[1].elem == "PoBVersion" then
+		for _, node in ipairs(localManXML[1]) do
+			if type(node) == "table" then
+				if node.elem == "Source" then
+					node.attrib.url = repoURL
+				end
+			end
+		end
+		xml.SaveXMLFile(localManXML[1], "manifest.xml")
+	end
+	return repoURL
 end
 
 function launch:ShowPrompt(r, g, b, str, func)
