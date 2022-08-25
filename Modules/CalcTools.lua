@@ -253,6 +253,29 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
 end
 
 
+--- Correct the tags on conversion with multipliers so they carry over correctly
+--- @param mod table
+--- @param multiplier number
+--- @param minionMods bool @convert ActorConditions pointing at parent to normal Conditions
+--- @return table @converted multipliers
+function calcLib.getConvertedModTags(mod, multiplier, minionMods)
+	local modifiers = { }
+	for k, value in ipairs(mod) do
+		if minionMods and value.type == "ActorCondition" and value.actor == "parent" then
+			modifiers[k] = { type = "Condition", var = value.var }
+		elseif value.limitTotal then
+			-- LimitTotal can apply to 'per stat' or 'multiplier', so just copy the whole and update the limit
+			local copy = copyTable(value)
+			copy.limit = copy.limit * multiplier
+			modifiers[k] = copy
+		else
+			modifiers[k] = copyTable(value)
+		end
+	end
+	return modifiers
+end
+
+
 -- 慎用 会根据角色/召唤生物等级来调整
 function calcLib.buildSkillInstanceStatsOnly(curLevel,actorLevel,grantedEffect)
 

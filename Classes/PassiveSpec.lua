@@ -172,10 +172,7 @@ function PassiveSpecClass:Save(xml)
 	end
 	local masterySelections = { }
 	for mastery, effect in pairs(self.masterySelections) do
-		-- only save pob codes to xml (only profile import should have leftover effects to clean up)
-		if (tonumber(effect) < 65536) then
-			t_insert(masterySelections, "{"..mastery..","..effect.."}")
-		end
+		t_insert(masterySelections, "{"..mastery..","..effect.."}")
 	end
 	local editedNodes = {
 		elem = "EditedNodes"
@@ -260,11 +257,46 @@ function PassiveSpecClass:ImportFromNodeList(classId, ascendClassId, hashList, m
 	end
 	wipeTable(self.masterySelections)
 	for mastery, effect in pairs(masteryEffects) do
-		self.masterySelections[mastery] = effect
+		-- ignore ggg codes from profile import
+		if (tonumber(effect) < 65536) then
+			self.masterySelections[mastery] = effect
+		end
 	end
 	self:SelectAscendClass(ascendClassId)
 end
 
+function PassiveSpecClass:AllocateDecodedNodes(nodes, isCluster)
+	for i = 1, #nodes - 1, 2 do
+		local id = nodes:byte(i) * 256 + nodes:byte(i + 1)
+		if isCluster then
+			id = id + 65536
+		end
+		local node = self.nodes[id]
+		if node then
+			node.alloc = true
+			self.allocNodes[id] = node
+		end
+	end
+end
+
+function PassiveSpecClass:AllocateMasteryEffects(masteryEffects)
+	for i = 1, #masteryEffects - 1, 4 do
+		local effectId = masteryEffects:byte(i) * 256 + masteryEffects:byte(i + 1)
+		local id  = masteryEffects:byte(i + 2) * 256 + masteryEffects:byte(i + 3)
+
+		local effect = self.tree.masteryEffects[effectId]
+		self.allocNodes[id].sd = effect.sd
+		self.allocNodes[id].allMasteryOptions = false
+		self.allocNodes[id].reminderText = { "提示: 鼠标右键单击选择其他效果" }
+		self.tree:ProcessStats(self.allocNodes[id])
+		self.masterySelections[id] = effectId
+		self.allocatedMasteryCount = self.allocatedMasteryCount + 1
+		if not self.allocatedMasteryTypes[self.allocNodes[id].name] then
+			self.allocatedMasteryTypes[self.allocNodes[id].name] = true
+			self.allocatedMasteryTypeCount = self.allocatedMasteryTypeCount + 1
+		end
+	end
+end
 
 -- Decode the given passive tree URL
 function PassiveSpecClass:DecodeURL(url)
@@ -284,28 +316,77 @@ function PassiveSpecClass:DecodeURL(url)
 	self:ResetNodes()
 	self:SelectClass(classId)
 	self:SelectAscendClass(ascendClassId)
-	local nodes = b:sub(ver >= 4 and 8 or 7, -1)
-	for i = 1, #nodes - 1, 2 do
-		local id = nodes:byte(i) * 256 + nodes:byte(i + 1)
-		local node = self.nodes[id]
-		if node then
-			node.alloc = true
-			self.allocNodes[id] = node
-		end
+	
+	local nodesStart = ver >= 4 and 8 or 7
+	local nodesEnd = ver >= 5 and 7 + (b:byte(7) * 2) or -1
+	local nodes = b:sub(nodesStart, nodesEnd)
+	
+	self:AllocateDecodedNodes(nodes, false)
+
+	if ver < 5 then
+		return
 	end
+
+	local clusterStart = nodesEnd + 1
+	local clusterEnd = clusterStart + (b:byte(clusterStart) * 2)
+	local clusterNodes = b:sub(clusterStart + 1, clusterEnd)
+	
+	self:AllocateDecodedNodes(clusterNodes, true)
+	
+	if ver < 6 then
+		return
+	end
+	
+	local masteryStart = clusterEnd + 1
+	local masteryEnd = masteryStart + (b:byte(masteryStart) * 4)
+	local masteryEffects = b:sub(masteryStart + 1, masteryEnd)
+	self:AllocateMasteryEffects(masteryEffects)
 end
 
 -- Encodes the current spec into a URL, using the official skill tree's format
 -- Prepends the URL with an optional prefix
 function PassiveSpecClass:EncodeURL(prefix)
-	local a = { 0, 0, 0, 4, self.curClassId, self.curAscendClassId, 0 }
+	local a = { 0, 0, 0, 6, self.curClassId, self.curAscendClassId }
+	
+	local nodeCount = 0
+	local clusterCount = 0
+	local masteryCount = 0
+
+	local clusterNodeIds = {}
+	local masteryNodeIds = {}
+
 	for id, node in pairs(self.allocNodes) do
 		if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" and id < 65536 then
 			t_insert(a, m_floor(id / 256))
 			t_insert(a, id % 256)
+			nodeCount = nodeCount + 1
+			if self.masterySelections[node.id] then
+				local effect_id = self.masterySelections[node.id]
+				t_insert(masteryNodeIds, m_floor(effect_id / 256))
+				t_insert(masteryNodeIds, effect_id % 256)
+				t_insert(masteryNodeIds, m_floor(node.id / 256))
+				t_insert(masteryNodeIds, node.id % 256)
+				masteryCount = masteryCount + 1
+			end
+		elseif id >= 65536 then
+			local clusterId = id - 65536
+			t_insert(clusterNodeIds, m_floor(clusterId / 256))
+			t_insert(clusterNodeIds, clusterId % 256)
+			clusterCount = clusterCount + 1
 		end
 	end
+	t_insert(a, 7, nodeCount)
 
+	t_insert(a, clusterCount)
+	for _, id in pairs(clusterNodeIds) do
+		t_insert(a, id)
+	end
+	
+	t_insert(a, masteryCount)
+	for _, id in pairs(masteryNodeIds) do
+		t_insert(a, id)
+	end
+	
 	return (prefix or "")..common.base64.encode(string.char(unpack(a))):gsub("+","-"):gsub("/","_")
 end
 
@@ -329,7 +410,7 @@ function PassiveSpecClass:SelectClass(classId)
 	self.allocNodes[startNode.id] = startNode
 
 	-- Reset the ascendancy class
-	-- This will also rebuild the node paths and dependancies
+	-- This will also rebuild the node paths and dependencies
 	self:SelectAscendClass(0)
 end
 
@@ -358,7 +439,7 @@ function PassiveSpecClass:SelectAscendClass(ascendClassId)
 		self.allocNodes[startNode.id] = startNode
 	end
 
-	-- Rebuild all the node paths and dependancies
+	-- Rebuild all the node paths and dependencies
 	self:BuildAllDependsAndPaths()
 end
 
@@ -640,115 +721,245 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		end
 		if node.type ~= "ClassStart" and node.type ~= "Socket"  then
 			for nodeId, itemId in pairs(self.jewels) do
-				if self.build.itemsTab.items[itemId] and self.build.itemsTab.items[itemId].jewelRadiusIndex then
-					local radiusIndex = self.build.itemsTab.items[itemId].jewelRadiusIndex
-					if self.allocNodes[nodeId] and self.nodes[nodeId].nodesInRadius and self.nodes[nodeId].nodesInRadius[radiusIndex][node.id] then
-						if itemId ~= 0 and self.build.itemsTab.items[itemId].jewelData then
-							if self.build.itemsTab.items[itemId].jewelData.intuitiveLeapLike then
+				local item = self.build.itemsTab.items[itemId]
+				if item and item.jewelRadiusIndex and self.allocNodes[nodeId] and item.jewelData then
+					local radiusIndex = item.jewelRadiusIndex
+					if self.nodes[nodeId].nodesInRadius and self.nodes[nodeId].nodesInRadius[radiusIndex][node.id] then
+						if itemId ~= 0 then
+							if item.jewelData.intuitiveLeapLike then
 								-- This node depends on Intuitive Leap-like behaviour
 								-- This flag:
 								-- 1. Prevents generation of paths from this node
-								-- 2. Prevents this node from being deallocted via dependancy
+								-- 2. Prevents this node from being deallocted via dependency
 								-- 3. Prevents allocation of path nodes when this node is being allocated
 								node.dependsOnIntuitiveLeapLike = true
 							end
-							if self.build.itemsTab.items[itemId].jewelData.conqueredBy then
-								node.conqueredBy = self.build.itemsTab.items[itemId].jewelData.conqueredBy
+							if item.jewelData.conqueredBy then
+								node.conqueredBy = item.jewelData.conqueredBy
+							end
+						end
+					end
+
+					if item.jewelData and item.jewelData.impossibleEscapeKeystone then
+						for keyName, keyNode in pairs(self.tree.keystoneMap) do
+							if item.jewelData.impossibleEscapeKeystones[keyName:lower()] and keyNode.nodesInRadius then
+								if keyNode.nodesInRadius[radiusIndex][node.id] then
+									node.dependsOnIntuitiveLeapLike = true
+								end
 							end
 						end
 					end
 				end
-				
-				
 			end
 		end
 		if node.alloc then
 			node.depends[1] = node -- All nodes depend on themselves
 		end
-		 
 	end
 	for id, node in pairs(self.nodes) do
 		-- If node is conquered, replace it or add mods
 		if node.conqueredBy and node.type ~= "Socket" then
 			local conqueredBy = node.conqueredBy
 			local legionNodes = self.tree.legion.nodes
+			local legionAdditions = self.tree.legion.additions
 
-			-- Replace with edited node if applicable
-			if self.tree.legion.editedNodes and self.tree.legion.editedNodes[conqueredBy.id] and self.tree.legion.editedNodes[conqueredBy.id][node.id] then
-				local editedNode = self.tree.legion.editedNodes[conqueredBy.id][node.id]
-				node.dn = editedNode.dn
-				node.sd = editedNode.sd
-				node.sprites = editedNode.sprites
-				node.mods = editedNode.mods
-				node.modList = editedNode.modList
-				node.modKey = editedNode.modKey
-				node.icon = editedNode.icon
-				node.spriteId = editedNode.spriteId
-			elseif conqueredBy.conqueror then
-				if node.type == "Keystone" then
-					local legionNode = legionNodes[conqueredBy.conqueror.type.."_keystone_"..conqueredBy.conqueror.id]
-					self:ReplaceNode(node, legionNode)
-				elseif conqueredBy.conqueror.type == "eternal" and node.type == "Normal"  then
-					local legionNode = legionNodes["eternal_small_blank"]
-					self:ReplaceNode(node,legionNode)
-				elseif conqueredBy.conqueror.type == "eternal" and node.type == "Notable"  then
-					local legionNode = legionNodes["eternal_notable_fire_resistance_1"]
-					node.dn = "永恒帝国核心天赋"
-					node.sd = {"右键设置词缀"}
-					node.sprites = legionNode.sprites
-					node.mods = {""}
-					node.modList = new("ModList")
-					node.modKey = ""
+			-- FIXME - continue implementing
+			local jewelType = 5
+			if conqueredBy.conqueror.type == "vaal" then
+				jewelType = 1
+			elseif conqueredBy.conqueror.type == "karui" then
+				jewelType = 2
+			elseif conqueredBy.conqueror.type == "maraketh" then
+				jewelType = 3
+			elseif conqueredBy.conqueror.type == "templar" then
+				jewelType = 4
+			end
+			local seed = conqueredBy.id
+			if jewelType == 5 then
+				seed = seed / 20
+			end
+			
+			local replaceHelperFunc = function(statToFix, statKey, statMod, value)
+				if statMod.fmt == "g" then -- note the only one we actually care about is "Ritual of Flesh" life regen
+					if statKey:find("per_minute") then
+						value = round(value / 60, 1)
+					elseif statKey:find("permyriad") then
+						value = value / 100
+					elseif statKey:find("_ms") then
+						value = value / 1000
+					end
+				end
+				--if statMod.fmt == "d" then -- only ever d or g, and we want both past here
+				if statMod.min ~= statMod.max then
+					return statToFix:gsub("%(" .. statMod.min .. "%-" .. statMod.max .. "%)", value)
+				elseif statMod.min ~= value then -- only true for might/legacy of the vaal which can combine stats
+					return statToFix:gsub(statMod.min, value)
+				end
+				return statToFix -- if it doesn't need to be changed
+			end
+
+			if node.type == "Notable" then
+				local jewelDataTbl = { }
+				if seed ~= m_max(m_min(seed, data.timelessJewelSeedMax[jewelType]), data.timelessJewelSeedMin[jewelType]) then
+					ConPrintf("ERROR: Seed " .. seed .. " is outside of valid range [" .. data.timelessJewelSeedMin[jewelType] .. " - " .. data.timelessJewelSeedMax[jewelType] .. "] for jewel type: " .. data.timelessJewelTypes[jewelType])
+				else
+					jewelDataTbl = data.readLUT(conqueredBy.id, node.id, jewelType)
+				end
+				--print("Need to Update: " .. node.id .. " [" .. node.dn .. "]")
+				if not next(jewelDataTbl) then
+					ConPrintf("Missing LUT: " .. data.timelessJewelTypes[jewelType])
+				else
+					if jewelType == 1 then
+						local headerSize = #jewelDataTbl
+						-- FIXME: complete implementation of this. Need to set roll values for stats
+						--        based on their `fmt` specification 
+						if headerSize == 2 or headerSize == 3 then
+							self:ReplaceNode(node, legionNodes[jewelDataTbl[1] + 1 - data.timelessJewelAdditions])
+
+							for i, repStat in ipairs(legionNodes[jewelDataTbl[1] + 1 - data.timelessJewelAdditions].sd) do
+								local statKey = legionNodes[jewelDataTbl[1] + 1 - data.timelessJewelAdditions].sortedStats[i]
+								local statMod = legionNodes[jewelDataTbl[1] + 1 - data.timelessJewelAdditions].stats[statKey]
+								repStat = replaceHelperFunc(repStat, statKey, statMod, jewelDataTbl[statMod.index + 1])
+								self:NodeAdditionOrReplacementFromString(node, repStat, i == 1) -- wipe mods on first run
+							end
+							-- should fix the stat values here (note headerSize == 3 has 2 values)
+						elseif headerSize == 6 or headerSize == 8 then
+							local bias = 0
+							for i,val in ipairs(jewelDataTbl) do
+								if i > (headerSize / 2) then
+									break
+								elseif val <= 21 then
+									bias = bias + 1
+								else
+									bias = bias - 1
+								end
+							end
+							if bias >= 0 then
+								self:ReplaceNode(node, legionNodes[77]) -- might of the vaal
+							else
+								self:ReplaceNode(node, legionNodes[78]) -- legacy of the vaal
+							end
+							local additions = {}
+							for i,val in ipairs(jewelDataTbl) do
+								if i <= (headerSize / 2) then
+									local roll = jewelDataTbl[i + headerSize / 2]
+									if not additions[val] then
+										additions[val] = roll
+									else
+										additions[val] = additions[val] + roll
+									end
+								else
+									break
+								end
+							end
+							for add, val in pairs(additions) do
+								local addition = legionAdditions[add + 1]
+								for _, addStat in ipairs(addition.sd) do
+									for k,statMod in pairs(addition.stats) do -- should only be 1 big, these didn't get changed so can't just grab index
+										addStat = replaceHelperFunc(addStat, k, statMod, val)
+									end
+									self:NodeAdditionOrReplacementFromString(node, addStat)
+								end
+							end
+						else
+							ConPrintf("Unhandled Glorious Vanity headerSize: " .. headerSize)
+						end
+					else
+						for _, jewelData in ipairs(jewelDataTbl) do
+							if jewelData >= data.timelessJewelAdditions then -- replace
+								jewelData = jewelData + 1 - data.timelessJewelAdditions
+								local legionNode = legionNodes[jewelData]
+								if legionNode then
+									self:ReplaceNode(node, legionNode)
+								else
+									ConPrintf("Unhandled 'replace' ID: " .. jewelData)
+								end
+							elseif jewelData then -- add
+								local addition = legionAdditions[jewelData + 1]
+								for _, addStat in ipairs(addition.sd) do
+									self:NodeAdditionOrReplacementFromString(node, " \n" .. addStat)
+								end
+							elseif next(jewelData) then
+								ConPrintf("Unhandled OP: " .. jewelData + 1)
+							end
+						end
+					end
+				end
+			elseif node.type == "Keystone" then
+				local matchStr = conqueredBy.conqueror.type .. "_keystone_" .. conqueredBy.conqueror.id
+				for _, legionNode in ipairs(legionNodes) do
+					if legionNode.id == matchStr then
+						self:ReplaceNode(node, legionNode)
+						break
+					end
+				end					
+			elseif node.type == "Normal" then
+				if conqueredBy.conqueror.type == "vaal" then
+					local jewelDataTbl = { }
+					if seed ~= m_max(m_min(seed, data.timelessJewelSeedMax[jewelType]), data.timelessJewelSeedMin[jewelType]) then
+						ConPrintf("ERROR: Seed " .. seed .. " is outside of valid range [" .. data.timelessJewelSeedMin[jewelType] .. " - " .. data.timelessJewelSeedMax[jewelType] .. "] for jewel type: " .. data.timelessJewelTypes[jewelType])
+					else
+						jewelDataTbl = data.readLUT(conqueredBy.id, node.id, jewelType)
+					end
+					--print("Need to Update: " .. node.id .. " [" .. node.dn .. "]")
+					if not next(jewelDataTbl) then
+						ConPrintf("Missing LUT: " .. data.timelessJewelTypes[jewelType])
+					else
+						self:ReplaceNode(node, legionNodes[jewelDataTbl[1] + 1 - data.timelessJewelAdditions])
+						for i, repStat in ipairs(node.sd) do
+							local statKey = legionNodes[jewelDataTbl[1] + 1 - data.timelessJewelAdditions].sortedStats[i]
+							local statMod = legionNodes[jewelDataTbl[1] + 1 - data.timelessJewelAdditions].stats[statKey]
+							repStat = replaceHelperFunc(repStat, statKey, statMod, jewelDataTbl[2])
+							self:NodeAdditionOrReplacementFromString(node, repStat, true)
+						end
+					end
+				elseif conqueredBy.conqueror.type == "karui" then
+					local str = isValueInArray(attributes, node.dn) and "2" or "4"
+					self:NodeAdditionOrReplacementFromString(node, " \n+" .. str .. " 力量")
+				elseif conqueredBy.conqueror.type == "maraketh" then
+					local dex = isValueInArray(attributes, node.dn) and "2" or "4"
+					self:NodeAdditionOrReplacementFromString(node, " \n+" .. dex .. " 敏捷")
 				elseif conqueredBy.conqueror.type == "templar" then
 					if isValueInArray(attributes, node.dn) then
-						local legionNode =legionNodes["templar_devotion_node"]
-						self:ReplaceNode(node,legionNode)
+						local legionNode = legionNodes[91] -- templar_devotion_node
+						self:ReplaceNode(node, legionNode)
 					else
-						self:NodeAdditionOrReplacementFromString(node,"+5 奉献")
+						self:NodeAdditionOrReplacementFromString(node,"\n+5 奉献")
 					end
-				elseif conqueredBy.conqueror.type == "maraketh" and node.type == "Normal" then
-					local dex = isValueInArray(attributes, node.dn) and "2" or "4"
-					self:NodeAdditionOrReplacementFromString(node,"+"..dex.." 敏捷")
-				elseif conqueredBy.conqueror.type == "karui" and node.type == "Normal" then
-					local str = isValueInArray(attributes, node.dn) and "2" or "4"
-					self:NodeAdditionOrReplacementFromString(node,"+"..str.." 力量")
-				elseif conqueredBy.conqueror.type == "vaal" and node.type == "Normal" then
-					local legionNode =legionNodes["vaal_small_fire_resistance"]
-					node.dn = "瓦尔小天赋点"
-					node.sd = {"右键设置词缀"}
-					node.sprites = legionNode.sprites
-					node.mods = {""}
-					node.modList = new("ModList")
-					node.modKey = ""
-				elseif conqueredBy.conqueror.type == "vaal" and node.type == "Notable" then
-					local legionNode =legionNodes["vaal_notable_curse_1"]
-					node.dn = "瓦尔核心天赋"
-					node.sd = {"右键设置词缀"}
-					node.sprites = legionNode.sprites
-					node.mods = {""}
-					node.modList = new("ModList")
-					node.modKey = ""
-					node.reminderText = { }
+				elseif conqueredBy.conqueror.type == "eternal" then
+					local legionNode = legionNodes[110] -- eternal_small_blank
+					self:ReplaceNode(node, legionNode)
 				end
-				self:ReconnectNodeToClassStart(node)
 			end
+			self:ReconnectNodeToClassStart(node)
 		end
 	end
 
 	-- Add selected mastery effect mods to mastery nodes
 	self.allocatedMasteryCount = 0
 	self.allocatedNotableCount = 0
+	self.allocatedMasteryTypes = { }
+	self.allocatedMasteryTypeCount = 0
 	for id, node in pairs(self.nodes) do
 		if node.type == "Mastery" and self.masterySelections[id] then
 			local effect = self.tree.masteryEffects[self.masterySelections[id]]
-			node.sd = effect.sd
-			node.allMasteryOptions = false
-			node.reminderText = { "提示: 鼠标右键单击选择其他效果" }
-			self.tree:ProcessStats(node)
-			self.allocatedMasteryCount = self.allocatedMasteryCount + 1
+			if effect then
+				node.sd = effect.sd
+				node.allMasteryOptions = false
+				node.reminderText = { "提示: 鼠标右键单击选择其他效果" }
+				self.tree:ProcessStats(node)
+				self.allocatedMasteryCount = self.allocatedMasteryCount + 1
+				if not self.allocatedMasteryTypes[node.name] then
+					self.allocatedMasteryTypes[node.name] = true
+					self.allocatedMasteryTypeCount = self.allocatedMasteryTypeCount + 1
+				end
+			else
+				self.nodes[id].alloc = false
+				self.allocNodes[id] = nil
+			end
 		elseif node.type == "Mastery" then
 			self:AddMasteryEffectOptionsToNode(node)
-		elseif node.type == "Notable" then
+		elseif node.type == "Notable" and node.alloc then
 			self.allocatedNotableCount = self.allocatedNotableCount + 1
 		end
 	end
@@ -822,14 +1033,16 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 				for nodeId, itemId in pairs(self.jewels) do
 					if self.allocNodes[nodeId] then
 						if itemId ~= 0 and (
-							self.build.itemsTab.items[itemId] and (
+							 self.build.itemsTab.items[itemId] and (
 								self.build.itemsTab.items[itemId].jewelData
 									and self.build.itemsTab.items[itemId].jewelData.intuitiveLeapLike
 									and self.build.itemsTab.items[itemId].jewelRadiusIndex
 									and self.nodes[nodeId].nodesInRadius
-									and self.nodes[nodeId].nodesInRadius[
-										self.build.itemsTab.items[itemId].jewelRadiusIndex
-								][depNode.id]
+									and self.nodes[nodeId].nodesInRadius[self.build.itemsTab.items[itemId].jewelRadiusIndex][depNode.id]
+							) or (
+								self.build.itemsTab.items[itemId].jewelData
+									and self.build.itemsTab.items[itemId].jewelData.impossibleEscapeKeystones
+									and self:NodeInKeystoneRadius(self.build.itemsTab.items[itemId].jewelData.impossibleEscapeKeystones, depNode.id, self.build.itemsTab.items[itemId].jewelRadiusIndex)
 							)
 						) then
 							-- Hold off on the pruning; this node could be supported by Intuitive Leap-like jewel
@@ -857,15 +1070,13 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		end
 	end
 	for id, node in pairs(self.allocNodes) do
-		if not node.dependsOnIntuitiveLeapLike  then
+		if not node.dependsOnIntuitiveLeapLike then
 			self:BuildPathFromNode(node)
 			if node.isJewelSocket or node.expansionJewel then
 				self:SetNodeDistanceToClassStart(node)
 			end
 		end
 	end
-	
-		
 end
 
 function PassiveSpecClass:ReplaceNode(old, newNode)
@@ -956,6 +1167,9 @@ function PassiveSpecClass:BuildClusterJewelGraphs()
 	wipeTable(self.allocSubgraphNodes)
 	-- Rebuild paths to account for new/removed nodes
 	self:BuildAllDependsAndPaths()
+
+	-- Rebuild node search cache because the tree might have changed
+	self.build.treeTab.viewer.searchStrCached = ""
 end
 
 function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importedNodes, importedGroups)
@@ -963,7 +1177,6 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 	local expansionJewel = parentSocket.expansionJewel
 	local clusterJewel = jewel.clusterJewel
 	local jewelData = jewel.jewelData
- 
 
 	local subGraph = {
 		nodes = { },
@@ -993,19 +1206,19 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 	local proxyGroup = proxyNode.group
 
 	-- Actually, let's not, since the game doesn't handle this :D
-	
-	--if upSize and upSize > 0 then
-		-- We need to move inwards to account for the parent group being downsized
-		-- So we position according to the parent's original group position
-	--	assert(upSize == 1) -- Only handling 1 upsize, which is the most that is possible
-	--	local parentGroup = self.tree.nodes[parentSocket.id].group
-	--	subGraph.group.x = parentGroup.x
-	--	subGraph.group.y = parentGroup.y
-	--else
+--	if upSize and upSize > 0 then
+--		-- We need to move inwards to account for the parent group being downsized
+--		-- So we position according to the parent's original group position
+--		assert(upSize == 1) -- Only handling 1 upsize, which is the most that is possible
+--		local parentGroup = self.tree.nodes[parentSocket.id].group
+--		subGraph.group.x = parentGroup.x
+--		subGraph.group.y = parentGroup.y
+--	else
 		-- Position the group using the original proxy's position
 		subGraph.group.x = proxyGroup.x
 		subGraph.group.y = proxyGroup.y
-	--end
+--	end
+
 	local function linkNodes(node1, node2)
 		t_insert(node1.linked, node2)
 		t_insert(node2.linked, node1)
@@ -1520,10 +1733,7 @@ function PassiveSpecClass:NodeAdditionOrReplacementFromString(node,sd,replacemen
 	for _, mod in pairs(addition.mods) do
 		if mod.list and not mod.extra then
 			for i, mod in ipairs(mod.list) do
-				mod.source = "Tree:"..node.id
-				if type(mod.value) == "table" and mod.value.mod then
-					mod.value.mod.source = mod.source
-				end
+				mod = modLib.setSource(mod, "Tree:"..node.id)
 				addition.modList:AddMod(mod)
 			end
 		end
@@ -1543,4 +1753,16 @@ function PassiveSpecClass:NodeAdditionOrReplacementFromString(node,sd,replacemen
 		modList:AddList(node.modList)
 	end
 	node.modList = modList
+end
+
+function PassiveSpecClass:NodeInKeystoneRadius(keystoneNames, nodeId, radiusIndex)
+	for _, node in pairs(self.nodes) do
+		if node.name and node.type == "Keystone" and keystoneNames[node.name:lower()] then
+			if (node.nodesInRadius[radiusIndex][nodeId]) then
+				return true
+			end
+		end
+	end
+
+	return false
 end
