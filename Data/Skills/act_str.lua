@@ -4104,7 +4104,8 @@ skills["VaalImmortalCall"] = {
 	name = "瓦尔.不朽怒嚎",
 	color = 1,
 	baseEffectiveness = 0,
-	description = "仰天怒吼，释放耐力球，使角色在短时间内无敌，也无法获得瓦尔之灵。无敌时间长短视释放的耐力球数量而定。【万. 佛. 朝. 宗! 】",
+	description = "仰天怒吼，释放耐力球，使角色在短时间内无敌，也无法获得瓦尔之灵。无敌时间长短视释放的耐力球数量而定。
+【万. 佛. 朝. 宗! 】",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Vaal] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
