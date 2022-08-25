@@ -1,6 +1,6 @@
-﻿local version = "3_18"
-local treeFilePathCn = "F:/POE/PathOfBuildingCN17173/TreeData/"
-local treeFilePathEn = "F:/POE/PathOfBuilding/src/TreeData/"
+﻿local version = "3_19"
+local treeFilePathCn = "D:/Projects/PathOfBuildingCN17173-dev/TreeData/"
+local treeFilePathEn = "D:/Projects/PathOfBuilding/src/TreeData/"
 
 local treeDataCn = dofile(treeFilePathCn..version.."/tree.lua")
 local treeDataEn = dofile(treeFilePathEn..version.."/tree.lua")
