@@ -10,6 +10,7 @@ skills["SupportAddedFireDamage"] = {
 	name = "附加火焰伤害(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -141,6 +142,9 @@ skills["SupportSpiritStrike"] = {
 			{ "melee_range_+", 0.2 },
 		},
 	},
+	constantStats = {
+		{ "melee_attack_number_of_spirit_strikes", 2 },
+	},
 	stats = {
 		"support_spirit_strike_damage_+%_final",
 	},
@@ -208,6 +212,9 @@ skills["SupportAncestralCallPlus"] = {
 			{ "melee_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "melee_attack_number_of_spirit_strikes", 3 },
+	},
 	stats = {
 		"support_spirit_strike_damage_+%_final",
 	},
@@ -258,6 +265,10 @@ skills["SupportBehead"] = {
 		Alternate2 = {
 			{ "support_executioner_refresh_stolen_mod_on_hitting_rare_or_unique_monster_chance_%", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "support_executioner_gain_one_rare_monster_mod_on_kill_ms", 20000 },
+		{ "support_executioner_refresh_stolen_mod_on_hitting_rare_or_unique_monster_chance_%", 20 },
 	},
 	stats = {
 		"melee_range_+",
@@ -328,6 +339,7 @@ skills["SupportBloodMagic"] = {
 	},
 	stats = {
 		"aura_effect_+%",
+		"base_skill_reserve_life_instead_of_mana",
 	},
 	levels = {
 		[1] = { 10, manaMultiplier = 120, levelRequirement = 31, statInterpolation = { 1, }, },
@@ -376,6 +388,8 @@ skills["SupportBloodthirst"] = {
 	name = "血气（辅）",
 	description = "辅助攻击技能。不能辅助触发技能、产生召唤生物的技能，以及图腾、陷阱和地雷使用的技能。",
 	color = 1,
+	baseEffectiveness = 0.11999999731779,
+	incrementalEffectiveness = 0.028000000864267,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
 	addSkillTypes = { },
@@ -401,6 +415,9 @@ skills["SupportBloodthirst"] = {
 		Alternate2 = {
 			{ "damage_vs_enemies_on_low_life_+%", 1.5 },
 		},
+	},
+	constantStats = {
+		{ "blood_price_gain_%_maximum_life_as_added_physical_damage_with_weapons_while_on_low_life", 2 },
 	},
 	stats = {
 		"support_blood_thirst_damage_+%_final",
@@ -475,6 +492,7 @@ skills["SupportBloodlust"] = {
 	},
 	stats = {
 		"support_bloodlust_melee_physical_damage_+%_final_vs_bleeding_enemies",
+		"cannot_cause_bleeding",
 	},
 	levels = {
 		[1] = { 25, manaMultiplier = 40, levelRequirement = 18, statInterpolation = { 1, }, },
@@ -546,6 +564,8 @@ skills["SupportBrutality"] = {
 	},
 	stats = {
 		"support_brutality_physical_damage_+%_final",
+		"deal_no_elemental_damage",
+		"base_deal_no_chaos_damage",
 	},
 	levels = {
 		[1] = { 25, manaMultiplier = 40, levelRequirement = 38, statInterpolation = { 1, }, },
@@ -613,6 +633,8 @@ skills["SupportBrutalityPlus"] = {
 	stats = {
 		"support_brutality_physical_damage_+%_final",
 		"chance_to_crush_on_hit_%",
+		"deal_no_elemental_damage",
+		"base_deal_no_chaos_damage",
 	},
 	levels = {
 		[1] = { 40, 0, manaMultiplier = 40, levelRequirement = 72, statInterpolation = { 1, 1, }, },
@@ -780,6 +802,9 @@ skills["SupportCastOnMeleeKill"] = {
 			{ "dummy_stat_display_nothing", 0 },
 		},
 	},
+	constantStats = {
+		{ "cast_linked_spells_on_melee_kill_%", 100 },
+	},
 	stats = {
 	},
 	levels = {
@@ -853,6 +878,9 @@ skills["SupportCastOnMeleeKillTriggered"] = {
 	},
 	stats = {
 		"support_cast_on_melee_kill_spell_damage_+%_final",
+		"spell_uncastable_if_triggerable",
+		"triggered_skill_uses_main_hand_or_averaged_attack_time_for_pvp_scaling",
+		"cast_spell_on_linked_melee_kill",
 	},
 	levels = {
 		[1] = { 20, cooldown = 0.15, levelRequirement = 38, manaMultiplier = 20, statInterpolation = { 1, }, },
@@ -922,10 +950,15 @@ skills["SupportCastOnDamageTaken"] = {
 			{ "cast_when_damage_taken_trigger_threshold_+%", -1 },
 		},
 	},
+	constantStats = {
+		{ "cast_on_damage_taken_%", 100 },
+	},
 	stats = {
 		"cast_on_damage_taken_threshold",
 		"cast_on_damage_taken_damage_+%_final",
 		"local_support_gem_max_skill_level_requirement_to_support",
+		"spell_uncastable_if_triggerable",
+		"base_skill_show_average_damage_instead_of_dps",
 	},
 	levels = {
 		[1] = { 528, -65, 38, cooldown = 0.25, levelRequirement = 38, manaMultiplier = 150, statInterpolation = { 1, 1, 1, }, },
@@ -974,6 +1007,8 @@ skills["SupportChanceToBleed"] = {
 	name = "几率流血(辅)",
 	description = "辅助攻击技能。无法辅助召唤生物的技能。",
 	color = 1,
+	baseEffectiveness = 0.27500000596046,
+	incrementalEffectiveness = 0.028500000014901,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
 	addSkillTypes = { },
@@ -994,6 +1029,9 @@ skills["SupportChanceToBleed"] = {
 		Alternate2 = {
 			{ "added_damage_+%_final", 1 },
 		},
+	},
+	constantStats = {
+		{ "bleed_on_hit_with_attacks_%", 25 },
 	},
 	stats = {
 		"attack_minimum_added_physical_damage_with_weapons",
@@ -1047,6 +1085,7 @@ skills["SupportColdToFire"] = {
 	name = "寒冰转烈焰(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -1063,6 +1102,9 @@ skills["SupportColdToFire"] = {
 		Alternate2 = {
 			{ "base_poison_damage_+%", 3 },
 		},
+	},
+	constantStats = {
+		{ "skill_cold_damage_%_to_convert_to_fire", 50 },
 	},
 	stats = {
 		"cold_damage_%_to_add_as_fire",
@@ -1142,9 +1184,14 @@ skills["SupportCruelty"] = {
 			{ "cruelty_duration_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "support_base_cruelty_duration_ms", 4000 },
+	},
 	stats = {
 		"cruelty_effect_+%",
 		"support_cruelty_hit_damage_+%_final",
+		"hits_grant_cruelty",
+		"supported_by_cruelty",
 	},
 	levels = {
 		[1] = { 0, 15, manaMultiplier = 40, levelRequirement = 18, statInterpolation = { 1, 1, }, },
@@ -1286,10 +1333,14 @@ skills["SupportAuraDuration"] = {
 			{ "base_mana_cost_-%", 0.25 },
 		},
 	},
+	constantStats = {
+		{ "base_spell_cast_time_ms_override", 500 },
+	},
 	stats = {
 		"support_aura_duration_base_buff_duration",
 		"aura_effect_+%",
 		"base_mana_cost_+",
+		"skill_is_blessing_skill",
 	},
 	levels = {
 		[1] = { 9000, 10, 90, levelRequirement = 31, statInterpolation = { 1, 1, 1, }, },
@@ -1368,10 +1419,23 @@ skills["SupportEarthbreaker"] = {
 			{ "ancestor_totem_parent_activation_range_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 12000 },
+		{ "base_totem_range", 50 },
+		{ "ancestor_totem_parent_activiation_range", 70 },
+		{ "summon_totem_cast_speed_+%", 50 },
+		{ "support_ancestor_slam_totem_attack_speed_+%_final", -30 },
+		{ "support_skill_totem_type_override", 20 },
+	},
 	stats = {
 		"totem_support_gem_level",
 		"support_ancestor_slam_totem_damage_+%_final",
 		"ancestor_totem_grants_owner_area_of_effect_+%_with_melee_skills",
+		"base_skill_is_totemified",
+		"is_totem",
+		"leap_slam_no_epk",
+		"totem_targets_ignoring_action_distance",
+		"force_lite_skill_effects",
 	},
 	levels = {
 		[1] = { 8, -19, 10, manaMultiplier = 100, levelRequirement = 8, statInterpolation = { 1, 1, 1, }, },
@@ -1420,6 +1484,7 @@ skills["SupportWeaponElementalDamage"] = {
 	name = "武器元素伤害(辅)",
 	description = "辅助攻击技能",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.ThresholdJewelRangedAttack, },
 	addSkillTypes = { },
@@ -1638,8 +1703,12 @@ skills["EnduranceChargeOnMeleeStun"] = {
 			{ "damage_+%_if_lost_endurance_charge_in_past_8_seconds", 1 },
 		},
 	},
+	constantStats = {
+		{ "endurance_charge_on_melee_stun_damage_+%_final_per_endurance_charge", 4 },
+	},
 	stats = {
 		"base_stun_threshold_reduction_+%",
+		"gain_endurance_charge_on_melee_stun",
 	},
 	levels = {
 		[1] = { 0, manaMultiplier = 20, levelRequirement = 18, statInterpolation = { 1, }, },
@@ -1717,6 +1786,9 @@ skills["SupportMortalConviction"] = {
 	},
 	stats = {
 		"aura_effect_+%",
+		"skill_aura_also_disables_non_blessing_mana_reservation_skills",
+		"skill_is_blessing_skill",
+		"base_skill_no_reservation",
 	},
 	levels = {
 		[1] = { 0, levelRequirement = 38, statInterpolation = { 1, }, },
@@ -1906,6 +1978,9 @@ skills["AncestralSlamSupport"] = {
 			{ "ancestral_slam_stun_threshold_reduction_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_ancestral_slam_big_hit_max_count", 1 },
+	},
 	stats = {
 		"support_ancestral_slam_big_hit_hit_damage_+%_final",
 		"support_ancestral_slam_big_hit_ailment_damage_+%_final",
@@ -1990,6 +2065,9 @@ skills["SupportFortify"] = {
 			{ "overwhelm_%_physical_damage_reduction_while_max_fortification", 0.25 },
 		},
 	},
+	constantStats = {
+		{ "chance_to_fortify_on_melee_hit_+%", 100 },
+	},
 	stats = {
 		"support_fortify_melee_damage_+%_final",
 		"support_fortify_ailment_damage_+%_final_from_melee_hits",
@@ -2065,6 +2143,7 @@ skills["SupportGenerosity"] = {
 	},
 	stats = {
 		"non_curse_aura_effect_+%",
+		"aura_cannot_affect_self",
 	},
 	levels = {
 		[1] = { 20, levelRequirement = 31, statInterpolation = { 1, }, },
@@ -2132,6 +2211,7 @@ skills["SupportGenerosityPlus"] = {
 	stats = {
 		"non_curse_aura_effect_+%",
 		"supported_aura_skill_gem_level_+",
+		"aura_cannot_affect_self",
 	},
 	levels = {
 		[1] = { 40, 0, levelRequirement = 72, statInterpolation = { 1, 1, }, },
@@ -2160,6 +2240,7 @@ skills["SupportIncreasedDuration"] = {
 	name = "持续时间延长(辅)",
 	description = "辅助任意有持续时间的技能",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Duration, SkillType.ThresholdJewelDuration, },
 	addSkillTypes = { },
@@ -2247,6 +2328,7 @@ skills["SupportIronGrip"] = {
 	},
 	stats = {
 		"projectile_damage_+%",
+		"keystone_strong_bowman",
 	},
 	levels = {
 		[1] = { 0, manaMultiplier = 10, levelRequirement = 18, statInterpolation = { 1, }, },
@@ -2314,6 +2396,7 @@ skills["SupportIronWill"] = {
 	},
 	stats = {
 		"spell_damage_+%",
+		"strong_casting",
 	},
 	levels = {
 		[1] = { 0, manaMultiplier = 10, levelRequirement = 18, statInterpolation = { 1, }, },
@@ -2362,6 +2445,7 @@ skills["SupportItemQuantity"] = {
 	name = "物品数量增幅(辅)",
 	description = "辅助任意能击败敌人的技能",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.DamageOverTime, SkillType.KillNoDamageModifiers, },
 	addSkillTypes = { },
@@ -2422,6 +2506,7 @@ skills["SupportKnockback"] = {
 	name = "击退(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -2437,6 +2522,9 @@ skills["SupportKnockback"] = {
 		Alternate2 = {
 			{ "knockback_distance_+%", 2 },
 		},
+	},
+	constantStats = {
+		{ "knockback_distance_+%", 50 },
 	},
 	stats = {
 		"base_global_chance_to_knockback_%",
@@ -2563,6 +2651,7 @@ skills["SupportLifeGainOnHit"] = {
 	name = "击中生命回复(辅)",
 	description = "辅助攻击技能",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.ThresholdJewelRangedAttack, },
 	addSkillTypes = { },
@@ -2629,6 +2718,7 @@ skills["SupportLifeLeech"] = {
 	name = "生命偷取(辅)",
 	description = "辅助任意击中敌人的技能, 击中造成的伤害偷取生命",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -2721,9 +2811,14 @@ skills["SupportLifetap"] = {
 			{ "support_base_lifetap_buff_duration", 100 },
 		},
 	},
+	constantStats = {
+		{ "support_base_lifetap_buff_duration", 4000 },
+	},
 	stats = {
 		"support_lifetap_damage_+%_final_while_buffed",
 		"support_lifetap_spent_life_threshold",
+		"base_skill_cost_life_instead_of_mana",
+		"quality_display_lifetap_is_gem",
 	},
 	levels = {
 		[1] = { 10, 23, manaMultiplier = 200, levelRequirement = 8, statInterpolation = { 1, 1, }, },
@@ -2799,6 +2894,10 @@ skills["SupportMaim"] = {
 			{ "chance_to_bleed_on_hit_%_vs_maimed", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "maim_on_hit_%", 30 },
+		{ "support_maimed_enemies_physical_damage_taken_+%", 10 },
+	},
 	stats = {
 		"support_maim_chance_physical_damage_+%_final",
 	},
@@ -2849,6 +2948,7 @@ skills["SupportMeleePhysicalDamage"] = {
 	name = "近战物理伤害(辅)",
 	description = "辅助近战攻击技能",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { },
@@ -2875,6 +2975,9 @@ skills["SupportMeleePhysicalDamage"] = {
 		Alternate2 = {
 			{ "enemy_phys_reduction_%_penalty_vs_hit", 0.25 },
 		},
+	},
+	constantStats = {
+		{ "support_melee_physical_damage_attack_speed_+%_final", -10 },
 	},
 	stats = {
 		"support_melee_physical_damage_+%_final",
@@ -2949,6 +3052,9 @@ skills["SupportMeleePhysicalDamagePlus"] = {
 			{ "melee_physical_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_melee_physical_damage_attack_speed_+%_final", -10 },
+	},
 	stats = {
 		"support_melee_physical_damage_+%_final",
 		"support_melee_physical_damage_poison_and_bleeding_damage_+%_final_from_melee_hits",
@@ -3000,6 +3106,8 @@ skills["SupportMeleeSplash"] = {
 	stats = {
 		"support_melee_splash_damage_+%_final_for_splash",
 		"melee_splash_area_of_effect_+%_final",
+		"melee_splash",
+		"quality_display_melee_splash_is_gem",
 	},
 	levels = {
 		[1] = { -50, 0, manaMultiplier = 30, levelRequirement = 8, statInterpolation = { 1, 1, }, },
@@ -3063,6 +3171,8 @@ skills["SupportMeleeSplashPlus"] = {
 		"support_melee_splash_damage_+%_final_for_splash",
 		"melee_splash_area_of_effect_+%_final",
 		"supported_strike_skill_gem_level_+",
+		"melee_splash",
+		"quality_display_melee_splash_is_gem",
 	},
 	levels = {
 		[1] = { -40, 60, 0, manaMultiplier = 30, levelRequirement = 72, statInterpolation = { 1, 1, 1, }, },
@@ -3128,6 +3238,12 @@ skills["SupportMultistrike"] = {
 		Alternate2 = {
 			{ "attack_speed_+%", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "base_melee_attack_repeat_count", 2 },
+		{ "multistrike_damage_+%_final_on_first_repeat", 22 },
+		{ "multistrike_damage_+%_final_on_second_repeat", 44 },
+		{ "repeat_target_selection_distance_from_initial_target_bias", 3 },
 	},
 	stats = {
 		"support_multiple_attacks_melee_attack_speed_+%_final",
@@ -3209,6 +3325,14 @@ skills["SupportMultistrikePlus"] = {
 			{ "melee_physical_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_melee_attack_repeat_count", 3 },
+		{ "multistrike_damage_+%_final_on_first_repeat", 22 },
+		{ "multistrike_damage_+%_final_on_second_repeat", 44 },
+		{ "multistrike_damage_+%_final_on_third_repeat", 66 },
+		{ "support_multiple_attack_damage_+%_final", -20 },
+		{ "repeat_target_selection_distance_from_initial_target_bias", 3 },
+	},
 	stats = {
 		"support_multiple_attacks_melee_attack_speed_+%_final",
 	},
@@ -3260,8 +3384,12 @@ skills["SupportMultiTotem"] = {
 			{ "totem_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_number_of_totems_allowed", 2 },
+	},
 	stats = {
 		"support_additional_totem_damage_+%_final",
+		"summon_2_totems",
 	},
 	levels = {
 		[1] = { -40, manaMultiplier = 40, levelRequirement = 38, statInterpolation = { 1, }, },
@@ -3335,6 +3463,9 @@ skills["SupportPulverise"] = {
 			{ "support_pulverise_melee_area_damage_+%_final", 1 },
 		},
 	},
+	constantStats = {
+		{ "support_pulverise_attack_speed_+%_final", -15 },
+	},
 	stats = {
 		"support_pulverise_melee_area_damage_+%_final",
 		"base_skill_area_of_effect_+%",
@@ -3386,6 +3517,8 @@ skills["SupportRage"] = {
 	name = "怒火（辅）",
 	description = "辅助近战攻击技能。召唤生物无法获得怒火。",
 	color = 1,
+	baseEffectiveness = 0.18000000715256,
+	incrementalEffectiveness = 0.035000000149012,
 	support = true,
 	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { },
@@ -3422,6 +3555,9 @@ skills["SupportRage"] = {
 		Alternate2 = {
 			{ "gain_1_rage_on_use_%_chance", 1 },
 		},
+	},
+	constantStats = {
+		{ "support_rage_gain_rage_on_melee_hit_cooldown_ms", 400 },
 	},
 	stats = {
 		"attack_minimum_added_physical_damage_with_at_least_10_rage",
@@ -3508,9 +3644,20 @@ skills["SupportRangedAttackTotem"] = {
 			{ "projectile_return_%_chance", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 8000 },
+		{ "base_totem_range", 60 },
+		{ "support_attack_totem_attack_speed_+%_final", -50 },
+		{ "attack_skills_additional_ballista_totems_allowed", 2 },
+		{ "terrain_arrow_attachment_chance_reduction_+%", 200 },
+	},
 	stats = {
 		"support_totem_damage_+%_final",
 		"totem_support_gem_level",
+		"base_skill_is_totemified",
+		"disable_skill_if_melee_attack",
+		"is_ranged_attack_totem",
+		"is_totem",
 	},
 	levels = {
 		[1] = { -32, 8, manaMultiplier = 20, levelRequirement = 8, statInterpolation = { 1, 1, }, },
@@ -3559,6 +3706,7 @@ skills["SupportReducedMana"] = {
 	name = "启迪（辅）",
 	description = "辅助任意技能。召唤生物、图腾、陷阱、地雷无法获得启迪球。",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { },
 	addSkillTypes = { },
@@ -3582,6 +3730,9 @@ skills["SupportReducedMana"] = {
 		Alternate2 = {
 			{ "base_mana_cost_-%", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "gain_righteous_charge_on_mana_spent_%", 100 },
 	},
 	stats = {
 		"base_mana_cost_-%",
@@ -3668,6 +3819,10 @@ skills["SupportRuthless"] = {
 			{ "support_ruthless_big_hit_damage_+%_final", 1 },
 		},
 	},
+	constantStats = {
+		{ "support_ruthless_big_hit_max_count", 3 },
+		{ "support_ruthless_big_hit_stun_base_duration_override_ms", 800 },
+	},
 	stats = {
 		"support_ruthless_big_hit_damage_+%_final",
 		"support_ruthless_blow_bleeding_damage_from_melee_hits_+%_final",
@@ -3748,7 +3903,11 @@ skills["SupportBluntWeapon"] = {
 			{ "dummy_stat_display_nothing", 0 },
 		},
 	},
+	constantStats = {
+		{ "support_blunt_chance_to_trigger_shockwave_on_hit_%", 100 },
+	},
 	stats = {
+		"supported_skill_can_only_use_mace_and_staff",
 	},
 	levels = {
 		[1] = { manaMultiplier = 40, levelRequirement = 18, },
@@ -3828,6 +3987,8 @@ skills["SupportBluntWeaponShockwave"] = {
 	stats = {
 		"active_skill_base_radius_+",
 		"base_cooldown_speed_+%",
+		"is_area_damage",
+		"triggered_by_shockwave_support",
 	},
 	levels = {
 		[1] = { 0, 0, damageEffectiveness = 1.6, cooldown = 1, baseMultiplier = 1.6, levelRequirement = 18, statInterpolation = { 1, 1, }, },
@@ -3904,9 +4065,16 @@ skills["SupportSpellTotem"] = {
 			{ "totem_range_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 8000 },
+		{ "base_totem_range", 60 },
+		{ "support_spell_totem_cast_speed_+%_final", -40 },
+	},
 	stats = {
 		"support_totem_damage_+%_final",
 		"totem_support_gem_level",
+		"base_skill_is_totemified",
+		"is_totem",
 	},
 	levels = {
 		[1] = { -49, 8, manaMultiplier = 100, levelRequirement = 8, statInterpolation = { 1, 1, }, },
@@ -3955,6 +4123,7 @@ skills["SupportStun"] = {
 	name = "击晕(辅)",
 	description = "辅助任意击中敌人的技能, 使技能更容易晕眩敌人",
 	color = 1,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -4043,6 +4212,9 @@ skills["SupportUrgentOrders"] = {
 		Alternate2 = {
 			{ "minimum_power_from_quality", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "base_cooldown_modifier_ms", 2000 },
 	},
 	stats = {
 		"warcry_speed_+%",

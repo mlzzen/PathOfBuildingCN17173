@@ -10,6 +10,8 @@ skills["AxisCasterGlacialCascade"] = {
 	name = "冰川之刺",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.5750000476837,
+	incrementalEffectiveness = 0.025000000372529,
 	description = "从地面上不断的冒出冰结之刺, 宛如川流一般向前攻击并对敌人造成伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.Physical] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -21,11 +23,16 @@ skills["AxisCasterGlacialCascade"] = {
 	baseMods = {
 		skill("radius", 12),
 	},
+	constantStats = {
+		{ "upheaval_number_of_spikes", 6 },
+		{ "active_skill_area_of_effect_radius_+%_final", -34 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.25999999046326, 0.40000000596046, 0.47999998927116, 0.73000001907349, damageEffectiveness = 0.8, critChance = 6, levelRequirement = 4, statInterpolation = { 3, 3, 3, 3, }, },
@@ -36,6 +43,7 @@ skills["AxisDoubleStrikeTrigger"] = {
 	name = "双重打击",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 0,
 	description = "使用近战武器发动两次快速打击。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -60,6 +68,9 @@ skills["AxisDoubleStrikeTrigger"] = {
 	baseMods = {
 		skill("dpsMultiplier", 2),
 	},
+	constantStats = {
+		{ "base_skill_number_of_additional_hits", 1 },
+	},
 	stats = {
 	},
 	levels = {
@@ -70,6 +81,8 @@ skills["BanditExplosiveArrowAtAnimationSpeed"] = {
 	name = "Explosive Arrow",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.866700053215,
+	incrementalEffectiveness = 0.037999998778105,
 	description = "射出一发带着引线充满爆炸能量的箭矢. 当被命中的目标死亡或是引线烧完, 该箭矢将会爆炸并对周围的敌人造成火焰伤害. 再次被爆炸箭矢命中会延长爆炸的时间. 爆炸的范围大小将视目标被击中的箭数所决定.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -99,9 +112,16 @@ skills["BanditExplosiveArrowAtAnimationSpeed"] = {
 		skill("showAverage", true),
 		mod("Multiplier:ExplosiveArrowFuse", "BASE", 1, 0, 0),
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 1000 },
+		{ "fuse_arrow_explosion_radius_+_per_fuse_arrow_orb", 2 },
+	},
 	stats = {
 		"minimum_fire_damage_per_fuse_arrow_orb",
 		"maximum_fire_damage_per_fuse_arrow_orb",
+		"action_attack_or_cast_time_uses_animation_length",
+		"skill_can_fire_arrows",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 2, statInterpolation = { 3, 3, }, },
@@ -127,7 +147,16 @@ skills["BanditChampionBlastRainSpectre"] = {
 		skill("radius", 24),
 		skill("dpsMultiplier", 4),
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 50 },
+		{ "base_number_of_additional_arrows", 4 },
+		{ "blast_rain_arrow_delay_ms", 80 },
+		{ "active_skill_area_of_effect_radius_+%_final", -21 },
+	},
 	stats = {
+		"base_is_projectile",
+		"is_area_damage",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 0.5, baseMultiplier = 0.5, levelRequirement = 15, },
@@ -146,6 +175,8 @@ skills["GABeastCleave"] = {
 		area = true,
 	},
 	stats = {
+		"is_area_damage",
+		"action_attack_or_cast_time_uses_animation_length",
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.475, cooldown = 5, levelRequirement = 1, },
@@ -164,7 +195,16 @@ skills["BirdmanBloodProjectileMortar"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "skill_repeat_count", 2 },
+		{ "active_skill_damage_+%_final", 10 },
+		{ "projectile_spread_radius", 15 },
+		{ "main_hand_base_maximum_attack_distance", 40 },
+		{ "attack_speed_+%", 100 },
+	},
 	stats = {
+		"base_is_projectile",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.15, levelRequirement = 1, },
@@ -209,7 +249,13 @@ skills["BoneStalkerEarthquake"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 1800 },
+		{ "quake_slam_fully_charged_explosion_damage_+%_final", 25 },
+		{ "active_skill_area_of_effect_radius_+%_final", -20 },
+	},
 	stats = {
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 0.5, cooldown = 5, levelRequirement = 1, },
@@ -235,7 +281,17 @@ skills["BreachCleave"] = {
 		melee = true,
 		area = true,
 	},
+	constantStats = {
+		{ "cleave_damage_+%_final_while_dual_wielding", -40 },
+		{ "physical_damage_+%", 29 },
+		{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -20 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 50 },
+		{ "melee_range_+", 4 },
+	},
 	stats = {
+		"is_area_damage",
+		"skill_double_hits_when_dual_wielding",
+		"action_attack_or_cast_time_uses_animation_length",
 	},
 	levels = {
 		[1] = { levelRequirement = 1, },
@@ -287,7 +343,15 @@ skills["CageSpiderCycloneTriggerSandstorms"] = {
 		melee = true,
 		area = true,
 	},
+	constantStats = {
+		{ "active_skill_attack_speed_+%_final", 150 },
+		{ "active_skill_damage_+%_final", -60 },
+		{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -40 },
+		{ "cyclone_extra_distance", 40 },
+	},
 	stats = {
+		"is_area_damage",
+		"cyclone_has_triggered_skill",
 	},
 	levels = {
 		[1] = { levelRequirement = 2, },
@@ -297,6 +361,8 @@ skills["CageSpiderSandSpark"] = {
 	name = "Sandstorm",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.64999997615814,
+	incrementalEffectiveness = 0.031399998813868,
 	description = "施放出多颗变幻莫测的电球，这些电球将会随机移动直到撞到敌人或是自然消失.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -306,9 +372,15 @@ skills["CageSpiderSandSpark"] = {
 		projectile = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 2000 },
+		{ "base_projectile_speed_+%", -50 },
+		{ "cast_on_cyclone_contact_%", 100 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, levelRequirement = 61, statInterpolation = { 3, 3, }, },
@@ -318,6 +390,8 @@ skills["ChaosDegenAura"] = {
 	name = "Chaos Aura",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.93330001831055,
+	incrementalEffectiveness = 0.036499999463558,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.HasReservation] = true, [SkillType.DamageOverTime] = true, [SkillType.Aura] = true, [SkillType.Chaos] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -337,6 +411,8 @@ skills["DelayedBlastSpectre"] = {
 	name = "Delayed Blast",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.77999997138977,
+	incrementalEffectiveness = 0.03999999910593,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -347,6 +423,7 @@ skills["DelayedBlastSpectre"] = {
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, cooldown = 1.3, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -365,7 +442,13 @@ skills["DelveProtovaalWhirlingCharge"] = {
 		area = true,
 		hit = true,
 	},
+	constantStats = {
+		{ "active_skill_attack_speed_+%_final", 100 },
+		{ "combo_attack_first_hit_damage_+%_final", 150 },
+		{ "active_skill_area_of_effect_radius_+%_final", -30 },
+	},
 	stats = {
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.56, cooldown = 10, levelRequirement = 1, },
@@ -375,6 +458,7 @@ skills["DemonFemaleRangedProjectile"] = {
 	name = "Ranged Attack",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.85000002384186,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNotFromUser] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2,
@@ -382,7 +466,13 @@ skills["DemonFemaleRangedProjectile"] = {
 		attack = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -60 },
+		{ "active_skill_damage_+%_final", -60 },
+		{ "monster_reverse_point_blank_damage_-%_at_minimum_range", 30 },
+	},
 	stats = {
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { levelRequirement = 30, },
@@ -392,6 +482,7 @@ skills["DemonFemaleRangedProjectile2"] = {
 	name = "Ranged Attack",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.85000002384186,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNotFromUser] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2,
@@ -399,7 +490,15 @@ skills["DemonFemaleRangedProjectile2"] = {
 		attack = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -60 },
+		{ "active_skill_damage_+%_final", -60 },
+		{ "monster_reverse_point_blank_damage_-%_at_minimum_range", 30 },
+		{ "monster_projectile_variation", 1 },
+	},
 	stats = {
+		"base_is_projectile",
+		"cannot_freeze_shock_ignite_on_critical",
 	},
 	levels = {
 		[1] = { levelRequirement = 60, },
@@ -409,6 +508,8 @@ skills["DemonModularBladeVortexSpectre"] = {
 	name = "Blade Vortex",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 0.59500002861023,
+	incrementalEffectiveness = 0.035999998450279,
 	description = "在你的四周召唤出虚空的武器, 以你为中心不断飞舞旋转, 将周围的敌人削成肉泥. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.TotemCastsAlone] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -421,9 +522,17 @@ skills["DemonModularBladeVortexSpectre"] = {
 	baseMods = {
 		skill("hitTimeOverride", 1),
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 5000 },
+		{ "maximum_number_of_spinning_blades", 5 },
+		{ "skill_repeat_count", 2 },
+		{ "active_skill_area_of_effect_radius_+%_final", 20 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
+		"skill_can_add_multiple_charges_per_action",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -433,6 +542,8 @@ skills["ElementalHitSkeletonKnight"] = {
 	name = "Elemental Hit Fire",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 1.1667000055313,
+	incrementalEffectiveness = 0.04280000180006,
 	description = "该技能的每次攻击都会随机选择一种元素，并只能造成该元素的伤害。若击中敌人，还会在他们周围造成伤害，若该敌人正承受所选元素的异常状态，则伤害范围扩大。不能连续选择同一种元素。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.RandomElement] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -457,8 +568,17 @@ skills["ElementalHitSkeletonKnight"] = {
 		mod("Multiplier:ElementalHitAilmentOnEnemy", "BASE", 1, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Sapped" }),
 		mod("Damage", "MORE", 10, 0, 0, { type = "Multiplier", var = "ElementalHitAilmentOnEnemy" }),
 	},
+	constantStats = {
+		{ "chance_to_freeze_shock_ignite_%", 50 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"action_attack_or_cast_time_uses_animation_length",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 150, baseMultiplier = 1.5, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -479,8 +599,17 @@ skills["ElementalHitSkeletonKnightIncursion"] = {
 		melee = true,
 		area = true,
 	},
+	constantStats = {
+		{ "chance_to_freeze_shock_ignite_%", 25 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"action_attack_or_cast_time_uses_animation_length",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0, baseMultiplier = 1.5, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -492,6 +621,8 @@ skills["ExperimenterDetonateDead"] = {
 	name = "Detonate Dead",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.5111000537872,
+	incrementalEffectiveness = 0.014299999922514,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.8,
@@ -499,10 +630,16 @@ skills["ExperimenterDetonateDead"] = {
 		cast = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -70 },
+		{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -25 },
+		{ "active_skill_area_of_effect_radius_+%_final", 2 },
+	},
 	stats = {
 		"secondary_minimum_base_fire_damage",
 		"secondary_maximum_base_fire_damage",
 		"corpse_explosion_monster_life_%",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 7, critChance = 5, levelRequirement = 3, statInterpolation = { 3, 3, 1, }, },
@@ -514,6 +651,8 @@ skills["FireballIncursionChaos"] = {
 	name = "Chaos Ball",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 2,
+	incrementalEffectiveness = 0.025000000372529,
 	description = "释放一颗球型火焰向前飞射, 接触到怪物时会爆炸并对周围敌人造成伤害",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -523,9 +662,13 @@ skills["FireballIncursionChaos"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -40 },
+	},
 	stats = {
 		"spell_minimum_base_chaos_damage",
 		"spell_maximum_base_chaos_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -535,6 +678,8 @@ skills["FireballIncusionFire"] = {
 	name = "Fireball",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.97219997644424,
+	incrementalEffectiveness = 0.050000000745058,
 	description = "释放一颗球型火焰向前飞射, 接触到怪物时会爆炸并对周围敌人造成伤害",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -544,9 +689,13 @@ skills["FireballIncusionFire"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -40 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -556,6 +705,8 @@ skills["FireballIncusionLightning"] = {
 	name = "Lightning Ball",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.0937999486923,
+	incrementalEffectiveness = 0.050000000745058,
 	description = "释放一颗球型火焰向前飞射, 接触到怪物时会爆炸并对周围敌人造成伤害",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -565,9 +716,13 @@ skills["FireballIncusionLightning"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -40 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 6, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -577,6 +732,8 @@ skills["FireMonsterWhirlingBlades"] = {
 	name = "Fire Roll",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.0888999700546,
+	incrementalEffectiveness = 0.064599998295307,
 	description = "迅速穿越敌人并同时造成武器伤害. 限定匕首, 爪以及单手剑. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
 	weaponTypes = {
@@ -599,8 +756,15 @@ skills["FireMonsterWhirlingBlades"] = {
 		movement = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "attack_speed_+%", -50 },
+		{ "monster_flurry", 1 },
+	},
 	stats = {
 		"whirling_blades_base_ground_fire_damage_to_deal_per_minute",
+		"cast_time_overrides_attack_duration",
+		"ignores_proximity_shield",
 	},
 	levels = {
 		[1] = { 16.666667039196, levelRequirement = 3, statInterpolation = { 3, }, },
@@ -610,6 +774,8 @@ skills["FlamebearerFlameBlue"] = {
 	name = "Blue Flame",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.17000000178814,
+	incrementalEffectiveness = 0.041000001132488,
 	description = "召唤一个图腾，它会持续的对附近的敌人喷射火焰.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.Fire] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -620,10 +786,17 @@ skills["FlamebearerFlameBlue"] = {
 		projectile = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "skill_repeat_count", 9 },
+		{ "active_skill_cast_speed_+%_final", 25 },
+		{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -25 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
 		"spell_maximum_action_distance_+%",
+		"base_is_projectile",
+		"always_pierce",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, -78, damageEffectiveness = 0.25, cooldown = 4, levelRequirement = 4, statInterpolation = { 3, 3, 1, }, },
@@ -635,6 +808,8 @@ skills["GhostPirateBladeVortexSpectre"] = {
 	name = "Blade Vortex",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 0.59500002861023,
+	incrementalEffectiveness = 0.035999998450279,
 	description = "在你的四周召唤出虚空的武器, 以你为中心不断飞舞旋转, 将周围的敌人削成肉泥. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.TotemCastsAlone] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -647,9 +822,17 @@ skills["GhostPirateBladeVortexSpectre"] = {
 	baseMods = {
 		skill("hitTimeOverride", 1),
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 5000 },
+		{ "maximum_number_of_spinning_blades", 5 },
+		{ "skill_repeat_count", 2 },
+		{ "active_skill_area_of_effect_radius_+%_final", 20 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
+		"skill_can_add_multiple_charges_per_action",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -678,7 +861,12 @@ skills["GoatmanEarthquake"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 1800 },
+		{ "quake_slam_fully_charged_explosion_damage_+%_final", 25 },
+	},
 	stats = {
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 0.5, cooldown = 2.75, attackSpeedMultiplier = 13, levelRequirement = 1, },
@@ -688,6 +876,8 @@ skills["GoatmanFireMagmaOrb"] = {
 	name = "Magma Orb",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 2.7778000831604,
+	incrementalEffectiveness = 0.035999998450279,
 	description = "抛投出岩浆球，击中地面会爆炸。技能可以连锁弹射。当岩浆球爆炸时释放出另一个岩浆球.。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Multicastable] = true, [SkillType.Chains] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -697,9 +887,18 @@ skills["GoatmanFireMagmaOrb"] = {
 		area = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "base_cast_speed_+%", 30 },
+		{ "number_of_chains", 2 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"is_area_damage",
+		"base_is_projectile",
+		"use_scaled_contact_offset",
+		"projectile_uses_contact_position",
+		"maintain_projectile_direction_when_using_contact_position",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, cooldown = 3, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -710,6 +909,8 @@ skills["GoatmanMoltenShell"] = {
 	name = "Molten Shell",
 	hidden = true,
 	color = 1,
+	baseEffectiveness = 5.3499999046326,
+	incrementalEffectiveness = 0.037999998778105,
 	description = "召唤炽热的火焰之盾, 在一定时间内提供额外的护甲. 当格挡或是护甲所累积受到的物理伤害达到限界值时, 火焰之盾将会爆开, 并对周围的敌人造成伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.TotemCastsWhenNotDetached] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -719,11 +920,18 @@ skills["GoatmanMoltenShell"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "active_skill_area_of_effect_radius_+%_final", 54 },
+		{ "molten_shell_expire_after_x_hits", 1 },
+		{ "base_skill_effect_duration", 5000 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
 		"fire_shield_damage_threshold",
 		"base_physical_damage_reduction_rating",
+		"is_area_damage",
+		"always_ignite",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 20, 335, critChance = 5, cooldown = 7.5, levelRequirement = 3, statInterpolation = { 3, 3, 1, 1, }, },
@@ -765,6 +973,7 @@ skills["GoatmanMonsterSlam"] = {
 	name = "Slam",
 	hidden = true,
 	color = 1,
+	baseEffectiveness = 0,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -773,7 +982,12 @@ skills["GoatmanMonsterSlam"] = {
 		melee = true,
 		area = true,
 	},
+	constantStats = {
+		{ "active_skill_attack_speed_+%_final", -20 },
+		{ "active_skill_area_of_effect_radius_+%_final", 200 },
+	},
 	stats = {
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.75, cooldown = 6, baseMultiplier = 1.75, levelRequirement = 1, },
@@ -783,6 +997,8 @@ skills["GroundEffectsSlamDockworkerChampion"] = {
 	name = "Slam",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.7272999286652,
+	incrementalEffectiveness = 0.035000000149012,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -792,8 +1008,14 @@ skills["GroundEffectsSlamDockworkerChampion"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "active_skill_attack_speed_+%_final", -40 },
+		{ "base_skill_effect_duration", 4000 },
+		{ "active_skill_area_of_effect_radius_+%_final", -50 },
+	},
 	stats = {
 		"base_cold_damage_to_deal_per_minute",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 58.333334637185, damageEffectiveness = 2.5, cooldown = 6, baseMultiplier = 1.5, levelRequirement = 1, statInterpolation = { 3, }, },
@@ -803,12 +1025,19 @@ skills["GuardianArc"] = {
 	name = "Arc",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.85000002384186,
+	incrementalEffectiveness = 0.029999999329448,
 	description = "一道电弧从施放者射向目标, 并会弹跳至周围其他敌人。每次主电弧弹射时，也会向第二个敌人进行二次弹射，但二次弹射仅生效一次。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "beam_skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
 		spell = true,
+	},
+	constantStats = {
+		{ "base_chance_to_shock_%", 5 },
+		{ "active_skill_cast_speed_+%_final", -80 },
+		{ "spell_maximum_action_distance_+%", -50 },
 	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
@@ -823,6 +1052,7 @@ skills["HalfSkeletonPuncture"] = {
 	name = "Puncture",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 0,
 	description = "对敌人放血，施加一个流血减益效果。该效果受技能持续时间属性影响。流血的敌人在移动时会受到更多的伤害。限定弓类，匕首，爪类与剑类。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.DamageOverTime] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -843,7 +1073,12 @@ skills["HalfSkeletonPuncture"] = {
 	baseMods = {
 		mod("BleedChance", "BASE", 100),
 	},
+	constantStats = {
+		{ "active_skill_bleeding_damage_+%_final", 57 },
+		{ "melee_range_+", 20 },
+	},
 	stats = {
+		"global_bleed_on_hit",
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.2, cooldown = 7.5, levelRequirement = 2, },
@@ -854,6 +1089,8 @@ skills["HolyFireElementalFireball"] = {
 	name = "火球",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.1888999938965,
+	incrementalEffectiveness = 0.03940000012517,
 	description = "释放一颗球型火焰向前飞射, 接触到怪物时会爆炸并对周围敌人造成伤害",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -863,9 +1100,13 @@ skills["HolyFireElementalFireball"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -876,6 +1117,7 @@ skills["IguanaProjectile"] = {
 	name = "Barrage",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.8700000047684,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
@@ -883,7 +1125,14 @@ skills["IguanaProjectile"] = {
 		attack = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 4 },
+		{ "spell_maximum_action_distance_+%", -60 },
+		{ "active_skill_damage_+%_final", -60 },
+		{ "monster_reverse_point_blank_damage_-%_at_minimum_range", 30 },
+	},
 	stats = {
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { cooldown = 3.5, levelRequirement = 1, },
@@ -893,6 +1142,7 @@ skills["IguanaProjectileChrome"] = {
 	name = "Barrage",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.8700000047684,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
@@ -900,7 +1150,15 @@ skills["IguanaProjectileChrome"] = {
 		attack = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 24 },
+		{ "spell_maximum_action_distance_+%", -60 },
+		{ "active_skill_damage_+%_final", -30 },
+		{ "monster_reverse_point_blank_damage_-%_at_minimum_range", 30 },
+		{ "skill_physical_damage_%_to_convert_to_cold", 50 },
+	},
 	stats = {
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { cooldown = 3.5, levelRequirement = 1, },
@@ -910,6 +1168,8 @@ skills["IncaMinionProjectile"] = {
 	name = "Chaos Projectile",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.3600000143051,
+	incrementalEffectiveness = 0.018999999389052,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.33,
@@ -917,12 +1177,17 @@ skills["IncaMinionProjectile"] = {
 		spell = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "skill_range_+%", -75 },
+	},
 	stats = {
 		"spell_minimum_base_chaos_damage",
 		"spell_maximum_base_chaos_damage",
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"active_skill_damage_+%_final",
+		"visual_hit_effect_chaos_is_green",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.27000001072884, 0.40000000596046, 0.40000000596046, 0.60000002384186, 60, critChance = 5, levelRequirement = 4, statInterpolation = { 3, 3, 3, 3, 2, }, },
@@ -955,6 +1220,8 @@ skills["IncursionLeapSlamChampion"] = {
 		area = true,
 	},
 	stats = {
+		"is_area_damage",
+		"cast_time_overrides_attack_duration",
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, cooldown = 6, levelRequirement = 1, },
@@ -964,6 +1231,8 @@ skills["IncursionMeteorUpheaval"] = {
 	name = "Chaos Spikes",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.25,
+	incrementalEffectiveness = 0.02250000089407,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2.5,
@@ -971,9 +1240,14 @@ skills["IncursionMeteorUpheaval"] = {
 		spell = true,
 		area = true,
 	},
+	constantStats = {
+		{ "upheaval_number_of_spikes", 8 },
+		{ "skill_physical_damage_%_to_convert_to_chaos", 30 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, cooldown = 8, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -983,6 +1257,8 @@ skills["InsectSpawnerSpit"] = {
 	name = "Spit",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.93999999761581,
+	incrementalEffectiveness = 0.029999999329448,
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -990,11 +1266,15 @@ skills["InsectSpawnerSpit"] = {
 		attack = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "monster_reverse_point_blank_damage_-%_at_minimum_range", 30 },
+	},
 	stats = {
 		"attack_minimum_added_fire_damage",
 		"attack_maximum_added_fire_damage",
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.18000000715256, 0.27000001072884, 0.60000002384186, 0.75, levelRequirement = 2, statInterpolation = { 3, 3, 3, 3, }, },
@@ -1004,6 +1284,8 @@ skills["KaomFireBeamTotemSpectre"] = {
 	name = "Scorching Ray Totem",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 3.039999961853,
+	incrementalEffectiveness = 0.047400001436472,
 	description = "发出一束灼热光线, 被击中的敌人会受到不断叠加的燃烧效果.每叠加一层效果都会附加一定比例的光线基础伤害。叠满之后会造成负面效果“畏火”。脱离光线范围后的一段时间内依然会受到燃烧伤害. 增加施法速度和光线的转角速度.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Totemable] = true, [SkillType.DamageOverTime] = true, [SkillType.Fire] = true, [SkillType.CausesBurning] = true, [SkillType.Duration] = true, [SkillType.Channel] = true, [SkillType.DegenOnlySpellDamage] = true, },
 	statDescriptionScope = "debuff_skill_stat_descriptions",
@@ -1021,9 +1303,21 @@ skills["KaomFireBeamTotemSpectre"] = {
 	baseMods = {
 		mod("Damage", "MORE", 60, 0, 0, { type = "Multiplier", actor = "parent", var = "KaomFireBeamTotemStage", base = -60, limit = 8 }),
 	},
+	constantStats = {
+		{ "totem_damage_+%_final_per_active_totem", -12 },
+		{ "fire_beam_additional_stack_damage_+%_final", -40 },
+		{ "base_fire_damage_resistance_%", -25 },
+		{ "base_totem_duration", 5000 },
+		{ "totem_art_variation", 1 },
+		{ "base_skill_effect_duration", 1500 },
+	},
 	stats = {
 		"base_fire_damage_to_deal_per_minute",
 		"base_active_skill_totem_level",
+		"is_totem",
+		"base_skill_is_totemified",
+		"totem_ignores_cooldown",
+		"ignores_totem_cooldown_limit",
 	},
 	levels = {
 		[1] = { 16.666667039196, 1, cooldown = 3, levelRequirement = 1, statInterpolation = { 3, 2, }, },
@@ -1034,6 +1328,7 @@ skills["KaomWarriorGroundSlam"] = {
 	name = "Ground Slam",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	skillTypes = { [SkillType.Attack] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -1042,7 +1337,12 @@ skills["KaomWarriorGroundSlam"] = {
 		melee = true,
 		area = true,
 	},
+	constantStats = {
+		{ "base_stun_threshold_reduction_+%", 10 },
+		{ "active_skill_damage_+%_final", 20 },
+	},
 	stats = {
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { cooldown = 5, levelRequirement = 2, },
@@ -1052,6 +1352,7 @@ skills["KaomWarriorMoltenStrike"] = {
 	name = "Molten Strike",
 	hidden = true,
 	color = 1,
+	baseEffectiveness = 0.69999998807907,
 	description = "给武器灌注熔岩之力，对敌人造成物理及火焰伤害，并从击中的敌人身上发射出熔岩球，射向该攻击击中的所有敌人。这些熔岩球会爆炸，着地时对敌人造成范围伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Fire] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.ThresholdJewelChaining] = true, },
 	weaponTypes = {
@@ -1073,6 +1374,14 @@ skills["KaomWarriorMoltenStrike"] = {
 		attack = true,
 		melee = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 60 },
+		{ "number_of_additional_projectiles", 5 },
+		{ "active_skill_damage_+%_final", -20 },
+		{ "active_skill_projectile_damage_+%_final", -20 },
+		{ "base_projectile_speed_+%", -25 },
+		{ "active_skill_area_of_effect_radius_+%_final", 50 },
+	},
 	stats = {
 	},
 	levels = {
@@ -1083,6 +1392,7 @@ skills["KitavaDemonLeapSlam"] = {
 	name = "跃击",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "一跃而起，落地时用武器对敌人造成伤害，并击退敌人。被踩到的敌人会被推出去。限定斧头、锤类、短杖、剑类或长杖。无法被被多重打击辅助。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
@@ -1103,7 +1413,13 @@ skills["KitavaDemonLeapSlam"] = {
 		melee = true,
 		area = true,
 	},
+	constantStats = {
+		{ "physical_damage_%_to_add_as_fire", 50 },
+		{ "active_skill_area_of_effect_radius_+%_final", 50 },
+	},
 	stats = {
+		"is_area_damage",
+		"cast_time_overrides_attack_duration",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.2, cooldown = 5, baseMultiplier = 1.2, levelRequirement = 1, },
@@ -1113,6 +1429,7 @@ skills["KitavaDemonCleave"] = {
 	name = "劈砍",
 	hidden = true,
 	color = 1,
+	baseEffectiveness = 0,
 	description = "在身体前方以弧状挥动武器（双持时则挥动两把武器）, 对前方区域的怪物造成伤害。限定斧类与剑类。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ThresholdJewelArea] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -1129,7 +1446,14 @@ skills["KitavaDemonCleave"] = {
 		melee = true,
 		area = true,
 	},
+	constantStats = {
+		{ "bleed_on_hit_with_attacks_%", 100 },
+		{ "active_skill_bleeding_damage_+%_final", -44 },
+		{ "active_skill_attack_speed_+%_final", -25 },
+	},
 	stats = {
+		"is_area_damage",
+		"skill_double_hits_when_dual_wielding",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.9, cooldown = 6, baseMultiplier = 1.9, levelRequirement = 1, },
@@ -1139,6 +1463,8 @@ skills["KitavaDemonWhirlingBlades"] = {
 	name = "回旋之刃",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.666699886322,
+	incrementalEffectiveness = 0.0625,
 	description = "迅速穿越敌人并同时造成武器伤害. 限定匕首, 爪以及单手剑. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
 	weaponTypes = {
@@ -1153,8 +1479,14 @@ skills["KitavaDemonWhirlingBlades"] = {
 		attack = true,
 		melee = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "monster_flurry", 1 },
+	},
 	stats = {
 		"whirling_blades_base_ground_fire_damage_to_deal_per_minute",
+		"cast_time_overrides_attack_duration",
+		"ignores_proximity_shield",
 	},
 	levels = {
 		[1] = { 16.666667039196, damageEffectiveness = 0.6, cooldown = 6, baseMultiplier = 0.6, levelRequirement = 1, statInterpolation = { 3, }, },
@@ -1167,6 +1499,8 @@ skills["KitavaDemonXMortar"] = {
 	name = "Mortar",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 3.5,
+	incrementalEffectiveness = 0.035000000149012,
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
@@ -1175,9 +1509,18 @@ skills["KitavaDemonXMortar"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 2 },
+		{ "spell_maximum_action_distance_+%", 500 },
+		{ "projectile_minimum_range", 10 },
+		{ "projectile_spread_radius_per_additional_projectile", 125 },
+		{ "active_skill_area_of_effect_radius_+%_final", 100 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"base_is_projectile",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, cooldown = 3, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -1188,6 +1531,7 @@ skills["MassFrenzy"] = {
 	name = "Mass Frenzy",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.8700000047684,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2,
@@ -1205,6 +1549,7 @@ skills["MassPower"] = {
 	name = "Mass Power",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.8700000047684,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2,
@@ -1222,6 +1567,8 @@ skills["MinerThrowFireSpectre"] = {
 	name = "Throw Fire",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.2777999639511,
+	incrementalEffectiveness = 0.03999999910593,
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -1236,6 +1583,8 @@ skills["MinerThrowFireSpectre"] = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
 		"base_skill_effect_duration",
+		"base_is_projectile",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 26.666667660077, 0.20000000298023, 0.30000001192093, 2000, cooldown = 1.5, levelRequirement = 3, statInterpolation = { 3, 3, 3, 1, }, },
@@ -1256,12 +1605,19 @@ skills["MonsterArc"] = {
 	name = "Arc",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.89999997615814,
+	incrementalEffectiveness = 0.046000000089407,
 	description = "一道电弧从施放者射向目标, 并会弹跳至周围其他敌人。每次主电弧弹射时，也会向第二个敌人进行二次弹射，但二次弹射仅生效一次。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "beam_skill_stat_descriptions",
 	castTime = 0.8,
 	baseFlags = {
 		spell = true,
+	},
+	constantStats = {
+		{ "base_chance_to_shock_%", 10 },
+		{ "number_of_chains", 1 },
+		{ "skill_range_+%", -50 },
 	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
@@ -1280,6 +1636,8 @@ skills["MonsterCausticArrow"] = {
 	name = "Caustic Arrow",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 1.0666999816895,
+	incrementalEffectiveness = 0.03999999910593,
 	description = "射出一发带有腐蚀效果的箭矢, 对击中的敌人造成额外混沌伤害, 并且产生腐蚀地面。站在地面上的敌人将会持续的受到混沌伤害.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -1293,9 +1651,18 @@ skills["MonsterCausticArrow"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "physical_damage_%_to_add_as_chaos", 34 },
+		{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -25 },
+		{ "ground_caustic_art_variation", 2 },
+		{ "active_skill_area_of_effect_radius_+%_final", -33 },
+	},
 	stats = {
 		"base_chaos_damage_to_deal_per_minute",
 		"base_skill_effect_duration",
+		"projectile_damage_modifiers_apply_to_skill_dot",
+		"visual_hit_effect_chaos_is_green",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { 16.666667039196, 1200, levelRequirement = 3, statInterpolation = { 3, 1, }, cost = { Mana = 10, }, },
@@ -1315,6 +1682,8 @@ skills["MonsterCausticArrowAtAnimationSpeed"] = {
 	name = "Caustic Arrow",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 1.0666999816895,
+	incrementalEffectiveness = 0.03999999910593,
 	description = "射出一发带有腐蚀效果的箭矢, 对击中的敌人造成额外混沌伤害, 并且产生腐蚀地面。站在地面上的敌人将会持续的受到混沌伤害.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -1328,8 +1697,19 @@ skills["MonsterCausticArrowAtAnimationSpeed"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 2250 },
+		{ "physical_damage_%_to_add_as_chaos", 34 },
+		{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -25 },
+		{ "ground_caustic_art_variation", 2 },
+		{ "active_skill_area_of_effect_radius_+%_final", -15 },
+	},
 	stats = {
 		"base_chaos_damage_to_deal_per_minute",
+		"projectile_damage_modifiers_apply_to_skill_dot",
+		"visual_hit_effect_chaos_is_green",
+		"action_attack_or_cast_time_uses_animation_length",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { 25.000000558794, levelRequirement = 3, statInterpolation = { 3, }, },
@@ -1340,6 +1720,8 @@ skills["MonsterCausticBomb"] = {
 	name = "Caustic Bomb",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.2667000293732,
+	incrementalEffectiveness = 0.038499999791384,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Damage] = true, [SkillType.Mineable] = true, [SkillType.Area] = true, [SkillType.Trapped] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -1349,10 +1731,21 @@ skills["MonsterCausticBomb"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_trap_duration", 2500 },
+		{ "base_skill_effect_duration", 4000 },
+		{ "trap_variation", 2 },
+		{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -25 },
+		{ "ground_caustic_art_variation", 2 },
+	},
 	stats = {
 		"spell_minimum_base_chaos_damage",
 		"spell_maximum_base_chaos_damage",
 		"base_chaos_damage_to_deal_per_minute",
+		"is_trap",
+		"is_area_damage",
+		"base_skill_is_trapped",
+		"ignores_trap_and_mine_cooldown_limit",
 	},
 	levels = {
 		[1] = { 0.30000001192093, 0.40000000596046, 16.666667039196, critChance = 5, cooldown = 4, levelRequirement = 4, statInterpolation = { 3, 3, 3, }, },
@@ -1367,6 +1760,8 @@ skills["MonsterDischarge"] = {
 	name = "Discharge",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 2.2111001014709,
+	incrementalEffectiveness = 0.028500000014901,
 	description = "释放角色身上所有的能量球并对周围所有敌人造成元素伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1375,6 +1770,9 @@ skills["MonsterDischarge"] = {
 		spell = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -75 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage_per_removable_power_charge",
 		"spell_maximum_base_lightning_damage_per_removable_power_charge",
@@ -1382,6 +1780,8 @@ skills["MonsterDischarge"] = {
 		"spell_maximum_base_fire_damage_per_removable_endurance_charge",
 		"spell_minimum_base_cold_damage_per_removable_frenzy_charge",
 		"spell_maximum_base_cold_damage_per_removable_frenzy_charge",
+		"is_area_damage",
+		"disable_skill_repeats",
 	},
 	levels = {
 		[1] = { 0.56000000238419, 1.6900000572205, 0.80000001192093, 1.2000000476837, 0.64999997615814, 0.98000001907349, damageEffectiveness = 1.5, critChance = 4, levelRequirement = 4, statInterpolation = { 3, 3, 3, 3, 3, 3, }, },
@@ -1392,6 +1792,7 @@ skills["MonsterEnduringCry"] = {
 	name = "Enduring Cry",
 	hidden = true,
 	color = 1,
+	baseEffectiveness = 0,
 	description = "发出一道战吼，嘲讽周围敌人，吸引它们的进攻，提供耐力球，并获得瞬时爆发式生命回复。它还基于你身上的耐力球数提供抗性和物理伤害减免。",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Warcry] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -1400,6 +1801,11 @@ skills["MonsterEnduringCry"] = {
 		warcry = true,
 		area = true,
 		duration = true,
+	},
+	constantStats = {
+		{ "enduring_cry_grants_x_additional_endurance_charges", 2 },
+		{ "base_skill_effect_duration", 1000 },
+		{ "life_regeneration_rate_per_minute_%", 600 },
 	},
 	stats = {
 	},
@@ -1444,6 +1850,7 @@ skills["AxisEnfeeble"] = {
 	name = "Enfeeble",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0,
 	description = "诅咒一片区域的所有目标，降低它们的命中值，使它们造成的伤害更低。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -1465,6 +1872,13 @@ skills["AxisEnfeeble"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 5000 },
+		{ "accuracy_rating_+%", -40 },
+		{ "enfeeble_damage_+%_final", -40 },
+		{ "enfeeble_damage_+%_vs_rare_or_unique_final", -15 },
+		{ "active_skill_area_of_effect_radius_+%_final", 42 },
+	},
 	stats = {
 	},
 	levels = {
@@ -1475,6 +1889,8 @@ skills["MonsterFireballContactPos"] = {
 	name = "Fireball",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 2.5,
+	incrementalEffectiveness = 0.03940000012517,
 	description = "释放一颗球型火焰向前飞射, 接触到怪物时会爆炸并对周围敌人造成伤害",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1484,9 +1900,16 @@ skills["MonsterFireballContactPos"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"base_is_projectile",
+		"use_scaled_contact_offset",
+		"projectile_uses_contact_position",
+		"maintain_projectile_direction_when_using_contact_position",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -1497,6 +1920,8 @@ skills["MonsterFireBomb"] = {
 	name = "Fire Bomb",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.8889000415802,
+	incrementalEffectiveness = 0.052000001072884,
 	description = "投掷一个陷阱, 该陷阱被触发时会爆炸并对周围的敌人造成火焰伤害, 且该区域的地面会持续燃烧, 踩在上面的敌人会持续受到伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Damage] = true, [SkillType.Mineable] = true, [SkillType.Area] = true, [SkillType.CausesBurning] = true, [SkillType.Trapped] = true, [SkillType.DamageOverTime] = true, [SkillType.Fire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1507,10 +1932,20 @@ skills["MonsterFireBomb"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_trap_duration", 2500 },
+		{ "base_skill_effect_duration", 4500 },
+		{ "trap_variation", 1 },
+		{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -25 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
 		"base_fire_damage_to_deal_per_minute",
+		"is_trap",
+		"is_area_damage",
+		"base_skill_is_trapped",
+		"ignores_trap_and_mine_cooldown_limit",
 	},
 	levels = {
 		[1] = { 0.40000000596046, 0.60000002384186, 16.666667039196, critChance = 5, levelRequirement = 4, statInterpolation = { 3, 3, 3, }, },
@@ -1521,6 +1956,7 @@ skills["MonsterFlickerStrike"] = {
 	name = "Flicker Strike",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "传送至目标怪物身边并用近战武器对其造成伤害。若是未选定目标，则系统会为其随机指定一只怪物。获得一个增益效果，使移动速度提高一段时间。消耗一个狂怒球能重置其技能冷却。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Movement] = true, [SkillType.Duration] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -1543,7 +1979,14 @@ skills["MonsterFlickerStrike"] = {
 		melee = true,
 		movement = true,
 	},
+	constantStats = {
+		{ "attack_speed_+%", 30 },
+		{ "base_attack_speed_+%_per_frenzy_charge", 10 },
+		{ "active_skill_damage_+%_final", 10 },
+	},
 	stats = {
+		"ignores_proximity_shield",
+		"melee_defer_damage_prediction",
 	},
 	levels = {
 		[1] = { cooldown = 2, levelRequirement = 13, },
@@ -1553,6 +1996,8 @@ skills["MonsterFlameRedCannibal"] = {
 	name = "Incinerate",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.3999999761581,
+	incrementalEffectiveness = 0.037000000476837,
 	description = "召唤一个图腾，它会持续的对附近的敌人喷射火焰。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1562,9 +2007,19 @@ skills["MonsterFlameRedCannibal"] = {
 		spell = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "skill_repeat_count", 2 },
+		{ "spell_maximum_action_distance_+%", -75 },
+		{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -25 },
+		{ "number_of_additional_projectiles", 3 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
+		"always_pierce",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { 0.30000001192093, 0.60000002384186, damageEffectiveness = 0.25, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -1574,6 +2029,7 @@ skills["MonsterIceShot"] = {
 	name = "Ice Shot",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 0.85000002384186,
 	description = "射出一支箭矢，在击中目标时将部分物理伤害转化为冰霜伤害，并在目标背后形成锥形范围攻击其它敌人，此时所有物理伤害转化为冰霜伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -1587,8 +2043,15 @@ skills["MonsterIceShot"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 50 },
+		{ "base_skill_effect_duration", 2500 },
+	},
 	stats = {
 		"physical_damage_+%",
+		"skill_can_fire_arrows",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { 15, levelRequirement = 1, statInterpolation = { 1, }, },
@@ -1599,6 +2062,8 @@ skills["MountainGoatmanIceSpear"] = {
 	name = "冰矛",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.1817998886108,
+	incrementalEffectiveness = 0.037999998778105,
 	description = "凝聚冰之碎片为矛并向前射出, 此冰矛将会穿透附近的敌人, 并对一定距离以外的敌人具有较高的暴击率.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1607,10 +2072,15 @@ skills["MountainGoatmanIceSpear"] = {
 		spell = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "active_skill_chill_duration_+%_final", 20 },
+	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
 		"ice_spear_second_form_damage_+%",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 50, critChance = 7, levelRequirement = 40, statInterpolation = { 3, 3, 1, }, },
@@ -1621,6 +2091,7 @@ skills["MonsterLeapSlam"] = {
 	name = "Leap Slam",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "一跃而起，落地时用武器对敌人造成伤害，并击退敌人。被踩到的敌人会被推出去。限定斧头、锤类、短杖、剑类或长杖。无法被被多重打击辅助。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
@@ -1642,6 +2113,8 @@ skills["MonsterLeapSlam"] = {
 		area = true,
 	},
 	stats = {
+		"is_area_damage",
+		"cast_time_overrides_attack_duration",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.5, baseMultiplier = 1.5, levelRequirement = 2, },
@@ -1651,6 +2124,7 @@ skills["MonsterLeapSlamFoothills"] = {
 	name = "Leap Slam",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "一跃而起，落地时用武器对敌人造成伤害，并击退敌人。被踩到的敌人会被推出去。限定斧头、锤类、短杖、剑类或长杖。无法被被多重打击辅助。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
@@ -1671,7 +2145,12 @@ skills["MonsterLeapSlamFoothills"] = {
 		melee = true,
 		area = true,
 	},
+	constantStats = {
+		{ "leapslam_overshoot_distance", 10 },
+	},
 	stats = {
+		"is_area_damage",
+		"cast_time_overrides_attack_duration",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.5, baseMultiplier = 1.5, levelRequirement = 2, },
@@ -1681,6 +2160,8 @@ skills["MonsterLesserMultiFireballSpectre"] = {
 	name = "Lesser Multi Fireball",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.88889998197556,
+	incrementalEffectiveness = 0.03940000012517,
 	description = "释放一颗球型火焰向前飞射, 接触到怪物时会爆炸并对周围敌人造成伤害",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1690,9 +2171,14 @@ skills["MonsterLesserMultiFireballSpectre"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+		{ "number_of_additional_projectiles", 1 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -1703,6 +2189,8 @@ skills["MonsterLesserMultiIceSpear"] = {
 	name = "Lesser Multi Ice Spear",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.5908999443054,
+	incrementalEffectiveness = 0.03999999910593,
 	description = "凝聚冰之碎片为矛并向前射出, 此冰矛将会穿透附近的敌人, 并对一定距离以外的敌人具有较高的暴击率.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1711,9 +2199,14 @@ skills["MonsterLesserMultiIceSpear"] = {
 		spell = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "ice_spear_second_form_damage_+%", 50 },
+		{ "number_of_additional_projectiles", 1 },
+	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 0.8, critChance = 7, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -1724,6 +2217,8 @@ skills["MonsterLightningArrow"] = {
 	name = "Lightning Arrow",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 1.0199999809265,
+	incrementalEffectiveness = 0.019999999552965,
 	description = "射出一发充满闪电能量的箭矢, 对敌人造成伤害的同时也对附近额外 3 名敌人造成同等的伤害.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -1735,6 +2230,12 @@ skills["MonsterLightningArrow"] = {
 		attack = true,
 		projectile = true,
 		area = true,
+	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "lightning_arrow_maximum_number_of_extra_targets", 4 },
+		{ "base_chance_to_shock_%", 25 },
+		{ "active_skill_area_of_effect_radius_+%_final", -12 },
 	},
 	stats = {
 	},
@@ -1746,6 +2247,8 @@ skills["SkeletonArcherLightningArrow"] = {
 	name = "Lightning Arrow",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 1.0199999809265,
+	incrementalEffectiveness = 0.019999999552965,
 	description = "射出一发充满闪电能量的箭矢, 对敌人造成伤害的同时也对附近额外 3 名敌人造成同等的伤害.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -1758,6 +2261,12 @@ skills["SkeletonArcherLightningArrow"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "lightning_arrow_maximum_number_of_extra_targets", 4 },
+		{ "base_chance_to_shock_%", 50 },
+		{ "active_skill_area_of_effect_radius_+%_final", -12 },
+	},
 	stats = {
 	},
 	levels = {
@@ -1768,12 +2277,17 @@ skills["MonsterLightningThorns"] = {
 	name = "Lightning Thorns",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.7999999523163,
+	incrementalEffectiveness = 0.034000001847744,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2,
 	baseFlags = {
 		spell = true,
 		duration = true,
+	},
+	constantStats = {
+		{ "base_skill_effect_duration", 3500 },
 	},
 	stats = {
 	},
@@ -1785,6 +2299,8 @@ skills["MonsterMultiFireballSpectre"] = {
 	name = "Multi Fireball",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.77780002355576,
+	incrementalEffectiveness = 0.03940000012517,
 	description = "释放一颗球型火焰向前飞射, 接触到怪物时会爆炸并对周围敌人造成伤害",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1794,9 +2310,14 @@ skills["MonsterMultiFireballSpectre"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+		{ "number_of_additional_projectiles", 2 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -1807,6 +2328,8 @@ skills["MonsterMultiIceSpear"] = {
 	name = "Multi Ice Spear",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.5908999443054,
+	incrementalEffectiveness = 0.03999999910593,
 	description = "凝聚冰之碎片为矛并向前射出, 此冰矛将会穿透附近的敌人, 并对一定距离以外的敌人具有较高的暴击率.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1815,9 +2338,14 @@ skills["MonsterMultiIceSpear"] = {
 		spell = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "ice_spear_second_form_damage_+%", 50 },
+		{ "number_of_additional_projectiles", 2 },
+	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 0.8, critChance = 7, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -1828,6 +2356,7 @@ skills["MonsterProjectileWeakness"] = {
 	name = "Projectile Weakness",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 0,
 	description = "诅咒单个敌人，增加其中弹后的伤害，并使子弹在击中敌人时分裂，击中周围的其他目标。一次只能有一个“印记”。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Mark] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -1842,6 +2371,10 @@ skills["MonsterProjectileWeakness"] = {
 		curse = true,
 		area = true,
 		duration = true,
+	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "projectiles_hitting_self_split_into_x", 3 },
 	},
 	stats = {
 		"projectile_damage_taken_+%",
@@ -1864,6 +2397,9 @@ skills["MonsterProximityShield"] = {
 		spell = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 8000 },
+	},
 	stats = {
 	},
 	levels = {
@@ -1874,6 +2410,7 @@ skills["MonsterPuncture"] = {
 	name = "Puncture",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 0,
 	description = "对敌人放血，施加一个流血减益效果。该效果受技能持续时间属性影响。流血的敌人在移动时会受到更多的伤害。限定弓类，匕首，爪类与剑类。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.DamageOverTime] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -1896,6 +2433,8 @@ skills["MonsterPuncture"] = {
 	},
 	stats = {
 		"active_skill_bleeding_damage_+%_final",
+		"skill_can_fire_arrows",
+		"global_bleed_on_hit",
 	},
 	levels = {
 		[1] = { 112, baseMultiplier = 1.2, levelRequirement = 9, statInterpolation = { 1, }, },
@@ -1907,6 +2446,8 @@ skills["MonsterRighteousFireWhileSpectred"] = {
 	name = "Unrighteous Fire",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.1110999584198,
+	incrementalEffectiveness = 0.056000001728535,
 	description = "以魔法之火快速的燃烧自己及周围的敌人. 在此效果下, 你的法术伤害大幅增加. 当你的生命只剩下 1 时将会自动停止此法术.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.CausesBurning] = true, [SkillType.DamageOverTime] = true, [SkillType.Fire] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -1914,6 +2455,9 @@ skills["MonsterRighteousFireWhileSpectred"] = {
 	baseFlags = {
 		spell = true,
 		area = true,
+	},
+	constantStats = {
+		{ "active_skill_area_of_effect_radius_+%_final", 27 },
 	},
 	stats = {
 		"base_fire_damage_to_deal_per_minute",
@@ -1926,6 +2470,8 @@ skills["MonsterShockNova"] = {
 	name = "Shock Nova",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.2374999523163,
+	incrementalEffectiveness = 0.0304000005126,
 	description = "从施法者散发出一圈闪电之环, 接着散发出更大范围的一圈闪电之环. 每次被击中的敌人会受到闪电伤害. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1934,9 +2480,16 @@ skills["MonsterShockNova"] = {
 		spell = true,
 		area = true,
 	},
+	constantStats = {
+		{ "newshocknova_first_ring_damage_+%_final", -50 },
+		{ "base_chance_to_shock_%", 50 },
+		{ "shock_effect_+%", 20 },
+		{ "active_skill_area_of_effect_radius_+%_final", 5 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 3, levelRequirement = 4, statInterpolation = { 3, 3, }, },
@@ -1947,6 +2500,8 @@ skills["MonsterSpark"] = {
 	name = "Spark",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.5625,
+	incrementalEffectiveness = 0.035000000149012,
 	description = "施放出多颗变幻莫测的电球，这些电球将会随机移动直到撞到敌人或是自然消失.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1956,9 +2511,14 @@ skills["MonsterSpark"] = {
 		projectile = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 2000 },
+		{ "number_of_additional_projectiles", 1 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, damageEffectiveness = 0.7, critChance = 5, levelRequirement = 4, statInterpolation = { 3, 3, }, },
@@ -1975,6 +2535,8 @@ skills["MonsterSplitFireballSpectre"] = {
 	name = "Split Fireball",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.95560002326965,
+	incrementalEffectiveness = 0.03940000012517,
 	description = "释放一颗球型火焰向前飞射, 接触到怪物时会爆炸并对周围敌人造成伤害",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1984,9 +2546,14 @@ skills["MonsterSplitFireballSpectre"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"projectiles_fork",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -1997,6 +2564,8 @@ skills["MonsterSplitIceSpear"] = {
 	name = "Split Ice Spear",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.5908999443054,
+	incrementalEffectiveness = 0.03999999910593,
 	description = "凝聚冰之碎片为矛并向前射出, 此冰矛将会穿透附近的敌人, 并对一定距离以外的敌人具有较高的暴击率.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2005,9 +2574,14 @@ skills["MonsterSplitIceSpear"] = {
 		spell = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "ice_spear_second_form_damage_+%", 50 },
+	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"base_is_projectile",
+		"projectiles_fork",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 0.8, critChance = 7, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -2018,6 +2592,7 @@ skills["MonsterWarlordsMark"] = {
 	name = "Warlord's Mark",
 	hidden = true,
 	color = 1,
+	baseEffectiveness = 0,
 	description = "诅咒单个敌人，使它身上的眩晕持续时间有几率翻倍。攻击该敌人会获得生命和魔力偷取，使它眩晕可以获得怒火，击败它可以获得一个耐力球。你同时只能施加一个咒印。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Mark] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2039,6 +2614,14 @@ skills["MonsterWarlordsMark"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 4000 },
+		{ "enemy_chance_to_double_stun_duration_%_vs_self", 40 },
+		{ "life_leech_on_any_damage_when_hit_by_attack_permyriad", 200 },
+		{ "mana_leech_on_any_damage_when_hit_by_attack_permyriad", 200 },
+		{ "chance_to_grant_endurance_charge_on_death_%", 100 },
+		{ "active_skill_area_of_effect_radius_+%_final", 24 },
+	},
 	stats = {
 	},
 	levels = {
@@ -2049,6 +2632,8 @@ skills["MotherOfFlamesMagmaOrb3"] = {
 	name = "熔岩奔涌",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 2.7778000831604,
+	incrementalEffectiveness = 0.035500001162291,
 	description = "抛投出岩浆球，击中地面会爆炸。技能可以连锁弹射。当岩浆球爆炸时释放出另一个岩浆球.。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Multicastable] = true, [SkillType.Chains] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2058,9 +2643,15 @@ skills["MotherOfFlamesMagmaOrb3"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "base_cast_speed_+%", -66 },
+		{ "number_of_chains", 2 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"is_area_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, cooldown = 3, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -2071,6 +2662,7 @@ skills["NecromancerConductivity"] = {
 	name = "Conductivity",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.85000002384186,
 	description = "诅咒一片区域的所有目标，降低它们的闪电抗性，并使它们被击中时有几率获得感电效果。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2089,6 +2681,11 @@ skills["NecromancerConductivity"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "chance_to_be_shocked_%", 25 },
+		{ "active_skill_area_of_effect_radius_+%_final", 9 },
+	},
 	stats = {
 		"base_lightning_damage_resistance_%",
 	},
@@ -2103,6 +2700,7 @@ skills["NecromancerElementalWeakness"] = {
 	name = "Elemental Weakness",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0,
 	description = "诅咒一片区域的所有目标，降低它们的元素抗性。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2118,6 +2716,10 @@ skills["NecromancerElementalWeakness"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "active_skill_area_of_effect_radius_+%_final", 42 },
+	},
 	stats = {
 		"base_resist_all_elements_%",
 	},
@@ -2132,6 +2734,7 @@ skills["NecromancerEnfeeble"] = {
 	name = "Enfeeble",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0,
 	description = "诅咒一片区域的所有目标，降低它们的命中值，使它们造成的伤害更低。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2153,6 +2756,13 @@ skills["NecromancerEnfeeble"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 5000 },
+		{ "accuracy_rating_+%", -60 },
+		{ "enfeeble_damage_+%_final", -60 },
+		{ "enfeeble_damage_+%_vs_rare_or_unique_final", -23 },
+		{ "active_skill_area_of_effect_radius_+%_final", 42 },
+	},
 	stats = {
 	},
 	levels = {
@@ -2163,6 +2773,7 @@ skills["NecromancerFlammability"] = {
 	name = "Flammability",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.85000002384186,
 	description = "诅咒一片区域的所有目标，降低它们的火焰抗性，并使它们被击中时有几率被点燃。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2181,6 +2792,11 @@ skills["NecromancerFlammability"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "chance_to_be_ignited_%", 25 },
+		{ "active_skill_area_of_effect_radius_+%_final", 9 },
+	},
 	stats = {
 		"base_fire_damage_resistance_%",
 	},
@@ -2195,6 +2811,7 @@ skills["NecromancerFrostbite"] = {
 	name = "Frostbite",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.85000002384186,
 	description = "诅咒一片区域的所有目标，降低它们的冰霜抗性，并使它们被击中时有几率被冻结。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cold] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2213,6 +2830,11 @@ skills["NecromancerFrostbite"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "chance_to_be_frozen_%", 25 },
+		{ "active_skill_area_of_effect_radius_+%_final", 9 },
+	},
 	stats = {
 		"base_cold_damage_resistance_%",
 	},
@@ -2227,6 +2849,7 @@ skills["NecromancerProjectileWeakness"] = {
 	name = "Projectile Weakness",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 0,
 	description = "诅咒单个敌人，增加其中弹后的伤害，并使子弹在击中敌人时分裂，击中周围的其他目标。一次只能有一个“印记”。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Mark] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2242,6 +2865,10 @@ skills["NecromancerProjectileWeakness"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "projectiles_hitting_self_split_into_x", 3 },
+	},
 	stats = {
 		"projectile_damage_taken_+%",
 		"active_skill_area_of_effect_radius_+%_final",
@@ -2256,6 +2883,7 @@ skills["NecromancerRaiseZombie"] = {
 	name = "Raise Zombie",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "从一个灵柩中复苏一只魔卫, 它会跟随你并攻击敌人。魔卫会近战攻击，也会使用一种无法闪避的范围重击。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.CreatesMinion] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Area] = true, },
@@ -2264,6 +2892,9 @@ skills["NecromancerRaiseZombie"] = {
 	baseFlags = {
 		spell = true,
 		minion = true,
+	},
+	constantStats = {
+		{ "alternate_minion", 1 },
 	},
 	stats = {
 		"base_number_of_zombies_allowed",
@@ -2279,6 +2910,7 @@ skills["NecromancerVulnerability"] = {
 	name = "Vulnerability",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "诅咒一片区域的所有目标，提高它们受到的物理伤害。攻击它们有几率施加流血，以及一个导致伤害生效更快的异常状态。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2302,6 +2934,13 @@ skills["NecromancerVulnerability"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "physical_damage_taken_+%", 50 },
+		{ "receive_bleeding_chance_%_when_hit_by_attack", 20 },
+		{ "enemy_damaging_ailments_deal_damage_+%_faster_against_self", 20 },
+		{ "active_skill_area_of_effect_radius_+%_final", 24 },
+	},
 	stats = {
 	},
 	levels = {
@@ -2312,6 +2951,8 @@ skills["PyroChaosFireball"] = {
 	name = "Chaos Fireball",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.3555999994278,
+	incrementalEffectiveness = 0.028500000014901,
 	description = "释放一颗球型火焰向前飞射, 接触到怪物时会爆炸并对周围敌人造成伤害",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2321,11 +2962,15 @@ skills["PyroChaosFireball"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
 		"spell_minimum_base_chaos_damage",
 		"spell_maximum_base_chaos_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.40000000596046, 0.60000002384186, 0.27000001072884, 0.33000001311302, critChance = 6, cooldown = 3, levelRequirement = 3, statInterpolation = { 3, 3, 3, 3, }, },
@@ -2335,6 +2980,8 @@ skills["PyroFireball"] = {
 	name = "Fireball",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.1888999938965,
+	incrementalEffectiveness = 0.03940000012517,
 	description = "释放一颗球型火焰向前飞射, 接触到怪物时会爆炸并对周围敌人造成伤害",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2344,9 +2991,13 @@ skills["PyroFireball"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -2357,6 +3008,8 @@ skills["PyroSuicideExplosion"] = {
 	name = "Suicide Explosion",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.2667000293732,
+	incrementalEffectiveness = 0.050000000745058,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -2367,6 +3020,8 @@ skills["PyroSuicideExplosion"] = {
 	stats = {
 		"secondary_minimum_base_fire_damage",
 		"secondary_maximum_base_fire_damage",
+		"grant_kill_to_target_when_exploding_self",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -2381,6 +3036,7 @@ skills["RevenantSpellProjectileSpectre"] = {
 	name = "Lightning Projectile",
 	hidden = true,
 	color = 4,
+	incrementalEffectiveness = 0.052999999374151,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -2388,9 +3044,18 @@ skills["RevenantSpellProjectileSpectre"] = {
 		spell = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 7 },
+		{ "base_number_of_projectiles_in_spiral_nova", 3 },
+		{ "projectile_spiral_nova_time_ms", 150 },
+		{ "projectile_spiral_nova_angle", 20 },
+		{ "projectile_spiral_nova_starting_angle_offset", -10 },
+		{ "monster_reverse_point_blank_damage_-%_at_minimum_range", 60 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.60000002384186, 1.3999999761581, cooldown = 3, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -2400,6 +3065,8 @@ skills["SeawitchFrostbolt"] = {
 	name = "Frostbolt",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 2.0455000400543,
+	incrementalEffectiveness = 0.041000001132488,
 	description = "发射出一个缓慢移动并可以穿透敌人的投射物, 造成冰霜伤害. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Cold] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2411,6 +3078,8 @@ skills["SeawitchFrostbolt"] = {
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"base_is_projectile",
+		"always_pierce",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, cooldown = 3, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -2421,6 +3090,8 @@ skills["SeaWitchScreech"] = {
 	name = "Screech",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.27270001173019,
+	incrementalEffectiveness = 0.041999999433756,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2.73,
@@ -2429,9 +3100,14 @@ skills["SeaWitchScreech"] = {
 		duration = true,
 		area = true,
 	},
+	constantStats = {
+		{ "base_movement_velocity_+%", -20 },
+		{ "base_skill_effect_duration", 1900 },
+	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, cooldown = 6.5, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -2442,6 +3118,7 @@ skills["SeawitchVulnerability"] = {
 	name = "Vulnerability",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "诅咒一片区域的所有目标，提高它们受到的物理伤害。攻击它们有几率施加流血，以及一个导致伤害生效更快的异常状态。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2465,6 +3142,13 @@ skills["SeawitchVulnerability"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 4000 },
+		{ "physical_damage_taken_+%", 50 },
+		{ "receive_bleeding_chance_%_when_hit_by_attack", 20 },
+		{ "enemy_damaging_ailments_deal_damage_+%_faster_against_self", 20 },
+		{ "active_skill_area_of_effect_radius_+%_final", 24 },
+	},
 	stats = {
 	},
 	levels = {
@@ -2475,6 +3159,8 @@ skills["SkeletonBlackAbyssBoneLance"] = {
 	name = "Unearth",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.035000000149012,
 	description = "发射一个能够穿透敌人的投射物，在目标地点着地后会创造一个骨弓手灵柩。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Trappable] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Multicastable] = true, [SkillType.CanRapidFire] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2484,9 +3170,17 @@ skills["SkeletonBlackAbyssBoneLance"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "desecrate_maximum_number_of_corpses", 3 },
+		{ "base_projectile_speed_+%", -35 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"base_is_projectile",
+		"always_pierce",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, cooldown = 6, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -2497,6 +3191,8 @@ skills["SkeletonCannonMortar"] = {
 	name = "Mortar",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 3.5,
+	incrementalEffectiveness = 0.014000000432134,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2506,9 +3202,20 @@ skills["SkeletonCannonMortar"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "projectile_spread_radius", 5 },
+		{ "projectile_speed_variation_+%", 15 },
+		{ "spell_maximum_action_distance_+%", -40 },
+		{ "projectile_minimum_range", 8 },
+		{ "projectile_spread_radius_per_additional_projectile", 5 },
+		{ "active_skill_area_of_effect_radius_+%_final", -40 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
+		"base_is_projectile",
+		"projectiles_not_offset",
 	},
 	levels = {
 		[1] = { 0.87999999523163, 1.3200000524521, critChance = 5, levelRequirement = 45, statInterpolation = { 3, 3, }, },
@@ -2519,6 +3226,8 @@ skills["SkeletonCannonBoneMortar"] = {
 	name = "骇骨炮塔",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 3.5,
+	incrementalEffectiveness = 0.014000000432134,
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
@@ -2528,9 +3237,19 @@ skills["SkeletonCannonBoneMortar"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "projectile_spread_radius", 543 },
+		{ "projectile_minimum_range", 217 },
+		{ "number_of_additional_projectiles", 1 },
+		{ "mortar_cone_angle", 30 },
+		{ "base_skill_effect_duration", 10000 },
+		{ "monster_projectile_variation", 3 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.87999999523163, 1.3200000524521, critChance = 5, cooldown = 4, levelRequirement = 45, statInterpolation = { 3, 3, }, },
@@ -2548,7 +3267,14 @@ skills["SkeletonCannonBoneNova"] = {
 		attack = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 10 },
+		{ "active_skill_damage_+%_final", 40 },
+		{ "main_hand_base_maximum_attack_distance", 30 },
+		{ "active_skill_area_of_effect_radius_+%_final", 150 },
+	},
 	stats = {
+		"projectiles_nova",
 	},
 	levels = {
 		[1] = { cooldown = 5, levelRequirement = 1, },
@@ -2558,6 +3284,7 @@ skills["SkeletonMassBowProjectile"] = {
 	name = "Puncture",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.8700000047684,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
@@ -2568,7 +3295,14 @@ skills["SkeletonMassBowProjectile"] = {
 	baseMods = {
 		mod("BleedChance", "BASE", 100),
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 12 },
+		{ "spell_maximum_action_distance_+%", -50 },
+		{ "base_projectile_speed_+%", 200 },
+	},
 	stats = {
+		"base_is_projectile",
+		"global_bleed_on_hit",
 	},
 	levels = {
 		[1] = { levelRequirement = 2, },
@@ -2578,6 +3312,8 @@ skills["SkeletonProjectileBlack"] = {
 	name = "",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.2699999809265,
+	incrementalEffectiveness = 0.027300000190735,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.2,
@@ -2585,9 +3321,14 @@ skills["SkeletonProjectileBlack"] = {
 		spell = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 33 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -2608,8 +3349,13 @@ skills["SkeletonSoldierTornadoShot"] = {
 		attack = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "tornado_shot_num_of_secondary_projectiles", 3 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"base_is_projectile",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { -30, levelRequirement = 2, statInterpolation = { 1, }, },
@@ -2621,6 +3367,8 @@ skills["SkeletonSpark"] = {
 	name = "Spark",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.75,
+	incrementalEffectiveness = 0.0304000005126,
 	description = "施放出多颗变幻莫测的电球，这些电球将会随机移动直到撞到敌人或是自然消失.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2630,9 +3378,14 @@ skills["SkeletonSpark"] = {
 		projectile = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 3500 },
+		{ "number_of_additional_projectiles", 2 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, damageEffectiveness = 0.7, critChance = 5, levelRequirement = 4, statInterpolation = { 3, 3, }, cost = { Mana = 50, }, },
@@ -2648,6 +3401,7 @@ skills["AxisTemporalChains"] = {
 	name = "Temporal Chains",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "诅咒一片区域的所有敌人，降低它们的行动速度，并使它们身上的效果消减得更慢。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2669,6 +3423,13 @@ skills["AxisTemporalChains"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 4000 },
+		{ "temporal_chains_action_speed_+%_final", -20 },
+		{ "buff_time_passed_+%_other_than_temporal_chains", -40 },
+		{ "temporal_chains_action_speed_+%_vs_rare_or_unique_final", -10 },
+		{ "active_skill_area_of_effect_radius_+%_final", 9 },
+	},
 	stats = {
 	},
 	levels = {
@@ -2679,6 +3440,7 @@ skills["SkeletonVulnerability"] = {
 	name = "Vulnerability",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "诅咒一片区域的所有目标，提高它们受到的物理伤害。攻击它们有几率施加流血，以及一个导致伤害生效更快的异常状态。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -2702,6 +3464,13 @@ skills["SkeletonVulnerability"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 10900 },
+		{ "physical_damage_taken_+%", 50 },
+		{ "receive_bleeding_chance_%_when_hit_by_attack", 20 },
+		{ "enemy_damaging_ailments_deal_damage_+%_faster_against_self", 20 },
+		{ "active_skill_area_of_effect_radius_+%_final", 24 },
+	},
 	stats = {
 	},
 	levels = {
@@ -2712,6 +3481,8 @@ skills["SlavedriverFlameWhip"] = {
 	name = "Lightning Surge",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 2.5,
+	incrementalEffectiveness = 0.045000001788139,
 	description = "用汹涌的火焰打击前方的敌人。燃烧的敌人会受到更高伤害。如击中被点燃的敌人，则会在它身下产生燃烧地面。你的伤害词缀不能作用于燃烧地面。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2723,9 +3494,14 @@ skills["SlavedriverFlameWhip"] = {
 	baseMods = {
 		skill("radius", 30),
 	},
+	constantStats = {
+		{ "base_cast_speed_+%", -65 },
+		{ "active_skill_area_of_effect_radius_+%_final", 33 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 6, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -2735,6 +3511,8 @@ skills["KitavaSlavedriverFlameWhip"] = {
 	name = "怒焰奔腾",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 2.2000000476837,
+	incrementalEffectiveness = 0.027499999850988,
 	description = "用汹涌的火焰打击前方的敌人。燃烧的敌人会受到更高伤害。如击中被点燃的敌人，则会在它身下产生燃烧地面。你的伤害词缀不能作用于燃烧地面。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2746,9 +3524,14 @@ skills["KitavaSlavedriverFlameWhip"] = {
 	baseMods = {
 		skill("radius", 30),
 	},
+	constantStats = {
+		{ "base_cast_speed_+%", -65 },
+		{ "active_skill_area_of_effect_radius_+%_final", 33 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 6, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -2758,6 +3541,7 @@ skills["SnakeSpineProjectile"] = {
 	name = "Spine Attack",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.8700000047684,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
@@ -2765,7 +3549,12 @@ skills["SnakeSpineProjectile"] = {
 		attack = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 2 },
+		{ "spell_maximum_action_distance_+%", -60 },
+	},
 	stats = {
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { levelRequirement = 1, },
@@ -2775,6 +3564,8 @@ skills["SolarisChampionFlameVortex"] = {
 	name = "Flame Vortex",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.6000000238419,
+	incrementalEffectiveness = 0.029999999329448,
 	description = "施放出多颗变幻莫测的电球，这些电球将会随机移动直到撞到敌人或是自然消失.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2784,9 +3575,16 @@ skills["SolarisChampionFlameVortex"] = {
 		projectile = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 3000 },
+		{ "monster_projectile_variation", 2 },
+		{ "base_projectile_speed_+%", -57 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"base_is_projectile",
+		"projectiles_not_offset",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -2796,6 +3594,8 @@ skills["SpecialBeamCannon"] = {
 	name = "Beam",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 4.1556000709534,
+	incrementalEffectiveness = 0.037000000476837,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2.5,
@@ -2803,9 +3603,13 @@ skills["SpecialBeamCannon"] = {
 		spell = true,
 		area = true,
 	},
+	constantStats = {
+		{ "active_skill_area_of_effect_radius_+%_final", -23 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, cooldown = 8, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -2817,6 +3621,8 @@ skills["TarMortarTaster"] = {
 	name = "Tar Projectile",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.3332999944687,
+	incrementalEffectiveness = 0.032000001519918,
 	description = "如同怪物迫击炮技能, 但是在地上留下冲击效果. ",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2826,10 +3632,18 @@ skills["TarMortarTaster"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 2 },
+		{ "projectile_spread_radius", 10 },
+		{ "spell_maximum_action_distance_+%", -50 },
+		{ "base_skill_effect_duration", 2000 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"base_projectile_speed_+%",
+		"is_area_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, cooldown = 4, levelRequirement = 3, statInterpolation = { 3, 3, }, },
@@ -2840,6 +3654,7 @@ skills["UndyingWhirlingBlades"] = {
 	name = "Whirling Blades",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "迅速穿越敌人并同时造成武器伤害. 限定匕首, 爪以及单手剑. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
 	weaponTypes = {
@@ -2855,7 +3670,13 @@ skills["UndyingWhirlingBlades"] = {
 		melee = true,
 		movement = true,
 	},
+	constantStats = {
+		{ "active_skill_damage_+%_final", -40 },
+		{ "monster_flurry", 1 },
+	},
 	stats = {
+		"cast_time_overrides_attack_duration",
+		"ignores_proximity_shield",
 	},
 	levels = {
 		[1] = { levelRequirement = 0, cost = { Mana = 50, }, },
@@ -2880,7 +3701,12 @@ skills["WalkingDoubleSlash"] = {
 		melee = true,
 		area = true,
 	},
+	constantStats = {
+		{ "active_skill_attack_speed_+%_final", -22 },
+	},
 	stats = {
+		"is_area_damage",
+		"disable_skill_repeats",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 0.95, cooldown = 6, baseMultiplier = 0.7, levelRequirement = 12, },
@@ -2890,6 +3716,7 @@ skills["WickerManMoltenStrike"] = {
 	name = "熔岩之击",
 	hidden = true,
 	color = 1,
+	baseEffectiveness = 0.69999998807907,
 	description = "给武器灌注熔岩之力，对敌人造成物理及火焰伤害，并从击中的敌人身上发射出熔岩球，射向该攻击击中的所有敌人。这些熔岩球会爆炸，着地时对敌人造成范围伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Fire] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.ThresholdJewelChaining] = true, },
 	weaponTypes = {
@@ -2911,6 +3738,14 @@ skills["WickerManMoltenStrike"] = {
 		attack = true,
 		melee = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 60 },
+		{ "number_of_additional_projectiles", 4 },
+		{ "active_skill_damage_+%_final", 20 },
+		{ "physical_damage_+%", 10 },
+		{ "active_skill_projectile_damage_+%_final", -40 },
+		{ "base_projectile_speed_+%", -25 },
+	},
 	stats = {
 	},
 	levels = {
@@ -2921,6 +3756,8 @@ skills["VaalincursionMortar"] = {
 	name = "Physical Mortar",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.9550000429153,
+	incrementalEffectiveness = 0.035000000149012,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2930,9 +3767,19 @@ skills["VaalincursionMortar"] = {
 		projectile = true,
 		area = true,
 	},
+	constantStats = {
+		{ "projectile_spread_radius", 10 },
+		{ "spell_maximum_action_distance_+%", -40 },
+		{ "projectile_spread_radius_per_additional_projectile", 5 },
+		{ "projectile_minimum_range", 10 },
+		{ "active_skill_area_of_effect_radius_+%_final", -40 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -2942,6 +3789,8 @@ skills["VaalIncursionFirestorm"] = {
 	name = "Firestorm",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 4.4443998336792,
+	incrementalEffectiveness = 0.03999999910593,
 	description = "低语呢喃, 呼唤无数火焰之球如雨一般洒落在目标区域. 每颗火球落地时将会爆炸, 并对周围的敌人造成伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2954,9 +3803,15 @@ skills["VaalIncursionFirestorm"] = {
 	baseMods = {
 		skill("showAverage", true),
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 600 },
+		{ "fire_storm_fireball_delay_ms", 200 },
+		{ "firestorm_base_area_of_effect_+%", 100 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, cooldown = 6, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -2966,6 +3821,8 @@ skills["VaalIncursionSpecialBeamCannonBlood"] = {
 	name = "Physical Beam",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2,
+	incrementalEffectiveness = 0.035000000149012,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
@@ -2973,9 +3830,13 @@ skills["VaalIncursionSpecialBeamCannonBlood"] = {
 		spell = true,
 		area = true,
 	},
+	constantStats = {
+		{ "active_skill_area_of_effect_radius_+%_final", -40 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, cooldown = 8, levelRequirement = 83, statInterpolation = { 3, 3, }, },
@@ -2985,6 +3846,7 @@ skills["MeleeEyrieArrow"] = {
 	name = "Default Attack",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "对你的敌人无情痛击.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2994,8 +3856,16 @@ skills["MeleeEyrieArrow"] = {
 		melee = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 75 },
+		{ "arrow_projectile_variation", 26 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"use_scaled_contact_offset",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { 0, baseMultiplier = 0.75, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -3008,6 +3878,8 @@ skills["AtlasEyrieArcherMortar"] = {
 	name = "Mortar",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.5,
+	incrementalEffectiveness = 0.03999999910593,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3022,6 +3894,10 @@ skills["AtlasEyrieArcherMortar"] = {
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"is_area_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, cooldown = 10, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3040,8 +3916,16 @@ skills["AtlasEyrieArcherSnipe"] = {
 		projectile = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 92 },
+		{ "skill_physical_damage_%_to_convert_to_cold", 75 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
+		"always_pierce",
 	},
 	levels = {
 		[1] = { 0, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -3054,6 +3938,8 @@ skills["AtlasEyrieArcherCrystalImpact"] = {
 	name = "Crystal Impact",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.5,
+	incrementalEffectiveness = 0.03999999910593,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -3065,6 +3951,7 @@ skills["AtlasEyrieArcherCrystalImpact"] = {
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3074,6 +3961,8 @@ skills["AtlasExilesCrusaderMageguardProjectile"] = {
 	name = "Projectile Spell",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.25,
+	incrementalEffectiveness = 0.045000001788139,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.33,
@@ -3082,9 +3971,16 @@ skills["AtlasExilesCrusaderMageguardProjectile"] = {
 		projectile = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 127 },
+		{ "spell_maximum_action_distance_+%", -40 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3094,6 +3990,8 @@ skills["AtlasExileCrusaderMageguardBombExplodeSpectre"] = {
 	name = "Bombs",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2,
+	incrementalEffectiveness = 0.045000001788139,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -3105,6 +4003,7 @@ skills["AtlasExileCrusaderMageguardBombExplodeSpectre"] = {
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3114,6 +4013,8 @@ skills["AtlasCrusaderMageguardBeam"] = {
 	name = "Beam",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.045000001788139,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2.3,
@@ -3125,6 +4026,7 @@ skills["AtlasCrusaderMageguardBeam"] = {
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, cooldown = 8, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3134,6 +4036,8 @@ skills["AtlasCrusaderSisterMortarSpectre"] = {
 	name = "Mortar",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.2999999523163,
+	incrementalEffectiveness = 0.03999999910593,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3145,9 +4049,18 @@ skills["AtlasCrusaderSisterMortarSpectre"] = {
 		area = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "projectile_spread_radius", 20 },
+		{ "number_of_projectiles_override", 1 },
+		{ "monster_mortar_number_of_forks", 3 },
+		{ "mortar_projectile_distance_override", 10 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { 0.69999998807907, 1.2999999523163, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3157,6 +4070,8 @@ skills["BreachLightningWhip"] = {
 	name = "Breach Lightning Whip",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.03999999910593,
 	description = "用汹涌的火焰打击前方的敌人。燃烧的敌人会受到更高伤害。如击中被点燃的敌人，则会在它身下产生燃烧地面。你的伤害词缀不能作用于燃烧地面。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3169,9 +4084,13 @@ skills["BreachLightningWhip"] = {
 		skill("radius", 30),
 		skill("showAverage", true),
 	},
+	constantStats = {
+		{ "active_skill_area_of_effect_radius_+%_final", 80 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, cooldown = 5, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -3182,6 +4101,8 @@ skills["BreachArc"] = {
 	name = "Breach Arc",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.82499998807907,
+	incrementalEffectiveness = 0.043999999761581,
 	description = "一道电弧从施放者射向目标, 并会弹跳至周围其他敌人。每次主电弧弹射时，也会向第二个敌人进行二次弹射，但二次弹射仅生效一次。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "beam_skill_stat_descriptions",
@@ -3189,6 +4110,10 @@ skills["BreachArc"] = {
 	baseFlags = {
 		spell = true,
 		chaining = true,
+	},
+	constantStats = {
+		{ "base_chance_to_shock_%", 10 },
+		{ "spell_maximum_action_distance_+%", -65 },
 	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
@@ -3213,6 +4138,13 @@ skills["BreachTeamWarp"] = {
 	baseMods = {
 		skill("showAverage", true),
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 8000 },
+		{ "number_of_monsters_to_summon", 3 },
+		{ "breach_team_warp_buff_lightning_damage_+%", 25 },
+		{ "breach_team_warp_buff_movement_velocity_+%", 50 },
+		{ "breach_team_warp_buff_damage_taken_+%", -50 },
+	},
 	stats = {
 	},
 	levels = {
@@ -3223,6 +4155,8 @@ skills["BreachLightningOrbsCommander"] = {
 	name = "Breach Lightning Orbs Commander",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.85000002384186,
+	incrementalEffectiveness = 0.049100000411272,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -3232,9 +4166,14 @@ skills["BreachLightningOrbsCommander"] = {
 	baseMods = {
 		skill("showAverage", true),
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 3000 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
+		"cannot_stun",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, cooldown = 5, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -3248,6 +4187,9 @@ skills["SandLeaperDodgeLeft"] = {
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
 	baseFlags = {
+	},
+	constantStats = {
+		{ "monster_dodge_distance", 22 },
 	},
 	stats = {
 	},
@@ -3264,6 +4206,10 @@ skills["SandLeaperDodgeRight"] = {
 	castTime = 1,
 	baseFlags = {
 	},
+	constantStats = {
+		{ "monster_dodge_direction", 1 },
+		{ "monster_dodge_distance", 22 },
+	},
 	stats = {
 	},
 	levels = {
@@ -3274,6 +4220,8 @@ skills["SynthesisSoulstealerProjectileLightning"] = {
 	name = "Lightning Projectile",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.5,
+	incrementalEffectiveness = 0.037999998778105,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.33,
@@ -3282,9 +4230,14 @@ skills["SynthesisSoulstealerProjectileLightning"] = {
 		triggerable = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 103 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3294,6 +4247,8 @@ skills["SynthesisSoulstealerLaser"] = {
 	name = "Lightning Laser",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.60000002384186,
+	incrementalEffectiveness = 0.050000000745058,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -3306,6 +4261,8 @@ skills["SynthesisSoulstealerLaser"] = {
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
+		"cannot_stun",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3315,6 +4272,8 @@ skills["SynthesisSoulstealerBolt"] = {
 	name = "Lightning Bolt",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.60000002384186,
+	incrementalEffectiveness = 0.03999999910593,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -3324,9 +4283,16 @@ skills["SynthesisSoulstealerBolt"] = {
 		area = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+		{ "base_skill_effect_duration", 260 },
+		{ "skill_range_+%", -75 },
+		{ "active_skill_area_of_effect_radius_+%_final", -35 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.69999998807907, 1.2999999523163, critChance = 5, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -3336,6 +4302,7 @@ skills["MeleeCold"] = {
 	name = "Default Attack",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "对你的敌人无情痛击.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3345,8 +4312,13 @@ skills["MeleeCold"] = {
 		melee = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 75 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
 	},
 	levels = {
 		[1] = { 0, baseMultiplier = 0.75, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -3359,6 +4331,8 @@ skills["AtlasCrusaderJudgeBallLightning"] = {
 	name = "Ball Lightning",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.41249999403954,
+	incrementalEffectiveness = 0.045000001788139,
 	description = "射出一个移动缓慢的天雷之珠，将会周期性的对周围的敌人施放闪电并造成伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3370,9 +4344,14 @@ skills["AtlasCrusaderJudgeBallLightning"] = {
 		area = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "base_projectile_speed_+%", -25 },
+		{ "active_skill_area_of_effect_radius_+%_final", -11 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 6, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3382,6 +4361,8 @@ skills["AtlasCruasderJudgeFadingNova"] = {
 	name = "Nova Spell",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 3,
+	incrementalEffectiveness = 0.045000001788139,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.33,
@@ -3390,9 +4371,17 @@ skills["AtlasCruasderJudgeFadingNova"] = {
 		projectile = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 128 },
+		{ "number_of_additional_projectiles", 7 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"base_is_projectile",
+		"always_pierce",
+		"use_scaled_contact_offset",
+		"projectiles_nova",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, cooldown = 8, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3420,8 +4409,12 @@ skills["GAHarvestCrabDashSlam"] = {
 	baseMods = {
 		skill("showAverage", true),
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 50 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"is_area_damage",
 	},
 }
 skills["HarvestCrabAbyssSlam"] = {
@@ -3440,8 +4433,15 @@ skills["HarvestCrabAbyssSlam"] = {
 	baseMods = {
 		skill("showAverage", true),
 	},
+	constantStats = {
+		{ "upheaval_number_of_spikes", 4 },
+		{ "main_hand_base_maximum_attack_distance", 50 },
+		{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -50 },
+		{ "skill_physical_damage_%_to_convert_to_cold", 50 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { -30, baseMultiplier = 0.75, cooldown = 10, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -3522,8 +4522,13 @@ skills["HarvestRhexLeapSlam"] = {
 	baseMods = {
 		skill("showAverage", true),
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"is_area_damage",
+		"cast_time_overrides_attack_duration",
 	},
 	levels = {
 		[1] = { 0, cooldown = 10, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -3554,14 +4559,20 @@ skills["GAHarvestRhexDashSlash"] = {
 	baseMods = {
 		skill("showAverage", true),
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"is_area_damage",
 	},
 }
 skills["GSHarvestRhexScreech"] = {
 	name = "Screech",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.2000000476837,
+	incrementalEffectiveness = 0.03999999910593,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -3574,9 +4585,13 @@ skills["GSHarvestRhexScreech"] = {
 		area = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 4000 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
 	},
 }
 skills["HarvestRhexScreechDebuff"] = {
@@ -3609,6 +4624,8 @@ skills["LegionTemplarJudgeBallLightning"] = {
 	name = "Ball Lightning",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 0.51560002565384,
+	incrementalEffectiveness = 0.045000001788139,
 	description = "射出一个移动缓慢的天雷之珠，将会周期性的对周围的敌人施放闪电并造成伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3620,9 +4637,16 @@ skills["LegionTemplarJudgeBallLightning"] = {
 		area = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "base_projectile_speed_+%", -25 },
+		{ "skill_physical_damage_%_to_convert_to_lightning", 80 },
+		{ "active_skill_area_of_effect_radius_+%_final", -11 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"base_is_projectile",
+		"visual_hit_effect_elemental_is_holy",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3632,6 +4656,8 @@ skills["LegionTemplarJudgeStormCall"] = {
 	name = "Storm Call",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 3,
+	incrementalEffectiveness = 0.031199999153614,
 	description = "在目标区域设置一个标记. 经过一小段时间后, 闪电会攻击那个标记, 并对该标记周围的敌人造成伤害, 同时其他的标记也会陆续受到闪电攻击.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Multicastable] = true, [SkillType.Lightning] = true, [SkillType.Cascadable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3641,9 +4667,16 @@ skills["LegionTemplarJudgeStormCall"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 2000 },
+		{ "skill_physical_damage_%_to_convert_to_lightning", 60 },
+		{ "active_skill_area_of_effect_radius_+%_final", -13 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
+		"visual_hit_effect_elemental_is_holy",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -3662,8 +4695,18 @@ skills["MPWHeistThugRangedBurningArrow"] = {
 		hit = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 124 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 75 },
+		{ "spell_maximum_action_distance_+%", -50 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"base_is_projectile",
+		"use_scaled_contact_offset",
+		"projectile_uses_contact_position",
+		"maintain_projectile_direction_when_using_contact_position",
+		"always_ignite",
 	},
 	levels = {
 		[1] = { -30, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -3676,6 +4719,8 @@ skills["MPSHeistRobotClockworkGolemBasicProjectile"] = {
 	name = "Frost Projectile",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 3.2000000476837,
+	incrementalEffectiveness = 0.041999999433756,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -3684,9 +4729,16 @@ skills["MPSHeistRobotClockworkGolemBasicProjectile"] = {
 		projectile = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 163 },
+		{ "spell_maximum_action_distance_+%", -50 },
+	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"base_is_projectile",
+		"use_scaled_contact_offset",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3696,6 +4748,8 @@ skills["MMSHeistRobotClockworkGolemMortarSpectre"] = {
 	name = "Frost Mortar",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2,
+	incrementalEffectiveness = 0.045000001788139,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3707,9 +4761,16 @@ skills["MMSHeistRobotClockworkGolemMortarSpectre"] = {
 		area = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -35 },
+	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"is_area_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, cooldown = 6, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -3719,6 +4780,8 @@ skills["HeistThugRangedExplosiveArrow"] = {
 	name = "Explosive Arrow (20 Fuses)",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.037999998778105,
 	description = "发射一支箭矢，射在一名敌人身上或墙上，持续一段时间后或目标身上的箭矢达到上限后会引发爆炸，对周围造成范围伤害。如果一个敌人身上有多个爆炸箭矢，则第一个箭矢爆炸时会引爆剩余箭矢，它们的伤害会计入爆炸总伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -3758,9 +4821,22 @@ skills["HeistThugRangedExplosiveArrow"] = {
 		mod("Damage", "MORE", 100, 0, 0, { type = "Multiplier", var = "ExplosiveArrowFuse", base = -100 }),
 		mod("Multiplier:ExplosiveArrowFuse", "BASE", 20),
 	},
+	constantStats = {
+		{ "fuse_arrow_explosion_radius_+_per_fuse_arrow_orb", 2 },
+		{ "explosive_arrow_explosion_base_damage_+permyriad", -5000 },
+		{ "explosive_arrow_maximum_bonus_explosion_radius", 12 },
+		{ "explosive_arrow_hit_damage_+%_final_per_stack", 3 },
+		{ "explosive_arrow_stack_limit", 20 },
+		{ "active_skill_area_of_effect_radius_+%_final", -40 },
+		{ "base_skill_effect_duration", 2000 },
+	},
 	stats = {
 		"explosive_arrow_explosion_minimum_added_fire_damage",
 		"explosive_arrow_explosion_maximum_added_fire_damage",
+		"base_is_projectile",
+		"use_scaled_contact_offset",
+		"projectile_uses_contact_position",
+		"maintain_projectile_direction_when_using_contact_position",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -3776,7 +4852,11 @@ skills["EmptyActionAttackSecretPoliceDaggers"] = {
 	baseFlags = {
 		attack = true,
 	},
+	constantStats = {
+		{ "main_hand_base_maximum_attack_distance", 60 },
+	},
 	stats = {
+		"cast_time_overrides_attack_duration",
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3786,6 +4866,8 @@ skills["BetrayalSecretPoliceCurveDagger1"] = {
 	name = "Secret Police Daggers",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.03999999910593,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -3794,8 +4876,16 @@ skills["BetrayalSecretPoliceCurveDagger1"] = {
 		projectile = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "lunaris_glaive_angle", -20 },
+		{ "lunaris_glaive_acceleration_x", 1500 },
+		{ "active_skill_attack_speed_+%_final", 20 },
+		{ "melee_weapon_range_+", 50 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { -50, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -3806,6 +4896,8 @@ skills["AtlasEyrieKiwethMortarSpectre"] = {
 	name = "Mortar",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.5,
+	incrementalEffectiveness = 0.03999999910593,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3817,9 +4909,16 @@ skills["AtlasEyrieKiwethMortarSpectre"] = {
 		projectile = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "number_of_projectiles_override", 1 },
+	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"is_area_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, cooldown = 10, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3829,6 +4928,8 @@ skills["AtlasEyrieKiwethMortarShards"] = {
 	name = "Mortar Shards",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.045000001788139,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -3841,6 +4942,8 @@ skills["AtlasEyrieKiwethMortarShards"] = {
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -3859,7 +4962,12 @@ skills["GAHeistThugRangedArrowShotgun"] = {
 		area = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 50 },
+	},
 	stats = {
+		"is_area_damage",
+		"cast_time_overrides_attack_duration",
 	},
 	levels = {
 		[1] = { cooldown = 10, levelRequirement = 1, },
@@ -3878,8 +4986,13 @@ skills["GAHeistThugRangedShotgun"] = {
 		area = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 50 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"is_area_damage",
+		"cast_time_overrides_attack_duration",
 	},
 	levels = {
 		[1] = { -30, baseMultiplier = 1.3, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -3892,6 +5005,8 @@ skills["GSHeistRobotPyreBeamBlast"] = {
 	name = "Beam Blast",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 3.2000000476837,
+	incrementalEffectiveness = 0.03999999910593,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
@@ -3901,9 +5016,13 @@ skills["GSHeistRobotPyreBeamBlast"] = {
 		area = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -3913,6 +5032,8 @@ skills["GSHeistRobotPyreNukeBeam"] = {
 	name = "Nuke Beam",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 4,
+	incrementalEffectiveness = 0.050000000745058,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 4.5,
@@ -3925,6 +5046,7 @@ skills["GSHeistRobotPyreNukeBeam"] = {
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, cooldown = 13, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -3934,6 +5056,8 @@ skills["GSHeistRobotPyreNukeBeamChannelled"] = {
 	name = "Nuke Beam Channelled",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 4,
+	incrementalEffectiveness = 0.045000001788139,
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Channel] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0.54,
@@ -3946,6 +5070,7 @@ skills["GSHeistRobotPyreNukeBeamChannelled"] = {
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, cooldown = 13, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -3955,6 +5080,8 @@ skills["GSHeistRobotPyreBeamSweepBeam"] = {
 	name = "Beam Sweep",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.5,
+	incrementalEffectiveness = 0.03999999910593,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -3967,6 +5094,7 @@ skills["GSHeistRobotPyreBeamSweepBeam"] = {
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -3976,6 +5104,7 @@ skills["MeleeEyrieBird"] = {
 	name = "Knockback Attack",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "对你的敌人无情痛击.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3985,8 +5114,16 @@ skills["MeleeEyrieBird"] = {
 		melee = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 75 },
+		{ "base_knockback_speed_+%", 100 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"global_knockback",
+		"determine_knockback_direction_from_melee_pattern",
 	},
 	levels = {
 		[1] = { 0, baseMultiplier = 0.75, cooldown = 8, attackSpeedMultiplier = -38, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -3999,6 +5136,7 @@ skills["AtlasEyrieBirdBreath"] = {
 	name = "Chilling Breath",
 	hidden = true,
 	color = 4,
+	incrementalEffectiveness = 0.03999999910593,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
@@ -4008,9 +5146,13 @@ skills["AtlasEyrieBirdBreath"] = {
 		area = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "chill_minimum_slow_%", 30 },
+	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, cooldown = 10, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -4041,7 +5183,12 @@ skills["SecretDesecrateMonsterEarthquakeTriggered"] = {
 		duration = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 10 },
+		{ "quake_slam_fully_charged_explosion_damage_+%_final", 50 },
+	},
 	stats = {
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { levelRequirement = 1, },
@@ -4051,6 +5198,7 @@ skills["SecretDesecrateMonsterMultiSlash"] = {
 	name = "Multi Slash",
 	hidden = true,
 	color = 1,
+	baseEffectiveness = 0,
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -4060,7 +5208,12 @@ skills["SecretDesecrateMonsterMultiSlash"] = {
 		area = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "active_skill_area_of_effect_radius_+%_final", -33 },
+	},
 	stats = {
+		"is_area_damage",
+		"skill_is_attack",
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -33, levelRequirement = 0, },
@@ -4070,6 +5223,7 @@ skills["UltimatumGuardMeleeCold"] = {
 	name = "Cold Arrow",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "对你的敌人无情痛击.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -4079,8 +5233,17 @@ skills["UltimatumGuardMeleeCold"] = {
 		projectile = true,
 		melee = true,
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 2 },
+		{ "skill_physical_damage_%_to_convert_to_cold", 50 },
+		{ "arrow_projectile_variation", 34 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"action_attack_or_cast_time_uses_animation_length",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { -50, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -4100,8 +5263,12 @@ skills["UltimatumGuardConeArrowCold"] = {
 		area = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 100 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0, cooldown = 8, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -4120,8 +5287,17 @@ skills["MPWVaalGuardBarrage"] = {
 		projectile = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 80 },
+		{ "monster_projectile_variation", 141 },
+		{ "projectile_random_angle_based_on_distance_to_target_location_%", 60 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
+		"maintain_projectile_direction_when_using_contact_position",
 	},
 	levels = {
 		[1] = { -70, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -4132,6 +5308,7 @@ skills["MeleeAtAnimationSpeed"] = {
 	name = "Default Attack",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "对你的敌人无情痛击.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -4142,6 +5319,11 @@ skills["MeleeAtAnimationSpeed"] = {
 		projectile = true,
 	},
 	stats = {
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"action_attack_or_cast_time_uses_animation_length",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { levelRequirement = 1, },
@@ -4151,6 +5333,7 @@ skills["MeleeKaruiArcher"] = {
 	name = "Cold Arrow",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "对你的敌人无情痛击.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -4160,8 +5343,13 @@ skills["MeleeKaruiArcher"] = {
 		projectile = true,
 		melee = true,
 	},
+	constantStats = {
+		{ "arrow_projectile_variation", 18 },
+		{ "skill_physical_damage_%_to_convert_to_cold", 75 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { 0, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -4182,8 +5370,16 @@ skills["LegionKaruiArcherSnipe"] = {
 		projectile = true,
 		hit = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 75 },
+		{ "active_skill_attack_speed_+%_final", -50 },
+		{ "monster_projectile_variation", 69 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"base_is_projectile",
+		"always_pierce",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { 0, baseMultiplier = 1.65, cooldown = 10, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -4196,6 +5392,7 @@ skills["MeleeAtAnimationSpeedFire"] = {
 	name = "Default Attack",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "对你的敌人无情痛击.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -4205,8 +5402,16 @@ skills["MeleeAtAnimationSpeedFire"] = {
 		projectile = true,
 		melee = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 75 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"action_attack_or_cast_time_uses_animation_length",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { 0, baseMultiplier = 0.75, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -4228,8 +5433,12 @@ skills["GAHellscapeDemonElite1DashSlash"] = {
 		area = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 50 },
+	},
 	stats = {
 		"active_skill_damage_+%_final",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { -30, levelRequirement = 1, statInterpolation = { 2, }, },
@@ -4242,6 +5451,8 @@ skills["GSHellscapeDemonElite1Screech"] = {
 	name = "Screech",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0.75,
+	incrementalEffectiveness = 0.029999999329448,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -4251,9 +5462,13 @@ skills["GSHellscapeDemonElite1Screech"] = {
 		area = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 4000 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -4263,6 +5478,8 @@ skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
 	name = "Lightning Bolt",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.045000001788139,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.333,
@@ -4270,6 +5487,9 @@ skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
 		spell = true,
 		hit = true,
 		triggerable = true,
+	},
+	constantStats = {
+		{ "generic_skill_trigger_skills_with_id", 1 },
 	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
@@ -4283,6 +5503,8 @@ skills["GSHellscapePaleEliteBoltImpact"] = {
 	name = "Bolt Impact",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 4,
+	incrementalEffectiveness = 0.03999999910593,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -4292,9 +5514,13 @@ skills["GSHellscapePaleEliteBoltImpact"] = {
 		hit = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "generic_skill_trigger_id", 1 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -4304,6 +5530,8 @@ skills["GSHellscapePaleEliteOmegaBeam"] = {
 	name = "Omega Beam",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 6.5,
+	incrementalEffectiveness = 0.043099999427795,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2.333,
@@ -4313,9 +5541,13 @@ skills["GSHellscapePaleEliteOmegaBeam"] = {
 		hit = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, cooldown = 6, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -4325,6 +5557,8 @@ skills["MMSHellscapeDemonEliteTripleMortar"] = {
 	name = "Triple Mortal",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 3.2000000476837,
+	incrementalEffectiveness = 0.032000001519918,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -4336,10 +5570,19 @@ skills["MMSHellscapeDemonEliteTripleMortar"] = {
 		area = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+		{ "projectile_spread_radius", 15 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 25 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"active_skill_damage_+%_final",
+		"is_area_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, -30, critChance = 5, levelRequirement = 1, statInterpolation = { 3, 3, 2, }, },
@@ -4352,6 +5595,8 @@ skills["MMSHellscapeDemonEliteVomitMortar"] = {
 	name = "Vomit Mortar",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.875,
+	incrementalEffectiveness = 0.032000001519918,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -4363,10 +5608,19 @@ skills["MMSHellscapeDemonEliteVomitMortar"] = {
 		area = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+		{ "projectile_spread_radius", 5 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 25 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"active_skill_damage_+%_final",
+		"is_area_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
+		"use_scaled_contact_offset",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, -30, critChance = 5, levelRequirement = 1, statInterpolation = { 3, 3, 2, }, },
@@ -4379,6 +5633,8 @@ skills["GSHellscapeDemonEliteBeamNuke"] = {
 	name = "Beam Nuke",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 5,
+	incrementalEffectiveness = 0.033500000834465,
 	skillTypes = { [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 2,
@@ -4388,10 +5644,15 @@ skills["GSHellscapeDemonEliteBeamNuke"] = {
 		triggerable = true,
 		area = true,
 	},
+	constantStats = {
+		{ "spell_maximum_action_distance_+%", -50 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 25 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"active_skill_damage_+%_final",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, -30, critChance = 5, cooldown = 7, levelRequirement = 1, statInterpolation = { 3, 3, 2, }, },
@@ -4445,6 +5706,7 @@ skills["GAHellscapeStabbyCleave1"] = {
 		area = true,
 	},
 	stats = {
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { baseMultiplier = 0.5, levelRequirement = 1, },
@@ -4464,6 +5726,7 @@ skills["GAHellscapePaleEliteSkyStab"] = {
 		area = true,
 	},
 	stats = {
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { levelRequirement = 1, },
@@ -4473,6 +5736,8 @@ skills["HellscapeFleshFodderArc"] = {
 	name = "Scourge Arc",
 	hidden = true,
 	color = 3,
+	baseEffectiveness = 1.3500000238419,
+	incrementalEffectiveness = 0.045000001788139,
 	description = "一道电弧从施放者射向目标, 并会弹跳至周围其他敌人。每次主电弧弹射时，也会向第二个敌人进行二次弹射，但二次弹射仅生效一次。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "beam_skill_stat_descriptions",
@@ -4482,9 +5747,15 @@ skills["HellscapeFleshFodderArc"] = {
 		chaining = true,
 		triggerable = true,
 	},
+	constantStats = {
+		{ "base_chance_to_shock_%", 10 },
+		{ "spell_maximum_action_distance_+%", -50 },
+		{ "shock_art_variation", 2 },
+	},
 	stats = {
 		"spell_minimum_base_lightning_damage",
 		"spell_maximum_base_lightning_damage",
+		"disable_visual_hit_effect",
 	},
 	levels = {
 		[1] = { 0.5, 1.5, critChance = 5, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -4494,6 +5765,7 @@ skills["SynthesisSoulstealerProjectilePhysical"] = {
 	name = "Projectile",
 	hidden = true,
 	color = 4,
+	incrementalEffectiveness = 0.037999998778105,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.33,
@@ -4501,9 +5773,14 @@ skills["SynthesisSoulstealerProjectilePhysical"] = {
 		spell = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "monster_projectile_variation", 104 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -4513,6 +5790,7 @@ skills["SynthesisPhysicalTripleMortar"] = {
 	name = "Triple Mortar",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 0,
 	description = "通用的怪物炮击技能. 与怪物投射物相似, 但带有冲击效果.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -4522,9 +5800,18 @@ skills["SynthesisPhysicalTripleMortar"] = {
 		spell = true,
 		projectile = true,
 	},
+	constantStats = {
+		{ "projectile_spread_radius", 25 },
+		{ "projectile_minimum_range", 20 },
+		{ "number_of_projectiles_override", 2 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
+		"base_is_projectile",
+		"projectile_uses_contact_position",
+		"mortar_projectile_scale_animation_speed_instead_of_projectile_speed",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, critChance = 5, cooldown = 12, levelRequirement = 0, statInterpolation = { 3, 3, }, },
@@ -4534,11 +5821,18 @@ skills["SynthesisSoulstealerQuicksand"] = {
 	name = "Quicksand",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 2.5,
+	incrementalEffectiveness = 0.045000001788139,
 	skillTypes = { [SkillType.Area] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.67,
 	baseFlags = {
 		area = true,
+	},
+	constantStats = {
+		{ "base_skill_effect_duration", 6000 },
+		{ "ground_quicksand_art_variation", 4 },
+		{ "active_skill_area_of_effect_radius_+%_final", -10 },
 	},
 	stats = {
 		"base_physical_damage_to_deal_per_minute",
@@ -4559,6 +5853,7 @@ skills["SynthesisPhysicalVolatileSlam"] = {
 		area = true,
 	},
 	stats = {
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -4576,8 +5871,14 @@ skills["HellionRallyingCry"] = {
 		area = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 8000 },
+		{ "taunted_enemies_damage_+%_final_vs_non_taunt_target", -30 },
+		{ "active_skill_area_of_effect_radius_+%_final", -25 },
+	},
 	stats = {
 		"damage_+%",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 8, cooldown = 8, levelRequirement = 1, statInterpolation = { 1, }, },
@@ -4657,6 +5958,11 @@ skills["BreachBlizzardSpectre"] = {
 		skill("buffAllies", true),
 		skill("buffMinions", true),
 	},
+	constantStats = {
+		{ "avoid_damage_%", 15 },
+		{ "base_skill_effect_duration", 10000 },
+		{ "active_skill_area_of_effect_radius_+%_final", 150 },
+	},
 	stats = {
 	},
 	levels = {
@@ -4667,6 +5973,8 @@ skills["DelveWraithScreechChaos"] = {
 	name = "Chaos Screech",
 	hidden = true,
 	color = 4,
+	baseEffectiveness = 1.7999999523163,
+	incrementalEffectiveness = 0.029999999329448,
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1.5,
@@ -4677,6 +5985,7 @@ skills["DelveWraithScreechChaos"] = {
 	stats = {
 		"spell_minimum_base_chaos_damage",
 		"spell_maximum_base_chaos_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -4747,6 +6056,8 @@ skills["WraithEtherealKnives"] = {
 	name = "Ethereal Knives",
 	hidden = true,
 	color = 2,
+	baseEffectiveness = 1.7000000476837,
+	incrementalEffectiveness = 0.037999998778105,
 	description = "向前依弧形射出数支匕首，对敌人造成物理伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -4756,10 +6067,18 @@ skills["WraithEtherealKnives"] = {
 		projectile = true,
 		duration = true,
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 9 },
+		{ "base_cast_speed_+%", -25 },
+		{ "active_skill_damage_+%_final", -15 },
+		{ "base_projectile_speed_+%", 25 },
+		{ "fixed_projectile_spread", 20 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"monster_penalty_against_minions_damage_+%_final_vs_player_minions",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0, critChance = 5, levelRequirement = 51, statInterpolation = { 3, 3, 1, }, },

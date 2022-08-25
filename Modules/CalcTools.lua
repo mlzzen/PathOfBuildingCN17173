@@ -205,75 +205,52 @@ function print_r ( t )
     print()
 end
 -- Build table of stats for the given skill instance
-function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, spGemQuality)
-
-	
+function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
 	local stats = { }
-	if skillInstance.quality > 0 then
+	if skillInstance.quality > 0 and grantedEffect.qualityStats then
 		local qualityId = skillInstance.qualityId or "Default"
 		local qualityStats = grantedEffect.qualityStats[qualityId]
 		if not qualityStats then
 			qualityStats = grantedEffect.qualityStats
 		end
 		for _, stat in ipairs(qualityStats) do
-			if spGemQuality then 
-				stats["[GEM_Q]"..stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
-			else
-				stats[stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
-			end 
+			stats[stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
 		end
 	end
 	local level = grantedEffect.levels[skillInstance.level]
 	local availableEffectiveness
 	local actorLevel = skillInstance.actorLevel or level.levelRequirement
-	
 	for index, stat in ipairs(grantedEffect.stats) do
-				
-		local statValue
-	--	print_r(skillInstance)
-		if level.statInterpolation and level.statInterpolation[index] == 3 then
-			-- Effectiveness interpolation
-			if not availableEffectiveness then
-				availableEffectiveness = 
-					(3.885209 + 0.360246 * (actorLevel - 1)) * (grantedEffect.baseEffectiveness or 1)
-					* (1 + (grantedEffect.incrementalEffectiveness or 0)) ^ (actorLevel - 1)
+		-- Static value used as default (assumes statInterpolation == 1)
+		local statValue = level[index] or 1
+		if level.statInterpolation then
+			if level.statInterpolation[index] == 3 then
+				-- Effectiveness interpolation
+				if not availableEffectiveness then
+					availableEffectiveness = 
+						(3.885209 + 0.360246 * (actorLevel - 1)) * (grantedEffect.baseEffectiveness or 1)
+						* (1 + (grantedEffect.incrementalEffectiveness or 0)) ^ (actorLevel - 1)
+				end
+				statValue = round(availableEffectiveness * level[index])
+			elseif level.statInterpolation[index] == 2 then
+				-- Linear interpolation; I'm actually just guessing how this works
+				local nextLevel = m_min(skillInstance.level + 1, #grantedEffect.levels)
+				local nextReq = grantedEffect.levels[nextLevel].levelRequirement
+				local prevReq = grantedEffect.levels[nextLevel - 1].levelRequirement
+				local nextStat = grantedEffect.levels[nextLevel][index]
+				local prevStat = grantedEffect.levels[nextLevel - 1][index]
+				statValue = round(prevStat + (nextStat - prevStat) * (actorLevel - prevReq) / (nextReq - prevReq))
 			end
-			statValue = round(availableEffectiveness * level[index])
-		elseif level.statInterpolation and level.statInterpolation[index] == 2 then
-			-- Linear interpolation; I'm actually just guessing how this works
-			local nextLevel = m_min(skillInstance.level + 1, #grantedEffect.levels)
-			local nextReq = grantedEffect.levels[nextLevel].levelRequirement
-			local prevReq = grantedEffect.levels[nextLevel - 1].levelRequirement
-			local nextStat = grantedEffect.levels[nextLevel][index]
-			local prevStat = grantedEffect.levels[nextLevel - 1][index]
-			statValue = round(prevStat + (nextStat - prevStat) * (actorLevel - prevReq) / (nextReq - prevReq))
-		else
-			-- Static value
-			--print('【】》》'..stat)
-			
-			defaultValue=1
-			if grantedEffect.statMap and grantedEffect.statMap[stat] and grantedEffect.statMap[stat][1] 
- and grantedEffect.statMap[stat][1].value~=nil   and 
- type(grantedEffect.statMap[stat][1].value) == "table" and
- grantedEffect.statMap[stat][1].value.mod~=nil and  grantedEffect.statMap[stat][1].value.mod.value
-			then 
-				defaultValue=grantedEffect.statMap[stat][1].value.mod.value				
-			end 
-			if defaultValue==1 and grantedEffect.statMap and grantedEffect.statMap[stat] and grantedEffect.statMap[stat][1] 
-and grantedEffect.statMap[stat][1].value~=nil  
-and type(grantedEffect.statMap[stat][1].value) ~= "table" and type(grantedEffect.statMap[stat][1].value) ~= "boolean" 
-			then 
-				 defaultValue=grantedEffect.statMap[stat][1].value
-				 --print("Found>:"..grantedEffect.statMap[stat][1].value)		
-			end 
-			
-			
-			statValue = level[index] or defaultValue
 		end
 		stats[stat] = (stats[stat] or 0) + statValue
 	end
+	if grantedEffect.constantStats then
+		for _, stat in ipairs(grantedEffect.constantStats) do
+			stats[stat[1]] = (stats[stat[1]] or 0) + (stat[2] or 0)
+		end
+	end
 	return stats
-end 
+end
 
 
 -- 慎用 会根据角色/召唤生物等级来调整

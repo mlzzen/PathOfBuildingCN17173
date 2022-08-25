@@ -10,6 +10,8 @@ skills["SupportAddedColdDamage"] = {
 	name = "附加冰霜伤害(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 2,
+	baseEffectiveness = 0.58050000667572,
+	incrementalEffectiveness = 0.035900000482798,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, },
 	addSkillTypes = { },
@@ -77,6 +79,8 @@ skills["SupportAddedColdDamagePlus"] = {
 	name = "附加冰霜伤害（强辅）",
 	description = "辅助任何会击中敌人的技能。",
 	color = 2,
+	baseEffectiveness = 5.1399998664856,
+	incrementalEffectiveness = 0.0043999999761581,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, },
 	addSkillTypes = { },
@@ -120,6 +124,7 @@ skills["SupportAdditionalAccuracy"] = {
 	name = "额外命中(辅)",
 	description = "辅助攻击技能",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.ThresholdJewelRangedAttack, },
 	addSkillTypes = { },
@@ -191,6 +196,7 @@ skills["SupportArrowNova"] = {
 	name = "箭之新星（辅）",
 	description = "辅助将箭矢像投射物一般向前发射的弓箭技能。被辅助技能改为朝空中射出一支负载箭矢，落到目标地点。然后向外射出一圈箭矢。不能辅助原本就朝空中射击的技能、吟唱技能或创造召唤生物的技能。",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ThresholdJewelProjectile, SkillType.OR, SkillType.RangedAttack, SkillType.ThresholdJewelRangedAttack, SkillType.OR, SkillType.AND, SkillType.ProjectilesFromUser, SkillType.AND, },
 	addSkillTypes = { },
@@ -217,8 +223,15 @@ skills["SupportArrowNova"] = {
 			{ "damage_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 4 },
+	},
 	stats = {
 		"support_rain_projectile_damage_+%_final",
+		"projectiles_nova",
+		"projectiles_rain",
+		"skill_can_only_use_bow",
+		"skill_is_rain_skill",
 	},
 	levels = {
 		[1] = { -30, manaMultiplier = 50, levelRequirement = 8, statInterpolation = { 1, }, },
@@ -267,6 +280,7 @@ skills["SupportArrowNovaPlus"] = {
 	name = "箭之新星（强辅）",
 	description = "辅助将箭矢像投射物一般向前发射的弓箭技能。被辅助技能改为朝空中射出一支负载箭矢，落到目标地点。然后向外射出一圈箭矢。不能辅助原本就朝空中射击的技能、吟唱技能或创造召唤生物的技能。",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ThresholdJewelProjectile, SkillType.OR, SkillType.RangedAttack, SkillType.ThresholdJewelRangedAttack, SkillType.OR, SkillType.AND, SkillType.ProjectilesFromUser, SkillType.AND, },
 	addSkillTypes = { },
@@ -287,8 +301,15 @@ skills["SupportArrowNovaPlus"] = {
 			{ "projectile_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 5 },
+	},
 	stats = {
 		"support_rain_projectile_damage_+%_final",
+		"projectiles_nova",
+		"projectiles_rain",
+		"skill_can_only_use_bow",
+		"skill_is_rain_skill",
 	},
 	levels = {
 		[1] = { -15, manaMultiplier = 50, levelRequirement = 72, statInterpolation = { 1, }, },
@@ -317,6 +338,7 @@ skills["SupportBarrage"] = {
 	name = "弹幕（辅）",
 	description = "辅助使用弓类或法杖的投射物技能。不能辅助触发技能、吟唱技能或创造召唤生物的技能。",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ThresholdJewelProjectile, SkillType.OR, SkillType.ProjectileNumber, SkillType.OR, SkillType.RangedAttack, SkillType.ThresholdJewelRangedAttack, SkillType.OR, SkillType.AND, },
 	addSkillTypes = { },
@@ -351,8 +373,15 @@ skills["SupportBarrage"] = {
 			{ "barrage_support_projectile_spread_+%", 5 },
 		},
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 3 },
+		{ "support_barrage_attack_time_+%_per_projectile_fired", 5 },
+		{ "support_barrage_trap_and_mine_throwing_time_+%_final_per_projectile_fired", 5 },
+	},
 	stats = {
 		"support_barrage_damage_+%_final",
+		"projectiles_barrage",
+		"skill_can_only_use_non_melee_weapons",
 	},
 	levels = {
 		[1] = { -68, manaMultiplier = 50, levelRequirement = 38, statInterpolation = { 1, }, },
@@ -417,6 +446,9 @@ skills["SupportBlind"] = {
 			{ "critical_strike_chance_+%_vs_blinded_enemies", 2 },
 		},
 	},
+	constantStats = {
+		{ "global_chance_to_blind_on_hit_%", 10 },
+	},
 	stats = {
 		"blind_duration_+%",
 	},
@@ -479,6 +511,10 @@ skills["SupportBlockReduction"] = {
 		Alternate1 = {
 			{ "overpowered_effect_+%", 2 },
 		},
+	},
+	constantStats = {
+		{ "support_overpowered_base_duration_ms", 4000 },
+		{ "apply_overpowered_on_enemy_block_reduced_block_and_spell_block_%", 5 },
 	},
 	stats = {
 		"support_reduce_enemy_block_and_spell_block_%",
@@ -554,6 +590,9 @@ skills["SupportCastOnCrit"] = {
 			{ "attack_speed_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "cast_linked_spells_on_attack_crit_%", 100 },
+	},
 	stats = {
 	},
 	levels = {
@@ -627,6 +666,9 @@ skills["SupportCastOnCritTriggered"] = {
 	},
 	stats = {
 		"support_cast_on_crit_spell_damage_+%_final",
+		"spell_uncastable_if_triggerable",
+		"triggered_skill_uses_main_hand_or_averaged_attack_time_for_pvp_scaling",
+		"cast_spell_on_linked_attack_crit",
 	},
 	levels = {
 		[1] = { -19, cooldown = 0.15, levelRequirement = 38, manaMultiplier = 20, statInterpolation = { 1, }, },
@@ -691,6 +733,9 @@ skills["SupportCastOnCritPlus"] = {
 			{ "attack_critical_strike_chance_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "cast_linked_spells_on_attack_crit_%", 100 },
+	},
 	stats = {
 	},
 	levels = {
@@ -740,6 +785,9 @@ skills["SupportCastOnCritTriggeredPlus"] = {
 	stats = {
 		"support_cast_on_crit_spell_damage_+%_final",
 		"base_spell_cooldown_speed_+%",
+		"spell_uncastable_if_triggerable",
+		"triggered_skill_uses_main_hand_or_averaged_attack_time_for_pvp_scaling",
+		"cast_spell_on_linked_attack_crit",
 	},
 	levels = {
 		[1] = { -9, 10, cooldown = 0.15, levelRequirement = 72, manaMultiplier = 20, statInterpolation = { 1, 1, }, },
@@ -804,8 +852,15 @@ skills["SupportCastOnDeath"] = {
 			{ "skill_effect_duration_+%_while_dead", 3 },
 		},
 	},
+	constantStats = {
+		{ "cast_on_death_%", 100 },
+	},
 	stats = {
 		"cast_on_death_damage_+%_final_while_dead",
+		"spell_uncastable_if_triggerable",
+		"spell_only_castable_on_death",
+		"base_skill_show_average_damage_instead_of_dps",
+		"no_cost",
 	},
 	levels = {
 		[1] = { 0, manaMultiplier = -100, levelRequirement = 38, statInterpolation = { 1, }, },
@@ -875,6 +930,10 @@ skills["SupportChain"] = {
 			{ "projectile_chance_to_not_pierce_%", 4 },
 		},
 	},
+	constantStats = {
+		{ "number_of_chains", 2 },
+		{ "terrain_arrow_attachment_chance_reduction_+%", 100 },
+	},
 	stats = {
 		"support_chain_hit_damage_+%_final",
 	},
@@ -940,6 +999,10 @@ skills["SupportChainPlus"] = {
 		Default = {
 			{ "chaining_range_+%", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "number_of_chains", 3 },
+		{ "terrain_arrow_attachment_chance_reduction_+%", 150 },
 	},
 	stats = {
 		"support_chain_hit_damage_+%_final",
@@ -1056,6 +1119,10 @@ skills["SupportGemFrenzyPowerOnTrapTrigger"] = {
 			{ "trap_trigger_radius_+%_per_power_charge", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "trap_throwing_speed_+%_per_frenzy_charge", 10 },
+		{ "trap_critical_strike_multiplier_+_per_power_charge", 15 },
+	},
 	stats = {
 		"%_chance_to_gain_power_charge_on_trap_triggered_by_an_enemy",
 		"%_chance_to_gain_frenzy_charge_on_trap_triggered_by_an_enemy",
@@ -1150,8 +1217,14 @@ skills["SupportSlashingWeapon"] = {
 			{ "close_combat_damage_to_close_range_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "support_slashing_buff_base_duration_ms", 2000 },
+		{ "support_slashing_buff_attack_speed_+%_final_to_grant", 20 },
+	},
 	stats = {
 		"support_slashing_damage_+%_final_from_distance",
+		"supported_by_slashing",
+		"supported_skill_can_only_use_axe_and_sword",
 	},
 	levels = {
 		[1] = { 25, manaMultiplier = 40, levelRequirement = 18, statInterpolation = { 1, }, },
@@ -1220,6 +1293,12 @@ skills["SupportClusterTrap"] = {
 		Alternate2 = {
 			{ "trap_spread_+%", -2 },
 		},
+	},
+	constantStats = {
+		{ "number_of_additional_traps_to_throw", 2 },
+		{ "number_of_additional_traps_allowed", 5 },
+		{ "throw_traps_in_circle_radius", 20 },
+		{ "multi_trap_and_mine_support_flags", 1 },
 	},
 	stats = {
 		"support_clustertrap_damage_+%_final",
@@ -1397,6 +1476,7 @@ skills["SupportCullingStrike"] = {
 	},
 	stats = {
 		"damage_+%",
+		"kill_enemy_on_hit_if_under_10%_life",
 	},
 	levels = {
 		[1] = { 0, manaMultiplier = 10, levelRequirement = 18, statInterpolation = { 1, }, },
@@ -1469,6 +1549,9 @@ skills["SupportDeadlyAilments"] = {
 			{ "support_better_ailments_hit_damage_+%_final", 2 },
 		},
 	},
+	constantStats = {
+		{ "support_better_ailments_hit_damage_+%_final", -80 },
+	},
 	stats = {
 		"support_better_ailments_ailment_damage_+%_final",
 	},
@@ -1537,6 +1620,9 @@ skills["SupportDeadlyAilmentsPlus"] = {
 		Default = {
 			{ "damage_over_time_+%", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "support_better_ailments_hit_damage_+%_final", -80 },
 	},
 	stats = {
 		"support_better_ailments_ailment_damage_+%_final",
@@ -1654,6 +1740,7 @@ skills["SupportFasterAttack"] = {
 	name = "快速攻击(辅)",
 	description = "辅助攻击技能",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.ThresholdJewelRangedAttack, },
 	addSkillTypes = { },
@@ -1720,6 +1807,7 @@ skills["SupportFasterProjectiles"] = {
 	name = "快速投射(辅)",
 	description = "辅助投射物技能",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ProjectileSpeed, SkillType.ThresholdJewelProjectile, SkillType.ThresholdJewelRangedAttack, },
 	addSkillTypes = { },
@@ -1816,6 +1904,7 @@ skills["SupportFocusedBallista"] = {
 		"support_focused_ballista_totem_attack_speed_+%_final",
 		"support_focused_ballista_totem_damage_+%_final",
 		"summon_totem_cast_speed_+%",
+		"ranged_attack_totem_only_attacks_when_owner_attacks",
 	},
 	levels = {
 		[1] = { 25, 0, 40, manaMultiplier = 40, levelRequirement = 31, statInterpolation = { 1, 1, 1, }, },
@@ -1885,8 +1974,12 @@ skills["SupportFork"] = {
 			{ "projectile_base_number_of_targets_to_pierce", 0.05 },
 		},
 	},
+	constantStats = {
+		{ "terrain_arrow_attachment_chance_reduction_+%", 100 },
+	},
 	stats = {
 		"support_fork_projectile_damage_+%_final",
+		"projectiles_fork",
 	},
 	levels = {
 		[1] = { -10, manaMultiplier = 30, levelRequirement = 31, statInterpolation = { 1, }, },
@@ -1951,8 +2044,13 @@ skills["SupportForkPlus"] = {
 			{ "projectile_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "number_of_additional_forks_base", 1 },
+		{ "terrain_arrow_attachment_chance_reduction_+%", 150 },
+	},
 	stats = {
 		"support_fork_projectile_damage_+%_final",
+		"projectiles_fork",
 	},
 	levels = {
 		[1] = { 10, manaMultiplier = 30, levelRequirement = 72, statInterpolation = { 1, }, },
@@ -1981,6 +2079,7 @@ skills["SupportGreaterMultipleProjectiles"] = {
 	name = "高阶多重投射(辅)",
 	description = "辅助投射物技能",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ThresholdJewelProjectile, SkillType.ThresholdJewelRangedAttack, SkillType.ProjectileNumber, },
 	addSkillTypes = { },
@@ -2003,6 +2102,10 @@ skills["SupportGreaterMultipleProjectiles"] = {
 		Alternate2 = {
 			{ "multiple_projectiles_projectile_spread_+%", 1 },
 		},
+	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 4 },
+		{ "terrain_arrow_attachment_chance_reduction_+%", 200 },
 	},
 	stats = {
 		"support_multiple_projectile_damage_+%_final",
@@ -2070,6 +2173,10 @@ skills["SupportGreaterMultipleProjectilesPlus"] = {
 			{ "projectile_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 5 },
+		{ "terrain_arrow_attachment_chance_reduction_+%", 250 },
+	},
 	stats = {
 		"support_multiple_projectile_damage_+%_final",
 	},
@@ -2120,6 +2227,11 @@ skills["SupportGreaterVolley"] = {
 		Alternate2 = {
 			{ "base_projectile_speed_+%", 1 },
 		},
+	},
+	constantStats = {
+		{ "support_parallel_projectile_number_of_points_per_side", 4 },
+		{ "greater_volley_additional_projectiles_fire_parallel_x_dist", 80 },
+		{ "number_of_additional_projectiles", 4 },
 	},
 	stats = {
 		"support_greater_volley_projectile_damage_+%_final",
@@ -2198,6 +2310,9 @@ skills["SupportDamageAgainstChilled"] = {
 			{ "freeze_applies_cold_resistance_+", -0.2 },
 		},
 	},
+	constantStats = {
+		{ "additional_chance_to_freeze_chilled_enemies_%", 20 },
+	},
 	stats = {
 		"support_hypothermia_damage_+%_vs_chilled_enemies_final",
 		"support_hypothermia_cold_damage_over_time_+%_final",
@@ -2274,6 +2389,9 @@ skills["SupportImpale"] = {
 			{ "chance_to_inflict_additional_impale_%", 0.25 },
 		},
 	},
+	constantStats = {
+		{ "attacks_impale_on_hit_%_chance", 60 },
+	},
 	stats = {
 		"impale_debuff_effect_+%",
 	},
@@ -2324,6 +2442,8 @@ skills["SupportFrenzyChargeOnSlayingFrozenEnemy"] = {
 	name = "霜咬(辅)",
 	description = "辅助任意你用来击中敌人的技能. 无法辅助图腾, 陷阱和地雷所施放的技能.",
 	color = 2,
+	baseEffectiveness = 0.51819998025894,
+	incrementalEffectiveness = 0.03770000115037,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -2339,6 +2459,9 @@ skills["SupportFrenzyChargeOnSlayingFrozenEnemy"] = {
 		Alternate2 = {
 			{ "chance_to_gain_frenzy_charge_on_killing_frozen_enemy_%", 1 },
 		},
+	},
+	constantStats = {
+		{ "base_chance_to_freeze_%", 15 },
 	},
 	stats = {
 		"minimum_added_cold_damage_per_frenzy_charge",
@@ -2394,6 +2517,7 @@ skills["SupportLesserMultipleProjectiles"] = {
 	name = "低阶多重投射(辅)",
 	description = "辅助投射物技能",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ThresholdJewelProjectile, SkillType.ThresholdJewelRangedAttack, SkillType.ProjectileNumber, },
 	addSkillTypes = { },
@@ -2416,6 +2540,10 @@ skills["SupportLesserMultipleProjectiles"] = {
 		Alternate2 = {
 			{ "multiple_projectiles_projectile_spread_+%", 1 },
 		},
+	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 2 },
+		{ "terrain_arrow_attachment_chance_reduction_+%", 100 },
 	},
 	stats = {
 		"support_lesser_multiple_projectile_damage_+%_final",
@@ -2467,6 +2595,8 @@ skills["SupportChanceToPoison"] = {
 	name = "低阶毒化(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 2,
+	baseEffectiveness = 0.2732999920845,
+	incrementalEffectiveness = 0.03999999910593,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -2482,6 +2612,9 @@ skills["SupportChanceToPoison"] = {
 		Alternate2 = {
 			{ "hit_damage_+%", 1 },
 		},
+	},
+	constantStats = {
+		{ "base_chance_to_poison_on_hit_%", 40 },
 	},
 	stats = {
 		"global_minimum_added_chaos_damage",
@@ -2534,6 +2667,7 @@ skills["SupportManaLeech"] = {
 	name = "魔力偷取(辅)",
 	description = "辅助击中敌人的攻击技能，基于击中造成的伤害偷取魔力。",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
 	addSkillTypes = { },
@@ -2631,6 +2765,7 @@ skills["SupportMarkOnHit"] = {
 	},
 	stats = {
 		"mark_skills_curse_effect_+%",
+		"trigger_on_attack_hit_against_rare_or_unique",
 	},
 	levels = {
 		[1] = { -30, cooldown = 4, levelRequirement = 38, manaMultiplier = 100, statInterpolation = { 1, }, },
@@ -2715,8 +2850,16 @@ skills["SupportGemMirageArcher"] = {
 			{ "skill_effect_duration_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "support_mirage_archer_base_duration", 4000 },
+		{ "support_mirage_archer_attack_speed_+%_final", -60 },
+		{ "mirage_archer_projectile_additional_height_offset", -138 },
+	},
 	stats = {
 		"support_mirage_archer_damage_+%_final",
+		"skill_can_own_mirage_archers",
+		"summon_mirage_archer_on_hit",
+		"disable_skill_if_weapon_not_bow",
 	},
 	levels = {
 		[1] = { -40, manaMultiplier = 30, levelRequirement = 4, statInterpolation = { 1, }, },
@@ -2785,6 +2928,11 @@ skills["SupportMultiTrap"] = {
 		Alternate2 = {
 			{ "support_additional_trap_%_chance_for_1_additional_trap", 0.2 },
 		},
+	},
+	constantStats = {
+		{ "number_of_additional_traps_to_throw", 2 },
+		{ "number_of_additional_traps_allowed", 3 },
+		{ "multi_trap_and_mine_support_flags", 2 },
 	},
 	stats = {
 		"support_multithrow_damage_+%_final",
@@ -2865,10 +3013,15 @@ skills["SupportPuncturingWeapon"] = {
 			{ "critical_strike_chance_against_enemies_on_full_life_+%", 5 },
 		},
 	},
+	constantStats = {
+		{ "gain_elusive_on_crit_%_chance", 100 },
+	},
 	stats = {
 		"elusive_effect_+%",
 		"additional_critical_strike_chance_permyriad_while_affected_by_elusive",
 		"nightblade_elusive_grants_critical_strike_multiplier_+_to_supported_skills",
+		"supported_skill_can_only_use_dagger_and_claw",
+		"supported_by_nightblade",
 	},
 	levels = {
 		[1] = { 0, 70, 100, manaMultiplier = 40, levelRequirement = 18, statInterpolation = { 1, 1, 1, }, },
@@ -2938,6 +3091,9 @@ skills["SupportOnslaught"] = {
 			{ "attack_and_cast_speed_+%_during_onslaught", 1 },
 		},
 	},
+	constantStats = {
+		{ "support_scion_onslaught_for_3_seconds_on_hitting_unique_enemy_%_chance", 10 },
+	},
 	stats = {
 		"support_scion_onslaught_on_killing_blow_%_chance",
 		"support_scion_onslaught_on_killing_blow_duration_ms",
@@ -2989,6 +3145,7 @@ skills["SupportPierce"] = {
 	name = "穿透(辅)",
 	description = "辅助投射物技能",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ThresholdJewelProjectile, SkillType.ThresholdJewelRangedAttack, },
 	addSkillTypes = { },
@@ -3090,6 +3247,7 @@ skills["SupportPointBlank"] = {
 	},
 	stats = {
 		"projectile_damage_+%",
+		"keystone_point_blank",
 	},
 	levels = {
 		[1] = { 0, manaMultiplier = 10, levelRequirement = 18, statInterpolation = { 1, }, },
@@ -3220,6 +3378,9 @@ skills["SupportAdditionalCooldown"] = {
 		Alternate2 = {
 			{ "regenerate_%_life_over_1_second_on_skill_use", 0.05 },
 		},
+	},
+	constantStats = {
+		{ "support_added_cooldown_count_if_not_instant", 1 },
 	},
 	stats = {
 		"base_cooldown_speed_+%",
@@ -3370,6 +3531,9 @@ skills["SupportRapidDecay"] = {
 			{ "you_and_enemy_movement_velocity_+%_while_affected_by_ailment_you_inflicted", 1 },
 		},
 	},
+	constantStats = {
+		{ "support_swift_affliction_skill_effect_and_damaging_ailment_duration_+%_final", -25 },
+	},
 	stats = {
 		"support_rapid_decay_damage_over_time_+%_final",
 	},
@@ -3436,6 +3600,9 @@ skills["SupportSwiftAfflictionPlus"] = {
 			{ "damage_over_time_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_swift_affliction_skill_effect_and_damaging_ailment_duration_+%_final", -25 },
+	},
 	stats = {
 		"support_rapid_decay_damage_over_time_+%_final",
 	},
@@ -3483,6 +3650,10 @@ skills["SupportAdditionalTrapMine"] = {
 			{ "trap_throwing_speed_+%_per_frenzy_charge", 0.1 },
 			{ "mine_throwing_speed_+%_per_frenzy_charge", 0.1 },
 		},
+	},
+	constantStats = {
+		{ "throw_traps_in_circle_radius", 20 },
+		{ "multi_trap_and_mine_support_flags", 4 },
 	},
 	stats = {
 		"support_additional_trap_mine_%_chance_for_1_additional_trap_mine",
@@ -3536,6 +3707,7 @@ skills["SupportTrap"] = {
 	name = "陷阱(辅)",
 	description = "辅助法术技能, 或使用弓箭和法杖的攻击技能. 你将不再直接施放被辅助的技能, 技能会以陷阱的形式被投出，在敌人靠近时触发。陷阱不能触发持续吟唱类技能。",
 	color = 2,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Trappable, },
 	addSkillTypes = { SkillType.Trapped, SkillType.ReservationBecomesCost, },
@@ -3560,9 +3732,17 @@ skills["SupportTrap"] = {
 			{ "trap_trigger_radius_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_trap_duration", 4000 },
+		{ "support_makes_skill_trap_pvp_damage_+%_final", -60 },
+	},
 	stats = {
 		"trap_throwing_speed_+%",
 		"support_trap_damage_+%_final",
+		"base_skill_is_trapped",
+		"disable_skill_if_melee_attack",
+		"base_skill_show_average_damage_instead_of_dps",
+		"is_trap",
 	},
 	levels = {
 		[1] = { 0, -20, manaMultiplier = 20, levelRequirement = 8, statInterpolation = { 1, 1, }, },
@@ -3626,6 +3806,9 @@ skills["SupportTrapCooldown"] = {
 		Alternate2 = {
 			{ "skill_effect_duration_+%", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "multi_trap_and_mine_support_flags", 16 },
 	},
 	stats = {
 		"placing_traps_cooldown_recovery_+%",
@@ -3706,6 +3889,10 @@ skills["SupportTrapAndMineDamage"] = {
 		Alternate2 = {
 			{ "damage_+%_per_power_charge", 0.1 },
 		},
+	},
+	constantStats = {
+		{ "support_trap_and_mine_damage_trap_throwing_speed_+%_final", -10 },
+		{ "support_trap_and_mine_damage_mine_throwing_speed_+%_final", -10 },
 	},
 	stats = {
 		"support_trap_and_mine_damage_+%_final",
@@ -3788,6 +3975,9 @@ skills["SupportPhysicalProjectileAttackDamage"] = {
 			{ "attacks_impale_on_hit_%_chance", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_projectile_attack_speed_+%_final", -10 },
+	},
 	stats = {
 		"support_projectile_attack_physical_damage_+%_final",
 		"support_phys_chaos_projectile_physical_damage_over_time_+%_final",
@@ -3865,6 +4055,9 @@ skills["SupportViciousProjectilesPlus"] = {
 			{ "physical_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_projectile_attack_speed_+%_final", -10 },
+	},
 	stats = {
 		"support_projectile_attack_physical_damage_+%_final",
 		"support_phys_chaos_projectile_physical_damage_over_time_+%_final",
@@ -3923,6 +4116,9 @@ skills["SupportDebilitate"] = {
 		Alternate2 = {
 			{ "faster_poison_%", 0.25 },
 		},
+	},
+	constantStats = {
+		{ "support_debilitate_hit_damage_+%_final_per_poison_stack", 5 },
 	},
 	stats = {
 		"support_debilitate_poison_damage_+%_final",
@@ -3998,6 +4194,7 @@ skills["SupportVoidManipulation"] = {
 	},
 	stats = {
 		"support_void_manipulation_chaos_damage_+%_final",
+		"deal_no_elemental_damage",
 	},
 	levels = {
 		[1] = { 20, manaMultiplier = 30, levelRequirement = 8, statInterpolation = { 1, }, },
@@ -4065,6 +4262,7 @@ skills["SupportVoidManipulationPlus"] = {
 	stats = {
 		"support_void_manipulation_chaos_damage_+%_final",
 		"supported_chaos_skill_gem_level_+",
+		"deal_no_elemental_damage",
 	},
 	levels = {
 		[1] = { 35, 0, manaMultiplier = 30, levelRequirement = 72, statInterpolation = { 1, 1, }, },
@@ -4113,6 +4311,11 @@ skills["SupportParallelProjectiles"] = {
 		Alternate2 = {
 			{ "base_skill_area_of_effect_+%", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "support_parallel_projectile_number_of_points_per_side", 2 },
+		{ "volley_additional_projectiles_fire_parallel_x_dist", 80 },
+		{ "number_of_additional_projectiles", 2 },
 	},
 	stats = {
 		"support_parallel_projectiles_damage_+%_final",
@@ -4179,6 +4382,10 @@ skills["SupportChaosAttacks"] = {
 		Alternate2 = {
 			{ "wither_applies_additional_wither_%", 1 },
 		},
+	},
+	constantStats = {
+		{ "support_withered_base_duration_ms", 2000 },
+		{ "withered_on_hit_chance_%", 25 },
 	},
 	stats = {
 		"physical_damage_%_to_add_as_chaos",

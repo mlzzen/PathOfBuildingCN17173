@@ -9,6 +9,8 @@ local skills, mod, flag, skill = ...
 skills["Absolution"] = {
 	name = "赦罪",
 	color = 1,
+	baseEffectiveness = 2.0517001152039,
+	incrementalEffectiveness = 0.043200001120567,
 	description = "伤害一片区域内的敌人，在短时间内施加一个减益效果。若受该减益效果影响的非传奇敌人被消灭，则消耗它的灵枢来召唤一名持续时间较长的赦罪哨卫。如果你召唤的赦罪哨卫达到数量上限，则刷新其中一个的持续时间和生命值。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Minion] = true, [SkillType.Duration] = true, [SkillType.MinionsCanExplode] = true, [SkillType.CreatesMinion] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Multicastable] = true, [SkillType.Cascadable] = true, [SkillType.Physical] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.CanRapidFire] = true, },
 	statDescriptionScope = "minion_spell_damage_skill_stat_descriptions",
@@ -48,11 +50,20 @@ skills["Absolution"] = {
 			{ "sentinel_minion_cooldown_speed_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "max_number_of_absolution_sentinels", 3 },
+		{ "base_secondary_skill_effect_duration", 10000 },
+		{ "absolution_blast_chance_to_summon_on_hitting_rare_or_unique_%", 25 },
+		{ "display_minion_monster_type", 19 },
+		{ "base_skill_effect_duration", 1000 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"display_minion_monster_level",
 		"active_skill_base_radius_+",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 12, 0, damageEffectiveness = 2, critChance = 6, levelRequirement = 12, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 9, }, },
@@ -140,9 +151,20 @@ skills["AbyssalCry"] = {
 			{ "dummy_stat_display_nothing", 0 },
 		},
 	},
+	constantStats = {
+		{ "infernal_cry_%_max_life_as_fire_on_death", 8 },
+		{ "infernal_cry_covered_in_ash_fire_damage_taken_%_per_5_monster_power", 3 },
+		{ "skill_empowers_next_x_melee_attacks", 6 },
+	},
 	stats = {
 		"warcry_speed_+%",
 		"base_skill_effect_duration",
+		"damage_cannot_be_reflected",
+		"base_skill_show_average_damage_instead_of_dps",
+		"display_skill_deals_secondary_damage",
+		"cannot_cancel_skill_before_contact_point",
+		"warcry_count_power_from_enemies",
+		"infernal_cry_empowered_attacks_trigger_combust_display",
 	},
 	levels = {
 		[1] = { 0, 5000, cooldown = 8, levelRequirement = 24, statInterpolation = { 1, 1, }, cost = { Mana = 15, }, },
@@ -228,7 +250,12 @@ skills["InfernalCryOnHitExplosion"] = {
 			{ "cover_in_ash_on_hit_%", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 60 },
+	},
 	stats = {
+		"is_area_damage",
+		"triggered_by_infernal_cry",
 	},
 	levels = {
 		[1] = { levelRequirement = 24, },
@@ -327,9 +354,17 @@ skills["TotemMelee"] = {
 			{ "ancestor_totem_buff_effect_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 12000 },
+		{ "base_totem_range", 50 },
+		{ "ancestor_totem_parent_activiation_range", 70 },
+		{ "summon_totem_cast_speed_+%", 50 },
+	},
 	stats = {
 		"melee_range_+",
 		"melee_ancestor_totem_grant_owner_attack_speed_+%_final",
+		"base_skill_is_totemified",
+		"is_totem",
 	},
 	levels = {
 		[1] = { 16, 10, damageEffectiveness = 0.9, baseMultiplier = 0.9, levelRequirement = 4, statInterpolation = { 1, 1, }, cost = { Mana = 8, }, },
@@ -417,11 +452,20 @@ skills["AncestralCry"] = {
 			{ "physical_damage_reduction_rating_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_empowers_next_x_melee_attacks", 8 },
+		{ "ancestral_cry_x_melee_range_per_5_monster_power", 2 },
+		{ "ancestral_cry_empowered_attacks_strike_X_additional_enemies", 2 },
+		{ "skill_empower_limitation_specifier_for_stat_description", 1 },
+	},
 	stats = {
 		"ancestral_cry_physical_damage_reduction_rating_per_5_MP",
 		"ancestral_cry_max_physical_damage_reduction_rating",
 		"warcry_speed_+%",
 		"base_skill_effect_duration",
+		"base_deal_no_damage",
+		"cannot_cancel_skill_before_contact_point",
+		"warcry_count_power_from_enemies",
 	},
 	levels = {
 		[1] = { 28, 170, 0, 4000, cooldown = 8, levelRequirement = 16, statInterpolation = { 1, 1, 1, 1, }, cost = { Mana = 14, }, },
@@ -518,8 +562,18 @@ skills["AncestorTotemSlam"] = {
 			{ "base_ailment_damage_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 12000 },
+		{ "base_totem_range", 50 },
+		{ "ancestor_totem_parent_activiation_range", 70 },
+		{ "summon_totem_cast_speed_+%", 50 },
+		{ "melee_range_+", 10 },
+	},
 	stats = {
 		"slam_ancestor_totem_grant_owner_melee_damage_+%_final",
+		"is_area_damage",
+		"base_skill_is_totemified",
+		"is_totem",
 	},
 	levels = {
 		[1] = { 8, damageEffectiveness = 1.1, attackSpeedMultiplier = -10, baseMultiplier = 1.1, levelRequirement = 28, statInterpolation = { 1, }, cost = { Mana = 10, }, },
@@ -607,7 +661,21 @@ skills["VaalAncestralWarchief"] = {
 			{ "totem_damage_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 6000 },
+		{ "base_totem_range", 50 },
+		{ "ancestor_totem_parent_activiation_range", 120 },
+		{ "summon_totem_cast_speed_+%", 50 },
+		{ "slam_ancestor_totem_grant_owner_melee_damage_+%_final", 32 },
+		{ "number_of_additional_totems_allowed", 1 },
+	},
 	stats = {
+		"is_area_damage",
+		"base_skill_is_totemified",
+		"is_totem",
+		"totem_ignores_vaal_skill_cost",
+		"modifiers_to_totem_duration_also_affect_soul_prevention_duration",
+		"cannot_cancel_skill_before_contact_point",
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = -20, soulPreventionDuration = 9, skillUseStorage = 2, soulCost = 20, levelRequirement = 28, },
@@ -655,6 +723,8 @@ skills["VaalAncestralWarchief"] = {
 skills["Anger"] = {
 	name = "愤怒",
 	color = 1,
+	baseEffectiveness = 2.25,
+	incrementalEffectiveness = 0.023000000044703,
 	description = "施放一个光环，使你与受光环影响友军在攻击和施放法术时额外附带火焰伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.TotemCastsAlone] = true, [SkillType.Totemable] = true, [SkillType.Aura] = true, [SkillType.Fire] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.CanHaveBlessing] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "aura_skill_stat_descriptions",
@@ -704,6 +774,7 @@ skills["Anger"] = {
 		"spell_minimum_added_fire_damage",
 		"spell_maximum_added_fire_damage",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 0.34999999403954, 0.5, 0.34999999403954, 0.5, 0, manaReservationPercent = 50, cooldown = 1.2, levelRequirement = 24, statInterpolation = { 3, 3, 3, 3, 1, }, },
@@ -800,6 +871,10 @@ skills["AnimateArmour"] = {
 			{ "minion_maximum_life_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "emerge_speed_+%", 100 },
+		{ "display_minion_monster_type", 3 },
+	},
 	stats = {
 		"animate_item_maximum_level_requirement",
 		"minion_maximum_life_+%",
@@ -888,9 +963,18 @@ skills["BattlemagesCry"] = {
 			{ "warcry_grant_damage_+%_to_exerted_attacks", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "skill_empowers_next_x_melee_attacks", 5 },
+		{ "divine_cry_additive_spell_damage_modifiers_apply_to_attack_damage_at_%_value_per_5_power_up_to_150%", 25 },
+		{ "divine_cry_critical_strike_chance_+%_per_5_power_up_to_cap%", 10 },
+	},
 	stats = {
 		"warcry_speed_+%",
 		"base_skill_effect_duration",
+		"base_deal_no_damage",
+		"cannot_cancel_skill_before_contact_point",
+		"warcry_count_power_from_enemies",
+		"display_battlemage_cry_exerted_attacks_trigger_supported_spell",
 	},
 	levels = {
 		[1] = { 0, 5000, cooldown = 8, levelRequirement = 24, statInterpolation = { 1, 1, }, cost = { Mana = 15, }, },
@@ -958,6 +1042,7 @@ skills["BattlemagesCrySupport"] = {
 	},
 	stats = {
 		"support_divine_cry_damage_+%_final",
+		"triggered_by_divine_cry",
 	},
 	levels = {
 		[1] = { -44, levelRequirement = 24, statInterpolation = { 1, }, },
@@ -1005,6 +1090,7 @@ skills["BattlemagesCrySupport"] = {
 skills["Berserk"] = {
 	name = "盛怒",
 	color = 1,
+	baseEffectiveness = 0,
 	description = "以极快速度消耗怒火，产生一个强力增益效果，提高总攻击伤害、总攻击速度和总移动速度，使受到的总伤害降低。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Triggerable] = true, [SkillType.Instant] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -1043,11 +1129,19 @@ skills["Berserk"] = {
 			{ "berserk_spell_damage_+%_final", 0.25 },
 		},
 	},
+	constantStats = {
+		{ "berserk_minimum_rage", 5 },
+		{ "base_actor_scale_+%", 25 },
+		{ "berserk_base_rage_loss_per_second", 5 },
+		{ "berserk_rage_loss_+%_per_second", 20 },
+	},
 	stats = {
 		"berserk_attack_damage_+%_final",
 		"berserk_attack_speed_+%_final",
 		"berserk_movement_speed_+%_final",
 		"berserk_base_damage_taken_+%_final",
+		"display_this_skill_cooldown_does_not_recover_during_buff",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 15, 15, 25, -15, cooldown = 5, levelRequirement = 34, statInterpolation = { 1, 1, 1, 1, }, cost = { Mana = 10, }, },
@@ -1155,10 +1249,19 @@ skills["Bladestorm"] = {
 			{ "bladestorm_create_alternate_stance_storm_%_chance", 2 },
 		},
 	},
+	constantStats = {
+		{ "bladestorm_storm_damage_+%_final", -50 },
+		{ "bladestorm_maximum_number_of_storms_allowed", 3 },
+		{ "blind_art_variation", 1 },
+		{ "base_skill_effect_duration", 3000 },
+	},
 	stats = {
 		"bladestorm_attack_speed_+%_final_while_in_bloodstorm",
 		"bladestorm_movement_speed_+%_while_in_sandstorm",
 		"active_skill_bleeding_damage_+%_final_in_blood_stance",
+		"is_area_damage",
+		"console_skill_dont_chase",
+		"skill_can_add_multiple_charges_per_action",
 	},
 	levels = {
 		[1] = { 10, 30, 70, damageEffectiveness = 1.05, attackSpeedMultiplier = -30, baseMultiplier = 1.05, levelRequirement = 28, statInterpolation = { 1, 1, 1, }, cost = { Mana = 8, }, },
@@ -1252,10 +1355,16 @@ skills["BloodSandStance"] = {
 			{ "spell_area_of_effect_+%_in_sand_stance", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "blood_sand_stance_melee_skills_area_of_effect_+%_final_in_blood_stance", -5 },
+		{ "blood_sand_stance_melee_skills_area_damage_+%_final_in_sand_stance", -5 },
+	},
 	stats = {
 		"base_cooldown_speed_+%",
 		"blood_sand_stance_melee_skills_area_damage_+%_final_in_blood_stance",
 		"blood_sand_stance_melee_skills_area_of_effect_+%_final_in_sand_stance",
+		"base_deal_no_damage",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0, 10, 10, manaReservationPercent = 10, cooldown = 2, levelRequirement = 4, statInterpolation = { 1, 1, 1, }, },
@@ -1289,6 +1398,8 @@ skills["BloodSandStance"] = {
 skills["Boneshatter"] = {
 	name = "七伤破",
 	color = 1,
+	baseEffectiveness = 0.18279999494553,
+	incrementalEffectiveness = 0.053700000047684,
 	description = "朝敌人发出猛烈一击，同时伤害自身。连续施放会同时提高对敌我双方的伤害。用它眩晕敌人可以施放一道伤害性脉冲。需要用锤类、短杖、斧类和长杖施放。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -1340,6 +1451,11 @@ skills["Boneshatter"] = {
 			{ "attack_speed_+%_per_trauma", 0.05 },
 			{ "trauma_strike_self_damage_per_trauma", 1 },
 		},
+	},
+	constantStats = {
+		{ "trauma_strike_shockwave_area_of_effect_+%_per_100ms_stun_duration_up_to_400%", 15 },
+		{ "trauma_base_duration_ms", 6000 },
+		{ "melee_range_+", 2 },
 	},
 	stats = {
 		"trauma_strike_self_damage_per_trauma",
@@ -1432,7 +1548,12 @@ skills["ChainStrike"] = {
 			{ "chain_hook_range_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "chain_strike_cone_radius_+_per_x_rage", 5 },
+		{ "chain_strike_gain_x_rage_if_attack_hits", 1 },
+	},
 	stats = {
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.15, attackSpeedMultiplier = 20, baseMultiplier = 1.15, levelRequirement = 12, cost = { Mana = 8, }, },
@@ -1480,6 +1601,8 @@ skills["ChainStrike"] = {
 skills["Cleave"] = {
 	name = "劈砍",
 	color = 1,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "在身体前方以弧状挥动武器（双持时则挥动两把武器）, 对前方区域的怪物造成伤害。限定斧类与剑类。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ThresholdJewelArea] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -1518,10 +1641,16 @@ skills["Cleave"] = {
 			{ "destroy_corpses_on_kill_%_chance", 5 },
 		},
 	},
+	constantStats = {
+		{ "cleave_damage_+%_final_while_dual_wielding", -40 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
 		"active_skill_base_radius_+",
+		"is_area_damage",
+		"skill_double_hits_when_dual_wielding",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0, damageEffectiveness = 1.25, attackSpeedMultiplier = -20, baseMultiplier = 1.25, levelRequirement = 1, statInterpolation = { 3, 3, 1, }, cost = { Mana = 6, }, },
@@ -1613,7 +1742,15 @@ skills["ConsecratedPath"] = {
 			{ "consecrated_ground_area_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 50 },
+		{ "base_skill_effect_duration", 4000 },
+		{ "groundslam_damage_to_close_targets_+%_final", 20 },
+		{ "ignite_art_variation", 7 },
+	},
 	stats = {
+		"is_area_damage",
+		"visual_hit_effect_elemental_is_holy",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.5, attackSpeedMultiplier = -20, baseMultiplier = 1.5, levelRequirement = 28, cost = { Mana = 8, }, },
@@ -1661,6 +1798,8 @@ skills["ConsecratedPath"] = {
 skills["CorruptingFever"] = {
 	name = "腐灼热瘟",
 	color = 1,
+	baseEffectiveness = 0.362399995327,
+	incrementalEffectiveness = 0.050000000745058,
 	description = "用自己的生命提供一个增益效果，并持续一段时间，使你击中敌人时对其施加腐化之血，在短时间内造成物理持续伤害。在该增益效果消减前花费足量生命可以刷新该增益效果的持续时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Instant] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, [SkillType.DamageOverTime] = true, [SkillType.Totemable] = true, },
 	statDescriptionScope = "secondary_debuff_skill_stat_descriptions",
@@ -1684,6 +1823,10 @@ skills["CorruptingFever"] = {
 		Alternate2 = {
 			{ "corrupting_fever_apply_additional_corrupted_blood_%", 1 },
 		},
+	},
+	constantStats = {
+		{ "base_secondary_skill_effect_duration", 1000 },
+		{ "base_skill_effect_duration", 6000 },
 	},
 	stats = {
 		"base_physical_damage_to_deal_per_minute",
@@ -1763,8 +1906,17 @@ skills["DecoyTotem"] = {
 			{ "totems_explode_on_death_for_%_life_as_physical", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 8000 },
+		{ "base_totem_range", 60 },
+	},
 	stats = {
 		"totem_life_+%",
+		"base_skill_is_totemified",
+		"base_deal_no_damage",
+		"totems_cannot_evade",
+		"totem_ignores_cooldown",
+		"is_totem",
 	},
 	levels = {
 		[1] = { 0, cooldown = 4, levelRequirement = 4, statInterpolation = { 1, }, cost = { Mana = 9, }, },
@@ -1844,6 +1996,15 @@ skills["DefianceBanner"] = {
 		Alternate2 = {
 			{ "skill_effect_duration_+%", 1 },
 		},
+	},
+	constantStats = {
+		{ "banner_area_of_effect_+%_per_stage", 8 },
+		{ "banner_buff_effect_+%_per_stage", 1 },
+		{ "banner_additional_base_duration_per_stage_ms", 1000 },
+		{ "banner_add_stage_every_x_milliseconds_while_enemies_nearby", 200 },
+		{ "armour_evasion_banner_taunted_enemies_damage_+%_final", -15 },
+		{ "armour_evasion_banner_super_taunt_duration_per_stage_ms", 150 },
+		{ "base_skill_effect_duration", 10000 },
 	},
 	stats = {
 		"evasion_and_physical_damage_reduction_rating_+%",
@@ -1936,6 +2097,7 @@ skills["Determination"] = {
 		"determination_aura_armour_+%_final",
 		"base_physical_damage_reduction_rating",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 40, 179, 0, manaReservationPercent = 50, cooldown = 1.2, levelRequirement = 24, statInterpolation = { 1, 1, 1, }, },
@@ -1983,6 +2145,8 @@ skills["Determination"] = {
 skills["DevouringTotem"] = {
 	name = "吞噬图腾",
 	color = 1,
+	baseEffectiveness = 0.69999998807907,
+	incrementalEffectiveness = 0.029999999329448,
 	description = "召唤一个图腾, 它会吞噬附近的灵柩并为你回复生命.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2012,10 +2176,17 @@ skills["DevouringTotem"] = {
 			{ "summon_totem_cast_speed_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 8000 },
+		{ "base_totem_range", 60 },
+	},
 	stats = {
 		"corpse_consumption_life_to_gain",
 		"corpse_consumption_mana_to_gain",
 		"totem_life_+%",
+		"base_skill_is_totemified",
+		"base_deal_no_damage",
+		"is_totem",
 	},
 	levels = {
 		[1] = { 30, 9, 0, levelRequirement = 4, statInterpolation = { 1, 1, 1, }, cost = { Mana = 20, }, },
@@ -2063,6 +2234,7 @@ skills["DevouringTotem"] = {
 skills["DominatingBlow"] = {
 	name = "霸气之击",
 	color = 1,
+	baseEffectiveness = 0,
 	description = "近战攻击敌人，在短期内施加一个减益效果。如果非传奇敌人被该效果击败，则会消耗它的灵枢创造一个统御哨兵，具有相同稀有度、前缀和后缀，并持续一段更长的时间。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Minion] = true, [SkillType.Duration] = true, [SkillType.MinionsCanExplode] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.CreatesMinion] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Area] = true, },
@@ -2113,7 +2285,16 @@ skills["DominatingBlow"] = {
 			{ "max_number_of_dominated_normal_monsters", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 1000 },
+		{ "max_number_of_dominated_normal_monsters", 9 },
+		{ "max_number_of_dominated_magic_monsters", 3 },
+		{ "max_number_of_dominated_rare_monsters", 1 },
+		{ "base_secondary_skill_effect_duration", 20000 },
+		{ "dominating_blow_chance_to_summon_on_hitting_unqiue_%", 25 },
+	},
 	stats = {
+		"is_dominated",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.65, baseMultiplier = 1.65, levelRequirement = 28, cost = { Mana = 8, }, },
@@ -2199,9 +2380,18 @@ skills["PuresteelBanner"] = {
 			{ "attacks_impale_on_hit_%_chance", 0.25 },
 		},
 	},
+	constantStats = {
+		{ "attacks_impale_on_hit_%_chance", 20 },
+		{ "banner_area_of_effect_+%_per_stage", 8 },
+		{ "banner_buff_effect_+%_per_stage", 1 },
+		{ "banner_additional_base_duration_per_stage_ms", 1000 },
+		{ "puresteel_banner_+10_max_fortification_for_duration_per_stage_ms", 50 },
+		{ "base_skill_effect_duration", 10000 },
+	},
 	stats = {
 		"puresteel_banner_accuracy_rating_+%_final",
 		"impale_debuff_effect_+%",
+		"banner_add_stage_on_impale",
 	},
 	levels = {
 		[1] = { -15, 0, manaReservationPercent = 10, cooldown = 1, levelRequirement = 24, statInterpolation = { 1, 1, }, },
@@ -2249,6 +2439,8 @@ skills["PuresteelBanner"] = {
 skills["Earthquake"] = {
 	name = "震地",
 	color = 1,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "猛击地面，对周围造成大量伤害，并在地面上留下裂隙。一段时间过后，地面的裂隙将会释放冲击波造成更多的伤害。在冲击波还未释放前再次使用技能不会刷新地面的裂隙。需要斧类、锤类、短杖、长杖、徒手发动。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Multistrikeable] = true, [SkillType.Duration] = true, [SkillType.Slam] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
@@ -2318,7 +2510,14 @@ skills["Earthquake"] = {
 			{ "active_skill_additive_spell_damage_modifiers_apply_to_attack_damage_at_%_value", 2.5 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 1000 },
+		{ "quake_slam_fully_charged_explosion_damage_+%_final", 150 },
+	},
 	stats = {
+		"is_area_damage",
+		"console_skill_dont_chase",
+		"is_player_earthquake",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 0.85, attackSpeedMultiplier = -25, baseMultiplier = 0.85, levelRequirement = 28, cost = { Mana = 10, }, },
@@ -2366,6 +2565,8 @@ skills["Earthquake"] = {
 skills["VaalEarthquake"] = {
 	name = "瓦尔.震地",
 	color = 1,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "猛击地面，对周围造成大量伤害，并在地面上留下多处裂隙。短时间后，裂隙会喷发出三股强大的震波。使用此技能后，你的脚步会对你周围的区域造成伤害，若之前的裂隙已经喷发，则会再次造成裂隙。该效果会在第二次持续结束后消退，或是在震波喷发至最大数量后消退。需要斧类、锤类、短杖、长杖、徒手发动。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Duration] = true, [SkillType.Vaal] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
@@ -2408,8 +2609,18 @@ skills["VaalEarthquake"] = {
 			{ "damage_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 1000 },
+		{ "base_secondary_skill_effect_duration", 12000 },
+		{ "vaal_earthquake_maximum_aftershocks", 9 },
+	},
 	stats = {
 		"quake_slam_fully_charged_explosion_damage_+%_final",
+		"is_area_damage",
+		"modifiers_to_skill_effect_duration_also_affect_soul_prevention_duration",
+		"cannot_cancel_skill_before_contact_point",
+		"force_lite_skill_effects",
+		"is_player_earthquake",
 	},
 	levels = {
 		[1] = { 350, attackSpeedMultiplier = -25, soulPreventionDuration = 9, baseMultiplier = 0.7, damageEffectiveness = 0.7, skillUseStorage = 1, soulCost = 30, levelRequirement = 28, statInterpolation = { 1, }, },
@@ -2519,8 +2730,15 @@ skills["SpikeSlam"] = {
 			{ "spike_slam_spike_damage_+%_final", -3 },
 		},
 	},
+	constantStats = {
+		{ "spike_slam_explosion_damage_+%_final", -30 },
+		{ "spike_slam_num_spikes", 5 },
+		{ "spike_slam_max_spikes", 15 },
+		{ "base_skill_effect_duration", 6000 },
+	},
 	stats = {
 		"active_skill_area_of_effect_+%_final",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0, damageEffectiveness = 1.25, attackSpeedMultiplier = -20, baseMultiplier = 1.25, levelRequirement = 12, statInterpolation = { 1, }, cost = { Mana = 8, }, },
@@ -2568,6 +2786,7 @@ skills["SpikeSlam"] = {
 skills["EnduringCry"] = {
 	name = "坚决战吼",
 	color = 1,
+	baseEffectiveness = 0,
 	description = "发出一道战吼，嘲讽周围敌人，吸引它们的进攻，提供耐力球，并获得瞬时爆发式生命回复。它还基于你身上的耐力球数提供抗性和物理伤害减免。",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Warcry] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -2603,9 +2822,18 @@ skills["EnduringCry"] = {
 			{ "base_cooldown_speed_+%", -2 },
 		},
 	},
+	constantStats = {
+		{ "endurance_charge_granted_per_X_monster_power_during_endurance_warcry", 5 },
+		{ "resist_all_elements_%_per_endurance_charge", 2 },
+		{ "physical_damage_reduction_%_per_endurance_charge", 2 },
+		{ "base_skill_effect_duration", 2000 },
+	},
 	stats = {
 		"regenerate_x_life_over_1_second_on_skill_use_or_trigger",
 		"warcry_speed_+%",
+		"base_deal_no_damage",
+		"cannot_cancel_skill_before_contact_point",
+		"warcry_count_power_from_enemies",
 	},
 	levels = {
 		[1] = { 120, 0, cooldown = 8, levelRequirement = 10, statInterpolation = { 1, 1, }, cost = { Mana = 13, }, },
@@ -2653,6 +2881,8 @@ skills["EnduringCry"] = {
 skills["Exsanguinate"] = {
 	name = "赤炼魔光",
 	color = 1,
+	baseEffectiveness = 1.5195000171661,
+	incrementalEffectiveness = 0.052499998360872,
 	description = "以你前方狭小角度内的敌人为目标，施放出数道赤色光束，造成物理伤害并施加一个物理伤害的减益效果，它可以叠加三次。光束可以附加连锁效果。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.CanRapidFire] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "debuff_skill_stat_descriptions",
@@ -2677,11 +2907,16 @@ skills["Exsanguinate"] = {
 			{ "blood_tendrils_beam_count", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 1000 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"base_physical_damage_to_deal_per_minute",
 		"blood_tendrils_beam_count",
+		"spell_damage_modifiers_apply_to_skill_dot",
+		"quality_display_exsanguinate_beam_targets_is_gem",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 67.163333804583, 7, damageEffectiveness = 2.7, critChance = 6, levelRequirement = 12, statInterpolation = { 3, 3, 3, 1, }, cost = { Life = 16, }, },
@@ -2765,10 +3000,14 @@ skills["BloodSandArmour"] = {
 			{ "damage_+%_if_changed_stances_recently", 1 },
 		},
 	},
+	constantStats = {
+		{ "blind_art_variation", 1 },
+	},
 	stats = {
 		"base_cooldown_speed_+%",
 		"attack_damage_taken_+%_final_from_enemies_unaffected_by_sand_armour",
 		"support_maimed_enemies_physical_damage_taken_+%",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 0, -11, 8, manaReservationPercent = 25, cooldown = 2, levelRequirement = 16, statInterpolation = { 1, 1, 1, }, },
@@ -2846,9 +3085,17 @@ skills["GeneralsCry"] = {
 			{ "spiritual_cry_double_movement_velocity_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "spiritual_cry_doubles_summoned_per_5_MP", 2 },
+		{ "maximum_number_of_spiritual_cry_warriors", 5 },
+	},
 	stats = {
 		"warcry_speed_+%",
 		"base_skill_effect_duration",
+		"base_deal_no_damage",
+		"cannot_cancel_skill_before_contact_point",
+		"warcry_gain_mp_from_corpses",
+		"warcry_count_power_from_enemies",
 	},
 	levels = {
 		[1] = { 0, 4000, cooldown = 4, levelRequirement = 24, statInterpolation = { 1, 1, }, cost = { Mana = 15, }, },
@@ -2910,8 +3157,15 @@ skills["GeneralsCrySupport"] = {
 		["number_of_warcries_exerting_this_action"] = {
 		},
 	},
+	constantStats = {
+		{ "number_of_warcries_exerting_this_action", 1 },
+	},
 	stats = {
 		"support_spiritual_cry_damage_+%_final",
+		"triggered_by_spiritual_cry",
+		"no_spirit_strikes",
+		"force_lite_skill_effects",
+		"base_damage_not_from_skill_user",
 	},
 	levels = {
 		[1] = { -45, levelRequirement = 24, statInterpolation = { 1, }, },
@@ -2959,6 +3213,8 @@ skills["GeneralsCrySupport"] = {
 skills["GlacialHammer"] = {
 	name = "冰霜之锤",
 	color = 1,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "凝聚冰霜之力，转换一部分的物理伤害为冰霜伤害以重击敌人。若受到攻击的敌人被冰冻且生命少于 1 / 3，则被冰霜之锤命中时会碎成冰屑。如果三次攻击都为同一列，则第三次冻缓敌人的概率更高。限定锤类、短杖或长杖。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Cold] = true, [SkillType.ThresholdJewelArea] = true, },
 	weaponTypes = {
@@ -2989,11 +3245,19 @@ skills["GlacialHammer"] = {
 			{ "base_skill_area_of_effect_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 100 },
+		{ "base_chance_to_freeze_%", 25 },
+		{ "cold_ailment_duration_+%", 35 },
+		{ "additional_main_hand_hits_per_combo_average", 1 },
+		{ "melee_range_+", 2 },
+	},
 	stats = {
 		"minimum_added_cold_damage_vs_chilled_enemies",
 		"maximum_added_cold_damage_vs_chilled_enemies",
 		"cold_ailment_effect_+%",
 		"glacial_hammer_third_hit_freeze_as_though_dealt_damage_+%",
+		"glacial_hammer_shatter_frozen_enemies_at_33%_life",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 10, 200, damageEffectiveness = 1.65, baseMultiplier = 1.65, levelRequirement = 1, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 5, }, },
@@ -3041,6 +3305,8 @@ skills["GlacialHammer"] = {
 skills["VaalGlacialHammer"] = {
 	name = "瓦尔.冰霜之锤",
 	color = 1,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "凝聚冰霜之力，转换一部分的物理伤害为冰霜伤害以重击敌人，同时在敌人周围造成一个让敌人无法逃脱的冰墙。限定锤类、短杖或长杖。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Vaal] = true, [SkillType.Cold] = true, },
 	weaponTypes = {
@@ -3065,12 +3331,21 @@ skills["VaalGlacialHammer"] = {
 			{ "cold_ailment_duration_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 60 },
+		{ "base_chance_to_freeze_%", 25 },
+		{ "cold_ailment_duration_+%", 35 },
+		{ "melee_range_+", 2 },
+	},
 	stats = {
 		"minimum_added_cold_damage_vs_chilled_enemies",
 		"maximum_added_cold_damage_vs_chilled_enemies",
 		"base_skill_effect_duration",
 		"cold_ailment_effect_+%",
 		"freeze_as_though_dealt_damage_+%",
+		"global_always_hit",
+		"modifiers_to_skill_effect_duration_also_affect_soul_prevention_duration",
+		"cannot_cancel_skill_before_contact_point",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 3400, 10, 200, baseMultiplier = 1.55, soulPreventionDuration = 4, damageEffectiveness = 1.55, skillUseStorage = 3, soulCost = 15, levelRequirement = 1, statInterpolation = { 3, 3, 1, 1, 1, }, },
@@ -3118,6 +3393,8 @@ skills["VaalGlacialHammer"] = {
 skills["GroundSlam"] = {
 	name = "裂地之击",
 	color = 1,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "猛击地面，制造一道向前的冲击波，对敌人造成伤害，并有较高的几率击晕敌人。敌人距离越近则冲击波伤害越高。需要斧类、锤类、短杖、长杖、徒手发动。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
@@ -3156,9 +3433,14 @@ skills["GroundSlam"] = {
 			{ "ground_slam_angle_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_stun_threshold_reduction_+%", 25 },
+	},
 	stats = {
 		"active_skill_base_radius_+",
 		"groundslam_damage_to_close_targets_+%_final",
+		"is_area_damage",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0, 40, damageEffectiveness = 1.15, attackSpeedMultiplier = -10, baseMultiplier = 1.15, levelRequirement = 1, statInterpolation = { 1, 1, }, cost = { Mana = 6, }, },
@@ -3206,6 +3488,8 @@ skills["GroundSlam"] = {
 skills["VaalGroundSlam"] = {
 	name = "瓦尔.裂地之击",
 	color = 1,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "猛击地面，制造出一道向四面八方扩散的冲击波，对敌人造成伤害并使其晕眩。敌人距离越近则冲击波伤害越高。需要斧类、锤类、短杖、长杖、徒手发动。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Vaal] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
@@ -3240,9 +3524,17 @@ skills["VaalGroundSlam"] = {
 			{ "base_skill_area_of_effect_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_stun_duration_+%", 200 },
+		{ "base_stun_threshold_reduction_+%", 25 },
+	},
 	stats = {
 		"active_skill_base_radius_+",
 		"groundslam_damage_to_close_targets_+%_final",
+		"is_area_damage",
+		"global_always_hit",
+		"cannot_cancel_skill_before_contact_point",
+		"vaal_skill_exertable",
 	},
 	levels = {
 		[1] = { 0, 40, attackSpeedMultiplier = -10, soulPreventionDuration = 1, baseMultiplier = 1.9, damageEffectiveness = 1.9, skillUseStorage = 4, soulCost = 15, levelRequirement = 1, statInterpolation = { 1, 1, }, },
@@ -3290,6 +3582,7 @@ skills["VaalGroundSlam"] = {
 skills["HeavyStrike"] = {
 	name = "重击",
 	color = 1,
+	baseEffectiveness = 0,
 	description = "对敌人进行一次强力攻击并将它们击退。限定锤类、短杖、斧类，剑类或双手武器。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, },
 	weaponTypes = {
@@ -3326,8 +3619,13 @@ skills["HeavyStrike"] = {
 			{ "knockback_distance_+%", -5 },
 		},
 	},
+	constantStats = {
+		{ "base_stun_threshold_reduction_+%", 25 },
+		{ "melee_range_+", 2 },
+	},
 	stats = {
 		"chance_to_deal_double_damage_%",
+		"global_knockback",
 	},
 	levels = {
 		[1] = { 20, damageEffectiveness = 1.95, attackSpeedMultiplier = -15, baseMultiplier = 1.95, levelRequirement = 1, statInterpolation = { 1, }, cost = { Mana = 5, }, },
@@ -3375,6 +3673,8 @@ skills["HeavyStrike"] = {
 skills["HeraldOfAsh"] = {
 	name = "灰烬之捷",
 	color = 1,
+	baseEffectiveness = 0.5,
+	incrementalEffectiveness = 0.032699998468161,
 	description = "于手中凝聚火焰之力, 为物理伤害额外增加火焰伤害. 若是你击败了一个敌人, 溢出的伤害将会以点燃的形式扩散至附近的敌人.该技能引起的燃烧只会受到持续伤害词缀的影响(燃烧属于持续伤害)",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.CausesBurning] = true, [SkillType.Area] = true, [SkillType.DamageOverTime] = true, [SkillType.Fire] = true, [SkillType.TotemCastsAlone] = true, [SkillType.Herald] = true, [SkillType.Duration] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "debuff_skill_stat_descriptions",
@@ -3419,9 +3719,15 @@ skills["HeraldOfAsh"] = {
 			{ "base_skill_area_of_effect_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "physical_damage_%_to_add_as_fire", 15 },
+		{ "base_skill_effect_duration", 4000 },
+		{ "herald_of_ash_burning_%_overkill_damage_per_minute", 1500 },
+	},
 	stats = {
 		"herald_of_ash_burning_damage_+%_final",
 		"herald_of_ash_spell_fire_damage_+%_final",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0, 9, manaReservationPercent = 25, cooldown = 1, levelRequirement = 16, statInterpolation = { 1, 1, }, },
@@ -3469,6 +3775,8 @@ skills["HeraldOfAsh"] = {
 skills["HeraldOfPurity"] = {
 	name = "纯净之捷",
 	color = 1,
+	baseEffectiveness = 0.31700000166893,
+	incrementalEffectiveness = 0.01799999922514,
 	description = "获得一个增益效果，使你造成更多物理伤害。在该效果下击败敌人后，该技能会召唤一个【纯净哨兵】，如【纯净哨兵】已经达到上限，则刷新其中一个的持续时间和生命值。【纯净哨兵】会使用单人近战攻击和范围近战攻击。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Herald] = true, [SkillType.Minion] = true, [SkillType.Instant] = true, [SkillType.Duration] = true, [SkillType.Physical] = true, [SkillType.CreatesMinion] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	minionSkillTypes = { [SkillType.Damage] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Area] = true, },
@@ -3504,11 +3812,18 @@ skills["HeraldOfPurity"] = {
 			{ "sentinel_minion_cooldown_speed_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_number_of_champions_of_light_allowed", 4 },
+		{ "herald_of_light_summon_champion_on_unique_or_rare_enemy_hit_%", 20 },
+		{ "base_skill_effect_duration", 12000 },
+		{ "display_minion_monster_type", 21 },
+	},
 	stats = {
 		"herald_of_purity_physical_damage_+%_final",
 		"active_skill_minion_physical_damage_+%_final",
 		"active_skill_minion_life_+%_final",
 		"display_minion_monster_level",
+		"herald_of_light_summon_champion_on_kill",
 	},
 	levels = {
 		[1] = { 9, 0, 0, 16, manaReservationPercent = 25, cooldown = 1, levelRequirement = 16, statInterpolation = { 1, 1, 1, 1, }, },
@@ -3556,6 +3871,8 @@ skills["HeraldOfPurity"] = {
 skills["FlameTotem"] = {
 	name = "圣焰图腾",
 	color = 1,
+	baseEffectiveness = 0.74919998645782,
+	incrementalEffectiveness = 0.032200001180172,
 	description = "召唤一个图腾, 它会持续的对附近的敌人喷射火焰，并在图腾周围创造一片奉献地面。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.Fire] = true, [SkillType.Channel] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3585,9 +3902,22 @@ skills["FlameTotem"] = {
 			{ "totem_duration_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 8000 },
+		{ "base_totem_range", 100 },
+		{ "number_of_additional_projectiles", 2 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 50 },
+		{ "ignite_art_variation", 7 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_totem",
+		"base_skill_is_totemified",
+		"base_is_projectile",
+		"always_pierce",
+		"consecrated_ground_immune_to_curses",
+		"visual_hit_effect_elemental_is_holy",
 	},
 	levels = {
 		[1] = { 0.60000002384186, 1.2000000476837, damageEffectiveness = 0.35, critChance = 5, levelRequirement = 4, statInterpolation = { 3, 3, }, cost = { Mana = 11, }, },
@@ -3635,6 +3965,8 @@ skills["FlameTotem"] = {
 skills["IceCrash"] = {
 	name = "寒冰冲击",
 	color = 1,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "重击地面，对于范围内的敌人造成三段冲击伤害。敌人受到的第二段和第三段伤害的伤害较低。限定剑类、锤类、短杖、斧类、长杖和空手。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Cold] = true, [SkillType.Multistrikeable] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
@@ -3696,7 +4028,15 @@ skills["IceCrash"] = {
 			{ "ice_crash_third_hit_damage_+%_final", 1.5 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 100 },
+		{ "ice_crash_second_hit_damage_+%_final", -15 },
+		{ "ice_crash_third_hit_damage_+%_final", -30 },
+	},
 	stats = {
+		"is_area_damage",
+		"console_skill_dont_chase",
+		"quality_display_ice_crash_is_gem",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 2.3, attackSpeedMultiplier = -30, baseMultiplier = 2.3, levelRequirement = 28, cost = { Mana = 8, }, },
@@ -3744,6 +4084,7 @@ skills["IceCrash"] = {
 skills["ImmortalCall"] = {
 	name = "不朽怒嚎",
 	color = 1,
+	baseEffectiveness = 0,
 	description = "短期内受到的物理伤害和元素伤害降低。最多消耗 5 个耐力球使增益效果持续更久，并进一步降低受到的物理伤害。和防卫技能共用冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Instant] = true, [SkillType.Guard] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3780,9 +4121,17 @@ skills["ImmortalCall"] = {
 			{ "immortal_call_elemental_damage_taken_+%_final_per_endurance_charge_consumed_permyriad", -10 },
 		},
 	},
+	constantStats = {
+		{ "mortal_call_physical_damage_taken_per_endurance_charge_consumed_final_permyriad", -1500 },
+		{ "buff_effect_duration_+%_per_removable_endurance_charge_limited_to_5", 20 },
+		{ "base_skill_effect_duration", 1000 },
+	},
 	stats = {
 		"mortal_call_elemental_damage_taken_+%_final",
 		"mortal_call_physical_damage_taken_+%_final",
+		"base_deal_no_damage",
+		"display_this_skill_cooldown_does_not_recover_during_buff",
+		"quality_display_immortal_call_is_gem",
 	},
 	levels = {
 		[1] = { -25, -25, cooldown = 3, levelRequirement = 34, statInterpolation = { 1, 1, }, cost = { Mana = 21, }, },
@@ -3830,6 +4179,7 @@ skills["ImmortalCall"] = {
 skills["VaalImmortalCall"] = {
 	name = "瓦尔.不朽怒嚎",
 	color = 1,
+	baseEffectiveness = 0,
 	description = "仰天怒吼，释放耐力球，使角色在短时间内无敌，也无法获得瓦尔之灵。无敌时间长短视释放的耐力球数量而定。【万. 佛. 朝. 宗! 】",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Vaal] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3846,8 +4196,15 @@ skills["VaalImmortalCall"] = {
 			{ "skill_effect_duration_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 400 },
+	},
 	stats = {
 		"buff_effect_duration_+%_per_removable_endurance_charge",
+		"immortal_call_prevent_all_damage",
+		"base_deal_no_damage",
+		"modifiers_to_skill_effect_duration_also_affect_soul_prevention_duration",
+		"display_skill_fixed_duration_buff",
 	},
 	levels = {
 		[1] = { 100, cooldown = 60, soulPreventionDuration = 8, skillUseStorage = 1, soulCost = 100, levelRequirement = 34, statInterpolation = { 1, }, },
@@ -3895,6 +4252,8 @@ skills["VaalImmortalCall"] = {
 skills["InfernalBlow"] = {
 	name = "炼狱之击",
 	color = 1,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "用武器攻击敌人，施加一个有层数的主减益效果，并用打击对其它击中的敌人附加一个不带层数的次要减益效果。主减益效果叠满 6 层或带有该效果的敌人死亡时会爆炸，对周围其它敌人造成伤害。其它带有次要减益效果的敌人死亡时也会爆炸，对周围敌人造成伤害。爆炸造成的伤害无法被反射。限定剑类、斧类、锤类、短杖、长杖或是空手。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, },
 	weaponTypes = {
@@ -3963,6 +4322,12 @@ skills["InfernalBlow"] = {
 		Alternate3 = {
 			{ "skill_effect_duration_+%", 4 },
 		},
+	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 60 },
+		{ "base_skill_effect_duration", 800 },
+		{ "corpse_explosion_monster_life_%", 6 },
+		{ "infernal_blow_explosion_damage_%_of_total_per_stack", 66 },
 	},
 	stats = {
 		"attack_minimum_added_fire_damage",
@@ -4054,9 +4419,19 @@ skills["IntimidatingCry"] = {
 			{ "warcry_grant_damage_+%_to_exerted_attacks", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "intimidating_cry_enemy_phys_reduction_%_penalty_vs_hit_per_5_MP", 5 },
+		{ "skill_empowers_next_x_melee_attacks", 2 },
+	},
 	stats = {
 		"warcry_speed_+%",
 		"base_skill_effect_duration",
+		"base_deal_no_damage",
+		"cannot_cancel_skill_before_contact_point",
+		"warcry_count_power_from_enemies",
+		"intimidating_cry_empowerd_attacks_deal_double_damage_display",
+		"enemies_taunted_by_your_warcies_are_intimidated",
+		"use_intimidating_cry_buff_visual_for_intimidate",
 	},
 	levels = {
 		[1] = { 0, 4000, cooldown = 8, levelRequirement = 10, statInterpolation = { 1, 1, }, cost = { Mana = 13, }, },
@@ -4104,6 +4479,7 @@ skills["IntimidatingCry"] = {
 skills["LeapSlam"] = {
 	name = "跃击",
 	color = 1,
+	baseEffectiveness = 0,
 	description = "一跃而起，落地时用武器对敌人造成伤害，并击退敌人。被踩到的敌人会被推出去。限定斧头、锤类、短杖、剑类或长杖。无法被被多重打击辅助。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
@@ -4141,8 +4517,14 @@ skills["LeapSlam"] = {
 			{ "attack_speed_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "additional_weapon_base_attack_time_ms", 550 },
+	},
 	stats = {
 		"stun_duration_+%_vs_enemies_that_are_on_full_life",
+		"is_area_damage",
+		"always_stun_enemies_that_are_on_full_life",
+		"leap_slam_always_knockback_within_range",
 	},
 	levels = {
 		[1] = { 20, levelRequirement = 10, statInterpolation = { 1, }, cost = { Mana = 10, }, },
@@ -4190,6 +4572,8 @@ skills["LeapSlam"] = {
 skills["MoltenShell"] = {
 	name = "熔岩护盾",
 	color = 1,
+	baseEffectiveness = 9.6499996185303,
+	incrementalEffectiveness = 0.016499999910593,
 	description = "施加一个增益效果，增加护甲值，并在耗尽前替你承担部分伤害。当该增益效果时间结束或耗尽时，该技能将基于该增益效果承受的总伤害，把伤害反射给周围的敌人。与其它防卫技能共用冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.TotemCastsWhenNotDetached] = true, [SkillType.Fire] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.Triggerable] = true, [SkillType.Guard] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -4239,9 +4623,20 @@ skills["MoltenShell"] = {
 			{ "molten_shell_explosion_damage_penetrates_%_fire_resistance", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_override_pvp_scaling_time_ms", 200 },
+		{ "molten_shell_damage_absorbed_%", 75 },
+		{ "molten_shell_damage_absorb_limit_%_of_armour", 20 },
+		{ "molten_shell_max_damage_absorbed", 10000 },
+		{ "base_skill_effect_duration", 3000 },
+	},
 	stats = {
 		"base_physical_damage_reduction_rating",
 		"molten_shell_%_of_absorbed_damage_dealt_as_reflected_fire",
+		"base_skill_show_average_damage_instead_of_dps",
+		"is_area_damage",
+		"display_this_skill_cooldown_does_not_recover_during_buff",
+		"damage_originates_from_initiator_location",
 	},
 	levels = {
 		[1] = { 1, 100, cooldown = 4, levelRequirement = 4, statInterpolation = { 3, 1, }, cost = { Mana = 8, }, },
@@ -4289,6 +4684,8 @@ skills["MoltenShell"] = {
 skills["VaalMoltenShell"] = {
 	name = "瓦尔.熔岩护盾",
 	color = 1,
+	baseEffectiveness = 9.6499996185303,
+	incrementalEffectiveness = 0.016499999910593,
 	description = "施加一个增益效果，提升护甲值，并在耗尽前替你承担部分伤害。该技能每秒都会向周围敌人反射伤害，其数值由反射时那一秒受到的伤害来决定。增益效果结束时，该技能会基于增益效果累计受到的总伤害对你周围的敌人反射伤害。你在具有其它防卫技能时不能获得该增益效果。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.TotemCastsWhenNotDetached] = true, [SkillType.Fire] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.Vaal] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.Cooldown] = true, [SkillType.Guard] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -4326,10 +4723,21 @@ skills["VaalMoltenShell"] = {
 			{ "skill_effect_duration_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_override_pvp_scaling_time_ms", 1400 },
+		{ "molten_shell_damage_absorb_limit_%_of_armour", 30 },
+		{ "molten_shell_max_damage_absorbed", 30000 },
+		{ "base_skill_effect_duration", 9000 },
+	},
 	stats = {
 		"base_physical_damage_reduction_rating",
 		"molten_shell_damage_absorbed_%",
 		"molten_shell_%_of_absorbed_damage_dealt_as_reflected_fire",
+		"base_skill_show_average_damage_instead_of_dps",
+		"molten_shell_explode_each_hit",
+		"modifiers_to_skill_effect_duration_also_affect_soul_prevention_duration",
+		"display_vaal_molten_shell_alternate_description",
+		"damage_originates_from_initiator_location",
 	},
 	levels = {
 		[1] = { 1, 35, 300, cooldown = 0.5, soulPreventionDuration = 14, skillUseStorage = 1, soulCost = 50, levelRequirement = 4, statInterpolation = { 3, 1, 1, }, },
@@ -4377,6 +4785,8 @@ skills["VaalMoltenShell"] = {
 skills["MoltenStrike"] = {
 	name = "熔岩之击",
 	color = 1,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "给武器灌注熔岩之力，对敌人造成物理及火焰伤害，并从击中的敌人身上发射出熔岩球，射向该攻击击中的所有敌人。这些熔岩球会爆炸，着地时对敌人造成范围伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Fire] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.ThresholdJewelChaining] = true, },
 	weaponTypes = {
@@ -4442,10 +4852,17 @@ skills["MoltenStrike"] = {
 			{ "damage_over_time_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 60 },
+		{ "number_of_additional_projectiles", 3 },
+		{ "active_skill_projectile_damage_+%_final", -50 },
+		{ "active_skill_damage_over_time_from_projectile_hits_+%_final", -50 },
+	},
 	stats = {
 		"attack_minimum_added_fire_damage",
 		"attack_maximum_added_fire_damage",
 		"melee_range_+",
+		"show_number_of_projectiles",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 2, damageEffectiveness = 1.1, baseMultiplier = 1.1, levelRequirement = 1, statInterpolation = { 3, 3, 1, }, cost = { Mana = 6, }, },
@@ -4493,6 +4910,8 @@ skills["MoltenStrike"] = {
 skills["BloodSpears"] = {
 	name = "凿击",
 	color = 1,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "重击地面，产生前进的多重尖刺伤害敌人。在血姿态下，多重尖刺会依次爆发，多次击中敌人。在沙姿态下，尖刺会朝外推进。限定剑类或斧类。默认为血姿态。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Melee] = true, [SkillType.Multistrikeable] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, },
 	weaponTypes = {
@@ -4546,10 +4965,18 @@ skills["BloodSpears"] = {
 			{ "blood_spears_additional_number_of_spears_if_changed_stance_recently", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "blood_spears_base_number_of_spears", 7 },
+		{ "blood_spears_damage_+%_final_in_blood_stance", -75 },
+		{ "blood_spears_additional_number_of_spears_if_changed_stance_recently", 2 },
+		{ "blood_spears_aoe_modifiers_apply_to_blood_spear_placement_range_at_%_value", 50 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
 		"skill_area_of_effect_+%_final_in_sand_stance",
+		"is_area_damage",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0, damageEffectiveness = 1.25, attackSpeedMultiplier = -20, baseMultiplier = 1.25, levelRequirement = 1, statInterpolation = { 3, 3, 1, }, cost = { Mana = 6, }, },
@@ -4626,8 +5053,13 @@ skills["PetrifiedBlood"] = {
 			{ "skill_grants_life_cost_%_mana_cost_while_not_on_low_life", -0.5 },
 		},
 	},
+	constantStats = {
+		{ "petrified_blood_%_life_loss_below_half_from_hit_to_prevent", 40 },
+		{ "skill_grants_life_cost_%_mana_cost_while_not_on_low_life", 40 },
+	},
 	stats = {
 		"petrified_blood_%_prevented_life_loss_to_lose_over_time",
+		"cannot_recover_above_low_life_except_flasks",
 	},
 	levels = {
 		[1] = { 100, manaReservationPercent = 35, cooldown = 1, levelRequirement = 24, statInterpolation = { 1, }, },
@@ -4716,6 +5148,7 @@ skills["PhysicalDamageAura"] = {
 		"physical_damage_aura_nearby_enemies_physical_damage_taken_+%",
 		"physical_damage_aura_nearby_enemies_physical_damage_taken_+%_max",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 15, 30, 0, manaReservationPercent = 50, cooldown = 1.2, levelRequirement = 24, statInterpolation = { 1, 1, 1, }, },
@@ -4763,6 +5196,7 @@ skills["PhysicalDamageAura"] = {
 skills["Punishment"] = {
 	name = "惩戒",
 	color = 1,
+	baseEffectiveness = 0,
 	description = "诅咒一片区域的所有目标，使它们击中敌人会获得疲惫状态，并使它们在低血时受到更多伤害。对它们造成的致命一击溢出的伤害会反射给周围的其它目标。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -4796,10 +5230,16 @@ skills["Punishment"] = {
 			{ "curse_area_of_effect_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "punishment_reflect_%_overkill_damage_to_nearby_allies_on_death", 10 },
+		{ "debilitate_self_for_x_milliseconds_on_hit", 2000 },
+		{ "base_curse_skill_doom_gain_per_minute_if_cast_yourself", 600 },
+	},
 	stats = {
 		"base_skill_effect_duration",
 		"active_skill_base_radius_+",
 		"damage_taken_+%_on_low_life",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 9000, 0, 40, levelRequirement = 24, statInterpolation = { 1, 1, 1, }, cost = { Mana = 16, }, },
@@ -4888,6 +5328,7 @@ skills["FireResistAura"] = {
 		"base_fire_damage_resistance_%",
 		"base_maximum_fire_damage_resistance_%",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 22, 0, 0, manaReservationPercent = 35, cooldown = 1.2, levelRequirement = 24, statInterpolation = { 1, 1, 1, }, },
@@ -4958,9 +5399,17 @@ skills["FireImpurity"] = {
 			{ "base_skill_area_of_effect_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_maximum_fire_damage_resistance_%", 5 },
+		{ "base_skill_effect_duration", 3000 },
+	},
 	stats = {
 		"active_skill_base_radius_+",
 		"aura_effect_+%",
+		"base_deal_no_damage",
+		"base_immune_to_ignite",
+		"hits_ignore_my_fire_resistance",
+		"modifiers_to_skill_effect_duration_also_affect_soul_prevention_duration",
 	},
 	levels = {
 		[1] = { 14, 0, cooldown = 0.5, soulPreventionDuration = 8, skillUseStorage = 1, soulCost = 50, levelRequirement = 24, statInterpolation = { 1, 1, }, },
@@ -5059,7 +5508,20 @@ skills["RageVortex"] = {
 			{ "skill_effect_duration_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "rage_slash_sacrifice_rage_%", 20 },
+		{ "rage_slash_radius_+_per_amount_of_rage_sacrificed", 1 },
+		{ "rage_slash_rage_sacrifice_per_radius_bonus", 2 },
+		{ "rage_slash_damage_+%_final_per_amount_of_rage_sacrificed", 5 },
+		{ "rage_slash_rage_sacrifice_per_damage_bonus", 1 },
+		{ "rage_slash_maximum_vortices", 1 },
+		{ "rage_slash_vortex_attack_speed_+%_final", 250 },
+		{ "base_skill_effect_duration", 3000 },
+	},
 	stats = {
+		"is_area_damage",
+		"skill_can_add_multiple_charges_per_action",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 0.4, attackSpeedMultiplier = -30, baseMultiplier = 0.4, levelRequirement = 28, cost = { Life = 25, }, },
@@ -5151,9 +5613,19 @@ skills["RallyingCry"] = {
 			{ "warcry_grant_damage_+%_to_exerted_attacks", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "rallying_cry_damage_+%_final_from_osm_per_nearby_ally", 5 },
+		{ "skill_empowers_next_x_melee_attacks", 5 },
+		{ "rallying_cry_weapon_damage_%_for_allies_per_5_monster_power", 3 },
+		{ "rallying_cry_buff_effect_on_minions_+%_final", 100 },
+	},
 	stats = {
 		"warcry_speed_+%",
 		"base_skill_effect_duration",
+		"base_deal_no_damage",
+		"cannot_cancel_skill_before_contact_point",
+		"warcry_gain_mp_from_allies",
+		"warcry_count_power_from_enemies",
 	},
 	levels = {
 		[1] = { 0, 5000, cooldown = 8, levelRequirement = 24, statInterpolation = { 1, 1, }, cost = { Mana = 15, }, },
@@ -5201,6 +5673,8 @@ skills["RallyingCry"] = {
 skills["Reckoning"] = {
 	name = "清算",
 	color = 1,
+	baseEffectiveness = 0.5,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "当盾牌格档时对敌人进行一次迅速的反击。此反击会对锥状区域造成伤害.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RequiresShield] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -5242,9 +5716,16 @@ skills["Reckoning"] = {
 			{ "damage_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "melee_counterattack_trigger_on_block_%", 100 },
+		{ "shield_counterattack_aoe_range", 35 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
+		"attack_unusable_if_triggerable",
+		"base_skill_show_average_damage_instead_of_dps",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 1.15, cooldown = 0.4, baseMultiplier = 1.15, levelRequirement = 4, statInterpolation = { 3, 3, }, },
@@ -5324,9 +5805,16 @@ skills["RejuvenationTotem"] = {
 			{ "aura_effect_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 8000 },
+		{ "base_totem_range", 10 },
+	},
 	stats = {
 		"base_life_regeneration_rate_per_minute",
 		"totem_life_+%",
+		"base_skill_is_totemified",
+		"base_deal_no_damage",
+		"is_totem",
 	},
 	levels = {
 		[1] = { 514, 0, levelRequirement = 4, statInterpolation = { 1, 1, }, cost = { Mana = 9, }, },
@@ -5374,6 +5862,8 @@ skills["RejuvenationTotem"] = {
 skills["SearingBond"] = {
 	name = "灼热连接",
 	color = 1,
+	baseEffectiveness = 7.5956997871399,
+	incrementalEffectiveness = 0.062199998646975,
 	description = "召唤一个图腾, 它会与你和你所操控的所有图腾之间产生火焰连接, 经过火焰连接或是靠近火焰连接尾端的敌人将会受到燃烧伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.DamageOverTime] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.TotemCastsAlone] = true, [SkillType.CausesBurning] = true, [SkillType.SummonsTotem] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.DegenOnlySpellDamage] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -5398,8 +5888,16 @@ skills["SearingBond"] = {
 			{ "number_of_additional_totems_allowed", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 8000 },
+		{ "base_totem_range", 100 },
+		{ "number_of_additional_totems_allowed", 1 },
+	},
 	stats = {
 		"base_fire_damage_to_deal_per_minute",
+		"is_totem",
+		"base_skill_is_totemified",
+		"spell_damage_modifiers_apply_to_skill_dot",
 	},
 	levels = {
 		[1] = { 16.666667039196, levelRequirement = 12, statInterpolation = { 3, }, cost = { Mana = 18, }, },
@@ -5490,9 +5988,21 @@ skills["SeismicCry"] = {
 			{ "warcry_grant_damage_+%_to_exerted_attacks", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "skill_empowers_next_x_melee_attacks", 4 },
+		{ "seismic_cry_+%_enemy_stun_threshold_per_5_MP", 5 },
+		{ "seismic_cry_base_slam_skill_area_+%", 30 },
+		{ "seismic_cry_slam_skill_area_+%_increase_per_repeat", 30 },
+		{ "skill_empower_limitation_specifier_for_stat_description", 2 },
+	},
 	stats = {
 		"warcry_speed_+%",
 		"base_skill_effect_duration",
+		"base_deal_no_damage",
+		"warcries_knock_back_enemies",
+		"cannot_cancel_skill_before_contact_point",
+		"warcry_count_power_from_enemies",
+		"active_skill_200%_increased_knockback_distance",
 	},
 	levels = {
 		[1] = { 0, 4000, cooldown = 8, levelRequirement = 16, statInterpolation = { 1, 1, }, cost = { Mana = 14, }, },
@@ -5540,6 +6050,8 @@ skills["SeismicCry"] = {
 skills["NewShieldCharge"] = {
 	name = "重盾冲锋",
 	color = 1,
+	baseEffectiveness = 1.7799999713898,
+	incrementalEffectiveness = 0.017300000414252,
 	description = "向一个目标冲锋, 使用盾牌对其猛击的同时也用近战武器顺手补刀. 此攻击将会击退目标并将其击晕, 在路径上的敌人将会被推向两旁. 伤害与击晕几率将视冲锋距离而定. 限定装备近战单手武器及盾牌. 无法被多重打击辅助.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RequiresShield] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -5569,12 +6081,20 @@ skills["NewShieldCharge"] = {
 			{ "shield_charge_damage_+%_maximum", 1 },
 		},
 	},
+	constantStats = {
+		{ "shield_charge_scaling_stun_threshold_reduction_+%_at_maximum_range", 75 },
+		{ "shield_charge_damage_+%_maximum", 100 },
+	},
 	stats = {
 		"off_hand_local_minimum_added_physical_damage",
 		"off_hand_local_maximum_added_physical_damage",
 		"base_movement_velocity_+%",
 		"off_hand_minimum_added_physical_damage_per_15_shield_armour_and_evasion_rating",
 		"off_hand_maximum_added_physical_damage_per_15_shield_armour_and_evasion_rating",
+		"ignores_proximity_shield",
+		"is_area_damage",
+		"shield_charge_attack_time_+30%_if_no_charge",
+		"attack_is_melee_override",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 90, 3, 4, critChance = 5, attackTime = 500, levelRequirement = 10, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { Mana = 10, }, },
@@ -5622,6 +6142,8 @@ skills["NewShieldCharge"] = {
 skills["ShockwaveTotem"] = {
 	name = "震波图腾",
 	color = 1,
+	baseEffectiveness = 1.0778000354767,
+	incrementalEffectiveness = 0.043600000441074,
 	description = "召唤一个图腾, 它会持续的震动附近的地面, 击退附近的敌人并造成伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.Multicastable] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.Nova] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -5651,9 +6173,17 @@ skills["ShockwaveTotem"] = {
 			{ "base_global_chance_to_knockback_%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_duration", 8000 },
+		{ "base_totem_range", 80 },
+		{ "base_global_chance_to_knockback_%", 25 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_totem",
+		"is_area_damage",
+		"base_skill_is_totemified",
 	},
 	levels = {
 		[1] = { 0.69999998807907, 1.3999999761581, damageEffectiveness = 1.1, critChance = 5, levelRequirement = 28, statInterpolation = { 3, 3, }, cost = { Mana = 21, }, },
@@ -5701,6 +6231,8 @@ skills["ShockwaveTotem"] = {
 skills["Smite"] = {
 	name = "惩击",
 	color = 1,
+	baseEffectiveness = 0.60000002384186,
+	incrementalEffectiveness = 0.028000000864267,
 	description = "发动一次近战攻击，用闪电攻击目标区域或周围的敌人，造成范围伤害。若该近战攻击击中目标，则该目标不会受到该技能的范围伤害。若该技能击中敌人，你获得一个光环增益，为你和友军附加额外闪电伤害并持续一段时间。限定剑类、斧类、锤类、短杖、长杖或空手。",
 	skillTypes = { [SkillType.Melee] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Multistrikeable] = true, [SkillType.Damage] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Aura] = true, [SkillType.Buff] = true, [SkillType.Lightning] = true, },
 	weaponTypes = {
@@ -5765,12 +6297,18 @@ skills["Smite"] = {
 			{ "skill_buff_grants_attack_and_cast_speed_+%", 0.25 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "base_skill_effect_duration", 4000 },
+	},
 	stats = {
 		"minimum_added_lightning_damage_from_skill",
 		"maximum_added_lightning_damage_from_skill",
 		"base_chance_to_shock_%_from_skill",
 		"active_skill_base_radius_+",
 		"active_skill_area_damage_+%_final",
+		"visual_hit_effect_elemental_is_holy",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0.10000000149012, 1.8999999761581, 0, 0, -30, damageEffectiveness = 1.96, attackSpeedMultiplier = -15, baseMultiplier = 1.96, levelRequirement = 1, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { Mana = 6, }, },
@@ -5887,6 +6425,12 @@ end,
 			{ "base_skill_area_of_effect_+%", -1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "number_of_chains", 1 },
+		{ "static_strike_beam_damage_+%_final", -40 },
+		{ "base_skill_effect_duration", 3000 },
+	},
 	stats = {
 		"static_strike_base_zap_frequency_ms",
 		"static_strike_number_of_beam_targets",
@@ -5937,6 +6481,8 @@ end,
 skills["QuickGuard"] = {
 	name = "钢铁之肤",
 	color = 1,
+	baseEffectiveness = 10,
+	incrementalEffectiveness = 0.029999999329448,
 	description = "施加一个增益效果，在其耗尽之前替你承受部分伤害。和其它防卫技能共用冷却时间。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Instant] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Guard] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -5974,8 +6520,15 @@ skills["QuickGuard"] = {
 			{ "resist_all_%", 1 },
 		},
 	},
+	constantStats = {
+		{ "quick_guard_damage_absorbed_%", 70 },
+		{ "base_skill_effect_duration", 1500 },
+	},
 	stats = {
 		"quick_guard_damage_absorb_limit",
+		"base_deal_no_damage",
+		"display_this_skill_cooldown_does_not_recover_during_buff",
+		"display_skill_buff_grants_bleeding_immunity",
 	},
 	levels = {
 		[1] = { 1, cooldown = 3, levelRequirement = 4, statInterpolation = { 3, }, cost = { Mana = 4, }, },
@@ -6023,6 +6576,8 @@ skills["QuickGuard"] = {
 skills["Bloodreap"] = {
 	name = "赤炼绝命",
 	color = 1,
+	baseEffectiveness = 1.405699968338,
+	incrementalEffectiveness = 0.05009999871254,
 	description = "召唤一把赤色镰刀横扫选择的区域，对敌人造成物理伤害，并附加一个持续物理伤害的减益效果。如果敌人幸存，你获得一个赤炼球，它可以同时提高技能的花费和伤害。玩家最多可以有 5 个赤炼球。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.CanRapidFire] = true, [SkillType.DamageOverTime] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, [SkillType.Cascadable] = true, },
 	statDescriptionScope = "debuff_skill_stat_descriptions",
@@ -6055,10 +6610,18 @@ skills["Bloodreap"] = {
 			{ "reap_life_%_granted_on_death_with_debuff", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "blood_scythe_damage_+%_final_per_charge", 15 },
+		{ "blood_scythe_cost_+%_final_per_charge", 20 },
+		{ "base_skill_effect_duration", 1000 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"base_physical_damage_to_deal_per_minute",
+		"spell_damage_modifiers_apply_to_skill_dot",
+		"is_area_damage",
+		"lose_blood_scythe_charge_on_kill",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 100.66666828096, damageEffectiveness = 2.1, critChance = 6, levelRequirement = 28, statInterpolation = { 3, 3, 3, }, cost = { Life = 25, }, },
@@ -6106,6 +6669,8 @@ skills["Bloodreap"] = {
 skills["ShieldCrush"] = {
 	name = "盾牌碾压",
 	color = 1,
+	baseEffectiveness = 1.2081999778748,
+	incrementalEffectiveness = 0.026799999177456,
 	description = "挥舞盾牌，朝你面前造成三道范围伤害的冲击波。敌人可以被两道交叠的冲击波伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RequiresShield] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -6145,6 +6710,9 @@ skills["ShieldCrush"] = {
 		"off_hand_minimum_added_physical_damage_per_15_shield_armour_and_evasion_rating",
 		"off_hand_maximum_added_physical_damage_per_15_shield_armour_and_evasion_rating",
 		"active_skill_base_radius_+",
+		"is_area_damage",
+		"attack_is_melee_override",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 3, 4, 0, critChance = 5, attackTime = 800, levelRequirement = 1, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { Mana = 8, }, },
@@ -6224,6 +6792,10 @@ skills["SummonFireGolem"] = {
 		Alternate2 = {
 			{ "golem_cooldown_recovery_+%", 1 },
 		},
+	},
+	constantStats = {
+		{ "base_number_of_golems_allowed", 1 },
+		{ "display_minion_monster_type", 7 },
 	},
 	stats = {
 		"base_actor_scale_+%",
@@ -6310,6 +6882,10 @@ skills["SummonRockGolem"] = {
 		Alternate2 = {
 			{ "golem_cooldown_recovery_+%", 1 },
 		},
+	},
+	constantStats = {
+		{ "base_number_of_golems_allowed", 1 },
+		{ "display_minion_monster_type", 10 },
 	},
 	stats = {
 		"base_actor_scale_+%",
@@ -6428,9 +7004,19 @@ skills["NewSunder"] = {
 			{ "sunder_wave_area_of_effect_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "shockwave_slam_explosion_damage_+%_final", -40 },
+		{ "base_sunder_wave_delay_ms", 400 },
+		{ "sunder_wave_radius_+_per_step", 2 },
+		{ "sunder_wave_max_steps", 5 },
+		{ "sunder_wave_min_steps", 2 },
+		{ "sunder_shockwave_limit_per_cascade", 5 },
+	},
 	stats = {
 		"active_skill_area_of_effect_+%_final",
 		"sunder_wave_delay_+%",
+		"is_area_damage",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0, 0, damageEffectiveness = 2.2, attackSpeedMultiplier = -25, baseMultiplier = 2.2, levelRequirement = 12, statInterpolation = { 1, 1, }, cost = { Mana = 8, }, },
@@ -6478,6 +7064,8 @@ skills["NewSunder"] = {
 skills["Sweep"] = {
 	name = "横扫",
 	color = 1,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "使用双手近战武器在身体周围横扫, 并将部分怪物击退.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -6514,6 +7102,9 @@ skills["Sweep"] = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
 		"active_skill_base_radius_+",
+		"is_area_damage",
+		"console_skill_dont_chase",
+		"global_knockback",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0, damageEffectiveness = 1.7, attackSpeedMultiplier = -30, baseMultiplier = 1.7, levelRequirement = 12, statInterpolation = { 3, 3, 1, }, cost = { Mana = 8, }, },
@@ -6612,7 +7203,15 @@ skills["EnduranceChargeSlam"] = {
 			{ "fire_damage_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "tectonic_slam_side_crack_additional_chance_%_per_endurance_charge", 5 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 60 },
+		{ "active_skill_area_of_effect_+%_final_per_endurance_charge", 5 },
+		{ "tectonic_slam_side_crack_additional_chance_%", 30 },
+	},
 	stats = {
+		"is_area_damage",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.8, attackSpeedMultiplier = -20, baseMultiplier = 1.8, levelRequirement = 28, cost = { Mana = 10, }, },
@@ -6660,6 +7259,8 @@ skills["EnduranceChargeSlam"] = {
 skills["Vengeance"] = {
 	name = "复仇",
 	color = 1,
+	baseEffectiveness = 0.5,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "你被击中时有机会对周围的敌人进行一次快速的反击. 攻击区域范围会受到武器攻击范围的影响. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -6701,9 +7302,15 @@ skills["Vengeance"] = {
 			{ "gain_rage_on_hit_%_chance", 2 },
 		},
 	},
+	constantStats = {
+		{ "melee_counterattack_trigger_on_hit_%", 30 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
+		"attack_unusable_if_triggerable",
+		"base_skill_show_average_damage_instead_of_dps",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 1.7, cooldown = 1.2, baseMultiplier = 1.7, levelRequirement = 24, statInterpolation = { 3, 3, }, },
@@ -6785,6 +7392,10 @@ skills["VigilantStrike"] = {
 		Alternate3 = {
 			{ "gain_fortify_on_melee_hit_ms", 100 },
 		},
+	},
+	constantStats = {
+		{ "gain_fortify_on_melee_hit_ms", 8000 },
+		{ "melee_range_+", 2 },
 	},
 	stats = {
 	},
@@ -6873,6 +7484,7 @@ skills["Vitality"] = {
 	stats = {
 		"base_life_regeneration_rate_per_minute",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 600, 0, cooldown = 1.2, manaReservationFlat = 28, levelRequirement = 10, statInterpolation = { 1, 1, }, },
@@ -6920,6 +7532,7 @@ skills["Vitality"] = {
 skills["Vulnerability"] = {
 	name = "脆弱",
 	color = 1,
+	baseEffectiveness = 0,
 	description = "诅咒一片区域的所有目标，提高它们受到的物理伤害。攻击它们有几率施加流血，以及一个导致伤害生效更快的异常状态。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -6960,10 +7573,16 @@ skills["Vulnerability"] = {
 			{ "chance_to_be_maimed_when_hit_%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "receive_bleeding_chance_%_when_hit_by_attack", 20 },
+		{ "enemy_damaging_ailments_deal_damage_+%_faster_against_self", 20 },
+		{ "base_curse_skill_doom_gain_per_minute_if_cast_yourself", 600 },
+	},
 	stats = {
 		"base_skill_effect_duration",
 		"active_skill_base_radius_+",
 		"physical_damage_taken_+%",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 9000, 0, 30, levelRequirement = 24, statInterpolation = { 1, 1, 1, }, cost = { Mana = 16, }, },
@@ -7011,6 +7630,7 @@ skills["Vulnerability"] = {
 skills["WarlordsMark"] = {
 	name = "督军印记",
 	color = 1,
+	baseEffectiveness = 0,
 	description = "诅咒单个敌人，使它身上的眩晕持续时间有几率翻倍。攻击该敌人会获得生命和魔力偷取，使它眩晕可以获得怒火，击败它可以获得一个耐力球。你同时只能施加一个咒印。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Mark] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -7049,10 +7669,15 @@ skills["WarlordsMark"] = {
 			{ "enemy_rage_regeneration_on_stun", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "enemy_rage_regeneration_on_stun", 20 },
+		{ "chance_to_grant_endurance_charge_on_death_%", 100 },
+	},
 	stats = {
 		"enemy_chance_to_double_stun_duration_%_vs_self",
 		"life_leech_on_any_damage_when_hit_by_attack_permyriad",
 		"mana_leech_on_any_damage_when_hit_by_attack_permyriad",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 40, 200, 200, levelRequirement = 24, statInterpolation = { 1, 1, 1, }, cost = { Mana = 16, }, },
@@ -7132,9 +7757,17 @@ skills["BloodstainedBanner"] = {
 			{ "skill_effect_duration_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "banner_area_of_effect_+%_per_stage", 8 },
+		{ "banner_buff_effect_+%_per_stage", 1 },
+		{ "banner_additional_base_duration_per_stage_ms", 1000 },
+		{ "bloodstained_banner_adrenaline_duration_per_stage_ms", 50 },
+		{ "base_skill_effect_duration", 10000 },
+	},
 	stats = {
 		"accuracy_rating_+%",
 		"physical_damage_taken_+%",
+		"banner_add_stage_on_kill",
 	},
 	levels = {
 		[1] = { 15, 8, manaReservationPercent = 10, cooldown = 1, levelRequirement = 4, statInterpolation = { 1, 1, }, },
@@ -7182,6 +7815,8 @@ skills["BloodstainedBanner"] = {
 skills["FlameLink"] = {
 	name = "烈炎羁绊",
 	color = 1,
+	baseEffectiveness = 0.52499997615814,
+	incrementalEffectiveness = 0.039000000804663,
 	description = "同一名友方玩家产生羁绊并持续一段时间。在羁绊期间，羁绊对象按照你的生命造成额外火焰伤害。若羁绊对象在此期间被击败，你也会同时被击败。该技能不能由图腾、陷阱、地雷施放，也不能被触发。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Link] = true, [SkillType.Fire] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -7202,10 +7837,16 @@ skills["FlameLink"] = {
 			{ "flame_link_grants_chance_to_ignite_%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "flame_link_added_fire_damage_from_life_%", 5 },
+	},
 	stats = {
 		"flame_link_minimum_fire_damage",
 		"flame_link_maximum_fire_damage",
 		"base_skill_effect_duration",
+		"base_deal_no_damage",
+		"skill_cost_over_time_is_not_removed_with_skill",
+		"display_link_stuff",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 8000, levelRequirement = 34, statInterpolation = { 3, 3, 1, }, cost = { ManaPerMinute = 900, }, },
@@ -7275,6 +7916,10 @@ skills["ProtectiveLink"] = {
 	stats = {
 		"bulwark_link_grants_recover_X_life_on_block",
 		"base_skill_effect_duration",
+		"base_deal_no_damage",
+		"skill_cost_over_time_is_not_removed_with_skill",
+		"display_link_stuff",
+		"display_bulwark_link_overrides_attack_block_and_maximum_attack_block",
 	},
 	levels = {
 		[1] = { 31, 8000, levelRequirement = 34, statInterpolation = { 1, 1, }, cost = { ManaPerMinute = 900, }, },

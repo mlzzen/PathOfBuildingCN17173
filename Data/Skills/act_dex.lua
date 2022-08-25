@@ -9,6 +9,7 @@ local skills, mod, flag, skill = ...
 skills["AlchemistsMark"] = {
 	name = "炼金师之印",
 	color = 2,
+	baseEffectiveness = 0,
 	description = "诅咒单个敌人，击中敌人时产生药剂充能效果，如果击中并点燃敌人，则在其下方产生燃烧地面，如果使敌人中毒，则在其下方产生腐蚀地面。伤害词缀对这些地面效果无效。一次只能有一个“印记”。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Mark] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, [SkillType.Fire] = true, [SkillType.Chaos] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -49,9 +50,14 @@ skills["AlchemistsMark"] = {
 			{ "skill_effect_duration_+%", 1.5 },
 		},
 	},
+	constantStats = {
+		{ "alchemists_mark_grant_attacker_x_flask_charges_when_hit_once_per_3s", 1 },
+		{ "base_skill_effect_duration", 4000 },
+	},
 	stats = {
 		"alchemists_mark_igniter_creates_burning_ground_%_ignite_damage",
 		"alchemists_mark_poisoner_creates_caustic_ground_%_poison_damage",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 20, 60, levelRequirement = 24, statInterpolation = { 1, 1, }, cost = { Mana = 16, }, },
@@ -120,6 +126,13 @@ skills["Ambush"] = {
 			{ "ambush_additional_critical_strike_chance_permyriad", 25 },
 		},
 	},
+	constantStats = {
+		{ "skill_empower_limitation_specifier_for_stat_description", 3 },
+		{ "skill_empowers_next_x_melee_attacks", 1 },
+		{ "ambush_additional_critical_strike_chance_permyriad", 2500 },
+		{ "base_secondary_skill_effect_duration", 3000 },
+		{ "base_skill_effect_duration", 1500 },
+	},
 	stats = {
 		"vanishing_ambush_critical_strike_multiplier_+",
 	},
@@ -169,6 +182,8 @@ skills["Ambush"] = {
 skills["AnimateWeapon"] = {
 	name = "幻化武器",
 	color = 2,
+	baseEffectiveness = 0.21999999880791,
+	incrementalEffectiveness = 0.029999999329448,
 	description = "活化一把【近战武器】或【徘徊之刃】为你而战，无法活化未鉴定的物品。只有特别指定后才能活化有 6 个插槽的物品。无法用于陷阱或地雷。",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.Spell] = true, [SkillType.Totemable] = true, [SkillType.CreatesMinion] = true, [SkillType.Multicastable] = true, [SkillType.CanRapidFire] = true, [SkillType.Physical] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.ThresholdJewelProjectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.ThresholdJewelRangedAttack] = true, },
@@ -222,6 +237,10 @@ skills["AnimateWeapon"] = {
 		Alternate3 = {
 			{ "minion_global_maximum_added_lightning_damage", 5 },
 		},
+	},
+	constantStats = {
+		{ "base_skill_effect_duration", 40000 },
+		{ "display_minion_monster_type", 22 },
 	},
 	stats = {
 		"attack_minimum_added_physical_damage_for_ethereal_blades",
@@ -280,6 +299,7 @@ skills["AnimateWeapon"] = {
 skills["ArcticArmour"] = {
 	name = "极地装甲",
 	color = 2,
+	incrementalEffectiveness = 0.029999999329448,
 	description = "召唤冰霜之盾, 作用期间对击中你的敌人造成冰缓. 移动时造成冰冻地面, 并且静止不移动时受到较少火焰及物理伤害. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Totemable] = true, [SkillType.Duration] = true, [SkillType.HasReservation] = true, [SkillType.TotemCastsAlone] = true, [SkillType.Cold] = true, [SkillType.ElementalStatus] = true, [SkillType.Instant] = true, [SkillType.NonHitChill] = true, [SkillType.ChillingArea] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -308,10 +328,14 @@ skills["ArcticArmour"] = {
 			{ "new_arctic_armour_fire_damage_taken_when_hit_+%_final", -0.05 },
 		},
 	},
+	constantStats = {
+		{ "arctic_armour_chill_when_hit_duration", 500 },
+	},
 	stats = {
 		"new_arctic_armour_physical_damage_taken_when_hit_+%_final",
 		"new_arctic_armour_fire_damage_taken_when_hit_+%_final",
 		"base_skill_effect_duration",
+		"base_immune_to_freeze",
 	},
 	levels = {
 		[1] = { -11, -11, 2500, manaReservationPercent = 25, cooldown = 1, levelRequirement = 16, statInterpolation = { 1, 1, 1, }, },
@@ -388,8 +412,20 @@ skills["ArtilleryBallista"] = {
 			{ "base_number_of_additional_arrows", 0.05 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_range", 80 },
+		{ "base_totem_duration", 8000 },
+		{ "base_number_of_additional_arrows", 5 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 100 },
+	},
 	stats = {
 		"attack_skills_additional_ballista_totems_allowed",
+		"base_is_projectile",
+		"base_skill_is_totemified",
+		"is_totem",
+		"skill_can_fire_arrows",
+		"is_area_damage",
+		"is_ranged_attack_totem",
 	},
 	levels = {
 		[1] = { 2, damageEffectiveness = 0.5, attackSpeedMultiplier = -50, baseMultiplier = 0.5, levelRequirement = 28, statInterpolation = { 1, }, cost = { Mana = 7, }, },
@@ -488,7 +524,13 @@ skills["Barrage"] = {
 			{ "non_damaging_ailments_as_though_damage_+%_final", 5 },
 		},
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 4 },
+	},
 	stats = {
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"projectiles_barrage",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 0.47, baseMultiplier = 0.47, levelRequirement = 12, cost = { Mana = 7, }, },
@@ -536,6 +578,8 @@ skills["Barrage"] = {
 skills["BearTrap"] = {
 	name = "捕熊陷阱",
 	color = 2,
+	baseEffectiveness = 2.8499999046326,
+	incrementalEffectiveness = 0.042500000447035,
 	description = "投掷一个陷阱，对单个敌人造成伤害并使其定身，定身时长由造成的伤害决定。定身结束后，敌人将承受一个移动速度降低的减益效果。被该减益影响的敌人承受陷阱和地雷的伤害会提高。法术伤害加成不会影响该技能。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Mineable] = true, [SkillType.Trapped] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "debuff_skill_stat_descriptions",
@@ -564,9 +608,22 @@ skills["BearTrap"] = {
 			{ "impale_on_hit_%_chance", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_trap_duration", 4000 },
+		{ "trap_override_pvp_scaling_time_ms", 750 },
+		{ "bear_trap_damage_taken_+%_from_traps_and_mines", 25 },
+		{ "bear_trap_movement_speed_+%_final", -80 },
+		{ "base_skill_effect_duration", 3000 },
+	},
 	stats = {
 		"secondary_minimum_base_physical_damage",
 		"secondary_maximum_base_physical_damage",
+		"base_skill_is_trapped",
+		"display_skill_deals_secondary_damage",
+		"base_skill_show_average_damage_instead_of_dps",
+		"no_movement_speed",
+		"traps_do_not_explode_on_timeout",
+		"is_trap",
 	},
 	levels = {
 		[1] = { 1, 1.3999999761581, damageEffectiveness = 2.6, cooldown = 4, critChance = 6, levelRequirement = 4, statInterpolation = { 3, 3, }, cost = { Mana = 6, }, },
@@ -614,6 +671,8 @@ skills["BearTrap"] = {
 skills["BladeBlast"] = {
 	name = "乱剑穿心",
 	color = 2,
+	baseEffectiveness = 0.82349997758865,
+	incrementalEffectiveness = 0.041299998760223,
 	description = "在指定区域造成法术伤害。如附近有【徘徊之刃】或【飞刃风暴】留下的剑刃，则该法术在造成伤害时会将它们引爆，再次对它们周围区域造成伤害。这种方式最多引爆 50 枚剑刃。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Multicastable] = true, [SkillType.Cascadable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -665,9 +724,13 @@ skills["BladeBlast"] = {
 			{ "base_cast_speed_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "blade_burst_area_of_effect_+%_final_per_blade_vortex_blade_detonated", 80 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 0.7, critChance = 6, levelRequirement = 16, statInterpolation = { 3, 3, }, cost = { Mana = 6, }, },
@@ -744,8 +807,21 @@ skills["BladeTrap"] = {
 			{ "base_weapon_trap_rotation_speed_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_trap_duration", 4000 },
+		{ "base_weapon_trap_total_rotation_%", 400 },
+		{ "weapon_trap_total_rotation_%_if_dual_wielding", 100 },
+		{ "weapon_trap_rotation_speed_+%_if_dual_wielding", 25 },
+		{ "trap_variation", 18 },
+	},
 	stats = {
 		"active_skill_base_radius_+",
+		"is_area_damage",
+		"base_skill_is_trapped",
+		"base_skill_show_average_damage_instead_of_dps",
+		"is_trap",
+		"attack_is_not_melee_override",
+		"trap_use_alternate_death_animation",
 	},
 	levels = {
 		[1] = { 0, damageEffectiveness = 0.76, baseMultiplier = 0.76, levelRequirement = 12, statInterpolation = { 1, }, cost = { Mana = 8, }, },
@@ -793,6 +869,8 @@ skills["BladeTrap"] = {
 skills["ChargedAttack"] = {
 	name = "刀刃乱舞",
 	color = 2,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "持续吟唱时反复击中前方圆周范围内的敌人，对周围敌人造成伤害。伤害会随吟唱持续增加。吟唱结束时会根据吟唱的层数额外施放一次击中。限定匕首、爪类、或单手剑。 ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Channel] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -859,9 +937,15 @@ skills["ChargedAttack"] = {
 			{ "blade_flurry_elemental_damage_+%_while_channeling", 2 },
 		},
 	},
+	constantStats = {
+		{ "charged_attack_damage_per_stack_+%_final", 20 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
+		"is_area_damage",
+		"base_skill_show_average_damage_instead_of_dps",
+		"skill_can_add_multiple_charges_per_action",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 0.32, attackSpeedMultiplier = 60, baseMultiplier = 0.32, levelRequirement = 28, statInterpolation = { 3, 3, }, cost = { Mana = 4, }, },
@@ -909,6 +993,8 @@ skills["ChargedAttack"] = {
 skills["BladeVortex"] = {
 	name = "飞刃风暴",
 	color = 2,
+	baseEffectiveness = 0.30599999427795,
+	incrementalEffectiveness = 0.042899999767542,
 	description = "在你的四周召唤出虚空的刀刃, 以你为中心不断飞舞旋转, 刀刃每隔0.6秒对周围敌人造成一次伤害. 随着刀刃的增加, 伤害也会增加.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.TotemCastsAlone] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -973,10 +1059,23 @@ skills["BladeVortex"] = {
 			{ "blade_vortex_damage_+%_with_5_or_fewer_blades", 3 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 4000 },
+		{ "maximum_number_of_spinning_blades", 10 },
+		{ "blade_vortex_critical_strike_chance_+%_per_blade", 10 },
+		{ "blade_vortex_hit_rate_+%_per_blade", 35 },
+		{ "blade_vortex_damage_+%_per_blade_final", 35 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"active_skill_base_radius_+",
+		"is_area_damage",
+		"skill_can_add_multiple_charges_per_action",
+		"action_ignores_crit_tracking",
+		"base_skill_show_average_damage_instead_of_dps",
+		"damage_originates_from_initiator_location",
+		"skill_cannot_gain_repeat_bonuses",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0, damageEffectiveness = 0.3, critChance = 6, levelRequirement = 12, statInterpolation = { 3, 3, 1, }, cost = { Mana = 6, }, },
@@ -1024,6 +1123,8 @@ skills["BladeVortex"] = {
 skills["VaalBladeVortex"] = {
 	name = "瓦尔.飞刃风暴",
 	color = 2,
+	baseEffectiveness = 1.25,
+	incrementalEffectiveness = 0.033300001174212,
 	description = "创造独立飞行的飞刃或虚空的武器，并持续一段时间。飞刃以你为中心不断飞舞旋转, 将周围的敌人削成肉泥. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.TotemCastsAlone] = true, [SkillType.Vaal] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1047,10 +1148,21 @@ skills["VaalBladeVortex"] = {
 			{ "base_skill_area_of_effect_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 5000 },
+		{ "extra_gore_chance_override_%", 15 },
+		{ "base_blade_vortex_hit_rate_ms", 200 },
+		{ "critical_strike_chance_+%", 100 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"active_skill_base_radius_+",
+		"is_area_damage",
+		"skill_can_add_multiple_charges_per_action",
+		"vaal_blade_vortex_has_10_spinning_blades",
+		"modifiers_to_skill_effect_duration_also_affect_soul_prevention_duration",
+		"cannot_cancel_skill_before_contact_point",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 8, critChance = 6, soulPreventionDuration = 6, damageEffectiveness = 0.6, skillUseStorage = 2, soulCost = 30, levelRequirement = 12, statInterpolation = { 3, 3, 1, }, },
@@ -1098,6 +1210,8 @@ skills["VaalBladeVortex"] = {
 skills["Bladefall"] = {
 	name = "虚空刀雨",
 	color = 2,
+	baseEffectiveness = 1.2013000249863,
+	incrementalEffectiveness = 0.045499999076128,
 	description = "召唤出从天空降下的虚空武器,随着刀雨的远离, 技能的涵盖范围也跟着提升. 敌人可被击中复数次. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Multicastable] = true, [SkillType.Cascadable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1123,9 +1237,20 @@ skills["Bladefall"] = {
 			{ "bladefall_volley_gap_distance_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "bladefall_damage_per_stage_+%_final", -6 },
+		{ "critical_strike_chance_+%", 100 },
+		{ "bladefall_critical_strike_chance_+%_per_stage", -20 },
+		{ "bladefall_number_of_volleys", 5 },
+		{ "bladefall_blade_left_in_ground_for_every_X_volleys", 1 },
+		{ "maximum_number_of_blades_left_in_ground", 40 },
+		{ "blades_left_in_ground_+%_final_if_not_hand_cast", -50 },
+		{ "base_skill_effect_duration", 6000 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 1.4, critChance = 6, levelRequirement = 28, statInterpolation = { 3, 3, }, cost = { Mana = 12, }, },
@@ -1224,8 +1349,16 @@ skills["BlastRain"] = {
 			{ "blast_rain_area_of_effect_+%", 3 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_fire", 100 },
+		{ "base_number_of_additional_arrows", 5 },
+		{ "blast_rain_arrow_delay_ms", 80 },
+	},
 	stats = {
 		"base_reduce_enemy_fire_resistance_%",
+		"base_is_projectile",
+		"is_area_damage",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { 20, damageEffectiveness = 0.3, baseMultiplier = 0.3, levelRequirement = 28, statInterpolation = { 1, }, cost = { Mana = 8, }, },
@@ -1307,11 +1440,18 @@ skills["BlinkArrow"] = {
 			{ "base_added_cooldown_count", 0.05 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 3000 },
+		{ "number_of_monsters_to_summon", 1 },
+		{ "active_skill_minion_damage_+%_final", 75 },
+		{ "display_minion_monster_type", 4 },
+	},
 	stats = {
 		"minion_damage_+%",
 		"minion_maximum_life_+%",
 		"display_minion_monster_level",
 		"base_cooldown_speed_+%",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0, 0, 24, 0, cooldown = 3, levelRequirement = 10, statInterpolation = { 1, 1, 1, 1, }, cost = { Mana = 14, }, },
@@ -1359,6 +1499,7 @@ skills["BlinkArrow"] = {
 skills["BloodRage"] = {
 	name = "狂野怒火",
 	color = 2,
+	baseEffectiveness = 0,
 	description = "增加一个持续造成物理伤害的增益效果，同时提高生命偷取效果。消灭敌人会刷新该增益效果的持续时间，并提供一个狂怒球。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Instant] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1403,6 +1544,12 @@ skills["BloodRage"] = {
 		Alternate2 = {
 			{ "blood_rage_life_leech_from_elemental_damage_permyriad", 2 },
 		},
+	},
+	constantStats = {
+		{ "life_leech_from_physical_attack_damage_permyriad", 120 },
+		{ "base_physical_damage_%_of_maximum_life_to_deal_per_minute", 240 },
+		{ "base_physical_damage_%_of_maximum_energy_shield_to_deal_per_minute", 240 },
+		{ "add_frenzy_charge_on_kill_%_chance", 25 },
 	},
 	stats = {
 		"attack_speed_+%_granted_from_skill",
@@ -1455,6 +1602,8 @@ skills["BloodRage"] = {
 skills["BurningArrow"] = {
 	name = "燃烧箭矢",
 	color = 2,
+	baseEffectiveness = 0.86650002002716,
+	incrementalEffectiveness = 0.034099999815226,
 	description = "发射一枚燃烧箭矢造成火焰伤害，并有几率点燃敌人。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.ThresholdJewelArea] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -1477,9 +1626,14 @@ skills["BurningArrow"] = {
 			{ "projectile_base_number_of_targets_to_pierce", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "base_chance_to_ignite_%", 25 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 100 },
+	},
 	stats = {
 		"minimum_added_fire_damage_vs_ignited_enemies",
 		"maximum_added_fire_damage_vs_ignited_enemies",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 2, attackSpeedMultiplier = -30, baseMultiplier = 2, levelRequirement = 1, statInterpolation = { 3, 3, }, cost = { Mana = 7, }, },
@@ -1527,6 +1681,8 @@ skills["BurningArrow"] = {
 skills["VaalBurningArrow"] = {
 	name = "瓦尔.燃烧箭矢",
 	color = 2,
+	baseEffectiveness = 0.86650002002716,
+	incrementalEffectiveness = 0.034099999815226,
 	description = "射出一发带有火焰能量的箭矢, 接触到敌人时会爆炸, 并对其与周围的敌人造成额外火焰伤害, 同时有较高的几率造成点燃.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Area] = true, [SkillType.Vaal] = true, [SkillType.Fire] = true, [SkillType.ThresholdJewelDuration] = true, },
 	weaponTypes = {
@@ -1548,9 +1704,18 @@ skills["VaalBurningArrow"] = {
 			{ "fire_dot_multiplier_+", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_chance_to_ignite_%", 50 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 100 },
+		{ "projectile_base_number_of_targets_to_pierce", 3 },
+	},
 	stats = {
 		"minimum_added_fire_damage_vs_ignited_enemies",
 		"maximum_added_fire_damage_vs_ignited_enemies",
+		"vaal_burning_arrow_explode_on_hit",
+		"global_always_hit",
+		"skill_can_fire_arrows",
+		"cannot_cancel_skill_before_contact_point",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, attackSpeedMultiplier = -30, soulPreventionDuration = 2, baseMultiplier = 2.8, damageEffectiveness = 2.8, skillUseStorage = 3, soulCost = 15, levelRequirement = 1, statInterpolation = { 3, 3, }, },
@@ -1598,6 +1763,8 @@ skills["VaalBurningArrow"] = {
 skills["PoisonArrow"] = {
 	name = "腐蚀箭矢",
 	color = 2,
+	baseEffectiveness = 8.1670999526978,
+	incrementalEffectiveness = 0.050299998372793,
 	description = "射出一发带有腐蚀效果的箭矢, 对击中的敌人造成额外混沌伤害, 并且产生腐蚀地面。站在地面上的敌人将会持续的受到混沌伤害.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -1628,9 +1795,17 @@ skills["PoisonArrow"] = {
 			{ "skill_physical_damage_%_to_convert_to_chaos", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 2000 },
+		{ "skill_physical_damage_%_to_convert_to_chaos", 60 },
+		{ "caustic_arrow_explode_on_hit_base_area_of_effect_radius", 12 },
+	},
 	stats = {
 		"base_chaos_damage_to_deal_per_minute",
 		"active_skill_base_radius_+",
+		"skill_can_fire_arrows",
+		"projectile_damage_modifiers_apply_to_skill_dot",
+		"visual_hit_effect_chaos_is_green",
 	},
 	levels = {
 		[1] = { 16.666667039196, 0, damageEffectiveness = 0.55, baseMultiplier = 0.55, levelRequirement = 1, statInterpolation = { 3, 1, }, cost = { Mana = 6, }, },
@@ -1687,7 +1862,12 @@ skills["ImpactingSteelReload"] = {
 	baseFlags = {
 		area = true,
 	},
+	constantStats = {
+		{ "call_of_steel_reload_amount", 4 },
+		{ "call_of_steel_reload_time", 500 },
+	},
 	stats = {
+		"skill_is_steel_skill_reload",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.3, baseMultiplier = 1.3, levelRequirement = 1, },
@@ -1769,7 +1949,17 @@ skills["ChargedDash"] = {
 			{ "skill_travel_distance_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "charged_dash_damage_+%_final", -100 },
+		{ "charged_dash_damage_+%_final_per_stack", 75 },
+		{ "charged_dash_channelling_damage_at_full_stacks_+%_final", 150 },
+		{ "charged_dash_skill_inherent_movement_speed_+%_final", 30 },
+	},
 	stats = {
+		"is_area_damage",
+		"base_skill_show_average_damage_instead_of_dps",
+		"skill_can_add_multiple_charges_per_action",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 0.95, attackSpeedMultiplier = 60, baseMultiplier = 0.95, levelRequirement = 28, cost = { Mana = 4, }, },
@@ -1817,6 +2007,7 @@ skills["ChargedDash"] = {
 skills["CobraLash"] = {
 	name = "毒蛇鞭击",
 	color = 2,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "基于你的武器，投出剧毒的投射物，连锁打击敌人。需要匕首或爪类发动。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Chaos] = true, },
 	weaponTypes = {
@@ -1845,10 +2036,21 @@ skills["CobraLash"] = {
 			{ "projectile_damage_+%_per_remaining_chain", 0.75 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_chaos", 60 },
+		{ "projectile_speed_variation_+%", 15 },
+		{ "projectile_angle_variance", 8 },
+		{ "critical_poison_dot_multiplier_+", 50 },
+		{ "base_chance_to_poison_on_hit_%", 40 },
+		{ "active_skill_projectile_damage_+%_final_for_each_remaining_chain", 5 },
+	},
 	stats = {
 		"attack_minimum_added_chaos_damage",
 		"attack_maximum_added_chaos_damage",
 		"number_of_chains",
+		"base_is_projectile",
+		"console_skill_dont_chase",
+		"visual_hit_effect_chaos_is_green",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 3, damageEffectiveness = 0.75, attackSpeedMultiplier = 20, baseMultiplier = 0.75, levelRequirement = 1, statInterpolation = { 3, 3, 1, }, cost = { Mana = 5, }, },
@@ -1896,6 +2098,8 @@ skills["CobraLash"] = {
 skills["CorpseEruption"] = {
 	name = "火葬",
 	color = 2,
+	baseEffectiveness = 1.8178999423981,
+	incrementalEffectiveness = 0.034499999135733,
 	description = "使目标灵柩爆炸，造成范围伤害并转化为一座喷射的火山。它将在一段时间内持续向周围放出投射物。灵柩的爆炸无法被法术伤害词缀加成，并且无法被重复施法。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.Multicastable] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Cascadable] = true, [SkillType.Projectile] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -1952,11 +2156,21 @@ skills["CorpseEruption"] = {
 			{ "cremation_chance_to_explode_nearby_corpse_when_firing_projectiles", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 8000 },
+		{ "corpse_erruption_base_maximum_number_of_geyers", 3 },
+		{ "number_of_additional_projectiles", 3 },
+		{ "cremation_base_fires_projectile_every_x_ms", 1000 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
 		"active_skill_base_radius_+",
 		"corpse_explosion_monster_life_permillage_fire",
+		"is_area_damage",
+		"show_number_of_projectiles",
+		"base_skill_show_average_damage_instead_of_dps",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0, 40, critChance = 5, levelRequirement = 28, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 11, }, },
@@ -2004,6 +2218,8 @@ skills["CorpseEruption"] = {
 skills["Cyclone"] = {
 	name = "旋风斩",
 	color = 2,
+	baseEffectiveness = 0.25,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "持续吟唱该技能，向指定地点旋转移动，持续攻击你周围的敌人，并积累阶段。持续吟唱该技能时，你无法被击退。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Channel] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -2068,11 +2284,20 @@ skills["Cyclone"] = {
 			{ "avoid_interruption_while_using_this_skill_%", 1 },
 		},
 	},
+	constantStats = {
+		{ "cyclone_movement_speed_+%_final", -30 },
+		{ "cyclone_first_hit_damage_+%_final", -50 },
+		{ "cyclone_melee_weapon_range_+_per_stage", 1 },
+		{ "cyclone_stage_decay_time_ms", 330 },
+		{ "cyclone_area_of_effect_+%_per_additional_melee_range", 8 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
 		"cyclone_gain_stage_every_x_ms_while_channelling",
 		"cyclone_max_number_of_stages",
+		"is_area_damage",
+		"skill_can_add_multiple_charges_per_action",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 330, 3, damageEffectiveness = 0.44, attackSpeedMultiplier = 200, baseMultiplier = 0.44, levelRequirement = 28, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 2, }, },
@@ -2120,6 +2345,8 @@ skills["Cyclone"] = {
 skills["VaalCyclone"] = {
 	name = "瓦尔.旋风斩",
 	color = 2,
+	baseEffectiveness = 0.25,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "以自体为中心在原地进行旋转攻击，周围的敌人将会被拉向你并受到伤害。使用此技能时，无法被晕眩或被击退，无法被无情辅助。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Duration] = true, [SkillType.Vaal] = true, },
 	weaponTypes = {
@@ -2168,9 +2395,18 @@ skills["VaalCyclone"] = {
 			{ "base_skill_area_of_effect_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 5000 },
+		{ "cyclone_area_of_effect_+%_per_additional_melee_range", 8 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
+		"is_area_damage",
+		"global_always_hit",
+		"modifiers_to_skill_effect_duration_also_affect_soul_prevention_duration",
+		"cannot_cancel_skill_before_contact_point",
+		"skill_can_add_multiple_charges_per_action",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, attackSpeedMultiplier = 200, soulPreventionDuration = 5, baseMultiplier = 0.8, damageEffectiveness = 0.8, skillUseStorage = 1, soulCost = 25, levelRequirement = 28, statInterpolation = { 3, 3, }, },
@@ -2239,6 +2475,11 @@ skills["QuickDodge"] = {
 	stats = {
 		"base_cooldown_speed_+%",
 		"skill_travel_distance_+%",
+		"base_deal_no_damage",
+		"skill_cannot_be_interrupted",
+		"skill_cannot_be_knocked_back",
+		"skill_cannot_be_stunned",
+		"spell_cast_time_cannot_be_modified",
 	},
 	levels = {
 		[1] = { 0, 0, cooldown = 2.5, levelRequirement = 4, statInterpolation = { 1, 1, }, cost = { Mana = 4, }, },
@@ -2286,6 +2527,8 @@ skills["QuickDodge"] = {
 skills["Desecrate"] = {
 	name = "亵渎",
 	color = 2,
+	baseEffectiveness = 1.6000000238419,
+	incrementalEffectiveness = 0.046500001102686,
 	description = "腐化一块地面, 召唤灵柩并对所有站在该地面上的敌人造成混沌伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.DamageOverTime] = true, [SkillType.Multicastable] = true, [SkillType.Chaos] = true, [SkillType.Cascadable] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2313,9 +2556,15 @@ skills["Desecrate"] = {
 			{ "desecrate_chance_for_special_corpse_%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 4000 },
+		{ "desecrate_number_of_corpses_to_create", 5 },
+		{ "desecrate_maximum_number_of_corpses", 10 },
+	},
 	stats = {
 		"base_chaos_damage_to_deal_per_minute",
 		"desecrate_corpse_level",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 16.666667039196, 20, levelRequirement = 16, statInterpolation = { 3, 1, }, cost = { Mana = 11, }, },
@@ -2363,6 +2612,8 @@ skills["Desecrate"] = {
 skills["DetonateDead"] = {
 	name = "爆灵术",
 	color = 2,
+	baseEffectiveness = 4.0300002098083,
+	incrementalEffectiveness = 0.031700000166893,
 	description = "对一个灵柩施法，使其周围目标都受到一个法术伤害。同时使该灵柩爆炸， 对附近的敌人造成火焰伤害。爆炸造成的伤害无法被法术伤害词缀加成，并且无法被反射。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.DestroysCorpse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2411,6 +2662,7 @@ skills["DetonateDead"] = {
 		"spell_maximum_base_fire_damage",
 		"active_skill_base_radius_+",
 		"corpse_explosion_monster_life_permillage_fire",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.69999998807907, 1, 0, 60, damageEffectiveness = 1.6, critChance = 6, levelRequirement = 4, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 5, }, },
@@ -2458,6 +2710,8 @@ skills["DetonateDead"] = {
 skills["VaalDetonateDead"] = {
 	name = "瓦尔.爆灵术",
 	color = 2,
+	baseEffectiveness = 6.039999961853,
+	incrementalEffectiveness = 0.034000001847744,
 	description = "对一个灵柩施法，使其周围目标都受到一个法术伤害。同时使该灵柩爆炸， 对附近的敌人造成火焰伤害。爆炸造成的伤害无法被法术伤害词缀加成，并且无法被反射。爆炸会继续指定区域内的其他灵柩，每个灵柩之间的爆炸间隔持续延长，直到灵柩消耗殆尽或有 22 个灵柩被引爆。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Vaal] = true, [SkillType.Fire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2500,6 +2754,7 @@ skills["VaalDetonateDead"] = {
 		"spell_maximum_base_fire_damage",
 		"active_skill_base_radius_+",
 		"corpse_explosion_monster_life_permillage_fire",
+		"cannot_cancel_skill_before_contact_point",
 	},
 	levels = {
 		[1] = { 0.69999998807907, 1, 0, 60, critChance = 5, soulPreventionDuration = 8, damageEffectiveness = 2, skillUseStorage = 1, soulCost = 30, levelRequirement = 4, statInterpolation = { 3, 3, 1, 1, }, },
@@ -2547,6 +2802,7 @@ skills["VaalDetonateDead"] = {
 skills["DoubleStrike"] = {
 	name = "双重打击",
 	color = 2,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "使用近战武器发动两次快速打击。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -2581,6 +2837,10 @@ skills["DoubleStrike"] = {
 		Alternate2 = {
 			{ "maim_on_hit_%", 1 },
 		},
+	},
+	constantStats = {
+		{ "base_skill_number_of_additional_hits", 1 },
+		{ "bleed_on_hit_with_attacks_%", 25 },
 	},
 	stats = {
 		"global_minimum_added_physical_damage_vs_bleeding_enemies",
@@ -2632,6 +2892,7 @@ skills["DoubleStrike"] = {
 skills["VaalDoubleStrike"] = {
 	name = "瓦尔.双重打击",
 	color = 2,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "使用近战武器发动两次快速打击，每次都会召唤出你的影分身持续一段时间，并用相同的方式连续攻击敌人。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Duration] = true, [SkillType.Vaal] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -2660,10 +2921,20 @@ skills["VaalDoubleStrike"] = {
 			{ "attack_speed_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_number_of_additional_hits", 1 },
+		{ "base_skill_effect_duration", 6000 },
+		{ "number_of_monsters_to_summon", 1 },
+		{ "bleed_on_hit_with_attacks_%", 25 },
+		{ "maximum_number_of_summoned_doubles", 8 },
+	},
 	stats = {
 		"global_minimum_added_physical_damage_vs_bleeding_enemies",
 		"global_maximum_added_physical_damage_vs_bleeding_enemies",
 		"doubles_have_movement_speed_+%",
+		"global_always_hit",
+		"modifiers_to_skill_effect_duration_also_affect_soul_prevention_duration",
+		"cannot_cancel_skill_before_contact_point",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0, baseMultiplier = 0.28, soulPreventionDuration = 8, damageEffectiveness = 0.28, skillUseStorage = 2, soulCost = 30, levelRequirement = 1, statInterpolation = { 3, 3, 1, }, },
@@ -2711,6 +2982,7 @@ skills["VaalDoubleStrike"] = {
 skills["DualStrike"] = {
 	name = "双持打击",
 	color = 2,
+	baseEffectiveness = 0,
 	description = "使用两把武器对目标同时进行攻击并造成伤害. 限定双持（不包含法杖）.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.DualWieldOnly] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.ThresholdJewelArea] = true, },
 	weaponTypes = {
@@ -2752,8 +3024,13 @@ skills["DualStrike"] = {
 			{ "active_skill_added_damage_+%_final", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "dual_strike_critical_strike_chance_+%_final_against_enemies_on_full_life", 100 },
+		{ "dual_strike_damage_+%_final_against_enemies_on_full_life", 30 },
+	},
 	stats = {
 		"critical_strike_chance_+%",
+		"skill_double_hits_when_dual_wielding",
 	},
 	levels = {
 		[1] = { 50, damageEffectiveness = 1.25, attackSpeedMultiplier = -30, baseMultiplier = 1.25, levelRequirement = 1, statInterpolation = { 1, }, cost = { Mana = 5, }, },
@@ -2801,6 +3078,8 @@ skills["DualStrike"] = {
 skills["ElementalHit"] = {
 	name = "元素打击",
 	color = 2,
+	baseEffectiveness = 2.8241999149323,
+	incrementalEffectiveness = 0.031399998813868,
 	description = "该技能的每次攻击都会随机选择一种元素，并只能造成该元素的伤害。若击中敌人，还会在他们周围造成伤害，若该敌人正承受所选元素的异常状态，则伤害范围扩大。不能连续选择同一种元素。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.RandomElement] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2886,6 +3165,11 @@ skills["ElementalHit"] = {
 		"attack_minimum_added_lightning_damage",
 		"attack_maximum_added_lightning_damage",
 		"chance_to_freeze_shock_ignite_%",
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
+		"elemental_hit_damage_+10%_final_per_enemy_elemental_ailment",
+		"elemental_hit_area_of_effect_+100%_final_vs_enemy_with_associated_ailment",
+		"elemental_hit_no_physical_chaos_damage",
 	},
 	levels = {
 		[1] = { 0.69999998807907, 1.2999999523163, 0.56999999284744, 1.0599999427795, 0.10999999940395, 2.1400001049042, 30, levelRequirement = 12, statInterpolation = { 3, 3, 3, 3, 3, 3, 1, }, cost = { Mana = 7, }, },
@@ -2933,6 +3217,8 @@ skills["ElementalHit"] = {
 skills["EnsnaringArrow"] = {
 	name = "诱捕之箭",
 	color = 2,
+	baseEffectiveness = 6.5,
+	incrementalEffectiveness = 0.052000001072884,
 	description = "射出一支箭矢，在击中最后的目标后留在地面，将其拘束在其中。被诱捕的敌人始终视为在移动，并以更缓慢的速度试图突破圈套。一旦被捕猎的敌人离开效果区域，该圈套就被破坏。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, },
 	weaponTypes = {
@@ -2964,8 +3250,15 @@ skills["EnsnaringArrow"] = {
 			{ "ensnaring_arrow_enemy_spell_damage_taken_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "tethered_movement_speed_+%_final_per_rope", -40 },
+		{ "tethered_movement_speed_+%_final_per_rope_vs_rare", -30 },
+		{ "tethered_movement_speed_+%_final_per_rope_vs_unique", -25 },
+		{ "tethering_arrow_display_rope_limit", 3 },
+	},
 	stats = {
 		"tethered_enemies_take_attack_projectile_damage_taken_+%",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { 15, damageEffectiveness = 1.4, baseMultiplier = 1.4, levelRequirement = 16, statInterpolation = { 1, }, cost = { Mana = 8, }, },
@@ -3013,6 +3306,8 @@ skills["EnsnaringArrow"] = {
 skills["EtherealKnives"] = {
 	name = "虚空匕首",
 	color = 2,
+	baseEffectiveness = 2.1717000007629,
+	incrementalEffectiveness = 0.043600000441074,
 	description = "向前依弧形射出数支匕首，对敌人造成物理伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3032,11 +3327,20 @@ skills["EtherealKnives"] = {
 			{ "spells_impale_on_hit_%_chance", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "maximum_number_of_blades_left_in_ground", 40 },
+		{ "ethereal_knives_blade_left_in_ground_for_every_X_projectiles", 3 },
+		{ "active_skill_projectile_speed_+%_variation_final", 50 },
+		{ "blades_left_in_ground_+%_final_if_not_hand_cast", -50 },
+		{ "base_skill_effect_duration", 6000 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"number_of_additional_projectiles",
 		"base_projectile_speed_+%",
+		"base_is_projectile",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 9, 0, damageEffectiveness = 2.2, critChance = 6, levelRequirement = 1, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 5, }, },
@@ -3084,6 +3388,8 @@ skills["EtherealKnives"] = {
 skills["ExplosiveArrow"] = {
 	name = "爆炸箭矢",
 	color = 2,
+	baseEffectiveness = 1.4859000444412,
+	incrementalEffectiveness = 0.040300000458956,
 	description = "发射一支箭矢，射在一名敌人身上或墙上，持续一段时间后或目标身上的箭矢达到上限后会引发爆炸，对周围造成范围伤害。如果一个敌人身上有多个爆炸箭矢，则第一个箭矢爆炸时会引爆剩余箭矢，它们的伤害会计入爆炸总伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -3158,9 +3464,20 @@ skills["ExplosiveArrow"] = {
 			{ "active_skill_quality_duration_+%_final", -2 },
 		},
 	},
+	constantStats = {
+		{ "fuse_arrow_explosion_radius_+_per_fuse_arrow_orb", 2 },
+		{ "explosive_arrow_explosion_base_damage_+permyriad", -5000 },
+		{ "explosive_arrow_maximum_bonus_explosion_radius", 12 },
+		{ "explosive_arrow_hit_damage_+%_final_per_stack", 6 },
+		{ "explosive_arrow_ailment_damage_+%_final_per_stack", 3 },
+		{ "explosive_arrow_stack_limit", 20 },
+		{ "base_skill_effect_duration", 1000 },
+	},
 	stats = {
 		"explosive_arrow_explosion_minimum_added_fire_damage",
 		"explosive_arrow_explosion_maximum_added_fire_damage",
+		"skill_can_fire_arrows",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, levelRequirement = 28, statInterpolation = { 3, 3, }, cost = { Mana = 8, }, },
@@ -3208,6 +3525,8 @@ skills["ExplosiveArrow"] = {
 skills["ExplosiveConcoction"] = {
 	name = "爆破灵药",
 	color = 2,
+	baseEffectiveness = 3.1761000156403,
+	incrementalEffectiveness = 0.038699999451637,
 	description = "投掷一个爆炸瓶，在一片区域内造成徒手攻击伤害。可以消耗红玉药剂、黄玉药剂、蓝玉药剂的充能来进一步增加伤害。需要空出主手，也不能持握副手武器。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.RequiresOffHandNotWeapon] = true, },
 	weaponTypes = {
@@ -3277,6 +3596,10 @@ skills["ExplosiveConcoction"] = {
 			{ "critical_strike_chance_+%", 1.5 },
 		},
 	},
+	constantStats = {
+		{ "flask_throw_base_charges_used", 3 },
+		{ "additional_base_critical_strike_chance", 600 },
+	},
 	stats = {
 		"attack_minimum_added_fire_damage",
 		"attack_maximum_added_fire_damage",
@@ -3285,6 +3608,9 @@ skills["ExplosiveConcoction"] = {
 		"flask_throw_minimum_lightning_damage_if_used_topaz_flask",
 		"flask_throw_maximum_lightning_damage_if_used_topaz_flask",
 		"flask_throw_ruby_flask_ignite_dot_multiplier_+",
+		"base_is_projectile",
+		"is_area_damage",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0.23999999463558, 0.36000001430511, 0.050000000745058, 0.55000001192093, 60, attackSpeedMultiplier = 15, levelRequirement = 28, statInterpolation = { 3, 3, 3, 3, 3, 3, 1, }, cost = { Mana = 7, }, },
@@ -3332,6 +3658,8 @@ skills["ExplosiveConcoction"] = {
 skills["ShrapnelTrap"] = {
 	name = "爆炸陷阱",
 	color = 2,
+	baseEffectiveness = 1.6990000009537,
+	incrementalEffectiveness = 0.035599999129772,
 	description = "投掷陷阱，触发后造成大面积的爆炸，在区域内造成法术伤害。第一次爆炸后该区域内会连续快速产生多次小爆炸。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Mineable] = true, [SkillType.Area] = true, [SkillType.Trapped] = true, [SkillType.Fire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3358,11 +3686,19 @@ skills["ShrapnelTrap"] = {
 			{ "skill_physical_damage_%_to_convert_to_cold", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_trap_duration", 4000 },
+		{ "skill_physical_damage_%_to_convert_to_fire", 50 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"shrapnel_trap_number_of_secondary_explosions",
 		"active_skill_base_radius_+",
+		"is_area_damage",
+		"base_skill_is_trapped",
+		"base_skill_show_average_damage_instead_of_dps",
+		"is_trap",
 	},
 	levels = {
 		[1] = { 0.56999999284744, 0.86000001430511, 4, 0, critChance = 6, levelRequirement = 1, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 6, }, },
@@ -3410,6 +3746,8 @@ skills["ShrapnelTrap"] = {
 skills["FireTrap"] = {
 	name = "火焰陷阱",
 	color = 2,
+	baseEffectiveness = 2.1289000511169,
+	incrementalEffectiveness = 0.057300001382828,
 	description = "投掷一个陷阱, 该陷阱被触发时会爆炸并对周围的敌人造成火焰伤害, 且该区域的地面会持续燃烧, 踩在上面的敌人会持续受到伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Damage] = true, [SkillType.Mineable] = true, [SkillType.Area] = true, [SkillType.CausesBurning] = true, [SkillType.Trapped] = true, [SkillType.DamageOverTime] = true, [SkillType.Fire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3437,6 +3775,10 @@ skills["FireTrap"] = {
 			{ "active_skill_area_of_effect_+%_final", -1 },
 		},
 	},
+	constantStats = {
+		{ "base_trap_duration", 4000 },
+		{ "base_skill_effect_duration", 1750 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
@@ -3444,6 +3786,11 @@ skills["FireTrap"] = {
 		"global_minimum_added_fire_damage_vs_burning_enemies",
 		"global_maximum_added_fire_damage_vs_burning_enemies",
 		"active_skill_base_radius_+",
+		"is_area_damage",
+		"base_skill_is_trapped",
+		"base_skill_show_average_damage_instead_of_dps",
+		"spell_damage_modifiers_apply_to_skill_dot",
+		"is_trap",
 	},
 	levels = {
 		[1] = { 0.31999999284744, 0.47999998927116, 63.333333954215, 0.10000000149012, 0.15000000596046, 0, damageEffectiveness = 2.6, critChance = 6, levelRequirement = 12, statInterpolation = { 3, 3, 3, 3, 3, 1, }, cost = { Mana = 8, }, },
@@ -3491,6 +3838,8 @@ skills["FireTrap"] = {
 skills["FlamethrowerTrap"] = {
 	name = "掷火陷阱",
 	color = 2,
+	baseEffectiveness = 0.11810000240803,
+	incrementalEffectiveness = 0.058899998664856,
 	description = "投掷陷阱，触发后向不同方向喷射烈焰。烈焰持续一段时间，会在陷阱周围旋转，并重复造成伤害。对燃烧的敌人造成更多伤害。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Damage] = true, [SkillType.Mineable] = true, [SkillType.Area] = true, [SkillType.Trapped] = true, [SkillType.Fire] = true, [SkillType.AreaSpell] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3521,9 +3870,19 @@ skills["FlamethrowerTrap"] = {
 			{ "trap_throwing_speed_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_trap_duration", 4000 },
+		{ "base_skill_effect_duration", 3500 },
+		{ "flamethrower_trap_damage_+%_final_vs_burning_enemies", 25 },
+		{ "flamethrower_tower_trap_number_of_flamethrowers", 4 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
+		"is_area_damage",
+		"base_skill_is_trapped",
+		"base_skill_show_average_damage_instead_of_dps",
+		"is_trap",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 0.3, cooldown = 8, critChance = 5, levelRequirement = 28, statInterpolation = { 3, 3, }, cost = { Mana = 13, }, },
@@ -3571,6 +3930,7 @@ skills["FlamethrowerTrap"] = {
 skills["FlickerStrike"] = {
 	name = "闪现打击",
 	color = 2,
+	baseEffectiveness = 0,
 	description = "传送至目标怪物身边并用近战武器对其造成伤害。若是未选定目标，则系统会为其随机指定一只怪物。获得一个增益效果，使移动速度提高一段时间。消耗一个狂怒球能重置其技能冷却。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Movement] = true, [SkillType.Duration] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -3614,7 +3974,16 @@ skills["FlickerStrike"] = {
 			{ "flicker_strike_teleport_range_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_attack_speed_+%_per_frenzy_charge", 10 },
+		{ "add_frenzy_charge_on_skill_hit_%", 15 },
+		{ "flicker_strike_buff_movement_speed_+%", 20 },
+		{ "base_skill_effect_duration", 3000 },
+	},
 	stats = {
+		"ignores_proximity_shield",
+		"base_skill_show_average_damage_instead_of_dps",
+		"melee_defer_damage_prediction",
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = 20, cooldown = 2, damageEffectiveness = 1.42, baseMultiplier = 1.42, levelRequirement = 10, cost = { Mana = 10, }, },
@@ -3662,6 +4031,7 @@ skills["FlickerStrike"] = {
 skills["Frenzy"] = {
 	name = "狂怒",
 	color = 2,
+	baseEffectiveness = 0,
 	description = "进行一次攻击, 若是命中敌人则累积一颗狂怒球. 带着狂怒球的状态下将会增加你的攻击速度.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Triggerable] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -3693,7 +4063,13 @@ skills["Frenzy"] = {
 			{ "ailment_damage_+%_per_frenzy_charge", 0.25 },
 		},
 	},
+	constantStats = {
+		{ "frenzy_skill_attack_damage_+%_final_per_frenzy_charge", 5 },
+		{ "frenzy_skill_attack_speed_+%_final_per_frenzy_charge", 5 },
+	},
 	stats = {
+		"skill_can_fire_arrows",
+		"skill_can_fire_wand_projectiles",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.15, baseMultiplier = 1.15, levelRequirement = 16, cost = { Mana = 10, }, },
@@ -3741,6 +4117,8 @@ skills["Frenzy"] = {
 skills["FrostBlades"] = {
 	name = "冰霜之刃",
 	color = 2,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "增加攻击范围。当被第一个被击飞的敌人与其他敌人碰撞时释放冰霜之刃。限定近战武器。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Cold] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesNotFromUser] = true, },
 	weaponTypes = {
@@ -3787,12 +4165,18 @@ skills["FrostBlades"] = {
 			{ "cold_ailment_duration_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 60 },
+		{ "total_projectile_spread_angle_override", 110 },
+	},
 	stats = {
 		"attack_minimum_added_cold_damage",
 		"attack_maximum_added_cold_damage",
 		"number_of_additional_projectiles",
 		"melee_weapon_range_+",
 		"base_projectile_speed_+%",
+		"show_number_of_projectiles",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 4, 18, 0, levelRequirement = 1, statInterpolation = { 3, 3, 1, 1, 1, }, cost = { Mana = 6, }, },
@@ -3840,6 +4224,8 @@ skills["FrostBlades"] = {
 skills["ShrapnelShot"] = {
 	name = "电光箭",
 	color = 2,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "释放闪烁电光的箭矢，对锥形区域内所有敌人造成伤害。电光消散后，这些箭矢会在飞行途中消退，最终消失。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -3876,10 +4262,17 @@ skills["ShrapnelShot"] = {
 			{ "shrapnel_shot_cone_placement_distance_+", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "base_number_of_additional_arrows", 2 },
+	},
 	stats = {
 		"attack_minimum_added_lightning_damage",
 		"attack_maximum_added_lightning_damage",
 		"active_skill_base_radius_+",
+		"base_is_projectile",
+		"skill_can_fire_arrows",
+		"additive_arrow_speed_modifiers_apply_to_area_of_effect",
 	},
 	levels = {
 		[1] = { 0.10000000149012, 1.8999999761581, 0, damageEffectiveness = 0.8, baseMultiplier = 0.8, levelRequirement = 1, statInterpolation = { 3, 3, 1, }, cost = { Mana = 6, }, },
@@ -3974,6 +4367,7 @@ skills["Grace"] = {
 		"grace_aura_evasion_rating_+%_final",
 		"base_evasion_rating",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 20, 227, 0, manaReservationPercent = 50, cooldown = 1.2, levelRequirement = 24, statInterpolation = { 1, 1, 1, }, },
@@ -4045,8 +4439,15 @@ skills["VaalGrace"] = {
 			{ "base_skill_area_of_effect_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "chance_to_evade_attacks_%", 15 },
+		{ "base_skill_effect_duration", 6000 },
+	},
 	stats = {
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
+		"modifiers_to_buff_effect_duration_also_affect_soul_prevention_duration",
+		"damage_taken_from_suppressed_hits_is_unlucky",
 	},
 	levels = {
 		[1] = { 0, cooldown = 0.5, soulPreventionDuration = 9, skillUseStorage = 1, soulCost = 50, levelRequirement = 24, statInterpolation = { 1, }, },
@@ -4145,6 +4546,7 @@ skills["Haste"] = {
 		"cast_speed_+%_granted_from_skill",
 		"base_movement_velocity_+%",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 15, 15, 10, 0, manaReservationPercent = 50, cooldown = 1.2, levelRequirement = 24, statInterpolation = { 1, 1, 1, 1, }, },
@@ -4222,11 +4624,16 @@ skills["VaalHaste"] = {
 			{ "base_skill_area_of_effect_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 4000 },
+	},
 	stats = {
 		"attack_speed_+%_granted_from_skill",
 		"cast_speed_+%_granted_from_skill",
 		"base_movement_velocity_+%",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
+		"modifiers_to_buff_effect_duration_also_affect_soul_prevention_duration",
 	},
 	levels = {
 		[1] = { 25, 24, 16, 0, cooldown = 0.5, soulPreventionDuration = 6, skillUseStorage = 1, soulCost = 50, levelRequirement = 24, statInterpolation = { 1, 1, 1, 1, }, },
@@ -4274,6 +4681,8 @@ skills["VaalHaste"] = {
 skills["Hatred"] = {
 	name = "憎恨",
 	color = 2,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.025000000372529,
 	description = "施放一个光环，使你与受光环影响友军获得额外冰霜伤害.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.TotemCastsAlone] = true, [SkillType.Totemable] = true, [SkillType.Aura] = true, [SkillType.Cold] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.CanHaveBlessing] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "aura_skill_stat_descriptions",
@@ -4312,6 +4721,7 @@ skills["Hatred"] = {
 		"physical_damage_%_to_add_as_cold",
 		"active_skill_base_radius_+",
 		"hatred_aura_cold_damage_+%_final",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 16, 0, 14, manaReservationPercent = 50, cooldown = 1.2, levelRequirement = 24, statInterpolation = { 1, 1, 1, }, },
@@ -4359,6 +4769,8 @@ skills["Hatred"] = {
 skills["HeraldOfAgony"] = {
 	name = "苦痛之捷",
 	color = 2,
+	baseEffectiveness = 0.10999999940395,
+	incrementalEffectiveness = 0.044700000435114,
 	description = "给予一个增益效果，使中毒伤害提高，并有几率造成中毒。当你带有此增益时使敌人中毒，你会获得【毒力】，并且召唤一个会投掷投射物和范围攻击的【苦痛爬行者】。你会持续失去【毒力】，【毒力】越高，失去的速度越快。【毒力】消退后【苦痛爬行者】就会死亡。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Herald] = true, [SkillType.Minion] = true, [SkillType.Instant] = true, [SkillType.Chaos] = true, [SkillType.Physical] = true, [SkillType.CreatesMinion] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	minionSkillTypes = { [SkillType.Damage] = true, [SkillType.Attack] = true, [SkillType.Chaos] = true, [SkillType.Projectile] = true, [SkillType.RangedAttack] = true, },
@@ -4409,11 +4821,19 @@ skills["HeraldOfAgony"] = {
 			{ "skill_buff_grants_chance_to_poison_%", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_buff_grants_chance_to_poison_%", 20 },
+		{ "herald_of_agony_poison_damage_+%_final", 10 },
+		{ "base_number_of_herald_scorpions_allowed", 1 },
+		{ "maximum_virulence_stacks", 40 },
+	},
 	stats = {
 		"scorpion_minion_minimum_added_physical_damage",
 		"scorpion_minion_maximum_added_physical_damage",
 		"scorpion_minion_physical_damage_+%",
 		"scorpion_minion_attack_speed_+%",
+		"herald_of_agony_add_stack_on_poison",
+		"minions_cannot_taunt_enemies",
 	},
 	levels = {
 		[1] = { 0.69999998807907, 1.2999999523163, 5, 2, manaReservationPercent = 25, cooldown = 1, levelRequirement = 16, statInterpolation = { 3, 3, 1, 1, }, },
@@ -4461,6 +4881,8 @@ skills["HeraldOfAgony"] = {
 skills["HeraldOfIce"] = {
 	name = "寒冰之捷",
 	color = 2,
+	baseEffectiveness = 1.3636000156403,
+	incrementalEffectiveness = 0.023000000044703,
 	description = "获得一个增益效果，给法术和攻击增添冰霜伤害。如敌人被你粉碎，则该技能将其引爆，对周围的敌人造成范围冰霜伤害。该伤害不套用调整法术伤害的词缀。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.TotemCastsAlone] = true, [SkillType.Herald] = true, [SkillType.Instant] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -4503,6 +4925,9 @@ skills["HeraldOfIce"] = {
 			{ "skill_buff_grants_chance_to_freeze_%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "skill_override_pvp_scaling_time_ms", 1000 },
+	},
 	stats = {
 		"spell_minimum_added_cold_damage",
 		"spell_maximum_added_cold_damage",
@@ -4510,6 +4935,11 @@ skills["HeraldOfIce"] = {
 		"attack_maximum_added_cold_damage",
 		"secondary_minimum_base_cold_damage",
 		"secondary_maximum_base_cold_damage",
+		"is_area_damage",
+		"base_skill_show_average_damage_instead_of_dps",
+		"display_skill_deals_secondary_damage",
+		"damage_cannot_be_reflected",
+		"skill_can_add_multiple_charges_per_action",
 	},
 	levels = {
 		[1] = { 0.20000000298023, 0.30000001192093, 0.20000000298023, 0.30000001192093, 18, 26, damageEffectiveness = 0.8, manaReservationPercent = 25, cooldown = 1, levelRequirement = 16, statInterpolation = { 3, 3, 3, 3, 1, 1, }, },
@@ -4557,6 +4987,8 @@ skills["HeraldOfIce"] = {
 skills["IceShot"] = {
 	name = "冰霜射击",
 	color = 2,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "射出一支箭矢，在击中目标时将部分物理伤害转化为冰霜伤害，并在目标背后形成锥形范围攻击其它敌人，此时所有物理伤害转化为冰霜伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -4595,11 +5027,15 @@ skills["IceShot"] = {
 			{ "skill_physical_damage_%_to_convert_to_cold", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_cold", 60 },
+	},
 	stats = {
 		"attack_minimum_added_cold_damage",
 		"attack_maximum_added_cold_damage",
 		"cold_ailment_effect_+%",
 		"active_skill_chill_as_though_damage_+%_final",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0, 100, damageEffectiveness = 1.3, baseMultiplier = 1.3, levelRequirement = 1, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 6, }, },
@@ -4647,6 +5083,8 @@ skills["IceShot"] = {
 skills["IceTrap"] = {
 	name = "冰冻陷阱",
 	color = 2,
+	baseEffectiveness = 2.3310000896454,
+	incrementalEffectiveness = 0.046999998390675,
 	description = "抛出一个触发时会制造一连串冰霜印记爆破的陷阱, 对所有在爆破范围内的敌人造成冰霜伤害. ",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Mineable] = true, [SkillType.Area] = true, [SkillType.Trapped] = true, [SkillType.Cold] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -4675,9 +5113,16 @@ skills["IceTrap"] = {
 			{ "freeze_as_though_dealt_damage_+%", 5 },
 		},
 	},
+	constantStats = {
+		{ "base_trap_duration", 4000 },
+	},
 	stats = {
 		"spell_minimum_base_cold_damage",
 		"spell_maximum_base_cold_damage",
+		"is_area_damage",
+		"base_skill_is_trapped",
+		"base_skill_show_average_damage_instead_of_dps",
+		"is_trap",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 2.9, critChance = 5, levelRequirement = 28, statInterpolation = { 3, 3, }, cost = { Mana = 13, }, },
@@ -4725,6 +5170,8 @@ skills["IceTrap"] = {
 skills["DoubleSlash"] = {
 	name = "破空斩",
 	color = 2,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "挥斩两次，击中敌人会释放出给敌人造成伤害的冲击波。在挥斩中间的敌人会被击中两次。挥斩在血姿态下有一定几率施加流血效果，在沙姿态下拥有更宽的角度。限定斧类和剑类。默认为血姿态。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -4764,11 +5211,17 @@ skills["DoubleSlash"] = {
 			{ "base_bleed_duration_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "chance_to_bleed_on_hit_%_chance_in_blood_stance", 25 },
+		{ "skill_angle_+%_in_sand_stance", 50 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
 		"active_skill_base_radius_+",
 		"active_skill_bleeding_damage_+%_final_in_blood_stance",
+		"is_area_damage",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0, 50, attackSpeedMultiplier = -40, levelRequirement = 12, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 8, }, },
@@ -4816,6 +5269,7 @@ skills["DoubleSlash"] = {
 skills["LancingSteel"] = {
 	name = "断金之刃",
 	color = 2,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "向前投掷一把剑或斧头，消耗钢刃碎片在前方凝聚一团剑刃。它会依次对前方或靠近它的敌人发射投射物。钢刃碎片由【钢铁呼唤】提供。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Damage] = true, [SkillType.ProjectileSpeed] = true, [SkillType.RangedAttack] = true, [SkillType.Physical] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Steel] = true, },
 	weaponTypes = {
@@ -4866,9 +5320,17 @@ skills["LancingSteel"] = {
 			{ "attacks_impale_on_hit_%_chance", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 3 },
+		{ "attacks_impale_on_hit_%_chance", 20 },
+		{ "steel_ammo_consumed_per_use", 4 },
+		{ "number_of_projectiles_to_fire_+%_final_per_steel_ammo_consumed", 50 },
+		{ "lancing_steel_damage_+%_final_after_first_hit_on_target", -60 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 0.63, attackSpeedMultiplier = -20, baseMultiplier = 0.63, levelRequirement = 28, statInterpolation = { 3, 3, }, cost = { Mana = 8, }, },
@@ -4916,6 +5378,8 @@ skills["LancingSteel"] = {
 skills["LightningArrow"] = {
 	name = "闪电箭矢",
 	color = 2,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "射出一发充满闪电能量的箭矢, 对敌人造成伤害的同时也对附近额外 3 名敌人造成同等的伤害.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, },
 	weaponTypes = {
@@ -4944,10 +5408,15 @@ skills["LightningArrow"] = {
 			{ "lightning_arrow_%_chance_to_hit_an_additional_enemy", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "lightning_arrow_maximum_number_of_extra_targets", 3 },
+	},
 	stats = {
 		"attack_minimum_added_lightning_damage",
 		"attack_maximum_added_lightning_damage",
 		"active_skill_shock_as_though_damage_+%_final",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { 0.10000000149012, 1.8999999761581, 100, damageEffectiveness = 1.3, baseMultiplier = 1.3, levelRequirement = 12, statInterpolation = { 3, 3, 1, }, cost = { Mana = 7, }, },
@@ -4995,6 +5464,8 @@ skills["LightningArrow"] = {
 skills["LightningStrike"] = {
 	name = "闪电打击",
 	color = 2,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "凝聚闪电之力，将近战武器的部分物理伤害转化为闪电伤害重击敌人。充盈的闪电之力在击中后会穿透并分裂成数道投射物，袭击更远处的敌人。若该近战攻击没有失手，则后续的闪电投射物无法被躲避。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.Lightning] = true, [SkillType.ProjectilesNotFromUser] = true, },
 	weaponTypes = {
@@ -5049,10 +5520,17 @@ skills["LightningStrike"] = {
 			{ "skill_physical_damage_%_to_convert_to_lightning", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "total_projectile_spread_angle_override", 70 },
+		{ "active_skill_projectile_speed_+%_variation_final", 30 },
+	},
 	stats = {
 		"attack_minimum_added_lightning_damage",
 		"attack_maximum_added_lightning_damage",
 		"number_of_additional_projectiles",
+		"show_number_of_projectiles",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0.10000000149012, 1.8999999761581, 4, damageEffectiveness = 1.35, baseMultiplier = 1.35, levelRequirement = 12, statInterpolation = { 3, 3, 1, }, cost = { Mana = 6, }, },
@@ -5100,6 +5578,8 @@ skills["LightningStrike"] = {
 skills["VaalLightningStrike"] = {
 	name = "瓦尔.闪电打击",
 	color = 2,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "凝聚闪电之力, 转换一部分的物理伤害为闪电伤害以重击目标. 闪电之力在击中敌人后会在其身旁形成电球，若未击中敌人则在地面生成电球。电球会持续向其他周围的敌人发射投射物，也会对附加电球的敌人造成伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Duration] = true, [SkillType.Vaal] = true, [SkillType.Lightning] = true, [SkillType.Projectile] = true, [SkillType.RangedAttack] = true, [SkillType.ProjectilesNotFromUser] = true, },
 	weaponTypes = {
@@ -5146,10 +5626,20 @@ skills["VaalLightningStrike"] = {
 			{ "base_projectile_speed_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "base_skill_effect_duration", 6000 },
+		{ "total_projectile_spread_angle_override", 180 },
+	},
 	stats = {
 		"attack_minimum_added_lightning_damage",
 		"attack_maximum_added_lightning_damage",
 		"number_of_additional_projectiles",
+		"global_always_hit",
+		"show_number_of_projectiles",
+		"modifiers_to_skill_effect_duration_also_affect_soul_prevention_duration",
+		"cannot_cancel_skill_before_contact_point",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { soulPreventionDuration = 8, skillUseStorage = 2, soulCost = 20, levelRequirement = 12, },
@@ -5231,11 +5721,18 @@ skills["MirrorArrow"] = {
 			{ "base_added_cooldown_count", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 3000 },
+		{ "number_of_monsters_to_summon", 1 },
+		{ "active_skill_minion_damage_+%_final", 75 },
+		{ "display_minion_monster_type", 4 },
+	},
 	stats = {
 		"minion_damage_+%",
 		"minion_maximum_life_+%",
 		"display_minion_monster_level",
 		"base_cooldown_speed_+%",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0, 0, 24, 0, cooldown = 3, levelRequirement = 10, statInterpolation = { 1, 1, 1, 1, }, cost = { Mana = 14, }, },
@@ -5283,6 +5780,7 @@ skills["MirrorArrow"] = {
 skills["MambaStrike"] = {
 	name = "致疫打击",
 	color = 2,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "用武器发动攻击，击中给敌人施加一个减益效果。一旦具有该减益效果的敌人中毒而败，致疫打击就会给它周围的敌人施加第二重减益效果，基于被击败的敌人身上的烈毒造成混沌持续伤害。该伤害不受伤害词缀影响。限定爪类和匕首。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Chaos] = true, },
 	weaponTypes = {
@@ -5314,9 +5812,18 @@ skills["MambaStrike"] = {
 			{ "skill_physical_damage_%_to_convert_to_chaos", 1 },
 		},
 	},
+	constantStats = {
+		{ "mamba_strike_deal_%_of_all_poison_total_damage_per_minute", 3000 },
+		{ "base_secondary_skill_effect_duration", 1000 },
+		{ "base_chance_to_poison_on_hit_%", 60 },
+		{ "skill_physical_damage_%_to_convert_to_chaos", 60 },
+		{ "active_skill_poison_duration_+%_final", 30 },
+		{ "base_skill_effect_duration", 1000 },
+	},
 	stats = {
 		"attack_minimum_added_chaos_damage",
 		"attack_maximum_added_chaos_damage",
+		"visual_hit_effect_chaos_is_green",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 1.25, baseMultiplier = 1.25, levelRequirement = 28, statInterpolation = { 3, 3, }, cost = { Mana = 6, }, },
@@ -5391,9 +5898,17 @@ skills["NewPhaseRun"] = {
 			{ "phase_run_%_chance_to_not_replace_buff_on_skill_use", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "stealth_+%", 100 },
+		{ "base_skill_effect_duration", 1800 },
+		{ "base_secondary_skill_effect_duration", 200 },
+		{ "skill_effect_duration_+%_per_removable_frenzy_charge", 100 },
+	},
 	stats = {
 		"base_movement_velocity_+%",
 		"phase_run_melee_physical_damage_+%_final",
+		"phase_through_objects",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 30, 20, cooldown = 4, levelRequirement = 34, statInterpolation = { 1, 1, }, cost = { Mana = 8, }, },
@@ -5441,6 +5956,8 @@ skills["NewPhaseRun"] = {
 skills["CorrosiveShroud"] = {
 	name = "瘟疫使徒",
 	color = 2,
+	baseEffectiveness = 31.920000076294,
+	incrementalEffectiveness = 0.10670000314713,
 	description = "获得一个孕育增益效果，施毒会使其增长瘟疫值。再次使用该技能会使其传染，对周围敌人造成混沌持续伤害，直至瘟疫值耗尽。伤害词缀无法作用于该技能的伤害。请在孕育和传染之间交替使用。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Chaos] = true, [SkillType.Area] = true, [SkillType.Instant] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, [SkillType.KillNoDamageModifiers] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -5474,9 +5991,15 @@ skills["CorrosiveShroud"] = {
 			{ "corrosive_shroud_poison_dot_multiplier_+_while_aura_active", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "corrosive_shroud_gains_%_of_damage_from_inflicted_poisons", 40 },
+		{ "corrosive_shroud_%_of_stored_poison_damage_to_deal_per_second", 12 },
+		{ "corrosive_shroud_poison_damage_+%_final_while_accumulating_poison", -20 },
+	},
 	stats = {
 		"corrosive_shroud_maximum_stored_poison_damage",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 1, 0, cooldown = 0.5, levelRequirement = 24, statInterpolation = { 3, 1, }, cost = { Mana = 6, }, },
@@ -5524,6 +6047,8 @@ skills["CorrosiveShroud"] = {
 skills["PoachersMark"] = {
 	name = "盗猎者印记",
 	color = 2,
+	baseEffectiveness = 0.43999999761581,
+	incrementalEffectiveness = 0.016000000759959,
 	description = "诅咒单个敌人，降低它的物理伤害减免，并使它受到的任何击中都附加物理伤害。攻击它会获得生命和魔力，击败它会获得一个狂怒球。你同时只能施加一个咒印。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Mark] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -5568,11 +6093,16 @@ skills["PoachersMark"] = {
 			{ "base_additional_physical_damage_reduction_%", -0.25 },
 		},
 	},
+	constantStats = {
+		{ "base_additional_physical_damage_reduction_%", -20 },
+		{ "chance_to_grant_frenzy_charge_on_death_%", 100 },
+	},
 	stats = {
 		"minimum_added_physical_damage_taken",
 		"maximum_added_physical_damage_taken",
 		"life_granted_when_hit_by_attacks",
 		"mana_granted_when_hit_by_attacks",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 15, 8, levelRequirement = 24, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 16, }, },
@@ -5661,6 +6191,7 @@ skills["AccuracyAndCritsAura"] = {
 		"accuracy_rating",
 		"critical_strike_chance_+%",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 93, 20, 0, cooldown = 1.2, manaReservationFlat = 22, levelRequirement = 10, statInterpolation = { 1, 1, 1, }, },
@@ -5708,6 +6239,7 @@ skills["AccuracyAndCritsAura"] = {
 skills["SnipersMark"] = {
 	name = "狙击之印",
 	color = 2,
+	baseEffectiveness = 0,
 	description = "诅咒单个敌人，增加其中弹后的伤害，并使子弹在击中敌人时分裂，击中周围的其他目标。一次只能有一个“印记”。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Mark] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -5740,6 +6272,7 @@ skills["SnipersMark"] = {
 	stats = {
 		"projectiles_hitting_self_split_into_x",
 		"projectile_damage_taken_+%",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 3, 16, levelRequirement = 24, statInterpolation = { 1, 1, }, cost = { Mana = 16, }, },
@@ -5839,8 +6372,19 @@ skills["StormRain"] = {
 			{ "base_skill_area_of_effect_+%", -0.5 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
+		{ "storm_rain_pulse_count", 4 },
+		{ "number_of_allowed_storm_arrows", 100 },
+	},
 	stats = {
 		"prismatic_rain_beam_base_frequency_ms",
+		"base_is_projectile",
+		"is_area_damage",
+		"skill_can_fire_arrows",
+		"cannot_pierce",
+		"console_skill_dont_chase",
+		"skill_can_add_multiple_charges_per_action",
 	},
 	levels = {
 		[1] = { 500, damageEffectiveness = 0.46, baseMultiplier = 0.46, levelRequirement = 28, statInterpolation = { 1, }, cost = { Mana = 7, }, },
@@ -5888,6 +6432,8 @@ skills["StormRain"] = {
 skills["Puncture"] = {
 	name = "放血",
 	color = 2,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "对敌人放血，施加一个流血减益效果。该效果受技能持续时间属性影响。流血的敌人在移动时会受到更多的伤害。限定弓类，匕首，爪类与剑类。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.DamageOverTime] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -5928,10 +6474,16 @@ skills["Puncture"] = {
 			{ "maim_on_hit_%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 8000 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
 		"puncture_bleeding_damage_+%_final",
+		"skill_can_fire_arrows",
+		"global_bleed_on_hit",
+		"bleed_duration_is_skill_duration",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 30, damageEffectiveness = 1.35, attackSpeedMultiplier = -30, baseMultiplier = 1.3474, levelRequirement = 4, statInterpolation = { 3, 3, 1, }, cost = { Mana = 6, }, },
@@ -6020,6 +6572,7 @@ skills["ColdResistAura"] = {
 		"base_cold_damage_resistance_%",
 		"base_maximum_cold_damage_resistance_%",
 		"active_skill_base_radius_+",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 22, 0, 0, manaReservationPercent = 35, cooldown = 1.2, levelRequirement = 24, statInterpolation = { 1, 1, 1, }, },
@@ -6090,9 +6643,18 @@ skills["ColdImpurity"] = {
 			{ "base_skill_area_of_effect_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_maximum_cold_damage_resistance_%", 5 },
+		{ "base_skill_effect_duration", 3000 },
+	},
 	stats = {
 		"active_skill_base_radius_+",
 		"aura_effect_+%",
+		"base_deal_no_damage",
+		"base_immune_to_freeze",
+		"hits_ignore_my_cold_resistance",
+		"base_immune_to_chill",
+		"modifiers_to_skill_effect_duration_also_affect_soul_prevention_duration",
 	},
 	levels = {
 		[1] = { 14, 0, cooldown = 0.5, soulPreventionDuration = 8, skillUseStorage = 1, soulCost = 50, levelRequirement = 24, statInterpolation = { 1, 1, }, },
@@ -6140,6 +6702,7 @@ skills["ColdImpurity"] = {
 skills["RainOfArrows"] = {
 	name = "箭雨",
 	color = 2,
+	baseEffectiveness = 0,
 	description = "向空中射出多支箭矢，飞行一段时间后陆续抵达，先发射至一个指定位置，抵达后向四面八方展开。每支箭矢会对其周围区域造成伤害。若范围内有目标，则一半数量的箭矢会直接飞向目标。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, },
 	weaponTypes = {
@@ -6172,6 +6735,10 @@ skills["RainOfArrows"] = {
 	},
 	stats = {
 		"base_number_of_additional_arrows",
+		"base_is_projectile",
+		"is_area_damage",
+		"skill_can_fire_arrows",
+		"cannot_pierce",
 	},
 	levels = {
 		[1] = { 17, damageEffectiveness = 0.48, baseMultiplier = 0.48, levelRequirement = 12, statInterpolation = { 1, }, cost = { Mana = 7, }, },
@@ -6242,8 +6809,19 @@ skills["VaalRainOfArrows"] = {
 			{ "base_skill_area_of_effect_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "rain_of_arrows_additional_sequences", 4 },
+		{ "maim_effect_+%", 150 },
+	},
 	stats = {
 		"base_number_of_additional_arrows",
+		"base_is_projectile",
+		"is_area_damage",
+		"global_maim_on_hit",
+		"skill_can_fire_arrows",
+		"cannot_pierce",
+		"global_always_hit",
+		"cannot_cancel_skill_before_contact_point",
 	},
 	levels = {
 		[1] = { 27, baseMultiplier = 0.8, soulPreventionDuration = 5, damageEffectiveness = 0.8, skillUseStorage = 2, soulCost = 20, levelRequirement = 12, statInterpolation = { 1, }, },
@@ -6329,8 +6907,13 @@ skills["Reave"] = {
 			{ "reave_additional_max_stacks", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "reave_area_of_effect_+%_final_per_stage", 50 },
+	},
 	stats = {
 		"active_skill_base_radius_+",
+		"is_area_damage",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 0, damageEffectiveness = 1.7, baseMultiplier = 1.7, levelRequirement = 12, statInterpolation = { 1, }, cost = { Mana = 6, }, },
@@ -6411,8 +6994,18 @@ skills["VaalReave"] = {
 			{ "attack_speed_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "reave_area_of_effect_+%_final_per_stage", 50 },
+		{ "reave_rotation_on_repeat", 135 },
+		{ "reave_additional_max_stacks", 4 },
+		{ "base_attack_repeat_count", 7 },
+		{ "reave_additional_starting_stacks", 4 },
+	},
 	stats = {
 		"active_skill_base_radius_+",
+		"is_area_damage",
+		"global_always_hit",
+		"cannot_cancel_skill_before_contact_point",
 	},
 	levels = {
 		[1] = { 0, attackSpeedMultiplier = 150, soulPreventionDuration = 2, baseMultiplier = 2.5, damageEffectiveness = 2.5, skillUseStorage = 3, soulCost = 25, levelRequirement = 12, statInterpolation = { 1, }, },
@@ -6460,6 +7053,8 @@ skills["VaalReave"] = {
 skills["Riposte"] = {
 	name = "击刃",
 	color = 2,
+	baseEffectiveness = 0.5,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "格挡时进行一次致命的反击. 双持时会使用两把武器进行反击.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
@@ -6493,9 +7088,15 @@ skills["Riposte"] = {
 			{ "base_onlsaught_on_hit_%_chance", 1 },
 		},
 	},
+	constantStats = {
+		{ "melee_counterattack_trigger_on_block_%", 100 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
+		"attack_unusable_if_triggerable",
+		"base_skill_show_average_damage_instead_of_dps",
+		"skill_double_hits_when_dual_wielding",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 1.6, cooldown = 0.8, baseMultiplier = 1.6, levelRequirement = 4, statInterpolation = { 3, 3, }, },
@@ -6543,6 +7144,7 @@ skills["Riposte"] = {
 skills["ScourgeArrow"] = {
 	name = "天灾之箭",
 	color = 2,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "通过吟唱给一支箭矢灌注混沌能量，可以蓄力积累阶数。将其发射后，飞行轨迹上会投下孢囊。每个孢囊都会绽放，喷射荆棘之箭，飞行一小段时间后消失。产生额外投射物的词缀只可以影响最初的箭矢数量，产生的孢囊会由它们分担。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Damage] = true, [SkillType.Channel] = true, [SkillType.Chaos] = true, },
 	weaponTypes = {
@@ -6592,9 +7194,20 @@ skills["ScourgeArrow"] = {
 			{ "base_chance_to_poison_on_hit_%", 1 },
 		},
 	},
+	constantStats = {
+		{ "virulent_arrow_maximum_number_of_stacks", 5 },
+		{ "virulent_arrow_number_of_pod_projectiles", 9 },
+		{ "skill_physical_damage_%_to_convert_to_chaos", 60 },
+		{ "virulent_arrow_pod_projectile_damage_+%_final", -50 },
+		{ "virulent_arrow_damage_+%_final_per_stage", 150 },
+		{ "override_turn_duration_ms", 100 },
+	},
 	stats = {
 		"attack_minimum_added_chaos_damage",
 		"attack_maximum_added_chaos_damage",
+		"skill_can_fire_arrows",
+		"base_arrows_always_pierce",
+		"visual_hit_effect_chaos_is_green",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 0.3, attackSpeedMultiplier = 90, baseMultiplier = 0.3, levelRequirement = 28, statInterpolation = { 3, 3, }, cost = { Mana = 4, }, },
@@ -6642,6 +7255,7 @@ skills["ScourgeArrow"] = {
 skills["ShatteringSteel"] = {
 	name = "破碎铁刃",
 	color = 2,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "挥舞斧类或剑类，消耗【钢刃碎片】，产生一个保护你一段时间的钢刃结界。它会发射投射物，并在撞击或发射后不久粉碎，对前方敌人造成范围伤害。钢刃碎片由【钢铁呼唤】技能提供。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Damage] = true, [SkillType.ProjectileSpeed] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Steel] = true, },
 	weaponTypes = {
@@ -6696,9 +7310,21 @@ skills["ShatteringSteel"] = {
 			{ "base_projectile_speed_+%", 1.5 },
 		},
 	},
+	constantStats = {
+		{ "attacks_impale_on_hit_%_chance", 40 },
+		{ "number_of_additional_projectiles", 2 },
+		{ "shattering_steel_hit_damage_+%_final_scaled_by_projectile_distance_per_ammo_consumed", 100 },
+		{ "active_skill_projectile_speed_+%_variation_final", 100 },
+		{ "steel_ammo_consumed_per_use", 2 },
+		{ "active_skill_additional_projectiles_fire_parallel_x_dist", 90 },
+		{ "additional_block_chance_against_projectiles_%_per_steel_charge", 4 },
+		{ "base_skill_effect_duration", 5000 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
+		"base_is_projectile",
+		"no_additional_projectiles_if_no_steel_ammo",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, attackSpeedMultiplier = -15, levelRequirement = 12, statInterpolation = { 3, 3, }, cost = { Mana = 7, }, },
@@ -6746,6 +7372,8 @@ skills["ShatteringSteel"] = {
 skills["PhysCascadeTrap"] = {
 	name = "震波陷阱",
 	color = 2,
+	baseEffectiveness = 1.296599984169,
+	incrementalEffectiveness = 0.044399999082088,
 	description = "投掷陷阱，触发后会在一定时间内持续发射冲击波。每股冲击波都会在其行进线路上产生连续的小冲击，最后以一次大冲击结束。你的施法速度会影响释放冲击波的频率。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Damage] = true, [SkillType.Mineable] = true, [SkillType.Area] = true, [SkillType.Trapped] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -6777,9 +7405,19 @@ skills["PhysCascadeTrap"] = {
 			{ "damage_+%", 5 },
 		},
 	},
+	constantStats = {
+		{ "base_trap_duration", 4000 },
+		{ "base_skill_effect_duration", 3500 },
+		{ "phys_cascade_trap_number_of_cascades", 5 },
+		{ "phys_cascade_trap_base_interval_duration_ms", 900 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
+		"is_area_damage",
+		"base_skill_is_trapped",
+		"base_skill_show_average_damage_instead_of_dps",
+		"is_trap",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 1.9, cooldown = 8, critChance = 5, levelRequirement = 28, statInterpolation = { 3, 3, }, cost = { Mana = 13, }, },
@@ -6827,6 +7465,8 @@ skills["PhysCascadeTrap"] = {
 skills["ShrapnelBallista"] = {
 	name = "散射弩炮",
 	color = 2,
+	baseEffectiveness = 0.5,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "召唤一个弩炮图腾，发射多重箭矢，在巨力作用下分裂成散弹。敌人可以同时被多重箭矢击中。需要弓类武器。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.RangedAttack] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -6855,10 +7495,21 @@ skills["ShrapnelBallista"] = {
 			{ "attack_speed_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_range", 40 },
+		{ "base_totem_duration", 8000 },
+		{ "base_number_of_additional_arrows", 2 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
 		"attack_skills_additional_ballista_totems_allowed",
+		"base_is_projectile",
+		"base_skill_is_totemified",
+		"is_totem",
+		"skill_can_fire_arrows",
+		"projectiles_can_shotgun",
+		"is_ranged_attack_totem",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 2, damageEffectiveness = 0.38, attackSpeedMultiplier = -50, baseMultiplier = 0.38, levelRequirement = 4, statInterpolation = { 3, 3, 1, }, cost = { Mana = 5, }, },
@@ -6938,9 +7589,18 @@ skills["SiegeBallista"] = {
 			{ "attacks_impale_on_hit_%_chance", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_totem_range", 80 },
+		{ "base_totem_duration", 8000 },
+	},
 	stats = {
 		"number_of_additional_totems_allowed",
 		"arrow_base_number_of_targets_to_pierce",
+		"base_is_projectile",
+		"base_skill_is_totemified",
+		"is_totem",
+		"skill_can_fire_arrows",
+		"is_ranged_attack_totem",
 	},
 	levels = {
 		[1] = { 2, 6, attackSpeedMultiplier = -50, levelRequirement = 12, statInterpolation = { 1, 1, }, cost = { Mana = 6, }, },
@@ -7020,9 +7680,21 @@ skills["SmokeMine"] = {
 			{ "skill_buff_grants_attack_and_cast_speed_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_mine_duration", 8000 },
+		{ "base_secondary_skill_effect_duration", 1000 },
+		{ "ground_smoke_art_variation", 5 },
+	},
 	stats = {
 		"base_skill_effect_duration",
 		"base_movement_velocity_+%",
+		"is_remote_mine",
+		"base_skill_is_mined",
+		"base_deal_no_damage",
+		"disable_mine_detonation_cascade",
+		"mine_detonates_instantly",
+		"additive_mine_duration_modifiers_apply_to_buff_effect_duration",
+		"mine_cannot_rearm",
 	},
 	levels = {
 		[1] = { 4000, 20, cooldown = 5, manaReservationFlat = 6, levelRequirement = 10, statInterpolation = { 1, 1, }, cost = { Mana = 6, }, },
@@ -7070,6 +7742,8 @@ skills["SmokeMine"] = {
 skills["ThrownShield"] = {
 	name = "灵盾投掷",
 	color = 2,
+	baseEffectiveness = 2.6982998847961,
+	incrementalEffectiveness = 0.017300000414252,
 	description = "使用念能力复制副手上的盾并且掷出制造出根据盾防御属性的副手伤害。该投射物无法穿透敌人，当击中敌人时，该投射物会碎裂，制造出射向各方的小的碎片投射物。影响投射物数量的词缀会增加碎片的数量，但不会增加投掷盾的数量。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.SingleMainProjectile] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -7109,11 +7783,18 @@ skills["ThrownShield"] = {
 			{ "critical_multiplier_+%_per_100_max_es_on_shield", 1 },
 		},
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 3 },
+		{ "thrown_shield_secondary_projectile_damage_+%_final", -50 },
+		{ "primary_projectile_chains_+", 3 },
+	},
 	stats = {
 		"off_hand_local_minimum_added_physical_damage",
 		"off_hand_local_maximum_added_physical_damage",
 		"off_hand_minimum_added_physical_damage_per_15_shield_armour_and_evasion_rating",
 		"off_hand_maximum_added_physical_damage_per_15_shield_armour_and_evasion_rating",
+		"base_is_projectile",
+		"thrown_shield_projectile_fire_random_directions",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 3, 4, critChance = 5, attackTime = 650, levelRequirement = 28, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 7, }, },
@@ -7198,6 +7879,7 @@ skills["ThrownWeapon"] = {
 		},
 	},
 	stats = {
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 0.8, attackSpeedMultiplier = 10, baseMultiplier = 0.8, levelRequirement = 1, cost = { Mana = 5, }, },
@@ -7277,7 +7959,18 @@ skills["VaalThrownWeapon"] = {
 			{ "attack_speed_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_number_of_projectiles_in_spiral_nova", 8 },
+		{ "projectile_spiral_nova_time_ms", 2000 },
+		{ "projectile_spiral_nova_angle", 180 },
+		{ "projectile_spiral_nova_starting_angle_offset", -15 },
+	},
 	stats = {
+		"projectile_spiral_nova_both_directions",
+		"base_is_projectile",
+		"global_always_hit",
+		"projectiles_not_offset",
+		"cannot_cancel_skill_before_contact_point",
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = 10, soulPreventionDuration = 4, baseMultiplier = 0.7, damageEffectiveness = 0.7, skillUseStorage = 1, soulCost = 15, levelRequirement = 1, },
@@ -7325,6 +8018,8 @@ skills["VaalThrownWeapon"] = {
 skills["RainOfSpores"] = {
 	name = "毒雨",
 	color = 2,
+	baseEffectiveness = 2.0385999679565,
+	incrementalEffectiveness = 0.036899998784065,
 	description = "向天空射出一串箭矢，并洒向目标区域，对击中的敌人造成伤害，并在落地后创造孢囊。每个孢囊会对周围的敌人持续造成混沌伤害，并减低他们的移动速度。短时间后，孢囊会爆炸，造成范围伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Damage] = true, [SkillType.Chaos] = true, [SkillType.Duration] = true, [SkillType.DamageOverTime] = true, [SkillType.ProjectileNumber] = true, [SkillType.Chaos] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, },
 	weaponTypes = {
@@ -7363,8 +8058,21 @@ skills["RainOfSpores"] = {
 			{ "base_number_of_additional_arrows", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 1000 },
+		{ "base_number_of_additional_arrows", 4 },
+		{ "skill_physical_damage_%_to_convert_to_chaos", 60 },
+		{ "rain_of_spores_vines_movement_speed_+%_final", -5 },
+		{ "minimum_rain_of_spores_movement_speed_+%_final_cap", -30 },
+	},
 	stats = {
 		"base_chaos_damage_to_deal_per_minute",
+		"base_is_projectile",
+		"is_area_damage",
+		"skill_can_fire_arrows",
+		"cannot_pierce",
+		"projectile_damage_modifiers_apply_to_skill_dot",
+		"visual_hit_effect_chaos_is_green",
 	},
 	levels = {
 		[1] = { 20.000001241763, damageEffectiveness = 0.5, baseMultiplier = 0.5, levelRequirement = 12, statInterpolation = { 3, }, cost = { Mana = 7, }, },
@@ -7454,7 +8162,14 @@ skills["SpectralHelix"] = {
 			{ "spectral_spiral_weapon_base_number_of_bounces", 0.1 },
 		},
 	},
+	constantStats = {
+		{ "spectral_spiral_weapon_base_number_of_bounces", 3 },
+		{ "spectral_helix_rotations_%", 425 },
+	},
 	stats = {
+		"projectiles_nova",
+		"base_is_projectile",
+		"skill_display_single_base_projectile",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.6, attackSpeedMultiplier = 10, baseMultiplier = 1.6, levelRequirement = 12, cost = { Mana = 7, }, },
@@ -7502,6 +8217,8 @@ skills["SpectralHelix"] = {
 skills["SplitArrow"] = {
 	name = "分裂箭矢",
 	color = 2,
+	baseEffectiveness = 0.5,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "对不同的目标射出多重箭矢.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -7524,10 +8241,14 @@ skills["SplitArrow"] = {
 			{ "damage_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "active_skill_projectile_speed_+%_variation_final", 50 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
 		"base_number_of_additional_arrows",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { 0.60000002384186, 1.2000000476837, 4, attackSpeedMultiplier = 10, levelRequirement = 1, statInterpolation = { 3, 3, 1, }, cost = { Mana = 6, }, },
@@ -7575,6 +8296,8 @@ skills["SplitArrow"] = {
 skills["ImpactingSteel"] = {
 	name = "分裂钢刃",
 	color = 2,
+	baseEffectiveness = 0.6700000166893,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "消耗一枚钢刃碎片发射一枚投射物，在撞击或抵达目标地点时分裂，造成范围伤害。分裂的投射物继续飞行，在结束时再次造成范围伤害。需要剑类或斧类发动。钢刃碎片由【钢铁呼唤】提供。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Steel] = true, [SkillType.Area] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -7626,11 +8349,22 @@ skills["ImpactingSteel"] = {
 			{ "damage_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "steel_ammo_consumed_per_use", 1 },
+		{ "attacks_impale_on_hit_%_chance", 60 },
+		{ "impacting_steel_secondary_projectile_damage_+%_final", -35 },
+		{ "splitting_steel_area_+%_final_after_splitting", -50 },
+	},
 	stats = {
 		"attack_minimum_added_physical_damage",
 		"attack_maximum_added_physical_damage",
 		"projectile_number_to_split",
 		"active_skill_base_radius_+",
+		"modifiers_to_number_of_projectiles_instead_apply_to_splitting",
+		"already_split_if_no_steel_shards",
+		"projectiles_can_split_at_end_of_range",
+		"projectiles_can_split_from_terrain",
+		"base_is_projectile",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 2, 0, levelRequirement = 1, statInterpolation = { 3, 3, 1, 1, }, cost = { Mana = 5, }, },
@@ -7714,6 +8448,10 @@ skills["SummonIceGolem"] = {
 			{ "golem_cooldown_recovery_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_number_of_golems_allowed", 1 },
+		{ "display_minion_monster_type", 6 },
+	},
 	stats = {
 		"base_actor_scale_+%",
 		"ice_golem_grants_critical_strike_chance_+%",
@@ -7767,6 +8505,7 @@ skills["SummonIceGolem"] = {
 skills["TemporalChains"] = {
 	name = "时空锁链",
 	color = 2,
+	baseEffectiveness = 0,
 	description = "诅咒一片区域的所有敌人，降低它们的行动速度，并使它们身上的效果消减得更慢。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
 	statDescriptionScope = "curse_skill_stat_descriptions",
@@ -7808,11 +8547,17 @@ skills["TemporalChains"] = {
 			{ "base_curse_duration_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "buff_time_passed_+%_other_than_temporal_chains", -40 },
+		{ "curse_effect_+%_final_vs_players", -50 },
+		{ "base_curse_skill_doom_gain_per_minute_if_cast_yourself", 600 },
+	},
 	stats = {
 		"base_skill_effect_duration",
 		"active_skill_base_radius_+",
 		"temporal_chains_action_speed_+%_final",
 		"temporal_chains_action_speed_+%_vs_rare_or_unique_final",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 5000, 0, -20, -10, levelRequirement = 24, statInterpolation = { 1, 1, 1, 1, }, cost = { Mana = 16, }, },
@@ -7882,7 +8627,12 @@ skills["TornadoShot"] = {
 			{ "attack_speed_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "tornado_shot_num_of_secondary_projectiles", 3 },
+	},
 	stats = {
+		"base_is_projectile",
+		"skill_can_fire_arrows",
 	},
 	levels = {
 		[1] = { levelRequirement = 28, cost = { Mana = 8, }, },
@@ -7930,6 +8680,8 @@ skills["TornadoShot"] = {
 skills["BoneLance"] = {
 	name = "亵渎之矛",
 	color = 2,
+	baseEffectiveness = 1.8234000205994,
+	incrementalEffectiveness = 0.039500001817942,
 	description = "发射一个能够穿透敌人的投射物，在目标地点着地后会创造一个骨弓手灵柩。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Trappable] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Multicastable] = true, [SkillType.CanRapidFire] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -7961,10 +8713,15 @@ skills["BoneLance"] = {
 			{ "maximum_life_+%_for_corpses_you_create", 1 },
 		},
 	},
+	constantStats = {
+		{ "desecrate_maximum_number_of_corpses", 10 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"unearth_base_corpse_level",
+		"base_is_projectile",
+		"always_pierce",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 12, damageEffectiveness = 1.4, critChance = 6, levelRequirement = 10, statInterpolation = { 3, 3, 1, }, cost = { Mana = 4, }, },
@@ -8046,7 +8803,23 @@ skills["SnappingAdder"] = {
 			{ "number_of_chains", 0.05 },
 		},
 	},
+	constantStats = {
+		{ "maximum_number_of_snapping_adder_projectiles", 30 },
+		{ "skill_physical_damage_%_to_convert_to_chaos", 60 },
+		{ "base_chance_to_poison_on_hit_%", 40 },
+		{ "projectile_speed_variation_+%", 15 },
+		{ "snapping_adder_maximum_projectiles_released", 30 },
+		{ "active_skill_returning_projectile_damage_+%_final", -75 },
+		{ "snapping_adder_%_chance_to_retain_projectile_on_release", 40 },
+		{ "base_skill_effect_duration", 12000 },
+	},
 	stats = {
+		"base_is_projectile",
+		"returning_projectiles_always_pierce",
+		"projectiles_return",
+		"projectiles_return_if_no_hit_object",
+		"visual_hit_effect_chaos_is_green",
+		"quality_display_active_skill_returning_damage_is_gem",
 	},
 	levels = {
 		[1] = { damageEffectiveness = 1.25, attackSpeedMultiplier = 20, baseMultiplier = 1.25, levelRequirement = 12, cost = { Mana = 5, }, },
@@ -8094,6 +8867,8 @@ skills["SnappingAdder"] = {
 skills["ViperStrike"] = {
 	name = "毒蛇打击",
 	color = 2,
+	baseEffectiveness = 1.5,
+	incrementalEffectiveness = 0.023299999535084,
 	description = "击中敌人，将部分部分物理伤害转化为混沌伤害，并使敌人中毒。该技能受技能持续时间词缀影响。双持武器时会用两把武器同时攻击。限定爪类、匕首与剑类。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Duration] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, },
 	weaponTypes = {
@@ -8136,9 +8911,19 @@ skills["ViperStrike"] = {
 			{ "chance_%_when_poison_to_also_poison_another_enemy", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_chaos", 60 },
+		{ "base_chance_to_poison_on_hit_%", 60 },
+		{ "base_skill_effect_duration", 4000 },
+		{ "viper_strike_dual_wield_damage_+%_final", -20 },
+		{ "viper_strike_dual_wield_attack_speed_+%_final", -30 },
+	},
 	stats = {
 		"attack_minimum_added_chaos_damage",
 		"attack_maximum_added_chaos_damage",
+		"poison_duration_is_skill_duration",
+		"skill_double_hits_when_dual_wielding",
+		"visual_hit_effect_chaos_is_green",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 0.9, baseMultiplier = 0.9, levelRequirement = 1, statInterpolation = { 3, 3, }, cost = { Mana = 5, }, },
@@ -8186,6 +8971,8 @@ skills["ViperStrike"] = {
 skills["VolatileDead"] = {
 	name = "灵体火球",
 	color = 2,
+	baseEffectiveness = 2.0460000038147,
+	incrementalEffectiveness = 0.041000001132488,
 	description = "目标附近的灵柩爆炸造成小范围伤害，并召唤一个自动追踪敌人的火球，可以造成较大范围的法术伤害。灵柩爆炸造成的伤害无法被法术伤害词缀加成，并且无法被反射。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.Cascadable] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -8229,10 +9016,16 @@ skills["VolatileDead"] = {
 			{ "volatile_dead_core_movement_speed_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "volatile_dead_base_number_of_corpses_to_consume", 3 },
+		{ "volatile_dead_max_cores_allowed", 60 },
+	},
 	stats = {
 		"spell_minimum_base_fire_damage",
 		"spell_maximum_base_fire_damage",
 		"corpse_explosion_monster_life_permillage_fire",
+		"is_area_damage",
+		"base_skill_show_average_damage_instead_of_dps",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 30, damageEffectiveness = 1.7, critChance = 5, levelRequirement = 12, statInterpolation = { 3, 3, 1, }, cost = { Mana = 9, }, },
@@ -8280,6 +9073,7 @@ skills["VolatileDead"] = {
 skills["WhirlingBlades"] = {
 	name = "回旋之刃",
 	color = 2,
+	baseEffectiveness = 0,
 	description = "迅速穿越敌人并同时造成武器伤害. 限定匕首, 爪以及单手剑. ",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
 	weaponTypes = {
@@ -8310,7 +9104,12 @@ skills["WhirlingBlades"] = {
 			{ "whirling_blades_evasion_rating_+%_while_moving", 10 },
 		},
 	},
+	constantStats = {
+		{ "additional_weapon_base_attack_time_ms", 600 },
+	},
 	stats = {
+		"ignores_proximity_shield",
+		"base_skill_show_average_damage_instead_of_dps",
 	},
 	levels = {
 		[1] = { levelRequirement = 10, cost = { Mana = 10, }, },
@@ -8450,9 +9249,17 @@ skills["WildStrike"] = {
 			{ "chaining_range_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "elemental_strike_physical_damage_%_to_convert", 100 },
+		{ "fixed_projectile_spread", 70 },
+		{ "number_of_additional_projectiles", 2 },
+	},
 	stats = {
 		"additional_beam_only_chains",
 		"base_skill_area_of_effect_+%",
+		"show_number_of_projectiles",
+		"always_pierce",
+		"console_skill_dont_chase",
 	},
 	levels = {
 		[1] = { 4, 0, damageEffectiveness = 1.6, baseMultiplier = 1.6, levelRequirement = 28, statInterpolation = { 1, 1, }, cost = { Mana = 6, }, },
@@ -8500,6 +9307,7 @@ skills["WildStrike"] = {
 skills["Slither"] = {
 	name = "凋零步",
 	color = 2,
+	baseEffectiveness = 0,
 	description = "施加【灵巧】和获得【迷踪】效果的增益效果会移除当前的所有【灵巧】，当你具有该增益效果时，靠近你身边一定范围的怪物会受到【死亡凋零】影响。使用技能或【灵巧】耗尽会终止该技能的效果。和其它闪现技能共用冷却时间。",
 	skillTypes = { [SkillType.Travel] = true, [SkillType.Buff] = true, [SkillType.Instant] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Movement] = true, [SkillType.Blink] = true, [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "buff_skill_stat_descriptions",
@@ -8528,10 +9336,17 @@ skills["Slither"] = {
 			{ "withering_step_chance_to_not_remove_on_skill_use_%", 1 },
 		},
 	},
+	constantStats = {
+		{ "active_skill_withered_base_duration_ms", 3000 },
+	},
 	stats = {
 		"active_skill_base_radius_+",
 		"slither_wither_stacks",
 		"elusive_effect_+%",
+		"phase_through_objects",
+		"display_this_skill_cooldown_does_not_recover_during_buff",
+		"display_removes_and_grants_elusive_when_used",
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { 0, 4, 0, cooldown = 3, levelRequirement = 10, statInterpolation = { 1, 1, 1, }, cost = { Mana = 8, }, },
@@ -8579,6 +9394,8 @@ skills["Slither"] = {
 skills["PoisonousConcoction"] = {
 	name = "毒爆灵药",
 	color = 2,
+	baseEffectiveness = 2.860100030899,
+	incrementalEffectiveness = 0.033100001513958,
 	description = "投掷一个爆炸瓶，在一片区域内造成徒手攻击伤害，并使敌人中毒。可以消耗生命药剂的充能来进一步增加伤害。需要空出主手，且没有持握副手武器。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Chaos] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.RequiresOffHandNotWeapon] = true, },
 	weaponTypes = {
@@ -8624,10 +9441,20 @@ skills["PoisonousConcoction"] = {
 			{ "withered_on_hit_for_2_seconds_%_chance", 1 },
 		},
 	},
+	constantStats = {
+		{ "flask_throw_base_charges_used", 2 },
+		{ "additional_base_critical_strike_chance", 600 },
+		{ "base_chance_to_poison_on_hit_%", 40 },
+		{ "display_flask_throw_allowed_flask_types", 1 },
+	},
 	stats = {
 		"attack_minimum_added_chaos_damage",
 		"attack_maximum_added_chaos_damage",
 		"flask_throw_added_chaos_damage_%_of_flask_life_to_recover",
+		"base_is_projectile",
+		"is_area_damage",
+		"console_skill_dont_chase",
+		"visual_hit_effect_chaos_is_green",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 3, attackSpeedMultiplier = 15, levelRequirement = 12, statInterpolation = { 3, 3, 1, }, cost = { Mana = 7, }, },
@@ -8701,6 +9528,10 @@ skills["TemporalRift"] = {
 	},
 	stats = {
 		"base_cooldown_speed_+%",
+		"base_deal_no_damage",
+		"console_skill_dont_chase",
+		"spell_cast_time_cannot_be_modified",
+		"unaffected_by_temporal_chains",
 	},
 	levels = {
 		[1] = { 0, manaReservationPercent = 10, cooldown = 5, levelRequirement = 34, statInterpolation = { 1, }, },
@@ -8748,6 +9579,8 @@ skills["TemporalRift"] = {
 skills["Tornado"] = {
 	name = "龙卷旋风",
 	color = 2,
+	baseEffectiveness = 0.39250001311302,
+	incrementalEffectiveness = 0.057000000029802,
 	description = "产生一道龙卷风妨碍敌人，并反复对它们施加伤害。它会向前移动一段时间，你可以借此机会朝它发射投射物，使其提升对敌人造成的伤害。随后它会追逐敌人一段时间，把你对它施加的伤害和它本身的伤害一起施加给敌人。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.Orb] = true, [SkillType.AreaSpell] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -8778,10 +9611,23 @@ skills["Tornado"] = {
 			{ "tornado_only_primary_duration_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_secondary_skill_effect_duration", 4000 },
+		{ "tornado_base_damage_interval_ms", 250 },
+		{ "tornado_damage_absorbed_%", 10 },
+		{ "number_of_tornados_allowed", 1 },
+		{ "tornado_maximum_number_of_hits", 20 },
+		{ "skill_override_pvp_scaling_time_ms", 1000 },
+		{ "base_skill_effect_duration", 1500 },
+	},
 	stats = {
 		"spell_minimum_base_physical_damage",
 		"spell_maximum_base_physical_damage",
 		"tornado_movement_speed_+%",
+		"skill_can_add_multiple_charges_per_action",
+		"damage_cannot_be_reflected_or_leech_if_used_by_other_object",
+		"is_area_damage",
+		"tornado_hinder",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, 0, damageEffectiveness = 0.95, critChance = 5, levelRequirement = 34, statInterpolation = { 3, 3, 1, }, cost = { Mana = 15, }, },
@@ -8850,6 +9696,10 @@ skills["IntuitiveLink"] = {
 	},
 	stats = {
 		"base_skill_effect_duration",
+		"base_deal_no_damage",
+		"skill_cost_over_time_is_not_removed_with_skill",
+		"display_trigger_link",
+		"display_link_stuff",
 	},
 	levels = {
 		[1] = { 8000, levelRequirement = 34, statInterpolation = { 1, }, cost = { ManaPerMinute = 900, }, },
@@ -8919,6 +9769,10 @@ skills["VampiricLink"] = {
 	stats = {
 		"remora_link_grants_maximum_life_leech_rate_%_per_minute",
 		"base_skill_effect_duration",
+		"base_deal_no_damage",
+		"skill_cost_over_time_is_not_removed_with_skill",
+		"display_link_stuff",
+		"life_leech_is_applied_to_remora_link_targets_instead",
 	},
 	levels = {
 		[1] = { 120, 8000, levelRequirement = 34, statInterpolation = { 1, 1, }, cost = { ManaPerMinute = 900, }, },

@@ -58,8 +58,10 @@ function ModListClass:MergeMod(mod)
 end
 
 function ModListClass:AddList(modList)
-	for i = 1, #modList do
-		t_insert(self, modList[i])
+	if modList then
+		for i = 1, #modList do
+			t_insert(self, modList[i])
+		end
 	end
 end
 

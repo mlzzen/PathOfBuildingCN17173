@@ -216,180 +216,94 @@ end
 
 return function(stats, scopeName)
 	local rootScope = getScope(scopeName)
-		if rootScope then  
-		-- Figure out which descriptions we need, and identify them by the first stat that they describe
-		local describeStats = { }
-		for s, v in pairs(stats) do
-			if (type(v) == "number" and v ~= 0) or (type(v) == "table" and (v.min ~= 0 or v.max ~= 0)) then	
-				for depth, scope in ipairs(rootScope.scopeList) do
-					local isgemquality = false 
-					
-					local strline = s
-					if  string.starts(strline ,"[GEM_Q]")  then 			
-						isgemquality = true
-						strline = string.sub(strline,8);
-						
+
+	-- Figure out which descriptions we need, and identify them by the first stat that they describe
+	local describeStats = { }
+	for s, v in pairs(stats) do
+		if (type(v) == "number" and v ~= 0) or (type(v) == "table" and (v.min ~= 0 or v.max ~= 0)) then	
+			for depth, scope in ipairs(rootScope.scopeList) do
+				if scope[s] then
+					local descriptor = scope[scope[s]]
+					if descriptor.lang then
+						describeStats[descriptor.stats[1]] = { depth = depth, order = scope[s], description = scope[scope[s]] }
 					end
-					if scope[strline] then
-						local descriptor = scope[scope[strline]]
-						if descriptor and  descriptor.lang then							
-							if isgemquality then  
-								
-								
-								local scopeval =scope[scope[strline]]								
-								scopeval.isgemquality = true								
-								describeStats[descriptor.stats[1]] = { depth = depth, order = scope[strline], description = scopeval ,isgemquality = isgemquality}
-							else 
-								describeStats[descriptor.stats[1]] = { depth = depth, order = scope[strline], description = scope[scope[strline]] ,isgemquality = isgemquality}
-							end 
-							
-							
-						else 
-							
-							describeStats[strline] = { depth = -9999, order = 9999, description = strline ,isgemquality = isgemquality}
-						end
-						break
-					else 						
-						describeStats[strline] = { depth = -9999, order = 9999, description = strline ,isgemquality = isgemquality}
-						
-					end
+					break
 				end
 			end
 		end
+	end
 
-		-- Sort them by depth/order
-		local descOrdered = { }
-		for s, descriptor in pairs(describeStats) do
-			t_insert(descOrdered, descriptor)
-		end
-		table.sort(descOrdered, function(a, b) if a.depth ~= b.depth then return a.depth > b.depth else return a.order < b.order end end)
+	-- Sort them by depth/order
+	local descOrdered = { }
+	for s, descriptor in pairs(describeStats) do
+		t_insert(descOrdered, descriptor)
+	end
+	table.sort(descOrdered, function(a, b) if a.depth ~= b.depth then return a.depth > b.depth else return a.order < b.order end end)
 
-		-- Describe the stats
-		local out = { }
-		for _, descriptor in ipairs(descOrdered) do
-			local val = { }
-			if descriptor.description.stats then 
-				for i, s in ipairs(descriptor.description.stats) do
-				 
-				if stats[s] and stats["[GEM_Q]"..s] then
-					 
-					if descriptor.description.isgemquality then 
-						
-						if type(stats["[GEM_Q]"..s]) == "number" then
-							val[i] = { min = stats["[GEM_Q]"..s]+stats[s], max = stats["[GEM_Q]"..s]+stats[s] }
-						else
-							val[i] = stats["[GEM_Q]"..s]+stats[s]
-						end
-					else 
-						if type(stats[s]) == "number" then
-							val[i] = { min = stats[s], max = stats[s] }
-						else
-							val[i] = stats[s]
-						end
-					end
-					
-				elseif stats[s] then
-				
-					if type(stats[s]) == "number" then
-						val[i] = { min = stats[s], max = stats[s] }
-					else
-						val[i] = stats[s]
-					end
-					 
-					
-				elseif  stats["[GEM_Q]"..s] then
-					
-					if type(stats["[GEM_Q]"..s]) == "number" then
-						val[i] = { min = stats["[GEM_Q]"..s], max = stats["[GEM_Q]"..s] }
-					else
-						val[i] = stats["[GEM_Q]"..s]
-					end
-					
+	-- Describe the stats
+	local out = { }
+	local lineMap = { }
+	for _, descriptor in ipairs(descOrdered) do
+		local val = { }
+		local stat
+		for i, s in ipairs(descriptor.description.stats) do
+			if stats[s] then
+				if type(stats[s]) == "number" then
+					val[i] = { min = stats[s], max = stats[s] }
 				else
-					val[i] = { min = 0, max = 0 }
+					val[i] = stats[s]
 				end
-				if not val[i] then 
-					val[i] = { min = 0, max = 0 }
-				end 
-				val[i].fmt = "d"
-				end
-				
-				
-				local desc = matchLimit(descriptor.description.lang["Simplified Chinese"], val)
-				
-				
-				if desc then
-					for _, spec in ipairs(desc) do
-						applySpecial(val, spec)
-					end
-					local statDesc = desc.text:gsub("{(%d)}", function(n) 
-						local v = val[tonumber(n)+1]
-						if v.min == v.max then
-							return s_format("%"..v.fmt, v.min)
-						else
-							return s_format("(%"..v.fmt.."-%"..v.fmt..")", v.min, v.max)
-						end
-					end):gsub("{}", function() 
-						local v = val[1]
-						if v.min == v.max then
-							return s_format("%"..v.fmt, v.min)
-						else
-							return s_format("(%"..v.fmt.."-%"..v.fmt..")", v.min, v.max)
-						end
-					end):gsub("{:%+?d}", function() 
-						local v = val[1]
-						if v.min == v.max then
-							return s_format("%"..v.fmt, v.min)
-						else
-							return s_format("(%"..v.fmt.."-%"..v.fmt..")", v.min, v.max)
-						end
-					end):gsub("{(%d):(%+?)d}", function(n, fmt)
-						local v = val[tonumber(n)+1]
-						if v.min == v.max then
-							return s_format("%"..fmt..v.fmt, v.min)
-						elseif fmt == "+" then
-							if v.max < 0 then
-								return s_format("-(%d-%d)", -v.min, -v.max)
-							else
-								return s_format("+(%d-%d)", v.min, v.max)
-							end
-						else
-							return s_format("(%"..fmt..v.fmt.."-%"..fmt..v.fmt..")", v.min, v.max)
-						end
-					end):gsub("%%%%","%%")
-					for line in (statDesc.."\\n"):gmatch("([^\\]+)\\n") do
-						if descriptor.isgemquality then 
-							
-							t_insert(out, colorCodes.NORMAL..line)
-						else 
-							t_insert(out,colorCodes.MAGIC..line)
-						end 
-						
-					end
-				else 
-					--print("不显示")
-					 --不显示
-				end
-			else 
-			
-				if not ishideText(descriptor.description)				
-				then
-					if descriptor.isgemquality then 			
-						
-						t_insert(out, colorCodes.NORMAL..descriptor.description)
-					else 
-						t_insert(out, colorCodes.MAGIC..descriptor.description)
-					end 
-				end 
-				
-				
-			end 
-			
-			
+				stat = s
+			else
+				val[i] = { min = 0, max = 0 }
+			end
+			val[i].fmt = "d"
 		end
-		return out
-	end 
-	
-	return {}
-	
+		local desc = matchLimit(descriptor.description.lang["Simplified Chinese"], val)
+		if desc then
+			for _, spec in ipairs(desc) do
+				applySpecial(val, spec)
+			end
+			local statDesc = desc.text:gsub("{(%d)}", function(n) 
+				local v = val[tonumber(n)+1]
+				if v.min == v.max then
+					return s_format("%"..v.fmt, v.min)
+				else
+					return s_format("(%"..v.fmt.."-%"..v.fmt..")", v.min, v.max)
+				end
+			end):gsub("{}", function() 
+				local v = val[1]
+				if v.min == v.max then
+					return s_format("%"..v.fmt, v.min)
+				else
+					return s_format("(%"..v.fmt.."-%"..v.fmt..")", v.min, v.max)
+				end
+			end):gsub("{:%+?d}", function() 
+				local v = val[1]
+				if v.min == v.max then
+					return s_format("%"..v.fmt, v.min)
+				else
+					return s_format("(%"..v.fmt.."-%"..v.fmt..")", v.min, v.max)
+				end
+			end):gsub("{(%d):(%+?)d}", function(n, fmt)
+				local v = val[tonumber(n)+1]
+				if v.min == v.max then
+					return s_format("%"..fmt..v.fmt, v.min)
+				elseif fmt == "+" then
+					if v.max < 0 then
+						return s_format("-(%d-%d)", -v.min, -v.max)
+					else
+						return s_format("+(%d-%d)", v.min, v.max)
+					end
+				else
+					return s_format("(%"..fmt..v.fmt.."-%"..fmt..v.fmt..")", v.min, v.max)
+				end
+			end):gsub("%%%%","%%")
+			for line in (statDesc.."\\n"):gmatch("([^\\]+)\\n") do
+				t_insert(out, line)
+				lineMap[line] = stat
+			end
+		end
+	end
+	return out, lineMap
 end

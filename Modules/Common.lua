@@ -1,7 +1,7 @@
 -- Path of Building
 --
 -- Module: Common
--- Libaries, functions and classes used by various modules.
+-- Libraries, functions and classes used by various modules.
 --
 local pairs = pairs
 local ipairs = ipairs
@@ -26,8 +26,7 @@ common.xml = require("xml")
 common.base64 = require("base64")
 common.sha1 = require("sha1")
 -- Uncomment if you need to perform in-depth profiling
---profiler = LoadModule("Modules/Profiler")
-
+-- profiler = require("lua-profiler")
 
 -- Class library
 common.classes = { }
@@ -122,7 +121,7 @@ function new(className, ...)
 		class._constructor(object, ...)
 	end
 	if class._parents then
-		-- Check that the contructors for all parent and superparent classes have been called
+		-- Check that the constructors for all parent and superparent classes have been called
 		for parent in pairs(class._superParents) do
 			if parent._constructor and not object._parentInit[parent] then
 				error("Parent class '"..parent._className.."' of class '"..className.."' must be initialised")
@@ -324,7 +323,7 @@ function writeLuaTable(out, t, indent)
 	end
 	local keyList = { }
 	for k, v in pairs(t) do
-	t_insert(keyList, k)
+		t_insert(keyList, k)
 	end
 	table.sort(keyList, function(a,b) if type(a) == type(b) then return a < b else return type(a) < type(b) end end)
 	for i, k in ipairs(keyList) do
@@ -462,6 +461,18 @@ function isValueInArray(tbl, val)
 	end
 end
 
+---Returns the array index of the first element for which the predicate evaluates to true
+---@param table table
+---@param predicate fun(value:any):any
+---@return number
+function isValueInArrayPred(table, predicate)
+	for i, v in ipairs(table) do
+		if predicate(v) then
+			return i
+		end
+	end
+end
+
 -- Pretty-prints a table
 function prettyPrintTable(tbl, pre)
 	pre = pre or ""
@@ -567,7 +578,7 @@ function formatNumSep(str)
             -- There will be leading separators if the number of digits are divisible by 3
             -- This checks for their presence and removes them
             -- Don't use patterns here because thousandsSeparator can be a pattern control character, and will crash if used
-             if main.thousandsSeparator ~= "" then
+            if main.thousandsSeparator ~= "" then
                 local thousandsSeparator = string.find(integer, main.thousandsSeparator, 1, 2)
                 if thousandsSeparator and thousandsSeparator == 1 then
                     integer = integer:sub(2)

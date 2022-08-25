@@ -10,6 +10,8 @@ skills["SupportAddedChaosDamage"] = {
 	name = "附加混沌伤害(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 3,
+	baseEffectiveness = 0.47119998931885,
+	incrementalEffectiveness = 0.039200000464916,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -77,6 +79,8 @@ skills["SupportAddedChaosDamagePlus"] = {
 	name = "附加混沌伤害（强辅）",
 	description = "辅助任何会击中敌人的技能。",
 	color = 3,
+	baseEffectiveness = 5.4256000518799,
+	incrementalEffectiveness = 0.003800000064075,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -120,6 +124,8 @@ skills["SupportAddedLightningDamage"] = {
 	name = "附加闪电伤害(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 3,
+	baseEffectiveness = 0.52710002660751,
+	incrementalEffectiveness = 0.037200000137091,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, },
 	addSkillTypes = { },
@@ -187,6 +193,8 @@ skills["SupportAddedLightningDamagePlus"] = {
 	name = "附加闪电伤害（强辅）",
 	description = "辅助任何会击中敌人的技能。",
 	color = 3,
+	baseEffectiveness = 4.667200088501,
+	incrementalEffectiveness = 0.0057000000961125,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, },
 	addSkillTypes = { },
@@ -257,6 +265,9 @@ skills["SupportArcaneSurge"] = {
 			{ "support_arcane_surge_base_duration_ms", 100 },
 		},
 	},
+	constantStats = {
+		{ "support_arcane_surge_base_duration_ms", 4000 },
+	},
 	stats = {
 		"support_arcane_surge_spell_damage_+%_final",
 		"support_arcane_surge_mana_regeneration_rate_+%",
@@ -310,6 +321,8 @@ skills["SupportArchmage"] = {
 	name = "大法师（辅）",
 	description = "辅助击中造成伤害且没有保留效果的技能。不能辅助瓦尔技能，图腾、陷阱、地雷施放的的技能。不能修正召唤生物的技能。",
 	color = 3,
+	baseEffectiveness = 0.17499999701977,
+	incrementalEffectiveness = 0.039000000804663,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Spell, SkillType.AND, },
 	addSkillTypes = { },
@@ -342,6 +355,10 @@ skills["SupportArchmage"] = {
 		Alternate2 = {
 			{ "base_mana_cost_-%", 1 },
 		},
+	},
+	constantStats = {
+		{ "manaweave_cost_equals_%_unreserved_mana", 5 },
+		{ "manaweave_added_lightning_damage_%_cost_if_payable", 75 },
 	},
 	stats = {
 		"global_minimum_added_lightning_damage",
@@ -418,6 +435,8 @@ skills["SupportBlasphemy"] = {
 	},
 	stats = {
 		"curse_area_of_effect_+%",
+		"curse_apply_as_aura",
+		"base_skill_is_instant",
 	},
 	levels = {
 		[1] = { 0, manaReservationPercent = 35, cooldown = 1.2, levelRequirement = 31, statInterpolation = { 1, }, },
@@ -485,6 +504,8 @@ skills["SupportBlasphemyPlus"] = {
 	stats = {
 		"curse_area_of_effect_+%",
 		"supported_curse_skill_gem_level_+",
+		"curse_apply_as_aura",
+		"base_skill_is_instant",
 	},
 	levels = {
 		[1] = { 80, 0, manaReservationPercent = 34, cooldown = 1.2, levelRequirement = 72, statInterpolation = { 1, 1, }, },
@@ -544,6 +565,8 @@ skills["SupportBonechill"] = {
 	stats = {
 		"chill_effect_+%",
 		"support_bonechill_cold_damage_+%_final",
+		"support_chills_also_grant_cold_damage_taken_+%_equal_to_slow_amount",
+		"support_chilling_areas_also_grant_cold_damage_taken_+%_equal_to_slow_amount",
 	},
 	levels = {
 		[1] = { 25, 5, manaMultiplier = 30, levelRequirement = 38, statInterpolation = { 1, 1, }, },
@@ -610,6 +633,8 @@ skills["SupportCastOnStunned"] = {
 	},
 	stats = {
 		"cast_on_stunned_%",
+		"spell_uncastable_if_triggerable",
+		"base_skill_show_average_damage_instead_of_dps",
 	},
 	levels = {
 		[1] = { 50, cooldown = 0.25, levelRequirement = 38, statInterpolation = { 1, }, },
@@ -762,7 +787,12 @@ skills["SupportCastWhileChannellingTriggered"] = {
 			{ "support_cast_while_channelling_triggered_skill_non_damaging_ailment_effect_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_cast_while_channelling_triggered_skill_damage_+%_final", -30 },
+	},
 	stats = {
+		"spell_uncastable_if_triggerable",
+		"cast_spell_while_linked_skill_channelling",
 	},
 	levels = {
 		[1] = { manaMultiplier = 20, levelRequirement = 38, },
@@ -877,7 +907,12 @@ skills["SupportCastWhileChannellingTriggeredPlus"] = {
 			{ "triggered_skill_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_cast_while_channelling_triggered_skill_damage_+%_final", -30 },
+	},
 	stats = {
+		"spell_uncastable_if_triggerable",
+		"cast_spell_while_linked_skill_channelling",
 	},
 	levels = {
 		[1] = { manaMultiplier = 20, levelRequirement = 72, },
@@ -906,6 +941,7 @@ skills["SupportChanceToIgnite"] = {
 	name = "几率点燃(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -930,6 +966,10 @@ skills["SupportChanceToIgnite"] = {
 			{ "faster_burn_%", -0.5 },
 			{ "fire_damage_+%", 1 },
 		},
+	},
+	constantStats = {
+		{ "base_chance_to_ignite_%", 25 },
+		{ "ignites_apply_fire_resistance_+", -10 },
 	},
 	stats = {
 		"support_chance_to_ignite_fire_damage_+%_final",
@@ -1009,6 +1049,10 @@ skills["SupportChargedMines"] = {
 			{ "mine_projectile_speed_+%_per_frenzy_charge", 0.2 },
 		},
 	},
+	constantStats = {
+		{ "mine_throwing_speed_+%_per_frenzy_charge", 10 },
+		{ "mine_critical_strike_chance_+%_per_power_charge", 25 },
+	},
 	stats = {
 		"%_chance_to_gain_frenzy_charge_on_mine_detonated_targeting_an_enemy",
 		"%_chance_to_gain_power_charge_on_mine_detonated_targeting_an_enemy",
@@ -1060,6 +1104,7 @@ skills["SupportConcentratedEffect"] = {
 	name = "集中效应(辅)",
 	description = "辅助任意有效果区域的技能, 不论该技能是否造成伤害",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Area, SkillType.MinionsCanExplode, SkillType.ThresholdJewelArea, },
 	addSkillTypes = { },
@@ -1083,6 +1128,9 @@ skills["SupportConcentratedEffect"] = {
 		Alternate2 = {
 			{ "base_stun_threshold_reduction_+%", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "support_concentrated_effect_skill_area_of_effect_+%_final", -30 },
 	},
 	stats = {
 		"support_area_concentrate_area_damage_+%_final",
@@ -1159,6 +1207,9 @@ skills["SupportControlledDestruction"] = {
 			{ "chance_for_extra_damage_roll_%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_controlled_destruction_critical_strike_chance_+%_final", -80 },
+	},
 	stats = {
 		"support_controlled_destruction_spell_damage_+%_final",
 	},
@@ -1228,6 +1279,9 @@ skills["SupportControlledDestructionPlus"] = {
 			{ "spell_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_controlled_destruction_critical_strike_chance_+%_final", -80 },
+	},
 	stats = {
 		"support_controlled_destruction_spell_damage_+%_final",
 		"chance_to_unnerve_on_hit_%",
@@ -1280,6 +1334,9 @@ skills["SupportCurseOnHit"] = {
 		Alternate2 = {
 			{ "dummy_stat_display_nothing", 0 },
 		},
+	},
+	constantStats = {
+		{ "apply_linked_curses_on_hit_%", 100 },
 	},
 	stats = {
 	},
@@ -1350,6 +1407,8 @@ skills["SupportCurseOnHitCurse"] = {
 	},
 	stats = {
 		"base_curse_duration_+%",
+		"cannot_cast_curses",
+		"curse_triggered_by_hextouch",
 	},
 	levels = {
 		[1] = { -50, levelRequirement = 38, statInterpolation = { 1, }, },
@@ -1405,6 +1464,9 @@ skills["SupportCurseOnHitPlus"] = {
 	ignoreMinionTypes = true,
 	plusVersionOf = "SupportCurseOnHit",
 	statDescriptionScope = "gem_stat_descriptions",
+	constantStats = {
+		{ "apply_linked_curses_on_hit_%", 100 },
+	},
 	stats = {
 	},
 	levels = {
@@ -1450,6 +1512,8 @@ skills["SupportCurseOnHitCursePlus"] = {
 		"base_curse_duration_+%",
 		"chance_to_ignore_hexproof_%",
 		"supported_curse_skill_gem_level_+",
+		"cannot_cast_curses",
+		"curse_triggered_by_hextouch",
 	},
 	levels = {
 		[1] = { -10, 10, 0, levelRequirement = 72, statInterpolation = { 1, 1, 1, }, },
@@ -1512,6 +1576,7 @@ skills["SupportMinionFocusFire"] = {
 	stats = {
 		"support_minion_focus_fire_damage_+%_final_vs_focussed_target",
 		"deathmark_minion_damage_+%_final",
+		"support_minion_use_focussed_target",
 	},
 	levels = {
 		[1] = { 15, 6, manaMultiplier = 30, levelRequirement = 18, statInterpolation = { 1, 1, }, },
@@ -1576,7 +1641,11 @@ skills["MinionFocusFire"] = {
 			{ "dummy_stat_display_nothing", 0 },
 		},
 	},
+	constantStats = {
+		{ "base_skill_effect_duration", 8000 },
+	},
 	stats = {
+		"base_deal_no_damage",
 	},
 	levels = {
 		[1] = { cooldown = 0.8, levelRequirement = 18, manaMultiplier = 50, },
@@ -1625,6 +1694,8 @@ skills["SupportDecay"] = {
 	name = "腐蚀(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 3,
+	baseEffectiveness = 1.335000038147,
+	incrementalEffectiveness = 0.045800000429153,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -1790,6 +1861,7 @@ skills["SupportElementalFocus"] = {
 	},
 	stats = {
 		"support_gem_elemental_damage_+%_final",
+		"cannot_inflict_status_ailments",
 	},
 	levels = {
 		[1] = { 20, manaMultiplier = 30, levelRequirement = 18, statInterpolation = { 1, }, },
@@ -1857,6 +1929,7 @@ skills["SupportElementalFocusPlus"] = {
 	stats = {
 		"support_gem_elemental_damage_+%_final",
 		"supported_elemental_skill_gem_level_+",
+		"cannot_inflict_status_ailments",
 	},
 	levels = {
 		[1] = { 35, 0, manaMultiplier = 30, levelRequirement = 72, statInterpolation = { 1, 1, }, },
@@ -1908,9 +1981,13 @@ skills["SupportElementalProliferation"] = {
 			{ "damage_+%_vs_enemies_per_freeze_shock_ignite", 1 },
 		},
 	},
+	constantStats = {
+		{ "chance_to_freeze_shock_ignite_%", 20 },
+	},
 	stats = {
 		"elemental_status_effect_aura_radius",
 		"base_elemental_status_ailment_duration_+%",
+		"display_what_elemental_proliferation_does",
 	},
 	levels = {
 		[1] = { 12, 0, manaMultiplier = 10, levelRequirement = 1, statInterpolation = { 1, 1, }, },
@@ -1959,6 +2036,7 @@ skills["SupportEnergyShieldLeech"] = {
 	name = "能量偷取（辅）",
 	description = "辅助任何会击中敌人的技能，使击中后可以偷取能量护盾，数值根据伤害值所定。",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -2112,6 +2190,7 @@ skills["SupportFasterCast"] = {
 	name = "快速施法(辅)",
 	description = "辅助法术技能",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Spell, },
 	addSkillTypes = { },
@@ -2202,6 +2281,7 @@ skills["SupportMinionOffensiveStance"] = {
 	stats = {
 		"minion_grant_puppet_master_buff_to_parent_on_hit_%",
 		"puppet_master_base_duration_ms",
+		"minion_larger_aggro_radius",
 	},
 	levels = {
 		[1] = { 25, 4000, manaMultiplier = 20, levelRequirement = 31, statInterpolation = { 1, 1, }, },
@@ -2277,8 +2357,20 @@ skills["SupportRemoteMine2"] = {
 			{ "base_stun_threshold_reduction_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_remote_mine_2_base_mine_duration", 5000 },
+		{ "support_remote_mine_2_chance_to_deal_double_damage_%_against_enemies_near_mines", 2 },
+		{ "support_remote_mine_2_mine_override_pvp_scaling_time_ms", 250 },
+		{ "support_remote_mine_2_base_mine_detonation_time_ms", 250 },
+		{ "support_makes_skill_mine_pvp_damage_+%_final", -60 },
+	},
 	stats = {
 		"support_remote_mine_2_damage_+%_final",
+		"base_skill_is_mined",
+		"is_remote_mine",
+		"disable_skill_if_melee_attack",
+		"base_skill_show_average_damage_instead_of_dps",
+		"remote_mined_by_support",
 	},
 	levels = {
 		[1] = { -56, manaMultiplier = -50, levelRequirement = 31, statInterpolation = { 1, }, },
@@ -2399,6 +2491,8 @@ skills["SupportImmolation"] = {
 	name = "献祭(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 3,
+	baseEffectiveness = 0.88889998197556,
+	incrementalEffectiveness = 0.034000001847744,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -2483,6 +2577,7 @@ skills["ViciousHexSupport"] = {
 		},
 	},
 	stats = {
+		"trigger_vicious_hex_explosion_when_curse_ends",
 	},
 	levels = {
 		[1] = { manaMultiplier = 30, levelRequirement = 31, },
@@ -2530,6 +2625,8 @@ skills["ViciousHexSupport"] = {
 skills["ViciousHexExplosion"] = {
 	name = "末日爆炸",
 	color = 3,
+	baseEffectiveness = 0.90210002660751,
+	incrementalEffectiveness = 0.055599998682737,
 	description = "根据触发的魔蛊提供的灭能值对一片区域造成混沌伤害。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Chaos] = true, [SkillType.Cooldown] = true, [SkillType.InbuiltTrigger] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
@@ -2562,9 +2659,15 @@ skills["ViciousHexExplosion"] = {
 			{ "doom_blast_hit_damage_+%_final_per_5_doom_on_hex", -1.25 },
 		},
 	},
+	constantStats = {
+		{ "doom_blast_hit_damage_+%_final_per_5_doom_on_hex", 40 },
+		{ "doom_blast_ailment_damage_+%_final_per_5_doom_on_hex", 15 },
+	},
 	stats = {
 		"spell_minimum_base_chaos_damage",
 		"spell_maximum_base_chaos_damage",
+		"triggered_vicious_hex_explosion",
+		"is_area_damage",
 	},
 	levels = {
 		[1] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 2, cooldown = 0.15, critChance = 5, levelRequirement = 31, statInterpolation = { 3, 3, }, },
@@ -2613,6 +2716,7 @@ skills["SupportIncreasedAreaOfEffect"] = {
 	name = "增大范围(辅)",
 	description = "辅助任意有效果区域的技能",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Area, SkillType.MinionsCanExplode, SkillType.ThresholdJewelArea, },
 	addSkillTypes = { },
@@ -2727,6 +2831,7 @@ skills["SupportIncreasedCriticalDamage"] = {
 	name = "提高暴击伤害(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -2793,6 +2898,7 @@ skills["SupportIncreasedCriticalStrikes"] = {
 	name = "提高暴击几率(辅)",
 	description = "辅助任意击中敌人的技能",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { },
@@ -2808,6 +2914,9 @@ skills["SupportIncreasedCriticalStrikes"] = {
 		Alternate2 = {
 			{ "gain_power_charge_on_kill_with_hit_%", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "additional_base_critical_strike_chance", 200 },
 	},
 	stats = {
 		"critical_strike_chance_+%",
@@ -2859,6 +2968,8 @@ skills["SupportBurningMinions"] = {
 	name = "炎军（辅）",
 	description = "辅助召唤生物技能。",
 	color = 3,
+	baseEffectiveness = 5.9082999229431,
+	incrementalEffectiveness = 0.056499999016523,
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { SkillType.CausesBurning, },
@@ -2891,6 +3002,9 @@ skills["SupportBurningMinions"] = {
 		Alternate2 = {
 			{ "minion_burning_damage_+%", 1.5 },
 		},
+	},
+	constantStats = {
+		{ "minion_fire_damage_%_of_maximum_life_taken_per_minute", 2400 },
 	},
 	stats = {
 		"support_minion_instability_minion_base_fire_area_damage_per_minute",
@@ -2997,6 +3111,11 @@ skills["SupportStormBarrier"] = {
 			{ "infusion_grants_life_regeneration_rate_per_minute_%", 1.5 },
 		},
 	},
+	constantStats = {
+		{ "support_storm_barrier_skill_type_damage_taken_when_hit_+%_final", -8 },
+		{ "support_storm_barrier_damage_buff_base_duration_ms", 6000 },
+		{ "support_storm_barrier_skill_type_damage_+%_final", 10 },
+	},
 	stats = {
 		"support_storm_barrier_damage_+%_final",
 		"support_storm_barrier_damage_buff_time_threshold_ms",
@@ -3048,6 +3167,8 @@ skills["SupportOnslaughtOnSlayingShockedEnemy"] = {
 	name = "闪电支配(辅)",
 	description = "辅助任意你用来击中敌人的技能. 无法辅助图腾, 陷阱和地雷所施放的技能.",
 	color = 3,
+	baseEffectiveness = 0.23749999701977,
+	incrementalEffectiveness = 0.039000000804663,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, },
 	addSkillTypes = { SkillType.Duration, },
@@ -3072,11 +3193,16 @@ skills["SupportOnslaughtOnSlayingShockedEnemy"] = {
 			{ "support_innervate_chance_to_gain_buff_on_shock_vs_unique_%", 0.2 },
 		},
 	},
+	constantStats = {
+		{ "base_chance_to_shock_%", 20 },
+		{ "support_innervate_buff_base_duration_ms", 8000 },
+	},
 	stats = {
 		"global_minimum_added_lightning_damage",
 		"global_maximum_added_lightning_damage",
 		"support_innervate_minimum_added_lightning_damage",
 		"support_innervate_maximum_added_lightning_damage",
+		"support_innervate_gain_buff_on_killing_shocked_enemy",
 	},
 	levels = {
 		[1] = { 0.15000000596046, 2.6199998855591, 0.079999998211861, 1.5199999809265, manaMultiplier = 20, levelRequirement = 31, statInterpolation = { 3, 3, 3, 3, }, },
@@ -3152,9 +3278,13 @@ skills["SupportHandcastSpellBoost"] = {
 			{ "intensity_loss_frequency_while_moving_+%", -1 },
 		},
 	},
+	constantStats = {
+		{ "support_spell_boost_area_of_effect_+%_final_per_charge", -15 },
+	},
 	stats = {
 		"support_spell_boost_area_damage_+%_final_per_charge",
 		"base_skill_area_of_effect_+%",
+		"display_base_intensity_loss",
 	},
 	levels = {
 		[1] = { 10, 30, manaMultiplier = 40, levelRequirement = 31, statInterpolation = { 1, 1, }, },
@@ -3203,6 +3333,7 @@ skills["SupportItemRarity"] = {
 	name = "物品稀有度增幅(辅)",
 	description = "辅助任意能击败敌人的技能",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.DamageOverTime, SkillType.KillNoDamageModifiers, },
 	addSkillTypes = { },
@@ -3401,10 +3532,14 @@ skills["SupportMinionDefensiveStance"] = {
 			{ "minion_block_%", 0.4 },
 		},
 	},
+	constantStats = {
+		{ "minion_chance_to_taunt_on_hit_%", 20 },
+	},
 	stats = {
 		"support_minion_defensive_stance_minion_damage_taken_+%_final",
 		"support_minion_defensive_stance_minion_damage_+%_final_against_enemies_near_you",
 		"minion_movement_speed_+%",
+		"minions_are_defensive",
 	},
 	levels = {
 		[1] = { -15, 20, 10, manaMultiplier = 20, levelRequirement = 31, statInterpolation = { 1, 1, 1, }, },
@@ -3474,6 +3609,11 @@ skills["SupportMinefield"] = {
 			{ "number_of_additional_remote_mines_allowed", 0.2 },
 		},
 	},
+	constantStats = {
+		{ "number_of_additional_mines_to_place", 4 },
+		{ "number_of_additional_remote_mines_allowed", 3 },
+		{ "multi_trap_and_mine_support_flags", 8 },
+	},
 	stats = {
 		"support_minefield_mine_throwing_speed_+%_final",
 	},
@@ -3524,6 +3664,7 @@ skills["SupportMinionDamage"] = {
 	name = "召唤生物伤害(辅)",
 	description = "辅助召唤生物技能。",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { },
@@ -3550,6 +3691,9 @@ skills["SupportMinionDamage"] = {
 		Alternate2 = {
 			{ "minion_ailment_damage_+%", 2 },
 		},
+	},
+	constantStats = {
+		{ "support_minion_damage_minion_life_+%_final", -25 },
 	},
 	stats = {
 		"support_minion_damage_+%_final",
@@ -3617,6 +3761,9 @@ skills["SupportMinionDamagePlus"] = {
 			{ "minion_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_minion_damage_minion_life_+%_final", -25 },
+	},
 	stats = {
 		"support_minion_damage_+%_final",
 		"supported_minion_skill_gem_level_+",
@@ -3648,6 +3795,7 @@ skills["SupportMinionLife"] = {
 	name = "召唤生物生命(辅)",
 	description = "辅助召唤生物技能。",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { },
@@ -3726,6 +3874,7 @@ skills["SupportMinionSpeed"] = {
 	name = "召唤生物速度(辅)",
 	description = "辅助召唤生物技能。",
 	color = 3,
+	baseEffectiveness = 0,
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
 	addSkillTypes = { },
@@ -3823,6 +3972,9 @@ skills["SupportSummonElementalResistances"] = {
 			{ "minion_life_leech_from_elemental_damage_permyriad", 2 },
 		},
 	},
+	constantStats = {
+		{ "minions_inflict_exposure_on_hit_%_chance", 100 },
+	},
 	stats = {
 		"minion_elemental_resistance_%",
 		"minion_maximum_all_elemental_resistances_%",
@@ -3902,6 +4054,10 @@ skills["SupportOvercharge"] = {
 			{ "critical_strike_chance_+%", 2 },
 		},
 	},
+	constantStats = {
+		{ "base_chance_to_shock_%", 50 },
+		{ "support_pure_shock_damage_+%_final", -25 },
+	},
 	stats = {
 		"support_pure_shock_shock_as_though_damage_+%_final",
 	},
@@ -3973,6 +4129,9 @@ skills["SupportPhysicalToLightning"] = {
 		Alternate2 = {
 			{ "enemies_you_shock_take_%_increased_physical_damage", 0.5 },
 		},
+	},
+	constantStats = {
+		{ "skill_physical_damage_%_to_convert_to_lightning", 50 },
 	},
 	stats = {
 		"physical_damage_%_to_add_as_lightning",
@@ -4052,8 +4211,14 @@ skills["SupportProjectileIntensity"] = {
 			{ "intensity_loss_frequency_while_moving_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "number_of_additional_projectiles", 3 },
+		{ "additional_projectiles_per_intensity", -1 },
+		{ "greater_projectile_intensity_projectile_damage_+%_final_per_intensity", 20 },
+	},
 	stats = {
 		"support_greater_projectile_intensity_projectile_damage_+%_final",
+		"display_base_intensity_loss",
 	},
 	levels = {
 		[1] = { -25, manaMultiplier = 40, levelRequirement = 31, statInterpolation = { 1, }, },
@@ -4122,6 +4287,9 @@ skills["SupportPowerChargeOnCrit"] = {
 		Alternate2 = {
 			{ "damage_+%_per_power_charge", 0.1 },
 		},
+	},
+	constantStats = {
+		{ "support_power_charge_on_crit_damage_+%_final_per_power_charge", 4 },
 	},
 	stats = {
 		"add_power_charge_on_critical_strike_%",
@@ -4200,8 +4368,20 @@ skills["SupportRemoteMine"] = {
 			{ "mine_detonation_speed_+%", 1 },
 		},
 	},
+	constantStats = {
+		{ "base_mine_duration", 5000 },
+		{ "mine_override_pvp_scaling_time_ms", 250 },
+		{ "support_remote_mine_damage_+%_final_per_mine_detonation_cascade", 5 },
+		{ "base_mine_detonation_time_ms", 250 },
+		{ "support_makes_skill_mine_pvp_damage_+%_final", -60 },
+	},
 	stats = {
 		"support_gem_mine_damage_+%_final",
+		"base_skill_is_mined",
+		"disable_skill_if_melee_attack",
+		"base_skill_show_average_damage_instead_of_dps",
+		"remote_mined_by_support",
+		"is_remote_mine",
 	},
 	levels = {
 		[1] = { -59, manaMultiplier = -50, levelRequirement = 8, statInterpolation = { 1, }, },
@@ -4276,6 +4456,9 @@ skills["SupportSpellCascade"] = {
 			{ "support_spell_cascade_area_delay_+%", 5 },
 		},
 	},
+	constantStats = {
+		{ "support_spell_cascade_number_of_cascades_per_side", 1 },
+	},
 	stats = {
 		"support_spell_cascade_area_of_effect_+%_final",
 		"support_spell_cascade_damage_+%_final",
@@ -4347,9 +4530,13 @@ skills["SupportSpellCascadePlus"] = {
 			{ "base_skill_area_of_effect_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_spell_cascade_number_of_cascades_per_side", 1 },
+	},
 	stats = {
 		"support_spell_cascade_area_of_effect_+%_final",
 		"support_spell_cascade_damage_+%_final",
+		"support_spell_cascade_sideways",
 	},
 	levels = {
 		[1] = { -30, -30, manaMultiplier = 30, levelRequirement = 72, statInterpolation = { 1, 1, }, },
@@ -4410,6 +4597,10 @@ skills["SupportMulticast"] = {
 			{ "support_echo_damage_+%_final", -1 },
 			{ "support_spell_echo_final_repeat_damage_+%_final", 3 },
 		},
+	},
+	constantStats = {
+		{ "base_spell_repeat_count", 1 },
+		{ "support_echo_damage_+%_final", -10 },
 	},
 	stats = {
 		"support_multicast_cast_speed_+%_final",
@@ -4488,6 +4679,11 @@ skills["SupportSpellEchoPlus"] = {
 			{ "spell_damage_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "base_spell_repeat_count", 1 },
+		{ "support_echo_damage_+%_final", -10 },
+		{ "spell_echo_plus_chance_double_damage_%_final", 20 },
+	},
 	stats = {
 		"support_multicast_cast_speed_+%_final",
 	},
@@ -4554,11 +4750,16 @@ skills["SupportSummonGhostOnKill"] = {
 			{ "skill_effect_duration_+%", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "support_ghost_base_duration", 15000 },
+		{ "chance_to_summon_support_ghost_on_hitting_rare_or_unique_%", 20 },
+	},
 	stats = {
 		"chance_to_summon_support_ghost_on_killing_blow_%",
 		"base_number_of_support_ghosts_allowed",
 		"phantasm_minimum_added_physical_damage_to_grant",
 		"phantasm_maximum_added_physical_damage_to_grant",
+		"skill_can_own_support_ghosts",
 	},
 	levels = {
 		[1] = { 50, 5, 2, 3, manaMultiplier = 20, levelRequirement = 4, statInterpolation = { 1, 1, 1, 1, }, },
@@ -4638,8 +4839,13 @@ skills["SupportRapidActivation"] = {
 			{ "from_quality_brand_activation_rate_+%_final_if_75%_attached_duration_expired", 1 },
 		},
 	},
+	constantStats = {
+		{ "support_rapid_activation_brand_skill_only_primary_duration_+%_final", -65 },
+		{ "support_rapid_activation_brand_skill_only_secondary_duration_+%_final", -65 },
+	},
 	stats = {
 		"support_rapid_activation_brand_activation_rate_+%_final",
+		"quality_display_swiftbrand_is_gem",
 	},
 	levels = {
 		[1] = { 30, manaMultiplier = 30, levelRequirement = 31, statInterpolation = { 1, }, },
@@ -4713,8 +4919,12 @@ skills["SupportTrinity"] = {
 			{ "skill_convert_%_physical_damage_to_random_element", 0.5 },
 		},
 	},
+	constantStats = {
+		{ "elemental_damage_+%_final_per_5_lowest_resonance", 3 },
+	},
 	stats = {
 		"damage_penetrates_%_elemental_resistances_while_all_resonance_is_25",
+		"gain_resonance_of_majority_damage_on_hit_for_2_seconds",
 	},
 	levels = {
 		[1] = { 7, manaMultiplier = 40, levelRequirement = 18, statInterpolation = { 1, }, },
@@ -4919,6 +5129,9 @@ skills["SupportHandcastAnticipation"] = {
 			{ "unleash_support_seal_gain_frequency_+%_while_channelling", 2.5 },
 			{ "unleash_support_seal_gain_frequency_+%_while_not_channelling", -5 },
 		},
+	},
+	constantStats = {
+		{ "support_anticipation_rapid_fire_count", 3 },
 	},
 	stats = {
 		"support_anticipation_charge_gain_interval_ms",
