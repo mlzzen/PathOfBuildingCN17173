@@ -118,7 +118,7 @@
 	<File sha1="688f1b05cb0043699c4abb9148cbdca73ef94ab3" name="Data/LegionPassives.lua" part="program" />
 	<File sha1="2fe1e0b1de371e54634333a479919ab9ca5a5e55" name="Data/Minions.lua" part="program" />
 	<File sha1="1359190914b907d76362d790aed744d4ebf785d4" name="Data/Misc.lua" part="program" />
-	<File sha1="c8c28ca6e68c965ed21ed3af54207b36506b5c61" name="Data/ModCache.lua" part="program" />
+	<File sha1="9beb5babbe8cc3ab6aa99a85f3d9e02fac1f0975" name="Data/ModCache.lua" part="program" />
 	<File sha1="007ce47b4aa71503e95393b57764465716446972" name="Data/ModFlask.lua" part="program" />
 	<File sha1="b2786969d6f141fd9e4aa47ae59ccfddc0667160" name="Data/ModItem.lua" part="program" />
 	<File sha1="9754c3746b78be1e7a1eaf26d548f49bb797193c" name="Data/ModJewel.lua" part="program" />
@@ -435,4 +435,20 @@
 	<File sha1="70b70f9eb03ef55c945c0208f7d867e91085d9d7" name="TreeData/3_17/mastery-disabled-3.png" part="tree" />
 	<File sha1="087f3fd8551af0e5664404e3d5330af5c3e15a74" name="TreeData/3_17/skills-3.jpg" part="tree" />
 	<File sha1="f321b6fa69bb70a390eb935b7aacf42b14c51aaf" name="TreeData/3_17/skills-disabled-3.jpg" part="tree" />
+	<File sha1="20bc528a3abe4897f40d2166dc0ea55a0b82ae2b" name="TreeData/3_18/tree.lua" part="tree" />
+	<File sha1="f90e1abf5003b83d91a36432762516b7faaff2ff" name="TreeData/3_18/translation.lua" part="tree" />
+	<File sha1="9a982c9da450c3e083d8043146fb6d77e4833819" name="TreeData/3_18/mastery-active-effect-3.png" part="tree" />
+	<File sha1="4e62d2dbcd68865fa4de780822a5485bf78d356a" name="TreeData/3_18/mastery-active-selected-3.png" part="tree" />
+	<File sha1="a7a9de0b0696e6a0084488c883e5e4a1031cfe43" name="TreeData/3_18/mastery-connected-3.png" part="tree" />
+	<File sha1="33fdf3073f2a08809ec9009b4c1bddb311856cee" name="TreeData/3_18/mastery-disabled-3.png" part="tree" />
+	<File sha1="d1680fbf429af45ef69eb82d39a3181b22694d18" name="TreeData/3_18/skills-3.jpg" part="tree" />
+	<File sha1="ac1e410f10e70277f6e17da02c22e02eba769d69" name="TreeData/3_18/skills-disabled-3.jpg" part="tree" />
+	<File sha1="834da3f969eb9f8b96432ceabe0cb6aa71151c97" name="TreeData/3_19/tree.lua" part="tree" />
+	<File sha1="44b7828616fdd85a1995bb58832c81346b3f5679" name="TreeData/3_19/translation.lua" part="tree" />
+	<File sha1="4970ee4961dd0b8e17d0b9fb88a5a872156d6685" name="TreeData/3_19/mastery-active-effect-3.png" part="tree" />
+	<File sha1="af171059d970a888f371c721473c34386b67d712" name="TreeData/3_19/mastery-active-selected-3.png" part="tree" />
+	<File sha1="8d471f06922b04d128eef15f986a0df93bf73f95" name="TreeData/3_19/mastery-connected-3.png" part="tree" />
+	<File sha1="65f7b13ce853806f30a3d7bdc35f65c0b9bb58bc" name="TreeData/3_19/mastery-disabled-3.png" part="tree" />
+	<File sha1="d2a99f9d2280e5f35b725ba1b199a0299e9dac2d" name="TreeData/3_19/skills-3.jpg" part="tree" />
+	<File sha1="9eef2b38ffca230d21a265fd1729f6230bc22a69" name="TreeData/3_19/skills-disabled-3.jpg" part="tree" />
 </PoBVersion>
