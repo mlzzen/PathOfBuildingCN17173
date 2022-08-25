@@ -502,7 +502,7 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 		return self.displayItem and self.displayItem.corruptable
 	end
 	--]]
-	self.controls.displayItemAddImplicit = new("ButtonControl", {"TOPLEFT",self.controls.displayItemCorrupt,"TOPRIGHT",true}, 8, 0, 120, 20, "添加基底...", function()
+	self.controls.displayItemAddImplicit = new("ButtonControl", {"TOPLEFT",self.controls.displayItemCorrupt,"TOPRIGHT",true}, 8, 0, 120, 20, "添加基底", function()
 		self:AddImplicitToDisplayItem()
 	end)
 	self.controls.displayItemAddImplicit.shown = function()
@@ -2949,11 +2949,11 @@ function ItemsTabClass:AddImplicitToDisplayItem()
 			t_insert(sourceList, { label = "Eater of Worlds", sourceId = "EATER" })
 		end
 	end
+	t_insert(sourceList, { label = "自定义", sourceId = "CUSTOM" })
 	if self.displayItem.type ~= "Flask" and self.displayItem.type ~= "Jewel" then
 		--t_insert(sourceList, { label = "Synth", sourceId = "SYNTHESIS" }) -- synth removed untill we get proper support for where the mods go
 		t_insert(sourceList, { label = "Delve", sourceId = "DelveImplicit" })
 	end
-	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
 	buildMods(sourceList[1].sourceId)
 	local function addModifier()
 		local item = new("Item", self.displayItem:BuildRaw())
@@ -2995,20 +2995,24 @@ function ItemsTabClass:AddImplicitToDisplayItem()
 		item:BuildAndParseRaw()
 		return item
 	end
-	controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 20, 0, 16, "^7Source:")
+	controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 20, 0, 16, "^7来源:")
 	controls.source = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 20, 150, 18, sourceList, function(index, value)
 		if value.sourceId ~= "CUSTOM" then
 			controls.modSelectLabel.y = 70
 			buildMods(value.sourceId)
+			local dropdownData = {}
+			if modList and modGroups and #modList > 0 and #modGroups > 0 then
+				dropdownData = modList[modGroups[1].modListIndex]
+			end
 			controls.modGroupSelect:SetSel(1)
-			controls.modSelect.list = modList[modGroups[1].modListIndex]
+			controls.modSelect.list = dropdownData
 			controls.modSelect:SetSel(1)
 		else
 			controls.modSelectLabel.y = 45
 		end
 	end)
 	controls.source.enabled = #sourceList > 1
-	controls.modGroupSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 45, 0, 16, "^7Type:")
+	controls.modGroupSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 45, 0, 16, "^7类型:")
 	controls.modGroupSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 45, 600, 18, modGroups, function(index, value)
 		controls.modSelect.list = modList[value.modListIndex]
 		controls.modSelect:SetSel(1)
@@ -3027,8 +3031,12 @@ function ItemsTabClass:AddImplicitToDisplayItem()
 			end
 		end
 	end
-	controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 70, 0, 16, "^7Modifier:")
-	controls.modSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 70, 600, 18, modList[modGroups[1].modListIndex])
+	controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 70, 0, 16, "^7词缀:")
+	local dropdownData = nil
+	if #modList > 0 and #modGroups > 0 then
+		dropdownData = modList[modGroups[1].modListIndex]
+	end
+	controls.modSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 70, 600, 18, dropdownData)
 	controls.modSelect.shown = function()
 		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
 	end
@@ -3044,7 +3052,7 @@ function ItemsTabClass:AddImplicitToDisplayItem()
 	controls.custom.shown = function()
 		return sourceList[controls.source.selIndex].sourceId == "CUSTOM"
 	end
-	controls.save = new("ButtonControl", nil, -45, 100, 80, 20, "Add", function()
+	controls.save = new("ButtonControl", nil, -45, 100, 80, 20, "添加", function()
 		self:SetDisplayItem(addModifier())
 		main:ClosePopup()
 	end)
@@ -3052,10 +3060,10 @@ function ItemsTabClass:AddImplicitToDisplayItem()
 		tooltip:Clear()
 		self:AddItemTooltip(tooltip, addModifier())
 	end	
-	controls.close = new("ButtonControl", nil, 45, 100, 80, 20, "Cancel", function()
+	controls.close = new("ButtonControl", nil, 45, 100, 80, 20, "取消", function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(710, 130, "Add Implicit to Item", controls, "save", sourceList[controls.source.selIndex].sourceId == "CUSTOM" and "custom")	
+	main:OpenPopup(710, 130, "为装备添加基底词缀", controls, "save", sourceList[controls.source.selIndex].sourceId == "CUSTOM" and "custom")	
 end
 
 
