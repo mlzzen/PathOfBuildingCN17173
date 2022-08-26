@@ -6506,6 +6506,7 @@ local specialModList = {
 	["暴击无法造成伤害"] = { mod("Damage", "MORE", -100, { type = "Condition", var = "CriticalStrike" }) }, --备注：critical strikes deal no damage
 	["暴击率将随绝对闪电抗性而提高"] = { mod("CritChance", "INC", 1, { type = "PerStat", stat = "LightningResistTotal", div = 1 }) }, --备注：critical strike chance is increased by uncapped lightning resistance
 	["暴击率随闪电抗性提高"] = { mod("CritChance", "INC", 1, { type = "PerStat", stat = "LightningResist", div = 1 }) }, --备注：critical strike chance is increased by lightning resistance
+	["暴击率随超量闪电抗性提高"] = { mod("CritChance", "INC", 1, { type = "PerStat", stat = "LightningResistOverCap", div = 1 }) },
 	["non%-critical strikes deal (%d+)%% damage"] = function(num) return { mod("Damage", "MORE", -100+num, nil, ModFlag.Hit, { type = "Condition", var = "CriticalStrike", neg = true }) } end,
 	-- Generic Ailments
 	["你每使敌人受到一种异常状态，它们受到的伤害便提高 (%d+)%%"] = function(num) return { --备注：enemies take (%d+)%% increased damage for each type of ailment you have inflicted on them
