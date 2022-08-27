@@ -6838,7 +6838,7 @@ local specialModList = {
 	["药剂持续期间，你的暴击无法造成暴击伤害加成"] = { flag("NoCritMultiplier", { type = "Condition", var = "UsingFlask" }) }, --备注：your critical strikes do not deal extra damage during flask effect
 	["grants perfect agony during flask effect"] = { mod("Keystone", "LIST", "Perfect Agony", { type = "Condition", var = "UsingFlask" }) },
 	-- Jewels
-	["(.+) 范围内的天赋可以在未连结至天赋树的情况下配置"] = function(_, name) return {
+	["(.+)范围内的天赋可以在未连结至天赋树的情况下配置"] = function(_, name) return {
 		mod("JewelData", "LIST", { key = "impossibleEscapeKeystone", value = name }),
 		mod("ImpossibleEscapeKeystones", "LIST", { key = name, value = true }),
 	} end,
