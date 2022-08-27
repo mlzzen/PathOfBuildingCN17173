@@ -60,6 +60,7 @@ local typeLabel = {
 {en="Helmet: Armour",cn="头盔: 护甲"},
 {en="Body Armour: Evasion/Energy Shield",cn="胸甲: 闪避/能量护盾"},
 {en="Thrusting One Handed Sword",cn="细剑"},
+{en="One Handed Sword: Thrusting",cn="细剑"},
 {en="Body Armour: Evasion",cn="胸甲: 闪避"},
 {en="One Handed Sword",cn="单手剑"},
 {en="Boots: Armour/Evasion",cn="鞋子: 护甲/闪避"},

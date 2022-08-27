@@ -1,13 +1,13 @@
 ﻿-- Item data (c) Grinding Gear Games
 return {
 [[
-Thrillsteel
+惊险刺激
 轻骑盔
 等级需求: 18, 42 Str
 猛攻
 ]],
 [[
-Elevore
+艾尔弗雷
 狼首皮盔
 等级需求: 30, 66 Dex
 法术伤害压制率 +(20-25)%

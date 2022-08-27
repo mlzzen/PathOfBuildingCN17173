@@ -2,7 +2,7 @@
 return {
 -- Body: Armour
 [[
-Ghostwrithe
+代笔人
 绸缎背心
 等级需求: 11, 37 Int
 固定基底词缀: 1

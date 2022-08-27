@@ -1,7 +1,7 @@
 ﻿-- Item data (c) Grinding Gear Games
 return {
 [[
-Soul Ascension
+灵魂飞升
 禁礼护手
 联盟: 卡兰德
 等级需求: 50, 39 Dex, 39 Int
@@ -13,7 +13,7 @@ Soul Ascension
 最多 50 个被吞噬的灵魂
 ]],
 [[
-Kaom's Spirit
+冈姆的精神
 巨人护手
 联盟: 卡兰德
 等级需求: 69, 98 Str

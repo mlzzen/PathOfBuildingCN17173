@@ -2,7 +2,7 @@
 return {
 -- Ring
 [[
-Kalandra's Touch
+卡兰德之触
 锻铁戒指
 联盟: 卡兰德
 反射你的另一枚戒指

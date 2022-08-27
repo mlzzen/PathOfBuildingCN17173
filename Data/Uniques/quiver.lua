@@ -3,7 +3,7 @@ return {
 -- Quiver
 
 [[
-The Poised Prism
+平衡棱镜
 原矢箭袋
 等级需求: 66
 固定基底词缀: 1
