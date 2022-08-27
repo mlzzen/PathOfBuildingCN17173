@@ -98,7 +98,6 @@ function CalcBreakdownClass:SetBreakdownData(displayData, pinned)
 					section.width = section.width + col.width
 				end
 			end
-			
 			section.height = #section.rowList * 14 + 20
 			if section.label then
 				self.contentWidth = m_max(self.contentWidth, 6 + DrawStringWidth(16, "VAR", section.label..":"))
@@ -106,7 +105,8 @@ function CalcBreakdownClass:SetBreakdownData(displayData, pinned)
 			end
 			if section.footer then
 				self.contentWidth = m_max(self.contentWidth, 6 + DrawStringWidth(12, "VAR", section.footer))
-				section.height = section.height + 12
+				local _, lines = string.gsub(section.footer, "\n", "\n") -- counts newlines in the string
+				section.height = section.height + 12 * (lines + 1)
 			end
 		end
 		self.contentWidth = m_max(self.contentWidth, section.width)
@@ -167,13 +167,13 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 			type = "TABLE",
 			rowList = breakdown.reservations,
 			colList = { 
-{ label = "【技能】", key = "skillName" },
-{ label = "【基础】", key = "base" },
-{ label = "【百分比加成】", key = "mult" },
-{ label = "【额外 提高/降低】", key = "more" },
-{ label = "【提高/降低】", key = "inc" },
-{ label = "【效能】", key = "efficiency" },
-{ label = "【保留】", key = "total" },
+				{ label = "【技能】", key = "skillName" },
+				{ label = "【基础】", key = "base" },
+				{ label = "【百分比加成】", key = "mult" },
+				{ label = "【额外 提高/降低】", key = "more" },
+				{ label = "【提高/降低】", key = "inc" },
+				{ label = "【效能】", key = "efficiency" },
+				{ label = "【保留】", key = "total" },
 			}
 		}
 		t_insert(self.sectionList, section)
@@ -184,13 +184,13 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 			type = "TABLE",
 			rowList = breakdown.damageTypes,
 			colList = { 
-{ label = "【来自】", key = "source", right = true },
-{ label = "【基础】", key = "base" },
-{ label = "【提高/降低】", key = "inc" },
-{ label = "【额外 提高/降低】", key = "more" },
-{ label = "【伤害转换】", key = "convSrc" },
-{ label = "【总】", key = "total" },
-{ label = "【转换】", key = "convDst" },
+				{ label = "【来自】", key = "source", right = true },
+				{ label = "【基础】", key = "base" },
+				{ label = "【提高/降低】", key = "inc" },
+				{ label = "【额外 提高/降低】", key = "more" },
+				{ label = "【伤害转换】", key = "convSrc" },
+				{ label = "【总】", key = "total" },
+				{ label = "【转换】", key = "convDst" },
 			}
 		}
 		t_insert(self.sectionList, section)
@@ -201,7 +201,7 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 		local colList
 		local rowList
 		if (sectionData.gearOnly) then
-		-- Only show basic table for gear and base ES/Armour/Evasion value
+			-- Only show basic table for gear and base ES/Armour/Evasion value
 			colList = {
 				{ label = "【值】", key = "base", right = true },
 				{ label = "【来源】", key = "source" },
@@ -228,8 +228,7 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 		local section = { 
 			type = "TABLE",
 			rowList = rowList,
-			colList = colList,			
-			
+			colList = colList,
 		}
 		t_insert(self.sectionList, section)
 		for _, row in pairs(section.rowList) do
@@ -249,7 +248,6 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 		self:AddModSection(sectionData, breakdown.modList)
 	end
 end
- 
 
 -- Add a table section showing a list of modifiers
 function CalcBreakdownClass:AddModSection(sectionData, modList)
@@ -258,7 +256,6 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 
 	-- Build list of modifiers to display
 	local cfg = (sectionData.cfg and actor.mainSkill[sectionData.cfg.."Cfg"] and copyTable(actor.mainSkill[sectionData.cfg.."Cfg"], true)) or { }
-	
 	cfg.source = sectionData.modSource
 	local rowList
 	local modStore = (sectionData.enemy and actor.enemy.modDB) or (sectionData.cfg and actor.mainSkill.skillModList) or actor.modDB
@@ -274,19 +271,19 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 	if #rowList == 0 then
 		return
 	end
-	 
+
 	-- Create section data
 	local section = {
 		type = "TABLE",
 		label = sectionData.label,
 		rowList = rowList,
 		colList = { 
-{ label = "【值】", key = "displayValue" },
-{ label = "【状态】", key = "name" },
-{ label = "【技能类型】", key = "flags" },
-{ label = "【注意】", key = "tags" },
-{ label = "【来源】", key = "source" },
-{ label = "【来源名称】", key = "sourceName" },
+			{ label = "【值】", key = "displayValue" },
+			{ label = "【状态】", key = "name" },
+			{ label = "【技能类型】", key = "flags" },
+			{ label = "【注意】", key = "tags" },
+			{ label = "【来源】", key = "source" },
+			{ label = "【来源名称】", key = "sourceName" },
 		},
 	}
 	t_insert(self.sectionList, section)
@@ -311,12 +308,14 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 		local types = { }
 		local typeList = { }
 		for i, row in ipairs(rowList) do
-			-- Find all the modifier types and source types that are present in the modifier lsit
+			-- Find all the modifier types and source types that are present in the modifier list
 			if not types[row.mod.type] then
 				types[row.mod.type] = true
 				t_insert(typeList, row.mod.type)
 			end
-			 
+			if not row.mod.source then
+				ConPrintTable(row.mod)
+			end
 			local sourceType = row.mod.source:match("[^:]+")
 			if not sourceTotals[sourceType] then
 				sourceTotals[sourceType] = { }
@@ -350,10 +349,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 	end
 
 	-- Process modifier data
-	local tmprow
 	for _, row in ipairs(rowList) do
-	
-		
 		if not sectionData.modType then
 			-- No modifier type specified, so format the value to convey type
 			row.displayValue = self:FormatModValue(row.value, row.mod.type)
@@ -370,7 +366,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			-- No modifier source specified, add the source type to the table
 			row.source = sourceType
 			row.sourceTooltip = function(tooltip)
-tooltip:AddLine(16, "来自 "..sourceType..":")
+				tooltip:AddLine(16, "来自 "..sourceType..":")
 				for _, line in ipairs(sourceTotals[sourceType]) do
 					tooltip:AddLine(14, line)
 				end
@@ -389,7 +385,6 @@ tooltip:AddLine(16, "来自 "..sourceType..":")
 		elseif sourceType == "Tree" then
 			-- Modifier is from a passive node, add node name, and add node ID (used to show node location)
 			local nodeId = row.mod.source:match("Tree:(%d+)")
-			
 			if nodeId then
 				local node = build.spec.nodes[tonumber(nodeId)]
 				if node then 
@@ -437,13 +432,17 @@ tooltip:AddLine(16, "来自 "..sourceType..":")
 				if tag.type == "Condition" or tag.type == "ActorCondition" then
 					desc = (tag.actor and (tag.actor:sub(1,1):upper()..tag.actor:sub(2).." ") or "").."状态处于: "..(tag.neg and "Not " or "")..self:FormatVarNameOrList(tag.var, tag.varList)
 				elseif tag.type == "Multiplier" then
-				--	print('-->>baseVal='..baseVal)
 					local base = tag.base and (self:FormatModBase(row.mod, tag.base).."+ "..math.abs(row.mod.value).." ") or baseVal
 					desc = base.."per "..(tag.div and (tag.div.." ") or "")..self:FormatVarNameOrList(tag.var, tag.varList)
 					baseVal = ""
 				elseif tag.type == "PerStat" then
 					local base = tag.base and (self:FormatModBase(row.mod, tag.base).."+ "..math.abs(row.mod.value).." ") or baseVal or ""
 					desc = base.."per "..(tag.div or 1).." "..self:FormatVarNameOrList(tag.stat, tag.statList)
+					baseVal = ""
+				elseif tag.type == "PercentStat" then
+					local finalPercent = (row.mod.value * (tag.percent / 100)) * 100
+					local base = tag.base and (self:FormatModBase(row.mod, tag.base).." + "..math.abs(finalPercent).." ") or self:FormatModBase(row.mod, finalPercent)
+					desc = base.."% of "..self:FormatVarNameOrList(tag.stat, tag.statList)
 					baseVal = ""
 				elseif tag.type == "MultiplierThreshold" or tag.type == "StatThreshold" then
 					desc = "如果 "..self:FormatVarNameOrList(tag.var or tag.stat, tag.varList or tag.statList)..(tag.upper and " <= " or " >= ")..(tag.threshold or self:FormatModName(tag.thresholdVar or tag.thresholdStat))
@@ -479,6 +478,9 @@ tooltip:AddLine(16, "来自 "..sourceType..":")
 end
 
 function CalcBreakdownClass:FormatModName(modName)
+	if not modName then
+		return ""
+	end
 	return modName:gsub("([%l%d]:?)(%u)","%1 %2"):gsub("(%l)(%d)","%1 %2")
 end
 
@@ -523,7 +525,7 @@ end
 function CalcBreakdownClass:DrawBreakdownTable(viewPort, x, y, section)
 	local cursorX, cursorY = GetCursorPos()
 	if section.label then
-		-- Draw table lable if able
+		-- Draw table label if able
 		DrawString(x + 2, y, "LEFT", 16, "VAR", "^7"..section.label..":")
 		y = y + 16
 	end
@@ -553,9 +555,6 @@ function CalcBreakdownClass:DrawBreakdownTable(viewPort, x, y, section)
 				local _, alpha = string.gsub(row[col.key], "%a", " ") -- counts letters in the string
 				local _, notes = string.gsub(row[col.key], " 至 ", " ") -- counts " to " in the string
 				local _, paren = string.gsub(row[col.key], "%b()", " ") -- counts parenthesis in the string
-				
-				
-				
 				if (alpha == 0 or notes > 0 or paren > 0) and col.right then
 					DrawString(col.x + col.width - 4, rowY + 1, "RIGHT_X", 12, "VAR", "^7"..formatNumSep(tostring(row[col.key])))
 				elseif (alpha == 0 or notes > 0 or paren > 0) then
