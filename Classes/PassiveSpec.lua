@@ -719,7 +719,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		if self.tree.nodes[id] then
 			self:ReplaceNode(node,self.tree.nodes[id])
 		end
-		if node.type ~= "ClassStart" and node.type ~= "Socket"  then
+
+		if node.type ~= "ClassStart" and node.type ~= "Socket" then
 			for nodeId, itemId in pairs(self.jewels) do
 				local item = self.build.itemsTab.items[itemId]
 				if item and item.jewelRadiusIndex and self.allocNodes[nodeId] and item.jewelData then
@@ -1027,8 +1028,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		if not anyStartFound then
 			-- No start nodes were found through ANY nodes
 			-- Therefore this node and all nodes depending on it are orphans and should be pruned
-			if node.depends ~= nil then 
-				for _, depNode in ipairs(node.depends) do
+			for _, depNode in ipairs(node.depends) do
 				local prune = true
 				for nodeId, itemId in pairs(self.jewels) do
 					if self.allocNodes[nodeId] then
@@ -1056,8 +1056,6 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 					self:DeallocSingleNode(depNode)
 				end
 			end
-			end 
-			
 		end
 	end
 

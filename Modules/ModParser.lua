@@ -419,6 +419,7 @@ local modNameList = {
 	["对投射物伤害格挡几率"] = "ProjectileBlockChance",
 	["对投射物格挡几率"] = "ProjectileBlockChance",
 	["你身上的秘术增强效果"] = "秘术增强Effect",
+	["你的秘术增强效果"] = "秘术增强Effect",
 	 ["魔蛊持续时间"] = { "Duration", tag = { type = "SkillType", skillType = SkillType.Hex } },
 	 ["几率施加畏火"] = "FireExposureChance",
 		["几率施加畏寒"] = "ColdExposureChance",
@@ -604,6 +605,7 @@ local modNameList = {
 	["非诅咒类光环的效果"] = "AuraEffect", --备注：aura effect
 	["你所施放诅咒的效果"] = "CurseEffect", --备注：effect of your curses
 	["你身上的光环效果"] = "AuraEffectOnSelf", --备注：effect of auras on you
+	["你技能的光环在你身上的效果"] = "AuraEffectOnSelf", --备注：effect of auras on you
 	["召唤生物身上的光环效果"] = { "AuraEffectOnSelf", addToMinion = true }, --备注：effect of auras on your minions
 	["你创造的奉献地面效果"] = "ConsecratedGroundEffect", --备注：curse effect
 	["诅咒效果"] = "CurseEffect", --备注：curse effect
@@ -805,6 +807,7 @@ local modNameList = {
 	["的移动速度"] = "MovementSpeed", --备注：movement speed
 	["攻击，施法和移动速度"] = { "Speed", "MovementSpeed" }, --备注：attack, cast and movement speed
 	["攻击、施法、移动速度"] = { "Speed", "MovementSpeed" }, --备注：attack, cast and movement speed
+	["行动速度"] = "ActionSpeed", --备注：action speed
 	["照亮范围"] = "LightRadius", --备注：light radius
 	["物品稀有度"] = "LootRarity", --备注：rarity of items found
 	["物品掉落数量"] = "LootQuantity", --备注：quantity of items found
@@ -3127,6 +3130,7 @@ local specialModList = {
 	["你具有次级威猛神龛效果"] = { flag("Condition:LesserMassiveShrine") },
 	["你具有次级狂击神龛效果"] = { flag("Condition:LesserBrutalShrine") },
 	["不洁之力"] = { flag("Condition:UnholyMight") },
+	["召唤生物拥有不洁之力"] = {mod("MinionModifier", "LIST", { mod = flag("UnholyMight", {addToMinion = true}) })},
 	["点燃敌人时获得 %d+ 秒【她的拥抱】效果"] = { flag("Condition:CanGainHerEmbrace") },
 	["召唤生物的攻击额外造成 (%d+) %- (%d+) 物理伤害"]= function(_,num1,num2) return {mod("MinionModifier", "LIST", {mod=mod("PhysicalMin","BASE",num1,nil,ModFlag.Attack )  }),mod("MinionModifier", "LIST", { mod = mod("PhysicalMax", "BASE", num2,nil,ModFlag.Attack )})} end,
 	["近期内你若被击中过，则每有 1 个耐力球，就会每秒受到 (%d+) 火焰伤害"]
@@ -3188,12 +3192,31 @@ local specialModList = {
 	["受到【优雅】影响时，有 %+(%d+)%% 几率闪避攻击"]= function(num) return {  mod("EvadeChance", "BASE", num,{ type = "Condition", var = "AffectedBy优雅" })  } end,
 	["受到【优雅】影响时，有 %+(%d+)%% 的几率闪避攻击"]= function(num) return {  mod("EvadeChance", "BASE", num,{ type = "Condition", var = "AffectedBy优雅" })  } end,
 	["受到【迅捷】影响时获得【迷踪】状态"]= { flag("Condition:Phasing", { type = "Condition", var = "AffectedBy迅捷" }) },
+	["受到迅捷光环影响时，行动速度加快(%d+)%%"]= function(num) return { mod("ActionSpeed", "INC", num, { type = "Condition", var = "AffectedBy迅捷" }) } end,
 	["受到【元素净化】影响时，受到击中物理伤害的 (%d+)%% 转换为冰霜伤害"]= function(num) return {  mod("PhysicalDamageTakenAsCold", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy元素净化" })  } end,
 	["受到【元素净化】影响时，受到击中物理伤害的 (%d+)%% 转换为火焰伤害"]= function(num) return {  mod("PhysicalDamageTakenAsFire", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy元素净化" })  } end,
 	["受到【元素净化】影响时，受到击中物理伤害的 (%d+)%% 转换为闪电伤害"]= function(num) return {  mod("PhysicalDamageTakenAsLightning", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy元素净化" })  } end,
+	["受到元素净化光环影响时，所有元素抗性上限提高%+(%d+)%%"] = function(num) return { 
+		mod("FireResistMax", "BASE", tonumber(num), { type = "Condition", var = "AffectedBy元素净化" }),
+		mod("ColdResistMax", "BASE", tonumber(num), { type = "Condition", var = "AffectedBy元素净化" }),
+		mod("LightningResistMax", "BASE", tonumber(num), { type = "Condition", var = "AffectedBy元素净化" }),
+	} end,
 	["受到【火焰净化】影响时，受到击中物理伤害的 (%d+)%% 转换为火焰伤害"]= function(num) return {  mod("PhysicalDamageTakenAsFire", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy火焰净化" })  } end,
+		["受到击中冰霜伤害的 (%d+)%% 转为火焰伤害"] = function(num) return {  mod("ColdDamageTakenAsFire", "BASE", num)  } end,
+	["受到火焰净化影响时，受到的冰霜和闪电伤害的(%d+)%%视为火焰伤害"]= function(num) return { 
+		mod("ColdDamageTakenAsFire", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy火焰净化" }),
+		mod("LightningDamageTakenAsFire", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy火焰净化" }),
+	} end,
 	["受到【冰霜净化】影响时，受到击中物理伤害的 (%d+)%% 转换为冰霜伤害"]= function(num) return {  mod("PhysicalDamageTakenAsCold", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy冰霜净化" })  } end,
+	["受到冰霜净化影响时，受到的火焰和闪电伤害的(%d+)%%视为冰霜伤害"]= function(num) return { 
+		mod("FireDamageTakenAsCold", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy冰霜净化" }),
+		mod("LightningDamageTakenAsCold", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy冰霜净化" }),
+	} end,
 	["受到【闪电净化】影响时，受到击中物理伤害的 (%d+)%% 转换为闪电伤害"]= function(num) return {  mod("PhysicalDamageTakenAsLightning", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy闪电净化" })  } end,
+	["受到闪电净化影响时，受到的火焰和冰霜伤害的(%d+)%%视为闪电伤害"]= function(num) return { 
+		mod("FireDamageTakenAsLightning", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy闪电净化" }),
+		mod("ColdDamageTakenAsLightning", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy闪电净化" }),
+	} end,
 	["受到【活力】影响时，伤害的 ([%d%.]+)%% 转化为生命偷取"]= function(num) return {  mod("DamageLifeLeech", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy活力" })  } end,
 	["受到【活力】影响时， 每秒回复 ([%d%.]+) 生命"]= function(num) return {  mod("LifeRegen", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy活力" })  } end,
 	["被活力影响时每秒再生 ([%d%.]+)%% 生命"]= function(num) return {  mod("LifeRegenPercent", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy活力" })  } end,
@@ -3203,6 +3226,7 @@ local specialModList = {
 	["受到【雷霆】影响时，(%d+)%% 的物理伤害转化为闪电伤害"]= function(num) return {  mod("PhysicalDamageConvertToLightning", "BASE", tonumber(num),{ type = "Condition", var = "AffectedBy雷霆" })  } end,
 	["受到【奋锐光环】影响时，位于奉献地面之上的敌人受到的暴击几率提高 (%d+)%%"]= function(num) return {  mod("CritChance", "INC", tonumber(num),{ type = "Condition", var = "AffectedBy奋锐光环" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" })  } end,
 	["受到【奋锐光环】影响时，从能量护盾偷取中获得的每秒最大总恢复量提高 (%d+)%%"]= function(num) return {  mod("MaxEnergyShieldLeechRate", "INC", tonumber(num),{ type = "Condition", var = "AffectedBy奋锐光环" })  } end,
+	["受到奋锐光环影响时不受诅咒影响"] = { mod("CurseEffectOnSelf", "MORE", -100, { type = "Condition", var = "AffectedBy奋锐光环" }) },
 	["当你受到奋锐光环影响时，创造的【奉献地面】可以使敌人承受的伤害提高 (%d+)%%"]= function(num) return {  mod("EnemyModifier", "LIST", { mod = mod("DamageTakenConsecratedGround", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" },{ type = "Condition", var = "AffectedBy奋锐光环" })  } end,
 	["你创造的【奉献地面】可以使敌人承受的伤害提高 (%d+)%%"]= function(num) return {
 	mod("EnemyModifier", "LIST", { mod = mod("DamageTakenConsecratedGround", "INC", num) },
@@ -3273,6 +3297,11 @@ local specialModList = {
 	["使用该武器攻击可穿透 (%d+)%% 冰霜抗性"]= function(num) return {  mod("ColdPenetration", "BASE", num,{ type = "Condition", var = "{Hand}Attack" } )  } end,
 	["使用该武器攻击可穿透 (%d+)%% 元素抗性"]= function(num) return {  mod("ElementalPenetration", "BASE", num,{ type = "Condition", var = "{Hand}Attack" } )  } end,
 	["使用该武器攻击可穿透 (%d+)%% 混沌抗性"]= function(num) return {  mod("ChaosPenetration", "BASE", num,{ type = "Condition", var = "{Hand}Attack" } )  } end,
+	["该武器的攻击穿透 (%d+)%% 的闪电抗性"]= function(num) return {  mod("LightningPenetration", "BASE", num,{ type = "Condition", var = "{Hand}Attack" } )  } end,
+	["该武器的攻击穿透 (%d+)%% 的火焰抗性"]= function(num) return {  mod("FirePenetration", "BASE", num,{ type = "Condition", var = "{Hand}Attack" } )  } end,
+	["该武器的攻击穿透 (%d+)%% 的冰霜抗性"]= function(num) return {  mod("ColdPenetration", "BASE", num,{ type = "Condition", var = "{Hand}Attack" } )  } end,
+	["该武器的攻击穿透 (%d+)%% 的元素抗性"]= function(num) return {  mod("ElementalPenetration", "BASE", num,{ type = "Condition", var = "{Hand}Attack" } )  } end,
+	["该武器的攻击穿透 (%d+)%% 的混沌抗性"]= function(num) return {  mod("ChaosPenetration", "BASE", num,{ type = "Condition", var = "{Hand}Attack" } )  } end,
 	["【([^\\x00-\\xff]*)】的伤害穿透 (%d+)%% 的闪电抗性"]= function(_,skill_name,num)  return {  mod("LightningPenetration", "BASE", tonumber(num),{ type = "SkillName", skillName =FuckSkillActivityCnName(skill_name) })  } end,
 	["【([^\\x00-\\xff]*)】的伤害穿透 (%d+)%% 的火焰抗性"]= function(_,skill_name,num)  return {  mod("FirePenetration", "BASE", tonumber(num),{ type = "SkillName", skillName =FuckSkillActivityCnName(skill_name) })  } end,
 	["【([^\\x00-\\xff]*)】的伤害穿透 (%d+)%% 的冰霜抗性"]= function(_,skill_name,num)  return {  mod("ColdPenetration", "BASE", tonumber(num),{ type = "SkillName", skillName =FuckSkillActivityCnName(skill_name) })  } end,
@@ -4341,6 +4370,10 @@ local specialModList = {
 	["对法术伤害的增幅与减益也会套用于攻击上，相当于其效果的 (%d+)%%"] = function(num) return { flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", num) } end,
 	["你的光环技能被禁用"] = { flag("DisableSkill", { type = "SkillType", skillType = SkillType.Aura}) },
 	["你禁用光环技能"] = { flag("DisableSkill", { type = "SkillType", skillType = SkillType.Aura}) },
+	["禁用除(.+)之外的其他光环技能"] = function(_, name) return {
+		flag("DisableSkill", { type = "SkillType", skillType = SkillType.Aura }),
+		flag("EnableSkill", { type = "SkillId", skillId = gemIdLookup[name] }),
+	} end,
 	["你身上的捷增益总效果总增 (%d+)%%"] = function(num) return {
 	mod("BuffEffect", "MORE", num, { type = "SkillType", skillType = SkillType.Herald }),
 	} end,
@@ -4828,6 +4861,7 @@ local specialModList = {
 	["最近你每消耗 (%d+) 点魔力你身上的秘术增强效果提高 (%d+)%%，最多 (%d+)%%"] = function(_,num1,num2,num3)return {
 	mod("秘术增强Effect", "INC", tonumber(num2),
 	{ type = "Multiplier", var = "ManaSpentRecently", div = tonumber(num1) , limit = tonumber(num3), limitTotal = true}) } end,
+	["受到清晰光环影响时，你的秘术增强效果提高(%d+)%%"] = function(num) return { mod("秘术增强Effect", "INC", tonumber(num2),{ type = "Condition", varList = { "AffectedBy清晰"} }) } end,
 	["拥有【秘术增强】时免疫元素异常状态"]= function() return {
 	mod("AvoidShock", "BASE", 100, { type = "Condition", var = "AffectedBy秘术增强" } ),
 	mod("AvoidFrozen", "BASE", 100, { type = "Condition", var = "AffectedBy秘术增强" } ),
@@ -5230,9 +5264,10 @@ local specialModList = {
 	["能量护盾回复改为恢复生命"] = { flag("EnergyShieldRechargeAppliesToLife") },
 	["能量护盾充能改为对生命生效"] = { flag("EnergyShieldRechargeAppliesToLife") },
 	["能量护盾充能应用到生命而非能量护盾"] = { flag("EnergyShieldRechargeAppliesToLife") },
-	["你的混沌伤害可以点燃敌人"] = { flag("ChaosCanIgnite") },
 	["你的光环效果不影响友军"] = { flag("SelfAurasCannotAffectAllies") },
 	["你技能产生的光环不影响队友"] = { flag("SelfAurasCannotAffectAllies") },
+	["你技能的光环只能影响你"] = { flag("SelfAurasCannotAffectAllies") },
+	["你的混沌伤害可以点燃敌人"] = { flag("ChaosCanIgnite") },
 	["你身上的光环总效果额外提高 (%d+)%%"] = function(num) return { mod("SkillAuraEffectOnSelf", "MORE", num) } end,
 	["你技能产生的光环对自己的效果总增 (%d+)%%"] = function(num) return { mod("SkillAuraEffectOnSelf", "MORE", num) } end,
 	["如果近期内被击中，则闪避值提高 (%d+)%%"] = function(num) return {  mod("Evasion", "MORE", num, { type = "Condition", var = "BeenHitRecently" })  } end,
@@ -6017,6 +6052,7 @@ local specialModList = {
 	["技能的总保留额外降低 (%d+)%%"]= function(num) return {  mod("Reserved", "MORE", -num)  } end,
 	["技能的总保留额外提高 (%d+)%%"]= function(num) return {  mod("Reserved", "MORE", num)  } end,
 	["技能的保留效果总增 (%d+)%%"]= function(num) return {  mod("Reserved", "MORE", num)  } end,
+	["光环技能的魔力保留总增 (%d+)%%"]= function(num) return {  mod("ManaReserved", "MORE", num, { type = "SkillType", skillType = SkillType.Aura })  } end,
 	["投掷地雷类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num,{ type = "SkillType", skillType = SkillType.Mine }  )  } end,
 	["诅咒光环类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num, { type = "SkillType", skillType = SkillType.Hex }   )  } end,
 	["旗帜类技能的保留降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num,{ type = "SkillType", skillType = SkillType.Banner }  )  } end,
@@ -6026,6 +6062,7 @@ local specialModList = {
 	["捷技能的保留效果降低 (%d+)%%"]=function(num) return {  mod("Reserved", "INC", -num,{ type = "SkillType", skillType = SkillType.Herald }  )  } end,
 	["以光环形式施放时，【(.+)】的保留降低 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("Reserved", "INC",-num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
 	["【(.+)】的保留降低 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("Reserved", "INC",-num, { type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)}) } end,
+	["光环技能的光环效果按照它们每保留 (%d+)%% 魔力上限就总增 (%d+)%%"] = function(num1, _, num2) return { mod("Reserved", "MORE", num2, { type = "PerStat", stat = "ManaReservedPercent", div = num1 }) } end,
 	----消耗
 	["持续吟唱类技能的资源消耗降低 (%d+)%%"]=function(num) return {  mod("Cost", "INC", -num ,{ type = "SkillType", skillType = SkillType.Channel} )  } end,
 	["吟唱技能的消耗降低 (%d+)%%"]=function(num) return {  mod("Cost", "INC", -num ,{ type = "SkillType", skillType = SkillType.Channel} )  } end,
@@ -6481,6 +6518,12 @@ local specialModList = {
 		}
 	end,
 	["当幻化守卫击败一个敌人时，触发 (%d+) 级的【(.+)】"] = function(num, _, skill) return triggerExtraSkill(skill, num) end,
+	["每 (%d+) 秒触发 (%d+) 级的【(.+)】、【(.+)】或【(.+)】"] = function(num1, _, num2, skill1, skill2, skill3) return {
+		mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill1], level = num2, triggered = true }),
+		mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill2], level = num2, triggered = true }),
+		mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill3], level = num2, triggered = true }),
+	} end,
+	["以此种方式触发的奉献技能也会影响你"] = { mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "buffNotPlayer", value = false }) }, { type = "SkillName", skillNameList = { "Bone Offering", "Flesh Offering", "Spirit Offering" } }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 
 	-- Conversion
 	["召唤生物伤害提高或降低，将同样套用于自身"] = { flag("MinionDamageAppliesToPlayer") , mod("ImprovedMinionDamageAppliesToPlayer", "INC", 100) }, --备注：increases and reductions to minion damage also affects? you
@@ -6513,6 +6556,7 @@ local specialModList = {
 	["暴击率随闪电抗性提高"] = { mod("CritChance", "INC", 1, { type = "PerStat", stat = "LightningResist", div = 1 }) }, --备注：critical strike chance is increased by lightning resistance
 	["暴击率随超量闪电抗性提高"] = { mod("CritChance", "INC", 1, { type = "PerStat", stat = "LightningResistOverCap", div = 1 }) },
 	["non%-critical strikes deal (%d+)%% damage"] = function(num) return { mod("Damage", "MORE", -100+num, nil, ModFlag.Hit, { type = "Condition", var = "CriticalStrike", neg = true }) } end,
+	["受到精准光环影响时，暴击率提高(%d+)%%"] = function(num) return { mod("CritChance", "INC", num, { type = "Condition", var = "AffectedBy精准" }) } end,
 	-- Generic Ailments
 	["你每使敌人受到一种异常状态，它们受到的伤害便提高 (%d+)%%"] = function(num) return { --备注：enemies take (%d+)%% increased damage for each type of ailment you have inflicted on them
 		mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "Frozen"}),
@@ -6540,6 +6584,9 @@ local specialModList = {
 	["被点燃敌人的燃烧加快 (%d+)%%"] = function(num) return { mod("IgniteBurnFaster", "INC", num) } end, --备注：ignited enemies burn (%d+)%% faster
 	["被点燃敌人的燃烧减缓 (%d+)%%"] = function(num) return { mod("IgniteBurnSlower", "INC", num) } end, --备注：ignited enemies burn (%d+)%% slower
 	["攻击被点燃敌人会使燃烧加快 (%d+)%%"] = function(num) return { mod("IgniteBurnFaster", "INC", num, nil, ModFlag.Attack) } end, --备注：enemies ignited by an attack burn (%d+)%% faster
+	["受到愤怒光环影响时始终造成烧灼"] = { mod("EnemyScorchChance", "BASE", 100, { type = "Condition", var = "AffectedBy愤怒" }) },
+	["受到憎恨光环影响时始终造成脆弱"] = {	mod("EnemyBrittleChance", "BASE", 100, { type = "Condition", var = "AffectedBy憎恨" })	},
+	["受到雷霆光环影响时始终造成精疲力尽"] = { mod("EnemySapChance", "BASE", 100, { type = "Condition", var = "AffectedBy雷霆" }) },
 	-- Bleed
 	["melee attacks cause bleeding"] = { mod("BleedChance", "BASE", 100, nil, ModFlag.Melee) },
 	["attacks cause bleeding when hitting cursed enemies"] = { mod("BleedChance", "BASE", 100, nil, ModFlag.Attack, { type = "ActorCondition", actor = "enemy", var = "Cursed" }) },
@@ -6596,6 +6643,8 @@ local specialModList = {
 	["光环效果对友方没有作用"] = { flag("SelfAurasCannotAffectAllies") }, --备注：your aura buffs do not affect allies
 	["无法获得友方光环效果"] = { flag("AlliesAurasCannotAffectSelf") }, --备注：allies' aura buffs do not affect you
 	["可以对敌人施放 1 个额外诅咒"] = { mod("EnemyCurseLimit", "BASE", 1) }, --备注：enemies can have 1 additional curse
+	["你可以额外施加一个诅咒"] = { mod("EnemyCurseLimit", "BASE", 1) }, --备注：enemies can have 1 additional curse
+	["受到怨毒光环影响时，你可以额外施加一个诅咒"] = { mod("EnemyCurseLimit", "BASE", 1, { type = "Condition", var = "AffectedBy怨毒光环" }) }, --备注：enemies can have 1 additional curse
 	["对受诅咒敌人造成腐烂，每秒 (%d+) 点混沌伤害，持续 %d+ 秒"] = function(num) return {
 		mod("SkillData", "LIST", { key = "decay", value = num, merge = "MAX" }, { type = "ActorCondition", actor = "enemy", var = "Cursed"})
 	} end,
@@ -6795,6 +6844,10 @@ local specialModList = {
 	["药剂持续期间，你的暴击无法造成暴击伤害加成"] = { flag("NoCritMultiplier", { type = "Condition", var = "UsingFlask" }) }, --备注：your critical strikes do not deal extra damage during flask effect
 	["grants perfect agony during flask effect"] = { mod("Keystone", "LIST", "Perfect Agony", { type = "Condition", var = "UsingFlask" }) },
 	-- Jewels
+	["(.+) 范围内的天赋可以在未连结至天赋树的情况下配置"] = function(_, name) return {
+		mod("JewelData", "LIST", { key = "impossibleEscapeKeystone", value = name }),
+		mod("ImpossibleEscapeKeystones", "LIST", { key = name, value = true }),
+	} end,
 	["未连结至天赋树的技能，仍然可以在范围内配置"] = { mod("JewelData", "LIST", { key = "intuitiveLeapLike", value = true }) }, --备注：passives in radius can be allocated without being connected to your tree
 	["每 1 个聚光之石可使火焰、冰霜、闪电伤害提高 (%d+)%%"] = function(num) return {  --备注：(%d+)%% increased elemental damage per grand spectrum
 		mod("ElementalDamage", "INC", num, { type = "Multiplier", var = "GrandSpectrum" }),
@@ -7154,14 +7207,9 @@ preSkillNameList["^"..skillName:lower().." has ?a? "] = { tag = { type = "SkillN
 		end
 		
 		if gemData.tags.aura or gemData.tags.herald  then
-skillNameList["受到【"..skillName:lower().."】影响时，"] = { tag = { type = "Condition", var = "AffectedBy"..skillName:gsub(" ","") } }
-			
-			skillNameList["while using "..skillName:lower()] = { tag = { type = "Condition", var = "AffectedBy"..skillName:gsub(" ","") } }
-			 
+			skillNameList["受到【"..skillName:lower().."】影响时，"] = { tag = { type = "Condition", var = "AffectedBy"..skillName:gsub(" ","") } }
+			skillNameList["受到"..skillName:lower().."影响时，"] = { tag = { type = "Condition", var = "AffectedBy"..skillName:gsub(" ","") } }
 			specialModList[skillName:lower().."的保留效果总降 ([%d%.]+)%%"] = function(num) return { mod("Reserved", "MORE", -num, { type = "SkillName", skillName = skillName }) } end
-		
-			
-		
 
 		end
 		if gemData.tags.mine then

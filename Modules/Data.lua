@@ -335,43 +335,52 @@ data.keystones = {
 	"火之化身",
 	"祭血术",
 	"召集部队",
+	"异灵之体",
 	"能量连接",
+	"腐化的灵魂",
 	"玫红之舞",
+	"神圣血肉",
+	"神威之盾",
+	"灭亡之日",
 	"异能魔力",
 	"元素之相",
 	"元素超载",
 	"青春永驻",
+	"幽灵舞步",
 	"灵能护体",
 	"斗转星移",
+	"空明之掌",
 	"失衡卫士",
+	"不朽野望",
+	"内在信念",
 	"钢铁之握",
 	"霸体",
+	"钢铁意志",
+	"忘川之影",
+	"法师克星",
 	"心灵升华",
 	"复仇之灵",
 	"凡人的信念",
+	"灵能护盾",
 	"苦痛灵曲",
 	"完美苦痛",
 	"移灵换影",
 	"零点射击",
+	"技艺精湛",
 	"坚毅之心",
 	"符文绑定者",
+	"苦难秘辛",
+	"唯我独尊",
+	"无上衰败",
 	"无上自我",
 	"惘信者",
 	"穿刺者",
 	"烈士意志",
 	"瓦尔冥约",
+	"多面好手",
 	"恶毒结界",
 	"风舞者",
 	"狂热誓言",
-	"空明之掌",
-	"Divine Shield",
-	"灭亡之日",
-	"幽灵舞步",
-	"钢铁意志",
-	"Lethe Shade",
-	"MageBane",
-	"Solipsism",
-	"全方位斗士",
 }
 
 
@@ -684,7 +693,21 @@ data.uniques = { }
 for _, type in pairs(itemTypes) do
 	data.uniques[type] = LoadModule("Data/Uniques/"..type)
 end
-
+data.uniques['race'] = LoadModule("Data/Uniques/Special/race")
+data.uniqueMods = { }
+data.uniqueMods["Watcher's Eye"] = { }
+local unsortedMods = LoadModule("Data/Uniques/Special/WatchersEye")
+local sortedMods = { }
+for modId in pairs(unsortedMods) do
+	table.insert(sortedMods, modId)
+end
+table.sort(sortedMods)
+for _, modId in ipairs(sortedMods) do
+	table.insert(data.uniqueMods["Watcher's Eye"], {
+		Id = modId,
+		mod = unsortedMods[modId],
+	})
+end
 LoadModule("Data/Uniques/Special/Generated")
 LoadModule("Data/New")
  

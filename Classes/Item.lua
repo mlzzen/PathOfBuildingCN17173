@@ -353,54 +353,62 @@ elseif specName == "等级" then
 				elseif specName:match("BasePercentile") then
 					self.armourData = self.armourData or { }
 					self.armourData[specName] = tonumber(specVal) or 0
-elseif specName == "等级需求" then
+				elseif specName == "等级需求" then
 					self.requirements.level = tonumber(specVal)
-elseif specName == "Has Alt Variant" then
+				elseif specName == "Has Alt Variant" then
 					self.hasAltVariant = true
-elseif specName == "Has Alt Variant Two" then
+				elseif specName == "Has Alt Variant Two" then
 					self.hasAltVariant2 = true
-elseif specName == "Has Alt Variant Three" then
+				elseif specName == "Has Alt Variant Three" then
 					self.hasAltVariant3 = true
-elseif specName == "Selected Variant" then
+				elseif specName == "Has Alt Variant Four" then
+					self.hasAltVariant4 = true
+				elseif specName == "Has Alt Variant Five" then
+					self.hasAltVariant5 = true
+				elseif specName == "Selected Variant" then
 					self.variant = tonumber(specVal)
-elseif specName == "Selected Alt Variant" then
+				elseif specName == "Selected Alt Variant" then
 					self.variantAlt = tonumber(specVal)
-elseif specName == "Selected Alt Variant Two" then
+				elseif specName == "Selected Alt Variant Two" then
 					self.variantAlt2 = tonumber(specVal)
-elseif specName == "Selected Alt Variant Three" then
+				elseif specName == "Selected Alt Variant Three" then
 					self.variantAlt3 = tonumber(specVal)
-elseif specName == "Has Variants" or specName == "Selected Variants" then
+				elseif specName == "Selected Alt Variant Four" then
+					self.variantAlt4 = tonumber(specVal)
+				elseif specName == "Selected Alt Variant Five" then
+					self.variantAlt5 = tonumber(specVal)
+				elseif specName == "Has Variants" or specName == "Selected Variants" then
 					-- Need to skip this line for backwards compatibility
 					-- with builds that used an old Watcher's Eye implementation
 					l = l + 1
-elseif specName == "联盟" then
+				elseif specName == "联盟" then
 					self.league = specVal
-elseif specName == "工艺" then
+				elseif specName == "工艺" then
 					self.crafted = true
 				elseif specName == "灾魇" then
 					self.scourge = true
-elseif specName == "前缀" then
+				elseif specName == "前缀" then
 					local range, affix = specVal:match("{range:([%d.]+)}(.+)")
 					t_insert(self.prefixes, {
 						modId = affix or specVal,
 						range = tonumber(range),
 					})
-elseif specName == "后缀" then
+				elseif specName == "后缀" then
 					local range, affix = specVal:match("{range:([%d.]+)}(.+)")
 					t_insert(self.suffixes, {
 						modId = affix or specVal,
 						range = tonumber(range),
 					})
-elseif specName == "固定基底词缀" then
+				elseif specName == "固定基底词缀" then
 					implicitLines = tonumber(specVal) or 0
 					
 					gameModeStage = "EXPLICIT"
-elseif specName == "未公开" then
+				elseif specName == "未公开" then
 					self.unreleased = (specVal == "true")
-elseif specName == "升级" then
+				elseif specName == "升级" then
 					self.upgradePaths = self.upgradePaths or { }
 					t_insert(self.upgradePaths, specVal)
-elseif specName == "源" then
+				elseif specName == "源" then
 					self.source = specVal
 				elseif specName == "Evasion Rating" then
 					if self.baseName == "Two-Toned Boots (Armour/Energy Shield)" then
@@ -408,13 +416,13 @@ elseif specName == "源" then
 						self.baseName = "Two-Toned Boots (Armour/Evasion)"
 						self.base = data.itemBases[self.baseName]
 					end
-elseif specName == "能量护盾" then
+				elseif specName == "能量护盾" then
 					if self.baseName == "Two-Toned Boots (Armour/Evasion)" then
 						-- Yet another hack for Two-Toned Boots
 						self.baseName = "Two-Toned Boots (Evasion/Energy Shield)"
 						self.base = data.itemBases[self.baseName]
 					end
---3.10 导入星团珠宝需要处理
+				--3.10 导入星团珠宝需要处理
 	
 				elseif specName == "Cluster Jewel Skill" then
 				
@@ -464,9 +472,6 @@ end
 
 				local enchant = line:match(" %(enchant%)")
 				local classReq = line:find("需求 职业")
-				if classReq then
-					local int = 1
-				end
 				local scourge = line:match("{scourge}") or line:match(" %(scourge%)")
 				local crafted = line:match("{crafted}") or line:match(" %(crafted%)") or enchant
 
@@ -475,10 +480,8 @@ end
 				local modTagsText = line:match("{tags:([^}]*)}") or ''
 
 				local modTags = {}
-			
 				for curMod in modTagsText:gmatch("[^,]+") do
 					curMod = curMod:match('^%s*(.*%S)') or '' -- Trim whitespace
-					
 					table.insert(modTags, curMod)
 				end
 				local implicit = line:match(" %(implicit%)") or enchant
@@ -486,7 +489,7 @@ end
 				if implicit then
 					foundImplicit = true
 					gameModeStage = "IMPLICIT"
-				end				
+				end
 				line = line:gsub("%b{}", ""):gsub(" %(fractured%)",""):gsub(" %(crafted%)",""):gsub(" %(implicit%)",""):gsub(" %(enchant%)",""):gsub(" %(scourge%)",""):gsub(" %(exarch%)",""):gsub(" %(eater%)",""):gsub(" %(synthesis%)","")
 				local catalystScalar = getCatalystScalar(self.catalyst, modTags, self.catalystQuality)
 				
@@ -664,6 +667,12 @@ elseif self.rarity == "稀有" then
 		if self.hasAltVariant3 then
 			self.variantAlt3 = m_min(#self.variantList, self.variantAlt3 or #self.variantList)
 		end
+		if self.hasAltVariant4 then
+			self.variantAlt4 = m_min(#self.variantList, self.variantAlt4 or #self.variantList)
+		end
+		if self.hasAltVariant5 then
+			self.variantAlt5 = m_min(#self.variantList, self.variantAlt5 or #self.variantList)
+		end
 	end
 	
 	if not self.quality then
@@ -807,77 +816,9 @@ t_insert(rawLines, "后缀: "..(affix.range and ("{range:"..round(affix.range,3)
 		end
 	end
 	if self.itemLevel then
-		t_insert(rawLines, "Item Level: "..self.itemLevel)
+		t_insert(rawLines, "Item Level: " .. self.itemLevel)
 	end
-	
-	if self.variantList then
-	
-		
-		for _, variantName in ipairs(self.variantList) do
-t_insert(rawLines, "版本: "..variantName)
-		end
-		t_insert(rawLines, "Selected Variant: "..self.variant)
-
-		local hasVariantBases = false
-		local i = 1
-		for _, variantName in ipairs(self.variantList) do
-			
-			if data.itemBases[variantName] then
-				t_insert(rawLines, "{variant:"..i.."}"..variantName)
-				hasVariantBases = true
-			end
-			i = i + 1
-		end
-		if not hasVariantBases then
-			t_insert(rawLines, self.baseName)
-		end
-		if self.hasAltVariant then
-			t_insert(rawLines, "Has Alt Variant: true")
-			t_insert(rawLines, "Selected Alt Variant: "..self.variantAlt)
-		end
-		if self.hasAltVariant2 then
-			t_insert(rawLines, "Has Alt Variant Two: true")
-			t_insert(rawLines, "Selected Alt Variant Two: "..self.variantAlt2)
-		end
-		if self.hasAltVariant3 then
-			t_insert(rawLines, "Has Alt Variant Three: true")
-			t_insert(rawLines, "Selected Alt Variant Three: "..self.variantAlt3)
-		end
-	end
-	if self.quality then
-t_insert(rawLines, "品质: "..self.quality)
-	end
-	if self.qualityTitle then
-t_insert(rawLines, "品质说明: "..self.qualityTitle)
-	end
-	if self.sockets and #self.sockets > 0 then
-local line = "插槽: "
-		for i, socket in pairs(self.sockets) do
-			line = line .. socket.color
-			if self.sockets[i+1] then
-				line = line .. (socket.group == self.sockets[i+1].group and "-" or " ")
-			end
-		end
-		if modLine and modLine.modTags and #modLine.modTags > 0 then
-			line = "{tags:"..table.concat(modLine.modTags, ",").."}"..line
-		end
-		t_insert(rawLines, line)
-	end
-	if self.requirements and self.requirements.level then
-t_insert(rawLines, "等级需求: "..self.requirements.level)
-	end
-	if self.jewelRadiusLabel then
-t_insert(rawLines, "范围: "..self.jewelRadiusLabel)
-	end
-	if self.limit then
-t_insert(rawLines, "仅限: "..self.limit)
-	end
-	if self.classRestriction then
-		t_insert(rawLines, "需求 职业: "..self.classRestriction)
-	end
-t_insert(rawLines, "固定基底词缀: "..(#self.enchantModLines + #self.implicitModLines + #self.scourgeModLines))
-
-local function writeModLine(modLine)
+	local function writeModLine(modLine)
 		local line = modLine.line
 		if modLine.range then
 			line = "{range:"..round(modLine.range,3).."}" .. line
@@ -915,6 +856,79 @@ local function writeModLine(modLine)
 		end
 		t_insert(rawLines, line)
 	end
+	if self.variantList then
+		for _, variantName in ipairs(self.variantList) do
+			t_insert(rawLines, "版本: "..variantName)
+		end
+		t_insert(rawLines, "Selected Variant: "..self.variant)
+
+		local hasVariantBases = false
+		local i = 1
+		for _, variantName in ipairs(self.variantList) do
+			
+			if data.itemBases[variantName] then
+				t_insert(rawLines, "{variant:"..i.."}"..variantName)
+				hasVariantBases = true
+			end
+			i = i + 1
+		end
+		if not hasVariantBases then
+			t_insert(rawLines, self.baseName)
+		end
+		if self.hasAltVariant then
+			t_insert(rawLines, "Has Alt Variant: true")
+			t_insert(rawLines, "Selected Alt Variant: "..self.variantAlt)
+		end
+		if self.hasAltVariant2 then
+			t_insert(rawLines, "Has Alt Variant Two: true")
+			t_insert(rawLines, "Selected Alt Variant Two: "..self.variantAlt2)
+		end
+		if self.hasAltVariant3 then
+			t_insert(rawLines, "Has Alt Variant Three: true")
+			t_insert(rawLines, "Selected Alt Variant Three: " .. self.variantAlt3)
+		end
+		if self.hasAltVariant4 then
+			t_insert(rawLines, "Has Alt Variant Four: true")
+			t_insert(rawLines, "Selected Alt Variant Four: " .. self.variantAlt4)
+		end
+		if self.hasAltVariant5 then
+			t_insert(rawLines, "Has Alt Variant Five: true")
+			t_insert(rawLines, "Selected Alt Variant Five: " .. self.variantAlt5)
+		end
+	end
+	if self.quality then
+		t_insert(rawLines, "品质: "..self.quality)
+	end
+	if self.qualityTitle then
+		t_insert(rawLines, "品质说明: "..self.qualityTitle)
+	end
+	if self.sockets and #self.sockets > 0 then
+		local line = "插槽: "
+		for i, socket in pairs(self.sockets) do
+			line = line .. socket.color
+			if self.sockets[i+1] then
+				line = line .. (socket.group == self.sockets[i+1].group and "-" or " ")
+			end
+		end
+		if modLine and modLine.modTags and #modLine.modTags > 0 then
+			line = "{tags:"..table.concat(modLine.modTags, ",").."}"..line
+		end
+		t_insert(rawLines, line)
+	end
+	if self.requirements and self.requirements.level then
+		t_insert(rawLines, "等级需求: "..self.requirements.level)
+	end
+	if self.jewelRadiusLabel then
+		t_insert(rawLines, "范围: "..self.jewelRadiusLabel)
+	end
+	if self.limit then
+		t_insert(rawLines, "仅限: "..self.limit)
+	end
+	if self.classRestriction then
+		t_insert(rawLines, "需求 职业: "..self.classRestriction)
+	end
+		t_insert(rawLines, "固定基底词缀: "..(#self.enchantModLines + #self.implicitModLines + #self.scourgeModLines))
+
 	for _, modLine in ipairs(self.enchantModLines) do
 		writeModLine(modLine)
 	end
@@ -1276,6 +1290,12 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		end
 		for _, value in ipairs(modList:List(nil, "JewelData")) do
 			jewelData[value.key] = value.value
+		end
+		if modList:List(nil, "ImpossibleEscapeKeystones") then
+			jewelData.impossibleEscapeKeystones = { }
+			for _, value in ipairs(modList:List(nil, "ImpossibleEscapeKeystones")) do
+				jewelData.impossibleEscapeKeystones[value.key] = value.value
+			end
 		end
 		if self.clusterJewel then
 			jewelData.clusterJewelNotables = { }

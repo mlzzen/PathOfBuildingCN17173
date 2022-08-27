@@ -204,18 +204,6 @@ Has Alt Variant Two: true
 ]],
 
 [[
-库勒马克藤杖
-蛇纹长杖
-源: 【亡灵大师卡塔莉娜】专属掉落
-等级需求: 49, 85 Str, 85 Int
-固定基底词缀: 1
-持长杖时攻击伤害格挡几率 +20%
-解密词缀的幅度扩大 (60-90)%
-【加密的前缀】
-【加密的后缀】
-【加密的前缀】
-]],
-[[
 阿兹里的统治
 审判长杖
 源: 【瓦尔女王阿兹里】专属掉落
@@ -229,80 +217,5 @@ Has Alt Variant Two: true
 伤害无法被反射
 ]],
 
-
-
-
-
-
-
-
 }
-
-
-local lines = {
-	"妄想症",
-	"中型星团珠宝",
-	"联盟: 惊悸迷雾",
-	"源: 「梦魇拟像」限定掉落",
-	"Has Alt 版本: true",
-	"Has Alt Variant Two: true",
-	"增加 4 个天赋技能",
-	"增加的小天赋无效果",
-}
-local notables = { }
-for name in pairs(data.clusterJewels.notableSortOrder) do
-	table.insert(notables, name)
-end
-table.sort(notables)
-for index, name in ipairs(notables) do
-	table.insert(lines, "版本: "..name)
-	table.insert(lines, "{variant:"..index.."}其中 1 个增加的天赋为【"..name.."】")
-end
-table.insert(data.uniques.new, table.concat(lines, '\n'))
-
-
-
-
-local linesForbiddenShako = {
-	"禁断的军帽",
-	"强化巨盔",
-	"联盟: 古灵庄园",
-	"源: 由传奇Boss【庄园化身欧莱娜】 专属掉落",
-	"等级需求: 68, 59 Str, 59 Int",
-	"Has Alt 版本: true",	
-	"+(25-30) 全属性",
-}
-local linesForbiddenShakoReplica = {
-	"禁断的军帽【仿品】",
-	"强化巨盔",
-	"联盟: 夺宝奇兵",	
-	"等级需求: 53, 59 Str, 59 Int",
-	"Has Alt 版本: true",	
-	"+(25-30) 全属性",
-}
-local supports = { }
-for name, grantedEffect in pairs(data.skills) do
-
-	if not grantedEffect.hidden and not grantedEffect.fromItem  and  grantedEffect.support and not grantedEffect.plusVersionOf then
-		local gem= grantedEffect.name:gsub("%(辅%)",""):gsub("（辅）","")
-		table.insert(supports,gem)
-	end
-end
-table.sort(supports)
-for index, name in ipairs(supports) do
-	table.insert(linesForbiddenShako, "版本: "..name.. " (低等级)")
-	table.insert(linesForbiddenShako, "{variant:"..(index * 2 - 1).."}此物品上的技能石受到 (1-10) 级的 "..name.." 辅助")
-	table.insert(linesForbiddenShako, "版本: "..name.. " (高等级)")
-	table.insert(linesForbiddenShako, "{variant:"..(index * 2).."}此物品上的技能石受到 (25-35) 级的 "..name.." 辅助")
-	
-	table.insert(linesForbiddenShakoReplica, "版本: "..name.. " (低等级)")
-	table.insert(linesForbiddenShakoReplica, "{variant:"..(index * 2 - 1).."}此物品上的技能石受到 (1-10) 级的 "..name.." 辅助")
-	table.insert(linesForbiddenShakoReplica, "版本: "..name.. " (高等级)")
-	table.insert(linesForbiddenShakoReplica, "{variant:"..(index * 2).."}此物品上的技能石受到 (25-35) 级的 "..name.." 辅助")
-	
-	
-	
-end
-table.insert(data.uniques.new, table.concat(linesForbiddenShako, '\n'))
-table.insert(data.uniques.new, table.concat(linesForbiddenShakoReplica, '\n'))
 
