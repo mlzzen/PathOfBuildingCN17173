@@ -290,6 +290,9 @@ elseif processInfluenceLine(line) then
 			if not specName then
 				specName, specVal = line:match("^(需求 职业): (.+)$")
 			end
+			if specName == "职业：" then
+				specName = "需求 职业"
+			end
 			if specName then
 				
 				if specName == "Unique ID" then
