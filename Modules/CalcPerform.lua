@@ -18,10 +18,10 @@ local bor = bit.bor
 local band = bit.band
 
 
--- Identify the trigger action skill for trigger conditions, take highest Attack Per Second 
+-- Identify the trigger action skill for trigger conditions, take highest Attack Per Second
 local function findTriggerSkill(env, skill, source, triggerRate, reqManaCost)
 	local uuid = cacheSkillUUID(skill)
-	if not GlobalCache.cachedData["CACHE"][uuid] then
+	if not GlobalCache.cachedData["CACHE"][uuid] or GlobalCache.dontUseCache then
 		calcs.buildActiveSkill(env, "CACHE", skill)
 		env.dontCache = true
 	end
@@ -42,41 +42,60 @@ end
 
 
 -- Calculate Trigger Rate Cap accounting for ICDR
-local function getTriggerActionTriggerRate(baseActionCooldown, env, breakdown, focus)
-	local baseActionCooldown = env.player.mainSkill.skillData.cooldown
+local function getTriggerActionTriggerRate(baseActionCooldown, env, breakdown, focus, minion)
 	local icdr = 1
+	local cooldownOverride = false
 	if focus then
 		icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "FocusCooldownRecovery")
-		env.player.mainSkill.skillData.focussed = true
+		env.player.mainSkill.skillData.focused = true
+	elseif minion then
+		icdr = calcLib.mod(env.minion.mainSkill.skillModList, env.minion.mainSkill.skillCfg, "CooldownRecovery")
+		cooldownOverride = env.minion.mainSkill.skillModList:Override(env.minion.mainSkill.skillCfg, "CooldownRecovery")
 	else
 		icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
+		cooldownOverride = env.player.mainSkill.skillModList:Override(env.player.mainSkill.skillCfg, "CooldownRecovery")
 	end
-	local modActionCooldown = baseActionCooldown / (icdr)
+
+	local modActionCooldown = cooldownOverride or (baseActionCooldown / icdr)
 	local rateCapAdjusted = m_ceil(modActionCooldown * data.misc.ServerTickRate) / data.misc.ServerTickRate
 	local extraICDRNeeded = m_ceil((modActionCooldown - rateCapAdjusted + data.misc.ServerTickTime) * icdr * 1000)
 	if breakdown then
-		breakdown.ActionTriggerRate = {
-			s_format("%.2f ^8(被触发的基础冷却时间)", baseActionCooldown),
-			s_format("/ %.2f ^8(提高/降低 冷却速度)", icdr),
-			s_format("= %.4f ^8(最终冷却时间)", modActionCooldown),
-			s_format(""),
-			s_format("%.3f ^8(调整为服务器触发速率)", rateCapAdjusted),			
-			s_format("^8(需要额外的冷却缩减 %d%% 将会到达下个触发点)", extraICDRNeeded),
-			s_format(""),
-			s_format("触发速率:"),
-			s_format("1 / %.3f", rateCapAdjusted),
-			s_format("= %.2f ^8每秒", 1 / rateCapAdjusted),
-			
-		}
+		if cooldownOverride then
+			if minion then
+				env.minion.mainSkill.skillFlags.hasOverride = true
+			else
+				env.player.mainSkill.skillFlags.hasOverride = true
+			end
+			breakdown.ActionTriggerRate = {
+				s_format("%.2f ^8(被触发技能的固定冷却时间)", cooldownOverride),
+				s_format(""),
+				s_format("%.3f ^8(根据服务器tick调整)", rateCapAdjusted),
+				s_format(""),
+				s_format("触发频率:"),
+				s_format("1 / %.3f", rateCapAdjusted),
+				s_format("= %.2f ^8每秒", 1 / rateCapAdjusted),
+			}
+		else
+			breakdown.ActionTriggerRate = {
+				s_format("%.2f ^8(被触发的基础冷却时间)", baseActionCooldown),
+				s_format("/ %.2f ^8(提高/降低 冷却速度)", icdr),
+				s_format("= %.4f ^8(最终冷却时间)", modActionCooldown),
+				s_format(""),
+				s_format("%.3f ^8(调整为服务器触发速率)", rateCapAdjusted),
+				s_format("^8(需要额外的冷却缩减 %d%% 将会到达下个触发点)", extraICDRNeeded),
+				s_format(""),
+				s_format("触发频率:"),
+				s_format("1 / %.3f", rateCapAdjusted),
+				s_format("= %.2f ^8每秒", 1 / rateCapAdjusted),
+			}
+		end
 	end
-	
 	return 1 / rateCapAdjusted
 end
 
 -- Calculate Trigger Rate
 -- This is achieved by simulating a 100 second cast rotation
 local function calcMultiSpellRotationImpact(env, skillRotation, sourceAPS)
-	
 	local SIM_TIME = 100.0
 	local TIME_STEP = 0.0001
 	local index = 1
@@ -89,7 +108,7 @@ local function calcMultiSpellRotationImpact(env, skillRotation, sourceAPS)
 
 	while time < SIM_TIME do
 		local currIndex = index
-
+	
 		if time >= next_trigger then
 			while skillRotation[index].next_trig > time do
 				index = (index % #skillRotation) + 1
@@ -101,7 +120,7 @@ local function calcMultiSpellRotationImpact(env, skillRotation, sourceAPS)
 				end
 			end
 
-			if skillRotation[index].next_trig <= time then				
+			if skillRotation[index].next_trig <= time then
 				skillRotation[index].count = skillRotation[index].count + 1
 				-- Cooldown starts at the beginning of current tick
 				skillRotation[index].next_trig = currTick + skillRotation[index].cd
@@ -129,11 +148,10 @@ local function calcMultiSpellRotationImpact(env, skillRotation, sourceAPS)
 	if wasted > 0 then
 		trigRateTable.extraSimInfo = "存在被浪费的触发机会. 提高你的冷却速度也许可以修复它."
 	else
-		trigRateTable.extraSimInfo = "干得好！没有被浪费的触发机会"
-		t_insert(trigRateTable.rates, { name = "无 击中被浪费_ _ ", rate = wasted / SIM_TIME })
+		trigRateTable.extraSimInfo = "很好！没有被浪费的触发机会"
 	end
 	for _, sd in ipairs(skillRotation) do
-		if cacheSkillUUID(env.player.mainSkill) == sd.uuid then
+		if cacheSkillUUID(env.player.mainSkill) == sd.uuid or env.minion and cacheSkillUUID(env.minion.mainSkill) == sd.uuid then
 			mainRate = sd.count / SIM_TIME
 		end
 		t_insert(trigRateTable.rates, { name = sd.uuid, rate = sd.count / SIM_TIME })
@@ -143,7 +161,12 @@ end
 
 
 -- Calculate the actual Trigger rate of active skill causing the trigger
-local function calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown, dualWield)
+local function calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown, dualWield, minion)
+	-- Check if we need to add Spell CastTime to Trigger Cooldown
+	local extraTriggerCD = 0
+	if not minion and env.player.mainSkill.skillModList:Flag(skillCfg, "SpellCastTimeAddedToCooldownIfTriggered") then
+		extraTriggerCD = env.player.mainSkill.activeEffect.grantedEffect.castTime
+	end
 	-- Get action trigger rate
 	if sourceAPS == nil and source.skillTypes[SkillType.Channel] then
 		output.ActionTriggerRate = 1 / (source.skillData.triggerTime or 1)
@@ -151,13 +174,17 @@ local function calcActualTriggerRate(env, source, sourceAPS, spellCount, output,
 			breakdown.ActionTriggerRate = {
 				s_format("%.2f ^8(被触发的基础冷却时间)", source.skillData.triggerTime),
 				s_format(""),
-				s_format("触发速率:"),
+				s_format("触发频率:"),
 				s_format("1 / %.2f", source.skillData.triggerTime),
 				s_format("= %.2f ^8每秒", output.ActionTriggerRate),
 			}
 		end
 	else
-		output.ActionTriggerRate = getTriggerActionTriggerRate(env.player.mainSkill.skillData.cooldown, env, breakdown)
+		if minion then 
+			output.ActionTriggerRate = getTriggerActionTriggerRate(env.minion.mainSkill.skillData.cooldown, env, breakdown, false, minion)
+		else 
+			output.ActionTriggerRate = getTriggerActionTriggerRate(env.player.mainSkill.skillData.cooldown + extraTriggerCD, env, breakdown, false, minion)
+		end
 	end
 	local trigRate
 	local skillRotationImpact = #spellCount
@@ -192,7 +219,6 @@ local function calcActualTriggerRate(env, source, sourceAPS, spellCount, output,
 					local t = { }
 					for str in string.gmatch(rateData.name, "([^_]+)") do
 						t_insert(t, str)
-		
 					end
 					local row = {
 						rate = rateData.rate,
@@ -241,7 +267,6 @@ local function calcActualTriggerRate(env, source, sourceAPS, spellCount, output,
 					t_insert(breakdown.SimData.rowList, row)
 				end
 			end
-			
 		end
 		-- Set trigger rate
 		trigRate = m_min(output.SourceTriggerRate, output.ActionTriggerRate)
@@ -256,16 +281,12 @@ local function calcActualTriggerRate(env, source, sourceAPS, spellCount, output,
 		end
 		-- Set trigger rate
 		trigRate = output.SourceTriggerRate
-	 
 	end
-
-	
 	-- Adjust for server tick rate
 	local trigCD = 1 / trigRate
-	
 	if breakdown then
 		breakdown.ServerTriggerRate = {
-			s_format("%.2f ^8('触发速率上限' 和 '技能触发速率' 之间的较小值)", trigRate),			
+			s_format("%.2f ^8('触发速率上限' 和 '技能触发速率' 之间的较小值)", trigRate),
 		}
 	end
 	output.ServerTriggerRate = trigRate
@@ -281,7 +302,6 @@ local function calcDualWieldImpact(env, sourceAPS, skillDoubleHitsWhenDualWieldi
 		dualWield = true
 		sourceAPS = sourceAPS * 0.5
 	end
-	--lucifer
 	-- See if we are using a trigger skill that hits with both weapons simultaneously
 	if dualWield and skillDoubleHitsWhenDualWielding then
 		-- those source skills hit with both weapons simultaneously, thus doubling the trigger rate
@@ -312,8 +332,9 @@ end
 
 -- Find unique item trigger name
 local function getUniqueItemTriggerName(skill)
-	
-	if skill.supportList and #skill.supportList >= 1 then
+	if skill.skillData.triggerSource then
+		return skill.skillData.triggerSource
+	elseif skill.supportList and #skill.supportList >= 1 then
 		for _, gemInstance in ipairs(skill.supportList) do
 			if gemInstance.grantedEffect and gemInstance.grantedEffect.fromItem then
 				return gemInstance.grantedEffect.name
@@ -323,6 +344,7 @@ local function getUniqueItemTriggerName(skill)
 	return ""
 end
 
+--
 local function getTriggerDefaultCooldown(supportList, name)
 	for _, support in ipairs(supportList) do
 		if support.grantedEffect and support.grantedEffect.id == name then
@@ -350,43 +372,11 @@ local function mergeBuff(src, destTable, destKey)
 					break
 				end
 			end
-		else
-			--lucifer buff叠加计算
-			for index, destMod in ipairs(dest) do			
-				if mod.value 
-				and type(mod.value) ~= "number"
-				and mod.value.mod 				
-				and type(destMod.value) ~= "number"
-				and destMod.value and destMod.value.mod then
-					if modLib.compareModParams(mod.value.mod, destMod.value.mod) then
-						
-						if type(destMod.value.mod.value) == "number" and mod.value.mod.value > destMod.value.mod.value then
-							dest[index] = mod
-						end
-						match = true
-						break
-					end	
-				end
-				
-			end
 		end
 		if not match then
 			t_insert(dest, mod)
 		end
 	end
-end
-
-local function fuckCnKeystones(name)
-
-return name:gsub("致死定罪","凡人的信念")
-
-end
-
-
-local function fuckCnNotable(name)
---中点命名问题处理
-return name 
-
 end
 
 
@@ -395,11 +385,8 @@ local function mergeKeystones(env)
 	local modDB = env.modDB
 
 	for _, name in ipairs(modDB:List(nil, "Keystone")) do
-		name =fuckCnKeystones(name)
-		
-		if not env.keystonesAdded[name]  and env.spec.tree.keystoneMap[name] then
-			env.keystonesAdded[name] = true		
-			
+		if not env.keystonesAdded[name] and env.spec.tree.keystoneMap[name] then
+			env.keystonesAdded[name] = true
 			modDB:AddList(env.spec.tree.keystoneMap[name].modList)
 		end
 	end
@@ -408,14 +395,13 @@ end
 
 
 -- Calculate attributes and life/mana pools, and set conditions
+---@param env table
+---@param actor table
 local function doActorAttribsPoolsConditions(env, actor)
 	local modDB = actor.modDB
 	local output = actor.output
 	local breakdown = actor.breakdown
 	local condList = modDB.conditions
-
-
-	
 	-- Set conditions
 	if (actor.itemList["Weapon 2"] and actor.itemList["Weapon 2"].type == "Shield") or (actor == env.player and env.aegisModList) then
 		condList["UsingShield"] = true
@@ -425,27 +411,21 @@ local function doActorAttribsPoolsConditions(env, actor)
 	end
 	if actor.weaponData1.type == "None" then
 		condList["Unarmed"] = true
-		 
-		if  not actor.itemList["Weapon 2"]  and 
-		not actor.itemList["Gloves"] then
+		if not actor.itemList["Weapon 2"] and not actor.itemList["Gloves"] then
 			condList["Unencumbered"] = true
 		end
 	else
-		 
-		if actor.weaponData1 and actor.weaponData1.quality then 
-			output["QualityOnWeapon 1"] = actor.weaponData1.quality
-		end		
 		local info = env.data.weaponTypeInfo[actor.weaponData1.type]
 		condList["Using"..info.flag] = true
-        if actor.weaponData1.countsAsAll1H then
-            condList["UsingAxe"] = true
-            condList["UsingSword"] = true
-            condList["UsingDagger"] = true
-            condList["UsingMace"] = true
-            condList["UsingClaw"] = true
+		if actor.weaponData1.countsAsAll1H then
+			condList["UsingAxe"] = true
+			condList["UsingSword"] = true
+			condList["UsingDagger"] = true
+			condList["UsingMace"] = true
+			condList["UsingClaw"] = true
 			-- GGG stated that a single Varunastra satisfied requirement for wielding two different weapons
 			condList["WieldingDifferentWeaponTypes"] = true
-        end
+		end
 		if info.melee then
 			condList["UsingMeleeWeapon"] = true
 		end
@@ -456,20 +436,17 @@ local function doActorAttribsPoolsConditions(env, actor)
 		end
 	end
 	if actor.weaponData2.type then
-		if actor.weaponData2 and actor.weaponData2.quality then 
-			output["QualityOnWeapon 2"] = actor.weaponData2.quality
-		end
 		local info = env.data.weaponTypeInfo[actor.weaponData2.type]
 		condList["Using"..info.flag] = true
-        if actor.weaponData2.countsAsAll1H then
-            condList["UsingAxe"] = true
-            condList["UsingSword"] = true
-            condList["UsingDagger"] = true
-            condList["UsingMace"] = true
-            condList["UsingClaw"] = true
+		if actor.weaponData2.countsAsAll1H then
+			condList["UsingAxe"] = true
+			condList["UsingSword"] = true
+			condList["UsingDagger"] = true
+			condList["UsingMace"] = true
+			condList["UsingClaw"] = true
 			-- GGG stated that a single Varunastra satisfied requirement for wielding two different weapons
 			condList["WieldingDifferentWeaponTypes"] = true
-        end
+		end
 		if info.melee then
 			condList["UsingMeleeWeapon"] = true
 		end
@@ -479,8 +456,7 @@ local function doActorAttribsPoolsConditions(env, actor)
 			condList["UsingTwoHandedWeapon"] = true
 		end
 	end
-	
-	if actor.weaponData1.type and actor.weaponData2.type and actor.weaponData1.type ~= "None" then
+	if actor.weaponData1.type and actor.weaponData2.type then
 		condList["DualWielding"] = true
 		if (actor.weaponData1.type == "Claw" or actor.weaponData1.countsAsAll1H) and (actor.weaponData2.type == "Claw" or actor.weaponData2.countsAsAll1H) then
 			condList["DualWieldingClaws"] = true
@@ -496,8 +472,7 @@ local function doActorAttribsPoolsConditions(env, actor)
 			end
 		end
 	end
-	if env.mode_combat then	
-		
+	if env.mode_combat then		
 		if not modDB:Flag(nil, "NeverCrit") then
 			condList["CritInPast8Sec"] = true
 		end
@@ -530,29 +505,27 @@ local function doActorAttribsPoolsConditions(env, actor)
 		if actor.mainSkill.skillFlags.mine then
 			condList["DetonatedMinesRecently"] = true
 		end
-		
-		if modDB:Sum("BASE", nil, "ScorchChance") > 0 or modDB:Flag(nil, "CritAlwaysAltAilments") and not modDB:Flag(nil, "NeverCrit") then
+		if modDB:Sum("BASE", nil, "EnemyScorchChance") > 0 or modDB:Flag(nil, "CritAlwaysAltAilments") and not modDB:Flag(nil, "NeverCrit") then
 			condList["CanInflictScorch"] = true
 		end
-		if modDB:Sum("BASE", nil, "BrittleChance") > 0 or modDB:Flag(nil, "CritAlwaysAltAilments") and not modDB:Flag(nil, "NeverCrit") then
+		if modDB:Sum("BASE", nil, "EnemyBrittleChance") > 0 or modDB:Flag(nil, "CritAlwaysAltAilments") and not modDB:Flag(nil, "NeverCrit") then
 			condList["CanInflictBrittle"] = true
 		end
-		if modDB:Sum("BASE", nil, "SapChance") > 0 or modDB:Flag(nil, "CritAlwaysAltAilments") and not modDB:Flag(nil, "NeverCrit") then
+		if modDB:Sum("BASE", nil, "EnemySapChance") > 0 or modDB:Flag(nil, "CritAlwaysAltAilments") and not modDB:Flag(nil, "NeverCrit") then
 			condList["CanInflictSap"] = true
 		end
 	end
 	if env.mode_effective then
-		if modDB:Sum("BASE", nil, "FireExposureChance") > 0 then
+		if env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "FireExposureChance") > 0 or modDB:Sum("BASE", nil, "FireExposureChance") > 0 then
 			condList["CanApplyFireExposure"] = true
 		end
-		if modDB:Sum("BASE", nil, "ColdExposureChance") > 0 then
+		if env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "ColdExposureChance") > 0 or modDB:Sum("BASE", nil, "ColdExposureChance") > 0 then
 			condList["CanApplyColdExposure"] = true
 		end
-		if modDB:Sum("BASE", nil, "LightningExposureChance") > 0 then
+		if env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "LightningExposureChance") > 0 or modDB:Sum("BASE", nil, "LightningExposureChance") > 0 then
 			condList["CanApplyLightningExposure"] = true
 		end
 	end
---计算 属性
 	-- Calculate attributes
 	local calculateAttributes = function()
 		for pass = 1, 2 do -- Calculate twice because of circular dependency (X attribute higher than Y attribute)
@@ -563,10 +536,10 @@ local function doActorAttribsPoolsConditions(env, actor)
 				end
 			end
 			
-			local stats = { output.Str, output.Dex, output.Int }
-			table.sort(stats)
-			output.LowestAttribute = stats[1]
-			condList["TwoHighestAttributesEqual"] = stats[2] == stats[3]
+	      local stats = { output.Str, output.Dex, output.Int }
+	      table.sort(stats)
+	      output.LowestAttribute = stats[1]
+	      condList["TwoHighestAttributesEqual"] = stats[2] == stats[3]
       
 			condList["DexHigherThanInt"] = output.Dex > output.Int
 			condList["StrHigherThanDex"] = output.Str > output.Dex
@@ -641,8 +614,9 @@ local function doActorAttribsPoolsConditions(env, actor)
 	-- Calculate total attributes
 	output.TotalAttr = output.Str + output.Dex + output.Int
 
-	
-	 
+	-- Special case for Devotion
+	output.Devotion = modDB:Sum("BASE", nil, "Devotion")
+
 	-- Add attribute bonuses
 	if not modDB:Flag(nil, "NoAttributeBonuses") then
 		if not modDB:Flag(nil, "NoStrengthAttributeBonuses") then
@@ -658,8 +632,8 @@ local function doActorAttribsPoolsConditions(env, actor)
 			modDB:NewMod("PhysicalDamage", "INC", actor.strDmgBonus, "力量", ModFlag.Melee)
 		end
 		if not modDB:Flag(nil, "NoDexterityAttributeBonuses") then
-			modDB:NewMod("Accuracy", "BASE", output.Dex * 2, "敏捷")
-			if not modDB:Flag(nil, "IronReflexes") then
+			modDB:NewMod("Accuracy", "BASE", output.Dex * (modDB:Override(nil, "DexAccBonusOverride") or data.misc.AccuracyPerDexBase), "敏捷")
+			if not modDB:Flag(nil, "NoDexBonusToEvasion") then
 				modDB:NewMod("Evasion", "INC", m_floor(output.Dex / 5), "敏捷")
 			end
 		end
@@ -672,22 +646,19 @@ local function doActorAttribsPoolsConditions(env, actor)
 			end
 		end
 	end
-	
-	
 	-- Check shrine buffs, must be done before life pool calculated for massive shrine
 	for _, value in ipairs(modDB:List(nil, "ShrineBuff")) do
 		modDB:ScaleAddList({ value.mod }, calcLib.mod(modDB, nil, "BuffEffectOnSelf", "ShrineBuffEffect"))
 	end
-	-- Life/mana pools
 	output.ChaosInoculation = modDB:Flag(nil, "ChaosInoculation")
+	-- Life/mana pools
 	if output.ChaosInoculation then
 		output.Life = 1
 		condList["FullLife"] = true
 	else
 		local base = modDB:Sum("BASE", nil, "Life")
-		local inc = modDB:Sum("INC", nil, "Life")		
+		local inc = modDB:Sum("INC", nil, "Life")
 		local more = modDB:More(nil, "Life")
-	 
 		local conv = modDB:Sum("BASE", nil, "LifeConvertToEnergyShield")
 		if conv > 100 then 
 			conv = 100
@@ -696,7 +667,6 @@ local function doActorAttribsPoolsConditions(env, actor)
 			conv = 0
 		end 
 		output.Life = m_max(round(base * (1 + inc/100) * more * (1 - conv/100)), 1)
-		
 		if breakdown then
 			if inc ~= 0 or more ~= 1 or conv ~= 0 then
 				breakdown.Life = { }
@@ -714,33 +684,28 @@ local function doActorAttribsPoolsConditions(env, actor)
 			end
 		end
 	end
-	local convMana = modDB:Sum("BASE", nil, "ManaConvertToDoubleArmour")
-	
-	
-	local baseMana = modDB:Sum("BASE", nil, "Mana")
-	local incMana = modDB:Sum("INC", nil, "Mana")
-	local moreMana = modDB:More(nil, "Mana")
-	
-	output.Mana = round(calcLib.val(modDB, "Mana")* (1 - convMana/100))
+	local manaConv = modDB:Sum("BASE", nil, "ManaConvertToArmour")
+	output.Mana = round(calcLib.val(modDB, "Mana") * (1 - manaConv / 100))
+	local base = modDB:Sum("BASE", nil, "Mana")
+	local inc = modDB:Sum("INC", nil, "Mana")
+	local more = modDB:More(nil, "Mana")
 	if breakdown then
-		breakdown.Mana = breakdown.simple(nil, nil, output.Mana, "Mana")
-		if incMana ~= 0 or moreMana ~= 1 or convMana ~= 0 then
-				breakdown.Mana = { }
-				breakdown.Mana[1] = s_format("%g ^8(基础)", baseMana)
-				if incMana ~= 0 then
-					t_insert(breakdown.Mana, s_format("x %.2f ^8(提高/降低)", 1 + incMana/100))
-				end
-				if moreMana ~= 1 then
-					t_insert(breakdown.Mana, s_format("x %.2f ^8(额外提高/降低)", moreMana))
-				end
-				if convMana ~= 0 then
-					t_insert(breakdown.Mana, s_format("x %.2f ^8(转化为护甲)", 1 - convMana/100))
-				end
-				t_insert(breakdown.Mana, s_format("= %g", output.Mana))
+		if inc ~= 0 or more ~= 1 or manaConv ~= 0 then
+			breakdown.Mana = { }
+			breakdown.Mana[1] = s_format("%g ^8(基础)", base)
+			if inc ~= 0 then
+				t_insert(breakdown.Mana, s_format("x %.2f ^8(提高/降低)", 1 + inc/100))
+			end
+			if more ~= 1 then
+				t_insert(breakdown.Mana, s_format("x %.2f ^8(额外提高/降低)", more))
+			end
+			if manaConv ~= 0 then
+				t_insert(breakdown.Mana, s_format("x %.2f ^8(转化为护甲)", 1 - manaConv/100))
+			end
+			t_insert(breakdown.Mana, s_format("= %g", output.Mana))
 		end
-		
 	end
-
+	output.LowestOfMaximumLifeAndMaximumMana = m_min(output.Life, output.Mana)
 end
 -- Calculate life/mana reservation
 ---@param actor table
@@ -773,6 +738,39 @@ local function doActorLifeManaReservation(actor)
 	end
 end
 
+-- Helper function to determine curse priority when processing curses beyond the curse limit
+local function determineCursePriority(curseName, activeSkill)
+	local curseName = curseName or ""
+	local source = ""
+	local slot = ""
+	local socket = 1
+	if activeSkill and activeSkill.socketGroup then
+		source = activeSkill.socketGroup.source or ""
+		slot = activeSkill.socketGroup.slot or ""
+		for k, v in ipairs(activeSkill.socketGroup.gemList) do
+			if v.gemData and v.gemData.name == curseName then
+				-- We need to enforce a limit of 8 here to avoid collision with data.cursePriority["CurseFromEquipment"]
+				socket = m_min(k, 8)
+				break
+			end
+		end
+	end
+	local basePriority = data.cursePriority[curseName] or 0
+	local socketPriority = socket * data.cursePriority["SocketPriorityBase"]
+	local slotPriority = data.cursePriority[slot:gsub(" (Swap)", "")] or 0
+	local sourcePriority = 0
+	if activeSkill and activeSkill.skillTypes and activeSkill.skillTypes[SkillType.Aura] then
+		sourcePriority = data.cursePriority["CurseFromAura"]
+	elseif source ~= "" then
+		sourcePriority = data.cursePriority["CurseFromEquipment"]
+	end
+	if source ~= "" and slotPriority == data.cursePriority["Ring 2"] then
+		-- Implicit and explicit curses from rings have equal priority; only curses from socketed skill gems care about which ring slot they're equipped in
+		slotPriority = data.cursePriority["Ring 1"]
+	end
+	return basePriority + socketPriority + slotPriority + sourcePriority
+end
+
 -- Process charges, enemy modifiers, and other buffs
 local function doActorMisc(env, actor)
 	local modDB = actor.modDB
@@ -784,44 +782,21 @@ local function doActorMisc(env, actor)
 	output.PowerChargesMin = modDB:Sum("BASE", nil, "PowerChargesMin")
 	output.PowerChargesMax = modDB:Sum("BASE", nil, "PowerChargesMax")
 	output.FrenzyChargesMin = modDB:Sum("BASE", nil, "FrenzyChargesMin")
-	output.FrenzyChargesMax = modDB:Flag(nil, "MaximumFrenzyChargesIsMaximumPowerCharges") and output.PowerChargesMax or modDB:Sum("BASE", nil, "FrenzyChargesMax")	
-		
+	output.FrenzyChargesMax = modDB:Flag(nil, "MaximumFrenzyChargesIsMaximumPowerCharges") and output.PowerChargesMax or modDB:Sum("BASE", nil, "FrenzyChargesMax")
 	output.EnduranceChargesMin = modDB:Sum("BASE", nil, "EnduranceChargesMin")
-	output.EnduranceChargesMax = modDB:Flag(nil, "MaximumEnduranceChargesIsMaximumFrenzyCharges") and output.FrenzyChargesMax or modDB:Sum("BASE", nil, "EnduranceChargesMax")	
-	
-	output.BrutalChargesMax= modDB:Flag(nil, "MaximumBrutalChargesIsMaximumEnduranceCharges") and output.EnduranceChargesMax or modDB:Sum("BASE", nil, "BrutalChargesMax")	
-	output.AbsorptionChargesMax= modDB:Flag(nil, "MaximumAbsorptionChargesIsMaximumPowerCharges") and output.PowerChargesMax or modDB:Sum("BASE", nil, "AbsorptionChargesMax")	
-	output.AfflictionChargesMax= modDB:Flag(nil, "MaximumAfflictionChargesIsMaximumFrenzyCharges") and output.FrenzyChargesMax or modDB:Sum("BASE", nil, "AfflictionChargesMax")	
-	
-		
-	if modDB:Flag(nil, "MinimumBrutalChargesModInsteadToMinimumEnduranceCharges") then 
-		output.BrutalChargesMin = output.EnduranceChargesMin
-		output.EnduranceChargesMin = 0
-	else 
-		output.BrutalChargesMin = modDB:Sum("BASE", nil, "BrutalChargesMin")
-	end 
-	if modDB:Flag(nil, "MinimumAbsorptionChargesModInsteadToMinimumPowerCharges") then 
-		output.AbsorptionChargesMin = output.PowerChargesMin
-		output.PowerChargesMin = 0
-	else 
-		output.AbsorptionChargesMin = modDB:Sum("BASE", nil, "AbsorptionChargesMin")
-	end 
-	if modDB:Flag(nil, "MinimumAfflictionChargesModInsteadToMinimumFrenzyCharges") then 
-		output.AfflictionChargesMin = output.FrenzyChargesMin
-		output.FrenzyChargesMin = 0
-	else 
-		output.AfflictionChargesMin = modDB:Sum("BASE", nil, "AfflictionChargesMin")
-	end 		
-	
-	
+	output.EnduranceChargesMax = modDB:Flag(nil, "MaximumEnduranceChargesIsMaximumFrenzyCharges") and output.FrenzyChargesMax or modDB:Sum("BASE", nil, "EnduranceChargesMax")
 	output.SiphoningChargesMax = modDB:Sum("BASE", nil, "SiphoningChargesMax")
 	output.ChallengerChargesMax = modDB:Sum("BASE", nil, "ChallengerChargesMax")
 	output.BlitzChargesMax = modDB:Sum("BASE", nil, "BlitzChargesMax")
 	output.InspirationChargesMax = modDB:Sum("BASE", nil, "InspirationChargesMax")
 	output.CrabBarriersMax = modDB:Sum("BASE", nil, "CrabBarriersMax")
+	output.BrutalChargesMin = modDB:Flag(nil, "MinimumEnduranceChargesEqualsMinimumBrutalCharges") and (modDB:Flag(nil, "MinimumEnduranceChargesIsMaximumEnduranceCharges") and output.EnduranceChargesMax or output.EnduranceChargesMin) or 0 
+	output.BrutalChargesMax = modDB:Flag(nil, "MaximumEnduranceChargesEqualsMaximumBrutalCharges") and output.EnduranceChargesMax or 0
+	output.AbsorptionChargesMin = modDB:Flag(nil, "MinimumPowerChargesEqualsMinimumAbsorptionCharges") and (modDB:Flag(nil, "MinimumPowerChargesIsMaximumPowerCharges") and output.PowerChargesMax or output.PowerChargesMin) or 0
+	output.AbsorptionChargesMax = modDB:Flag(nil, "MaximumPowerChargesEqualsMaximumAbsorptionCharges") and output.PowerChargesMax or 0
+	output.AfflictionChargesMin = modDB:Flag(nil, "MinimumFrenzyChargesEqualsMinimumAfflictionCharges") and (modDB:Flag(nil, "MinimumFrenzyChargesIsMaximumFrenzyCharges") and output.FrenzyChargesMax or output.FrenzyChargesMin) or 0
+	output.AfflictionChargesMax = modDB:Flag(nil, "MaximumFrenzyChargesEqualsMaximumAfflictionCharges") and output.FrenzyChargesMax or 0
 	output.BloodChargesMax = modDB:Sum("BASE", nil, "BloodChargesMax")
-
-	
 	-- Initialize Charges
 	output.PowerCharges = 0
 	output.FrenzyCharges = 0
@@ -835,55 +810,65 @@ local function doActorMisc(env, actor)
 	output.AbsorptionCharges = 0
 	output.AfflictionCharges = 0
 	output.BloodCharges = 0
-	
-	if modDB:Flag(nil, "UsePowerCharges") and  not modDB:Flag(nil, "GainAbsorptionChargesInsteadPowerCharges") then
-		output.PowerCharges = modDB:Override(nil, "PowerCharges") or output.PowerChargesMax	
+
+	-- Conditionally over-write Charge values
+	if modDB:Flag(nil, "MinimumFrenzyChargesIsMaximumFrenzyCharges") then
+		output.FrenzyChargesMin = output.FrenzyChargesMax
 	end
-	output.PowerCharges = m_max(output.PowerCharges, m_min(output.PowerChargesMax, output.PowerChargesMin))
+	if modDB:Flag(nil, "MinimumEnduranceChargesIsMaximumEnduranceCharges") then
+		output.EnduranceChargesMin = output.EnduranceChargesMax
+	end
+	if modDB:Flag(nil, "MinimumPowerChargesIsMaximumPowerCharges") then
+		output.PowerChargesMin = output.PowerChargesMax
+	end
+	if modDB:Flag(nil, "UsePowerCharges") then
+		output.PowerCharges = modDB:Override(nil, "PowerCharges") or output.PowerChargesMax
+	end
+	if modDB:Flag(nil, "PowerChargesConvertToAbsorptionCharges") then
+		-- we max with possible Power Charge Override from Config since Absorption Charges won't have their own config entry
+		-- and are converted from Power Charges
+		output.AbsorptionCharges = m_max(output.PowerCharges, m_min(output.AbsorptionChargesMax, output.AbsorptionChargesMin))
+		output.PowerCharges = 0
+	else
+		output.PowerCharges = m_max(output.PowerCharges, m_min(output.PowerChargesMax, output.PowerChargesMin))
+	end
 	output.RemovablePowerCharges = m_max(output.PowerCharges - output.PowerChargesMin, 0)
-	if modDB:Flag(nil, "UseFrenzyCharges") and  not modDB:Flag(nil, "GainAfflictionChargesInsteadFrenzyCharges") then
-		output.FrenzyCharges = modDB:Override(nil, "FrenzyCharges") or output.FrenzyChargesMax	
+	if modDB:Flag(nil, "UseFrenzyCharges") then
+		output.FrenzyCharges = modDB:Override(nil, "FrenzyCharges") or output.FrenzyChargesMax
 	end
-	output.FrenzyCharges = m_max(output.FrenzyCharges, m_min(output.FrenzyChargesMax, output.FrenzyChargesMin))
+	if modDB:Flag(nil, "FrenzyChargesConvertToAfflictionCharges") then
+		-- we max with possible Power Charge Override from Config since Absorption Charges won't have their own config entry
+		-- and are converted from Power Charges
+		output.AfflictionCharges = m_max(output.FrenzyCharges, m_min(output.AfflictionChargesMax, output.AfflictionChargesMin))
+		output.FrenzyCharges = 0
+	else
+		output.FrenzyCharges = m_max(output.FrenzyCharges, m_min(output.FrenzyChargesMax, output.FrenzyChargesMin))
+	end
 	output.RemovableFrenzyCharges = m_max(output.FrenzyCharges - output.FrenzyChargesMin, 0)
-	if modDB:Flag(nil, "UseEnduranceCharges") and  not modDB:Flag(nil, "GainBrutalChargesInsteadEnduranceCharges") then
+	if modDB:Flag(nil, "UseEnduranceCharges") then
 		output.EnduranceCharges = modDB:Override(nil, "EnduranceCharges") or output.EnduranceChargesMax
 	end
-	output.EnduranceCharges = m_max(output.EnduranceCharges, m_min(output.EnduranceChargesMax, output.EnduranceChargesMin))
+	if modDB:Flag(nil, "EnduranceChargesConvertToBrutalCharges") then
+		-- we max with possible Endurance Charge Override from Config since Brutal Charges won't have their own config entry
+		-- and are converted from Endurance Charges
+		output.BrutalCharges = m_max(output.EnduranceCharges, m_min(output.BrutalChargesMax, output.BrutalChargesMin))
+		output.EnduranceCharges = 0
+	else
+		output.EnduranceCharges = m_max(output.EnduranceCharges, m_min(output.EnduranceChargesMax, output.EnduranceChargesMin))
+	end
 	output.RemovableEnduranceCharges = m_max(output.EnduranceCharges - output.EnduranceChargesMin, 0)
-	
-	--新3球
-	if modDB:Flag(nil, "UseBrutalCharges") then
-		output.BrutalCharges = modDB:Override(nil, "BrutalCharges") or output.BrutalChargesMax	
-	end
-	output.BrutalCharges = m_max(output.BrutalCharges, m_min(output.BrutalChargesMax, output.BrutalChargesMin))
-	output.RemovableBrutalCharges = m_max(output.BrutalCharges - output.BrutalChargesMin, 0)
-	
-	if modDB:Flag(nil, "UseAfflictionCharges") then
-		output.AfflictionCharges = modDB:Override(nil, "AfflictionCharges") or output.AfflictionChargesMax		
-	end
-	output.AfflictionCharges = m_max(output.AfflictionCharges, m_min(output.AfflictionChargesMax, output.AfflictionChargesMin))
-	output.RemovableAfflictionCharges = m_max(output.AfflictionCharges - output.AfflictionChargesMin, 0)
-	
-	if modDB:Flag(nil, "UseAbsorptionCharges") then
-		output.AbsorptionCharges = modDB:Override(nil, "AbsorptionCharges") or output.AbsorptionChargesMax
-	end
-	output.AbsorptionCharges = m_max(output.AbsorptionCharges, m_min(output.AbsorptionChargesMax, output.AbsorptionChargesMin))
-	output.RemovableAbsorptionCharges = m_max(output.AbsorptionCharges - output.AbsorptionChargesMin, 0)
-	
-	
 	if modDB:Flag(nil, "UseSiphoningCharges") then
 		output.SiphoningCharges = modDB:Override(nil, "SiphoningCharges") or output.SiphoningChargesMax
 	end
-	 
 	if modDB:Flag(nil, "UseChallengerCharges") then
-		output.ChallengerCharges = modDB:Override(nil, "ChallengerCharges") or output.ChallengerChargesMax	
+		output.ChallengerCharges = modDB:Override(nil, "ChallengerCharges") or output.ChallengerChargesMax
 	end
 	if modDB:Flag(nil, "UseBlitzCharges") then
 		output.BlitzCharges = modDB:Override(nil, "BlitzCharges") or output.BlitzChargesMax
 	end
-	output.InspirationCharges = modDB:Override(nil, "InspirationCharges") or output.InspirationChargesMax
-	
+	if not env.player.mainSkill.minion then 
+		output.InspirationCharges = modDB:Override(nil, "InspirationCharges") or output.InspirationChargesMax
+	end 
 	if modDB:Flag(nil, "UseGhostShrouds") then
 		output.GhostShrouds = modDB:Override(nil, "GhostShrouds") or 3
 	end
@@ -912,14 +897,11 @@ local function doActorMisc(env, actor)
 	modDB.multipliers["ChallengerCharge"] = output.ChallengerCharges
 	modDB.multipliers["BlitzCharge"] = output.BlitzCharges
 	modDB.multipliers["InspirationCharge"] = output.InspirationCharges
+	modDB.multipliers["GhostShroud"] = output.GhostShrouds
 	modDB.multipliers["CrabBarrier"] = output.CrabBarriers
-	
 	modDB.multipliers["BrutalCharge"] = output.BrutalCharges
-	modDB.multipliers["RemovableBrutalCharge"] = output.RemovableBrutalCharges
-	modDB.multipliers["AfflictionCharge"] = output.AfflictionCharges
-	modDB.multipliers["RemovableAfflictionCharge"] = output.RemovableAfflictionCharges
 	modDB.multipliers["AbsorptionCharge"] = output.AbsorptionCharges
-	modDB.multipliers["RemovableAbsorptionCharge"] = output.RemovableAbsorptionCharges
+	modDB.multipliers["AfflictionCharge"] = output.AfflictionCharges
 	modDB.multipliers["BloodCharge"] = output.BloodCharges
 	-- Process enemy modifiers 
 	for _, value in ipairs(modDB:List(nil, "EnemyModifier")) do
@@ -928,84 +910,21 @@ local function doActorMisc(env, actor)
 
 	-- Add misc buffs/debuffs
 	if env.mode_combat then
-		if modDB:Flag(nil, "Fortify") then
-		
-			if modDB:Flag(nil, "FortifyBuffInsteadGrantEvasionRating") then
-					local effect = m_floor(30 * (1 + modDB:Sum("INC", nil, "FortifyEffectOnSelf", "BuffEffectOnSelf") / 100))
-					modDB:NewMod("Evasion", "MORE", effect, "护体")
-			else 
-					local effect = m_floor(20 * (1 + modDB:Sum("INC", nil, "FortifyEffectOnSelf", "BuffEffectOnSelf") / 100))
-					modDB:NewMod("DamageTakenWhenHit", "MORE", -effect, "护体")			
-					
+		if env.player.mainSkill.baseSkillModList:Flag(nil, "Cruelty") then
+			modDB.multipliers["Cruelty"] = modDB:Override(nil, "Cruelty") or 40
+		end
+		-- Fortify from a mod, or minions getting stacks from Kingmaker
+		if modDB:Flag(nil, "Fortified") or modDB:Sum("BASE", nil, "Multiplier:Fortification") > 0 then
+			local maxStacks = modDB:Override(nil, "MaximumFortification") or modDB:Sum("BASE", skillCfg, "MaximumFortification")
+			local stacks = modDB:Override(nil, "FortificationStacks") or maxStacks
+			output.FortificationStacks = stacks
+			if not modDB:Flag(nil,"Condition:NoFortificationMitigation") then
+				local effectScale = 1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100
+				local effect = m_floor(effectScale * stacks)
+				modDB:NewMod("DamageTakenWhenHit", "MORE", -effect, "护体")
 			end
-				
-				
-			
-			
-			modDB.multipliers["BuffOnSelf"] = (modDB.multipliers["BuffOnSelf"] or 0) + 1
-		end
-		if modDB:Flag(nil, "Condition:PhantasmalMight") then
-			modDB.multipliers["BuffOnSelf"] = (modDB.multipliers["BuffOnSelf"] or 0) + (output.ActivePhantasmLimit or 1) - 1 -- slight hack to not double count the initial buff
-		end
-		if modDB:Flag(nil, "Elusive") then
-			local maxSkillInc = modDB:Max({ source = "Skill" }, "ElusiveEffect") or 0
-			local inc = modDB:Sum("INC", nil, "ElusiveEffect", "BuffEffectOnSelf")
-			if actor.mainSkill.skillModList:Flag(nil, "SupportedByNightblade") then
-				inc = inc + modDB:Sum("INC", nil, "NightbladeSupportedElusiveEffect")
-			end
-			inc = inc + maxSkillInc
-			output.ElusiveEffectMod = (1 + inc / 100) * modDB:More(nil, "ElusiveEffect", "BuffEffectOnSelf") * 100
-			-- if we want the max skill to not be noted as its own breakdown table entry, comment out below
-			modDB:NewMod("ElusiveEffect", "INC", maxSkillInc, "Max Skill Effect")
-			-- Override elusive effect if set.
-			if modDB:Override(nil, "ElusiveEffect") then
-				output.ElusiveEffectMod = m_min(modDB:Override(nil, "ElusiveEffect"), output.ElusiveEffectMod)
-			end
-			local effect = output.ElusiveEffectMod / 100
-			condList["Elusive"] = true
-			modDB:NewMod("AvoidPhysicalDamageChance", "BASE", m_floor(15 * effect), "Elusive")
-			modDB:NewMod("AvoidLightningDamageChance", "BASE", m_floor(15 * effect), "Elusive")
-			modDB:NewMod("AvoidColdDamageChance", "BASE", m_floor(15 * effect), "Elusive")
-			modDB:NewMod("AvoidFireDamageChance", "BASE", m_floor(15 * effect), "Elusive")
-			modDB:NewMod("AvoidChaosDamageChance", "BASE", m_floor(15 * effect), "Elusive")
-			modDB:NewMod("MovementSpeed", "INC", m_floor(30 * effect), "Elusive")
-
-			modDB.multipliers["BuffOnSelf"] = (modDB.multipliers["BuffOnSelf"] or 0) + 1
-		end
-		if modDB:Flag(nil, "LesserBrutalShrine") then
-			local effect = (1 + modDB:Sum("INC", nil, "ShrineEffect", "BuffEffectOnSelf") / 100)
-			local effectDamage = m_floor(20 * effect)
-			local effectDuration  = m_floor(20 * effect)
-			modDB:NewMod("Damage", "INC", effectDamage, "次级狂击神龛")
-			modDB:NewMod("EnemyKnockbackChance", "BASE", 100, "次级狂击神龛")
-			modDB:NewMod("EnemyStunDuration", "INC", effectDuration, "次级狂击神龛")			
-		end
-		if modDB:Flag(nil, "LesserMassiveShrine") then
-			local effect = (1 + modDB:Sum("INC", nil, "ShrineEffect", "BuffEffectOnSelf") / 100)
-			local effectAreaOfEffect = m_floor(20 * effect)
-			local effectLife  = m_floor(20 * effect)
-			modDB:NewMod("AreaOfEffect", "INC", effectAreaOfEffect, "次级威猛神龛")
-			--生命在其他地方处理
-		end
-		if modDB:Flag(nil, "Fortified") then
-			local effectScale = 1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100
-			local modList = modDB:List(nil, "convertFortificationBuff")
-			local changeMod = modList[#modList]
-			if changeMod then
-				local mod = changeMod.mod
-				if not mod.originValue then
-					mod.originValue = mod.value
-				end
-				mod.value = m_floor(mod.originValue * effectScale)
-				mod.source = "Fortification"
-				modDB:AddMod(mod)
-			else
-				local effectMax = modDB:Override(nil, "MaximumFortification") or modDB:Sum("BASE", skillCfg, "MaximumFortification")
-				local effect = m_floor(effectScale * m_min(modDB:Sum("BASE", nil, "Multiplier:Fortification"), effectMax))
-				modDB:NewMod("DamageTakenWhenHit", "MORE", -effect, "Fortification")
-				if modDB:Sum("BASE", nil, "Multiplier:Fortification") >= effectMax then
-					modDB:NewMod("Condition:HaveMaximumFortification", "FLAG", true, "")
-				end
+			if stacks >= maxStacks then
+				modDB:NewMod("Condition:HaveMaximumFortification", "FLAG", true, "")
 			end
 			modDB.multipliers["BuffOnSelf"] = (modDB.multipliers["BuffOnSelf"] or 0) + 1
 		end
@@ -1013,12 +932,12 @@ local function doActorMisc(env, actor)
 			local effect = m_floor(20 * (1 + modDB:Sum("INC", nil, "OnslaughtEffect", "BuffEffectOnSelf") / 100))
 			modDB:NewMod("Speed", "INC", effect, "猛攻")
 			modDB:NewMod("MovementSpeed", "INC", effect, "猛攻")
-		end		 
+		end
 		if modDB:Flag(nil, "Fanaticism") and actor.mainSkill and actor.mainSkill.skillFlags.selfCast then
 			local effect = m_floor(75 * (1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100))
-			modDB:NewMod("Speed", "MORE", effect, "狂热", ModFlag.Cast)
-			modDB:NewMod("Cost", "INC", -effect, "狂热", ModFlag.Cast)
-			modDB:NewMod("AreaOfEffect", "INC", effect, "狂热", ModFlag.Cast)
+			modDB:NewMod("Speed", "MORE", effect, "Fanaticism", ModFlag.Cast)
+			modDB:NewMod("Cost", "INC", -effect, "Fanaticism", ModFlag.Cast)
+			modDB:NewMod("AreaOfEffect", "INC", effect, "Fanaticism", ModFlag.Cast)
 		end
 		if modDB:Flag(nil, "UnholyMight") then
 			local effect = m_floor(30 * (1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100))
@@ -1042,12 +961,43 @@ local function doActorMisc(env, actor)
 		if modDB:Flag(nil, "HerEmbrace") then
 			condList["HerEmbrace"] = true
 			modDB:NewMod("AvoidStun", "BASE", 100, "女神之拥")
-			modDB:NewMod("PhysicalDamageGainAsFire", "BASE", 123, "女神之拥", ModFlag.Sword)
+			modDB:NewMod("PhysicalDamageGainAsFire", "BASE", 123, "Her Embrace", ModFlag.Sword)
 			modDB:NewMod("AvoidFreeze", "BASE", 100, "女神之拥")
 			modDB:NewMod("AvoidChill", "BASE", 100, "女神之拥")
 			modDB:NewMod("AvoidIgnite", "BASE", 100, "女神之拥")
 			modDB:NewMod("Speed", "INC", 20, "女神之拥")
 			modDB:NewMod("MovementSpeed", "INC", 20, "女神之拥")
+		end
+		if modDB:Flag(nil, "Condition:PhantasmalMight") then
+			modDB.multipliers["BuffOnSelf"] = (modDB.multipliers["BuffOnSelf"] or 0) + (output.ActivePhantasmLimit or 1) - 1 -- slight hack to not double count the initial buff
+		end
+		if modDB:Flag(nil, "Elusive") then
+			local maxSkillInc = modDB:Max({ source = "Skill" }, "ElusiveEffect") or 0
+			local inc = modDB:Sum("INC", nil, "ElusiveEffect", "BuffEffectOnSelf")
+			if actor.mainSkill.skillModList:Flag(nil, "SupportedByNightblade") then
+				inc = inc + modDB:Sum("INC", nil, "NightbladeSupportedElusiveEffect")
+			end
+			inc = inc + maxSkillInc
+			output.ElusiveEffectMod = (1 + inc / 100) * modDB:More(nil, "ElusiveEffect", "BuffEffectOnSelf") * 100
+			-- if we want the max skill to not be noted as its own breakdown table entry, comment out below
+			modDB:NewMod("ElusiveEffect", "INC", maxSkillInc, "Max Skill Effect")
+			-- Override elusive effect if set.
+			if modDB:Override(nil, "ElusiveEffect") then
+				output.ElusiveEffectMod = m_min(modDB:Override(nil, "ElusiveEffect"), output.ElusiveEffectMod)
+			end
+			local effect = output.ElusiveEffectMod / 100
+			condList["Elusive"] = true
+			modDB:NewMod("AvoidPhysicalDamageChance", "BASE", m_floor(15 * effect), "灵巧")
+			modDB:NewMod("AvoidLightningDamageChance", "BASE", m_floor(15 * effect), "灵巧")
+			modDB:NewMod("AvoidColdDamageChance", "BASE", m_floor(15 * effect), "灵巧")
+			modDB:NewMod("AvoidFireDamageChance", "BASE", m_floor(15 * effect), "灵巧")
+			modDB:NewMod("AvoidChaosDamageChance", "BASE", m_floor(15 * effect), "灵巧")
+			modDB:NewMod("MovementSpeed", "INC", m_floor(30 * effect), "Elusive")
+		end
+		if modDB:Max(nil, "WitherEffectStack") then
+			modDB:NewMod("Condition:CanWither", "FLAG", true, "Config")
+			local effect = modDB:Max(nil, "WitherEffectStack") 	
+			enemyDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 15 } )
 		end
 		if modDB:Flag(nil, "Blind") then
 			if not modDB:Flag(nil, "IgnoreBlindHitChance") then
@@ -1061,8 +1011,15 @@ local function doActorMisc(env, actor)
 			end
 		end
 		if modDB:Flag(nil, "Chill") then
-			local effect = m_max(m_floor(30 * calcLib.mod(modDB, nil, "SelfChillEffect")), 0)
-			modDB:NewMod("ActionSpeed", "INC", effect * (modDB:Flag(nil, "SelfChillEffectIsReversed") and 1 or -1), "冰缓")
+			local ailmentData = data.nonDamagingAilment
+			local chillValue = modDB:Override(nil, "ChillVal") or ailmentData.Chill.default
+
+			local chillSelf = (modDB:Flag(nil, "Condition:ChilledSelf") and modDB:Sum("INC", nil, "EnemyChillEffect") / 100) or 0
+			local totalChillSelfEffect = calcLib.mod(modDB, nil, "SelfChillEffect") + chillSelf
+
+			local effect = m_min(m_max(m_floor(chillValue *  totalChillSelfEffect), 0), modDB:Override(nil, "ChillMax") or ailmentData.Chill.max)
+
+			modDB:NewMod("ActionSpeed", "INC", effect * (modDB:Flag(nil, "SelfChillEffectIsReversed") and 1 or -1), "Chill")
 		end
 		if modDB:Flag(nil, "Freeze") then
 			local effect = m_max(m_floor(70 * calcLib.mod(modDB, nil, "SelfChillEffect")), 0)
@@ -1073,7 +1030,7 @@ local function doActorMisc(env, actor)
 			condList["LeechingLife"] = true
 			env.configInput.conditionLeeching = true
 		end
-		if modDB:Flag(nil, "CanLeechLifeOnFullEnergyShield") then
+		if modDB:Flag(nil, "CanLeechEnergyShieldOnFullEnergyShield") then
 			condList["Leeching"] = true
 			condList["LeechingEnergyShield"] = true
 			env.configInput.conditionLeeching = true
@@ -1123,38 +1080,17 @@ local function doActorMisc(env, actor)
 			modDB:NewMod("DamageTaken", "INC", 10, "恶语术")
 			modDB:NewMod("Damage", "INC", -10, "恶语术")
 		end
-		if modDB:Sum("INC", nil, "VastPowerAoE") > 0 then
-			local incVal = modDB:Sum("INC", nil, "VastPowerAoE")
-			local maxVal = data.misc.VastPowerMaxAoEPercent
-			modDB:NewMod("AreaOfEffect", "INC", incVal, "Vast Power", { type = "Multiplier", var = "PowerCharge", limit = maxVal, limitTotal = true })
-		end
-		if modDB:Sum("INC", nil, "MurderousEyeJewelCritChance") > 0 then
-			local incVal = modDB:Sum("INC", nil, "MurderousEyeJewelCritChance")
-			local maxVal = data.misc.MurderousEyeJewelMaxCritChancePercent
-			modDB:NewMod("CritChance", "INC", incVal,"Tecrod's Gaze", { type = "Multiplier", var = "凶残之凝珠宝", limit = tonumber(maxVal), limitTotal = true } , { type = "Condition", var = "MainHandAttack" } ,{ type = "SkillType", skillType = SkillType.Attack }) 
-		end
-		if modDB:Sum("BASE", nil, "MurderousEyeJewelCritMultiplier") > 0 then
-			local baseVal = modDB:Sum("BASE", nil, "MurderousEyeJewelCritMultiplier")
-			local maxVal = data.misc.MurderousEyeJewelMaxCritCritMultiplierPercent
-			modDB:NewMod("CritMultiplier", "BASE", baseVal,"Tecrod's Gaze", { type = "Multiplier", var = "凶残之凝珠宝", limit = tonumber(maxVal), limitTotal = true } , { type = "Condition", var = "OffHandAttack" } ,{ type = "SkillType", skillType = SkillType.Attack }) 
-		end
-		if modDB:Sum("BASE", nil, "GhastlyEyeJewelMinionsDOTMultiplier") > 0 then
-			local baseVal = modDB:Sum("BASE", nil, "GhastlyEyeJewelMinionsDOTMultiplier")
-			local maxVal = data.misc.GhastlyEyeJewelMaxMinionsDOTMultiplierPercent		
-			modDB:NewMod("DotMultiplier", "BASE", baseVal,"Amanamu's Gaze", { type = "Multiplier", var = "苍白之凝珠宝", limit = tonumber(maxVal), limitTotal = true , actor = "parent" } ) 
-			
-		end
-		
-		
-		
 	end	
 end
 
 function calcs.actionSpeedMod(actor)
 	local modDB = actor.modDB
+	local minimumActionSpeed = modDB:Max(nil, "MinimumActionSpeed") or 0
+	local maximumActionSpeedReduction = modDB:Max(nil, "MaximumActionSpeedReduction")
 	local actionSpeedMod = 1 + (m_max(-data.misc.TemporalChainsEffectCap, modDB:Sum("INC", nil, "TemporalChainsActionSpeed")) + modDB:Sum("INC", nil, "ActionSpeed")) / 100
-	if modDB:Flag(nil, "ActionSpeedCannotBeBelowBase") then
-		actionSpeedMod = m_max(1, actionSpeedMod)
+	actionSpeedMod = m_max(minimumActionSpeed / 100, actionSpeedMod)
+	if maximumActionSpeedReduction then
+		actionSpeedMod = m_min((100 - maximumActionSpeedReduction) / 100, actionSpeedMod)
 	end
 	return actionSpeedMod
 end
@@ -1172,29 +1108,21 @@ end
 -- 10. Calculates defence and offence stats (calcs.defence, calcs.offence)
 function calcs.perform(env, avoidCache)
 	local avoidCache = avoidCache or false
-	
 	local modDB = env.modDB
 	local enemyDB = env.enemyDB
 
 	-- Merge keystone modifiers
 	env.keystonesAdded = { }
-	env.notableAdded = { }
 	mergeKeystones(env)
-	--mergeNotable(env)
 
 	-- Build minion skills
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		activeSkill.skillModList = new("ModList", activeSkill.baseSkillModList)
 		if activeSkill.minion then
-			if activeSkill.minion then
-				if cacheSkillUUID(activeSkill) == cacheSkillUUID(env.player.mainSkill) then
-					activeSkill = env.player.mainSkill
-				end
-				activeSkill.minion.modDB = new("ModDB")
-				activeSkill.minion.modDB.actor = activeSkill.minion
-				calcs.createMinionSkills(env, activeSkill)
-				activeSkill.skillPartName = activeSkill.minion.mainSkill.activeEffect.grantedEffect.name
-			end
+			activeSkill.minion.modDB = new("ModDB")
+			activeSkill.minion.modDB.actor = activeSkill.minion
+			calcs.createMinionSkills(env, activeSkill)
+			activeSkill.skillPartName = activeSkill.minion.mainSkill.activeEffect.grantedEffect.name
 		end
 	end
 
@@ -1203,7 +1131,7 @@ function calcs.perform(env, avoidCache)
 	local output = env.player.output
 
 	env.minion = env.player.mainSkill.minion
-	if env.minion and env.minion.modDB then
+	if env.minion then
 		-- Initialise minion modifier database
 		output.Minion = { }
 		env.minion.output = output.Minion
@@ -1241,7 +1169,10 @@ function calcs.perform(env, avoidCache)
 		if env.aegisModList then
 			env.minion.itemList["Weapon 3"] = env.player.itemList["Weapon 2"]
 			env.minion.modDB:AddList(env.aegisModList)
-		end 
+		end
+		if env.theIronMass and env.minion.type == "RaisedSkeleton" then
+			env.minion.modDB:AddList(env.theIronMass)
+		end
 		if env.player.mainSkill.skillData.minionUseBowAndQuiver then
 			if env.player.weaponData1.type == "Bow" then
 				env.minion.modDB:AddList(env.player.itemList["Weapon 1"].slotModList[1])
@@ -1281,27 +1212,24 @@ function calcs.perform(env, avoidCache)
 	end
 	if modDB:Flag(nil, "AlchemistsGenius") then
 		local effectMod = 1 + modDB:Sum("INC", nil, "BuffEffectOnSelf") / 100
-		modDB:NewMod("FlaskEffect", "INC", m_floor(20 * effectMod), "炼金术天才")
+		modDB:NewMod("FlaskEffect", "INC", m_floor(10 * effectMod), "炼金术天才")
 		modDB:NewMod("FlaskChargesGained", "INC", m_floor(20 * effectMod), "炼金术天才")
 	end
+
+	local hasGuaranteedBonechill = false
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
-		
-		
 		if activeSkill.skillFlags.brand then
 			local attachLimit = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "BrandsAttachedLimit")
-			 
+
 			local attached = modDB:Sum("BASE", nil, "Multiplier:ConfigBrandsAttachedToEnemy")
 			local activeBrands = modDB:Sum("BASE", nil, "Multiplier:ConfigActiveBrands")
 			local actual = m_min(attachLimit, attached)
-			 
+
 			-- Cap the number of active brands by the limit, which is 3 by default
 			modDB.multipliers["ActiveBrand"] = m_min(activeBrands, modDB:Sum("BASE", nil, "ActiveBrandLimit"))
 			modDB.multipliers["BrandsAttachedToEnemy"] = m_max(actual, modDB.multipliers["BrandsAttachedToEnemy"] or 0)
 			enemyDB.multipliers["BrandsAttached"] = m_max(actual, enemyDB.multipliers["BrandsAttached"] or 0)
-			
-			 
 		end
-		
 		-- The actual hexes as opposed to hex related skills all have the curse flag. TotemCastsWhenNotDetached is to remove blasphemy
 		-- Note that this doesn't work for triggers yet, insufficient support
 		if activeSkill.skillFlags.hex and activeSkill.skillFlags.curse and not activeSkill.skillTypes[SkillType.TotemCastsWhenNotDetached] then
@@ -1314,60 +1242,38 @@ function calcs.perform(env, avoidCache)
 			activeSkill.skillModList:NewMod("CurseEffect", "INC", m_min(hexDoom, maxDoom) * doomEffect, "Doom")
 			modDB.multipliers["HexDoom"] =  m_min(m_max(hexDoom, modDB.multipliers["HexDoom"] or 0), output.HexDoomLimit)
 		end
-		if activeSkill.skillData.supportBonechill then
-			if activeSkill.skillTypes[SkillType.ChillingArea] or (activeSkill.skillTypes[SkillType.NonHitChill] and not activeSkill.skillModList:Flag(nil, "CannotChill")) and not (activeSkill.activeEffect.grantedEffect.name == "Summon Skitterbots" and activeSkill.skillModList:Flag(nil, "SkitterbotsCannotChill")) then
-				output.BonechillDotEffect = m_floor(10 * (1 + activeSkill.skillModList:Sum("INC", nil, "EnemyChillEffect") / 100))
-			end
-			output.BonechillEffect = m_max(output.BonechillEffect or 0, modDB:Override(nil, "BonechillEffect") or output.BonechillDotEffect or 0)
+		if (activeSkill.activeEffect.grantedEffect.name == "瓦尔.闪电陷阱"  or activeSkill.activeEffect.grantedEffect.name == "感电地面") then
+			local effect = activeSkill.skillModList:Sum("BASE", nil, "ShockedGroundEffect")
+			modDB:NewMod("ShockOverride", "BASE", effect, "Shocked Ground", { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" } )
 		end
-		if (activeSkill.activeEffect.grantedEffect.name == "瓦尔.闪电陷阱"  or activeSkill.activeEffect.grantedEffect.name == "电击地面") then
-			modDB:NewMod("ShockOverride", "BASE", activeSkill.skillModList:Sum("BASE", nil, "ShockedGroundEffect"), "Shocked Ground",
-			{ type = "ActorCondition", actor = "enemy", var = "OnShockedGround" } )
+		if activeSkill.skillData.supportBonechill and (activeSkill.skillTypes[SkillType.ChillingArea] or activeSkill.skillTypes[SkillType.NonHitChill] or not activeSkill.skillModList:Flag(nil, "CannotChill")) then
+			output.HasBonechill = true
 		end
-		
 		if activeSkill.activeEffect.grantedEffect.name == "召唤飞掠者" then
 			if not activeSkill.skillModList:Flag(nil, "SkitterbotsCannotShock") then
-				local effect = activeSkill.skillModList:Sum("INC", { source = "Skill" }, "EnemyShockEffect")
-				modDB:NewMod("ShockOverride", "BASE", 15 * (1 + effect / 100), "召唤飞掠者")
-				enemyDB:NewMod("Condition:Shocked", "FLAG", true, "召唤飞掠者")
+				local effect = data.nonDamagingAilment.Shock.default * (1 + activeSkill.skillModList:Sum("INC", { source = "Skill" }, "EnemyShockEffect") / 100)
+				modDB:NewMod("ShockOverride", "BASE", effect, activeSkill.activeEffect.grantedEffect.name)
+				enemyDB:NewMod("Condition:Shocked", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
 			end
 			if not activeSkill.skillModList:Flag(nil, "SkitterbotsCannotChill") then
-				enemyDB:NewMod("Condition:Chilled", "FLAG", true, "召唤飞掠者")
+				local effect = data.nonDamagingAilment.Chill.default * (1 + activeSkill.skillModList:Sum("INC", { source = "Skill" }, "EnemyChillEffect") / 100)
+				modDB:NewMod("ChillOverride", "BASE", effect, activeSkill.activeEffect.grantedEffect.name)
+				enemyDB:NewMod("Condition:Chilled", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
+				if activeSkill.skillData.supportBonechill then
+					hasGuaranteedBonechill = true
+				end
+			end
+		elseif activeSkill.skillTypes[SkillType.ChillingArea] or (activeSkill.skillTypes[SkillType.NonHitChill] and not activeSkill.skillModList:Flag(nil, "CannotChill")) then
+			local effect = data.nonDamagingAilment.Chill.default * (1 + activeSkill.skillModList:Sum("INC", nil, "EnemyChillEffect") / 100)
+			modDB:NewMod("ChillOverride", "BASE", effect, activeSkill.activeEffect.grantedEffect.name)
+			enemyDB:NewMod("Condition:Chilled", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
+			if activeSkill.skillData.supportBonechill then
+				hasGuaranteedBonechill = true
 			end
 		end
-		
-		
-			-- lucifer 各个守护翻译可能不一致 Elemental Aegis
-		if activeSkill.activeEffect.grantedEffect.name == "元素守护" or activeSkill.activeEffect.grantedEffect.name == "元素神盾"  then
-			modDB:NewMod("FireAegisValue", "BASE", 1000, "Config")
-			modDB:NewMod("ColdAegisValue", "BASE", 1000, "Config")
-			modDB:NewMod("LightningAegisValue", "BASE", 1000, "Config")
-		elseif activeSkill.activeEffect.grantedEffect.name == "烈焰守护" or activeSkill.activeEffect.grantedEffect.name == "火焰神盾" then
-				modDB:NewMod("FireAegisValue", "BASE", 1000, "Config")		
-		elseif activeSkill.activeEffect.grantedEffect.name == "凝冰守护" or activeSkill.activeEffect.grantedEffect.name == "寒冰神盾" then
-				modDB:NewMod("ColdAegisValue", "BASE", 1000, "Config")				
-		elseif activeSkill.activeEffect.grantedEffect.name == "闪电守护" or activeSkill.activeEffect.grantedEffect.name == "闪电神盾" then
-		--？
-				modDB:NewMod("LightningAegisValue", "BASE", 1000, "Config")
-		end
-			
-		if activeSkill.activeEffect.grantedEffect.name == "Elemental Aegis" then
-			modDB:NewMod("FireAegisValue", "BASE", 1000, "Config")
-			modDB:NewMod("ColdAegisValue", "BASE", 1000, "Config")
-			modDB:NewMod("LightningAegisValue", "BASE", 1000, "Config")
-		end
-		if activeSkill.skillModList:Flag(nil, "CanHaveAdditionalCurse") then
-			output.GemCurseLimit = activeSkill.skillModList:Sum("BASE", nil, "AdditionalCurse")
-		end
-		if activeSkill.skillModList:Flag(nil, "Condition:CanWither") and not modDB:Flag(nil, "AlreadyWithered") then
-			modDB:NewMod("Condition:CanWither", "FLAG", true, "Config")
-			modDB:NewMod("Dummy", "DUMMY", 1, "Config", { type = "Condition", var = "CanWither" })
-			local effect = m_floor(6 * (1 + modDB:Sum("INC", nil, "WitherEffect") / 100))
-			enemyDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 15 } )
-			if modDB:Flag(nil, "Condition:CanElementalWithered") then
-				enemyDB:NewMod("ElementalDamageTaken", "INC", 4, "Withered", ModFlag.Hit, { type = "Multiplier", var = "WitheredStack", limit = 15 } )
-			end
-			modDB:NewMod("AlreadyWithered", "FLAG", true, "Config") -- Prevents effect from applying multiple times
+		if activeSkill.skillModList:Flag(nil, "Condition:CanWither") then
+			local effect = activeSkill.minion and 6 or m_floor(6 * (1 + modDB:Sum("INC", nil, "WitherEffect") / 100))
+			modDB:NewMod("WitherEffectStack", "MAX", effect)
 		end
 		if activeSkill.skillFlags.warcry and not modDB:Flag(nil, "AlreadyGlobalWarcryCooldown") then
 			local cooldown = calcSkillCooldown(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData)
@@ -1389,26 +1295,23 @@ function calcs.perform(env, avoidCache)
 		if activeSkill.minion and activeSkill.minion.minionData and activeSkill.minion.minionData.limit then
 			local limit = activeSkill.skillModList:Sum("BASE", nil, activeSkill.minion.minionData.limit)
 			output[activeSkill.minion.minionData.limit] = m_max(limit, output[activeSkill.minion.minionData.limit] or 0)
-		
+
 		end
-		
 		if env.mode_buffs and activeSkill.skillFlags.warcry then
 			local extraExertions = activeSkill.skillModList:Sum("BASE", nil, "ExtraExertedAttacks") or 0
-			
-			--灵体的战吼没有持续时间数据？
-			local full_duration = (activeSkill.activeEffect.grantedEffectLevel.duration or  0) * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "Duration", "PrimaryDuration", "SkillAndDamagingAilmentDuration", activeSkill.skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
+			local full_duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
 			local cooldownOverride = activeSkill.skillModList:Override(activeSkill.skillCfg, "CooldownRecovery")
 			local actual_cooldown = cooldownOverride or (activeSkill.skillData.cooldown  + activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "CooldownRecovery")) / calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "CooldownRecovery")
 			local globalCooldown = modDB:Sum("BASE", nil, "GlobalWarcryCooldown")
 			local globalCount = modDB:Sum("BASE", nil, "GlobalWarcryCount")
-			local uptime = m_min(full_duration / actual_cooldown, 1)			
+			local uptime = m_min(full_duration / actual_cooldown, 1)
 			local buff_inc = 1 + activeSkill.skillModList:Sum("INC", activeSkill.skillCfg, "BuffEffect") / 100
 			local warcryPowerBonus = m_floor((modDB:Override(nil, "WarcryPower") or modDB:Sum("BASE", nil, "WarcryPower") or 0) / 5)
 			if modDB:Flag(nil, "WarcryShareCooldown") then
 				uptime = m_min(full_duration / (actual_cooldown + (globalCooldown - actual_cooldown) / globalCount), 1)
 			end
 			if modDB:Flag(nil, "Condition:WarcryMaxHit") then
-				uptime = 1;
+				uptime = 1
 			end
 			if activeSkill.activeEffect.grantedEffect.name == "先祖战吼" and not modDB:Flag(nil, "AncestralActive") then
 				local ancestralArmour = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "AncestralArmourPer5MP")
@@ -1427,14 +1330,14 @@ function calcs.perform(env, avoidCache)
 				end
 				env.player.modDB:NewMod("Armour", "BASE", ancestralArmour * uptime, "先祖战吼", { type = "Multiplier", var = "WarcryPower", div = 5, limit = ancestralArmourMax, limitTotal = true })
 				env.player.modDB:NewMod("Armour", "INC", ancestralArmourIncrease * uptime, "先祖战吼")
-							
+
 				env.player.modDB:NewMod("MeleeWeaponRange", "BASE", ancestralStrikeRange * uptime, "先祖战吼", { type = "Multiplier", var = "WarcryPower", div = 5, limit = ancestralStrikeRangeMax, limitTotal = true })
 				modDB:NewMod("AncestralActive", "FLAG", true) -- Prevents effect from applying multiple times
 			elseif activeSkill.activeEffect.grantedEffect.name == "坚决战吼" and not modDB:Flag(nil, "EnduringActive") then
 				local heal_over_1_sec = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "EnduringCryLifeRegen")
 				local resist_all_per_endurance = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "EnduringCryElementalResist")
 				local pdr_per_endurance = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "EnduringCryPhysicalDamageReduction")
-				env.player.modDB:NewMod("LifeRegen", "BASE", heal_over_1_sec , "坚决战吼", { type = "Condition", var = "LifeRegenBurstFull" })
+				env.player.modDB:NewMod("LifeRegen", "BASE", heal_over_1_sec, "坚决战吼", { type = "Condition", var = "LifeRegenBurstFull" })
 				env.player.modDB:NewMod("LifeRegen", "BASE", heal_over_1_sec / actual_cooldown, "坚决战吼", { type = "Condition", var = "LifeRegenBurstAvg" })
 				env.player.modDB:NewMod("ElementalResist", "BASE", m_floor(resist_all_per_endurance * buff_inc) * uptime, "坚决战吼", { type = "Multiplier", var = "EnduranceCharge" })
 				env.player.modDB:NewMod("PhysicalDamageReduction", "BASE", m_floor(pdr_per_endurance * buff_inc) * uptime, "坚决战吼", { type = "Multiplier", var = "EnduranceCharge" })
@@ -1446,6 +1349,20 @@ function calcs.perform(env, avoidCache)
 					env.player.modDB:NewMod("CoveredInAshEffect", "BASE", infernalAshEffect * uptime, { type = "Multiplier", var = "WarcryPower", div = 5 })
 				end
 				modDB:NewMod("InfernalActive", "FLAG", true) -- Prevents effect from applying multiple times
+			elseif activeSkill.activeEffect.grantedEffect.name == "魔武战号" and not modDB:Flag(nil, "BattlemageActive") then
+				local battlemageSpellToAttack = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "BattlemageSpellIncreaseApplyToAttackPer5MP")
+				local battlemageSpellToAttackMax = m_floor(150 * buff_inc)
+				local battlemageCritChance = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "BattlemageCritChancePer5MP")
+				local battlemageCritChanceMax = m_floor(30 * buff_inc)
+				env.player.modDB:NewMod("NumBattlemageExerts", "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "BattlemageExertedAttacks") + extraExertions)
+				if warcryPowerBonus ~= 0 then
+					battlemageCritChance = m_floor(battlemageCritChance * warcryPowerBonus * buff_inc) / warcryPowerBonus
+					battlemageSpellToAttack = m_floor(battlemageSpellToAttack * warcryPowerBonus * buff_inc) / warcryPowerBonus
+					modDB:NewMod("SpellDamageAppliesToAttacks", "FLAG", true)
+				end
+				env.player.modDB:NewMod("CritChance", "INC", battlemageCritChance * uptime, "Battlemage's Cry", { type = "Multiplier", var = "WarcryPower", div = 5, limit = battlemageCritChanceMax, limitTotal = true })
+				env.player.modDB:NewMod("ImprovedSpellDamageAppliesToAttacks", "MAX", battlemageSpellToAttack * uptime, "Battlemage's Cry", { type = "Multiplier", var = "WarcryPower", div = 5, limit = battlemageSpellToAttackMax, limitTotal = true })
+				modDB:NewMod("BattlemageActive", "FLAG", true) -- Prevents effect from applying multiple times
 			elseif activeSkill.activeEffect.grantedEffect.name == "威吓战吼" and not modDB:Flag(nil, "IntimidatingActive") then
 				local intimidatingOverwhelmEffect = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "IntimidatingPDRPer5MP")
 				if warcryPowerBonus ~= 0 then
@@ -1455,17 +1372,15 @@ function calcs.perform(env, avoidCache)
 				env.player.modDB:NewMod("EnemyPhysicalDamageReduction", "BASE", -intimidatingOverwhelmEffect * uptime, "威吓战吼增益", { type = "Multiplier", var = "WarcryPower", div = 5, limit = 6 })
 				modDB:NewMod("IntimidatingActive", "FLAG", true) -- Prevents effect from applying multiple times
 			elseif activeSkill.activeEffect.grantedEffect.name == "激励战吼" and not modDB:Flag(nil, "RallyingActive") then
-				
+
 				env.player.modDB:NewMod("NumRallyingExerts", "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "RallyingExertedAttacks") + extraExertions)
 				env.player.modDB:NewMod("RallyingExertMoreDamagePerAlly",  "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "RallyingCryExertDamageBonus"))
 				local rallyingWeaponEffect = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "RallyingCryAllyDamageBonusPer5Power")
-				-- Rallying cry divergant more effect of buff
+				-- Rallying cry divergent more effect of buff
 				local rallyingBonusMoreMultiplier = 1 + (activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "RallyingCryMinionDamageBonusMultiplier") or 0)
-				
 				if warcryPowerBonus ~= 0 then
 					rallyingWeaponEffect = m_floor(rallyingWeaponEffect * warcryPowerBonus * buff_inc) / warcryPowerBonus
 				end
-				
 				-- Special handling for the minion side to add the flat damage bonus
 				if env.minion then
 					-- Add all damage types
@@ -1482,18 +1397,13 @@ function calcs.perform(env, avoidCache)
 					seismicStunEffect = m_floor(seismicStunEffect * warcryPowerBonus * buff_inc) / warcryPowerBonus
 				end
 				env.player.modDB:NewMod("NumSeismicExerts", "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "SeismicExertedAttacks") + extraExertions)
-				env.player.modDB:NewMod("SeismicMoreDmgPerExert",  "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "SeismicHitMultiplier"))
+				env.player.modDB:NewMod("SeismicIncAoEPerExert",  "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "SeismicAoEMultiplier"))
 				if env.mode_effective then
 					env.player.modDB:NewMod("EnemyStunThreshold", "INC", -seismicStunEffect * uptime, "震地战吼增益", { type = "Multiplier", var = "WarcryPower", div = 5, limit = 6 })
 				end
 				modDB:NewMod("SeismicActive", "FLAG", true) -- Prevents effect from applying multiple times
-				
-			
 			end
-		end
-		
-		
-		 
+		end 
 		if activeSkill.skillData.triggeredByBrand and not activeSkill.skillFlags.minion then
 			activeSkill.skillData.triggered = true
 			local spellCount, quality = 0
@@ -1510,15 +1420,9 @@ function calcs.perform(env, avoidCache)
 			addTriggerIncMoreMods(activeSkill, env.player.mainSkill)
 			activeSkill.skillModList:NewMod("ArcanistSpellsLinked", "BASE", spellCount, "Skill")
 			activeSkill.skillModList:NewMod("BrandActivationFrequency", "INC", quality, "Skill")
-			
-			
 		end
-		
-		
-		
 		if activeSkill.skillData.triggeredOnDeath and not activeSkill.skillFlags.minion then
 			activeSkill.skillData.triggered = true
-			activeSkill.skillData.triggerCostMultiplier = 0
 			for _, value in ipairs(activeSkill.skillModList:Tabulate("INC", env.player.mainSkill.skillCfg, "TriggeredDamage")) do
 				activeSkill.skillModList:NewMod("Damage", "INC", value.mod.value, value.mod.source, value.mod.flags, value.mod.keywordFlags, unpack(value.mod))
 			end
@@ -1585,10 +1489,15 @@ function calcs.perform(env, avoidCache)
 				usingManaFlask = true
 			end
 
+			local flaskEffectInc = item.flaskData.effectInc
+			if item.rarity == "MAGIC" and not (usingLifeFlask or usingManaFlask) then
+				flaskEffectInc = flaskEffectInc + modDB:Sum("INC", nil, "MagicUtilityFlaskEffect")
+			end
+
 			-- Avert thine eyes, lest they be forever scarred
 			-- I have no idea how to determine which buff is applied by a given flask, 
 			-- so utility flasks are grouped by base, unique flasks are grouped by name, and magic flasks by their modifiers
-			local effectMod = 1 + (effectInc + item.flaskData.effectInc) / 100
+			local effectMod = 1 + (effectInc + flaskEffectInc) / 100
 			if item.buffModList[1] then
 				local srcList = new("ModList")
 				srcList:ScaleAddList(item.buffModList, effectMod)
@@ -1614,7 +1523,6 @@ function calcs.perform(env, avoidCache)
 			modDB.conditions["UsingLifeFlask"] = usingLifeFlask
 			modDB.conditions["UsingManaFlask"] = usingManaFlask
 			for _, buffModList in pairs(flaskBuffs) do
-				modDB.conditions["UsingFlask"] = true
 				modDB:AddList(buffModList)
 			end
 		end
@@ -1623,7 +1531,7 @@ function calcs.perform(env, avoidCache)
 			minionModDB.conditions["UsingFlask"] = usingFlask
 			minionModDB.conditions["UsingLifeFlask"] = usingLifeFlask
 			minionModDB.conditions["UsingManaFlask"] = usingManaFlask
-			for _, buffModList in pairs(flaskBuffs) do				 
+			for _, buffModList in pairs(flaskBuffs) do
 				minionModDB:AddList(buffModList)
 			end
 		end
@@ -1631,23 +1539,19 @@ function calcs.perform(env, avoidCache)
 
 	-- Merge keystones again to catch any that were added by flasks
 	mergeKeystones(env)
-	--mergeNotable(env)
-	
 	-- Calculate attributes and life/mana pools
-	
 	doActorAttribsPoolsConditions(env, env.player)
 	if env.minion then
-	
 		for _, value in ipairs(env.player.mainSkill.skillModList:List(env.player.mainSkill.skillCfg, "MinionModifier")) do
 			if not value.type or env.minion.type == value.type then
-			
 				env.minion.modDB:AddMod(value.mod)
 			end
 		end
 		for _, name in ipairs(env.minion.modDB:List(nil, "Keystone")) do
-			env.minion.modDB:AddList(env.spec.tree.keystoneMap[name].modList)
+			if env.spec.tree.keystoneMap[name] then
+				env.minion.modDB:AddList(env.spec.tree.keystoneMap[name].modList)
+			end
 		end
-		
 		doActorAttribsPoolsConditions(env, env.minion)
 	end
 	-- Calculate skill life and mana reservations
@@ -1660,18 +1564,18 @@ function calcs.perform(env, avoidCache)
 		breakdown.ManaReserved = { reservations = { } }
 	end
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
-		if activeSkill.skillTypes[SkillType.HasReservation] and not activeSkill.skillFlags.totem then
+		if activeSkill.skillTypes[SkillType.HasReservation] and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] then
 			local skillModList = activeSkill.skillModList
 			local skillCfg = activeSkill.skillCfg
 			local mult = skillModList:More(skillCfg, "SupportManaMultiplier")
 			local pool = { ["Mana"] = { }, ["Life"] = { } }
 			pool.Mana.baseFlat = activeSkill.skillData.manaReservationFlat or activeSkill.activeEffect.grantedEffectLevel.manaReservationFlat or 0
-			if skillModList:Flag(skillCfg, "ManaCostGainAsReservation") then
+			if skillModList:Flag(skillCfg, "ManaCostGainAsReservation") and activeSkill.activeEffect.grantedEffectLevel.cost then
 				pool.Mana.baseFlat = skillModList:Sum("BASE", skillCfg, "ManaCostBase") + (activeSkill.activeEffect.grantedEffectLevel.cost.Mana or 0)
 			end
 			pool.Mana.basePercent = activeSkill.skillData.manaReservationPercent or activeSkill.activeEffect.grantedEffectLevel.manaReservationPercent or 0
 			pool.Life.baseFlat = activeSkill.skillData.lifeReservationFlat or activeSkill.activeEffect.grantedEffectLevel.lifeReservationFlat or 0
-			if skillModList:Flag(skillCfg, "LifeCostGainAsReservation") then
+			if skillModList:Flag(skillCfg, "LifeCostGainAsReservation") and activeSkill.activeEffect.grantedEffectLevel.cost then
 				pool.Life.baseFlat = skillModList:Sum("BASE", skillCfg, "LifeCostBase") + (activeSkill.activeEffect.grantedEffectLevel.cost.Life or 0)
 			end
 			pool.Life.basePercent = activeSkill.skillData.lifeReservationPercent or activeSkill.activeEffect.grantedEffectLevel.lifeReservationPercent or 0
@@ -1688,18 +1592,26 @@ function calcs.perform(env, avoidCache)
 			for name, values in pairs(pool) do
 				values.more = skillModList:More(skillCfg, name.."Reserved", "Reserved")
 				values.inc = skillModList:Sum("INC", skillCfg, name.."Reserved", "Reserved")
-				values.efficiency = skillModList:Sum("INC", skillCfg, name.."ReservationEfficiency", "ReservationEfficiency")
+				values.efficiency = m_max(skillModList:Sum("INC", skillCfg, name.."ReservationEfficiency", "ReservationEfficiency"), -100)
+				-- used for Arcane Cloak calculations in ModStore.GetStat
+				env.player[name.."Efficiency"] = values.efficiency
 				if activeSkill.skillData[name.."ReservationFlatForced"] then
 					values.reservedFlat = activeSkill.skillData[name.."ReservationFlatForced"]
 				else
 					local baseFlatVal = m_floor(values.baseFlat * mult)
-					values.reservedFlat = m_max(round(baseFlatVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 2), 0)
+					values.reservedFlat = 0
+					if values.more > 0 and values.inc > -100 and baseFlatVal ~= 0 then
+						values.reservedFlat = m_max(round(baseFlatVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 0), 0)
+					end
 				end
 				if activeSkill.skillData[name.."ReservationPercentForced"] then
 					values.reservedPercent = activeSkill.skillData[name.."ReservationPercentForced"]
 				else
 					local basePercentVal = values.basePercent * mult
-					values.reservedPercent = m_max(round(basePercentVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 2), 0)
+					values.reservedPercent = 0
+					if values.more > 0 and values.inc > -100 and basePercentVal ~= 0 then
+						values.reservedPercent = m_max(round(basePercentVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 2), 0)
+					end
 				end
 				if activeSkill.activeMineCount then
 					values.reservedFlat = values.reservedFlat * activeSkill.activeMineCount
@@ -1715,14 +1627,14 @@ function calcs.perform(env, avoidCache)
 							mult = mult ~= 1 and ("x "..mult),
 							more = values.more ~= 1 and ("x "..values.more),
 							inc = values.inc ~= 0 and ("x "..(1 + values.inc / 100)),
-							efficiency = values.efficiency ~= 0 and ("x " .. 1 / (1 + values.efficiency / 100)),
+							efficiency = values.efficiency ~= 0 and ("x " .. round(100 / (100 + values.efficiency), 4)),
 							total = values.reservedFlat,
 						})
 					end
 				end
 				if values.reservedPercent ~= 0 then
 					activeSkill.skillData[name.."ReservedPercent"] = values.reservedPercent
-					activeSkill.skillData[name.."ReservedBase"] = (activeSkill.skillData[name.."ReservedBase"] or 0) + m_ceil(output[name] * values.reservedPercent / 100)
+					activeSkill.skillData[name.."ReservedBase"] = (values.reservedFlat or 0) + m_ceil(output[name] * values.reservedPercent / 100)
 					env.player["reserved_"..name.."Percent"] = env.player["reserved_"..name.."Percent"] + values.reservedPercent
 					if breakdown then
 						t_insert(breakdown[name.."Reserved"].reservations, {
@@ -1731,7 +1643,7 @@ function calcs.perform(env, avoidCache)
 							mult = mult ~= 1 and ("x "..mult),
 							more = values.more ~= 1 and ("x "..values.more),
 							inc = values.inc ~= 0 and ("x "..(1 + values.inc / 100)),
-							efficiency = values.efficiency ~= 0 and ("x " .. 1 / (1 + values.efficiency / 100)),
+							efficiency = values.efficiency ~= 0 and ("x " .. round(100 / (100 + values.efficiency), 4)),
 							total = values.reservedPercent .. "%",
 						})
 					end
@@ -1748,81 +1660,61 @@ function calcs.perform(env, avoidCache)
 
 	-- Process attribute requirements
 	do
-	
-		if modDB:Flag(nil, "GlobalNoAttributeRequirements") then
-			for _, attr in ipairs({"Str","Dex","Int"}) do
-				if breakdown then
-					breakdown["Req"..attr] = {
-						rowList = { },
-						colList = {
-							{ label = "【值】", key = "req" },
-							{ label = "【来源】", key = "source" },
-							{ label = "【来源名称】", key = "sourceName" },
-						}
-					}
-					output["Req"..attr.."String"] = "无视属性需求"
-				end
-				
-				output["Req"..attr] = 0
-				
+		local reqMult = calcLib.mod(modDB, nil, "GlobalAttributeRequirements")
+		local attrTable = modDB:Flag(nil, "OmniscienceRequirements") and {"Omni","Str","Dex","Int"} or {"Str","Dex","Int"}
+		for _, attr in ipairs(attrTable) do
+			local breakdownAttr = attr
+			if modDB:Flag(nil, "OmniscienceRequirements") then
+				breakdownAttr = "Omni"
 			end
-		else 
-			local reqMult = calcLib.mod(modDB, nil, "GlobalAttributeRequirements")
-			local attrTable = modDB:Flag(nil, "OmniscienceRequirements") and {"Omni","Str","Dex","Int"} or {"Str","Dex","Int"}
-			for _, attr in ipairs(attrTable) do
-				local breakdownAttr = attr
-				if modDB:Flag(nil, "OmniscienceRequirements") then
-					breakdownAttr = "Omni"
-				end
-				if breakdown then
-					breakdown["Req"..attr] = {
-						rowList = { },
-						colList = {
-							{ label = "【值】", key = "req" },
-							{ label = "【来源】", key = "source" },
-							{ label = "【来源名称】", key = "sourceName" },
-						}
+			if breakdown then
+				breakdown["Req"..attr] = {
+					rowList = { },
+					colList = {
+						{ label = attr, key = "req" },
+						{ label = "Source", key = "source" },
+						{ label = "Source Name", key = "sourceName" },
 					}
-				end
-				local out = 0
-				for _, reqSource in ipairs(env.requirementsTable) do
-					if reqSource[attr] and reqSource[attr] > 0 then
-						local req = m_floor(reqSource[attr] * reqMult)
-						if modDB:Flag(nil, "OmniscienceRequirements") then
-							local omniReqMult = 1 / (calcLib.mod(modDB, nil, "OmniAttributeRequirements") - 1)
-							local attributereq =  m_floor(reqSource[attr] * reqMult)
-							req = m_floor(attributereq * omniReqMult)
-						end
-						out = m_max(out, req)
-						if breakdown then
-							local row = {
-								req = req > output[breakdownAttr] and colorCodes.NEGATIVE..req or req,
-								reqNum = req,
-								source = reqSource.source,
-							}
-							if reqSource.source == "Item" then
-								local item = reqSource.sourceItem
-								row.sourceName = colorCodes[item.rarity]..item.name
-								row.sourceNameTooltip = function(tooltip)
-									env.build.itemsTab:AddItemTooltip(tooltip, item, reqSource.sourceSlot)
-								end
-							elseif reqSource.source == "Gem" then
-								row.sourceName = s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, reqSource.sourceGem.nameSpec, reqSource.sourceGem.level, reqSource.sourceGem.quality)
-							end
-							t_insert(breakdown["Req"..breakdownAttr].rowList, row)
-						end
+				}
+			end
+			local out = 0
+			for _, reqSource in ipairs(env.requirementsTable) do
+				if reqSource[attr] and reqSource[attr] > 0 then
+					local req = m_floor(reqSource[attr] * reqMult)
+					if modDB:Flag(nil, "OmniscienceRequirements") then
+						local omniReqMult = 1 / (calcLib.mod(modDB, nil, "OmniAttributeRequirements") - 1)
+						local attributereq =  m_floor(reqSource[attr] * reqMult)
+						req = m_floor(attributereq * omniReqMult)
 					end
-				end
-				if modDB:Flag(nil, "IgnoreAttributeRequirements") then
-					out = 0
-				end
-				output["Req"..attr.."String"] = 0
-				if out > (output["Req"..breakdownAttr] or 0) then 
-					output["Req"..breakdownAttr.."String"] = out
-					output["Req"..breakdownAttr] = out
+					out = m_max(out, req)
 					if breakdown then
-						output["Req"..breakdownAttr.."String"] = out > (output[breakdownAttr] or 0) and colorCodes.NEGATIVE..out or out
+						local row = {
+							req = req > output[breakdownAttr] and colorCodes.NEGATIVE..req or req,
+							reqNum = req,
+							source = reqSource.source,
+						}
+						if reqSource.source == "Item" then
+							local item = reqSource.sourceItem
+							row.sourceName = colorCodes[item.rarity]..item.name
+							row.sourceNameTooltip = function(tooltip)
+								env.build.itemsTab:AddItemTooltip(tooltip, item, reqSource.sourceSlot)
+							end
+						elseif reqSource.source == "Gem" then
+							row.sourceName = s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, reqSource.sourceGem.nameSpec, reqSource.sourceGem.level, reqSource.sourceGem.quality)
+						end
+						t_insert(breakdown["Req"..breakdownAttr].rowList, row)
 					end
+				end
+			end
+			if modDB:Flag(nil, "IgnoreAttributeRequirements") then
+				out = 0
+			end
+			output["Req"..attr.."String"] = 0
+			if out > (output["Req"..breakdownAttr] or 0) then 
+				output["Req"..breakdownAttr.."String"] = out
+				output["Req"..breakdownAttr] = out
+				if breakdown then
+					output["Req"..breakdownAttr.."String"] = out > (output[breakdownAttr] or 0) and colorCodes.NEGATIVE..out or out
 				end
 			end
 		end
@@ -1836,22 +1728,6 @@ function calcs.perform(env, avoidCache)
 					return a.sourceName < b.sourceName
 				end
 			end)
-		end
-	end
-
-	-- Check for extra modifiers to apply to aura skills
-	local extraAuraModList = { }
-	for _, value in ipairs(modDB:List(nil, "ExtraAuraEffect")) do
-		local add = true
-		for _, mod in ipairs(extraAuraModList) do
-			if modLib.compareModParams(mod, value.mod) then
-				mod.value = mod.value + value.mod.value
-				add = false
-				break
-			end
-		end
-		if add then
-			t_insert(extraAuraModList, copyTable(value.mod, true))
 		end
 	end
 
@@ -1877,13 +1753,6 @@ function calcs.perform(env, avoidCache)
 			end
 		end
 	end
-	
-	-- Apply effect of Bonechill support
-	if env.mode_effective and output.BonechillEffect then 
-		enemyDB:NewMod("ColdDamageTaken", "INC", output.BonechillEffect, 
-		"彻骨", { type = "GlobalEffect", effectType = "Debuff", effectName = "彻骨承受冰持续伤" }, { type = "Limit", limit = 30 },
-		{ type = "Condition", var = "Chilled" } )
-	end
 
 	-- Deal with Consecrated Ground
 	if modDB:Flag(nil, "Condition:OnConsecratedGround") then
@@ -1892,18 +1761,17 @@ function calcs.perform(env, avoidCache)
 		modDB:NewMod("CurseEffectOnSelf", "INC", -50 * effect, "Consecrated Ground")
 	end
 
-	-- Combine buffs/debuffs 
-		if env.mode_combat then
-			if modDB:Sum("INC", nil, "HypnoticEyeJewelArcaneSurgeEffect") > 0 then
-				local incVal = modDB:Sum("INC", nil, "HypnoticEyeJewelArcaneSurgeEffect")
-				local maxVal = data.misc.HypnoticEyeJewelMaxArcaneSurgeEffect				
-				modDB:NewMod("秘术增强Effect", "INC", incVal,"库加尔的凝视", { type = "Multiplier", var = "安睡之凝珠宝", limit = tonumber(maxVal), limitTotal = true } ) 
-				 
-			end
+	if modDB:Flag(nil, "ManaAppliesToShockEffect") then
+		-- Maximum Mana conversion from Lightning Mastery
+		local multiplier = (modDB:Max(nil, "ImprovedManaAppliesToShockEffect") or 100) / 100
+		for _, value in ipairs(modDB:Tabulate("INC", nil, "Mana")) do
+			local mod = value.mod
+			local modifiers = calcLib.getConvertedModTags(mod, multiplier)
+			modDB:NewMod("EnemyShockEffect", "INC", m_floor(mod.value * multiplier), mod.source, mod.flags, mod.keywordFlags, unpack(modifiers))
 		end
-	
-	output.EnemyCurseLimit = modDB:Sum("BASE", nil, "EnemyCurseLimit") + (output.GemCurseLimit or 0)
+	end
 
+	-- Combine buffs/debuffs
 	local buffs = { }
 	env.buffs = buffs
 	local guards = { }
@@ -1911,34 +1779,44 @@ function calcs.perform(env, avoidCache)
 	env.minionBuffs = minionBuffs
 	local debuffs = { }
 	env.debuffs = debuffs
-	local curses = { 
-		limit = output.EnemyCurseLimit,
-	}
-	local minionCurses = { 
+	local curses = { }
+	local minionCurses = {
 		limit = 1,
 	}
+	for spectreId = 1, #env.spec.build.spectreList do
+		local spectreData = data.minions[env.spec.build.spectreList[spectreId]]
+		for modId = 1, #spectreData.modList do
+			local modData = spectreData.modList[modId]
+			if modData.name == "EnemyCurseLimit" then
+				minionCurses.limit = modData.value + 1
+				break
+			end
+		end
+	end
 	local affectedByAura = { }
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local skillModList = activeSkill.skillModList
 		local skillCfg = activeSkill.skillCfg
 		for _, buff in ipairs(activeSkill.buffList) do
+			--Skip adding buff if reservation exceeds maximum
+			for _, value in ipairs({"Mana", "Life"}) do
+				if activeSkill.skillData[value.."ReservedBase"] and activeSkill.skillData[value.."ReservedBase"] > env.player.output[value] then
+					goto disableAura
+				end
+			end
 			if buff.cond and not skillModList:GetCondition(buff.cond, skillCfg) then
 				-- Nothing!
 			elseif buff.enemyCond and not enemyDB:GetCondition(buff.enemyCond) then
 				-- Also nothing :/
 			elseif buff.type == "Buff" then
-				
 				if env.mode_buffs and (not activeSkill.skillFlags.totem or buff.allowTotemBuff) then
 					local skillCfg = buff.activeSkillBuff and skillCfg
 					local modStore = buff.activeSkillBuff and skillModList or modDB
-				 	if not buff.applyNotPlayer then						
+				 	if not buff.applyNotPlayer then
 						activeSkill.buffSkill = true
 						modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
-						modDB.conditions["UsedBy"..buff.name:gsub(" ","")] = true
 						local srcList = new("ModList")
-						-- 秘术增强Effect
-						local inc = modStore:Sum("INC", skillCfg, "BuffEffect", "BuffEffectOnSelf", "BuffEffectOnPlayer", buff.name:gsub(" ", "").."Effect")
-						
+						local inc = modStore:Sum("INC", skillCfg, "BuffEffect", "BuffEffectOnSelf", "BuffEffectOnPlayer") + skillModList:Sum("INC", skillCfg, buff.name:gsub(" ", "").."Effect")
 						local more = modStore:More(skillCfg, "BuffEffect", "BuffEffectOnSelf")
 						srcList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
 						mergeBuff(srcList, buffs, buff.name)
@@ -1946,18 +1824,16 @@ function calcs.perform(env, avoidCache)
 						if activeSkill.skillData.thisIsNotABuff then
 							buffs[buff.name].notBuff = true
 						end
-					else 
-						modDB.conditions["UsedBy"..buff.name:gsub(" ","")] = true
 					end
 					if env.minion and (buff.applyMinions or buff.applyAllies) then
 						activeSkill.minionBuffSkill = true
-						env.minion.modDB.conditions["AffectedBy"..buff.name] = true
-						env.minion.modDB.conditions["UsedBy"..buff.name] = true
+						env.minion.modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
 						local srcList = new("ModList")
-						local inc = modStore:Sum("INC", skillCfg, "BuffEffect") + env.minion.modDB:Sum("INC", nil, "BuffEffectOnSelf")
-						local more = modStore:More(skillCfg, "BuffEffect") * env.minion.modDB:More(nil, "BuffEffectOnSelf")
+						local inc = modStore:Sum("INC", skillCfg, "BuffEffect", "BuffEffectOnMinion") + env.minion.modDB:Sum("INC", nil, "BuffEffectOnSelf")
+						local more = modStore:More(skillCfg, "BuffEffect", "BuffEffectOnMinion") * env.minion.modDB:More(nil, "BuffEffectOnSelf")
 						srcList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
-						mergeBuff(srcList, minionBuffs, buff.name)					 
+						mergeBuff(srcList, minionBuffs, buff.name)
+						mergeBuff(buff.unscalableModList, minionBuffs, buff.name)
 					end
 				end
 			elseif buff.type == "Guard" then
@@ -1976,48 +1852,51 @@ function calcs.perform(env, avoidCache)
 				end
 			elseif buff.type == "Aura" then
 				if env.mode_buffs then
+					-- Check for extra modifiers to apply to aura skills
+					local extraAuraModList = { }
+					for _, value in ipairs(modDB:List(skillCfg, "ExtraAuraEffect")) do
+						local add = true
+						for _, mod in ipairs(extraAuraModList) do
+							if modLib.compareModParams(mod, value.mod) then
+								mod.value = mod.value + value.mod.value
+								add = false
+								break
+							end
+						end
+						if add then
+							t_insert(extraAuraModList, copyTable(value.mod, true))
+						end
+					end
 					if not activeSkill.skillData.auraCannotAffectSelf then
 						activeSkill.buffSkill = true
 						affectedByAura[env.player] = true
+						if buff.name:sub(1,4) == "Vaal" or buff.name:match("^Vaal") then
+							modDB.conditions["AffectedBy"..buff.name:sub(6):gsub(" ","")] = true
+						end
 						modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
 						local srcList = new("ModList")
 						local inc = skillModList:Sum("INC", skillCfg, "AuraEffect", "BuffEffect", "BuffEffectOnSelf", "AuraEffectOnSelf", "AuraBuffEffect", "SkillAuraEffectOnSelf")
 
-						-- Take the Purposeful Harbinger buffs into account.
-						-- These are capped to 40% increased buff effect, no matter the amount allocated
-						local incFromPurposefulHarbinger = math.min(
-							skillModList:Sum("INC", skillCfg, "PurpHarbAuraBuffEffect"),
-							data.misc.PurposefulHarbingerMaxBuffPercent)
-						inc = inc + incFromPurposefulHarbinger
-
 						local more = skillModList:More(skillCfg, "AuraEffect", "BuffEffect", "BuffEffectOnSelf", "AuraEffectOnSelf", "AuraBuffEffect", "SkillAuraEffectOnSelf")
-						srcList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
-						srcList:ScaleAddList(extraAuraModList, (1 + inc / 100) * more)
+						local mult = (1 + inc / 100) * more
+						srcList:ScaleAddList(buff.modList, mult)
+						srcList:ScaleAddList(extraAuraModList, mult)
 						mergeBuff(srcList, buffs, buff.name)
-						mergeBuff(buff.unscalableModList, buffs, buff.name)
-					else 
-						modDB.conditions["UsedBy"..buff.name:gsub(" ","")] = true
 					end
-					
-					if env.minion and not (modDB:Flag(nil, "SelfAurasCannotAffectAllies") or modDB:Flag(nil, "SelfAuraSkillsCannotAffectAllies")) then
+					if env.minion and not (modDB:Flag(nil, "SelfAurasCannotAffectAllies") or modDB:Flag(nil, "SelfAurasOnlyAffectYou") or modDB:Flag(nil, "SelfAuraSkillsCannotAffectAllies")) then
 						activeSkill.minionBuffSkill = true
 						affectedByAura[env.minion] = true
-						env.minion.modDB.conditions["AffectedBy"..buff.name] = true
-						env.minion.modDB.conditions["UsedBy"..buff.name] = true
+						env.minion.modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
 						local srcList = new("ModList")
 						local inc = skillModList:Sum("INC", skillCfg, "AuraEffect", "BuffEffect") + env.minion.modDB:Sum("INC", nil, "BuffEffectOnSelf", "AuraEffectOnSelf")
 						local more = skillModList:More(skillCfg, "AuraEffect", "BuffEffect") * env.minion.modDB:More(nil, "BuffEffectOnSelf", "AuraEffectOnSelf")
-						srcList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
-						srcList:ScaleAddList(extraAuraModList, (1 + inc / 100) * more)
+						local mult = (1 + inc / 100) * more
+						srcList:ScaleAddList(buff.modList, mult)
+						srcList:ScaleAddList(extraAuraModList, mult)
 						mergeBuff(srcList, minionBuffs, buff.name)
-					 
 					end
 				end
 			elseif buff.type == "Debuff" or buff.type == "AuraDebuff" then
-			--尊严 三相
-				if buff.name then 
-					modDB.conditions["UsedBy"..buff.name:gsub(" ","")] = true
-				end 
 				local stackCount
 				if buff.stackVar then
 					stackCount = skillModList:Sum("BASE", skillCfg, "Multiplier:"..buff.stackVar)
@@ -2031,11 +1910,20 @@ function calcs.perform(env, avoidCache)
 				end
 				if env.mode_effective and stackCount > 0 then
 					activeSkill.debuffSkill = true
+					modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
 					local srcList = new("ModList")
 					local mult = 1
 					if buff.type == "AuraDebuff" then
-						local inc = skillModList:Sum("INC", skillCfg, "AuraEffect", "BuffEffect", "DebuffEffect")
-						local more = skillModList:More(skillCfg, "AuraEffect", "BuffEffect", "DebuffEffect")
+						mult = 0
+						if not modDB:Flag(nil, "SelfAurasOnlyAffectYou") then
+							local inc = skillModList:Sum("INC", skillCfg, "AuraEffect", "BuffEffect", "DebuffEffect")
+							local more = skillModList:More(skillCfg, "AuraEffect", "BuffEffect", "DebuffEffect")
+							mult = (1 + inc / 100) * more
+						end
+					end
+					if buff.type == "Debuff" then
+						local inc = skillModList:Sum("INC", skillCfg, "DebuffEffect")
+						local more = skillModList:More(skillCfg, "DebuffEffect")
 						mult = (1 + inc / 100) * more
 					end
 					srcList:ScaleAddList(buff.modList, mult * stackCount)
@@ -2050,24 +1938,31 @@ function calcs.perform(env, avoidCache)
 					local curse = {
 						name = buff.name,
 						fromPlayer = true,
-						priority = activeSkill.skillTypes[SkillType.Aura] and 3 or 1,
+						priority = determineCursePriority(buff.name, activeSkill),
 						isMark = mark,
 						ignoreHexLimit = modDB:Flag(activeSkill.skillCfg, "CursesIgnoreHexLimit") and not mark or false,
 						socketedCursesHexLimit = modDB:Flag(activeSkill.skillCfg, "SocketedCursesAdditionalLimit")
 					}
 					local inc = skillModList:Sum("INC", skillCfg, "CurseEffect") + enemyDB:Sum("INC", nil, "CurseEffectOnSelf")
+					if activeSkill.skillTypes[SkillType.Aura] then
+						inc = inc + skillModList:Sum("INC", skillCfg, "AuraEffect")
+					end
 					local more = skillModList:More(skillCfg, "CurseEffect")
 					-- This is non-ideal, but the only More for enemy is the boss effect
 					if not curse.isMark then
 						more = more * enemyDB:More(nil, "CurseEffectOnSelf")
 					end
+					local mult = 0
+					if not (modDB:Flag(nil, "SelfAurasOnlyAffectYou") and activeSkill.skillTypes[SkillType.Aura]) then --If your aura only effect you blasphemy does nothing
+						mult = (1 + inc / 100) * more
+					end
 					if buff.type == "Curse" then
 						curse.modList = new("ModList")
-						curse.modList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
+						curse.modList:ScaleAddList(buff.modList, mult)
 					else
 						-- Curse applies a buff; scale by curse effect, then buff effect
 						local temp = new("ModList")
-						temp:ScaleAddList(buff.modList, (1 + inc / 100) * more)
+						temp:ScaleAddList(buff.modList, mult)
 						curse.buffModList = new("ModList")
 						local buffInc = modDB:Sum("INC", skillCfg, "BuffEffectOnSelf")
 						local buffMore = modDB:More(skillCfg, "BuffEffectOnSelf")
@@ -2082,6 +1977,7 @@ function calcs.perform(env, avoidCache)
 					t_insert(curses, curse)	
 				end
 			end
+			::disableAura::
 		end
 		if activeSkill.minion and activeSkill.minion.activeSkillList then
 			local castingMinion = activeSkill.minion
@@ -2094,27 +1990,22 @@ function calcs.perform(env, avoidCache)
 							local skillCfg = buff.activeSkillBuff and skillCfg
 							local modStore = buff.activeSkillBuff and skillModList or castingMinion.modDB
 							if buff.applyAllies then
-								modDB.conditions["AffectedBy"..buff.name] = true
-								modDB.conditions["UsedBy"..buff.name] = true
+								modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
 								local srcList = new("ModList")
 								local inc = modStore:Sum("INC", skillCfg, "BuffEffect") + modDB:Sum("INC", nil, "BuffEffectOnSelf")
 								local more = modStore:More(skillCfg, "BuffEffect") * modDB:More(nil, "BuffEffectOnSelf")
 								srcList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
 								mergeBuff(srcList, buffs, buff.name)
 								mergeBuff(buff.unscalableModList, buffs, buff.name)
-							else
-								modDB.conditions["UsedBy"..buff.name] = true
 							end
 							if env.minion and (env.minion == castingMinion or buff.applyAllies) then
 				 				env.minion.modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
-								env.minion.modDB.conditions["UsedBy"..buff.name:gsub(" ","")] = true
 								local srcList = new("ModList")
-								local inc = modStore:Sum("INC", skillCfg, "BuffEffect", "BuffEffectOnMinion") + env.minion.modDB:Sum("INC", nil, "BuffEffectOnSelf")
-								local more = modStore:More(skillCfg, "BuffEffect", "BuffEffectOnMinion") * env.minion.modDB:More(nil, "BuffEffectOnSelf")
+								local inc = modStore:Sum("INC", skillCfg, "BuffEffect", "BuffEffectOnSelf")
+								local more = modStore:More(skillCfg, "BuffEffect", "BuffEffectOnSelf")
 								srcList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
 								mergeBuff(srcList, minionBuffs, buff.name)
 								mergeBuff(buff.unscalableModList, minionBuffs, buff.name)
-							 
 							end
 						end
 					elseif buff.type == "Aura" then
@@ -2125,7 +2016,6 @@ function calcs.perform(env, avoidCache)
 								local more = skillModList:More(skillCfg, "AuraEffect", "BuffEffect") * modDB:More(nil, "BuffEffectOnSelf", "AuraEffectOnSelf")
 								srcList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
 								mergeBuff(srcList, buffs, buff.name)
-								mergeBuff(buff.unscalableModList, buffs, buff.name)
 							end
 							if env.minion and (env.minion ~= activeSkill.minion or not activeSkill.skillData.auraCannotAffectSelf) then
 								local srcList = new("ModList")
@@ -2136,19 +2026,15 @@ function calcs.perform(env, avoidCache)
 							end
 						end
 					elseif buff.type == "Curse" then
-					 
 						if env.mode_effective and activeSkill.skillData.enable and (not enemyDB:Flag(nil, "Hexproof") or activeSkill.skillTypes[SkillType.Mark]) then
 							local curse = {
 								name = buff.name,
-								priority = 1,
+								priority = determineCursePriority(buff.name, activeSkill),
 							}
 							local inc = skillModList:Sum("INC", skillCfg, "CurseEffect") + enemyDB:Sum("INC", nil, "CurseEffectOnSelf")
-							 
 							local more = skillModList:More(skillCfg, "CurseEffect") * enemyDB:More(nil, "CurseEffectOnSelf")
 							curse.modList = new("ModList")
-							 
 							curse.modList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
-							 
 							t_insert(minionCurses, curse)
 						end
 					elseif buff.type == "Debuff" then
@@ -2171,6 +2057,48 @@ function calcs.perform(env, avoidCache)
 								srcList:NewMod("Multiplier:"..buff.name.."Stack", "BASE", activeSkill.skillData.stackCount, buff.name)
 							end
 							mergeBuff(srcList, debuffs, buff.name)
+						end
+					end
+				end
+			end
+		end
+	end
+
+	-- Limited support for handling buffs originating from Spectres
+	for _, activeSkill in ipairs(env.player.activeSkillList) do
+		if activeSkill.minion then
+			for _, activeMinionSkill in ipairs(activeSkill.minion.activeSkillList) do
+				if activeMinionSkill.skillData.enable then
+					local skillModList = activeMinionSkill.skillModList
+					local skillCfg = activeMinionSkill.skillCfg
+					for _, buff in ipairs(activeMinionSkill.buffList) do
+						if buff.type == "Buff" then
+							if buff.applyAllies then
+								activeMinionSkill.buffSkill = true
+								modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
+								local srcList = new("ModList")
+								local inc = skillModList:Sum("INC", skillCfg, "BuffEffect", "BuffEffectOnPlayer")
+								local more = skillModList:More(skillCfg, "BuffEffect", "BuffEffectOnPlayer")
+								srcList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
+								mergeBuff(srcList, buffs, buff.name)
+								mergeBuff(buff.modList, buffs, buff.name)
+								if activeMinionSkill.skillData.thisIsNotABuff then
+									buffs[buff.name].notBuff = true
+								end
+							end
+							if buff.applyMinions then
+								activeMinionSkill.minionBuffSkill = true
+								activeSkill.minion.modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
+								local srcList = new("ModList")
+								local inc = skillModList:Sum("INC", skillCfg, "BuffEffect", "BuffEffectOnMinion")
+								local more = skillModList:More(skillCfg, "BuffEffect", "BuffEffectOnMinion")
+								srcList:ScaleAddList(buff.modList, (1 + inc / 100) * more)
+								mergeBuff(srcList, minionBuffs, buff.name)
+								mergeBuff(buff.modList, minionBuffs, buff.name)
+								if activeMinionSkill.skillData.thisIsNotABuff then
+									buffs[buff.name].notBuff = true
+								end
+							end
 						end
 					end
 				end
@@ -2203,17 +2131,17 @@ function calcs.perform(env, avoidCache)
 					if modDB:Sum("BASE", nil, "AvoidCurse") < 100 then
 						modDB.conditions["Cursed"] = true
 						modDB.multipliers["CurseOnSelf"] = (modDB.multipliers["CurseOnSelf"] or 0) + 1
-						modDB.conditions["AffectedBy"..grantedEffect.name:gsub(" ","")] = true						
+						modDB.conditions["AffectedBy"..grantedEffect.name:gsub(" ","")] = true
 						local cfg = { skillName = grantedEffect.name }
 						local inc = modDB:Sum("INC", cfg, "CurseEffectOnSelf") + gemModList:Sum("INC", nil, "CurseEffectAgainstPlayer")
-						local more = modDB:More(cfg, "CurseEffectOnSelf")
+						local more = modDB:More(cfg, "CurseEffectOnSelf") * gemModList:More(nil, "CurseEffectAgainstPlayer")
 						modDB:ScaleAddList(curseModList, (1 + inc / 100) * more)
 					end
 				elseif not enemyDB:Flag(nil, "Hexproof") or modDB:Flag(nil, "CursesIgnoreHexproof") then
 					local curse = {
 						name = grantedEffect.name,
 						fromPlayer = (dest == curses),
-						priority = 2,
+						priority = determineCursePriority(grantedEffect.name),
 					}
 					curse.modList = new("ModList")
 					curse.modList:ScaleAddList(curseModList, (1 + enemyDB:Sum("INC", nil, "CurseEffectOnSelf") / 100) * enemyDB:More(nil, "CurseEffectOnSelf"))
@@ -2222,7 +2150,10 @@ function calcs.perform(env, avoidCache)
 			end
 		end
 	end
-	
+
+	-- Set curse limit
+	output.EnemyCurseLimit = modDB:Sum("BASE", nil, "EnemyCurseLimit")
+	curses.limit = output.EnemyCurseLimit
 	-- Assign curses to slots
 	local curseSlots = { }
 	env.curseSlots = curseSlots
@@ -2230,11 +2161,28 @@ function calcs.perform(env, avoidCache)
 	local markSlotted = false
 	for _, source in ipairs({curses, minionCurses}) do
 		for _, curse in ipairs(source) do
-			-- calculate curses that ignore hex limit after
+			-- Calculate curses that ignore hex limit after
 			if not curse.ignoreHexLimit and not curse.socketedCursesHexLimit then
 				local slot
+				local skipAddingCurse = false
+				-- Check if we need to disable a certain curse aura.
+				for _, activeSkill in ipairs(env.player.activeSkillList) do
+					if (activeSkill.buffList[1] and curse.name == activeSkill.buffList[1].name and activeSkill.skillTypes[SkillType.Aura]) then
+						if modDB:Flag(nil, "SelfAurasOnlyAffectYou") then
+							skipAddingCurse = true
+							break
+						end
+						for _, value in ipairs({"Mana", "Life"}) do
+							if activeSkill.skillData[value.."ReservedBase"] and activeSkill.skillData[value.."ReservedBase"] > env.player.output[value] then
+								skipAddingCurse = true
+								break
+							end
+						end
+						break
+					end
+				end
 				for i = 1, source.limit do
-					--Prevent multiple marks from being considered
+					-- Prevent multiple marks from being considered
 					if curse.isMark then
 						if markSlotted then
 							slot = nil
@@ -2259,7 +2207,9 @@ function calcs.perform(env, avoidCache)
 					if curseSlots[slot] and curseSlots[slot].isMark then
 						markSlotted = false
 					end
-					curseSlots[slot] = curse
+					if skipAddingCurse == false then
+						curseSlots[slot] = curse
+					end
 					if curse.isMark then
 						markSlotted = true
 					end
@@ -2309,8 +2259,7 @@ function calcs.perform(env, avoidCache)
 		end
 	end
 
-
--- Process guard buffs
+	-- Process guard buffs
 	local guardSlots = { }
 	local nonVaal = false
 	for name, modList in pairs(guards) do
@@ -2377,145 +2326,138 @@ function calcs.perform(env, avoidCache)
 		end
 	end
 	
-	
-	
 	for _, activeSkill in ipairs(env.player.activeSkillList) do -- Do another pass on the SkillList to catch effects of buffs, if needed
 		if activeSkill.activeEffect.grantedEffect.name == "枯萎" and activeSkill.skillPart == 2 then
 			local rate = (1 / activeSkill.activeEffect.grantedEffect.castTime) * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "Speed") * calcs.actionSpeedMod(env.player)
 			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
 			local maximum = m_min((m_floor(rate * duration) - 1), 19)
-			activeSkill.skillModList:NewMod("Multiplier:枯萎MaxStagesAfterFirst", "BASE", maximum, "Base")
+			activeSkill.skillModList:NewMod("Multiplier:枯萎MaxStages", "BASE", maximum, "Base")
 			activeSkill.skillModList:NewMod("Multiplier:枯萎StageAfterFirst", "BASE", maximum, "Base")
 		end
 		if activeSkill.activeEffect.grantedEffect.name == "忏悔烙印" and activeSkill.skillPart == 2 then
 			local rate = 1 / (activeSkill.skillData.repeatFrequency / (1 + env.player.mainSkill.skillModList:Sum("INC", env.player.mainSkill.skillCfg, "Speed", "BrandActivationFrequency") / 100) / activeSkill.skillModList:More(activeSkill.skillCfg, "BrandActivationFrequency"))
 			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
 			local ticks = m_min((m_floor(rate * duration) - 1), 19)
-			activeSkill.skillModList:NewMod("Multiplier:忏悔烙印MaxStagesAfterFirst", "BASE", ticks, "Base")
+			activeSkill.skillModList:NewMod("Multiplier:忏悔烙印MaxStages", "BASE", ticks, "Base")
 			activeSkill.skillModList:NewMod("Multiplier:忏悔烙印StageAfterFirst", "BASE", ticks, "Base")
 		end
 		if activeSkill.activeEffect.grantedEffect.name == "灼热光线" and activeSkill.skillPart == 2 then
 			local rate = (1 / activeSkill.activeEffect.grantedEffect.castTime) * calcLib.mod(activeSkill.skillModList, activeSkill.skillCfg, "Speed") * calcs.actionSpeedMod(env.player)
 			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
 			local maximum = m_min((m_floor(rate * duration) - 1), 7)
-			activeSkill.skillModList:NewMod("Multiplier:灼热光线MaxStagesAfterFirst", "BASE", maximum, "Base")
+			activeSkill.skillModList:NewMod("Multiplier:灼热光线MaxStages", "BASE", maximum, "Base")
 			activeSkill.skillModList:NewMod("Multiplier:灼热光线StageAfterFirst", "BASE", maximum, "Base")
-			if maximum >= 7 then
-				activeSkill.skillModList:NewMod("Condition:灼热光线MaxStages", "FLAG", true, "Config")
-				enemyDB:NewMod("FireResist", "BASE", -25, "灼热光线", { type = "GlobalEffect", effectType = "Debuff" } )
-			end
+
 		end
 	end
 	-- Process Triggered Skill and Set Trigger Conditions
-	--if env.mode ~= "CACHE" then
-		-- Cospri's Malice
-		if env.player.mainSkill.skillData.triggeredByCospris and not env.player.mainSkill.skillFlags.minion then
-			local spellCount = {}
-			local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
-			local trigRate = 0
-			local source = nil
-			for _, skill in ipairs(env.player.activeSkillList) do
-				if skill.skillTypes[SkillType.Melee] and band(skill.skillCfg.flags, bor(ModFlag.Sword, ModFlag.Weapon1H)) > 0 and skill ~= env.player.mainSkill then
-					source, trigRate = findTriggerSkill(env, skill, source, trigRate)
-				end
-				if skill.skillData.triggeredByCospris and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
-					t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown / icdr, next_trig = 0, count = 0 })
-				end
+	-- Cospri's Malice
+	if env.player.mainSkill.skillData.triggeredByCospris and not env.player.mainSkill.skillFlags.minion then
+		local spellCount = {}
+		local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
+		local trigRate = 0
+		local source = nil
+		for _, skill in ipairs(env.player.activeSkillList) do
+			if skill.skillTypes[SkillType.Melee] and band(skill.skillCfg.flags, bor(ModFlag.Sword, ModFlag.Weapon1H)) > 0 and skill ~= env.player.mainSkill then
+				source, trigRate = findTriggerSkill(env, skill, source, trigRate)
 			end
-			if not source or #spellCount < 1 then
-				env.player.mainSkill.skillData.triggeredByCospris = nil
-				env.player.mainSkill.infoMessage = "未发现 【卡斯普里怨恨】 的触发技能"
-				env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
-				env.player.mainSkill.infoTrigger = ""
-			else
-				env.player.mainSkill.skillData.triggered = true
-				local uuid = cacheSkillUUID(source)
-				local sourceAPS = GlobalCache.cachedData["CACHE"][uuid].Speed
-				local dualWield = false
-
-				sourceAPS, dualWield = calcDualWieldImpact(env, sourceAPS, source.skillData.doubleHitsWhenDualWielding)
-
-				-- Get action trigger rate
-				trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown, dualWield)
-
-				-- Account for chance to hit/crit
-				local sourceCritChance = GlobalCache.cachedData["CACHE"][uuid].CritChance
-				trigRate = trigRate * sourceCritChance / 100
-				if breakdown then
-					breakdown.Speed = {
-						s_format("%.2fs ^8(调整后触发速率)", output.ServerTriggerRate),
-						s_format("x %.2f%% ^8(【%s】的有效暴击几率)", sourceCritChance, source.activeEffect.grantedEffect.name),
-						s_format("= %.2f ^8每秒", trigRate),
-					}
-				end
-
-				-- Account for Trigger-related INC/MORE modifiers
-				addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
-				env.player.mainSkill.skillData.triggerRate = trigRate
-				env.player.mainSkill.skillData.triggerSource = source
-				env.player.mainSkill.infoMessage = "【卡斯普里怨恨】 触发技能: " .. source.activeEffect.grantedEffect.name
-				env.player.mainSkill.infoMessage2 = ""
-				env.player.mainSkill.infoTrigger = "【卡斯普里怨恨】"
+			if skill.skillData.triggeredByCospris and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
+				t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown / icdr, next_trig = 0, count = 0 })
 			end
 		end
-		
-		-- Mjolner
-		if env.player.mainSkill.skillData.triggeredByMjolner and not env.player.mainSkill.skillFlags.minion then
-			local spellCount = {}
-			local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
-			local trigRate = 0
-			local source = nil
-			for _, skill in ipairs(env.player.activeSkillList) do
-				if (skill.skillTypes[SkillType.Damage] or skill.skillTypes[SkillType.Attack]) and band(skill.skillCfg.flags, bor(ModFlag.Mace, ModFlag.Weapon1H)) > 0 and skill ~= env.player.mainSkill then
-					source, trigRate = findTriggerSkill(env, skill, source, trigRate)
-				end
-				if skill.skillData.triggeredByMjolner and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
-					t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown / icdr, next_trig = 0, count = 0 })
-				end
+		if not source or #spellCount < 1 then
+			env.player.mainSkill.skillData.triggeredByCospris = nil
+			env.player.mainSkill.infoMessage = "未发现 【卡斯普里怨恨】 的触发技能"
+			env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
+			env.player.mainSkill.infoTrigger = ""
+		else
+			env.player.mainSkill.skillData.triggered = true
+			local uuid = cacheSkillUUID(source)
+			local sourceAPS = GlobalCache.cachedData["CACHE"][uuid].Speed
+			local dualWield = false
+
+			sourceAPS, dualWield = calcDualWieldImpact(env, sourceAPS, source.skillData.doubleHitsWhenDualWielding)
+
+			-- Get action trigger rate
+			trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown, dualWield)
+
+			-- Account for chance to hit/crit
+			local sourceCritChance = GlobalCache.cachedData["CACHE"][uuid].CritChance
+			trigRate = trigRate * sourceCritChance / 100
+			if breakdown then
+				breakdown.Speed = {
+					s_format("%.2fs ^8(调整后触发速率)", output.ServerTriggerRate),
+					s_format("x %.2f%% ^8(【%s】的有效暴击几率)", sourceCritChance, source.activeEffect.grantedEffect.name),
+					s_format("= %.2f ^8每秒", trigRate),
+				}
 			end
-			if not source or #spellCount < 1 then
-				env.player.mainSkill.skillData.triggeredByMjolner = nil
-				env.player.mainSkill.infoMessage = "未发现【沉默之雷】的触发技能"
-				env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
-				env.player.mainSkill.infoTrigger = ""
-			else
-				env.player.mainSkill.skillData.triggered = true
-				env.player.mainSkill.skillData.triggerCostMultiplier = 0
-				local uuid = cacheSkillUUID(source)
-				local sourceAPS = GlobalCache.cachedData["CACHE"][uuid].Speed
-				local dualWield = false
 
-				sourceAPS, dualWield = calcDualWieldImpact(env, sourceAPS, source.skillData.doubleHitsWhenDualWielding)
+			-- Account for Trigger-related INC/MORE modifiers
+			addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
+			env.player.mainSkill.skillData.triggerRate = trigRate
+			env.player.mainSkill.skillData.triggerSource = source
+			env.player.mainSkill.infoMessage = "【卡斯普里怨恨】触发技能: " .. source.activeEffect.grantedEffect.name
+			env.player.mainSkill.infoTrigger = "【卡斯普里怨恨】"
 
-				-- Get action trigger rate
-				trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown, dualWield)
-
-				-- Account for chance to hit/crit
-				local sourceHitChance = GlobalCache.cachedData["CACHE"][uuid].HitChance
-				trigRate = trigRate * sourceHitChance / 100
-				if breakdown then
-					breakdown.Speed = {
-						s_format("%.2fs ^8(调整后触发速率)", output.ServerTriggerRate),
-						s_format("x %.0f%% ^8(【%s】 的命中率)", sourceHitChance, source.activeEffect.grantedEffect.name),
-						s_format("= %.2f ^8每秒", trigRate),
-					}
-				end
-
-				-- Account for Trigger-related INC/MORE modifiers
-				addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
-				env.player.mainSkill.skillData.triggerRate = trigRate
-				env.player.mainSkill.skillData.triggerSource = source
-				env.player.mainSkill.infoMessage = "【沉默之雷】 触发技能: " .. source.activeEffect.grantedEffect.name
-				env.player.mainSkill.infoMessage2 = ""
-				env.player.mainSkill.infoTrigger = "【沉默之雷】"
+		end
+	end
+	
+	-- Mjolner
+	if env.player.mainSkill.skillData.triggeredByMjolner and not env.player.mainSkill.skillFlags.minion then
+		local spellCount = {}
+		local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
+		local trigRate = 0
+		local source = nil
+		for _, skill in ipairs(env.player.activeSkillList) do
+			if (skill.skillTypes[SkillType.Damage] or skill.skillTypes[SkillType.Attack]) and band(skill.skillCfg.flags, bor(ModFlag.Mace, ModFlag.Weapon1H)) > 0 and skill ~= env.player.mainSkill then
+				source, trigRate = findTriggerSkill(env, skill, source, trigRate)
+			end
+			if skill.skillData.triggeredByMjolner and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
+				t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown / icdr, next_trig = 0, count = 0 })
 			end
 		end
+		if not source or #spellCount < 1 then
+			env.player.mainSkill.skillData.triggeredByMjolner = nil
+			env.player.mainSkill.infoMessage = "未发现【沉默之雷】的触发技能"
+			env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
+			env.player.mainSkill.infoTrigger = ""
+		else
+			env.player.mainSkill.skillData.triggered = true
+			local uuid = cacheSkillUUID(source)
+			local sourceAPS = GlobalCache.cachedData["CACHE"][uuid].Speed
+			local dualWield = false
+
+			sourceAPS, dualWield = calcDualWieldImpact(env, sourceAPS, source.skillData.doubleHitsWhenDualWielding)
+
+			-- Get action trigger rate
+			trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown, dualWield)
+
+			-- Account for chance to hit/crit
+			local sourceHitChance = GlobalCache.cachedData["CACHE"][uuid].HitChance
+			trigRate = trigRate * sourceHitChance / 100
+			if breakdown then
+				breakdown.Speed = {
+					s_format("%.2fs ^8(调整后触发速率)", output.ServerTriggerRate),
+					s_format("x %.0f%% ^8(【%s】 的命中率)", sourceHitChance, source.activeEffect.grantedEffect.name),
+					s_format("= %.2f ^8每秒", trigRate),
+				}
+			end
+
+			-- Account for Trigger-related INC/MORE modifiers
+			addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
+			env.player.mainSkill.skillData.triggerRate = trigRate
+			env.player.mainSkill.skillData.triggerSource = source
+			env.player.mainSkill.infoMessage = "【沉默之雷】 触发技能: " .. source.activeEffect.grantedEffect.name
+
+			env.player.mainSkill.infoTrigger = "【沉默之雷】"
+		end
+	end
 	-- Mirage Archer Support
-	-- This creates a new skill group for the Mirage Archer DPS over-write called 'Mirage Archer'
-	if env.player.mainSkill.skillData.triggeredByMirageArcher and not env.player.mainSkill.skillFlags.minion and not env.player.mainSkill.marked and env.player.mainSkill.socketGroup.label ~= "幻影射手" then
-			local usedSkill = nil
-			local uuid = cacheSkillUUID(env.player.mainSkill)
-			local calcMode = env.mode == "CALCS" and "CALCS" or "MAIN"
+	-- This creates and populates env.player.mainSkill.mirage table
+	if env.player.mainSkill.skillData.triggeredByMirageArcher and not env.player.mainSkill.skillFlags.minion and not env.player.mainSkill.marked then
+		local usedSkill = nil
+		local uuid = cacheSkillUUID(env.player.mainSkill)
+		local calcMode = env.mode == "CALCS" and "CALCS" or "MAIN"
 
 		-- cache a new copy of this skill that's affected by Mirage Archer
 		if avoidCache then
@@ -2587,417 +2529,466 @@ function calcs.perform(env, avoidCache)
 		else
 			env.player.mainSkill.infoMessage2 = "未发现幻影射手可用技能"
 		end
- 	end
--- Kitava's Thirst
-		if env.player.mainSkill.skillData.triggeredByManaSpent and not env.player.mainSkill.skillFlags.minion then
-			local triggerName = "奇塔弗之渴望"
-			local spellCount = 0
-			local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
-			local reqManaCost = env.player.modDB:Sum("BASE", nil, "KitavaRequiredManaCost")
-			local trigRate = 0
-			local source = nil
-			for _, skill in ipairs(env.player.activeSkillList) do
-				if not skill.skillTypes[SkillType.Triggered] and skill ~= env.player.mainSkill and not skill.skillData.triggeredByManaSpent then
-					source, trigRate = findTriggerSkill(env, skill, source, trigRate, reqManaCost)
-				end
-				if skill.skillData.triggeredByManaSpent and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
-					spellCount = spellCount + 1
-				end
+	end
+	-- Kitava's Thirst
+	if env.player.mainSkill.skillData.triggeredByManaSpent and not env.player.mainSkill.skillFlags.minion then
+		local triggerName = "奇塔弗之渴望"
+		local spellCount = 0
+		local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
+		local reqManaCost = env.player.modDB:Sum("BASE", nil, "KitavaRequiredManaCost")
+		local trigRate = 0
+		local source = nil
+		for _, skill in ipairs(env.player.activeSkillList) do
+			if not skill.skillTypes[SkillType.Triggered] and skill ~= env.player.mainSkill and not skill.skillData.triggeredByManaSpent then
+				source, trigRate = findTriggerSkill(env, skill, source, trigRate, reqManaCost)
 			end
-
-			if not source or spellCount < 1 then
-				env.player.mainSkill.skillData.triggeredByManaSpent = nil
-				env.player.mainSkill.infoMessage = s_format("未发现【%s】的触发技能", triggerName)
-				env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
-				env.player.mainSkill.infoTrigger = ""
-			else
-				env.player.mainSkill.skillData.triggered = true
-
-				output.ActionTriggerRate = getTriggerActionTriggerRate(env.player.mainSkill.skillData.cooldown, env, breakdown)
-
-				-- Get action trigger rate
-				local kitavaCD = getTriggerDefaultCooldown(env.player.mainSkill.supportList, "SupportCastOnManaSpent")
-
-				trigRate = icdr / kitavaCD
-				output.SourceTriggerRate = trigRate
-				output.ServerTriggerRate = m_min(output.SourceTriggerRate, output.ActionTriggerRate)
-				if breakdown then
-					local modActionCooldown = kitavaCD / icdr
-					local rateCapAdjusted = m_ceil(modActionCooldown * data.misc.ServerTickRate) / data.misc.ServerTickRate
-					local extraICDRNeeded = m_ceil((modActionCooldown - rateCapAdjusted + data.misc.ServerTickTime) * icdr * 1000)
-					breakdown.SimData = {
-						s_format("%.2f ^8(奇塔弗之渴望的基础冷却时间)", kitavaCD),
-						s_format("/ %.2f ^8(提高/降低 冷却回复速度)", icdr),
-						s_format("= %.4f ^8(最终冷却时间)", modActionCooldown),
-						s_format(""),
-						s_format("%.3f ^8(调整为服务器触发速率)", rateCapAdjusted),
-						s_format("^8(额外需要 %d%% 冷却速度将达到下个触发点)", extraICDRNeeded),
-						s_format(""),
-						s_format("触发速率:"),
-						s_format("1 / %.3f", rateCapAdjusted),
-						s_format("= %.2f ^8每秒", 1 / rateCapAdjusted),
-					}
-					breakdown.ServerTriggerRate = {
-						s_format("%.2f ^8('触发速率上限' 和 '技能触发速率' 之间的较小值)", output.ServerTriggerRate),
-					}
-				end
-
-				-- Account for chance to trigger
-				local kitavaTriggerChance = env.player.modDB:Sum("BASE", nil, "KitavaTriggerChance")
-				trigRate = output.ServerTriggerRate * kitavaTriggerChance / 100
-				if breakdown then
-					breakdown.Speed = {
-						s_format("%.2fs ^8(调整触发速率)", output.ServerTriggerRate),
-						s_format("x %.2f%% ^8(奇塔弗之渴望的触发几率)", kitavaTriggerChance),
-						s_format("= %.2f ^8每秒", trigRate),
-					}
-				end
-
-				-- Account for Trigger-related INC/MORE modifiers
-				addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
-				env.player.mainSkill.skillData.triggerRate = trigRate
-				env.player.mainSkill.skillData.triggerSource = source
-				env.player.mainSkill.infoMessage = "【奇塔弗之渴望】 触发技能: " .. source.activeEffect.grantedEffect.name
-				env.player.mainSkill.infoMessage2 = ""
-				env.player.mainSkill.infoTrigger = triggerName
+			if skill.skillData.triggeredByManaSpent and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
+				spellCount = spellCount + 1
 			end
 		end
-		-- Crafted Trigger
-		if env.player.mainSkill.skillData.triggeredByCraft and not env.player.mainSkill.skillFlags.minion then
-			local triggerName = "工艺"
-			local spellCount = 0
-			local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
-			local trigRate = 0
-			local source = nil
-			for _, skill in ipairs(env.player.activeSkillList) do
-				if (skill.skillTypes[SkillType.Damage] or skill.skillTypes[SkillType.Attack] or skill.skillTypes[SkillType.Spell]) and skill ~= env.player.mainSkill and not skill.skillData.triggeredByCraft then
-					source, trigRate = skill, 0
-				end
-				if skill.skillData.triggeredByCraft and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
-					spellCount = spellCount + 1
-				end
-				-- we just need one source and one linked spell
-				if source and spellCount > 0 then
-					break
-				end
-			end			
-			if not source or spellCount < 1 then
-				env.player.mainSkill.skillData.triggeredByCraft = nil
-				env.player.mainSkill.infoMessage = s_format("未发现 %s 的触发技能", triggerName)
-				env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
-				env.player.mainSkill.infoTrigger = ""
-			else
-				env.player.mainSkill.skillData.triggered = true							
-				env.player.mainSkill.skillData.triggerCostMultiplier = 2.5
-				output.ActionTriggerRate = getTriggerActionTriggerRate(env.player.mainSkill.skillData.cooldown, env, breakdown)
-				-- Get action trigger rate
-				local craftedCD = getTriggerDefaultCooldown(env.player.mainSkill.supportList, "SupportTriggerSpellOnSkillUse")
 
-				trigRate = icdr / craftedCD
-				output.SourceTriggerRate = trigRate
-				output.ServerTriggerRate = m_min(output.SourceTriggerRate, output.ActionTriggerRate)
-				if breakdown then
-					local modActionCooldown = craftedCD / icdr
-					local rateCapAdjusted = m_ceil(modActionCooldown * data.misc.ServerTickRate) / data.misc.ServerTickRate
-					local extraICDRNeeded = m_ceil((modActionCooldown - rateCapAdjusted + data.misc.ServerTickTime) * icdr * 1000)
-					breakdown.SimData = {
-						s_format("%.2f ^8(工艺词缀触发的基础冷却时间)", craftedCD),
-						s_format("/ %.2f ^8(提高/降低 冷却回复速度)", icdr),
-						s_format("= %.4f ^8(最终冷却时间)", modActionCooldown),
-						s_format(""),
-						s_format("%.3f ^8(调整为服务器触发速率)", rateCapAdjusted),
-						s_format("^8(额外需要 %d%% 冷却速度将达到下个触发点)", extraICDRNeeded),
-						s_format(""),
-						s_format("触发速率:"),
-						s_format("1 / %.3f", rateCapAdjusted),
-						s_format("= %.2f ^8每秒", 1 / rateCapAdjusted),
-					}				
-					breakdown.ServerTriggerRate = {
-						s_format("%.2f ^8('触发速率上限' 和 '技能触发速率' 之间的较小值)", output.ServerTriggerRate),
-					}
-				end
-
-				
-
-				-- Account for Trigger-related INC/MORE modifiers
-				addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
-				env.player.mainSkill.skillData.triggerRate = output.ServerTriggerRate
-				env.player.mainSkill.skillData.triggerSource = source
-				env.player.mainSkill.infoMessage = "存在 武器-工艺 的触发技能"
-				env.player.mainSkill.infoMessage2 = ""
-				env.player.mainSkill.infoTrigger = triggerName
-				env.player.mainSkill.skillFlags.dontDisplay = true
-			end
-		end
-		-- Helmet Focus Trigger
-		if env.player.mainSkill.skillData.triggeredByFocus and not env.player.mainSkill.skillFlags.minion then
-			local triggerName = "专注"
-			local spellCount = 0
-			local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "FocusCooldownRecovery")
-			local trigRate = 0
-			local source = env.player.modDB:Flag(nil, "Condition:Focused")
-			for _, skill in ipairs(env.player.activeSkillList) do
-				if skill.skillData.triggeredByFocus and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
-					spellCount = spellCount + 1
-				end
-			end
-			if not source or spellCount < 1 then
-				env.player.mainSkill.skillData.triggeredByFocus = nil
-				env.player.mainSkill.infoMessage = s_format("未发现 %s 的触发技能", triggerName)
-				env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
-				env.player.mainSkill.infoTrigger = ""
-			else
-				env.player.mainSkill.skillData.triggered = true
-
-				output.ActionTriggerRate = getTriggerActionTriggerRate(env.player.mainSkill.skillData.cooldown, env, breakdown, true)
-
-				-- Get action trigger rate
-				local skillFocus = env.data.skills["Focus"]
-				local focusCD = skillFocus.levels[1].cooldown
-
-				trigRate = icdr / focusCD
-				output.SourceTriggerRate = trigRate
-				output.ServerTriggerRate = m_min(output.SourceTriggerRate, output.ActionTriggerRate)
-				if breakdown then
-					local modActionCooldown = focusCD / icdr
-					local rateCapAdjusted = m_ceil(modActionCooldown * data.misc.ServerTickRate) / data.misc.ServerTickRate
-					breakdown.SimData = {
-						s_format("%.2f ^8(专注触发的冷却时间)", focusCD),
-						s_format("/ %.2f ^8(提高/降低 冷却速度)", icdr),
-						s_format("= %.4f ^8(最终冷却时间)", modActionCooldown),
-						s_format(""),
-						s_format("%.3f ^8(调整为服务器触发速率)", rateCapAdjusted),
-						s_format(""),
-						s_format("触发速率:"),
-						s_format("1 / %.3f", rateCapAdjusted),
-						s_format("= %.2f ^8每秒", 1 / rateCapAdjusted),
-					}
-					breakdown.ServerTriggerRate = {
-						s_format("%.2f ^8('触发速率上限' 和 '技能触发速率' 之间的较小值)", output.ServerTriggerRate),
-					}
-				end
-
-				-- Account for Trigger-related INC/MORE modifiers
-				addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
-				env.player.mainSkill.skillData.triggerRate = output.ServerTriggerRate
-				env.player.mainSkill.skillData.triggerSource = source
-				env.player.mainSkill.infoMessage = "存在 专注 触发技能"
-				env.player.mainSkill.infoMessage2 = ""
-				env.player.mainSkill.infoTrigger = triggerName
-				env.player.mainSkill.skillFlags.dontDisplay = true
-			end
-		end
-		-- Unique Item Trigger
-		if env.player.mainSkill.skillData.triggeredByUnique and not env.player.mainSkill.skillFlags.minion then
-			local uniqueTriggerName = getUniqueItemTriggerName(env.player.mainSkill)
-			local triggerName = ""
-			local spellCount = {}
-			local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
-			local trigRate = 0
-			local source = nil
-			for _, skill in ipairs(env.player.activeSkillList) do
-				if uniqueTriggerName == "诗人之笔" then
-					triggerName = "诗人之笔"
-					if (skill.skillTypes[SkillType.Damage] or skill.skillTypes[SkillType.Attack]) and band(skill.skillCfg.flags, ModFlag.Wand) > 0 and skill ~= env.player.mainSkill and not skill.skillData.triggeredByUnique then
-						source, trigRate = findTriggerSkill(env, skill, source, trigRate)
-					end
-					if skill.skillData.triggeredByUnique and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot and skill.skillTypes[SkillType.Spell] then
-						t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown / icdr, next_trig = 0, count = 0 })
-					end
-				elseif uniqueTriggerName == "马洛尼的技巧" then
-					triggerName = "马洛尼的技巧"
-					if skill.skillTypes[SkillType.Attack] and band(skill.skillCfg.flags, ModFlag.Bow) > 0 and skill ~= env.player.mainSkill and not skill.skillData.triggeredByUnique then
-						source, trigRate = findTriggerSkill(env, skill, source, trigRate)
-					end
-					if skill.skillData.triggeredByUnique and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot and skill.skillTypes[SkillType.RangedAttack] then
-						t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown / icdr, next_trig = 0, count = 0 })
-					end
-				elseif uniqueTriggerName == "安赛娜丝的优雅之歌" then
-					triggerName = "安赛娜丝的优雅之歌"
-					if (skill.skillTypes[SkillType.Damage] or skill.skillTypes[SkillType.Attack]) and band(skill.skillCfg.flags, ModFlag.Bow) > 0 and skill ~= env.player.mainSkill and not skill.skillData.triggeredByUnique then
-						source, trigRate = findTriggerSkill(env, skill, source, trigRate)
-					end
-					if skill.skillData.triggeredByUnique and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot and skill.skillTypes[SkillType.Spell] then
-						t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown / icdr, next_trig = 0, count = 0 })
-					end
-				end
-			end
-			if not source or #spellCount < 1 then
-				env.player.mainSkill.skillData.triggeredByUnique = nil
-				env.player.mainSkill.infoMessage = s_format("未发现 %s 的触发技能", triggerName)
-				env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
-				env.player.mainSkill.infoTrigger = ""
-			else
-				env.player.mainSkill.skillData.triggered = true
-				local uuid = cacheSkillUUID(source)
-				local sourceAPS = GlobalCache.cachedData["CACHE"][uuid].Speed
-				local dualWield = false
-
-				sourceAPS, dualWield = calcDualWieldImpact(env, sourceAPS, source.skillData.doubleHitsWhenDualWielding)
-
-				-- Get action trigger rate
-				trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown, dualWield)
-
-				-- Account for Trigger-related INC/MORE modifiers
-				addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
-				env.player.mainSkill.skillData.triggerRate = trigRate
-				env.player.mainSkill.skillData.triggerSource = source
-				env.player.mainSkill.infoMessage = triggerName .. " 触发技能: " .. source.activeEffect.grantedEffect.name
-				env.player.mainSkill.infoTrigger = triggerName
-			end
-			if env.player.mainSkill.activeEffect.grantedEffect.name == "审判风暴" then
+		if not source or spellCount < 1 then
+			env.player.mainSkill.skillData.triggeredByManaSpent = nil
+			env.player.mainSkill.infoMessage = s_format("未发现【%s】的触发技能", triggerName)
+			env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
+			env.player.mainSkill.infoTrigger = ""
+		else
 			env.player.mainSkill.skillData.triggered = true
-			env.player.mainSkill.skillData.triggerRate = 2.0
-			env.player.mainSkill.skillData.triggerSource = nil
-			elseif env.player.mainSkill.activeEffect.grantedEffect.name == "审判烈焰" then
-				env.player.mainSkill.skillData.triggered = true
-				env.player.mainSkill.skillData.triggerRate = 2.0
-				env.player.mainSkill.skillData.triggerSource = nil
+
+			output.ActionTriggerRate = getTriggerActionTriggerRate(env.player.mainSkill.skillData.cooldown, env, breakdown)
+
+			-- Get action trigger rate
+			local kitavaCD = getTriggerDefaultCooldown(env.player.mainSkill.supportList, "SupportCastOnManaSpent")
+
+			trigRate = icdr / kitavaCD
+			output.SourceTriggerRate = trigRate
+			output.ServerTriggerRate = m_min(output.SourceTriggerRate, output.ActionTriggerRate)
+			if breakdown then
+				local modActionCooldown = kitavaCD / icdr
+				local rateCapAdjusted = m_ceil(modActionCooldown * data.misc.ServerTickRate) / data.misc.ServerTickRate
+				local extraICDRNeeded = m_ceil((modActionCooldown - rateCapAdjusted + data.misc.ServerTickTime) * icdr * 1000)
+				breakdown.SimData = {
+					s_format("%.2f ^8(奇塔弗之渴望的基础冷却时间)", kitavaCD),
+					s_format("/ %.2f ^8(提高/降低 冷却回复速度)", icdr),
+					s_format("= %.4f ^8(最终冷却时间)", modActionCooldown),
+					s_format(""),
+					s_format("%.3f ^8(调整为服务器触发速率)", rateCapAdjusted),
+					s_format("^8(额外需要 %d%% 冷却速度将达到下个触发点)", extraICDRNeeded),
+					s_format(""),
+					s_format("触发速率:"),
+					s_format("1 / %.3f", rateCapAdjusted),
+					s_format("= %.2f ^8每秒", 1 / rateCapAdjusted),
+				}
+				breakdown.ServerTriggerRate = {
+					s_format("%.2f ^8('触发速率上限' 和 '技能触发速率' 之间的较小值)", output.ServerTriggerRate),
+				}
+			end
+
+			-- Account for chance to trigger
+			local kitavaTriggerChance = env.player.modDB:Sum("BASE", nil, "KitavaTriggerChance")
+			trigRate = output.ServerTriggerRate * kitavaTriggerChance / 100
+			if breakdown then
+				breakdown.Speed = {
+					s_format("%.2fs ^8(调整触发速率)", output.ServerTriggerRate),
+					s_format("x %.2f%% ^8(奇塔弗之渴望的触发几率)", kitavaTriggerChance),
+					s_format("= %.2f ^8每秒", trigRate),
+				}
+			end
+
+			-- Account for Trigger-related INC/MORE modifiers
+			addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
+			env.player.mainSkill.skillData.triggerRate = trigRate
+			env.player.mainSkill.skillData.triggerSource = source
+			env.player.mainSkill.infoMessage = "【奇塔弗之渴望】触发技能: " .. source.activeEffect.grantedEffect.name
+			env.player.mainSkill.infoMessage2 = ""
+			env.player.mainSkill.infoTrigger = triggerName
+		end
+	end
+	-- Crafted Trigger
+	if env.player.mainSkill.skillData.triggeredByCraft and not env.player.mainSkill.skillFlags.minion then
+		local triggerName = "工艺"
+		local spellCount = 0
+		local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
+		local trigRate = 0
+		local source = nil
+		for _, skill in ipairs(env.player.activeSkillList) do
+			if (skill.skillTypes[SkillType.Damage] or skill.skillTypes[SkillType.Attack] or skill.skillTypes[SkillType.Spell]) and skill ~= env.player.mainSkill and not skill.skillData.triggeredByCraft then
+				source, trigRate = skill, 0
+			end
+			if skill.skillData.triggeredByCraft and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
+				spellCount = spellCount + 1
+			end
+			-- we just need one source and one linked spell
+			if source and spellCount > 0 then
+				break
 			end
 		end
+		if not source or spellCount < 1 then
+			env.player.mainSkill.skillData.triggeredByCraft = nil
+			env.player.mainSkill.infoMessage = s_format("未发现 %s 的触发技能", triggerName)
+			env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
+			env.player.mainSkill.infoTrigger = ""
+		else
+			env.player.mainSkill.skillData.triggered = true
+			output.ActionTriggerRate = getTriggerActionTriggerRate(env.player.mainSkill.skillData.cooldown, env, breakdown)
+			-- Get action trigger rate
+			local craftedCD = getTriggerDefaultCooldown(env.player.mainSkill.supportList, "SupportTriggerSpellOnSkillUse")
 
-		-- Cast On Critical Strike Support (CoC)
-		if env.player.mainSkill.skillData.triggeredByCoC and not env.player.mainSkill.skillFlags.minion then
+			trigRate = icdr / craftedCD
+			output.SourceTriggerRate = trigRate
+			output.ServerTriggerRate = m_min(output.SourceTriggerRate, output.ActionTriggerRate)
+			if breakdown then
+				local modActionCooldown = craftedCD / icdr
+				local rateCapAdjusted = m_ceil(modActionCooldown * data.misc.ServerTickRate) / data.misc.ServerTickRate
+				local extraICDRNeeded = m_ceil((modActionCooldown - rateCapAdjusted + data.misc.ServerTickTime) * icdr * 1000)
+				breakdown.SimData = {
+					s_format("%.2f ^8(工艺词缀触发的基础冷却时间)", craftedCD),
+					s_format("/ %.2f ^8(提高/降低 冷却回复速度)", icdr),
+					s_format("= %.4f ^8(最终冷却时间)", modActionCooldown),
+					s_format(""),
+					s_format("%.3f ^8(调整为服务器触发速率)", rateCapAdjusted),
+					s_format("^8(额外需要 %d%% 冷却速度将达到下个触发点)", extraICDRNeeded),
+					s_format(""),
+					s_format("触发速率:"),
+					s_format("1 / %.3f", rateCapAdjusted),
+					s_format("= %.2f ^8每秒", 1 / rateCapAdjusted),
+				}
+				breakdown.ServerTriggerRate = {
+					s_format("%.2f ^8('触发速率上限' 和 '技能触发速率' 之间的较小值)", output.ServerTriggerRate),
+				}
+			end
+
+			-- Account for Trigger-related INC/MORE modifiers
+			addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
+			env.player.mainSkill.skillData.triggerRate = output.ServerTriggerRate
+			env.player.mainSkill.skillData.triggerSource = source
+			env.player.mainSkill.infoMessage = "存在 武器-工艺 的触发技能"
+			env.player.mainSkill.infoTrigger = triggerName
+			env.player.mainSkill.skillFlags.dontDisplay = true
+		end
+	end
+	-- Helmet Focus Trigger
+	if env.player.mainSkill.skillData.triggeredByFocus and not env.player.mainSkill.skillFlags.minion then
+		local triggerName = "专注"
+		local spellCount = 0
+		local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "FocusCooldownRecovery")
+		local trigRate = 0
+		local source = env.player.modDB:Flag(nil, "Condition:Focused")
+		for _, skill in ipairs(env.player.activeSkillList) do
+			if skill.skillData.triggeredByFocus and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
+				spellCount = spellCount + 1
+			end
+		end
+		if not source or spellCount < 1 then
+			env.player.mainSkill.skillData.triggeredByFocus = nil
+			env.player.mainSkill.infoMessage = s_format("未发现 %s 的触发技能", triggerName)
+			env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
+			env.player.mainSkill.infoTrigger = ""
+		else
+			env.player.mainSkill.skillData.triggered = true
+
+			output.ActionTriggerRate = getTriggerActionTriggerRate(env.player.mainSkill.skillData.cooldown, env, breakdown, true)
+
+			-- Get action trigger rate
+			local skillFocus = env.data.skills["Focus"]
+			local focusCD = skillFocus.levels[1].cooldown
+
+			trigRate = icdr / focusCD
+			output.SourceTriggerRate = trigRate
+			output.ServerTriggerRate = m_min(output.SourceTriggerRate, output.ActionTriggerRate)
+			if breakdown then
+				local modActionCooldown = focusCD / icdr
+				local rateCapAdjusted = m_ceil(modActionCooldown * data.misc.ServerTickRate) / data.misc.ServerTickRate
+				breakdown.SimData = {
+					s_format("%.2f ^8(专注触发的冷却时间)", focusCD),
+					s_format("/ %.2f ^8(提高/降低 冷却速度)", icdr),
+					s_format("= %.4f ^8(最终冷却时间)", modActionCooldown),
+					s_format(""),
+					s_format("%.3f ^8(调整为服务器触发速率)", rateCapAdjusted),
+					s_format(""),
+					s_format("触发速率:"),
+					s_format("1 / %.3f", rateCapAdjusted),
+					s_format("= %.2f ^8每秒", 1 / rateCapAdjusted),
+				}
+				breakdown.ServerTriggerRate = {
+					s_format("%.2f ^8('触发速率上限' 和 '技能触发速率' 之间的较小值)", output.ServerTriggerRate),
+				}
+			end
+
+			-- Account for Trigger-related INC/MORE modifiers
+			addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
+			env.player.mainSkill.skillData.triggerRate = output.ServerTriggerRate
+			env.player.mainSkill.skillData.triggerSource = source
+			env.player.mainSkill.infoMessage = "存在 专注 触发技能"
+			env.player.mainSkill.infoTrigger = triggerName
+			env.player.mainSkill.skillFlags.dontDisplay = true
+		end
+	end
+	-- Unique Item Trigger
+	if env.player.mainSkill.skillData.triggeredByUnique and not env.player.mainSkill.skillFlags.minion then
+		local uniqueTriggerName = getUniqueItemTriggerName(env.player.mainSkill)
+		local triggerName = ""
+		local spellCount = {}
+		local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
+		local trigRate = 0
+		local source = nil
+		for _, skill in ipairs(env.player.activeSkillList) do
+			local cooldownOverride = skill.skillModList:Override(env.player.mainSkill.skillCfg, "CooldownRecovery")
+			if uniqueTriggerName == "诗人之笔" then
+				triggerName = "诗人之笔"
+				if (skill.skillTypes[SkillType.Damage] or skill.skillTypes[SkillType.Attack]) and band(skill.skillCfg.flags, ModFlag.Wand) > 0 and skill ~= env.player.mainSkill and not skill.skillData.triggeredByUnique then
+					source, trigRate = findTriggerSkill(env, skill, source, trigRate)
+				end
+				if skill.skillData.triggeredByUnique and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot and skill.skillTypes[SkillType.Spell] then
+					t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = cooldownOverride or (skill.skillData.cooldown / icdr), next_trig = 0, count = 0 })
+				end
+			elseif uniqueTriggerName == "马洛尼的技巧" then
+				triggerName = "马洛尼的技巧"
+				if skill.skillTypes[SkillType.Attack] and band(skill.skillCfg.flags, ModFlag.Bow) > 0 and skill ~= env.player.mainSkill and not skill.skillData.triggeredByUnique then
+					source, trigRate = findTriggerSkill(env, skill, source, trigRate)
+				end
+				if skill.skillData.triggeredByUnique and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot and skill.skillTypes[SkillType.RangedAttack] then
+					t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = cooldownOverride or (skill.skillData.cooldown / icdr), next_trig = 0, count = 0 })
+				end
+			elseif uniqueTriggerName == "安赛娜丝的优雅之歌" or uniqueTriggerName == "安赛娜丝的迅敏之冠"  then
+				triggerName = "安赛娜丝"
+				if (skill.skillTypes[SkillType.Damage] or skill.skillTypes[SkillType.Attack]) and band(skill.skillCfg.flags, ModFlag.Bow) > 0 and skill ~= env.player.mainSkill and not skill.skillData.triggeredByUnique then
+					source, trigRate = findTriggerSkill(env, skill, source, trigRate)
+				end
+				if skill.skillData.triggeredByUnique and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot and skill.skillTypes[SkillType.Spell] then
+					t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = cooldownOverride or (skill.skillData.cooldown / icdr), next_trig = 0, count = 0 })
+				end
+			elseif uniqueTriggerName == "女王敕令" then
+				triggerName = "女王敕令"
+				if skill.activeEffect.grantedEffect.name == uniqueTriggerName then
+					source, trigRate = findTriggerSkill(env, skill, source, trigRate)
+				end
+				if skill.skillData.triggeredByUnique and env.player.mainSkill.socketGroup.slot == skill.socketGroup.slot then
+					t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = cooldownOverride or (skill.skillData.cooldown / icdr), next_trig = 0, count = 0 })
+				end
+			else
+				ConPrintf("[ERROR]: Unhandled Unique Trigger Name: " .. uniqueTriggerName)
+			end
+		end
+		if not source or #spellCount < 1 then
+			env.player.mainSkill.skillData.triggeredByUnique = nil
+			env.player.mainSkill.infoMessage = s_format("未发现 %s 的触发技能", triggerName)
+			env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
+			env.player.mainSkill.infoTrigger = ""
+		else
+			env.player.mainSkill.skillData.triggered = true
+			local uuid = cacheSkillUUID(source)
+			local sourceAPS = GlobalCache.cachedData["CACHE"][uuid].Speed
+			local dualWield = false
+
+			sourceAPS, dualWield = calcDualWieldImpact(env, sourceAPS, source.skillData.doubleHitsWhenDualWielding)
+
+			-- Get action trigger rate
+			trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown, dualWield)
+
+			-- Account for Trigger-related INC/MORE modifiers
+			addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
+			env.player.mainSkill.skillData.triggerRate = trigRate
+			env.player.mainSkill.skillData.triggerSource = source
+			env.player.mainSkill.skillData.triggerSourceUUID = cacheSkillUUID(source, env.mode)
+			env.player.mainSkill.skillData.triggerUnleash = source.skillModList:Flag(nil, "HasSeals") and source.skillTypes[SkillType.CanRapidFire]
+			env.player.mainSkill.infoMessage = env.player.mainSkill.activeEffect.grantedEffect.name .. " 触发技能: " .. source.activeEffect.grantedEffect.name
+			env.player.mainSkill.infoTrigger = env.player.mainSkill.infoTrigger or triggerName
+		end
+	end
+
+	-- Cast On Critical Strike Support (CoC)
+	if env.player.mainSkill.skillData.triggeredByCoC and not env.player.mainSkill.skillFlags.minion then
+		local spellCount = {}
+		local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
+		local trigRate = 0
+		local source = nil
+		for _, skill in ipairs(env.player.activeSkillList) do
+			local match1 = env.player.mainSkill.activeEffect.grantedEffect.fromItem and skill.socketGroup.slot == env.player.mainSkill.socketGroup.slot
+			local match2 = (not env.player.mainSkill.activeEffect.grantedEffect.fromItem) and skill.socketGroup == env.player.mainSkill.socketGroup
+			if skill.skillTypes[SkillType.Attack] and skill ~= env.player.mainSkill and (match1 or match2) then
+				source, trigRate = findTriggerSkill(env, skill, source, trigRate)
+			end
+			if skill.skillData.triggeredByCoC and (match1 or match2) then
+				local cooldownOverride = skill.skillModList:Override(env.player.mainSkill.skillCfg, "CooldownRecovery")
+				t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = cooldownOverride or (skill.skillData.cooldown / icdr), next_trig = 0, count = 0 })
+			end
+		end
+		if not source or #spellCount < 1 then
+			env.player.mainSkill.skillData.triggeredByCoC = nil
+			env.player.mainSkill.infoMessage = "未发现 CoC 的触发技能"
+			env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
+			env.player.mainSkill.infoTrigger = ""
+		else
+			env.player.mainSkill.skillData.triggered = true
+			local uuid = cacheSkillUUID(source)
+			local sourceAPS = GlobalCache.cachedData["CACHE"][uuid].Speed
+
+			-- Get action trigger rate
+			trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown)
+
+			-- Account for chance to hit/crit
+			local sourceCritChance = GlobalCache.cachedData["CACHE"][uuid].CritChance
+			trigRate = trigRate * sourceCritChance / 100
+			trigRate = trigRate * (source.skillData.chanceToTriggerOnCrit or 100) / 100
+			if breakdown then
+				breakdown.Speed = {
+					s_format("%.2fs ^8(调整后触发速率)", output.ServerTriggerRate),
+					s_format("x %.2f%% ^8(【%s】的暴击率)", sourceCritChance, source.activeEffect.grantedEffect.name),
+					s_format("x %.2f%% ^8(暴击时触发的几率)", source.skillData.chanceToTriggerOnCrit or 100),
+					s_format("= %.2f ^8每秒", trigRate),
+				}
+			end
+
+			-- Account for Trigger-related INC/MORE modifiers
+			addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
+			env.player.mainSkill.skillData.triggerRate = trigRate
+			env.player.mainSkill.skillData.triggerSource = source
+			env.player.mainSkill.infoMessage = "CoC Triggering Skill: " .. source.activeEffect.grantedEffect.name
+			env.player.mainSkill.infoTrigger = "CoC"
+		end
+	end
+
+	-- Cast On Melee Kill Support (CoMK)
+	if env.player.mainSkill.skillData.triggeredByMeleeKill and not env.player.mainSkill.skillFlags.minion and modDB:Flag(nil, "Condition:KilledRecently") then
+		local spellCount = {}
+		local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
+		local trigRate = 0
+		local source = nil
+		for _, skill in ipairs(env.player.activeSkillList) do
+			local match1 = env.player.mainSkill.activeEffect.grantedEffect.fromItem and skill.socketGroup.slot == env.player.mainSkill.socketGroup.slot
+			local match2 = (not env.player.mainSkill.activeEffect.grantedEffect.fromItem) and skill.socketGroup == env.player.mainSkill.socketGroup
+			if skill.skillTypes[SkillType.Attack] and skill.skillTypes[SkillType.Melee] and skill ~= env.player.mainSkill and (match1 or match2) then
+				source, trigRate = findTriggerSkill(env, skill, source, trigRate)
+			end
+			if skill.skillData.triggeredByMeleeKill and (match1 or match2) then
+				local cooldownOverride = skill.skillModList:Override(env.player.mainSkill.skillCfg, "CooldownRecovery")
+				t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = cooldownOverride or (skill.skillData.cooldown / icdr), next_trig = 0, count = 0 })
+			end
+		end
+		if not source or #spellCount < 1 then
+			env.player.mainSkill.skillData.triggeredByMeleeKill = nil
+			env.player.mainSkill.infoMessage = "未发现 近战击败时施放 的触发技能"
+			env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
+			env.player.mainSkill.infoTrigger = ""
+		else
+			env.player.mainSkill.skillData.triggered = true
+			local uuid = cacheSkillUUID(source)
+			local sourceAPS = GlobalCache.cachedData["CACHE"][uuid].Speed
+
+			-- Get action trigger rate
+			trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown)
+
+			-- Account for chance to trigger on Melee Kill
+			trigRate = trigRate * source.skillData.chanceToTriggerOnMeleeKill / 100
+
+			if breakdown then
+				breakdown.Speed = {
+					s_format("%.2fs ^8(调整后触发速率)", output.ServerTriggerRate),
+					s_format("x %.2f%% ^8(【%s】的暴击率)", sourceCritChance, source.activeEffect.grantedEffect.name),
+					s_format("x %.2f%% ^8(暴击时触发的几率)", source.skillData.chanceToTriggerOnCrit or 100),
+					s_format("= %.2f ^8每秒", trigRate),
+				}
+			end
+
+			-- Account for Trigger-related INC/MORE modifiers
+			addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
+			env.player.mainSkill.skillData.triggerRate = trigRate
+			env.player.mainSkill.skillData.triggerSource = source
+			env.player.mainSkill.infoMessage = "近战击败时施放触发技能: " .. source.activeEffect.grantedEffect.name
+			env.player.mainSkill.infoTrigger = "CoMK"
+		end
+	end
+
+	-- Cast While Channelling
+	if env.player.mainSkill.skillData.triggeredWhileChannelling and not env.player.mainSkill.skillFlags.minion then
+		local spellCount = {}
+
+		local trigRate = 0
+		local source = nil
+		for _, skill in ipairs(env.player.activeSkillList) do
+			local match1 = env.player.mainSkill.activeEffect.grantedEffect.fromItem and skill.socketGroup.slot == env.player.mainSkill.socketGroup.slot
+			local match2 = (not env.player.mainSkill.activeEffect.grantedEffect.fromItem) and skill.socketGroup == env.player.mainSkill.socketGroup
+			if skill.skillTypes[SkillType.Channel] and skill ~= env.player.mainSkill and (match1 or match2) then
+				source, trigRate = findTriggerSkill(env, skill, source, trigRate)
+			end
+			if skill.skillData.triggeredWhileChannelling and (match1 or match2) then
+				t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown, next_trig = 0, count = 0 })
+			end
+		end
+		if not source or #spellCount < 1 then
+			env.player.mainSkill.skillData.triggeredWhileChannelling = nil
+			env.player.mainSkill.infoMessage = "未发现 CwC 的触发技能"
+			env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
+			env.player.mainSkill.infoTrigger = ""
+		else
+			env.player.mainSkill.skillData.triggered = true
+
+			-- Get action trigger rate
+			trigRate = calcActualTriggerRate(env, source, nil, spellCount, output, breakdown)
+
+			-- Account for Trigger-related INC/MORE modifiers
+			addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
+			env.player.mainSkill.skillData.triggerRate = trigRate
+			env.player.mainSkill.skillData.triggerSource = source
+			env.player.mainSkill.infoMessage = "CwC 触发技能: " .. source.activeEffect.grantedEffect.name
+
+			env.player.mainSkill.infoTrigger = "CwC"
+
+			env.player.mainSkill.skillFlags.dontDisplay = true
+		end
+	end
+
+	-- Triggered by parent attack
+	if env.minion and env.player.mainSkill.minion then
+		if env.minion.mainSkill.skillData.triggeredByParentAttack then
 			local spellCount = {}
-			local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
 			local trigRate = 0
 			local source = nil
 			for _, skill in ipairs(env.player.activeSkillList) do
-				local match1 = skill.activeEffect.grantedEffect.fromItem and skill.socketGroup.slot == env.player.mainSkill.socketGroup.slot
-				local match2 = (not skill.activeEffect.grantedEffect.fromItem) and skill.socketGroup == env.player.mainSkill.socketGroup
-				if skill.skillTypes[SkillType.Attack] and skill ~= env.player.mainSkill and (match1 or match2) then
+				if skill.skillTypes[SkillType.Attack] and skill ~= env.player.mainSkill then
 					source, trigRate = findTriggerSkill(env, skill, source, trigRate)
 				end
-				if skill.skillData.triggeredByCoC and (match1 or match2) then
-					t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown / icdr, next_trig = 0, count = 0 })
-				end
 			end
-			if not source or #spellCount < 1 then
-				env.player.mainSkill.skillData.triggeredByCoC = nil
-				env.player.mainSkill.infoMessage = "未发现 CoC 的触发技能"
-				env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
-				env.player.mainSkill.infoTrigger = ""
+			
+			local icdr = calcLib.mod(env.minion.mainSkill.skillModList, env.minion.mainSkill.skillCfg, "CooldownRecovery")
+			t_insert(spellCount, { uuid = cacheSkillUUID(env.minion.mainSkill), cd = env.minion.mainSkill.skillData.cooldown / icdr, next_trig = 0, count = 0 })
+
+			if not source then
+				env.minion.mainSkill.skillData.triggeredByParentAttack = nil
+				env.minion.mainSkill.infoMessage = "No triggering Skill Found"
+				env.minion.mainSkill.infoMessage2 = "DPS reported assuming regular cast"
+				env.minion.mainSkill.infoTrigger = ""
 			else
-				env.player.mainSkill.skillData.triggered = true
+				env.minion.mainSkill.skillData.triggered = true
 				local uuid = cacheSkillUUID(source)
+
 				local sourceAPS = GlobalCache.cachedData["CACHE"][uuid].Speed
 
 				-- Get action trigger rate
-				trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown)
+				trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, env.minion.output, env.minion.breakdown, false, true)
 
-				-- Account for chance to hit/crit
-				local sourceCritChance = GlobalCache.cachedData["CACHE"][uuid].CritChance
-				trigRate = trigRate * sourceCritChance / 100
-				trigRate = trigRate * (source.skillData.chanceToTriggerOnCrit or 100) / 100
-				if breakdown then
-					breakdown.Speed = {
-						s_format("%.2fs ^8(调整后触发速率)", output.ServerTriggerRate),
-						s_format("x %.2f%% ^8(【%s】的暴击率)", sourceCritChance, source.activeEffect.grantedEffect.name),
-						s_format("x %.2f%% ^8(暴击时触发的几率)", source.skillData.chanceToTriggerOnCrit or 100),
-						s_format("= %.2f ^8每秒", trigRate),
+				-- Account for chance to hit
+				local sourceHitChance = GlobalCache.cachedData["CACHE"][uuid].HitChance
+				trigRate = trigRate * sourceHitChance / 100
+				if env.minion.breakdown then
+					env.minion.breakdown.Speed = {
+						s_format("%.2fs ^8(adjusted trigger rate)", env.minion.output.ServerTriggerRate),
+						s_format("x %.2f%% ^8(%s Hit chance)", sourceHitChance, source.activeEffect.grantedEffect.name),
+						s_format("= %.2f ^8per second", trigRate),
 					}
 				end
 
 				-- Account for Trigger-related INC/MORE modifiers
-				addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
-				env.player.mainSkill.skillData.triggerRate = trigRate
-				env.player.mainSkill.skillData.triggerSource = source
-				env.player.mainSkill.infoMessage = "CoC 触发技能: " .. source.activeEffect.grantedEffect.name
-				env.player.mainSkill.infoMessage2 = ""
-				env.player.mainSkill.infoTrigger = "CoC"
+				addTriggerIncMoreMods(env.minion.mainSkill, env.minion.mainSkill)
+				env.minion.mainSkill.skillData.triggerRate = trigRate
+				env.minion.mainSkill.skillData.triggerSource = source
+				env.minion.mainSkill.infoMessage = "Triggering Skill: " .. source.activeEffect.grantedEffect.name
+				env.minion.mainSkill.infoTrigger = "Parent attack"
 			end
 		end
+	end
 
-		-- Cast On Melee Kill Support (CoMK)
-		if env.player.mainSkill.skillData.triggeredByMeleeKill and not env.player.mainSkill.skillFlags.minion and modDB:Flag(nil, "Condition:KilledRecently") then
-			local spellCount = {}
-			local icdr = calcLib.mod(env.player.mainSkill.skillModList, env.player.mainSkill.skillCfg, "CooldownRecovery")
-			local trigRate = 0
-			local source = nil
-			for _, skill in ipairs(env.player.activeSkillList) do
-				local match1 = skill.activeEffect.grantedEffect.fromItem and skill.socketGroup.slot == env.player.mainSkill.socketGroup.slot
-				local match2 = (not skill.activeEffect.grantedEffect.fromItem) and skill.socketGroup == env.player.mainSkill.socketGroup
-				if skill.skillTypes[SkillType.Attack] and skill.skillTypes[SkillType.Melee] and skill ~= env.player.mainSkill and (match1 or match2) then
-					source, trigRate = findTriggerSkill(env, skill, source, trigRate)
-				end
-				if skill.skillData.triggeredByMeleeKill and (match1 or match2) then
-					t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown / icdr, next_trig = 0, count = 0 })
-				end
-			end
-			if not source or #spellCount < 1 then
-				env.player.mainSkill.skillData.triggeredByMeleeKill = nil
-				env.player.mainSkill.infoMessage = "未发现 CoMK 的触发技能"
-				env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
-				env.player.mainSkill.infoTrigger = ""
-			else
-				env.player.mainSkill.skillData.triggered = true
-				local uuid = cacheSkillUUID(source)
-				local sourceAPS = GlobalCache.cachedData["CACHE"][uuid].Speed
-
-				-- Get action trigger rate
-				trigRate = calcActualTriggerRate(env, source, sourceAPS, spellCount, output, breakdown)
-
-				-- Account for chance to tigger on Melee Kill
-				trigRate = trigRate * source.skillData.chanceToTriggerOnMeleeKill / 100
-
-				if breakdown then
-					breakdown.Speed = {
-						s_format("%.2fs ^8(调整后触发速率)", output.ServerTriggerRate),
-						s_format("x %.2f%% ^8(近战击败时触发的几率)", source.skillData.chanceToTriggerOnMeleeKill),
-						s_format("= %.2f ^8每秒", trigRate),
-					}
-				end
-
-				-- Account for Trigger-related INC/MORE modifiers
-				addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
-				env.player.mainSkill.skillData.triggerRate = trigRate
-				env.player.mainSkill.skillData.triggerSource = source
-				env.player.mainSkill.infoMessage = "CoMK 触发技能: " .. source.activeEffect.grantedEffect.name
-				env.player.mainSkill.infoMessage2 = ""
-				env.player.mainSkill.infoTrigger = "CoMK"
-			end
-		end
-
-		-- Cast While Channelling
-		if env.player.mainSkill.skillData.triggeredWhileChannelling and not env.player.mainSkill.skillFlags.minion then
-			local spellCount = {}
-			local trigRate = 0
-			local source = nil
-			for _, skill in ipairs(env.player.activeSkillList) do
-				local match1 = skill.activeEffect.grantedEffect.fromItem and skill.socketGroup.slot == env.player.mainSkill.socketGroup.slot
-				local match2 = (not skill.activeEffect.grantedEffect.fromItem) and skill.socketGroup == env.player.mainSkill.socketGroup
-				if skill.skillTypes[SkillType.Channel] and skill ~= env.player.mainSkill and (match1 or match2) then
-					source, trigRate = findTriggerSkill(env, skill, source, trigRate)
-				end
-				if skill.skillData.triggeredWhileChannelling and (match1 or match2) then
-					t_insert(spellCount, { uuid = cacheSkillUUID(skill), cd = skill.skillData.cooldown, next_trig = 0, count = 0 })
-				end
-			end
-			if not source or #spellCount < 1 then
-				env.player.mainSkill.skillData.triggeredWhileChannelling = nil
-				env.player.mainSkill.infoMessage = "未发现 CwC 的触发技能"
-				env.player.mainSkill.infoMessage2 = "DPS 报表信息-假设为自施法"
-				env.player.mainSkill.infoTrigger = ""
-			else
-				env.player.mainSkill.skillData.triggered = true
-
-				-- Get action trigger rate
-				trigRate = calcActualTriggerRate(env, source, nil, spellCount, output, breakdown)
-
-				-- Account for Trigger-related INC/MORE modifiers
-				addTriggerIncMoreMods(env.player.mainSkill, env.player.mainSkill)
-				env.player.mainSkill.skillData.triggerRate = trigRate
-				env.player.mainSkill.skillData.triggerSource = source
-				env.player.mainSkill.infoMessage = "CwC 触发技能: " .. source.activeEffect.grantedEffect.name
-				env.player.mainSkill.infoMessage2 = ""
-				env.player.mainSkill.infoTrigger = "CwC"
-
-				env.player.mainSkill.skillFlags.dontDisplay = true
-			end
-		end
-	--end
-	
-	
 	-- Fix the configured impale stacks on the enemy
 	-- 		If the config is missing (blank), then use the maximum number of stacks
 	--		If the config is larger than the maximum number of stacks, replace it with the correct maximum
@@ -3007,54 +2998,89 @@ function calcs.perform(env, avoidCache)
 	elseif enemyDB:Sum("BASE", nil, "Multiplier:ImpaleStacks") > maxImpaleStacks then
 		enemyDB:ReplaceMod("Multiplier:ImpaleStacks", "BASE", maxImpaleStacks, "Config", { type = "Condition", var = "Combat" })
 	end
-	
-	
-	
-	output.MaximumShock = modDB:Override(nil, "ShockMax") or 50
--- Calculates maximum Shock, then applies the strongest Shock effect to the enemy
-	if (enemyDB:Sum("BASE", nil, "ShockVal") > 0 or modDB:Sum(nil, "ShockBase", "ShockOverride")) and not enemyDB:Flag(nil, "Condition:AlreadyShocked") then
-		local overrideShock = 0
-		for i, value in ipairs(modDB:Tabulate("BASE", { }, "ShockBase", "ShockOverride")) do
-			local mod = value.mod
-			local inc = 1 + modDB:Sum("INC", nil, "EnemyShockEffect") / 100
-			local effect = mod.value
-			if mod.name == "ShockOverride" then
-				enemyDB:NewMod("Condition:Shocked", "FLAG", true, mod.source)
+
+	-- Calculate maximum and apply the strongest non-damaging ailments
+	local ailmentData = data.nonDamagingAilment
+	local ailments = {
+		["Chill"] = {
+			condition = "Chilled",
+			mods = function(num)
+				local mods = { modLib.createMod("ActionSpeed", "INC", -num, "Chill", { type = "Condition", var = "Chilled" }) }
+				if output.HasBonechill and (hasGuaranteedBonechill or enemyDB:Sum("BASE", nil, "ChillVal") > 0) then
+					t_insert(mods, modLib.createMod("ColdDamageTaken", "INC", num, "Bonechill", { type = "Condition", var = "Chilled" }))
+				end
+				return mods
 			end
-			if mod.name == "ShockBase" then
-				effect = effect * inc
-				modDB:NewMod("ShockOverride", "BASE", effect, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		},
+		["Shock"] = {
+			condition = "Shocked",
+			mods = function(num)
+				return { modLib.createMod("DamageTaken", "INC", num, "Shock", { type = "Condition", var = "Shocked" }) }
 			end
-			overrideShock = m_max(overrideShock or 0, effect or 0)
+		},
+		["Scorch"] = {
+			condition = "Scorched",
+			mods = function(num)
+				return { modLib.createMod("ElementalResist", "BASE", -num, "Scorch", { type = "Condition", var = "Scorched" }) }
+			end
+		},
+		["Brittle"] = {
+			condition = "Brittle",
+			mods = function(num)
+				return { modLib.createMod("SelfCritChance", "BASE", num, "Brittle", { type = "Condition", var = "Brittle" }) }
+			end
+		},
+		["Sap"] = {
+			condition = "Sapped",
+			mods = function(num)
+				return { modLib.createMod("Damage", "MORE", -num, "Sap", { type = "Condition", var = "Sapped" }) }
+			end
+		},
+	}
+
+	for ailment, val in pairs(ailments) do
+		if (enemyDB:Sum("BASE", nil, ailment.."Val") > 0
+		or modDB:Sum("BASE", nil, ailment.."Base", ailment.."Override"))
+		and not enemyDB:Flag(nil, "Condition:Already"..val.condition) then
+			local override = 0
+			for _, value in ipairs(modDB:Tabulate("BASE", nil, ailment.."Base", ailment.."Override")) do
+				local mod = value.mod
+				local effect = mod.value
+				if mod.name == ailment.."Override" then
+					enemyDB:NewMod("Condition:"..val.condition, "FLAG", true, mod.source)
+				end
+				if mod.name == ailment.."Base" then
+					-- If the main skill can inflict the ailment, the ailment is inflicted with a hit, and we have a node allocated that checks what our highest damage is, then
+					-- use the skill's ailment modifiers
+					-- if not, use the generic modifiers
+					-- Scorch/Sap/Brittle do not have guaranteed sources from hits, and therefor will only end up in this bit of code if it's not supposed to apply the skillModList, which is bad
+					if ailment ~= "Scorch" and ailment ~= "Sap" and ailment ~= "Brittle" and not env.player.mainSkill.skillModList:Flag(nil, "Cannot"..ailment) and env.player.mainSkill.skillFlags.hit and modDB:Flag(nil, "ChecksHighestDamage") then
+						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, nil, "Enemy"..ailment.."Effect")
+					else
+						effect = effect * calcLib.mod(modDB, nil, "Enemy"..ailment.."Effect")
+					end
+					modDB:NewMod(ailment.."Override", "BASE", effect, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+				end
+				override = m_max(override, effect or 0)
+			end
+			output["Maximum"..ailment] = modDB:Override(nil, ailment.."Max") or (ailmentData[ailment].max + modDB:Sum("BASE", nil, ailment.."Max"))
+			output["Current"..ailment] = m_floor(m_min(m_max(override, enemyDB:Sum("BASE", nil, ailment.."Val")), output["Maximum"..ailment]) * (10 ^ ailmentData[ailment].precision)) / (10 ^ ailmentData[ailment].precision)
+			for _, mod in ipairs(val.mods(output["Current"..ailment])) do
+				enemyDB:AddMod(mod)
+			end
+			enemyDB:NewMod("Condition:Already"..val.condition, "FLAG", true, { type = "Condition", var = val.condition } ) -- Prevents ailment from applying doubly for minions
 		end
-		output.MaximumShock = modDB:Override(nil, "ShockMax") or 50
-		output.CurrentShock = m_floor(m_min(m_max(overrideShock, enemyDB:Sum("BASE", nil, "ShockVal")), output.MaximumShock))
-		enemyDB:NewMod("DamageTaken", "INC", m_floor(output.CurrentShock), "Shock", { type = "Condition", var = "Shocked"} )
-		enemyDB:NewMod("Condition:AlreadyShocked", "FLAG", true, { type = "Condition", var = "Shocked"} ) -- Prevents Shock from applying doubly for minions
-	end
-	
-	-- Calculates maximum Scorch, then applies the strongest Scorch effect to the enemy
-	if (enemyDB:Sum("BASE", nil, "ScorchVal") > 0 or modDB:Sum(nil, "ScorchBase", "ScorchOverride")) and not enemyDB:Flag(nil, "Condition:AlreadyScorched") then
-		local overrideScorch = 0
-		for i, value in ipairs(modDB:Tabulate("BASE", { }, "ScorchBase", "ScorchOverride")) do
-			local mod = value.mod
-			local inc = 1 + modDB:Sum("INC", nil, "EnemyScorchEffect") / 100
-			local effect = mod.value
-			if mod.name == "ScorchOverride" then
-				enemyDB:NewMod("Condition:Scorched", "FLAG", true, mod.source)
-			end
-			if mod.name == "ScorchBase" then
-				effect = effect * inc
-				modDB:NewMod("ScorchOverride", "BASE", effect, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
-			end
-			overrideScorch = m_max(overrideScorch or 0, effect or 0)
-		end
-		output.MaximumScorch = modDB:Override(nil, "ScorchMax") or 50
-		output.CurrentScorch = m_floor(m_min(m_max(overrideScorch, enemyDB:Sum("BASE", nil, "ScorchVal")), output.MaximumScorch))
-		enemyDB:NewMod("ElementalResist", "BASE",  -m_floor(output.CurrentScorch), "Scorch", { type = "Condition", var = "Scorched"} )
-		enemyDB:NewMod("Condition:AlreadyScorched", "FLAG", true, { type = "Condition", var = "Scorched"} ) -- Prevents Scorch from applying doubly for minions
 	end
 
+	-- Update chill and shock multipliers
+	local chillEffectMultiplier = enemyDB:Sum("BASE", nil, "Multiplier:ChillEffect")
+	if chillEffectMultiplier < output["CurrentChill"] then
+		enemyDB:NewMod("Multiplier:ChillEffect", "BASE", output["CurrentChill"] - chillEffectMultiplier, "")
+	end
+	local shockEffectMultiplier = enemyDB:Sum("BASE", nil, "Multiplier:ShockEffect")
+	if shockEffectMultiplier < output["CurrentShock"] then
+		enemyDB:NewMod("Multiplier:ShockEffect", "BASE", output["CurrentShock"] - shockEffectMultiplier, "")
+	end
 
 	-- Check for extra auras
 	for _, value in ipairs(modDB:List(nil, "ExtraAura")) do
@@ -3088,11 +3114,13 @@ function calcs.perform(env, avoidCache)
 
 	-- Merge keystones again to catch any that were added by buffs
 	mergeKeystones(env)
-	--mergeNotable(env)
 	-- Special handling for Dancing Dervish
 	if modDB:Flag(nil, "DisableWeapons") then
 		env.player.weaponData1 = copyTable(env.data.unarmedWeaponData[env.classId])
 		modDB.conditions["Unarmed"] = true
+		if not env.player.Gloves or env.player.Gloves == None then
+			modDB.conditions["Unencumbered"] = true
+		end
 	elseif env.weaponModList1 then
 		modDB:AddList(env.weaponModList1)
 	end
@@ -3139,8 +3167,6 @@ function calcs.perform(env, avoidCache)
 			end
 		end
 	end
-
-	
 	-- Handle consecrated ground effects on enemies
 	if enemyDB:Flag(nil, "Condition:OnConsecratedGround") then
 		local effect = 1 + modDB:Sum("INC", nil, "ConsecratedGroundEffect") / 100
@@ -3151,21 +3177,15 @@ function calcs.perform(env, avoidCache)
 	-- Defence/offence calculations
 	calcs.defence(env, env.player)
 	calcs.offence(env, env.player, env.player.mainSkill)
-	
-	
-	
 	if env.minion then
 		calcs.defence(env, env.minion)
 		calcs.offence(env, env.minion, env.minion.mainSkill)
 		--重新计算抗性
-		doActorAttribsPoolsConditions(env, env.minion)
-		
+		-- doActorAttribsPoolsConditions(env, env.minion)
 	end
 
 	local uuid = cacheSkillUUID(env.player.mainSkill)
 	if not env.dontCache then
 		cacheData(uuid, env)
 	end
-	
-	
 end

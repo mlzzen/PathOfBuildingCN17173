@@ -4,7 +4,6 @@
 -- Passive skill tree viewer.
 -- Draws the passive skill tree, and also maintains the current view settings (zoom level, position, etc)
 --
---local launch, main = ...
 
 local pairs = pairs
 local ipairs = ipairs
@@ -15,9 +14,6 @@ local m_max = math.max
 local m_floor = math.floor
 local band = bit.band
 local b_rshift = bit.rshift
-
-
- 
 
 local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.ring = NewImageHandle()
@@ -295,18 +291,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				build.itemsTab:SelectControl(slot)
 				build.viewMode = "ITEMS"
 			end
-				--[[ Only allow node editing in these situations:
-					Vaal (Glorious Vanity): 		any non-keystone
-					Maraketh (Brutal Restraint): 	only notables, +dex already set
-					Eternal (Elegant Hubris):		only notables, other passives are blank
-					Karui (Lethal Pride):			only notables, +str already set
-					Templar (Militant Faith):		any non-keystone, non-notables add devotion or replace with devotion
-			]]--
-		elseif hoverNode and hoverNode.conqueredBy and hoverNode.type ~= "Keystone" and
-				(hoverNode.conqueredBy.conqueror.type == "vaal"
-				or hoverNode.isNotable) then
-			build.treeTab:ModifyNodePopup(hoverNode, viewPort)
-			build.buildFlag = true
 		elseif hoverNode and hoverNode.alloc and hoverNode.type == "Mastery" and hoverNode.masteryEffects then
 			build.treeTab:OpenMasteryPopup(hoverNode, viewPort)
 			build.buildFlag = true
@@ -372,7 +356,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	for _, subGraph in pairs(spec.subGraphs) do
 		renderGroup(subGraph.group, true)
 	end
-	
+
 	local connectorColor = { 1, 1, 1 }
 	local function setConnectorColor(r, g, b)
 		connectorColor[1], connectorColor[2], connectorColor[3] = r, g, b
@@ -492,7 +476,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			if node.type == "Socket" then
 				-- Node is a jewel socket, retrieve the socketed jewel (if present) so we can display the correct art
 				base = tree.assets[node.overlay[state .. (node.expansionJewel and "Alt" or "")]]
-				
+
 				local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
 				if isAlloc and jewel then
 					if jewel.baseName == "赤红珠宝" then
@@ -506,7 +490,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					elseif jewel.base.subType == "Abyss" or jewel.baseName:match("之凝珠宝$") then
 						overlay = node.expansionJewel and "JewelSocketActiveAbyssAlt" or "JewelSocketActiveAbyss"
 					elseif jewel.baseName == "永恒珠宝" then
-						overlay = node.expansionJewel and "JewelSocketActiveLegionAlt" or "JewelSocketActiveLegion"					
+						overlay = node.expansionJewel and "JewelSocketActiveLegionAlt" or "JewelSocketActiveLegion"
 					elseif jewel.baseName == "Large Cluster Jewel"  or jewel.baseName == "巨型星团珠宝" then
 						-- Temp; waiting for art :/
 						overlay = "JewelSocketActiveAltPurple"
@@ -723,10 +707,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					local radData = build.data.jewelRadius[jewel.jewelRadiusIndex]
 					local outerSize = radData.outer * scale
 					local innerSize = radData.inner * scale * 1.06
-					if jewel.title == "残酷的约束" then
-						DrawImage(self.maraketh1, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-						DrawImage(self.maraketh2, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-					elseif jewel.jewelData and jewel.jewelData.impossibleEscapeKeystones then
+					if jewel.title == "无所遁形" then
 						-- Impossible Escape ring shows on the allocated Keystone
 						for keystoneName, _ in pairs(jewel.jewelData.impossibleEscapeKeystones) do
 							local keystone = spec.tree.keystoneMap[keystoneName]
@@ -740,6 +721,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 								DrawImage(self.jewelShadedInnerRingFlipped, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2)
 							end
 						end
+					elseif jewel.title == "残酷的约束" then
+						DrawImage(self.maraketh1, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
+						DrawImage(self.maraketh2, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
 					elseif jewel.title == "优雅的狂妄" then
 						DrawImage(self.eternal1, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
 						DrawImage(self.eternal2, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
@@ -886,13 +870,13 @@ function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 			end
 		end
 		if attribTotals["Str"] >= 40 then
-tooltip:AddLine(16, "^7可以支持"..colorCodes.STRENGTH.."力量需求型的 ^7门槛珠宝")
+			tooltip:AddLine(16, "^7可以支持"..colorCodes.STRENGTH.."力量需求型的 ^7门槛珠宝")
 		end
 		if attribTotals["Dex"] >= 40 then
-tooltip:AddLine(16, "^7可以支持"..colorCodes.DEXTERITY.."敏捷需求型的 ^7门槛珠宝")
+			tooltip:AddLine(16, "^7可以支持"..colorCodes.DEXTERITY.."敏捷需求型的 ^7门槛珠宝")
 		end
 		if attribTotals["Int"] >= 40 then
-tooltip:AddLine(16, "^7可以支持"..colorCodes.INTELLIGENCE.."智慧需求型的 ^7门槛珠宝")
+			tooltip:AddLine(16, "^7可以支持"..colorCodes.INTELLIGENCE.."智慧需求型的 ^7门槛珠宝")
 		end
 	end
 	if node.type == "Socket" and node.alloc then
@@ -918,12 +902,12 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build)
 		end
 		tooltip:AddSeparator(14)
 		if socket:IsEnabled() then
-tooltip:AddLine(14, colorCodes.TIP.."提示: 右键点击插槽可以跳转到装备界面，进行珠宝的配置.")
+			tooltip:AddLine(14, colorCodes.TIP.."提示: 右键点击插槽可以跳转到装备界面，进行珠宝的配置.")
 		end
-tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
+		tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 		return
 	end
-	
+
 	-- Node name
 	self:AddNodeName(tooltip, node, build)
 	if launch.devModeAlt then
@@ -935,8 +919,8 @@ tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 
 	-- Node description
 	local function addModInfoToTooltip(node, i, line)
-		if node.mods[i].list then
-			if launch.devModeAlt then
+		if node.mods[i] then
+			if launch.devModeAlt and node.mods[i].list then
 				-- Modifier debugging info
 				local modStr
 				for _, mod in pairs(node.mods[i].list) do
@@ -959,7 +943,7 @@ tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 	-- Then continue processing as normal
 	local masteryColor = ""
 	local mNode = node
-	local compareNode = self.compareSpec and self.compareSpec.nodes[node.id].alloc or false
+	local compareNode = self.compareSpec and self.compareSpec.nodes[node.id] and self.compareSpec.nodes[node.id].alloc or false
 	if node.type == "Mastery" then
 		if not node.alloc and compareNode then
 			mNode = self.compareSpec.nodes[node.id]
@@ -1033,6 +1017,7 @@ tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 			pathNodes[node] = true
 		end
 		local nodeOutput, pathOutput
+		local isGranted = build.calcsTab.mainEnv.grantedPassives[node.id]
 		local realloc = false
 		if node.alloc and node.type == "Mastery" and main.popups[1] then
 			realloc = true
@@ -1043,11 +1028,14 @@ tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 			if pathLength > 1 then
 				pathOutput = calcFunc({ removeNodes = pathNodes })
 			end
+		elseif isGranted then
+			-- Calculate the differences caused by deallocating this node
+			nodeOutput = calcFunc({ removeNodes = { [node.id] = true } })
 		else
 			-- Calculated the differences caused by allocating this node and all nodes along the path to it
 			if node.type == "Mastery" and node.allMasteryOptions then
 				pathNodes[node] = nil
-				nodeOutput = calcFunc()
+				nodeOutput = calcFunc({})
 			else
 				nodeOutput = calcFunc({ addNodes = { [node] = true } })
 			end
@@ -1056,11 +1044,16 @@ tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 			end
 		end
 		local count = build:AddStatComparesToTooltip(tooltip, calcBase, nodeOutput, realloc and "^7重点这个天赋点会让你:" or node.alloc and "^7取消这个天赋点会让你:" or "^7点亮这个天赋点会给你:")
-		if pathLength > 1 then
+		if pathLength > 1 and not isGranted then
 			count = count + build:AddStatComparesToTooltip(tooltip, calcBase, pathOutput, node.alloc and "^7取消这个天赋点和关联节点会让你:" or "^7点亮这个天赋点和关联节点会给你:", pathLength)
 		end
 		if count == 0 then
-			tooltip:AddLine(14, string.format("^7 %s这个天赋点%s，没有任何变化", node.alloc and "取消" or "点亮", pathLength > 1 and " 和其关联节点" or ""))
+			if isGranted then
+				tooltip:AddLine(14, string.format("^7这个天赋点是由物品获得的. 取消这个天赋点不会发生改变"))
+			else
+				tooltip:AddLine(14, string.format("^7这个天赋点%s，没有任何变化", node.alloc and "unallocating" or "allocating", pathLength > 1 and " or the nodes leading to it" or ""))
+			end
+
 		end
 		tooltip:AddLine(14, colorCodes.TIP.."提示: 按下 Ctrl+D 可以隐藏节点加成预览.")
 	else
@@ -1073,6 +1066,7 @@ tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 	if node.path and #node.path > 0 then
 		if self.traceMode and isValueInArray(self.tracePath, node) then
 			tooltip:AddLine(14, "^7距离 "..#self.tracePath .. " 个天赋点")
+			tooltip:AddLine(14, colorCodes.TIP)
 		else
 			tooltip:AddLine(14, "^7距离 "..#node.path .. " 个天赋点")
 			tooltip:AddLine(14, colorCodes.TIP)
@@ -1083,7 +1077,7 @@ tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 		end
 	end
 	if node.type == "Socket" then
-tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
+		tooltip:AddLine(14, colorCodes.TIP.."提示: 按住Shift隐藏提示.")
 	end
 	if node.depends and #node.depends > 1 then
 		tooltip:AddSeparator(14)
