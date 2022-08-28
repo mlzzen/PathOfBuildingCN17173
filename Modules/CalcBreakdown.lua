@@ -142,43 +142,39 @@ end
 
 function breakdown.effMult(damageType, resist, pen, taken, mult,takenMore,sourceRes,spString)
 	local out = { }
-local resistForm = (damageType == "物理") and "物理伤害减伤" or "抗性"
-	
-	if spString then 
-		t_insert(out, spString)
-	end 
-	if resist ~= 0 then
-		if sourceRes and sourceRes ~= 0 then
-			t_insert(out, s_format("敌人 %s: %d%% ^8(%s)", resistForm, resist, sourceRes))
-		else
-			t_insert(out, s_format("敌人 %s: %d%%", resistForm, resist))
-		end
-	 
-	end	
-	if pen ~= 0 then
-		t_insert(out, "有效抗性:")
-		t_insert(out, s_format("%d%% ^8(抗性)", resist))		
+	local resistForm = (damageType == "物理") and "物理伤害减伤" or "抗性"
+	if sourceRes and sourceRes ~= 0 and sourceRes ~= damageType then
+		t_insert(out, s_format("敌人%s: %d%% ^8(%s)", resistForm, resist, sourceRes))
+	elseif resist ~= 0 then
+		t_insert(out, s_format("敌人%s: %d%%", resistForm, resist))
+	end
+	if pen ~= 0 or not useRes then
+		t_insert(out, "有效抗性/减伤:")
+		t_insert(out, s_format("%d%% ^8(抗性/减伤)", resist))
 		if pen < 0 then
 			t_insert(out, s_format("+ %d%% ^8(穿透)", -pen))
-		else
+		elseif pen > 0 then
 			t_insert(out, s_format("- %d%% ^8(穿透)", pen))
 		end
-		t_insert(out, s_format("= %d%%", resist - pen))
-	else 
-		if damageType ~= "物理" and  isIgnorePen then 
-			t_insert(out, s_format("无视抗性穿透"))
-		end 
-	end 
-	
-	
-	breakdown.multiChain(out, {
-		label = "有效 DPS 加成:",
-		{ "%.2f ^8(%s)", 1 - (resist - pen) / 100, resistForm },
-		{ "%.2f ^8(提高/降低承受的伤害)", 1 + taken / 100 },
-		{ "%.2f ^8(额外提高/降低承受的总伤害)", takenMore },
-		total = s_format("= %.3f", mult),
-	})
-	
+		if not useRes then
+			t_insert(out, s_format("x %d%% ^8(无视抗性)", 0))
+			t_insert(out, s_format("= %d%%", (0)))
+		else 
+			t_insert(out, s_format("= %d%%", (resist - pen)))
+		end
+	end
+	if useRes then
+		breakdown.multiChain(out, {
+			label = "有效 DPS 加成:",
+			{ "%.2f ^8(%s)", 1 - (resist - pen) / 100, resistForm },
+			{ "%.2f ^8(提高/降低承受伤害)", 1 + taken / 100 },
+			{ "%.2f ^8(总增/总降承受伤害)", takenMore },
+			total = s_format("= %.3f", mult),
+		})
+	else
+		t_insert(out, "有效 DPS 加成:")
+		t_insert(out, s_format("= %.3f ^8(提高/降低承受伤害)", mult))
+	end
 	return out
 end
 

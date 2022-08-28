@@ -527,35 +527,35 @@ createMod("Damage", "INC", 50, "Config", { type = "Condition", var = "Combat" })
 	end },
 	
 	-- Section: Map modifiers/curses
-{ section = "地图词缀和玩家 Debuff", col = 2 },
-{ label = "地图词缀-前缀:" },
-{ var = "enemyHasPhysicalReduction", type = "list", label = "怪物物理伤害减伤:", tooltip = "'装甲的'", list = {{val=0,label="无"},{val=20,label="20% (低阶)"},{val=30,label="30% (中阶)"},{val=40,label="40% (高阶)"}}, apply = function(val, modList, enemyModList)
+	{ section = "地图词缀和玩家 Debuff", col = 2 },
+	{ label = "地图词缀-前缀:" },
+	{ var = "enemyHasPhysicalReduction", type = "list", label = "怪物物理伤害减伤:", tooltip = "'装甲的'", list = {{val=0,label="无"},{val=20,label="20% (低阶)"},{val=30,label="30% (中阶)"},{val=40,label="40% (高阶)"}}, apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("PhysicalDamageReduction", "BASE", val, "Config")
 	end },
-{ var = "enemyIsHexproof", type = "check", label = "敌人是【无咒的】?", tooltip = "'无咒的'", apply = function(val, modList, enemyModList)
+	{ var = "enemyIsHexproof", type = "check", label = "敌人是【无咒的】?", tooltip = "'无咒的'", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Hexproof", "FLAG", true, "Config")
 	end },
-{ var = "enemyHasLessCurseEffectOnSelf", type = "list", label = "对怪物的诅咒总效果额外降低:", tooltip = "'魔抗的'", list = {{val=0,label="无"},{val=25,label="25% (低阶)"},{val=40,label="40% (中阶)"},{val=60,label="60% (高阶)"}}, apply = function(val, modList, enemyModList)
+	{ var = "enemyHasLessCurseEffectOnSelf", type = "list", label = "对怪物的诅咒总效果额外降低:", tooltip = "'魔抗的'", list = {{val=0,label="无"},{val=25,label="25% (低阶)"},{val=40,label="40% (中阶)"},{val=60,label="60% (高阶)"}}, apply = function(val, modList, enemyModList)
 		if val ~= 0 then
 			enemyModList:NewMod("CurseEffectOnSelf", "MORE", -val, "Config")
 		end
 	end },
-{ var = "enemyCanAvoidPoisonBlindBleed", type = "list", label = "怪物几率免疫中毒，致盲和流血:", tooltip = "'避毒的'", list = {{val=0,label="无"},{val=25,label="25% (低阶)"},{val=45,label="45% (中阶)"},{val=65,label="65% (高阶)"}}, apply = function(val, modList, enemyModList)
+	{ var = "enemyCanAvoidPoisonBlindBleed", type = "list", label = "怪物几率免疫中毒，致盲和流血:", tooltip = "'避毒的'", list = {{val=0,label="无"},{val=25,label="25% (低阶)"},{val=45,label="45% (中阶)"},{val=65,label="65% (高阶)"}}, apply = function(val, modList, enemyModList)
 		if val ~= 0 then
 			enemyModList:NewMod("AvoidPoison", "BASE", val, "Config")
 			enemyModList:NewMod("AvoidBleed", "BASE", val, "Config")
 		end
 	end },
-{ var = "enemyHasResistances", type = "list", label = "增加怪物的火焰、冰霜、闪电、混沌抗性:", tooltip = "'抗性的'", list = {{val=0,label="无"},{val="LOW",label="20%/15% (低阶)"},{val="MID",label="30%/20% (中阶)"},{val="HIGH",label="40%/25% (高阶)"}}, apply = function(val, modList, enemyModList)
+	{ var = "enemyHasResistances", type = "list", label = "增加怪物的火焰、冰霜、闪电、混沌抗性:", tooltip = "'抗性的'", list = {{val=0,label="无"},{val="LOW",label="20%/15% (低阶)"},{val="MID",label="30%/20% (中阶)"},{val="HIGH",label="40%/25% (高阶)"}}, apply = function(val, modList, enemyModList)
 		local map = { ["LOW"] = {20,15}, ["MID"] = {30,20}, ["HIGH"] = {40,25} }
 		if map[val] then
 			enemyModList:NewMod("ElementalResist", "BASE", map[val][1], "Config")
 			enemyModList:NewMod("ChaosResist", "BASE", map[val][2], "Config")
 		end
 	end },
-{ label = "地图词缀-后缀:" },
-{ var = "playerHasElementalEquilibrium", type = "check", label = "玩家有【元素之相】?", tooltip = "'平衡之'", apply = function(val, modList, enemyModList)
-modList:NewMod("Keystone", "LIST", "元素之相", "Config")
+	{ label = "地图词缀-后缀:" },
+	{ var = "playerHasElementalEquilibrium", type = "check", label = "玩家有【元素之相】?", tooltip = "'平衡之'", apply = function(val, modList, enemyModList)
+	modList:NewMod("Keystone", "LIST", "元素之相", "Config")
 	end },
 { var = "playerCannotLeech", type = "check", label = "无法偷取怪物生命和魔力?", tooltip = "'凝血之'", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("CannotLeechLifeFromSelf", "FLAG", true, "Config")
