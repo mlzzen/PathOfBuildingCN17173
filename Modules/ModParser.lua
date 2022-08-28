@@ -36,8 +36,8 @@ local conquerorList = {
 	["夏巴夸亚"]		=	{id = 1, type = "vaal"},
 	["泽佛伊"]		=	{id = 2, type = "vaal"},
 	["多里亚尼"]		=	{id = 3, type = "vaal"},
+	["阿华纳"]		=	{id = "2_v2", type = "vaal"},
 	
-	["阿华纳"]		=	{id = "2_v2", type = "vaal"},	
 	["迪虚瑞特"]		=	{id = 1, type = "maraketh"},
 	["安赛娜丝"]		=	{id = 2, type = "maraketh"},
 	["娜斯玛"]		=	{id = 3, type = "maraketh"},
@@ -2049,65 +2049,65 @@ local specialModList = {
 	["passives in radius are conquered by the (%D+)"] = { },
 	["historic"] = { },
 	["获得(.+)麾下 (%d+) 名武士的领导权"]= function(_, npcName, num) return {  mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["获得(.+)麾下 (%d+) 名武士的领导权  范围内的天赋被卡鲁抑制"]= function(_, npcName, num) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["获得(.+)麾下 (%d+) 名武士的领导权范围内的天赋被卡鲁抑制"]= function(_, npcName, num) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["以(.+)的名义用 (%d+) 名祭品之血浸染"]= function(_, npcName, num) return {  mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["以(.+)的名义用  (%d+) 名祭品之血浸染范围内的天赋被瓦尔抑制"]= function(_, npcName, num) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["以(.+)的名义用 (%d+) 名祭品之血浸染  范围内的天赋被瓦尔抑制"]= function(_, npcName, num) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["以(.+)的名义用  (%d+) 名祭品之血浸染 范围内的天赋被瓦尔抑制"]= function(_, npcName, num) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["以(.+)的名义用 (%d+) 名祭品之血浸染 范围内的天赋被瓦尔抑制"]= function(_, npcName, num) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["以(.+)的名义用(%d+)名祭品之血浸染范围内的天赋被瓦尔抑制"]= function(_, npcName, num) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["赞美 (%d+) 名被高阶圣堂武僧(.+)转化的新信徒"]= function(_, num, npcName) return {  mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["赞美 (%d+) 名被高阶圣堂武僧(.+)转化的新信徒范围内的天赋被圣堂抑制"]= function(_, num, npcName) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["赞美 (%d+) 名被高阶圣堂武僧(.+)转化的新信徒  范围内的天赋被圣堂抑制"]= function(_, num, npcName) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["赞美 (%d+) 名被神主(.+)转化的新信徒范围内的天赋被圣堂教团抑制"]= function(_, num, npcName) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["赞美 (%d+) 名被神主(.+)转化的新信徒"]= function(_, num, npcName) return {  mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["在(.+)的阿卡拉中指派 (%d+) 名德卡拉的服务"]= function(_, npcName, num) return {  mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["在(.+)的阿卡拉中指派 (%d+) 名德卡拉的服务范围中的天赋被马拉克斯抑制"]= function(_, npcName, num) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["在(.+)的阿卡拉中指派 (%d+) 名德卡拉的服务  范围中的天赋被马拉克斯抑制"]= function(_, npcName, num) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["在(.+)的阿卡拉中指派 (%d+) 名德卡拉的服务范围中的天赋被马拉克斯抑制"]= function(_, npcName, num) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["用 (%d+) 枚金币纪念(.+)"]= function(_, num, npcName) return {  mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["用 (%d+) 枚金币纪念(.+)范围内的天赋被永恒帝国抑制"]= function(_, num, npcName) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["用 (%d+) 枚金币纪念(.+)  范围内的天赋被永恒帝国抑制"]= function(_, num, npcName) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["用 (%d+) 枚金币纪念(.+)范围内的天赋被永恒帝国抑制"]= function(_, num, npcName) return {
 	mod("JewelData", "LIST",
-	{key = "conqueredBy", value = {id = num, conqueror = conquerorList[npcName:lower()] } })} end,
+	{key = "conqueredBy", value = {id = tonumber(num), conqueror = conquerorList[npcName:lower()] } })} end,
 	["内在信念"] =  { mod("Keystone", "LIST", "内在信念") },
 	["史实"] = { mod("Multiplier:HistoricItem", "BASE", 1) },
 	["([%+%-]?%d+) 奉献"]= function(num) return {
@@ -6838,7 +6838,7 @@ local specialModList = {
 	["药剂持续期间，你的暴击无法造成暴击伤害加成"] = { flag("NoCritMultiplier", { type = "Condition", var = "UsingFlask" }) }, --备注：your critical strikes do not deal extra damage during flask effect
 	["grants perfect agony during flask effect"] = { mod("Keystone", "LIST", "Perfect Agony", { type = "Condition", var = "UsingFlask" }) },
 	-- Jewels
-	["(.+) 范围内的天赋可以在未连结至天赋树的情况下配置"] = function(_, name) return {
+	["(.+)范围内的天赋可以在未连结至天赋树的情况下配置"] = function(_, name) return {
 		mod("JewelData", "LIST", { key = "impossibleEscapeKeystone", value = name }),
 		mod("ImpossibleEscapeKeystones", "LIST", { key = name, value = true }),
 	} end,

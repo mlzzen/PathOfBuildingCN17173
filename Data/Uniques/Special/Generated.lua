@@ -458,7 +458,7 @@ end
 table.insert(impossibleEscape, "版本: 全部 (用于测试)")
 local variantCount = #impossibleEscapeKeystones + 1
 for index, name in ipairs(impossibleEscapeKeystones) do
-	table.insert(impossibleEscape, "{variant:"..index..","..variantCount.."}"..name.." 范围内的天赋可以在未连结至天赋树的情况下配置")
+	table.insert(impossibleEscape, "{variant:"..index..","..variantCount.."}"..name.."范围内的天赋可以在未连结至天赋树的情况下配置")
 end
 table.insert(impossibleEscape, "已腐化")
 table.insert(data.uniques.generated, table.concat(impossibleEscape, "\n"))

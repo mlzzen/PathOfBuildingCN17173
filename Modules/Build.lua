@@ -3,7 +3,6 @@
 -- Module: Build
 -- Loads and manages the current build.
 --
---local launch, main = ...
 
 local pairs = pairs
 local ipairs = ipairs
@@ -41,14 +40,13 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 	-- Load build file
 	self.xmlSectionList = { }
 	self.spectreList = { }
-	self.viewMode = "TREE"	
-	self.characterLevel = 1
+	self.timelessData = { jewelType = { }, conquerorType = { }, jewelSocket = { }, fallbackWeightMode = { }, searchList = "", searchListFallback = "", searchResults = { }, sharedResults = { } }
+	self.viewMode = "TREE"
+	self.characterLevel = m_min(m_max(main.defaultCharLevel or 1, 1), 100)
 	self.targetVersion = liveTargetVersion
 	self.bandit = "None"
 	self.pantheonMajorGod = "None"
 	self.pantheonMinorGod = "None"
-
-			
 	if buildXML then
 		if self:LoadDB(buildXML, "Unnamed build") then
 			self:CloseBuild()
@@ -171,7 +169,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 			bandit = 0
 		end
 		
-		-- to prevent a negative level at a blank sheet the level requirement will be set dependent on points invested until catched up with quest skillpoints 
+		-- to prevent a negative level at a blank sheet the level requirement will be set dependent on points invested until caught up with quest skillpoints 
 		levelreq = math.max(PointsUsed - acts[currentAct].questPoints + 1, acts[currentAct].level)
 		
 		-- Ascendency points for lab
@@ -181,11 +179,12 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 		if levelreq >= 33 and levelreq < 55 then labSuggest = labstr[1]
 		elseif levelreq >= 55 and levelreq < 68 then labSuggest = labstr[2]
 		elseif levelreq >= 68 and levelreq < 75 then labSuggest = labstr[3]
-		elseif levelreq >= 75 and levelreq < 90 then labSuggest = labstr[4]
-		elseif levelreq < 90 and currentAct <= 10 then strAct = currentAct end
+		elseif levelreq >= 75 and levelreq < 90 then labSuggest = labstr[4] end
+		if levelreq < 90 and currentAct <= 10 then strAct = currentAct end
 		
 		control.str = string.format("%s%3d / %3d   %s%d / %d", PointsUsed > usedMax and "^1" or "^7", PointsUsed, usedMax, AscUsed > ascMax and "^1" or "^7", AscUsed, ascMax)
 		control.req = "需求等级: ".. levelreq .. "\n预估进度:\n章节: ".. strAct .. "\n任务点数: " .. acts[currentAct].questPoints - bandit .. "\n盗贼任务: " .. bandit .. labSuggest
+		
 		if PointsUsed > usedMax then InsertIfNew(self.controls.warnings.lines, "You have too many passive points allocated") end
 		if AscUsed > ascMax then InsertIfNew(self.controls.warnings.lines, "You have too many ascendancy points allocated") end
 		return DrawStringWidth(16, "FIXED", control.str) + 8
@@ -207,12 +206,12 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 			SetDrawLayer(nil, 0)
 		end
 	end
-self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.pointDisplay,"RIGHT"}, 12, 0, 106, 20, "", "等级", "%D", 3, function(buf)
-		self.characterLevel = m_min(tonumber(buf) or 1, 100)
+	self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.pointDisplay,"RIGHT"}, 12, 0, 106, 20, "", "等级", "%D", 3, function(buf)
+		self.characterLevel = m_min(m_max(tonumber(buf) or 1, 1), 100)
+		self.configTab:BuildModList()
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	
 	self.controls.characterLevel:SetText(tostring(self.characterLevel))
 	self.controls.characterLevel.tooltipFunc = function(tooltip)
 		if tooltip:CheckForUpdate(self.characterLevel) then
@@ -233,7 +232,7 @@ self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.pointDis
 				if mult > 0.01 then
 					local line = level
 					if level >= 68 then 
-						line = line .. string.format(" (Tier %d)", level - 67)
+						line = line .. string.format(" (T%d)", level - 67)
 					end
 					line = line .. string.format(": %.1f%%", mult * 100)
 					tooltip:AddLine(14, line)
@@ -249,7 +248,7 @@ self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.pointDis
 				self.spec:SetWindowTitleWithBuildClass()
 				self.buildFlag = true
 			else
-main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会重置你目前的天赋树.\n你可以考虑连接当前的天赋点到 "..value.label.."\n这样出门点就不会被重置了。", "继续", function()
+				main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会重置你目前的天赋树.\n你可以考虑连接当前的天赋点到 "..value.label.."\n这样出门点就不会被重置了。", "继续", function()
 					self.spec:SelectClass(value.classId)
 					self.spec:AddUndoState()
 					self.spec:SetWindowTitleWithBuildClass()
@@ -269,20 +268,23 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 	-- This defines the stats in the side bar, and also which stats show in node/item comparisons
 	-- This may be user-customisable in the future
 	self.displayStats = {
-	
-	{ stat = "ActiveMinionLimit", label = "召唤生物数量", fmt = "d" },
+
+		{ stat = "ActiveMinionLimit", label = "召唤生物数量", fmt = "d" },
 		{ stat = "AverageHit", label = "平均击中", fmt = ".1f", compPercent = true },
+		{ stat = "PvpAverageHit", label = "PvP 平均击中", fmt = ".1f", compPercent = true, flag = "isPvP" },
 		{ stat = "AverageDamage", label = "平均伤害", fmt = ".1f", compPercent = true, flag = "attack" },
-		
+		{ stat = "PvpAverageDamage", label = "PvP 平均伤害", fmt = ".1f", compPercent = true, flag = "attackPvP" },
+
+
 		{ stat = "Speed", label = "攻击速率", fmt = ".2f", compPercent = true, flag = "attack", condFunc = function(v,o) return v > 0 and (o.TriggerTime or 0) == 0 end },
 		{ stat = "Speed", label = "施法速率", fmt = ".2f", compPercent = true, flag = "spell", condFunc = function(v,o) return v > 0 and (o.TriggerTime or 0) == 0 end },
-		
+
 		{ stat = "ServerTriggerRate", label = "触发速率", fmt = ".2f", compPercent = true, condFunc = function(v,o) return (o.TriggerTime or 0) ~= 0 end },
 		{ stat = "Speed", label = "有效触发速率", fmt = ".2f", compPercent = true, condFunc = function(v,o) return (o.TriggerTime or 0) ~= 0 and o.ServerTriggerRate ~= o.Speed end },
 		{ stat = "WarcryCastTime", label = "施放时间", fmt = ".2fs", compPercent = true, lowerIsBetter = true, flag = "warcry" },
 		{ stat = "HitSpeed", label = "击中速率", fmt = ".2f", compPercent = true, condFunc = function(v,o) return not o.TriggerTime end },
 		{ stat = "TrapThrowingTime", label = "陷阱投掷时间", fmt = ".2fs", compPercent = true, lowerIsBetter = true, },
-		{ stat = "TrapCooldown", label = "陷阱冷却时间", fmt = ".2fs", lowerIsBetter = true },
+		{ stat = "TrapCooldown", label = "陷阱冷却时间", fmt = ".3fs", lowerIsBetter = true },
 		{ stat = "MineLayingTime", label = "地雷放置时间", fmt = ".2fs", compPercent = true, lowerIsBetter = true, },
 		{ stat = "TotemPlacementTime", label = "图腾放置时间", fmt = ".2fs", compPercent = true, lowerIsBetter = true, },
 		{ stat = "PreEffectiveCritChance", label = "暴击几率", fmt = ".2f%%" },
@@ -290,41 +292,53 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "CritMultiplier", label = "暴击伤害加成", fmt = "d%%", pc = true, condFunc = function(v,o) return (o.CritChance or 0) > 0 end },
 		{ stat = "HitChance", label = "命中率", fmt = ".0f%%", flag = "attack" },
 		{ stat = "TotalDPS", label = "总 DPS", fmt = ".1f", compPercent = true, flag = "notAverage" },
+		{ stat = "PvpTotalDPS", label = "PvP 总 DPS", fmt = ".1f", compPercent = true, flag = "notAveragePvP" },
 		{ stat = "TotalDPS", label = "总 DPS", fmt = ".1f", compPercent = true, flag = "showAverage", condFunc = function(v,o) return (o.TriggerTime or 0) ~= 0 end },
+
 		{ stat = "TotalDot", label = "持续伤害 DPS", fmt = ".1f", compPercent = true },
 		{ stat = "WithDotDPS", label = "总 DPS（包含持续伤害）", fmt = ".1f", compPercent = true, flag = "notAverage", condFunc = function(v,o) return v ~= o.TotalDPS and (o.PoisonDPS or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
-		{ stat = "BleedDPS", label = "流血 DPS", fmt = ".1f", compPercent = true },
+		{ stat = "BleedDPS", label = "流血 DPS", fmt = ".1f", compPercent = true, warnFunc = function(v) return v >= data.misc.DotDpsCap and "Bleed DPS exceeds in game limit" end },
 		{ stat = "BleedDamage", label = "总伤害（每个流血）", fmt = ".1f", compPercent = true, flag = "showAverage" },
 		{ stat = "WithBleedDPS", label = "总 DPS（包含流血伤害）", fmt = ".1f", compPercent = true, flag = "notAverage", condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.IgniteDPS or 0) == 0 end },
-		{ stat = "IgniteDPS", label = "点燃 DPS", fmt = ".1f", compPercent = true },
+		{ stat = "IgniteDPS", label = "点燃 DPS", fmt = ".1f", compPercent = true, warnFunc = function(v) return v >= data.misc.DotDpsCap and "Ignite DPS exceeds in game limit" end },
 		{ stat = "IgniteDamage", label = "总伤害（每个点燃）", fmt = ".1f", compPercent = true, flag = "showAverage" },
+		{ stat = "BurningGroundDPS", label = "燃烧地面 DPS", fmt = ".1f", compPercent = true, warnFunc = function(v,o) return v >= data.misc.DotDpsCap and "Burning Ground DPS exceeds in game limit" end },
 		{ stat = "WithIgniteDPS", label = "总 DPS（包含点燃伤害）", fmt = ".1f", compPercent = true, flag = "notAverage", condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
 		{ stat = "WithIgniteAverageDamage", label = "平均伤害（包含点燃伤害）", fmt = ".1f", compPercent = true },
-		{ stat = "PoisonDPS", label = "中毒 DPS", fmt = ".1f", compPercent = true },
+		{ stat = "PoisonDPS", label = "中毒 DPS", fmt = ".1f", compPercent = true, warnFunc = function(v) return v >= data.misc.DotDpsCap and "Poison DPS exceeds in game limit" end },
+		{ stat = "CausticGroundDPS", label = "腐蚀地面 DPS", fmt = ".1f", compPercent = true, warnFunc = function(v,o) return v >= data.misc.DotDpsCap and "Caustic Ground DPS exceeds in game limit" end },
 		{ stat = "PoisonDamage", label = "总伤害（每个中毒）", fmt = ".1f", compPercent = true },
 		{ stat = "WithPoisonDPS", label = "总 DPS（包含中毒伤害）", fmt = ".1f", compPercent = true, flag = "poison", flag = "notAverage", condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
 		{ stat = "DecayDPS", label = "腐化 DPS", fmt = ".1f", compPercent = true },
-		{ stat = "TotalDotDPS", label = "总持续伤害 DPS", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDot and v ~= o.ImpaleDPS and v ~= o.TotalPoisonDPS and v ~= (o.TotalIgniteDPS or o.IgniteDPS) and v ~= o.BleedDPS end }, 
+		{ stat = "TotalDotDPS", label = "总持续伤害 DPS", fmt = ".1f", compPercent = true, condFunc = function(v,o) return o.showTotalDotDPS or ( v ~= o.TotalDot and v ~= o.TotalPoisonDPS and v ~= o.CausticGroundDPS and v ~= (o.TotalIgniteDPS or o.IgniteDPS) and v ~= o.BurningGroundDPS and v ~= o.BleedDPS ) end, warnFunc = function(v) return v >= data.misc.DotDpsCap and "DoT DPS exceeds in game limit" end },
 		{ stat = "ImpaleDPS", label = "穿刺伤害", fmt = ".1f", compPercent = true, flag = "impale", flag = "showAverage" },
 		{ stat = "WithImpaleDPS", label = "平均伤害（包含穿刺伤害）", fmt = ".1f", compPercent = true, flag = "impale", flag = "showAverage", condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end  },
 		{ stat = "ImpaleDPS", label = "穿刺 DPS", fmt = ".1f", compPercent = true, flag = "impale", flag = "notAverage" },
 		{ stat = "WithImpaleDPS", label = "总 DPS（包含穿刺伤害）", fmt = ".1f", compPercent = true, flag = "impale", flag = "notAverage", condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
 		{ stat = "MirageDPS", label = "总 幻影 DPS", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v > 0 end },
-		{ stat = "CullingDPS", label = "终结 DPS", fmt = ".1f", compPercent = true, condFunc = function(v,o) return o.CullingDPS or 0 > 0 end },
-		{ stat = "CombinedDPS", label = "合计 DPS", fmt = ".1f", compPercent = true, flag = "notAverage", condFunc = function(v,o) return v ~= ((o.TotalDPS or 0) + (o.TotalDot or 0)) and v ~= o.WithImpaleDPS and v ~= o.WithPoisonDPS and v ~= o.WithIgniteDPS and v ~= o.WithBleedDPS end },
-		{ stat = "CombinedAvg", label = "合计 总伤害", fmt = ".1f", compPercent = true, flag = "showAverage", condFunc = function(v,o) return (v ~= o.AverageDamage and (o.TotalDot or 0) == 0) and (v ~= o.WithImpaleDPS or v ~= o.WithPoisonDPS or v ~= o.WithIgniteDPS or v ~= o.WithBleedDPS) end },
-		{ stat = "Cooldown", label = "技能冷却时间", fmt = ".2fs", lowerIsBetter = true },
+		{ stat = "CullingDPS", label = "终结 DPS", fmt = ".1f", compPercent = true, condFunc = function(v,o) return (o.CullingDPS or 0) > 0 end },
+		{ stat = "CombinedDPS", label = "合计 DPS", fmt = ".1f", compPercent = true, flag = "notAverage", condFunc = function(v,o) return v ~= ((o.TotalDPS or 0) + (o.TotalDot or 0)) and v ~= o.WithImpaleDPS and ( o.showTotalDotDPS or ( v ~= o.WithPoisonDPS and v ~= o.WithIgniteDPS and v ~= o.WithBleedDPS ) ) end },
+		{ stat = "CombinedAvg", label = "合计 总伤害", fmt = ".1f", compPercent = true, flag = "showAverage", condFunc = function(v,o) return (v ~= o.AverageDamage and (o.TotalDot or 0) == 0) and (v ~= o.WithPoisonDPS or v ~= o.WithIgniteDPS or v ~= o.WithBleedDPS) end },
+		{ stat = "Cooldown", label = "技能冷却时间", fmt = ".3fs", lowerIsBetter = true },
+		{ stat = "SealCooldown", label = "封印获取频率", fmt = ".2fs", lowerIsBetter = true },
+		{ stat = "SealMax", label = "封印最大层数", fmt = "d" },
+		{ stat = "TimeMaxSeals", label = "到达最大封印时间", fmt = ".2fs", lowerIsBetter = true },
+
 		{ stat = "AreaOfEffectRadius", label = "范围半径", fmt = "d" },
 		{ stat = "BrandAttachmentRange", label = "烙印附着范围", fmt = "d", flag = "brand" },
 		{ stat = "BrandTicks", label = "烙印激活频率", fmt = "d", flag = "brand" },
-		{ stat = "ManaCost", label = "魔力消耗", fmt = "d", color = colorCodes.MANA, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return v > 0 end },
-		{ stat = "LifeCost", label = "生命消耗", fmt = "d", color = colorCodes.LIFE, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return v > 0 end },
-		{ stat = "ESCost", label = "能量护盾消耗", fmt = "d", color = colorCodes.ES, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return v > 0 end },
-		{ stat = "RageCost", label = "怒火消耗", fmt = "d", color = colorCodes.RAGE, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return v > 0 end },
-		{ stat = "ManaPercentCost", label = "魔力消耗", fmt = "d%%", color = colorCodes.MANA, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return v > 0 end },
-		{ stat = "LifePercentCost", label = "生命消耗", fmt = "d%%", color = colorCodes.LIFE, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return v > 0 end },
-	
-		
+		{ stat = "ManaCost", label = "魔力消耗", fmt = "d", color = colorCodes.MANA, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ManaHasCost end },
+		{ stat = "LifeCost", label = "生命消耗", fmt = "d", color = colorCodes.LIFE, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.LifeHasCost end },
+		{ stat = "ESCost", label = "能量护盾消耗", fmt = "d", color = colorCodes.ES, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ESHasCost end },
+		{ stat = "RageCost", label = "怒火消耗", fmt = "d", color = colorCodes.RAGE, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.RageHasCost end },
+		{ stat = "ManaPercentCost", label = "魔力消耗", fmt = "d%%", color = colorCodes.MANA, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ManaPercentHasCost end },
+		{ stat = "LifePercentCost", label = "生命消耗", fmt = "d%%", color = colorCodes.LIFE, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.LifePercentHasCost end },
+		{ stat = "ManaPerSecondCost", label = "每秒魔力消耗", fmt = ".2f/s", color = colorCodes.MANA, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ManaPerSecondHasCost end },
+		{ stat = "LifePerSecondCost", label = "每秒生命消耗", fmt = ".2f/s", color = colorCodes.LIFE, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.LifePerSecondHasCost end },
+		{ stat = "ManaPercentPerSecondCost", label = "每秒魔力消耗百分比", fmt = ".2f%%/s", color = colorCodes.MANA, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ManaPercentPerSecondHasCost end },
+		{ stat = "LifePercentPerSecondCost", label = "每秒生命消耗百分比", fmt = ".2f%%/s", color = colorCodes.LIFE, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.LifePercentPerSecondHasCost end },
+		{ stat = "ESPerSecondCost", label = "每秒能量护盾消耗", fmt = ".2f/s", color = colorCodes.ES, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ESPerSecondHasCost end },
+		{ stat = "ESPercentPerSecondCost", label = "每秒能量护盾消耗百分比", fmt = ".2f%%/s", color = colorCodes.ES, compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ESPercentPerSecondHasCost end },
 		{ },
 		{ stat = "Str", label = "力量", color = colorCodes.STRENGTH, fmt = "d" },
 		{ stat = "ReqStr", label = "力量需求", color = colorCodes.STRENGTH, fmt = "d", lowerIsBetter = true, condFunc = function(v,o) return v > o.Str end, warnFunc = function(v) return "不满足力量需求" end},
@@ -337,19 +351,31 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ },
 		{ stat = "Devotion", label = "奉献", color = colorCodes.RARE, fmt = "d" },
 		{ },
+
+		{ stat = "TotalEHP", label = "等效血池", fmt = ".0f", compPercent = true },
+		{ stat = "PvPTotalTakenHit", label = "PvP 最大承受伤害", fmt = ".1f", flag = "isPvP", lowerIsBetter = true },
+		{ stat = "PhysicalMaximumHitTaken", label = "最大物理承伤", fmt = ".0f", color = colorCodes.PHYS, compPercent = true,  },
+		{ stat = "LightningMaximumHitTaken", label = "最大元素承伤", fmt = ".0f", color = colorCodes.LIGHTNING, compPercent = true, condFunc = function(v,o) return o.LightningMaximumHitTaken == o.ColdMaximumHitTaken and o.LightningMaximumHitTaken == o.FireMaximumHitTaken end },
+		{ stat = "FireMaximumHitTaken", label = "最大火焰承伤", fmt = ".0f", color = colorCodes.FIRE, compPercent = true, condFunc = function(v,o) return o.LightningMaximumHitTaken ~= o.ColdMaximumHitTaken or o.LightningMaximumHitTaken ~= o.FireMaximumHitTaken end },
+		{ stat = "ColdMaximumHitTaken", label = "最大冰霜承伤", fmt = ".0f", color = colorCodes.COLD, compPercent = true, condFunc = function(v,o) return o.LightningMaximumHitTaken ~= o.ColdMaximumHitTaken or o.LightningMaximumHitTaken ~= o.FireMaximumHitTaken end },
+		{ stat = "LightningMaximumHitTaken", label = "最大闪电承伤", fmt = ".0f", color = colorCodes.LIGHTNING, compPercent = true, condFunc = function(v,o) return o.LightningMaximumHitTaken ~= o.ColdMaximumHitTaken or o.LightningMaximumHitTaken ~= o.FireMaximumHitTaken end },
+		{ stat = "ChaosMaximumHitTaken", label = "最大混沌承伤", fmt = ".0f", color = colorCodes.CHAOS, compPercent = true },
+		{ },
 		{ stat = "Life", label = "总生命", fmt = "d", color = colorCodes.LIFE, compPercent = true },
 		{ stat = "Spec:LifeInc", label = "天赋树·生命提高", fmt = "d%%", color = colorCodes.LIFE, condFunc = function(v,o) return v > 0 and o.Life > 1 end },
 		{ stat = "LifeUnreserved", label = "未保留生命", fmt = "d", color = colorCodes.LIFE, condFunc = function(v,o) return v < o.Life end, compPercent = true, warnFunc = function(v) return v < 0 and "未保留生命值为负" end },
+		{ stat = "LifeRecoverable", label = "可回复生命", fmt = "d", color = colorCodes.LIFE, condFunc = function(v,o) return v < o.LifeUnreserved end, },		
 		{ stat = "LifeUnreservedPercent", label = "未保留生命百分比", fmt = "d%%", color = colorCodes.LIFE, condFunc = function(v,o) return v < 100 end },
 		{ stat = "LifeRegen", label = "生命回复", fmt = ".1f", color = colorCodes.LIFE },
 		{ stat = "LifeLeechGainRate", label = "生命偷取/击中回复速率", fmt = ".1f", color = colorCodes.LIFE, compPercent = true },
 		{ stat = "LifeLeechGainPerHit", label = "每次击中生命偷取/击中回复", fmt = ".1f", color = colorCodes.LIFE, compPercent = true },
 		{ },
 		{ stat = "Mana", label = "总魔力", fmt = "d", color = colorCodes.MANA, compPercent = true },
-		{ stat = "Spec:ManaInc", label = "天赋树·魔力提高", fmt = "d%%", color = colorCodes.MANA },
+		{ stat = "Spec:ManaInc", label = "天赋树·魔力提高", fmt = "d%%", color = colorCodes.MANA, fmt = "d%%" },
 		{ stat = "ManaUnreserved", label = "未保留魔力", fmt = "d", color = colorCodes.MANA, condFunc = function(v,o) return v < o.Mana end, compPercent = true, warnFunc = function(v) return v < 0 and "未保留魔力值为负" end },
 		{ stat = "ManaUnreservedPercent", label = "未保留魔力百分比", fmt = "d%%", color = colorCodes.MANA, condFunc = function(v,o) return v < 100 end },
 		{ stat = "ManaRegen", label = "魔力回复", fmt = ".1f", color = colorCodes.MANA },
+		{ stat = "RageRegen", label = "怒气回复", fmt = "d", color = colorCodes.RAGE, compPercent = true, condFunc = function(v,o) return v > 0 end },		
 		{ stat = "ManaLeechGainRate", label = "魔力偷取/击中回复速率", fmt = ".1f", color = colorCodes.MANA, compPercent = true },
 		{ stat = "ManaLeechGainPerHit", label = "每次击中魔力偷取/击中回复", fmt = ".1f", color = colorCodes.MANA, compPercent = true },
 		{ },
@@ -357,29 +383,29 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "TotalNetRegen", label = "总最终回复", fmt = "+.1f" },
 		{ stat = "NetLifeRegen", label = "最终生命回复", fmt = "+.1f", color = colorCodes.LIFE },
 		{ stat = "NetManaRegen", label = "最终魔力回复", fmt = "+.1f", color = colorCodes.MANA },
-		{ stat = "NetEnergyShieldRegen", label = "最终魔力回复", fmt = "+.1f", color = colorCodes.MANA },
+		{ stat = "NetEnergyShieldRegen", label = "最终能量护盾回复", fmt = "+.1f", color = colorCodes.ES },
 		{ },
-		{ stat = "Ward", label = "结界", color = colorCodes.WARD, fmt = "d", compPercent = true },
+		{ stat = "Ward", label = "结界", color = colorCodes.WARD, compPercent = true },
 		{ stat = "EnergyShield", label = "能量护盾", fmt = "d", color = colorCodes.ES, compPercent = true },
-		{ stat = "EnergyShieldRecoveryCap", label = "可回复的能量护盾", fmt = "d", color = colorCodes.ES, condFunc = function(v,o) return v ~= nil end },
-		{ stat = "Spec:EnergyShieldInc", label = "天赋树·能量护盾提高", fmt = "d%%", color = colorCodes.ES },
-		{ stat = "EnergyShieldRegen", label = "能量护盾回复", fmt = ".1f", color = colorCodes.ES },
-		{ stat = "EnergyShieldLeechGainRate", label = "能量护盾偷取/击中回复速率", fmt = ".1f", color = colorCodes.ES, compPercent = true },
-		{ stat = "EnergyShieldLeechGainPerHit", label = "每次击中能量护盾偷取/击中回复", fmt = ".1f", color = colorCodes.ES, compPercent = true },
+		{ stat = "EnergyShieldRecoveryCap", label = "可回复的能量护盾", color = colorCodes.ES, fmt = "d", condFunc = function(v,o) return o.CappingES end },
+		{ stat = "Spec:EnergyShieldInc", label = "天赋树·能量护盾提高", color = colorCodes.ES, fmt = "d%%" },
+		{ stat = "EnergyShieldRegen", label = "能量护盾回复", color = colorCodes.ES, fmt = ".1f" },
+		{ stat = "EnergyShieldLeechGainRate", label = "能量护盾偷取/击中回复速率", color = colorCodes.ES, fmt = ".1f", compPercent = true },
+		{ stat = "EnergyShieldLeechGainPerHit", label = "每次击中能量护盾偷取/击中回复", color = colorCodes.ES, fmt = ".1f", compPercent = true },
 
 
-		{ },		
-		{ stat = "Evasion", label = "闪避值", fmt = "d", compPercent = true },
-		{ stat = "Spec:EvasionInc", label = "天赋树·闪避值提高", fmt = "d%%" },
-		{ stat = "MeleeEvadeChance", label = "闪避几率", fmt = "d%%", condFunc = function(v,o) return v > 0 and o.MeleeEvadeChance == o.ProjectileEvadeChance end },
-		{ stat = "MeleeEvadeChance", label = "近战闪避几率", fmt = "d%%", condFunc = function(v,o) return v > 0 and o.MeleeEvadeChance ~= o.ProjectileEvadeChance end },
-		{ stat = "ProjectileEvadeChance", label = "投射物闪避几率", fmt = "d%%", condFunc = function(v,o) return v > 0 and o.MeleeEvadeChance ~= o.ProjectileEvadeChance end },
+		{ },
+		{ stat = "Evasion", label = "闪避值", fmt = "d", color = colorCodes.EVASION, compPercent = true },
+		{ stat = "Spec:EvasionInc", label = "天赋树·闪避值提高", color = colorCodes.EVASION, fmt = "d%%" },
+		{ stat = "MeleeEvadeChance", label = "闪避几率", fmt = "d%%", color = colorCodes.EVASION, condFunc = function(v,o) return v > 0 and o.MeleeEvadeChance == o.ProjectileEvadeChance end },
+		{ stat = "MeleeEvadeChance", label = "近战闪避几率", fmt = "d%%", color = colorCodes.EVASION, condFunc = function(v,o) return v > 0 and o.MeleeEvadeChance ~= o.ProjectileEvadeChance end },
+		{ stat = "ProjectileEvadeChance", label = "投射物闪避几率", fmt = "d%%", color = colorCodes.EVASION, condFunc = function(v,o) return v > 0 and o.MeleeEvadeChance ~= o.ProjectileEvadeChance end },
 		{ },
 		{ stat = "Armour", label = "护甲", fmt = "d", compPercent = true },
 		{ stat = "Spec:ArmourInc", label = "天赋树·护甲提高", fmt = "d%%" },
 		{ stat = "PhysicalDamageReduction", label = "物理伤害减伤", fmt = "d%%", condFunc = function() return true end },
 		{ },
-		{ stat = "EffectiveMovementSpeedMod", label = "移动速度加成", fmt = "+d%%", mod = true, condFunc = function() return true end },
+
 		{ stat = "BlockChance", label = "攻击格挡几率", fmt = "d%%", overCapStat = "BlockChanceOverCap" },
 		{ stat = "SpellBlockChance", label = "法术格挡几率", fmt = "d%%", overCapStat = "SpellBlockChanceOverCap" },
 		{ stat = "AttackDodgeChance", label = "攻击躲避几率", fmt = "d%%", overCapStat = "AttackDodgeChanceOverCap" },
@@ -394,42 +420,47 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		{ stat = "LightningResistOverCap", label = "闪电抗性溢出", fmt = "d%%", hideStat = true },
 		{ stat = "ChaosResist", label = "混沌抗性", fmt = "d%%", color = colorCodes.CHAOS, condFunc = function(v,o) return not o.ChaosInoculation end, overCapStat = "ChaosResistOverCap" },
 		{ stat = "ChaosResistOverCap", label = "混沌抗性溢出", fmt = "d%%", hideStat = true },
+		{ label = "混沌免疫", val = "Immune", labelStat = "ChaosResist", color = colorCodes.CHAOS, condFunc = function(o) return o.ChaosInoculation end },
+		{ },
+		{ stat = "EffectiveMovementSpeedMod", label = "移动速度加成", fmt = "+d%%", mod = true, condFunc = function() return true end },
 		{ },
 		{ stat = "FullDPS", label = "综合所有 DPS", fmt = ".1f", color = colorCodes.CURRENCY, compPercent = true },
+		{ stat = "FullDotDPS", label = "综合持续伤害 DPS", fmt = ".1f", color = colorCodes.CURRENCY, compPercent = true, condFunc = function (v) return v >= data.misc.DotDpsCap end, warnFunc = function (v) return "Full Dot DPS exceeds in game limit" end },
 		{ },
 		{ stat = "SkillDPS", label = "技能 DPS", condFunc = function() return true end },
-	 
+
 
 	}
 	self.minionDisplayStats = {
-{ stat = "AverageDamage", label = "平均伤害", fmt = ".1f", compPercent = true },
-{ stat = "Speed", label = "攻击/施法速度", fmt = ".2f", compPercent = true },
-{ stat = "PreEffectiveCritChance", label = "暴击几率", fmt = ".2f%%" },
-{ stat = "CritChance", label = "有效暴击几率", fmt = ".2f%%", condFunc = function(v,o) return v ~= o.PreEffectiveCritChance end },
-{ stat = "CritMultiplier", label = "暴击伤害加成", fmt = "d%%", pc = true, condFunc = function(v,o) return (o.CritChance or 0) > 0 end },
-{ stat = "HitSpeed", label = "击中速率", fmt = ".2f" },
-{ stat = "TotalDPS", label = "总 DPS", fmt = ".1f", compPercent = true },
-{ stat = "TotalDot", label = "持续伤害 DPS", fmt = ".1f", compPercent = true },
-{ stat = "WithDotDPS", label = "总DPS（包含持续伤害）",   fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDPS and (o.PoisonDPS or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
-{ stat = "BleedDPS", label = "流血 DPS", fmt = ".1f", compPercent = true },
-{ stat = "WithBleedDPS", label = "总DPS（包含流血伤害", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.IgniteDPS or 0) == 0 end },
-{ stat = "IgniteDPS", label = "点燃 DPS", fmt = ".1f", compPercent = true },
-{ stat = "WithIgniteDPS", label = "总DPS（包含点燃伤害）", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
-{ stat = "PoisonDPS", label = "中毒 DPS", fmt = ".1f", compPercent = true },
-{ stat = "PoisonDamage", label = "每个中毒总伤害", fmt = ".1f", compPercent = true },
-{ stat = "WithPoisonDPS", label = "总DPS（包含中毒伤害）", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
-{ stat = "DecayDPS", label = "腐化 DPS", fmt = ".1f", compPercent = true },
-{ stat = "TotalDotDPS", label = "总持续伤害 DPS", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDot and v ~= o.ImpaleDPS and v ~= o.TotalPoisonDPS and v ~= (o.TotalIgniteDPS or o.IgniteDPS) and v ~= o.BleedDPS end },
-{ stat = "ImpaleDPS", label = "穿刺 DPS", fmt = ".1f", compPercent = true, flag = "impale" },
-{ stat = "WithImpaleDPS", label = "总DPS（包含穿刺伤害）", fmt = ".1f", compPercent = true, flag = "impale", condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
-	
-{ stat = "Cooldown", label = "技能冷却", fmt = ".2fs", lowerIsBetter = true },
-{ stat = "Life", label = "总生命", fmt = ".1f", compPercent = true },
-{ stat = "LifeRegen", label = "生命回复", fmt = ".1f" },
-{ stat = "LifeLeechGainRate", label = "生命偷取/击中回复速率", fmt = ".1f", compPercent = true },
-{ stat = "EnergyShield", label = "能量护盾", fmt = "d", compPercent = true },
-{ stat = "EnergyShieldRegen", label = "能量护盾回复", fmt = ".1f" },
-{ stat = "EnergyShieldLeechGainRate", label = "能量护盾偷取/击中回复速率", fmt = ".1f", compPercent = true },
+		{ stat = "AverageDamage", label = "平均伤害", fmt = ".1f", compPercent = true },
+		{ stat = "Speed", label = "攻击/施法速度", fmt = ".2f", compPercent = true, condFunc = function(v,o) return v > 0 and (o.TriggerTime or 0) == 0 end },
+		{ stat = "HitSpeed", label = "击中频率", fmt = ".2f" },
+
+
+		{ stat = "ServerTriggerRate", label = "触发频率", fmt = ".2f", compPercent = true, condFunc = function(v,o) return (o.TriggerTime or 0) ~= 0 end },
+		{ stat = "Speed", label = "等效触发频率", fmt = ".2f", compPercent = true, condFunc = function(v,o) return (o.TriggerTime or 0) ~= 0 and o.ServerTriggerRate ~= o.Speed end },
+		{ stat = "TotalDPS", label = "总 DPS", fmt = ".1f", compPercent = true },
+		{ stat = "TotalDot", label = "持续伤害 DPS", fmt = ".1f", compPercent = true },
+		{ stat = "WithDotDPS", label = "总DPS（包含持续伤害）", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDPS and (o.PoisonDPS or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
+		{ stat = "BleedDPS", label = "流血 DPS", fmt = ".1f", compPercent = true, warnFunc = function(v) return v >= data.misc.DotDpsCap and "Minion Bleed DPS exceeds in game limit" end },
+		{ stat = "WithBleedDPS", label = "总DPS（包含流血伤害", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.IgniteDPS or 0) == 0 end },
+		{ stat = "IgniteDPS", label = "点燃 DPS", fmt = ".1f", compPercent = true, warnFunc = function(v) return v >= data.misc.DotDpsCap and "Minion Ignite DPS exceeds in game limit" end },
+		{ stat = "WithIgniteDPS", label = "总DPS（包含点燃伤害）", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
+		{ stat = "PoisonDPS", label = "中毒 DPS", fmt = ".1f", compPercent = true, warnFunc = function(v) return v >= data.misc.DotDpsCap and "Minion Poison dps exceeds in game limit" end },
+		{ stat = "PoisonDamage", label = "每个中毒总伤害", fmt = ".1f", compPercent = true },
+		{ stat = "WithPoisonDPS", label = "总DPS（包含中毒伤害）", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.ImpaleDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
+		{ stat = "DecayDPS", label = "腐化 DPS", fmt = ".1f", compPercent = true },
+		{ stat = "TotalDotDPS", label = "总持续伤害 DPS", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= o.TotalDot and v ~= o.ImpaleDPS and v ~= o.TotalPoisonDPS and v ~= (o.TotalIgniteDPS or o.IgniteDPS) and v ~= o.BleedDPS end },
+		{ stat = "ImpaleDPS", label = "穿刺 DPS", fmt = ".1f", compPercent = true, flag = "impale" },
+		{ stat = "WithImpaleDPS", label = "总DPS（包含穿刺伤害）", fmt = ".1f", compPercent = true, flag = "impale", condFunc = function(v,o) return v ~= o.TotalDPS and (o.TotalDot or 0) == 0 and (o.IgniteDPS or 0) == 0 and (o.PoisonDPS or 0) == 0 and (o.BleedDPS or 0) == 0 end },
+		{ stat = "CombinedDPS", label = "合并DPS", fmt = ".1f", compPercent = true, condFunc = function(v,o) return v ~= ((o.TotalDPS or 0) + (o.TotalDot or 0)) and v ~= o.WithImpaleDPS and v ~= o.WithPoisonDPS and v ~= o.WithIgniteDPS and v ~= o.WithBleedDPS end},
+		{ stat = "Cooldown", label = "技能冷却", fmt = ".3fs", lowerIsBetter = true },
+		{ stat = "Life", label = "总生命", fmt = ".1f", color = colorCodes.LIFE, compPercent = true },
+		{ stat = "LifeRegen", label = "生命回复", fmt = ".1f", color = colorCodes.LIFE },
+		{ stat = "LifeLeechGainRate", label = "生命偷取/击中回复速率", fmt = ".1f", color = colorCodes.LIFE, compPercent = true },
+		{ stat = "EnergyShield", label = "能量护盾", fmt = "d", color = colorCodes.ES, compPercent = true },
+		{ stat = "EnergyShieldRegen", label = "能量护盾回复", fmt = ".1f", color = colorCodes.ES },
+		{ stat = "EnergyShieldLeechGainRate", label = "能量护盾偷取/击中回复速率", fmt = ".1f", color = colorCodes.ES, compPercent = true },
 	}
 	self.extraSaveStats = {
 		"PowerCharges",
@@ -441,8 +472,6 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		"ActiveTotemLimit",
 		"ActiveMinionLimit",
 	}
- 
-
 	if buildName == "~~temp~~" then
 		-- Remove temporary build file
 		os.remove(self.dbFileName)
@@ -458,13 +487,13 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		self.viewMode = "IMPORT"
 	end)
 	self.controls.modeImport.locked = function() return self.viewMode == "IMPORT" end
-	--self.controls.modeNotes = new("ButtonControl", {"LEFT",self.controls.modeImport,"RIGHT"}, 4, 0, 58, 20, "BD备注", function()
-	self.controls.modeNotes =new("ButtonControl", {"LEFT",self.controls.modeImport,"RIGHT"},  4, 0, 72, 20, "BD备注", function()
-	
+
+	self.controls.modeNotes =new("ButtonControl", {"LEFT",self.controls.modeImport,"RIGHT"}, 4, 0, 72, 20, "备注", function()
+
 		self.viewMode = "NOTES"
 	end)
 	self.controls.modeNotes.locked = function() return self.viewMode == "NOTES" end
-	--self.controls.modeConfig = new("ButtonControl", {"TOPRIGHT",self.anchorSideBar,"TOPLEFT"}, 300, 0, 100, 20, "配置", function()
+
 	self.controls.modeConfig = new("ButtonControl", {"TOPRIGHT",self.anchorSideBar,"TOPLEFT"}, 225, 0, 72, 20, "配置", function()
 
 
@@ -486,7 +515,7 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		self.viewMode = "SKILLS"
 	end)
 	self.controls.modeSkills.locked = function() return self.viewMode == "SKILLS" end
-	self.controls.modeItems =new("ButtonControl", {"LEFT",self.controls.modeSkills,"RIGHT"}, 4, 0, 72, 20, "装备物品", function()
+	self.controls.modeItems = new("ButtonControl", {"LEFT",self.controls.modeSkills,"RIGHT"}, 4, 0, 72, 20, "装备物品", function()
 		self.viewMode = "ITEMS"
 	end)
 	self.controls.modeItems.locked = function() return self.viewMode == "ITEMS" end
@@ -494,9 +523,9 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		self.viewMode = "CALCS"
 	end)
 	self.controls.modeCalcs.locked = function() return self.viewMode == "CALCS" end
-	
+	-- Skills
 	self.controls.mainSkillLabel = new("LabelControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, 0, 54, 300, 16, "^7主要技能：")
-	self.controls.mainSocketGroup = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillLabel,"BOTTOMLEFT"},  0, 2, 300, 18, nil, function(index, value)
+	self.controls.mainSocketGroup = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillLabel,"BOTTOMLEFT"}, 0, 2, 300, 18, nil, function(index, value)
 		self.mainSocketGroup = index
 		self.modFlag = true
 		self.buildFlag = true
@@ -665,8 +694,6 @@ main:OpenConfirmPopup("职业更改", "更改职业为 "..value.label.." 将会�
 		})
 	end
 	table.sort(self.controls.classDrop.list, function(a, b) return a.label < b.label end)
-
-	
 	-- Load legacy bandit and pantheon choices from build section
 	for _, control in ipairs({ "bandit", "pantheonMajorGod", "pantheonMinorGod" }) do
 		self.configTab.input[control] = self[control]
@@ -793,6 +820,22 @@ function buildMode:Load(xml, fileName)
 			if child.attrib.id and data.minions[child.attrib.id] then
 				t_insert(self.spectreList, child.attrib.id)
 			end
+		elseif child.elem == "TimelessData" then
+			self.timelessData.jewelType = {
+				id = tonumber(child.attrib.jewelTypeId)
+			}
+			self.timelessData.conquerorType = {
+				id = tonumber(child.attrib.conquerorTypeId)
+			}
+			self.timelessData.jewelSocket = {
+				id = tonumber(child.attrib.jewelSocketId)
+			}
+			self.timelessData.fallbackWeightMode = {
+				idx = tonumber(child.attrib.fallbackWeightModeIdx)
+			}
+			self.timelessData.socketFilter = child.attrib.socketFilter == "true"
+			self.timelessData.searchList = child.attrib.searchList
+			self.timelessData.searchListFallback = child.attrib.searchListFallback
 		end
 	end
 end
@@ -856,6 +899,19 @@ function buildMode:Save(xml)
 			end
 		end
 	end
+	local timelessData = {
+		elem = "TimelessData",
+		attrib = {
+			jewelTypeId = next(self.timelessData.jewelType) and tostring(self.timelessData.jewelType.id),
+			conquerorTypeId = next(self.timelessData.conquerorType) and tostring(self.timelessData.conquerorType.id),
+			jewelSocketId = next(self.timelessData.jewelSocket) and tostring(self.timelessData.jewelSocket.id),
+			fallbackWeightModeIdx = next(self.timelessData.fallbackWeightMode) and tostring(self.timelessData.fallbackWeightMode.idx),
+			socketFilter = self.timelessData.socketFilter and "true",
+			searchList = self.timelessData.searchList and tostring(self.timelessData.searchList),
+			searchListFallback = self.timelessData.searchListFallback and tostring(self.timelessData.searchListFallback)
+		}
+	}
+	t_insert(xml, timelessData)
 end
 
 function buildMode:ResetModFlags()
@@ -1014,12 +1070,12 @@ function buildMode:OpenConversionPopup()
 提醒:^7 转化为新版会出现有部分无法转化的情况，例如天赋树的变更。
 建议先存一份旧版的bd信息在进行转化。
 ]])
-	controls.convert = new("ButtonControl", nil, -80, 170, 180, 20, "转化为 ".. currentVersion, function()
+	controls.convert = new("ButtonControl", nil, -40, 170, 120, 20, "转化为 ".. currentVersion, function()
 		main:ClosePopup()
 		self:Shutdown()
 		self:Init(self.dbFileName, self.buildName, nil, true)
 	end)
-	controls.cancel = new("ButtonControl", nil, 80, 170, 70, 20, "取消", function()
+	controls.cancel = new("ButtonControl", nil, 60, 170, 70, 20, "取消", function()
 		main:ClosePopup()
 		self:CloseBuild()
 	end)
@@ -1032,29 +1088,28 @@ function buildMode:OpenSavePopup(mode)
 		["LIST"] = "现在，",
 		["EXIT"] = "退出前,",
 		["UPDATE"] = "更新前,",
-		
 	}
 	local controls = { }
-controls.label = new("LabelControl", nil, 0, 20, 0, 16, modeDesc[mode].."^7这个Build有修改的地方还没有保存.\n你想要保存它们吗? ")
+	controls.label = new("LabelControl", nil, 0, 20, 0, 16, modeDesc[mode].."^7这个Build有修改的地方还没有保存.\n你想要保存它们吗? ")
 	controls.save = new("ButtonControl", nil, -90, 70, 80, 20, "保存", function()
 		main:ClosePopup()
 		self.actionOnSave = mode		
 		self:SaveDBFile()		
 	end)
-controls.noSave = new("ButtonControl", nil, 0, 70, 80, 20, "不保存", function()
+	controls.noSave = new("ButtonControl", nil, 0, 70, 80, 20, "不保存", function()
 		main:ClosePopup()
 		if mode == "LIST" then
 			self:CloseBuild()
 		elseif mode == "EXIT" then
 			Exit()
 		elseif mode == "UPDATE" then
-			launch:ApplyUpdate(launch.updateAvailable)		
+			launch:ApplyUpdate(launch.updateAvailable)
 		end
 	end)
-controls.close = new("ButtonControl", nil, 90, 70, 80, 20, "取消", function()
+	controls.close = new("ButtonControl", nil, 90, 70, 80, 20, "取消", function()
 		main:ClosePopup()
 	end)
-main:OpenPopup(300, 100, "保存修改", controls)
+	main:OpenPopup(300, 100, "保存修改", controls)
 end
 
 function buildMode:OpenSaveAsPopup()
@@ -1074,12 +1129,12 @@ function buildMode:OpenSaveAsPopup()
 			end
 		end
 	end
-controls.label = new("LabelControl", nil, 0, 20, 0, 16, "^7请输入Build名称:")
+	controls.label = new("LabelControl", nil, 0, 20, 0, 16, "^7请输入Build名称:")
 	controls.edit = new("EditControl", nil, 0, 40, 450, 20, self.dbFileName and self.buildName, nil, "\\/:%*%?\"<>|%c", 100, function(buf)
 		updateBuildName()
 	end)
-controls.folderLabel = new("LabelControl", {"TOPLEFT",nil,"TOPLEFT"}, 10, 70, 0, 16, "^7文件夹:")
-controls.newFolder = new("ButtonControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 67, 94, 20, "新建文件夹...", function()
+	controls.folderLabel = new("LabelControl", {"TOPLEFT",nil,"TOPLEFT"}, 10, 70, 0, 16, "^7文件夹:")
+	controls.newFolder = new("ButtonControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 67, 94, 20, "新建文件夹...", function()
 		main:OpenNewFolderPopup(main.buildPath..controls.folder.subPath, function(newFolderName)
 			if newFolderName then
 				controls.folder:OpenFolder(newFolderName)
@@ -1089,7 +1144,7 @@ controls.newFolder = new("ButtonControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 67, 94
 	controls.folder = new("FolderListControl", nil, 0, 115, 450, 100, self.dbFileSubPath, function(subPath)
 		updateBuildName()
 	end)
-controls.save = new("ButtonControl", nil, -45, 225, 80, 20, "保存", function()
+	controls.save = new("ButtonControl", nil, -45, 225, 80, 20, "保存", function()
 		main:ClosePopup()
 		self.dbFileName = newFileName
 		self.buildName = newBuildName
@@ -1098,12 +1153,11 @@ controls.save = new("ButtonControl", nil, -45, 225, 80, 20, "保存", function()
 		self.spec:SetWindowTitleWithBuildClass()
 	end)
 	controls.save.enabled = false
-controls.close = new("ButtonControl", nil, 45, 225, 80, 20, "取消", function()
+	controls.close = new("ButtonControl", nil, 45, 225, 80, 20, "取消", function()
 		main:ClosePopup()
 		self.actionOnSave = nil
-		
 	end)
-main:OpenPopup(470, 255, self.dbFileName and "另存为" or "保存", controls, "save", "edit", "close")
+	main:OpenPopup(470, 255, self.dbFileName and "另存为" or "保存", controls, "save", "edit", "close")
 end
 
 -- Open the spectre library popup
@@ -1123,16 +1177,18 @@ function buildMode:OpenSpectreLibrary()
 	local controls = { }
 	controls.list = new("MinionListControl", nil, -100, 40, 190, 250, self.data, destList)
 	controls.source = new("MinionListControl", nil, 100, 40, 190, 250, self.data, sourceList, controls.list)
-	controls.save = new("ButtonControl", nil, -45, 300, 80, 20, "Save", function()
+	controls.save = new("ButtonControl", nil, -45, 330, 80, 20, "Save", function()
 		self.spectreList = destList
 		self.modFlag = true
 		self.buildFlag = true
 		main:ClosePopup()
 	end)
-controls.cancel = new("ButtonControl", nil, 45, 300, 80, 20, "取消", function()
+	controls.cancel = new("ButtonControl", nil, 45, 330, 80, 20, "取消", function()
 		main:ClosePopup()
 	end)
-main:OpenPopup(410, 330, "【灵体列表】", controls)
+	controls.noteLine1 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, 24, 2, 0, 16, "Spectres in your Library must be assigned to an active")
+	controls.noteLine2 = new("LabelControl", {"TOPLEFT",controls.list,"BOTTOMLEFT"}, 20, 18, 0, 16, "Raise Spectre gem for their buffs and curses to activate")
+	main:OpenPopup(410, 360, "灵体列表", controls)
 end
 
 -- Refresh the set of controls used to select main group/skill/minion
@@ -1225,7 +1281,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						controls.mainSkillMinionSkill.shown = true
 						controls.mainSkillMinionSkill.enabled = #controls.mainSkillMinionSkill.list > 1
 					else
-t_insert(controls.mainSkillMinion.list, "<未选择灵体类型>")
+						t_insert(controls.mainSkillMinion.list, "<未选择灵体类型>")
 					end
 				end
 			end
@@ -1245,7 +1301,7 @@ function buildMode:FormatStat(statData, statVal, overCapStatVal)
 	valStr = color .. formatNumSep(valStr)
 
 	if overCapStatVal and overCapStatVal > 0 then
-		valStr = valStr .. "^x808080" .. " (+" .. s_format("%"..statData.fmt, overCapStatVal) .. ")"
+		valStr = valStr .. "^x808080" .. " (+" .. s_format("%d", overCapStatVal) .. "%)"
 	end
 
 	self.lastShowThousandsSeparators = main.showThousandsSeparators
@@ -1310,7 +1366,7 @@ function buildMode:AddDisplayStatList(statList, actor)
 					end
 				end
 				if statData.warnFunc and statVal and ((statData.condFunc and statData.condFunc(statVal, actor.output)) or not statData.condFunc) then 
-					local v = statData.warnFunc(statVal)
+					local v = statData.warnFunc(statVal, actor.output)
 					if v then
 						InsertIfNew(self.controls.warnings.lines, v)
 					end
@@ -1320,7 +1376,7 @@ function buildMode:AddDisplayStatList(statList, actor)
 					height = 16, labelColor..statData.label..":", 
 					"^7"..actor.output[statData.labelStat].."%^x808080" .. " (" .. statData.val  .. ")",})
 			elseif not statBoxList[#statBoxList] or statBoxList[#statBoxList][1] then
-				t_insert(statBoxList, { height = 10 })
+				t_insert(statBoxList, { height = 6 })
 			end
 		end
 	end
@@ -1331,20 +1387,26 @@ end
 function buildMode:RefreshStatList()
 	self.controls.warnings.lines = {}
 	local statBoxList = wipeTable(self.controls.statBox.list)
-	if self.calcsTab.mainEnv.player.mainSkill.infoMessage then		
+	if self.calcsTab.mainEnv.player.mainSkill.infoMessage then
 		t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, colorCodes.CUSTOM .. self.calcsTab.mainEnv.player.mainSkill.infoMessage})
 		if self.calcsTab.mainEnv.player.mainSkill.infoMessage2 then
 			t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, "^8" .. self.calcsTab.mainEnv.player.mainSkill.infoMessage2})
 		end
 	end
 	if self.calcsTab.mainEnv.minion then
-t_insert(statBoxList, { height = 18, "^7召唤生物:" })
+		t_insert(statBoxList, { height = 18, "^7召唤生物:" })
+		if self.calcsTab.mainEnv.minion.mainSkill.infoMessage then
+			t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, colorCodes.CUSTOM .. self.calcsTab.mainEnv.minion.mainSkill.infoMessage})
+			if self.calcsTab.mainEnv.minion.mainSkill.infoMessage2 then
+				t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, "^8" .. self.calcsTab.mainEnv.minion.mainSkill.infoMessage2})
+			end
+		end
 		self:AddDisplayStatList(self.minionDisplayStats, self.calcsTab.mainEnv.minion)
 		t_insert(statBoxList, { height = 10 })
-t_insert(statBoxList, { height = 18, "^7玩家:" })
+		t_insert(statBoxList, { height = 18, "^7玩家:" })
 	end
 	if self.calcsTab.mainEnv.player.mainSkill.skillFlags.disable then
-t_insert(statBoxList, { height = 16, "^7技能不起作用:" })
+		t_insert(statBoxList, { height = 16, "^7技能不起作用:" })
 		t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, self.calcsTab.mainEnv.player.mainSkill.disableReason })
 	end
 	self:AddDisplayStatList(self.displayStats, self.calcsTab.mainEnv.player)
@@ -1393,13 +1455,13 @@ end
 -- Returns the number of stat lines added
 function buildMode:AddStatComparesToTooltip(tooltip, baseOutput, compareOutput, header, nodeCount)
 	local count = 0
-	if baseOutput.Minion and compareOutput.Minion then
+	if self.calcsTab.mainEnv.player.mainSkill.minion and baseOutput.Minion and compareOutput.Minion then
 		count = count + self:CompareStatList(tooltip, self.minionDisplayStats, self.calcsTab.mainEnv.minion, baseOutput.Minion, compareOutput.Minion, header.."\n^7召唤生物:", nodeCount)
 		if count > 0 then
 			header = "^7玩家:"
 		else
 			header = header.."\n^7玩家:"
-		end	 
+		end
 	end
 	count = count + self:CompareStatList(tooltip, self.displayStats, self.calcsTab.mainEnv.player, baseOutput, compareOutput, header, nodeCount)
 	return count
@@ -1415,13 +1477,13 @@ do
 		-- Convert normal attributes to Omni attributes
 		if self.calcsTab.mainEnv.modDB:Flag(nil, "OmniscienceRequirements") then
 			local omniSatisfy = self.calcsTab.mainEnv.modDB:Sum("INC", nil, "OmniAttributeRequirements")
-			local highestAtrribute = 0
+			local highestAttribute = 0
 			for i, stat in ipairs({str, dex, int}) do
-				if((stat or 0) > highestAtrribute) then
-					highestAtrribute = stat
+				if((stat or 0) > highestAttribute) then
+					highestAttribute = stat
 				end
 			end
-			local omni = math.floor(highestAtrribute * (omniSatisfy/100))
+			local omni = math.floor(highestAttribute * (100/omniSatisfy))
 			if omni and (omni > 0 or omni > self.calcsTab.mainOutput.Omni) then
 				t_insert(req, s_format("%s%d ^x7F7F7F全知", main:StatColor(omni, 0, self.calcsTab.mainOutput.Omni), omni))
 			end
@@ -1448,10 +1510,10 @@ function buildMode:LoadDB(xmlText, fileName)
 	-- Parse the XML
 	local dbXML, errMsg = common.xml.ParseXML(xmlText)
 	if not dbXML then
-launch:ShowErrMsg("^1加载错误 '%s': %s", fileName, errMsg)
+		launch:ShowErrMsg("^1加载错误 '%s': %s", fileName, errMsg)
 		return true
 	elseif dbXML[1].elem ~= "PathOfBuilding" then
-launch:ShowErrMsg("^1解析错误 '%s': 'PathOfBuilding' 节点不存在", fileName)
+		launch:ShowErrMsg("^1解析错误 '%s': 'PathOfBuilding' 节点不存在", fileName)
 		return true
 	end
 
@@ -1517,14 +1579,13 @@ function buildMode:SaveDBFile()
 		self:OpenSaveAsPopup()
 		return
 	end
-	
 	local xmlText = self:SaveDB(self.dbFileName)
 	if not xmlText then
 		return true
 	end
 	local file = io.open(self.dbFileName, "w+")
 	if not file then
-main:OpenMessagePopup("错误", "不能保存当前bd文件:\n"..self.dbFileName.."\n可能是保存目录不存在、不可写、没有权限或者路径带有中文字符.")
+		main:OpenMessagePopup("错误", "不能保存当前bd文件:\n"..self.dbFileName.."\n可能是保存目录不存在、不可写、没有权限或者路径带有中文字符.")
 		return true
 	end
 	file:write(xmlText)
