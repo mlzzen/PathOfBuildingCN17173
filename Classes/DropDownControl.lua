@@ -417,7 +417,7 @@ function DropDownClass:Draw(viewPort, noTooltip)
 				-- draw actual item label with search match highlight if available
 				local label = StripEscapes(type(listVal) == "table" and listVal.label or listVal)
 				-- to chinese labels
-				if self.cnKey then
+				if self.cnKey and cnMaps[self.cnKey] then
 					for index in pairs(cnMaps[self.cnKey]) do
 						if label == cnMaps[self.cnKey][index].slotName then
 							label = cnMaps[self.cnKey][index].label

@@ -3,7 +3,6 @@
 -- Module: Calcs Tab
 -- Calculations breakdown tab for the current build.
 --
---local launch, main = ...
 
 local pairs = pairs
 local ipairs = ipairs
@@ -114,7 +113,7 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 	-- Special section for skill/mode selection
 
 
-self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "查看技能详情", data = {
+	self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "查看技能详情", data = {
 		{ label = "技能组", { controlName = "mainSocketGroup", 
 			control = new("DropDownControl", nil, 0, 0, 300, 16, nil, function(index, value) 
 				self.input.skill_number = index 
@@ -129,14 +128,14 @@ self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = fa
 				end
 			}
 		}, },
-{ label = "主动技能", { controlName = "mainSkill", 
+		{ label = "主动技能", { controlName = "mainSkill", 
 			control = new("DropDownControl", nil, 0, 0, 300, 16, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				mainSocketGroup.mainActiveSkillCalcs = index
 				self.build.buildFlag = true
 			end)
 		}, },
-{ label = "技能 分段", playerFlag = "multiPart", { controlName = "mainSkillPart", 
+		{ label = "技能 分段", playerFlag = "multiPart", { controlName = "mainSkillPart", 
 			control = new("DropDownControl", nil, 0, 0, 150, 16, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -144,7 +143,7 @@ self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = fa
 				self:AddUndoState()
 				self.build.buildFlag = true
 			end)
-}, },{ label = "技能 层数", playerFlag = "multiStage", { controlName = "mainSkillStageCount",
+		}, },{ label = "技能 层数", playerFlag = "multiStage", { controlName = "mainSkillStageCount",
 			control = new("EditControl", nil, 0, 0, 52, 16, nil, nil, "%D", nil, function(buf)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -153,7 +152,7 @@ self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = fa
 				self.build.buildFlag = true
 			end)
 		}, },
-{ label = "启用的地雷", playerFlag = "mine", { controlName = "mainSkillMineCount",
+		{ label = "启用的地雷", playerFlag = "mine", { controlName = "mainSkillMineCount",
 			control = new("EditControl", nil, 0, 0, 52, 16, nil, nil, "%D", nil, function(buf)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -162,13 +161,13 @@ self:NewSection(3, "SkillSelect", 1, colorCodes.NORMAL, {{ defaultCollapsed = fa
 				self.build.buildFlag = true
 			end)
 		}, },
-{ label = "显示召唤生物状态", flag = "haveMinion", { controlName = "showMinion", 
+		{ label = "显示召唤生物状态", flag = "haveMinion", { controlName = "showMinion", 
 			control = new("CheckBoxControl", nil, 0, 0, 18, nil, function(state)
 				self.input.showMinion = state
 				self:AddUndoState()
-end, "显示召唤物计算面板而非玩家的.")
+			end, "显示召唤物计算面板而非玩家的.")
 		}, },
-{ label = "召唤生物", flag = "minion", { controlName = "mainSkillMinion",
+		{ label = "召唤生物", flag = "minion", { controlName = "mainSkillMinion",
 			control = new("DropDownControl", nil, 0, 0, 160, 16, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
@@ -179,248 +178,25 @@ end, "显示召唤物计算面板而非玩家的.")
 				end
 				self:AddUndoState()
 				self.build.buildFlag = true
-			end){
-				tooltipFunc = function(tooltip, mode, index, value)
-				
-				if self.calcsEnv and self.calcsEnv.minion then 
-					local mainMinionData=self.calcsEnv.minion.minionData
-						
-						if mainMinionData then 
-							if tooltip:CheckForUpdate(mainMinionData.name, self.build.outputRevision)  then 
-								 tooltip.center = false
-								 tooltip.color = colorCodes.UNIQUE
-								
-								 tooltip:AddLine(20, colorCodes.UNIQUE.. mainMinionData.name.."                        ")
-								 tooltip:AddLine(5, colorCodes.UNIQUE.."")
-								--[[   
-								local cnList= minionModList2CN(mainMinionData.modList)
-								
-								 
-								for _, modcn in ipairs(cnList) do
-									if modcn then
-									tooltip:AddLine(16, colorCodes.RARE..modcn)
-									end
-								end
-								]]--
-									
-								 if mainMinionData.modListSP then 
-									 for _, modtext in ipairs(mainMinionData.modListSP) do
-										if modtext then
-										tooltip:AddLine(16, colorCodes.RARE..modtext)
-										end
-									end
-								end
-								
-								tooltip:AddSeparator(10)
-								for _, skillId in ipairs(mainMinionData.skillList) do
-									if self.calcsEnv.data.skills[skillId] then
-									tooltip:AddLine(16, colorCodes.GEM..self.calcsEnv.data.skills[skillId].name)
-									end
-								end
-								 
-								 
-								 tooltip:AddSeparator(10)
-								 if mainMinionData.damage   then 
-									tooltip:AddLine(16, "^x7F7F7F".."伤害："..(mainMinionData.damage*100) .."%")
-								 end
-								 if mainMinionData.damageSpread    then 
-									tooltip:AddLine(16, "^x7F7F7F".."大小伤区间："..mainMinionData.damageSpread*100 .."%")
-								 end
-								  if mainMinionData.attackTime    then 
-									tooltip:AddLine(16, "^x7F7F7F".."基础攻速："..mainMinionData.attackTime)
-								 end
-								  if mainMinionData.attackRange    then 
-									tooltip:AddLine(16, "^x7F7F7F".."基础攻击范围："..mainMinionData.attackRange)
-								 end
-								  if mainMinionData.accuracy     then 
-									tooltip:AddLine(16, "^x7F7F7F".."命中："..mainMinionData.accuracy *100 .."%" )
-								 end
-								  tooltip:AddSeparator(10)
-								 if mainMinionData.life and mainMinionData.life>0 then 
-									tooltip:AddLine(16, "^x7F7F7F".."生命："..mainMinionData.life*100 .."%")
-								 end
-								 if mainMinionData.energyShield and mainMinionData.energyShield>0 then 
-									tooltip:AddLine(16, "^x7F7F7F".."能量护盾："..mainMinionData.energyShield*100 .."%")
-								 end
-								 if mainMinionData.armour and mainMinionData.armour>0 then 
-									tooltip:AddLine(16, "^x7F7F7F".."护甲："..mainMinionData.armour*100 .."%")
-								 end
-								  tooltip:AddSeparator(10)
-								 
-								 if mainMinionData.fireResist  then 
-									tooltip:AddLine(16, "^x7F7F7F".."火焰抗性："..mainMinionData.fireResist .."%")
-								 end
-								 if mainMinionData.coldResist  then 
-									tooltip:AddLine(16, "^x7F7F7F".."冰霜抗性："..mainMinionData.coldResist .."%")
-								 end
-								 if mainMinionData.lightningResist  then 
-									tooltip:AddLine(16, "^x7F7F7F".."闪电抗性："..mainMinionData.lightningResist .."%")
-								 end
-								 if mainMinionData.chaosResist  then 
-									tooltip:AddLine(16, "^x7F7F7F".."混沌抗性："..mainMinionData.chaosResist .."%")
-								 end
-								
-								 
-								 
-							end
-						
-						end 
-						
-				
-				end 
-					
-				end
-			}
+			end)
 		} },
-{ label = "内置灵体数据", flag = "spectre", { controlName = "mainSkillMinionLibrary",
-control = new("ButtonControl", nil, 0, 0, 100, 16, "灵体管理...", function()
+		{ label = "内置灵体数据", flag = "spectre", { controlName = "mainSkillMinionLibrary",
+			control = new("ButtonControl", nil, 0, 0, 100, 16, "灵体管理...", function()
 				self.build:OpenSpectreLibrary()
 			end)
 		} },
-{ label = "召唤生物技能", flag = "haveMinion", { controlName = "mainSkillMinionSkill",
+		{ label = "召唤生物技能", flag = "haveMinion", { controlName = "mainSkillMinionSkill",
 			control = new("DropDownControl", nil, 0, 0, 200, 16, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
-				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance				
+				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
 				srcInstance.skillMinionSkillCalcs = index
 				self:AddUndoState()
 				self.build.buildFlag = true
-			end){
-				tooltipFunc = function(tooltip, mode, index, value)
-				 
-				local mainSkill=self.calcsEnv.minion.mainSkill
-					
-					 
-				
-				if mainSkill and mainSkill.skillCfg and  mainSkill.skillCfg.skillGrantedEffect then  
-				
-					local grantedEffect= mainSkill.skillCfg.skillGrantedEffect
-					  
-						if grantedEffect and  tooltip:CheckForUpdate(grantedEffect.id, self.build.outputRevision)  then 
-						
-						
-						 tooltip.center = true
-						 tooltip.color = colorCodes.GEM
-						
-						 tooltip:AddLine(20, colorCodes.GEM..grantedEffect.name)
-						 tooltip:AddSeparator(10)
-						 tooltip:AddLine(16, "^x7F7F7F"..grantedEffect.id)
-						 
-						 if grantedEffect.skillTypes then 
-							local skillTypeText = ''
-							for stat, val in pairs(grantedEffect.skillTypes) do
-							
-								if val and stat and SkillTypeCNMap[stat] then 									 
-									skillTypeText = skillTypeText ..SkillTypeCNMap[stat] ..","
-								end 
-							end
-							
-							tooltip:AddLine(16, "^x7F7F7F"..skillTypeText)
-							tooltip:AddSeparator(10)
-						 end
-						 
-						 local  curSkillLevel=0;
-						 local curlevelRequirement=0;
-							local curManaCost=0;
-							local curCooldown=0;
-							local actorLevel=self.calcsEnv.minion.level;
-							local curCritChance=0.0;
-							local curDamageEffectiveness=0.0;
-							local curBaseMultiplier=0.0;
-						 tooltip:AddLine(16, "^x7F7F7F".."召唤生物等级: "..actorLevel)
-						 
-						 if grantedEffect.levels then 
-							
-							
-							 
-							for levelitem=1, #grantedEffect.levels do
-								 
-								if  grantedEffect.levels[levelitem].levelRequirement						 
-								then 
-									if grantedEffect.levels[levelitem].levelRequirement  > self.calcsEnv.minion.level then
-										break;
-									else
-										curSkillLevel=levelitem
-										curlevelRequirement=grantedEffect.levels[levelitem].levelRequirement
-										curManaCost=grantedEffect.levels[levelitem].manaCost
-										curCooldown=grantedEffect.levels[levelitem].cooldown
-										curCritChance=grantedEffect.levels[levelitem].critChance
-										curDamageEffectiveness=grantedEffect.levels[levelitem].damageEffectiveness
-										curBaseMultiplier=grantedEffect.levels[levelitem].baseMultiplier
-										
-									end 
-								
-								end 
-							end
-							tooltip:AddLine(16, "^x7F7F7F".."技能等级: "..curSkillLevel)
-							--tooltip:AddLine(16, "^x7F7F7F".."需求等级: "..curlevelRequirement)
-							if curManaCost and  curManaCost >0 then 
-								tooltip:AddLine(16, "^x7F7F7F".."魔力消耗: "..curManaCost)
-							end 
-							if curCooldown and curCooldown >0 then 
-								tooltip:AddLine(16, "^x7F7F7F".."冷却时间: "..curCooldown.." 秒")
-							end 
-							
-						 
-						 end 
-						 if grantedEffect.castTime and grantedEffect.castTime > 0 then
-							tooltip:AddLine(16, string.format("^x7F7F7F施放时间: ^7%.2f 秒", grantedEffect.castTime))
-						 else
-							tooltip:AddLine(16, "^x7F7F7F施放时间: ^7瞬发")
-						 end
-						 if curCritChance and  curCritChance>0 then 
-							tooltip:AddLine(16, "^x7F7F7F".."暴击几率: "..curCritChance.."%")
-						 end 
-						 if curDamageEffectiveness and curDamageEffectiveness>0 then 
-							tooltip:AddLine(16, "^x7F7F7F".."伤害效用: "..curDamageEffectiveness*100 .."%")
-						 end 
-						 if curBaseMultiplier and curBaseMultiplier>0 then 
-							tooltip:AddLine(16, "^x7F7F7F".."基础加成: "..curBaseMultiplier*100 .."%")
-						 end 
-						 
-						 tooltip:AddSeparator(10)
-						 tooltip:AddLine(16, "^x7F7F7F需求 Level "..curlevelRequirement)
-						 tooltip:AddSeparator(10)
-						 if grantedEffect.description then
-							local wrap = main:WrapString(grantedEffect.description:gsub("。\n","。"):gsub("。","。\n"), 16, m_max(DrawStringWidth(16, "VAR", grantedEffect.id), 400))
-							for _, line in ipairs(wrap) do
-								tooltip:AddLine(16, colorCodes.GEM..line)
-							end
-						end
-						if self.build.data.describeStats then
-							tooltip:AddSeparator(10)
-							local stats =calcLib.buildSkillInstanceStatsOnly(curSkillLevel,actorLevel, grantedEffect) 
-							if grantedEffect.levels[curSkillLevel] and grantedEffect.levels[curSkillLevel].baseMultiplier then
-								stats["active_skill_attack_damage_final_permyriad"] = (grantedEffect.levels[curSkillLevel].baseMultiplier - 1) * 10000
-							end
-							local mergeStatsFrom=false
-							if mergeStatsFrom then
-								for stat, val in pairs(calcLib.buildSkillInstanceStatsOnly(curSkillLevel,actorLevel, mergeStatsFrom)) do
-									stats[stat] = (stats[stat] or 0) + val
-								end
-								
-							end
-							  
-							local descriptions = self.build.data.describeStats(stats, grantedEffect.statDescriptionScope )
-							 
-							for _, line in ipairs(descriptions) do
-								tooltip:AddLine(16, line)
-							end
-						end
-						
-			
-						 
-					end 
-				end 
-				
-				
-				
-					
-				end
-			}
+			end)
 		} },
-{ label = "计算模式", { 
+		{ label = "计算模式", { 
 			controlName = "mode", 
-			control = new("DropDownControl", nil, 0, 0, 100, 16, buffModeDropList, function(index, value)  
+			control = new("DropDownControl", nil, 0, 0, 100, 16, buffModeDropList, function(index, value) 
 				self.input.misc_buffMode = value.buffMode 
 				self:AddUndoState()
 				self.build.buildFlag = true
@@ -433,15 +209,14 @@ Buff：光环和buff会生效，相当于你在藏身处的数值。
 战斗模式：会计算充能球，猛攻之类的buff，相当于角色在进行战斗的数值。
 有效 DPS：还会计算诅咒和敌人状态（比如敌人的抗性和一些特殊状态），这显示了你的真正DPS。]]) 
 		}, },
-{ label = "光环和Buff技能", flag = "buffs", textSize = 12, { format = "{output:BuffList}", { breakdown = "SkillBuffs" } }, },
-{ label = "战斗Buffs", flag = "combat", textSize = 12, { format = "{output:CombatList}" }, },
-{ label = "诅咒和Debuff", flag = "effective", textSize = 12, { format = "{output:CurseList}", { breakdown = "SkillDebuffs" } }, },
+		{ label = "光环和Buff技能", flag = "buffs", textSize = 12, { format = "{output:BuffList}", { breakdown = "SkillBuffs" } }, },
+		{ label = "战斗Buffs", flag = "combat", textSize = 12, { format = "{output:CombatList}" }, },
+		{ label = "诅咒和Debuff", flag = "effective", textSize = 12, { format = "{output:CurseList}", { breakdown = "SkillDebuffs" } }, },
 	}}}, function(section)
 		self.build:RefreshSkillSelectControls(section.controls, self.input.skill_number, "Calcs")
 		section.controls.showMinion.state = self.input.showMinion
 		section.controls.mode:SelByValue(self.input.misc_buffMode, "buffMode")
 	end)
-	 
 
 	-- Add sections from the CalcSections module
 	local sectionData = LoadModule("Modules/CalcSections")
@@ -452,6 +227,7 @@ Buff：光环和buff会生效，相当于你在藏身处的数值。
 	self.controls.breakdown = new("CalcBreakdownControl", self)
 
 	self.controls.scrollBar = new("ScrollBarControl", {"TOPRIGHT",self,"TOPRIGHT"}, 0, 0, 18, 0, 50, "VERTICAL", true)
+	self.powerBuilderInitialized = nil
 end)
 
 function CalcsTabClass:Load(xml, dbFileName)
@@ -478,8 +254,13 @@ function CalcsTabClass:Load(xml, dbFileName)
 					return true
 				end
 				for _, section in ipairs(self.sectionList) do
-					if section.id == node.attrib.id then
-						section.collapsed = (node.attrib.collapsed == "true")
+					if section.id == node.attrib.id and node.attrib.subsection then
+						for _, subsection in ipairs(section.subSection) do
+							if subsection.id == node.attrib.subsection then
+								subsection.collapsed = node.attrib.collapsed == "true"
+								break
+							end
+						end
 						break
 					end
 				end
@@ -502,12 +283,14 @@ function CalcsTabClass:Save(xml)
 		t_insert(xml, child)
 	end
 	for _, section in ipairs(self.sectionList) do
-		t_insert(xml, { elem = "Section", attrib = {
-			id = section.id,
-			collapsed = tostring(section.collapsed),
-		} })
+		for _, subSection in ipairs(section.subSection) do
+			t_insert(xml, { elem = "Section", attrib = {
+				id = section.id,
+				subsection = subSection.id,
+				collapsed = tostring(subSection.collapsed),
+			} })
+		end
 	end
-	self.modFlag = false
 end
 function CalcsTabClass:Draw(viewPort, inputEvents)
 	self.x = viewPort.x
@@ -628,7 +411,7 @@ function CalcsTabClass:Draw(viewPort, inputEvents)
 		self.displayData = nil
 	end
 
-	self:DrawControls(viewPort, self.selfControl)
+	self:DrawControls(viewPort, self.selControl)
 
 	if self.displayData then
 		if self.displayPinned and not self.selControl then
@@ -711,10 +494,8 @@ function CalcsTabClass:BuildOutput()
 		self.calcs.buildOutput(self.build, "MAIN")
 	end
 	SetProfiling(false)
-	ConPrintf("Calc time: %d msec", GetTime() - start)
+	ConPrintf("Calc time: %d ms", GetTime() - start)
 	--]]
-	
-	
 	for _, node in pairs(self.build.spec.nodes) do
 		-- Set default final mod list for all nodes; some may not be set during the main pass
 		node.finalModList = node.modList
@@ -743,7 +524,6 @@ function CalcsTabClass:BuildPower(callbackContext)
 		self.powerBuilder = coroutine.create(self.PowerBuilder)
 	end
 	if self.powerBuilder then
-		
 		local res, errMsg = coroutine.resume(self.powerBuilder, self)
 		if launch.devMode and not res then
 			error(errMsg)
@@ -754,7 +534,6 @@ function CalcsTabClass:BuildPower(callbackContext)
 				self.powerBuilderCallback.func(self.powerBuilderCallback.caller)
 			end
 		end
-		
 	end
 end
 
@@ -766,7 +545,7 @@ function CalcsTabClass:PowerBuilder()
 	local calcFunc, calcBase = self:GetMiscCalculator()
 	local cache = { }
 	local newPowerMax = {
-		singleStat = 0,		
+		singleStat = 0,
 		offence = 0,
 		offencePerPoint = 0,
 		defence = 0,
@@ -807,7 +586,8 @@ function CalcsTabClass:PowerBuilder()
 				end
 				node.power.defence = (output.LifeUnreserved - calcBase.LifeUnreserved) / m_max(3000, calcBase.Life) +
 								(output.Armour - calcBase.Armour) / m_max(10000, calcBase.Armour) +
-								((output.EnergyShieldRecoveryCap or output.EnergyShield) - (calcBase.EnergyShieldRecoveryCap or calcBase.EnergyShield)) / m_max(3000, (calcBase.EnergyShieldRecoveryCap or calcBase.EnergyShield)) +								(output.Evasion - calcBase.Evasion) / m_max(10000, calcBase.Evasion) +
+								((output.EnergyShieldRecoveryCap or output.EnergyShield) - (calcBase.EnergyShieldRecoveryCap or calcBase.EnergyShield)) / m_max(3000, (calcBase.EnergyShieldRecoveryCap or calcBase.EnergyShield)) +
+								(output.Evasion - calcBase.Evasion) / m_max(10000, calcBase.Evasion) +
 								(output.LifeRegen - calcBase.LifeRegen) / 500 +
 								(output.EnergyShieldRegen - calcBase.EnergyShieldRegen) / 1000
 				if node.path and not node.ascendancyName then
@@ -862,6 +642,7 @@ function CalcsTabClass:PowerBuilder()
 		end
 	end
 	self.powerMax = newPowerMax
+	self.powerBuilderInitialized = true
 	--ConPrintf("Power Build time: %d ms", GetTime() - timer_start)
 end
 
