@@ -220,6 +220,7 @@
 	<File sha1="bf33ac149912ee1964487a768a2eb5f21cf38c53" name="SimpleGraphic/Fonts/Bitstream Vera Sans Mono.ttf" part="runtime" />
 	<File sha1="bf33ac149912ee1964487a768a2eb5f21cf38c53" name="SimpleGraphic/Fonts/Liberation Sans Bold.ttf" part="runtime" />
 	<File sha1="bf33ac149912ee1964487a768a2eb5f21cf38c53" name="SimpleGraphic/Fonts/Liberation Sans.ttf" part="runtime" />
+	<File sha1="bf33ac149912ee1964487a768a2eb5f21cf38c53" name="SimpleGraphic/Fonts/FZY3JW.TTF" part="runtime" />
 	<File sha1="2fd670aeee1c39ae99eef78cc351f9f7fbc091bc" name="TreeData/AmberOil.png" part="tree" />
 	<File sha1="60d0e1334840a6f143b4c3cbe7f0675709701691" name="TreeData/AscendancyButton.png" part="tree" />
 	<File sha1="fcb6cd198a3b85c3b08623591bc0ba6d0ba4b991" name="TreeData/AscendancyButtonHighlight.png" part="tree" />
