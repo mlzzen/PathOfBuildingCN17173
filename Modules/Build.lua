@@ -206,7 +206,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 			SetDrawLayer(nil, 0)
 		end
 	end
-	self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.pointDisplay,"RIGHT"}, 12, 0, 106, 20, "", "Level", "%D", 3, function(buf)
+	self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.pointDisplay,"RIGHT"}, 12, 0, 106, 20, "", "等级", "%D", 3, function(buf)
 		self.characterLevel = m_min(m_max(tonumber(buf) or 1, 1), 100)
 		self.configTab:BuildModList()
 		self.modFlag = true
@@ -232,7 +232,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 				if mult > 0.01 then
 					local line = level
 					if level >= 68 then 
-						line = line .. string.format(" (Tier %d)", level - 67)
+						line = line .. string.format(" (T%d)", level - 67)
 					end
 					line = line .. string.format(": %.1f%%", mult * 100)
 					tooltip:AddLine(14, line)
