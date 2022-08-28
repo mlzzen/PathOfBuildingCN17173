@@ -71,12 +71,12 @@ return {
 	{ var = "detonateDeadCorpseLife", type = "count", label = "敌人尸体的生命:", tooltip = "设置【爆灵术】和类似的灵柩爆炸技能.\n作为参考，70级怪物的生命为："..data.monsterLifeTable[70].." ，80级怪物的生命为： "..data.monsterLifeTable[80]..".", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "corpseLife", value = val }, "Config")
 	end },
-	{ var = "conditionStationary", type = "count", label = "你静止不移动?", ifCond = "Stationary", 
+	{ var = "conditionStationary", type = "count", label = "你静止不移动?", ifCond = "Stationary",
 		tooltip = "可使词缀 `静止时` 和 `静止时每秒`生效",
 		apply = function(val, modList, enemyModList)
 		if type(val) == "boolean" then
-		-- Backwards compatibility with older versions that set this condition as a boolean
-		val = val and 1 or 0
+			-- Backwards compatibility with older versions that set this condition as a boolean
+			val = val and 1 or 0
 		end
 		local sanitizedValue = m_max(0, val)
 		modList:NewMod("Multiplier:StationarySeconds", "BASE", sanitizedValue, "Config")
@@ -88,22 +88,31 @@ return {
 	{ var = "conditionMoving", type = "check", label = "你处于移动状态?", ifCond = "Moving", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Moving", "FLAG", true, "Config")
 	end },
-	{ var = "conditionFullLife", type = "check", label = "你处于满血状态?", tooltip = "如果你有【异灵之体】天赋，你会自动被认为是满血的\n如果有必要，你可以勾选这个来认为你是满血的.", apply = function(val, modList, enemyModList)
+	{ var = "conditionInsane", type = "check", label = "你处于疯狂状态?", ifCond = "Insane", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:Insane", "FLAG", true, "Config")
+	end },
+	{ var = "conditionFullLife", type = "check", label = "你处于^xE05030满血^xFFFFFF状态?", tooltip = "如果你有【异灵之体】天赋，你会自动被认为是满血的\n如果有必要，你可以勾选这个来认为你是满血的.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FullLife", "FLAG", true, "Config")
 	end },
-	{ var = "conditionLowLife", type = "check", label = "你处于低血状态?", ifCond = "LowLife", tooltip = "当你至少有 50% 生命保留的时候会自动认为是低血状态,\n如果有必要，你可以勾选这个来认为你是低血的.", apply = function(val, modList, enemyModList)
+	{ var = "conditionLowLife", type = "check", label = "你处于^xE05030低血^xFFFFFF状态?", ifCond = "LowLife", tooltip = "当你至少有 50% 生命保留的时候会自动认为是低血状态,\n如果有必要，你可以勾选这个来认为你是低血的.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:LowLife", "FLAG", true, "Config")
 	end },
-	{ var = "conditionLowMana", type = "check", label = "你处于低魔状态?", ifCond = "LowMana", tooltip = "当你至少有 50% 魔力保留的时候会自动认为是低魔状态,\n如果有必要，你可以勾选这个来认为你是低魔的.", apply = function(val, modList, enemyModList)
+	{ var = "conditionFullMana", type = "check", label = "你处于^x7070FF满蓝^xFFFFFF状态?", ifCond = "FullMana", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:FullMana", "FLAG", true, "Config")
+	end },
+	{ var = "conditionLowMana", type = "check", label = "你处于^x7070FF低魔^xFFFFFF状态?", ifCond = "LowMana", tooltip = "当你至少有 50% 魔力保留的时候会自动认为是低魔状态,\n如果有必要，你可以勾选这个来认为你是低魔的.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:LowMana", "FLAG", true, "Config")
 	end },
-{ var = "conditionFullEnergyShield", type = "check", label = "你处于满能量护盾状态?", ifCond = "FullEnergyShield", apply = function(val, modList, enemyModList)
+	{ var = "conditionFullEnergyShield", type = "check", label = "你处于^x88FFFF满能量护盾^xFFFFFF状态?", ifCond = "FullEnergyShield", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FullEnergyShield", "FLAG", true, "Config")
 	end },
-{ var = "conditionHaveEnergyShield", type = "check", label = "你经常保持有能量护盾?", ifCond = "HaveEnergyShield", apply = function(val, modList, enemyModList)
+	{ var = "conditionLowEnergyShield", type = "check", label = "你处于^x88FFFF低能量护盾^xFFFFFF状态?", ifCond = "LowEnergyShield", tooltip = "You will automatically be considered to be on Low ^x88FFFFEnergy Shield ^7if you have at least 50% ^x88FFFFES ^7reserved,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:LowEnergyShield", "FLAG", true, "Config")
+	end },
+	{ var = "conditionHaveEnergyShield", type = "check", label = "你经常保持有^x88FFFF能量护盾^xFFFFFF?", ifCond = "HaveEnergyShield", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveEnergyShield", "FLAG", true, "Config")
 	end },
-{ var = "conditionMinionsFullLife", type = "check", label = "你的召唤生物处于满血状态?",  apply = function(val, modList, enemyModList)
+	{ var = "minionsConditionFullLife", type = "check", label = "你的召唤生物处于^xE05030满血^xFFFFFF状态?",  apply = function(val, modList, enemyModList)
 		modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Condition:FullLife", "FLAG", true, "Config") }, "Config")
 	end },
 { var = "minionsConditionCreatedRecently", type = "check", label = "你的召唤物的近期内召唤的？", ifCond = "MinionsCreatedRecently", apply = function(val, modList, enemyModList)
@@ -1191,11 +1200,12 @@ end },
 		modList:NewMod("Condition:ImpaledRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 { var = "meleeDistanceWithEnemy", type = "count", label = "# 近战和敌人距离（15下拿满40+不起效）:" , ifCond = "CanMeleeDistanceRamp" },
-{ var = "multiplierImaplesOnEnemy", type = "count", label = "# 敌人身上的穿刺数量:", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("Multiplier:ImpaleStack", "BASE", val, "Config")
+	{ var = "multiplierImpalesOnEnemy", type = "countAllowZero", label = "# 敌人身上的穿刺数量:", ifFlag = "impale", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Multiplier:ImpaleStacks", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
 { var = "multiplierBleedsOnEnemy", type = "count", label = "# 敌人身上的流血数量(如果没达到最大值):", ifFlag = "bleed", tooltip = "设置【玫红之舞】天赋的流血次数", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:BleedStacks", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+		enemyModList:NewMod("Condition:Bleeding", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 
 { var = "buffFanaticism", type = "check", label = "你处于狂热状态?", ifCond = "CanGainFanaticism", tooltip = " (【狂热】可使你的自施法的法术的:\n总施法速度额外提高 75%，\n魔力消耗降低 75%，\n范围效果扩大 75%)", apply = function(val, modList, enemyModList)
