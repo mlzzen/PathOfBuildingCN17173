@@ -7,6 +7,7 @@
 	<Source url="https://ghproxy.com/https://raw.githubusercontent.com/tzw28/PathOfBuildingCN17173/{branch}/" part="runtime" platform="win32" />
 	<File sha1="7ee8af3ae30d9b6c63b48abdcf93a33d116200f1" name="LICENSE.md" part="default" />
 	<File sha1="099316bc54a7625522ea0eade9b51b1670fd79aa" name="Launch.lua" part="program" />
+	<File sha1="099316bc54a7625522ea0eade9b51b1670fd79aa" name="Launch.cfg" part="program" />
 	<File sha1="f6c60cb8210d110c03fbd51cba5179e87b46a495" name="UpdateCheck.lua" part="program" />
 	<File sha1="4f17937f2b37784e169a3792b235f2a0a3961e61" name="UpdateApply.lua" part="program" />
 	<File sha1="63453d4416d2779884475b0228eda1f4107a3ffa" name="GameVersions.lua" part="program" />
