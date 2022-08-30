@@ -385,7 +385,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 		{ stat = "NetManaRegen", label = "最终魔力回复", fmt = "+.1f", color = colorCodes.MANA },
 		{ stat = "NetEnergyShieldRegen", label = "最终能量护盾回复", fmt = "+.1f", color = colorCodes.ES },
 		{ },
-		{ stat = "Ward", label = "结界", color = colorCodes.WARD, compPercent = true },
+		{ stat = "Ward", label = "结界", fmt = "d", color = colorCodes.WARD, compPercent = true },
 		{ stat = "EnergyShield", label = "能量护盾", fmt = "d", color = colorCodes.ES, compPercent = true },
 		{ stat = "EnergyShieldRecoveryCap", label = "可回复的能量护盾", color = colorCodes.ES, fmt = "d", condFunc = function(v,o) return o.CappingES end },
 		{ stat = "Spec:EnergyShieldInc", label = "天赋树·能量护盾提高", color = colorCodes.ES, fmt = "d%%" },
