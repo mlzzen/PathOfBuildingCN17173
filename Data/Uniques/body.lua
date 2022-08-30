@@ -60,7 +60,7 @@ replica: true
 闪避值提高 (30-50)%
 +(50-80) 最大生命
 -30% 冰霜抗性
-Flesh and Stone has no Reservation
+血肉与岩石没有保留效果
 闪避值将随绝对冰霜抗性提高
 空明之掌
 ]],
@@ -646,9 +646,9 @@ Requires Level: 59
 -30% 冰霜抗性
 {variant:1}敏捷提高 (5-10)%
 {variant:2}敏捷提高 (10-15)%
-Arctic Armour has no Reservation
+极地装甲没有保留效果
 {variant:1}闪避值将随绝对冰霜抗性提高
-{variant:2}Evasion Rating is increased by Overcapped Cold Resistance
+{variant:2}闪避值随超量冰霜抗性提高
 移形换影
 ]],[[
 伊瑞的精通

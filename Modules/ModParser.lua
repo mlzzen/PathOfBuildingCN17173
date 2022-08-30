@@ -6761,6 +6761,7 @@ local specialModList = {
 	} end,
 	["护甲将随绝对火焰抗性而提高"] = { mod("Armour", "INC", 1, { type = "PerStat", stat = "FireResistTotal", div = 1 }) }, --备注：armour is increased by uncapped fire resistance
 	["闪避值将随绝对冰霜抗性提高"] = { mod("Evasion", "INC", 1, { type = "PerStat", stat = "ColdResistTotal", div = 1 }) }, --备注：evasion rating is increased by uncapped cold resistance
+	["闪避值随超量冰霜抗性提高"] = { mod("Evasion", "INC", 1, { type = "PerStat", stat = "LightningResistOverCap", div = 1 }) }, --备注：evasion rating is increased by uncapped cold resistance
 	["反射 (%d+) 物理伤害给近战攻击者"] = { }, --备注：reflects (%d+) physical damage to melee attackers
 	["无视穿着护甲所带来的移动速度降低效果"] = { flag("Condition:IgnoreMovementPenalties") }, --备注：ignore all movement penalties from armour
 	["获得等同于你魔力保留数值的护甲"] = { mod("Armour", "BASE", 1, { type = "PerStat", stat = "ManaReserved", div = 1 }) }, --备注：gain armour equal to your reserved mana
