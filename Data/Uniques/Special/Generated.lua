@@ -535,7 +535,7 @@ local watchersEye = {
 [[
 守望之眼
 三相珠宝
-源: 传奇Boss【裂界者】专属掉落（【缥缈幻境】2词【创世之境】3词）
+源: 传奇Boss【裂界者】专属掉落
 仅限: 1
 Has Alt Variant: true
 Has Alt Variant Two: true]]
@@ -576,7 +576,7 @@ for _, mod in ipairs(data.uniqueMods["Watcher's Eye"]) do
 		if not variantName then
 			variantName = abbreviateModId(mod.Id):gsub("^[Purity Of ]*%u%l+", "%1:"):gsub("New", ""):gsub("[%u%d]", " %1"):gsub("_", ""):gsub("E S", "ES")
 		end
-		if watchersEyeLegacyMods[mod.Id] then
+		if false and  watchersEyeLegacyMods[mod.Id] then
 			if watchersEyeLegacyMods[mod.Id].version then
 				table.insert(watchersEye, "版本:" .. variantName .. " (" .. watchersEyeLegacyMods[mod.Id].version .. "前)")
 			end
@@ -605,7 +605,7 @@ local indexWatchersEye = 1
 local indexSublimeVision = 1
 for _, mod in ipairs(data.uniqueMods["Watcher's Eye"]) do
 	if not mod.Id:match("^SublimeVision") then
-		if watchersEyeLegacyMods[mod.Id] then
+		if false and watchersEyeLegacyMods[mod.Id] then
 			if watchersEyeLegacyMods[mod.Id].legacyMod then
 				table.insert(watchersEye, "{variant:" .. indexWatchersEye .. "}" .. watchersEyeLegacyMods[mod.Id].legacyMod(mod.mod[1]))
 				indexWatchersEye = indexWatchersEye + 1
