@@ -6594,7 +6594,7 @@ local specialModList = {
 	["阻挡被压制的法术伤害 +(%+%d+)%%"] = function(num) return { mod("SpellSuppressionEffect", "BASE", num) } end,
 	["your chance to suppressed spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
 	["your chance to suppressed spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
-	["暴击率随法术伤害压制率提高"] = { flag("CritChanceIncreasedBySuppressionChance") },
+	["暴击率随法术伤害压制率提高"] = { mod("CritChance", "INC", 1, { type = "PerStat", stat = "SpellSuppressionChance", div = 1 }) },
 	["you take (%d+)%% reduced extra damage from suppressed critical strikes"] = function(num) return { mod("ReduceSuppressedCritExtraDamage", "BASE", num) } end,
 	["法术伤害压制率在你的脚部装备、头部装备和手部装备有闪避值的情况下 +(%+%d+)%%"] = function(num) return {
 		mod("SpellSuppressionChance", "BASE", tonumber(num),
