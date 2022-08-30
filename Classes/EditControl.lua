@@ -36,7 +36,7 @@ local function newlineCount(str)
 	end
 end
 
-local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler", "TooltipHost", function(self, anchor, x, y, width, height, init, prompt, filter, limit, changeFunc, lineHeight)
+local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler", "TooltipHost", function(self, anchor, x, y, width, height, init, prompt, filter, limit, changeFunc, lineHeight, allowZoom)
 	self.ControlHost()
 	self.Control(anchor, x, y, width, height)
 	self.UndoHandler()
@@ -48,6 +48,7 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 	self.limit = limit
 	self.changeFunc = changeFunc
 	self.lineHeight = lineHeight
+	self.defaultLineHeight = lineHeight
 	self.font = "VAR"
 	self.textCol = "^7"
 	self.inactiveCol = "^8"
@@ -55,6 +56,7 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 	self.selCol = "^0"
 	self.selBGCol = "^xBBBBBB"
 	self.blinkStart = GetTime()
+	self.allowZoom = allowZoom
 	if self.filter == "%D" or self.filter == "^%-%d" then
 		-- Add +/- buttons for integer number edits
 		self.isNumeric = true
@@ -95,6 +97,13 @@ function EditClass:SetText(text, notify)
 	self:ResetUndo()
 end
 
+function EditClass:SetPlaceholder(text, notify)
+	self.placeholder = tostring(text)
+	if notify and self.changeFunc then
+		self.changeFunc(self.placeholder, true)
+	end
+end
+
 function EditClass:IsMouseOver()
 	if not self:IsShown() then
 		return false
@@ -106,6 +115,13 @@ function EditClass:SelectAll()
 	self.caret = utf8.len(self.buf) + 1
 	self.sel = 1
 	self:ScrollCaretIntoView()
+end
+
+function EditClass:GetSelText()
+	local left = m_min(self.caret, self.sel)
+	local right = m_max(self.caret, self.sel)
+	local newBuf = utf8.sub(self.buf, left, right - 1)
+	return newBuf
 end
 
 function EditClass:ReplaceSel(text)

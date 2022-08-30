@@ -2574,7 +2574,7 @@ c["智慧提高 18%"]={{[1]={flags=0,keywordFlags=0,name="Int",type="INC",value=
 c["无视穿着护甲所带来的移动速度降低效果"]={{[1]={flags=0,keywordFlags=0,name="Condition:IgnoreMovementPenalties",type="FLAG",value=true}},nil}
 c["法术伤害提高 50%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["该装备的攻击暴击率提高 15%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
-c["疯狂状态下，总暴击率额外提高 60%"]={{[1]={[1]={type="Condition",var="InSaneInsanity"},flags=0,keywordFlags=0,name="CritChance",type="MORE",value=60}},nil}
+c["疯狂状态下，总暴击率额外提高 60%"]={{[1]={[1]={type="Condition",var="Insane"},flags=0,keywordFlags=0,name="CritChance",type="MORE",value=60}},nil}
 c["达到暴击球上限时，+6% 法术伤害格挡几率"]={{[1]={[1]={stat="PowerCharges",thresholdStat="PowerChargesMax",type="StatThreshold"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=6}},nil}
 c["+7% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=7}},nil}
 c["药剂持续期间，法术格挡率提高 5%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=5}},nil}
@@ -8668,7 +8668,7 @@ c["格挡时回复 +17 魔力"]={{[1]={flags=0,keywordFlags=0,name="ManaOnBlock"
 c["有 15% 的几率造成冻结状态"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=15}},nil}
 c["+5% 物理持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDotMultiplier",type="BASE",value=5}},nil}
 c["禁断之火上有匹配的词缀则配置 锐眼"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="锐眼",side="之火"}}},nil}
-c["疯狂状态下，总暴击率额外提高 50%"]={{[1]={[1]={type="Condition",var="InSaneInsanity"},flags=0,keywordFlags=0,name="CritChance",type="MORE",value=50}},nil}
+c["疯狂状态下，总暴击率额外提高 50%"]={{[1]={[1]={type="Condition",var="Insane"},flags=0,keywordFlags=0,name="CritChance",type="MORE",value=50}},nil}
 c["战吼在你至少有 25 点怒火时献祭 10 点怒火 增助攻击的攻击伤害在近期内战火献祭过怒火的情况下总增 50%"]={{[1]={flags=1,keywordFlags=4,name="Damage",type="MORE",value=50}},"在你至少有 25 点怒火时献祭 10 点怒火 增助攻击的在近期内战火献祭过怒火的情况下 "}
 c["被你嘲讽的敌人无法躲避攻击"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Taunted"},flags=0,keywordFlags=0,name="CannotEvade",type="FLAG",value=true}}}},nil}
 c["对持续伤害有 +30% 混沌抗性"]={{[1]={[1]={type="Condition",varList={[1]="AgainstDamageOverTime"}},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=30}},nil}

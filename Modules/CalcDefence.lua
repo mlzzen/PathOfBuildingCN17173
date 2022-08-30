@@ -844,29 +844,26 @@ function calcs.defence(env, actor)
 	end
 	output.InteruptStunAvoidChance = m_min(modDB:Sum("BASE", nil, "AvoidInteruptStun"), 100)
 	output.BlindAvoidChance = m_min(modDB:Sum("BASE", nil, "AvoidBlind"), 100)
-	output.ShockAvoidChance = m_min(modDB:Sum("BASE", nil, "AvoidShock"), 100)
-	output.FreezeAvoidChance = m_min(modDB:Sum("BASE", nil, "AvoidFreeze"), 100)
-	output.ChillAvoidChance = m_min(modDB:Sum("BASE", nil, "AvoidChill"), 100)
-	output.IgniteAvoidChance = m_min(modDB:Sum("BASE", nil, "AvoidIgnite"), 100)
-	output.BleedAvoidChance = m_min(modDB:Sum("BASE", nil, "AvoidBleed"), 100)
-	output.PoisonAvoidChance = m_min(modDB:Sum("BASE", nil, "AvoidPoison"), 100)
+	for _, ailment in ipairs(data.ailmentTypeList) do
+		output[ailment.."AvoidChance"] = m_min(modDB:Sum("BASE", nil, "Avoid"..ailment), 100)
+	end
 	output.CritExtraDamageReduction = m_min(modDB:Sum("BASE", nil, "ReduceCritExtraDamage"), 100)
 	output.LightRadiusMod = calcLib.mod(modDB, nil, "LightRadius")
 	if breakdown then
 		breakdown.LightRadiusMod = breakdown.mod(modDB, nil, "LightRadius")
 	end
+	output.CurseEffectOnSelf = modDB:More(nil, "CurseEffectOnSelf") * (100 + modDB:Sum("INC", nil, "CurseEffectOnSelf"))
 
-	-- Ailment duration on self	
-	output.SelfFreezeDuration = 100 * modDB:More(nil, "SelfFreezeDuration") * (1 + modDB:Sum("INC", nil, "SelfFreezeDuration") / 100) 
-	output.SelfBlindDuration = 100 * modDB:More(nil, "SelfBlindDuration") * (1 + modDB:Sum("INC", nil, "SelfBlindDuration") / 100)  
-	output.SelfShockDuration = 100 * modDB:More(nil, "SelfShockDuration") * (1 + modDB:Sum("INC", nil, "SelfShockDuration") / 100) 
-	output.SelfChillDuration = 100 * modDB:More(nil, "SelfChillDuration") * (1 + modDB:Sum("INC", nil, "SelfChillDuration") / 100) 
-	output.SelfIgniteDuration = 100 * modDB:More(nil, "SelfIgniteDuration") * (1 + modDB:Sum("INC", nil, "SelfIgniteDuration") / 100) 
-	output.SelfBleedDuration = 100 * modDB:More(nil, "SelfBleedDuration") * (1 + modDB:Sum("INC", nil, "SelfBleedDuration") / 100) 
-	output.SelfPoisonDuration = 100 * modDB:More(nil, "SelfPoisonDuration") * (1 + modDB:Sum("INC", nil, "SelfPoisonDuration") / 100)
-	output.SelfChillEffect = 100 * modDB:More(nil, "SelfChillEffect") * (1 + modDB:Sum("INC", nil, "SelfChillEffect") / 100)
-	output.SelfShockEffect = 100 * modDB:More(nil, "SelfShockEffect") * (1 + modDB:Sum("INC", nil, "SelfShockEffect") / 100)
-
+	-- Ailment duration on self
+	output.DebuffExpirationRate = modDB:Sum("BASE", nil, "SelfDebuffExpirationRate")
+	output.DebuffExpirationModifier = 10000 / (100 + output.DebuffExpirationRate)
+	output.showDebuffExpirationModifier = (output.DebuffExpirationModifier ~= 100)
+	output.SelfBlindDuration = modDB:More(nil, "SelfBlindDuration") * (100 + modDB:Sum("INC", nil, "SelfBlindDuration")) * output.DebuffExpirationModifier / 100
+	for _, ailment in ipairs(data.ailmentTypeList) do
+		output["Self"..ailment.."Duration"] = modDB:More(nil, "Self"..ailment.."Duration") * (100 + modDB:Sum("INC", nil, "Self"..ailment.."Duration")) * 100 / (100 + output.DebuffExpirationRate + modDB:Sum("BASE", nil, "Self"..ailment.."DebuffExpirationRate"))
+	end
+	output.SelfChillEffect = modDB:More(nil, "SelfChillEffect") * (100 + modDB:Sum("INC", nil, "SelfChillEffect"))
+	output.SelfShockEffect = modDB:More(nil, "SelfShockEffect") * (100 + modDB:Sum("INC", nil, "SelfShockEffect"))
 	--Enemy damage input and modifications
 	do
 		output["totalEnemyDamage"] = 0
@@ -879,63 +876,51 @@ function calcs.defence(env, actor)
 					{ label = "类型", key = "type" },
 					{ label = "伤害", key = "value" },
 					{ label = "加成", key = "mult" },
+					{ label = "暴击", key = "crit" },
 					{ label = "最终", key = "final" },
 					{ label = "来源", key = "from" },
 				},
 			}
 		end
-		local stringVal = "默认"
+		local enemyCritChance = env.configInput["enemyCritChance"] or env.configPlaceholder["enemyCritChance"] or 0
+		local enemyCritDamage = env.configInput["enemyCritDamage"] or env.configPlaceholder["enemyCritDamage"] or 0
+		output["EnemyCritEffect"] = 1 + enemyCritChance / 100 * (enemyCritDamage / 100) * (1 - output.CritExtraDamageReduction / 100)
 		for _, damageType in ipairs(dmgTypeList) do
-			if env.configInput["enemy"..damageType.."Damage"] or env.configInput["enemy"..damageType.."Pen"] then
-				stringVal = "Config"
+			local enemyDamageMult = calcLib.mod(enemyDB, nil, "Damage", damageType.."Damage", isElemental[damageType] and "ElementalDamage" or nil) -- missing taunt from allies
+			local enemyDamage = tonumber(env.configInput["enemy"..damageType.."Damage"])
+			local enemyPen = tonumber(env.configInput["enemy"..damageType.."Pen"])
+			local enemyOverwhelm = tonumber(env.configInput["enemy"..damageType.."Overwhelm"])
+			local sourceStr = enemyDamage == nil and "Default" or "Config"
+
+			if enemyDamage == nil then
+				enemyDamage = tonumber(env.configPlaceholder["enemy"..damageType.."Damage"]) or 0
 			end
-		end
-		for _, damageType in ipairs(dmgTypeList) do
-			local enemyDamageMult = calcLib.mod(enemyDB, nil, "Damage", damageType.."Damage", isElemental[damageType] and "ElementalDamage" or nil) --missing taunt from allies
-			local enemyDamage = 0
-			if stringVal == "Config" then
-				enemyDamage = env.configInput["enemy"..damageType.."Damage"] or 0
-			elseif stringVal == "默认" then
-				if env.configInput["enemyIsBoss"] == "Uber Atziri" then -- random boss (not specificaly uber ziri)
-					enemyDamage = env.data.monsterDamageTable[env.enemyLevel] * 1.5  * data.misc.stdBossDPSMult
-					if damageType == "Chaos" then
-						enemyDamage = enemyDamage / 4
-					end
-				elseif env.configInput["enemyIsBoss"] == "Shaper" then
-					enemyDamage = env.data.monsterDamageTable[env.enemyLevel] * 1.5  * data.misc.shaperDPSMult
-					if damageType == "Chaos" then
-						enemyDamage = enemyDamage / 4
-					elseif isElemental[damageType] then
-						output[damageType.."EnemyPen"] = data.misc.shaperPen
-					end
-				elseif env.configInput["enemyIsBoss"] == "Sirus" then
-					enemyDamage = env.data.monsterDamageTable[env.enemyLevel] * 1.5  * data.misc.sirusDPSMult
-					if damageType == "Chaos" then
-						enemyDamage = enemyDamage / 4
-					elseif isElemental[damageType] then
-						output[damageType.."EnemyPen"] = data.misc.sirusPen
-					end
-			else
-					if damageType == "Physical" then
-						enemyDamage = env.data.monsterDamageTable[env.enemyLevel] * 1.5
+			if enemyPen == nil then
+				enemyPen = tonumber(env.configPlaceholder["enemy"..damageType.."Pen"]) or 0
 			end
-				end
+			if enemyOverwhelm == nil then
+				enemyOverwhelm = tonumber(env.configPlaceholder["enemy"..damageType.."enemyOverwhelm"]) or 0
 			end
+
+			output[damageType.."EnemyPen"] = enemyPen
+			output[damageType.."EnemyOverwhelm"] = enemyOverwhelm
 			output["totalEnemyDamageIn"] = output["totalEnemyDamageIn"] + enemyDamage
-			output[damageType.."EnemyDamage"] = enemyDamage * enemyDamageMult
+			output[damageType.."EnemyDamage"] = enemyDamage * enemyDamageMult * output["EnemyCritEffect"]
 			output["totalEnemyDamage"] = output["totalEnemyDamage"] + output[damageType.."EnemyDamage"]
 			if breakdown then
 				breakdown[damageType.."EnemyDamage"] = {
-				s_format("来自 %s: %d", stringVal, enemyDamage),
+				s_format("来自 %s: %d", sourceStr, enemyDamage),
 				s_format("* %.2f (敌人伤害加成)", enemyDamageMult),
+				s_format("* %.3f (敌人暴击效果)", output["EnemyCritEffect"]),
 				s_format("= %d", output[damageType.."EnemyDamage"]),
 				}
 				t_insert(breakdown["totalEnemyDamage"].rowList, {
 					type = s_format("%s", damageType),
 					value = s_format("%d", enemyDamage),
 					mult = s_format("%.2f", enemyDamageMult),
+					crit = s_format("%.2f", output["EnemyCritEffect"]),
 					final = s_format("%d", output[damageType.."EnemyDamage"]),
-					from = s_format("%s", stringVal),
+					from = s_format("%s", sourceStr),
 				})
 			end
 		end

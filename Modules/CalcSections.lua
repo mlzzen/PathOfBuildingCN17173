@@ -1484,7 +1484,7 @@ return {
 	{ label = "照亮范围加成", { format = "x {2:output:LightRadiusMod}", { breakdown = "LightRadiusMod" }, { modName = "LightRadius" }, }, },
 	{ label = "你身上的诅咒效果", { format = "{1:output:CurseEffectOnSelf}%", { modName = "CurseEffectOnSelf" }, }, },
 	{ label = "减益消散速度加成", haveOutput = "showDebuffExpirationModifier", { format = "{1:output:DebuffExpirationModifier}%", { modName = "SelfDebuffExpirationRate" }, }, },
-} }, { defaultCollapsed = false, label = "Stun Duration", data = {
+} }, { defaultCollapsed = false, label = "眩晕持续时间", data = {
 	{ label = "避免眩晕几率", haveOutput = "StunAvoidChance", { format = "{0:output:StunAvoidChance}%", { modName = "AvoidStun" }, }, },
 	{ label = "眩晕门槛", { format = "{0:output:StunThreshold}", { breakdown = "StunThreshold" }, { modName = { "StunThreshold", "StunThresholdManaPercent", "StunThresholdEnergyShieldPercent" } }, }, },
 	{ label = "眩晕几率", { format = "{0:output:SelfStunChance}%", { breakdown = "SelfStunChance" }, }, },
