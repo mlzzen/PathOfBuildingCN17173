@@ -1573,8 +1573,8 @@ local modTagList = {
 	["若近期你有施加曝露,则"] = { tag = { type = "Condition", var = "AppliedExposureRecently" } },
 	["你有热情牺牲时，"] = { tag = { type = "Condition", var = "SacrificialZeal" } },
 	["每穿透 1 个敌人，"] = { tag = { type = "PerStat", stat = "PiercedCount" } },
-	["疯狂状态下，"] = { tag = { type = "Condition", var = "InSaneInsanity" } },
-	["理智状态下，"] = { tag = { type = "Condition", var = "SaneInsanity" } },
+	["疯狂状态下，"] = { tag = { type = "Condition", var = "Insane" } },
+	["理智状态下，"] = { tag = { type = "Condition", var = "Insane", neg = true } },
 	["若过去 8 秒内你造成过暴击，则"] = { tag = { type = "Condition", var = "CritRecently" } },
 	["若你近期内击中敌人，则"] = { tag = { type = "Condition", var = "HitRecently"} },
 	["若你近期内用主手武器击中，则"] = { tag = { type = "Condition", var = "HitRecentlyWithWeapon" } },
@@ -5597,8 +5597,8 @@ local specialModList = {
 	["提供 (%d+) 级精神失常"]= function(num) return {
 	mod("ExtraSkill", "LIST", {  skillId ="Unhinge", level = tonumber(num)})
 		} end,
-	["疯狂状态下，总暴击率额外提高 (%d+)%%"] = function(num) return {  mod("CritChance", "MORE", num,{ type = "Condition", var = "InSaneInsanity" })  } end,
-	["疯狂状态下，总暴击率总增 (%d+)%%"] = function(num) return {  mod("CritChance", "MORE", num,{ type = "Condition", var = "InSaneInsanity" })  } end,
+	["疯狂状态下，总暴击率额外提高 (%d+)%%"] = function(num) return {  mod("CritChance", "MORE", num,{ type = "Condition", var = "Insane" })  } end,
+	["疯狂状态下，总暴击率总增 (%d+)%%"] = function(num) return {  mod("CritChance", "MORE", num,{ type = "Condition", var = "Insane", neg = true })  } end,
 	["理智状态下，承受的物理和混沌总伤害额外降低 (%d+)%%"] = function(num) return {
 	mod("PhysicalDamageTaken", "MORE", -num,{ type = "Condition", var = "SaneInsanity" }),
 	mod("ChaosDamageTaken", "MORE", -num,{ type = "Condition", var = "SaneInsanity" }),
