@@ -8,8 +8,8 @@
 local pairs = pairs
 local ipairs = ipairs
 local t_insert = table.insert
-local t_remove = table.remove
 local s_format = string.format
+local m_min = math.min
 
 local calcs = { }
 
@@ -19,6 +19,19 @@ LoadModule("Modules/CalcPerform", calcs)
 LoadModule("Modules/CalcActiveSkill", calcs)
 LoadModule("Modules/CalcDefence", calcs)
 LoadModule("Modules/CalcOffence", calcs)
+
+-- Get the average value of a table -- note this is unused
+function math.average(t)
+	local sum = 0
+	local count = 0
+	for k,v in pairs(t) do
+		if type(v) == 'number' then
+			sum = sum + v
+			count = count + 1
+		end
+	end
+	return (sum / count)
+end
 
 -- Print various tables to the console
 local function infoDump(env)
@@ -68,7 +81,7 @@ local function getCalculator(build, fullInit, modFunc)
 	GlobalCache.dontUseCache = nil
 	env.player.output.SkillDPS = fullDPS.skills
 	env.player.output.FullDPS = fullDPS.combinedDPS
-	
+	env.player.output.FullDotDPS = fullDPS.TotalDotDPS
 	local baseOutput = env.player.output
 
 	env.modDB.parent = cachedPlayerDB
@@ -86,16 +99,15 @@ local function getCalculator(build, fullInit, modFunc)
 		wipeTable(env.enemyDB.conditions)
 		wipeTable(env.enemyDB.multipliers)
 
-		-- Call function to make modifications to the enviroment
+		-- Call function to make modifications to the environment
 		modFunc(env, ...)
 		
 		-- Run calculation pass
 		calcs.perform(env)
-		
 		fullDPS = calcs.calcFullDPS(build, "CALCULATOR", {}, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = env})
-		
 		env.player.output.SkillDPS = fullDPS.skills
 		env.player.output.FullDPS = fullDPS.combinedDPS
+		env.player.output.FullDotDPS = fullDPS.TotalDotDPS
 
 		return env.player.output
 	end, baseOutput	
@@ -113,27 +125,31 @@ function calcs.getMiscCalculator(build)
 	-- Run base calculation pass
 	local env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR")
 	calcs.perform(env)
-	
 	local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", {}, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = env})
-	
+
 	env.player.output.SkillDPS = fullDPS.skills
 	env.player.output.FullDPS = fullDPS.combinedDPS
+	env.player.output.FullDotDPS = fullDPS.TotalDotDPS
+
 	local baseOutput = env.player.output
 
 	return function(override, accelerate)
-		env, cachedPlayerDB, cachedPlayerDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR", override)
+		local env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR", override)
+		GlobalCache.dontUseCache = true
+		-- we need to preserve the override somewhere for use by possible trigger-based build-outs with overrides
+		env.override = override
 		calcs.perform(env, true)
 		if GlobalCache.useFullDPS or build.viewMode == "TREE" then
 			-- prevent upcoming calculation from using Cached Data and thus forcing it to re-calculate new FullDPS roll-up 
 			-- without this, FullDPS increase/decrease when for node/item/gem comparison would be all 0 as it would be comparing
 			-- A with A (due to cache reuse) instead of A with B
-			GlobalCache.dontUseCache = true
-			fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = env, accelerate = accelerate })
+			local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = env, accelerate = accelerate })
 			-- reset cache usage
-			GlobalCache.dontUseCache = nil
 			env.player.output.SkillDPS = fullDPS.skills
 			env.player.output.FullDPS = fullDPS.combinedDPS
+			env.player.output.FullDotDPS = fullDPS.TotalDotDPS
 		end
+		GlobalCache.dontUseCache = nil
 		return env.player.output
 	end, baseOutput	
 end
@@ -167,20 +183,37 @@ end
 
 
 function calcs.calcFullDPS(build, mode, override, specEnv)
-	local fullEnv, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, mode, override or {}, specEnv)
+	local fullEnv, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, mode, override, specEnv)
 	local usedEnv = nil
 
-	local fullDPS = { combinedDPS = 0, skills = { }, poisonDPS = 0, impaleDPS = 0, igniteDPS = 0, bleedDPS = 0, decayDPS = 0, dotDPS = 0, cullingMulti = 0 }
+	local fullDPS = {
+		combinedDPS = 0,
+		TotalDotDPS = 0,
+		skills = { },
+		poisonDPS = 0,
+		impaleDPS = 0,
+		igniteDPS = 0,
+		bleedDPS = 0,
+		decayDPS = 0,
+		burningGroundDPS = 0,
+		causticGroundDPS = 0,
+		dotDPS = 0,
+		cullingMulti = 0
+	}
+
 	local bleedSource = ""
-	local igniteDPS = 0
 	local igniteSource = ""
+	local burningGroundSource = ""
+	local causticGroundSource = ""
+	GlobalCache.numActiveSkillInFullDPS = 0
 	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
 		if activeSkill.socketGroup and activeSkill.socketGroup.includeInFullDPS and not isExcludedFromFullDps(activeSkill) then
+			GlobalCache.numActiveSkillInFullDPS = GlobalCache.numActiveSkillInFullDPS + 1
 			local activeSkillCount, enabled = getActiveSkillCount(activeSkill)
 			if enabled then
-				local cacheData = getCachedData(activeSkill, mode)
-				if cacheData and not override and not GlobalCache.dontUseCache then
-					usedEnv = cacheData.Env
+				local cachedData = getCachedData(activeSkill, mode)
+				if cachedData and next(override) == nil and not GlobalCache.dontUseCache then
+					usedEnv = cachedData.Env
 					activeSkill = usedEnv.player.mainSkill
 				else
 					local forceCache = false
@@ -220,7 +253,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					if usedEnv.minion.output.TotalDot and usedEnv.minion.output.TotalDot > 0 then
 						fullDPS.dotDPS = fullDPS.dotDPS + usedEnv.minion.output.TotalDot
 					end
-					if usedEnv.minion.output.CullMultiplier > 1 and usedEnv.minion.output.CullMultiplier > fullDPS.cullingMulti then
+					if usedEnv.minion.output.CullMultiplier and usedEnv.minion.output.CullMultiplier > 1 and usedEnv.minion.output.CullMultiplier > fullDPS.cullingMulti then
 						fullDPS.cullingMulti = usedEnv.minion.output.CullMultiplier
 					end
 				end
@@ -251,8 +284,8 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					if activeSkill.mirage.output.TotalDot and activeSkill.mirage.output.TotalDot > 0 and (activeSkill.skillFlags.DotCanStack or (usedEnv.player.output.TotalDot and usedEnv.player.output.TotalDot == 0)) then
 						fullDPS.dotDPS = fullDPS.dotDPS + activeSkill.mirage.output.TotalDot * (activeSkill.skillFlags.DotCanStack and mirageCount or 1)
 					end
-					if activeSkill.mirage.output.CullMultiplier > 1 and usedEnv.mirage.output.CullMultiplier > fullDPS.cullingMulti then
-						fullDPS.cullingMulti = usedEnv.mirage.output.CullMultiplier
+					if activeSkill.mirage.output.CullMultiplier and activeSkill.mirage.output.CullMultiplier > 1 and activeSkill.mirage.output.CullMultiplier > fullDPS.cullingMulti then
+						fullDPS.cullingMulti = activeSkill.mirage.output.CullMultiplier
 					end
 				end
 
@@ -268,8 +301,16 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					fullDPS.igniteDPS = usedEnv.player.output.IgniteDPS
 					igniteSource = activeSkill.activeEffect.grantedEffect.name
 				end
+				if usedEnv.player.output.BurningGroundDPS and usedEnv.player.output.BurningGroundDPS > fullDPS.burningGroundDPS then
+					fullDPS.burningGroundDPS = usedEnv.player.output.BurningGroundDPS
+					burningGroundSource = activeSkill.activeEffect.grantedEffect.name
+				end
 				if usedEnv.player.output.PoisonDPS and usedEnv.player.output.PoisonDPS > 0 then
 					fullDPS.poisonDPS = fullDPS.poisonDPS + usedEnv.player.output.PoisonDPS * (usedEnv.player.output.TotalPoisonStacks or 1) * activeSkillCount
+				end
+				if usedEnv.player.output.CausticGroundDPS and usedEnv.player.output.CausticGroundDPS > fullDPS.causticGroundDPS then
+					fullDPS.causticGroundDPS = usedEnv.player.output.CausticGroundDPS
+					causticGroundSource = activeSkill.activeEffect.grantedEffect.name
 				end
 				if usedEnv.player.output.ImpaleDPS and usedEnv.player.output.ImpaleDPS > 0 then
 					fullDPS.impaleDPS = fullDPS.impaleDPS + usedEnv.player.output.ImpaleDPS * activeSkillCount
@@ -280,7 +321,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 				if usedEnv.player.output.TotalDot and usedEnv.player.output.TotalDot > 0 then
 					fullDPS.dotDPS = fullDPS.dotDPS + usedEnv.player.output.TotalDot * (activeSkill.skillFlags.DotCanStack and activeSkillCount or 1)
 				end
-				if usedEnv.player.output.CullMultiplier > 1 and usedEnv.player.output.CullMultiplier > fullDPS.cullingMulti then
+				if usedEnv.player.output.CullMultiplier and usedEnv.player.output.CullMultiplier > 1 and usedEnv.player.output.CullMultiplier > fullDPS.cullingMulti then
 					fullDPS.cullingMulti = usedEnv.player.output.CullMultiplier
 				end
 
@@ -298,34 +339,45 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	end
 
 	-- Re-Add ailment DPS components
+	fullDPS.TotalDotDPS = 0
 	if fullDPS.bleedDPS > 0 then
-		t_insert(fullDPS.skills, { name = "最佳 流血 DPS", dps = fullDPS.bleedDPS, count = 1, source = bleedSource })
-		fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.bleedDPS
+		t_insert(fullDPS.skills, { name = "最高流血DPS", dps = fullDPS.bleedDPS, count = 1, source = bleedSource })
+		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.bleedDPS
 	end
 	if fullDPS.igniteDPS > 0 then
-		t_insert(fullDPS.skills, { name = "最佳 点燃 DPS", dps = fullDPS.igniteDPS, count = 1, source = igniteSource })
-		fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.igniteDPS
+		t_insert(fullDPS.skills, { name = "最高点燃DPS", dps = fullDPS.igniteDPS, count = 1, source = igniteSource })
+		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.igniteDPS
+	end
+	if fullDPS.burningGroundDPS > 0 then
+		t_insert(fullDPS.skills, { name = "最高燃烧地面DPS", dps = fullDPS.burningGroundDPS, count = 1, source = burningGroundSource })
+		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.burningGroundDPS
 	end
 	if fullDPS.poisonDPS > 0 then
-		t_insert(fullDPS.skills, { name = "合计 中毒 DPS", dps = fullDPS.poisonDPS, count = 1 })
-		fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.poisonDPS
+		fullDPS.poisonDPS = m_min(fullDPS.poisonDPS, data.misc.DotDpsCap)
+		t_insert(fullDPS.skills, { name = "合计中毒DPS", dps = fullDPS.poisonDPS, count = 1 })
+		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.poisonDPS
+	end
+	if fullDPS.causticGroundDPS > 0 then
+		t_insert(fullDPS.skills, { name = "最高腐蚀地面DPS", dps = fullDPS.causticGroundDPS, count = 1, source = causticGroundSource })
+		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.causticGroundDPS
 	end
 	if fullDPS.impaleDPS > 0 then
-		t_insert(fullDPS.skills, { name = "合计 穿刺 DPS", dps = fullDPS.impaleDPS, count = 1 })
+		t_insert(fullDPS.skills, { name = "合计穿刺DPS", dps = fullDPS.impaleDPS, count = 1 })
 		fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.impaleDPS
 	end
 	if fullDPS.decayDPS > 0 then
-		t_insert(fullDPS.skills, { name = "合计 腐化 DPS", dps = fullDPS.decayDPS, count = 1 })
-		fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.decayDPS
+		t_insert(fullDPS.skills, { name = "合计腐化DPS", dps = fullDPS.decayDPS, count = 1 })
+		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.decayDPS
 	end
 	if fullDPS.dotDPS > 0 then
-		t_insert(fullDPS.skills, { name = "合计 持续伤害 DPS", dps = fullDPS.dotDPS, count = 1 })
-		fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.dotDPS
+		t_insert(fullDPS.skills, { name = "合计持续伤害DPS", dps = fullDPS.dotDPS, count = 1 })
+		fullDPS.TotalDotDPS = fullDPS.TotalDotDPS + fullDPS.dotDPS
 	end
-
+	fullDPS.TotalDotDPS = m_min(fullDPS.TotalDotDPS, data.misc.DotDpsCap)
+	fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.TotalDotDPS
 	if fullDPS.cullingMulti > 0 then
 		fullDPS.cullingDPS = fullDPS.combinedDPS * (fullDPS.cullingMulti - 1)
-		t_insert(fullDPS.skills, { name = "合计 终结 DPS", dps = fullDPS.cullingDPS, count = 1 })
+		t_insert(fullDPS.skills, { name = "合计终结DPS", dps = fullDPS.cullingDPS, count = 1 })
 		fullDPS.combinedDPS = fullDPS.combinedDPS + fullDPS.cullingDPS
 	end
 
@@ -336,15 +388,16 @@ end
 
 -- Process active skill
 function calcs.buildActiveSkill(env, mode, skill, setMark)
-	local fullEnv, _, _, _ = calcs.initEnv(env.build, mode)
+	local fullEnv, _, _, _ = calcs.initEnv(env.build, mode, env.override)
 	for _, activeSkill in ipairs(fullEnv.player.activeSkillList) do
 		if cacheSkillUUID(activeSkill) == cacheSkillUUID(skill) then
 			fullEnv.player.mainSkill = activeSkill
 			fullEnv.player.mainSkill.marked = setMark
-			calcs.perform(fullEnv)			
+			calcs.perform(fullEnv)
 			return
 		end
 	end
+	ConPrintf("[calcs.buildActiveSkill] Failed to process skill: " .. skill.activeEffect.grantedEffect.name)
 end
 
 
@@ -357,7 +410,7 @@ function calcs.buildOutput(build, mode)
 
 	local output = env.player.output
 
-	-- Build output across all active skills
+	-- Build output across all skills added to FullDPS skills
 	GlobalCache.dontUseCache = true
 	local fullDPS = calcs.calcFullDPS(build, "CACHE", {}, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil })
 
@@ -365,8 +418,8 @@ function calcs.buildOutput(build, mode)
 	-- Add Full DPS data to main `env`
 	env.player.output.SkillDPS = fullDPS.skills
 	env.player.output.FullDPS = fullDPS.combinedDPS
-	
-	
+	env.player.output.FullDotDPS = fullDPS.TotalDotDPS
+
 	if mode == "MAIN" then
 		output.ExtraPoints = env.modDB:Sum("BASE", nil, "ExtraPoints")
 
@@ -385,9 +438,6 @@ function calcs.buildOutput(build, mode)
 				env.skillsUsed[skillEffect.grantedEffect.name] = true
 			end
 			if activeSkill.minion then
-				if activeSkill.minion.mainSkill == nil then
-					-- ConPrinf("gggg")
-				end
 				for	_, activeSkill in ipairs(activeSkill.minion.activeSkillList) do
 					env.skillsUsed[activeSkill.activeEffect.grantedEffect.id] = true
 				end
@@ -459,7 +509,7 @@ function calcs.buildOutput(build, mode)
 			for modName, modList in pairs(actor.modDB.mods) do
 				for _, mod in ipairs(modList) do
 					addModTags(actor, mod)
-				end		
+				end
 			end
 		end
 		for _, activeSkill in pairs(env.player.activeSkillList) do
@@ -489,44 +539,40 @@ function calcs.buildOutput(build, mode)
 				end
 			end
 		end
-	--[[	ConPrintf("=== Cond ===")
-		ConPrintTable(env.conditionsUsed)
-		ConPrintf("=== Mult ===")
-		ConPrintTable(env.multipliersUsed)
-		ConPrintf("=== Minion Cond ===")
-		ConPrintTable(env.minionConditionsUsed)
-		ConPrintf("=== Enemy Cond ===")
-		ConPrintTable(env.enemyConditionsUsed)
-		ConPrintf("=== Enemy Mult ===")
-		ConPrintTable(env.enemyMultipliersUsed)
-		]]--
-	
+--		ConPrintf("=== Cond ===")
+--		ConPrintTable(env.conditionsUsed)
+--		ConPrintf("=== Mult ===")
+--		ConPrintTable(env.multipliersUsed)
+--		ConPrintf("=== Minion Cond ===")
+--		ConPrintTable(env.minionConditionsUsed)
+--		ConPrintf("=== Enemy Cond ===")
+--		ConPrintTable(env.enemyConditionsUsed)
+--		ConPrintf("=== Enemy Mult ===")
+--		ConPrintTable(env.enemyMultipliersUsed)
 	elseif mode == "CALCS" then
 		local buffList = { }
 		local combatList = { }
 		local curseList = { }
 		if output.PowerCharges > 0 then
-t_insert(combatList, s_format("%d 暴击球", output.PowerCharges))
-		end
-		if output.FrenzyCharges > 0 then
-t_insert(combatList, s_format("%d 狂怒球", output.FrenzyCharges))
-		end
-		if output.EnduranceCharges > 0 then
-t_insert(combatList, s_format("%d 耐力球", output.EnduranceCharges))
-		end
-		--新3球
-		if output.BrutalCharges > 0 then
-t_insert(combatList, s_format("%d 残暴球", output.BrutalCharges))
-		end
-		if output.AfflictionCharges > 0 then
-t_insert(combatList, s_format("%d 痛苦球", output.AfflictionCharges))
+			t_insert(combatList, s_format("%d 暴击球", output.PowerCharges))
 		end
 		if output.AbsorptionCharges > 0 then
-t_insert(combatList, s_format("%d 榨取球", output.AbsorptionCharges))
+			t_insert(combatList, s_format("%d 榨取球", output.AbsorptionCharges))
 		end
-		
+		if output.FrenzyCharges > 0 then
+			t_insert(combatList, s_format("%d 狂怒球", output.FrenzyCharges))
+		end
+		if output.AfflictionCharges > 0 then
+			t_insert(combatList, s_format("%d 痛苦球", output.AfflictionCharges))
+		end
+		if output.EnduranceCharges > 0 then
+			t_insert(combatList, s_format("%d 耐力球", output.EnduranceCharges))
+		end
+		if output.BrutalCharges > 0 then
+			t_insert(combatList, s_format("%d 残暴球", output.BrutalCharges))
+		end
 		if output.SiphoningCharges > 0 then
-t_insert(combatList, s_format("%d 轮回球", output.SiphoningCharges))
+			t_insert(combatList, s_format("%d 轮回球", output.SiphoningCharges))
 		end
 		if output.ChallengerCharges > 0 then
 			t_insert(combatList, s_format("%d 挑战球", output.ChallengerCharges))
@@ -537,47 +583,52 @@ t_insert(combatList, s_format("%d 轮回球", output.SiphoningCharges))
 		if build.calcsTab.mainEnv.multipliersUsed["InspirationCharge"] then
 			t_insert(combatList, s_format("%d 激励球", output.InspirationCharges))
 		end
+		if output.GhostShrouds > 0 then
+			t_insert(combatList, s_format("%d 鬼影缠身", output.GhostShrouds))
+		end
 		if output.CrabBarriers > 0 then
-t_insert(combatList, s_format("%d 深海屏障", output.CrabBarriers))
+			t_insert(combatList, s_format("%d 深海屏障", output.CrabBarriers))
 		end
 		if build.calcsTab.mainEnv.multipliersUsed["BloodCharge"] then
 			t_insert(combatList, s_format("%d 赤炼球", output.BloodCharges))
 		end
-		if env.modDB:Flag(nil, "Fortify") then
-t_insert(combatList, "护体")
+		if env.player.mainSkill.baseSkillModList:Flag(nil, "Cruelty") then
+			t_insert(combatList, "凌厉")
 		end
-		if env.modDB:Flag(nil, "Elusive") then
-t_insert(combatList, "灵巧")
+		if env.modDB:Flag(nil, "Fortify") then
+			t_insert(combatList, "护体")
 		end
 		if env.modDB:Flag(nil, "Onslaught") then
-t_insert(combatList, "猛攻")
-		end		 
+			t_insert(combatList, "猛攻")
+		end
 		if env.modDB:Flag(nil, "UnholyMight") then
-t_insert(combatList, "不洁之力")
+			t_insert(combatList, "不洁之力")
 		end
 		if env.modDB:Flag(nil, "LesserMassiveShrine") then
-t_insert(combatList, "次级威猛神龛")
+			t_insert(combatList, "次级威猛神龛")
 		end
 		if env.modDB:Flag(nil, "LesserBrutalShrine") then
-t_insert(combatList, "次级狂击神龛")
+			t_insert(combatList, "次级狂击神龛")
 		end		
 		if env.modDB:Flag(nil, "Tailwind") then
-t_insert(combatList, "提速尾流")
+			t_insert(combatList, "提速尾流")
 		end
 		if env.modDB:Flag(nil, "Adrenaline") then
-t_insert(combatList, "肾上腺素")
+			t_insert(combatList, "肾上腺素")
 		end
 		if env.modDB:Flag(nil, "AlchemistsGenius") then
 			t_insert(combatList, "炼金术天才")
 		end
 		if env.modDB:Flag(nil, "HerEmbrace") then
-t_insert(combatList, "女神之拥")
+			t_insert(combatList, "女神之拥")
 		end
 		for name in pairs(env.buffs) do
 			t_insert(buffList, name)
 		end
+		if env.modDB:Flag(nil, "Elusive") then
+			t_insert(combatList, "Elusive")
+		end
 		table.sort(buffList)
-		
 		env.player.breakdown.SkillBuffs = { modList = { } }
 		for _, name in ipairs(buffList) do
 			for _, mod in ipairs(env.buffs[name]) do
@@ -631,25 +682,25 @@ t_insert(combatList, "女神之拥")
 			local buffList = { }
 			local combatList = { }
 			if output.Minion.PowerCharges > 0 then
-t_insert(combatList, s_format("%d 暴击球", output.Minion.PowerCharges))
+				t_insert(combatList, s_format("%d 暴击球", output.Minion.PowerCharges))
 			end
 			if output.Minion.FrenzyCharges > 0 then
-t_insert(combatList, s_format("%d 狂怒球", output.Minion.FrenzyCharges))
+				t_insert(combatList, s_format("%d 狂怒球", output.Minion.FrenzyCharges))
 			end
 			if output.Minion.EnduranceCharges > 0 then
-t_insert(combatList, s_format("%d 耐力球", output.Minion.EnduranceCharges))
+				t_insert(combatList, s_format("%d 耐力球", output.Minion.EnduranceCharges))
 			end
 			if env.minion.modDB:Flag(nil, "Fortify") then
-t_insert(combatList, "护体")
+				t_insert(combatList, "护体")
 			end
 			if env.minion.modDB:Flag(nil, "Onslaught") then
-t_insert(combatList, "猛攻")
+				t_insert(combatList, "猛攻")
 			end
 			if env.minion.modDB:Flag(nil, "UnholyMight") then
-t_insert(combatList, "不洁之力")
+				t_insert(combatList, "不洁之力")
 			end
 			if env.minion.modDB:Flag(nil, "Tailwind") then
-t_insert(combatList, "提速尾流")
+				t_insert(combatList, "提速尾流")
 			end
 			for name in pairs(env.minionBuffs) do
 				t_insert(buffList, name)
@@ -658,7 +709,7 @@ t_insert(combatList, "提速尾流")
 			env.minion.breakdown.SkillBuffs = { modList = { } }
 			for _, name in ipairs(buffList) do
 				for _, mod in ipairs(env.minionBuffs[name]) do
-				local value = env.minion.modDB:EvalMod(mod)
+					local value = env.minion.modDB:EvalMod(mod)
 					if value and value ~= 0 then
 						t_insert(env.minion.breakdown.SkillBuffs.modList, {
 							mod = mod,
@@ -673,7 +724,7 @@ t_insert(combatList, "提速尾流")
 			output.Minion.CurseList = output.CurseList
 		end
 
-		--infoDump(env)
+		-- infoDump(env)
 	end
 
 	return env
