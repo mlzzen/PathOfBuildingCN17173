@@ -5491,7 +5491,7 @@ local specialModList = {
 			mod("Dummy", "DUMMY", 1, { type = "Condition", var = "CanGainConvergence" }) -- Dummy mod so it appears on config tab
 		},
 	["你没有汇聚效果时，效果区域扩大 (%d+)%%"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "Condition", neg = true, var = "Convergence" }) } end,
-	["战斗法师"] = { flag("WeaponDamageAppliesToSpells"), mod("ImprovedWeaponDamageAppliesToSpells", "INC", 100) },
+	["战斗法师"] = { flag("WeaponDamageAppliesToSpells"), mod("ImprovedWeaponDamageAppliesToSpells", "MAX", 100) },
 	["抵达狂热球数量上限时，获得 4 秒欣喜若狂效果"] =function() return {
 	flag("Condition:CanGainFanaticism"),
 	mod("Dummy", "DUMMY", 1, { type = "Condition", var = "CanGainFanaticism" })
