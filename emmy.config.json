@@ -1,0 +1,10 @@
+﻿{
+    "source": [
+        {
+            "dir": "./TreeData/",
+            "exclude": [
+                "**/tree.lua"
+            ]
+        }
+    ]
+}
