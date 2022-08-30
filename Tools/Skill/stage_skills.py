@@ -23,6 +23,7 @@ stage_skills = {
     "BloodSacramentUnique": "赤色誓言",
     "DeathWish": "死亡之愿",
     "ChannelledSnipe": "狙击",
+    "ExplosiveArrow": "爆炸箭矢",
 }
 
 mod_patterns = [
