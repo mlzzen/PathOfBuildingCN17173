@@ -40,9 +40,17 @@ function ModStoreClass:ScaleAddMod(mod, scale)
 		scale = m_max(scale, 0)
 		local scaledMod = copyTable(mod)
 		if type(scaledMod.value) == "number" then
-			scaledMod.value = (m_floor(scaledMod.value) == scaledMod.value) and m_modf(round(scaledMod.value * scale, 2)) or scaledMod.value * scale
+			if data.highPrecisionMods[scaledMod.name] and data.highPrecisionMods[scaledMod.name][scaledMod.type] then
+				scaledMod.value = scaledMod.value * scale
+			else
+				scaledMod.value = (m_floor(scaledMod.value) == scaledMod.value) and m_modf(round(scaledMod.value * scale, 2)) or scaledMod.value * scale
+			end
 		elseif type(scaledMod.value) == "table" and scaledMod.value.mod then
-			scaledMod.value.mod.value = (m_floor(scaledMod.value.mod.value) == scaledMod.value.mod.value) and m_modf(round(scaledMod.value.mod.value * scale, 2)) or scaledMod.value.mod.value * scale
+			if data.highPrecisionMods[scaledMod.value.mod.name] and data.highPrecisionMods[scaledMod.value.mod.name][scaledMod.value.mod.type] then
+				scaledMod.value.mod.value = scaledMod.value.mod.value * scale
+			else
+				scaledMod.value.mod.value = (m_floor(scaledMod.value.mod.value) == scaledMod.value.mod.value) and m_modf(round(scaledMod.value.mod.value * scale, 2)) or scaledMod.value.mod.value * scale
+			end
 		end
 		self:AddMod(scaledMod)
 	end
@@ -58,15 +66,8 @@ function ModStoreClass:ScaleAddList(modList, scale)
 	if scale == 1 then
 		self:AddList(modList)
 	else
-		scale = m_max(scale, 0)
 		for i = 1, #modList do
-			local scaledMod = copyTable(modList[i])
-			if type(scaledMod.value) == "number" then
-				scaledMod.value = (m_floor(scaledMod.value) == scaledMod.value) and m_modf(round(scaledMod.value * scale, 2)) or scaledMod.value * scale
-			elseif type(scaledMod.value) == "table" and scaledMod.value.mod then
-				scaledMod.value.mod.value = (m_floor(scaledMod.value.mod.value) == scaledMod.value.mod.value) and m_modf(round(scaledMod.value.mod.value * scale, 2)) or scaledMod.value.mod.value * scale
-			end
-			self:AddMod(scaledMod)
+			self:ScaleAddMod(modList[i], scale)
 		end
 	end
 end
@@ -181,10 +182,11 @@ function ModStoreClass:Tabulate(modType, cfg, ...)
 end
 
 function ModStoreClass:Max(cfg, ...)
-	local max = 0
+	local max
 	for _, value in ipairs(self:Tabulate("MAX", cfg, ...)) do
-		if value.mod.value > max then
-			max = value.mod.value
+		local val = self:EvalMod(value.mod, cfg)
+		if val > (max or 0) then
+			max = val
 		end	
 	end
 	return max		
@@ -218,7 +220,28 @@ function ModStoreClass:GetMultiplier(var, cfg, noMod)
 end
 
 function ModStoreClass:GetStat(stat, cfg)
-	return (self.actor.output and self.actor.output[stat]) or (cfg and cfg.skillStats and cfg.skillStats[stat]) or 0
+	if stat == "ManaReservedPercent" then
+		local reservedPercentMana = 0
+		for _, activeSkill in ipairs(self.actor.activeSkillList) do
+			if (activeSkill.skillTypes[SkillType.Aura] and not activeSkill.skillFlags.disable and activeSkill.buffList and activeSkill.buffList[1] and activeSkill.buffList[1].name == cfg.skillName) then
+				local manaBase = activeSkill.skillData["ManaReservedBase"] or 0
+				reservedPercentMana = manaBase / self.actor.output["Mana"] * 100
+				break
+			end
+		end
+		return m_min(reservedPercentMana, 100) --Don't let people get more than 100% reservation for aura effect.
+	end
+	-- if ReservationEfficiency is -100, ManaUnreserved is nan which breaks everything if Arcane Cloak is enabled
+	if stat == "ManaUnreserved" and self.actor.output[stat] ~= self.actor.output[stat] then
+		-- 0% reserved = total mana
+		return self.actor.output["Mana"]
+	elseif stat == "ManaUnreserved" and not self.actor.output[stat] == nil and self.actor.output[stat] < 0 then
+		-- This reverse engineers how much mana is unreserved before efficiency for accurate Arcane Cloak calcs
+		local reservedPercentBeforeEfficiency = (math.abs(self.actor.output["ManaUnreservedPercent"]) + 100) * ((100 + self.actor["ManaEfficiency"]) / 100)
+		return self.actor.output["Mana"] * (math.ceil(reservedPercentBeforeEfficiency) / 100);
+	else
+		return (self.actor.output and self.actor.output[stat]) or (cfg and cfg.skillStats and cfg.skillStats[stat]) or 0
+	end
 end
 
 function ModStoreClass:EvalMod(mod, cfg)
@@ -347,6 +370,45 @@ function ModStoreClass:EvalMod(mod, cfg)
 					value = m_min(value, limitTotal)
 				end
 			end
+		elseif tag.type == "PercentStat" then
+			local base
+			if tag.statList then
+				base = 0
+				for _, stat in ipairs(tag.statList) do
+					base = base + self:GetStat(stat, cfg)
+				end
+			else
+				base = self:GetStat(tag.stat, cfg)
+			end
+			local mult = base * (tag.percent and tag.percent / 100 or 1)
+			local limitTotal
+			if tag.limit or tag.limitVar then
+				local limit = tag.limit or self:GetMultiplier(tag.limitVar, cfg)
+				if tag.limitTotal then
+					limitTotal = limit
+				else
+					mult = m_min(mult, limit)
+				end 
+			end
+			if type(value) == "table" then
+				value = copyTable(value)
+				if value.mod then
+					value.mod.value = value.mod.value * mult + (tag.base or 0)
+					if limitTotal then
+						value.mod.value = m_min(value.mod.value, limitTotal)
+					end
+				else
+					value.value = value.value * mult + (tag.base or 0)
+					if limitTotal then
+						value.value = m_min(value.value, limitTotal)
+					end
+				end
+			else
+				value = value * mult + (tag.base or 0)
+				if limitTotal then
+					value = m_min(value, limitTotal)
+				end
+			end
 		elseif tag.type == "StatThreshold" then
 			local stat
 			if tag.statList then
@@ -364,7 +426,7 @@ function ModStoreClass:EvalMod(mod, cfg)
 		elseif tag.type == "DistanceRamp" then
 			if not cfg or not cfg.skillDist then
 				return
-			end			
+			end
 			if cfg.skillDist <= tag.ramp[1][1] then
 				value = value * tag.ramp[1][2]
 			elseif cfg.skillDist >= tag.ramp[#tag.ramp][1] then
@@ -377,6 +439,22 @@ function ModStoreClass:EvalMod(mod, cfg)
 						break
 					end
 				end
+			end
+		-- Syntax: { type = "MeleeProximity", ramp = {MaxBonusPct,MinBonusPct} }
+		-- 			Both MaxBonusPct and MinBonusPct are percent in decimal form (1.0 = 100%)
+		-- Example: { type = "MeleeProximity", ramp = {1,0} }   ## Duelist-Slayer: Impact
+		elseif tag.type == "MeleeProximity" then
+			if not cfg or not cfg.skillDist then
+				return
+			end
+			-- Max potency is 0-15 units of distance
+			if cfg.skillDist <= 15 then
+				value = value * tag.ramp[1]
+			-- Reduced potency (linear) until 40 units
+			elseif cfg.skillDist >= 16 and cfg.skillDist <= 39 then
+				value = value * (tag.ramp[1] - ((tag.ramp[1] / 25) * (cfg.skillDist - 15)))
+			elseif cfg.skillDist >= 40 then
+				value = 0
 			end
 		elseif tag.type == "Limit" then
 			value = m_min(value, tag.limit or self:GetMultiplier(tag.limitVar, cfg))
@@ -439,6 +517,9 @@ function ModStoreClass:EvalMod(mod, cfg)
 			else
 				match = (tag.skillName == matchName)
 			end
+			if tag.neg then
+				match = not match
+			end
 			if not match then
 				return
 			end
@@ -486,7 +567,24 @@ function ModStoreClass:EvalMod(mod, cfg)
 				return
 			end
 		elseif tag.type == "SlotName" then
-			if not cfg or tag.slotName ~= cfg.slotName then
+			if not cfg then
+				return
+			end
+			local match = false
+			if tag.slotNameList then
+				for _, slot in ipairs(tag.slotNameList) do
+					if slot == cfg.slotName then
+						match = true
+						break
+					end
+				end
+			else
+				match = (tag.slotName == cfg.slotName)
+			end
+			if tag.neg then
+				match = not match
+			end
+			if not match then
 				return
 			end
 		elseif tag.type == "ModFlagOr" then
