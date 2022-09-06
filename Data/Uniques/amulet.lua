@@ -233,7 +233,8 @@ replica: true
 固定基底词缀: 1
 {variant:1,2,3}{tags:jewellery_attribute}+(20-30) 敏捷
 {variant:4}{tags:jewellery_attribute}+(40-80) 敏捷
-获得 22 级的主动技能【精准】，且可被此道具上的技能石辅助
+{variant:1,2,3}获得 22 级的主动技能【精准】，且可被此道具上的技能石辅助
+{variant:4}获得 30 级的主动技能【精准】，且可被此道具上的技能石辅助
 {variant:1,2}精准的保留效果总降 50%
 {variant:3,4}精准的魔力保留效能提高 100%
 {tags:jewellery_attribute}+(25-35) 敏捷
