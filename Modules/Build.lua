@@ -420,7 +420,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 		{ stat = "LightningResistOverCap", label = "闪电抗性溢出", fmt = "d%%", hideStat = true },
 		{ stat = "ChaosResist", label = "混沌抗性", fmt = "d%%", color = colorCodes.CHAOS, condFunc = function(v,o) return not o.ChaosInoculation end, overCapStat = "ChaosResistOverCap" },
 		{ stat = "ChaosResistOverCap", label = "混沌抗性溢出", fmt = "d%%", hideStat = true },
-		{ label = "混沌免疫", val = "Immune", labelStat = "ChaosResist", color = colorCodes.CHAOS, condFunc = function(o) return o.ChaosInoculation end },
+		{ label = "混沌免疫", val = "免疫", labelStat = "ChaosResist", color = colorCodes.CHAOS, condFunc = function(o) return o.ChaosInoculation end },
 		{ },
 		{ stat = "EffectiveMovementSpeedMod", label = "移动速度加成", fmt = "+d%%", mod = true, condFunc = function() return true end },
 		{ },
