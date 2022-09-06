@@ -6108,6 +6108,7 @@ local specialModList = {
 	["提高或降低召唤生物伤害的效果也作用于你自身，等于其数值的 (%d+)%%"] = function(num) return { flag("MinionDamageAppliesToPlayer"), mod("ImprovedMinionDamageAppliesToPlayer", "INC", num) } end,
 	["召唤生物伤害提高或降低，将同样套用于自身，等于其数值的 (%d+)%%"] = function(num) return { flag("MinionDamageAppliesToPlayer"), mod("ImprovedMinionDamageAppliesToPlayer", "INC", num) } end,
 	["插入的技能石没有保留效果"] = { mod("Reserved", "MORE", -100, { type = "SocketedIn", slotName = "{SlotName}" }) },
+	["插入的宝石没有保留效果"] = { mod("Reserved", "MORE", -100, { type = "SocketedIn", slotName = "{SlotName}" }) },
 	["你被脆弱诅咒时视为满血状态"] = { flag("Condition:FullLife", { type = "Condition", var = "AffectedByVulnerability" }) },
 	["奉献之路的效果区域扩大 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("AreaOfEffect", "INC",num, { type = "SkillName", skillName =  '奉献之路'}) } end,
 	["绝命之镰的效果区域扩大 ([%d%.]+)%%"] = function(_, skill_name, num) return { mod("AreaOfEffect", "INC",num, { type = "SkillName", skillName =  '赤炼绝命'}) } end,
