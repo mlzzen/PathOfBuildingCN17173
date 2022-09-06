@@ -612,21 +612,12 @@ local modNameList = {
 	["诅咒持续时间"] = { "Duration", keywordFlags = KeywordFlag.Curse }, --备注：curse duration
 	["光环技能范围"] = { "AreaOfEffect", keywordFlags = KeywordFlag.Aura }, --备注：radius of auras
 	["诅咒范围"] = { "AreaOfEffect", keywordFlags = KeywordFlag.Curse }, --备注：radius of curses
-	["buff effect"] = "BuffEffect",
 	["你身上的增益效果"] = "BuffEffectOnSelf", --备注：effect of buffs on you
 	["魔像的增益效果"] = { "BuffEffect", tag = { type = "SkillType", skillType = SkillType.Golem } }, --备注：effect of buffs granted by your golems
-	["effect of buffs granted by socketed golem skills"] = { "BuffEffect", addToSkill = { type = "SocketedIn", slotName = "{SlotName}", keyword = "golem" } },
-	["effect of the buff granted by your stone golems"] = { "BuffEffect", tag = { type = "SkillName", skillName = "召唤巨石魔像" } },
-	["effect of the buff granted by your lightning golems"] = { "BuffEffect", tag = { type = "SkillName", skillName = "召唤闪电魔像" } },
-	["effect of the buff granted by your ice golems"] = { "BuffEffect", tag = { type = "SkillName", skillName = "召唤寒冰魔像" } },
-	["effect of the buff granted by your flame golems"] = { "BuffEffect", tag = { type = "SkillName", skillName = "召唤烈焰魔像" } },
-	["effect of the buff granted by your chaos golems"] = { "BuffEffect", tag = { type = "SkillName", skillName = "召唤混沌魔像" } },
-	["effect of offering spells"] = { "BuffEffect", tag = { type = "SkillName", skillNameList = { "Bone Offering", "Flesh Offering", "Spirit Offering" } } },
 	["你身上的捷增益效果"] = { "BuffEffect", tag = { type = "SkillType", skillType = SkillType.Herald } }, --备注：effect of heralds on you
 	["战吼的增益效果"] = { "BuffEffect", keywordFlags = KeywordFlag.Warcry }, --备注：warcry effect
 	["【鸟之势】增益效果"] = { "BuffEffect", tag = { type = "SkillName", skillName = "鸟之势" } }, --备注：aspect of the avian buff effect
 	["护身上限"] = "MaximumFortification",
-	["fortification"] = "Multiplier:Fortification",
 	-- Charges
 	["暴击球数量上限"] = "PowerChargesMax", --备注：maximum power charge
 	["暴击球数量上限"] = "PowerChargesMax", --备注：maximum power charges
@@ -644,20 +635,6 @@ local modNameList = {
 	["最大轮回球"] = "SiphoningChargesMax", --备注：maximum siphoning charges
 	["【深海屏障】数量上限"] = "CrabBarriersMax", --备注：maximum number of crab barriers
 	-- On hit/kill/leech effects
-	["life gained on kill"] = "LifeOnKill",
-	["mana gained on kill"] = "ManaOnKill",
-	["life gained for each enemy hit"] = { "LifeOnHit" },
-	["life gained for each enemy hit by attacks"] = { "LifeOnHit", flags = ModFlag.Attack },
-	["life gained for each enemy hit by your attacks"] = { "LifeOnHit", flags = ModFlag.Attack },
-	["life gained for each enemy hit by spells"] = { "LifeOnHit", flags = ModFlag.Spell },
-	["life gained for each enemy hit by your spells"] = { "LifeOnHit", flags = ModFlag.Spell },
-	["mana gained for each enemy hit by attacks"] = { "ManaOnHit", flags = ModFlag.Attack },
-	["mana gained for each enemy hit by your attacks"] = { "ManaOnHit", flags = ModFlag.Attack },
-	["energy shield gained for each enemy hit"] = { "EnergyShieldOnHit" },
-	["energy shield gained for each enemy hit by attacks"] = { "EnergyShieldOnHit", flags = ModFlag.Attack },
-	["energy shield gained for each enemy hit by your attacks"] = { "EnergyShieldOnHit", flags = ModFlag.Attack },
-	["life and mana gained for each enemy hit"] = { "LifeOnHit", "ManaOnHit", flags = ModFlag.Attack },
-	["damage as life"] = "DamageLifeLeech",
 	["每秒生命偷取"] = "LifeLeechRate", --备注：life leeched per second
 	["每秒魔力偷取"] = "ManaLeechRate", --备注：mana leeched per second
 	["最大生命偷取率"] = "MaxLifeLeechRate", --备注：maximum life per second to maximum life leech rate
@@ -3173,6 +3150,10 @@ local specialModList = {
 	["魔像每秒回复 ([%d%.]+)%% 最大生命"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("LifeRegenPercent", "BASE", num) },{ type = "SkillType", skillType = SkillType.Golem })  } end,
 	["召唤的魔像每秒回复 ([%d%.]+)%% 生命"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("LifeRegenPercent", "BASE", num) },{ type = "SkillType", skillType = SkillType.Golem })  } end,
 	["若你有 3 个起源天赋珠宝，召唤魔像的数量 %+(%d)"] = function(num) return { mod("ActiveGolemLimit", "BASE", num, { type = "MultiplierThreshold", var = "PrimordialItem", threshold = 3 }) } end,
+	["魔像附加(%d+)-(%d+)点物理攻击伤害"] = function(_,num1,num2) return { 
+		mod("MinionModifier", "LIST", { mod = mod("PhysicalMin", "BASE", num1, nil, 0, KeywordFlag.Hit) }, { type = "SkillType", skillType = SkillType.Golem }),
+		mod("MinionModifier", "LIST", { mod = mod("PhysicalMax", "BASE", num2, nil, 0, KeywordFlag.Hit) }, { type = "SkillType", skillType = SkillType.Golem }) 
+	} end,
 	["你身上的每层中毒状态使你获得 %+(%d+)%% 混沌抗性"]= function(num) return {  mod("ChaosResist", "BASE", num, { type = "Multiplier", var = "PoisonStack" } )  } end,
 	["【苦痛爬行者】的伤害提高 (%d+)%%"]= function(num) return {  mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num) }, { type = "SkillId", skillId = "HeraldOfAgony" })   } end,
 	["苦痛爬行者的伤害提高 (%d+)%%"]= function(num) return {  mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num) }, { type = "SkillId", skillId = "HeraldOfAgony" })   } end,
