@@ -1,0 +1,557 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Abberath's Horn - PoEDB, Path of Exile Wiki</title>
+    <meta name="description" content="PoEDB provides things come out each league, as well as items, uniques, skills and passives. Path of Exile Wiki editing functions.">
+    <link rel="alternate" hreflang="en" href="https://poedb.tw/us/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://poedb.tw/tw/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://poedb.tw/cn/" />
+        <link href="/favicon.ico" rel="shortcut icon" >
+    
+        <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/jquery.dataTables.min.css" integrity="sha512-1k7mWiTNoyx2XtmI96o+hdjP8nn0f3Z2N4oF/9ZZRgijyV4omsKOXEnqL1gKQNPy2MTSP9rIEWGcH/CInulptA==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.1/tippy.min.css" integrity="sha512-cFrU9cXMuM9vFGp9UuvYm8mnhWWMIjD592Ry4lu4mv4NAHepZDfvrvD6KJq5g6+a02btseK7xxZASYLFfsSopw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.1/sweetalert2.min.css" integrity="sha512-OkYLbkJ4DB7ewvcpNLF9DSFmhdmxFXQ1Cs+XyjMsMMC94LynFJaA9cPXOokugkmZo6O6lwZg+V5dwQMH4S5/3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modal-video@2.4.6/css/modal-video.min.css" integrity="sha256-nd8IBqNn9uqwZKfZcLIXQcNxk5TjqrxiLx7PzN5PFW0=" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css" integrity="sha256-auPoJwk/+RK6KSkib92Dkq1Y5hEkZvKtvSwucs15Skg=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.poedb.tw/dist/css/select2-bootstrap.min.css" />
+        <link href="https://cdn.poedb.tw/css/stdtheme.7bc08fcebfedb604.css" rel="stylesheet" />
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js" integrity="sha512-wV7Yj1alIZDqZFCUQJy85VN+qvEIly93fIQAN7iqDFCPEucLCeNFz4r35FCo9s6WrpdDQPi80xbljXB8Bjtvcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js" integrity="sha512-qzgd5cYSZcosqpzpn7zF2ZId8f/8CHmFKZ8j7mU4OUXTNRd5g+ZHBPsgKEwoqxCtdQvExE5LprwwPAgoicguNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8=" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js" integrity="sha512-BmM0/BQlqh02wuK5Gz9yrbe7VyIVwOzD1o40yi1IsTjriX/NGF37NyXHfmFzIlMmoSIBXgqDiG1VNU6kB5dBbA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.1/tippy-bundle.umd.min.js" integrity="sha512-xULG5PJghLB+bsq9AuFbarjLtvtxDVjh47LlxXG25U2v3m+YB7OvNjA6m7pyampiwPVvrXv3Wupiv8oSX+5lRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/3.0.1/marked.min.js" integrity="sha512-VUuO/d6MS7hXmiFGEj7HtUa2FCI6Ll+xPvX9yX3bxn7ZqDWwleqXa8dtW13brbZ1ld2jiTrv8hWbpfp4B5mi4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.2.1/sweetalert2.all.js" integrity="sha512-A7LzqKE/pm9ofgS0Lxu7qroQS5SkKJQaYJkJ/66nQiWZfEdeGlBq5zEXQ63VRmXZK8zPpCgFf2WQJIAljI0Vdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.jsdelivr.net/npm/modal-video@2.4.6/js/modal-video.min.js" integrity="sha256-VqINwNxkS4VEDMq5O52YTckX+Mx84X6bafO8NxF21Xw=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js" integrity="sha256-DiHJ7hbvMejsMyP76bpVWacb5HSHQ2sQlrJV8n7KEvA=" crossorigin="anonymous"></script>
+        <script src="https://cdn.poedb.tw/js/poedb_header.57b334a7d6d82c00.js"></script>
+    
+    <script type="text/javascript">
+    window['nitroAds'] = window['nitroAds'] || { createAd: function () { window.nitroAds.queue.push(["createAd", arguments]) }, queue: [] };
+    </script>
+    <script async src="https://s.nitropay.com/ads-562.js"></script>
+
+    
+
+    <meta property="og:site_name" content="poedb">
+<meta property="og:title" content="Abberath's Horn" />
+<meta property="og:description" content="(20&ndash;30)% increased Fire Damage
+Adds (4&ndash;6) to (8&ndash;12) Fire Damage to Spells
+(40&ndash;60)% increased Global Critical Strike Chance
+Gain 10 Life per Ignited Enemy Killed
+25% reduced Ignite Duration on Enemies" />
+<meta property="og:image" content="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9XYW5kcy9XeWNodmVyZ2UiLCJ3IjoxLCJoIjozLCJzY2FsZSI6MX1d/ea4dd8a801/Wychverge.png" />
+
+  </head>
+
+  <body>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3B810SRKBH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3B810SRKBH');
+</script>
+
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container">
+            <a class="navbar-brand" href="/us/">PoEDB<sub></sub></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse"  aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trade <span class="caret"></span></a>
+                  <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" href="/us/Vendor_recipe_system">Vendor Recipes</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Item <span class="caret"></span></a>
+                  <div class="dropdown-menu" role="menu" aria-labelledby="themes">
+                    <a class="dropdown-item" href="/us/Items">Item</a>
+                    <a class="dropdown-item" href='/us/Cluster_Jewel'>Cluster Jewel</a>
+                    <a class="dropdown-item" href="/us/Oil">Oil</a>
+                    <a class="dropdown-item" href="/us/League">League</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gem <span class="caret"></span></a>
+                  <div class="dropdown-menu" role="menu" aria-labelledby="themes">
+                    <a class="dropdown-item" href='/us/Gem'>Gem</a>
+                    <a class="dropdown-item" href='/us/Active_Skill_Gems'>Active Skill Gems</a>
+                    <a class="dropdown-item" href='/us/Support_Skill_Gems'>Support Skill Gems</a>
+                    <a class="dropdown-item" href='/us/Quality'>Unusual Gems</a>
+                    <a class="dropdown-item" href='/us/GemRoadmap'>Gem Roadmap</a>
+                  </div>
+                </li>
+    
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Modifiers <span class="caret"></span></a>
+                  <div class="dropdown-menu" role="menu" aria-labelledby="themes">
+                    <a class="dropdown-item" href="/us/Modifiers">Modifiers</a>
+                    <a class="dropdown-item" href="/us/Crafting_Bench">Crafting</a>
+                    <a class="dropdown-item" href="/us/Horticrafting">Horticrafting</a>
+                    <a class="dropdown-item" href="/us/metamods">Metamods</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Quest <span class="caret"></span></a>
+                  <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" href="/us/Quest">Quest</a>
+                    <a class="dropdown-item" href="/us/Passive_mastery">Passive Mastery</a>
+                    <a class="dropdown-item" href="/us/Ascendancy_class">Ascendancy Classes</a>
+                    <a class="dropdown-item" href="/us/The_Lords_Labyrinth">The Lord's Labyrinth</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Maps <span class="caret"></span></a>
+                  <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" href="/us/Maps">Maps</a>
+                    <a class="dropdown-item" href="/us/Echoes_of_the_Atlas">Echoes of the Atlas</a>
+                    <a class="dropdown-item" href="/us/Siege_of_the_Atlas">Siege of the Atlas</a>
+                    <a class="dropdown-item" href="/us/Atlas_passive_skill">Atlas Tree Modifiers</a>
+                  </div>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tools <span class="caret"></span></a>
+                  <div class="dropdown-menu" role="menu">
+                    <a class="dropdown-item" href="/us/Tools">Tools</a>
+                    <a class="dropdown-item" href="/us/model">Model Viewer</a>
+                    <a class="dropdown-item" href="/us/TimelessJewel">Timeless Jewel</a>
+                  </div>
+                </li>
+                <li class="nav-item"><a class="nav-link bg-warning rounded-circle" href="/us/patreon">Patreon</a></li>
+    
+              </ul>
+    
+            <form class="form-inline my-2 my-lg-0" action="search">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="q" id="navautosearch">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><span class="fas fa-search"></span></button>
+            </form>
+    
+              <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-language fa-lg"></i> <span class="caret"></span></a>
+                  <div class="dropdown-menu" role="menu">
+            <a class='dropdown-item' href='https://poedb.tw/tw/Abberaths_Horn'>TW 正體中文</a>
+            <a class='dropdown-item' href='https://poedb.tw/cn/Abberaths_Horn'>CN 简体中文</a>
+            <a class='dropdown-item' href='https://poedb.tw/kr/Abberaths_Horn'>KR 한국어</a>
+            <a class='dropdown-item' href='https://poedb.tw/us/Abberaths_Horn'>US English</a>
+            <a class='dropdown-item' href='https://poedb.tw/ru/Abberaths_Horn'>RU Русский</a>
+            <a class='dropdown-item' href='https://poedb.tw/jp/Abberaths_Horn'>JP Japanese</a>
+            <a class='dropdown-item' href='https://poedb.tw/pt/Abberaths_Horn'>PO Português</a>
+            <a class='dropdown-item' href='https://poedb.tw/th/Abberaths_Horn'>TH ภาษาไทย</a>
+            <a class='dropdown-item' href='https://poedb.tw/fr/Abberaths_Horn'>FR Français</a>
+            <a class='dropdown-item' href='https://poedb.tw/de/Abberaths_Horn'>DE Deutsch</a>
+            <a class='dropdown-item' href='https://poedb.tw/sp/Abberaths_Horn'>ES Spanish</a>
+                  </div>
+                </li>
+              </ul>
+    
+            </div><!--/.nav-collapse -->
+          </div><!--/.container-fluid -->
+        </nav>
+    </header>
+
+<script>
+leftsidebar160();
+</script>
+<script>
+rightsidebar160();
+</script>
+
+
+
+    <div class="page">
+    <div class="page-content theme-showcase container" role="main">
+
+<div class="alert alert-danger clearfix" role="alert" style="display: none">
+Sentinel stuff not up until patch drops, the <a href='https://www.pathofexile.com/forum/view-thread/3265910' target='_blank'>torrent</a> deliberately does not have that data.
+</div>
+
+
+
+
+
+
+
+<div class="card mb-2" id="head_toolbar" style="background: transparent">
+  <div class="card-body p-1">
+    <div class="league_bar text-center">
+      <a href='Kalandra_league' data-toggle='tooltip' title='Kalandra'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/LakeStampingDevice.webp'/></a><a href='Sentinel_league' data-toggle='tooltip' title='Sentinel'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/Sentinel.webp'/></a><a href='Siege_of_the_Atlas' data-toggle='tooltip' title='Siege of the Atlas'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/MapDevice.webp'/></a><a href='Archnemesis_league' data-toggle='tooltip' title='Archnemesis'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/Archnemesis.webp'/></a><a href='Scourge_league' data-toggle='tooltip' title='Scourge'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/HellscapePaleBoss.webp'/></a><a href='Expedition_league' data-toggle='tooltip' title='Expedition'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/ExpeditionDetonator.webp'/></a><a href='Ultimatum_league' data-toggle='tooltip' title='Ultimatum'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/UltimatumAltar.webp'/></a><a href='Ritual_league' data-toggle='tooltip' title='Ritual'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/RitualRune.webp'/></a><a href='Heist_league' data-toggle='tooltip' title='Heist'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/HeistSumgglersCache.webp'/></a><a href='Harvest_league' data-toggle='tooltip' title='Harvest'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/HarvestPortal.webp'/></a><a href='Delirium_league' data-toggle='tooltip' title='Delirium'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/AfflictionInitiator.webp'/></a><a href='Metamorph_league' data-toggle='tooltip' title='Metamorph'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/MetamorphosisMonster.webp'/></a><a href='Blight_league' data-toggle='tooltip' title='Blight'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/BlightCore.webp'/></a><a href='Legion_league' data-toggle='tooltip' title='Legion'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/LegionInitiator.webp'/></a><a href='Synthesis_league' data-toggle='tooltip' title='Synthesis'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/SynthesisFragmentEntrance.webp'/></a><a href='Betrayal_league' data-toggle='tooltip' title='Betrayal'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/BetrayalSymbolCatarina.webp'/></a><a href='Delve_league' data-toggle='tooltip' title='Delve'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/DelveMineralVein.webp'/></a><a href='Incursion_league' data-toggle='tooltip' title='Incursion'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/IncursionCraftingBench.webp'/></a><a href='Bestiary_league' data-toggle='tooltip' title='Bestiary'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/BestiaryRareMonster.webp'/></a><a href='Abyss_league' data-toggle='tooltip' title='Abyss'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/Abyss.webp'/></a><a href='Harbinger_league' data-toggle='tooltip' title='Harbinger'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/RewardHarbinger.webp'/></a><a href='Breach_league' data-toggle='tooltip' title='Breach'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/Breach.webp'/></a><a href='Essence_league' data-toggle='tooltip' title='Essence'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/Essence.webp'/></a><a href='Talisman_league' data-toggle='tooltip' title='Talisman'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/StoneCircle.webp'/></a><a href='Vaal_side_area' data-toggle='tooltip' title='Corrupted Area'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/VaalSideArea.webp'/></a><a href='Strongbox' data-toggle='tooltip' title='Strongbox'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/StashPlayer.webp'/></a><a href='Shrine' data-toggle='tooltip' title='Shrine'><img width='39' src='https://cdn.poedb.tw/image/Art/2DArt/minimap/player/Shrine.webp'/></a>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="topbanner970"></div>
+<script>
+topbanner970();
+</script>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Unique</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarColor02">
+    <ul class="navbar-nav mr-auto d-flex flex-wrap">
+              <li class='nav-item'><a class='nav-link'  href='/us/Unique_item'>All Unique</a></li>
+<li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">One Handed Weapons <span class="caret"></span></a>
+              <div class="dropdown-menu">              <a class='dropdown-item'  href='/us/Claws'>Claws</a>
+              <a class='dropdown-item'  href='/us/Daggers'>Daggers</a>
+              <a class='dropdown-item'  href='/us/Wands'>Wands</a>
+              <a class='dropdown-item'  href='/us/One_Hand_Swords'>One Hand Swords</a>
+              <a class='dropdown-item'  href='/us/Thrusting_One_Hand_Swords'>Thrusting One Hand Swords</a>
+              <a class='dropdown-item'  href='/us/One_Hand_Axes'>One Hand Axes</a>
+              <a class='dropdown-item'  href='/us/One_Hand_Maces'>One Hand Maces</a>
+              <a class='dropdown-item'  href='/us/Sceptres'>Sceptres</a>
+              <a class='dropdown-item'  href='/us/Rune_Daggers'>Rune Daggers</a>
+</div><li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Two Handed Weapons <span class="caret"></span></a>
+              <div class="dropdown-menu">              <a class='dropdown-item'  href='/us/Bows'>Bows</a>
+              <a class='dropdown-item'  href='/us/Staves'>Staves</a>
+              <a class='dropdown-item'  href='/us/Two_Hand_Swords'>Two Hand Swords</a>
+              <a class='dropdown-item'  href='/us/Two_Hand_Axes'>Two Hand Axes</a>
+              <a class='dropdown-item'  href='/us/Two_Hand_Maces'>Two Hand Maces</a>
+              <a class='dropdown-item'  href='/us/Warstaves'>Warstaves</a>
+              <a class='dropdown-item'  href='/us/Fishing_Rods'>Fishing Rods</a>
+</div><li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Off-hand <span class="caret"></span></a>
+              <div class="dropdown-menu">              <a class='dropdown-item'  href='/us/Quivers'>Quivers</a>
+              <a class='dropdown-item'  href='/us/Shields'>Shields</a>
+</div><li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Armour <span class="caret"></span></a>
+              <div class="dropdown-menu">              <a class='dropdown-item'  href='/us/Gloves'>Gloves</a>
+              <a class='dropdown-item'  href='/us/Boots'>Boots</a>
+              <a class='dropdown-item'  href='/us/Body_Armours'>Body Armours</a>
+              <a class='dropdown-item'  href='/us/Helmets'>Helmets</a>
+</div><li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jewellery <span class="caret"></span></a>
+              <div class="dropdown-menu">              <a class='dropdown-item'  href='/us/Amulets'>Amulets</a>
+              <a class='dropdown-item'  href='/us/Rings'>Rings</a>
+              <a class='dropdown-item'  href='/us/Belts'>Belts</a>
+</div><li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Jewels <span class="caret"></span></a>
+              <div class="dropdown-menu">              <a class='dropdown-item'  href='/us/Jewels'>Jewels</a>
+</div><li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Flasks <span class="caret"></span></a>
+              <div class="dropdown-menu">              <a class='dropdown-item'  href='/us/Flasks'>Flasks</a>
+</div><li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other <span class="caret"></span></a>
+              <div class="dropdown-menu">              <a class='dropdown-item'  href='/us/Strongbox'>Strongbox</a>
+              <a class='dropdown-item'  href='/us/LeagueSpecific'>League Specific</a>
+              <a class='dropdown-item'  href='/us/Replica_unique_item'><img loading='lazy' src='https://web.poecdn.com/protected/image/item/popup/experimented-symbol.png?key=dWh87tRCnnyVEMYjjf6RbQ'/>Replica</a>
+</div><li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Maps <span class="caret"></span></a>
+              <div class="dropdown-menu">              <a class='dropdown-item'  href='/us/Maps'>Maps</a>
+</div>
+    </ul>
+  </div>
+</nav><span data-tabname="Abberath's Horn <small>Unique</small>"></span><h3 style='display: none'>Abberath&#039;s Horn</h3><div class="itembox-gem itembox-Unique">
+    <div class="itemHeader doubleLine TitleUniqueBar">
+        <div class="TitleUniqueBarL"></div>
+        <div class="TitleUniqueBarR"></div>
+
+        <div class="TextUnique TitleBar">
+            <span class="ItemName align-middle">Abberath's Horn</span>
+        </div>
+        <div class="TextUnique TitleBar">
+            <span class="ItemType align-middle">Goat's Horn</span>
+        </div>
+    </div>
+    <div class="Stats">
+        Wands<br>Physical Damage: <span class='text-type0'>9-16</span><br>Critical Strike Chance: <span class='text-type0'>7%</span><br>Attacks per Second: <span class='text-type0'>1.2</span><div class="ItemUniqueSeparator"></div>Requires  Level <span class='text-type0'>6</span>, <span class='text-type0'>29</span> Int<div class="ItemUniqueSeparator"></div><span class="implicitMod"><span class='mod-value'>(10&ndash;14)</span>% increased Spell Damage</span><div class="ItemUniqueSeparator"></div><span class="explicitMod"><span class='mod-value'>(20&ndash;30)</span>% increased Fire Damage<br>Adds <span class='mod-value'>(4&ndash;6)</span> to <span class='mod-value'>(8&ndash;12)</span> Fire Damage to Spells<br><span class='mod-value'>(40&ndash;60)</span>% increased Global Critical Strike Chance<br>Gain <span class='mod-value'>10</span> Life per Ignited Enemy Killed<br><span class='mod-value'>25</span>% reduced Ignite Duration on Enemies</span><div class="ItemUniqueSeparator"></div><span class='FlavourText'>The Goat King drank the smoke and ate the flames<br>as his ruin spread across the land.</span>
+    </div>
+    <div class='itemboximage'>
+        <img src="https://cdn.poedb.tw/image/Art/2DItems/Weapons/OneHandWeapons/Wands/Wychverge.webp"/>
+    </div>
+    <div>
+        
+    </div>
+</div>
+<div class='clearfix'></div><div   class='card bg-dark mb-2 '>
+    <h5 class='card-header'><span class='float-right'><input name='card-query' placeholder='Search'> <i title='Collapse' role='button' data-toggle='collapse' data-target='#UniqueuniqueAttributeTablenAbberath%27sHorn' class='fas fa-chevron-circle-up' aria-expanded='true'></i></span>Abberath's Horn Attr /5 </h5><h3 class='d-none'>Abberath's Horn Attr /5 </h3>
+    <div id='UniqueuniqueAttributeTablenAbberath%27sHorn' class='collapse show'>
+    
+    
+    <div class='table-responsive'><table class='mb-0 table table-dark table-hover table-striped table-bordered filters '><thead><tr><th>Name</th><th>Show Full Descriptions</th></tr></thead><tbody><tr><td>Acronym</td><td><a href='/us/Kill'>Kill</a>, <a href='/us/Duration'>Duration</a>, <a href='/us/Ignite'>Ignite</a></td></tr><tr><td>Icon</td><td><img loading='lazy'    alt='Wychverge' src="https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9XYW5kcy9XeWNodmVyZ2UiLCJ3IjoxLCJoIjozLCJzY2FsZSI6MX1d/ea4dd8a801/Wychverge.png"/></td></tr><tr><td>Release Version</td><td><a href='Warbands and Tempest_league'>Warbands and Tempest</a></td></tr><tr><td>BaseType</td><td><a data-hover='?t=item&n=Goat%27s+Horn' class='whiteitem' href='/us/Goats_Horn'>Goat's Horn</a></td></tr><tr><td>Reference</td><td><a target='_blank' href='https://poe.ninja/challenge/builds?item=Abberaths-Horn'><img loading='lazy' src='https://poe.ninja/images/ninja-logo.png' width='24'/>poe.ninja</a>, <a target='_blank' href='https://www.poewiki.net/wiki/Abberath%27s_Horn'>Community Wiki</a></td></tr></tbody></table></div>
+    
+    </div>
+</div><div class='clearfix row'><div class='col-lg-6'><div   class='card bg-dark mb-2 '>
+    <h5 class='card-header'><span class='item_magic'><span class='mod-value'>(10&ndash;14)</span>% increased Spell Damage</span></h5><h3 class='d-none'><span class='item_magic'><span class='mod-value'>(10&ndash;14)</span>% increased Spell Damage</span></h3>
+    <div  class='collapse show'>
+    
+    
+    <table class='table table-striped table-bordered mb-0'>
+<tr><th>Family<td>SpellDamage
+<tr><th>Domains<td>Item (1)
+<tr><th>GenerationType<td>Unique (3)
+<tr><th>Req. level<td>1
+<tr><th>Stats<td><li>spell damage +% <span class='badge badge-primary'>Min: 10</span> <span class='badge badge-primary'>Max: 14</span> <span class='badge badge-primary'>Global</span></li>
+<tr><th>Adds Tags<td><li><span class='badge badge-primary'>has_caster_mod</span></li>
+<tr><th>Craft Tags<td><span class='badge badge-primary'>caster_damage</span> <span class='badge badge-primary'>damage</span> <span class='badge badge-primary'>caster</span> </table>
+    
+    </div>
+</div></div><div class='col-lg-6'><div   class='card bg-dark mb-2 '>
+    <h5 class='card-header'><span class='item_magic'><span class='mod-value'>(20&ndash;30)</span>% increased Fire Damage</span></h5><h3 class='d-none'><span class='item_magic'><span class='mod-value'>(20&ndash;30)</span>% increased Fire Damage</span></h3>
+    <div  class='collapse show'>
+    
+    
+    <table class='table table-striped table-bordered mb-0'>
+<tr><th>Family<td>FireDamagePercentage
+<tr><th>Domains<td>Item (1)
+<tr><th>GenerationType<td>Unique (3)
+<tr><th>Req. level<td>1
+<tr><th>Stats<td><li>fire damage +% <span class='badge badge-primary'>Min: 20</span> <span class='badge badge-primary'>Max: 30</span> <span class='badge badge-primary'>Global</span></li>
+<tr><th>Craft Tags<td><span class='badge badge-primary'>elemental_damage</span> <span class='badge badge-primary'>damage</span> <span class='badge badge-primary'>elemental</span> <span class='badge badge-primary'>fire</span> </table>
+    
+    </div>
+</div></div><div class='col-lg-6'><div   class='card bg-dark mb-2 '>
+    <h5 class='card-header'><span class='item_magic'>Adds <span class='mod-value'>(4&ndash;6)</span> to <span class='mod-value'>(8&ndash;12)</span> Fire Damage to Spells</span></h5><h3 class='d-none'><span class='item_magic'>Adds <span class='mod-value'>(4&ndash;6)</span> to <span class='mod-value'>(8&ndash;12)</span> Fire Damage to Spells</span></h3>
+    <div  class='collapse show'>
+    
+    
+    <table class='table table-striped table-bordered mb-0'>
+<tr><th>Family<td>SpellAddedElementalDamage
+<tr><th>Domains<td>Item (1)
+<tr><th>GenerationType<td>Unique (3)
+<tr><th>Req. level<td>1
+<tr><th>Stats<td><li>spell maximum added fire damage <span class='badge badge-primary'>Min: 8</span> <span class='badge badge-primary'>Max: 12</span> <span class='badge badge-primary'>Global</span></li><li>spell minimum added fire damage <span class='badge badge-primary'>Min: 4</span> <span class='badge badge-primary'>Max: 6</span> <span class='badge badge-primary'>Global</span></li>
+<tr><th>Adds Tags<td><li><span class='badge badge-primary'>has_caster_mod</span></li>
+<tr><th>Craft Tags<td><span class='badge badge-primary'>elemental_damage</span> <span class='badge badge-primary'>caster_damage</span> <span class='badge badge-primary'>damage</span> <span class='badge badge-primary'>elemental</span> <span class='badge badge-primary'>fire</span> <span class='badge badge-primary'>caster</span> </table>
+    
+    </div>
+</div></div><div class='col-lg-6'><div   class='card bg-dark mb-2 '>
+    <h5 class='card-header'><span class='item_magic'><span class='mod-value'>(40&ndash;60)</span>% increased Global Critical Strike Chance</span></h5><h3 class='d-none'><span class='item_magic'><span class='mod-value'>(40&ndash;60)</span>% increased Global Critical Strike Chance</span></h3>
+    <div  class='collapse show'>
+    
+    
+    <table class='table table-striped table-bordered mb-0'>
+<tr><th>Family<td>CriticalStrikeChanceIncrease
+<tr><th>Domains<td>Item (1)
+<tr><th>GenerationType<td>Unique (3)
+<tr><th>Req. level<td>1
+<tr><th>Stats<td><li>critical strike chance +% <span class='badge badge-primary'>Min: 40</span> <span class='badge badge-primary'>Max: 60</span> <span class='badge badge-primary'>Global</span></li>
+<tr><th>Craft Tags<td><span class='badge badge-primary'>critical</span> </table>
+    
+    </div>
+</div></div><div class='col-lg-6'><div   class='card bg-dark mb-2 '>
+    <h5 class='card-header'><span class='item_magic'>Gain <span class='mod-value'>10</span> Life per Ignited Enemy Killed</span></h5><h3 class='d-none'><span class='item_magic'>Gain <span class='mod-value'>10</span> Life per Ignited Enemy Killed</span></h3>
+    <div  class='collapse show'>
+    
+    
+    <table class='table table-striped table-bordered mb-0'>
+<tr><th>Family<td>LifeGainedOnKillingIgnitedEnemies
+<tr><th>Domains<td>Item (1)
+<tr><th>GenerationType<td>Unique (3)
+<tr><th>Req. level<td>1
+<tr><th>Stats<td><li>life gained on killing ignited enemies <span class='badge badge-primary'>Min: 10</span> <span class='badge badge-primary'>Max: 10</span> <span class='badge badge-primary'>Global</span></li>
+<tr><th>Craft Tags<td><span class='badge badge-primary'>resource</span> <span class='badge badge-primary'>life</span> </table>
+    
+    </div>
+</div></div><div class='col-lg-6'><div   class='card bg-dark mb-2 '>
+    <h5 class='card-header'><span class='item_magic'><span class='mod-value'>25</span>% reduced Ignite Duration on Enemies</span></h5><h3 class='d-none'><span class='item_magic'><span class='mod-value'>25</span>% reduced Ignite Duration on Enemies</span></h3>
+    <div  class='collapse show'>
+    
+    
+    <table class='table table-striped table-bordered mb-0'>
+<tr><th>Family<td>BurnDuration
+<tr><th>Domains<td>Item (1)
+<tr><th>GenerationType<td>Unique (3)
+<tr><th>Req. level<td>1
+<tr><th>Stats<td><li>ignite duration +% <span class='badge badge-primary'>Min: -25</span> <span class='badge badge-primary'>Max: -25</span> <span class='badge badge-primary'>Global</span></li>
+<tr><th>Craft Tags<td><span class='badge badge-primary'>elemental</span> <span class='badge badge-primary'>fire</span> <span class='badge badge-primary'>ailment</span> </table>
+    
+    </div>
+</div></div></div><div class='row'><div class='col-md-12'><div   class='card bg-dark mb-2 '>
+    <h5 class='card-header'>Item</h5><h3 class='d-none'>Item</h3>
+    <div  class='collapse show'>
+    
+    <div class='card-body clearfix'><div class='py-1'><a  href='/us/Unique_item' class=' '>All Unique</a>  · <a  href='/us/Gem' class=' '>All Gem</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>One Handed Weapons</span>  · <a href='/us/Claws' class=''>Claws</a>  · <a href='/us/Daggers' class=''>Daggers</a>  · <a href='/us/Wands' class=''>Wands</a>  · <a href='/us/One_Hand_Swords' class=''>One Hand Swords</a>  · <a href='/us/Thrusting_One_Hand_Swords' class=''>Thrusting One Hand Swords</a>  · <a href='/us/One_Hand_Axes' class=''>One Hand Axes</a>  · <a href='/us/One_Hand_Maces' class=''>One Hand Maces</a>  · <a href='/us/Sceptres' class=''>Sceptres</a>  · <a href='/us/Rune_Daggers' class=''>Rune Daggers</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Two Handed Weapons</span>  · <a href='/us/Bows' class=''>Bows</a>  · <a href='/us/Staves' class=''>Staves</a>  · <a href='/us/Two_Hand_Swords' class=''>Two Hand Swords</a>  · <a href='/us/Two_Hand_Axes' class=''>Two Hand Axes</a>  · <a href='/us/Two_Hand_Maces' class=''>Two Hand Maces</a>  · <a href='/us/Warstaves' class=''>Warstaves</a>  · <a href='/us/Fishing_Rods' class=''>Fishing Rods</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Off-hand</span>  · <a href='/us/Quivers' class=''>Quivers</a>  · <a href='/us/Shields' class=''>Shields</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Armour</span>  · <a href='/us/Gloves' class=''>Gloves</a>  · <a href='/us/Boots' class=''>Boots</a>  · <a href='/us/Body_Armours' class=''>Body Armours</a>  · <a href='/us/Helmets' class=''>Helmets</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Jewellery</span>  · <a href='/us/Amulets' class=''>Amulets</a>  · <a href='/us/Rings' class=''>Rings</a>  · <a href='/us/Belts' class=''>Belts</a>  · <a href='/us/Trinkets' class=''>Trinkets</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Jewels</span>  · <a href='/us/Jewels' class=''>Jewels</a>  · <a href='/us/Abyss_Jewels' class=''>Abyss Jewels</a>  · <a href='/us/Cluster_Jewel' class=''>Cluster Jewel</a>  · <a href='/us/Timeless_Jewel' class=''>Timeless Jewel</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Flasks</span>  · <a href='/us/Flasks' class=''>Flasks</a>  · <a href='/us/Life_Flasks' class=''>Life Flasks</a>  · <a href='/us/Mana_Flasks' class=''>Mana Flasks</a>  · <a href='/us/Hybrid_Flasks' class=''>Hybrid Flasks</a>  · <a href='/us/Utility_Flasks' class=''>Utility Flasks</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Other</span>  · <a href='/us/Strongbox' class=''>Strongbox</a>  · <a href='/us/LeagueSpecific' class=''>League Specific</a>  · <a href='/us/Replica_unique_item' class=''><img loading='lazy' src='https://web.poecdn.com/protected/image/item/popup/experimented-symbol.png?key=dWh87tRCnnyVEMYjjf6RbQ'/>Replica</a>  · <a href='/us/Hideout' class=''>Hideouts</a>  · <a href='/us/Hideout_Doodads' class=''>Hideout Doodads</a>  · <a href='/us/Divination_Cards' class=''>Divination Cards</a>  · <a href='/us/Pieces' class=''>Pieces</a>  · <a href='/us/Incubators' class=''>Incubators</a>  · <a href='/us/Resonator' class=''>Resonator</a>  · <a href='/us/Expedition_Logbook' class=''>Expedition Logbook</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Maps</span>  · <a href='/us/Maps' class=''>Maps</a>  · <a href='/us/Map_Fragments' class=''>Map Fragments</a>  · <a href='/us/Misc_Map_Items' class=''>Misc Map Items</a>  · <a href='/us/Scarab' class=''>Scarab</a>  · <a href='/us/Breachstone' class=''>Breachstone</a>  · <a href='/us/Emblem' class=''>Emblem</a>  · <a href='/us/Lure' class=''>Lure</a>  · <a href='/us/Delirium_Orb' class=''>Delirium Orb</a>  · <a href='/us/Sextant' class=''>Sextant</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Gems</span>  · <a href='/us/Active_Skill_Gems' class=''>Active Skill Gems</a>  · <a href='/us/Support_Skill_Gems' class=''>Support Skill Gems</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Currency</span>  · <a href='/us/Stackable_Currency' class=''>Stackable Currency</a>  · <a href='/us/Oil' class=''>Oil</a>  · <a href='/us/Fossil' class=''>Fossil</a>  · <a href='/us/Catalyst' class=''>Catalysts</a>  · <a href='/us/Essence' class=''>Essence</a>  · <a href='/us/Vial' class=''>Vial</a>  · <a href='/us/Splinter' class=''>Splinter</a>  · <a href='/us/Blessing' class=''>Blessing</a> </div><div class='py-1' style='border-top: 1px solid #333'><span class='disabled'>Heist</span>  · <a href='/us/Contracts' class=''>Contracts</a>  · <a href='/us/Blueprints' class=''>Blueprints</a>  · <a href='/us/Heist_Gear' class=''>Heist Gear</a>  · <a href='/us/Heist_Tools' class=''>Heist Tools</a>  · <a href='/us/Heist_Cloaks' class=''>Heist Cloaks</a>  · <a href='/us/Heist_Brooches' class=''>Heist Brooches</a>  · <a href='/us/Heist_Targets' class=''>Heist Targets</a>  · <a href='/us/Experimented_base_type' class=''>Experimented</a>  · <a href='/us/Quality' class=''>Unusual Gems</a> </div></div>
+    
+    
+    </div>
+</div></div></div><div class="card mt-1 mb-1 bg-dark">
+    <div class="card-body markdown-body">
+        <a class="btn btn-primary float-right" href='/us/marked?id=Abberaths_Horn'><i class="far fa-edit"></i>Wiki Edit</a>
+        
+        <div><hr style='border-top: 1px solid white'>Wikis Content is available under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">CC BY-NC-SA 3.0</a> unless otherwise noted.</div>
+    </div>
+</div>
+        <hr/>
+        <div id="dbg_show" class="clearfix">  </div>
+        <div id="debug" class="clearfix">  </div>
+
+<footer class="bg-primary text-center text-lg-left">
+  <!-- Grid container -->
+  <div class="container p-4">
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">PoE Future</h5>
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="/us/poe2">POE 2</a>
+          </li>
+          <li>
+            <a href="/us/mobile">POE Mobile</a>
+          </li>
+          <li>
+            <a href="https://pathofexile.com/exilecon">Exilecon</a>
+          </li>
+
+        </ul>
+
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase"></h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+          </li>
+          <li>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">About Site</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="privacy">Privacy</a>
+          </li>
+          <li>
+            <a href="contact">Contact US</a>
+          </li>
+          <li>
+            <a href="General_disclaimer">Disclaimers</a>
+          </li>
+        </ul>
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Community</h5>
+
+        <ul class="list-unstyled mb-0">
+          <li>
+            <a href="https://discord.gg/zBpfweq">TFT Discord</a>
+          </li>
+
+        </ul>
+      </div>
+      <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Copyright &copy; 2014-2022
+    <a href="https://poedb.tw/">PoEDB</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+<div style=""></div>
+<div class="clearfix"></div><div id="bottombanner970"></div>
+<script>
+bottombanner970();
+</script>
+    </div> <!-- /container -->
+    </div> <!-- /page -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <a href="#top" id="toTop"><span class="fas fa-arrow-circle-up fa-3x"></span></a>
+<script>
+ $(document).ready(function()
+ {
+    if (window.location.hostname != "poedb.tw" && window.location.hostname != "cb.poedb.tw") {
+        window.location.href="https://poedb.tw/";
+    }
+ });
+</script>
+    <script src="https://cdn.poedb.tw/js/poedb_footer.a0b07fd74c87621c.js"></script>
+  <div id="WniXAGIRXI" class="h5 p-3 text-center bg-dark" style="opacity: 0.9">
+  
+  Our website is made possible by displaying online advertisements to our visitors.<br>
+  Please consider supporting us by disabling your ad blocker or be a <a href="/patreon">Patreon</a>.<br>
+  <br>
+  UBlock: <a href="https://github.com/gorhill/uBlock/wiki/How-to-mark-a-web-site-as-trusted" target="_blank">Click the big blue power button</a><br>
+  Adblock: <a href="https://help.getadblock.com/support/solutions/articles/6000055743-whitelist-pages-to-disable-adblock-on-specific-sites" target="_blank">Whitelist a Domain</a><br>
+  
+  
+  </div>
+  
+  <script>
+  // Function called if AdBlock is detected
+  function adBlockDetected(who) {
+      //alert('AdBlock is enabled');
+    //$('#bKqtvti8pH').modal('show');
+  /*
+    $('#bKqtvti8pH').modal({
+      backdrop: 'static',
+      keyboard: false
+    });
+  */
+    $('#WniXAGIRXI').css('display', 'block').prependTo('.page-content');
+    //console.log(who);
+  }
+  </script>
+  
+  
+  
+  
+<script>
+adblockPlusDetected().then(function(result) {
+  //console.log('AdblockPlus detected: ', result);
+  if (result) {
+    adBlockDetected('AdblockPlus');
+  }
+});
+
+uBlockOriginDetected().then(function(result) {
+  //console.log('uBlockOrigin detected: ', result);
+  if (result) {
+    adBlockDetected('uBlockOriginDetected');
+  }
+});
+</script>
+
+  </body>
+</html>

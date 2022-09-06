@@ -140,7 +140,7 @@ s_format("x %.2f ^8(面积加成开平方根)", m_sqrt(areaMod)),
 	end
 end
 
-function breakdown.effMult(damageType, resist, pen, taken, mult,takenMore,sourceRes,spString)
+function breakdown.effMult(damageType, resist, pen, taken, mult, takenMore, sourceRes, useRes)
 	local out = { }
 	local resistForm = (damageType == "物理") and "物理伤害减伤" or "抗性"
 	if sourceRes and sourceRes ~= 0 and sourceRes ~= damageType then
