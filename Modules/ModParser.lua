@@ -4056,6 +4056,7 @@ local specialModList = {
 	["只影响大圈内的天赋"] = { mod("JewelData", "LIST", { key = "radiusIndex", value = 6 }) },
 	["只影响特大圈内的天赋"] = { mod("JewelData", "LIST", { key = "radiusIndex", value = 7 }) },
 	["只影响巨圈内的天赋"] = { mod("JewelData", "LIST", { key = "radiusIndex", value = 8 }) },
+	["只影响巨型圈内的天赋"] = { mod("JewelData", "LIST", { key = "radiusIndex", value = 8 }) },
 	["只影响小环内的天赋"] = { mod("JewelData", "LIST", { key = "radiusIndex", value = 4 }) },
 	["只影响中环内的天赋"] = { mod("JewelData", "LIST", { key = "radiusIndex", value = 5 }) },
 	["只影响大环内的天赋"] = { mod("JewelData", "LIST", { key = "radiusIndex", value = 6 }) },
