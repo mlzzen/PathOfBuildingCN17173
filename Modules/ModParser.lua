@@ -5674,30 +5674,15 @@ local specialModList = {
 		mod("DotMultiplier", "BASE", num / 2, nil, 0, KeywordFlag.Bleed, { type = "Condition", var = "DualWielding"}, { type = "SkillType", skillType = SkillType.Attack }),
 			mod("DotMultiplier", "BASE", num, nil, 0, KeywordFlag.Bleed, { type = "Condition", var = "DualWielding", neg = true }, { type = "SkillType", skillType = SkillType.Attack })
 		} end,
-	["调整暴击球数量下限的词缀改为调整榨取球数量下限"] = { flag("MinimumAbsorptionChargesModInsteadToMinimumPowerCharges") },
-	["调整狂怒球数量下限词缀改为调整痛苦球数量下限"] = { flag("MinimumAfflictionChargesModInsteadToMinimumFrenzyCharges") },
-	["调整耐力球数量下限的词缀改为调整残暴球数量下限"] = { flag("MinimumBrutalChargesModInsteadToMinimumEnduranceCharges") },
-	["榨取球数量上限等于暴击球数量上限"] = { flag("MaximumAbsorptionChargesIsMaximumPowerCharges") },
-	["痛苦球数量上限等于狂怒球数量上限"] = { flag("MaximumAfflictionChargesIsMaximumFrenzyCharges") },
-	["残暴球数量上限等于耐力球数量上限"] = { flag("MaximumBrutalChargesIsMaximumEnduranceCharges") },
-	["获得榨取球替代暴击球"] = {
-	flag("GainAbsorptionChargesInsteadPowerCharges"),
-	mod("PowerCharges", "OVERRIDE", 0),
-	flag("Condition:CanGainAbsorptionCharges"),
-			mod("Dummy", "DUMMY", 1, { type = "Condition", var = "CanGainAbsorptionCharges" })
-	 },
-	["获得痛苦球替代狂怒球"]  = {
-	flag("GainAfflictionChargesInsteadFrenzyCharges"),
-	mod("FrenzyCharges", "OVERRIDE", 0),
-	flag("Condition:CanGainAfflictionCharges"),
-			mod("Dummy", "DUMMY", 1, { type = "Condition", var = "CanGainAfflictionCharges" })
-	 },
-	["获得残暴球替代耐力球"]  = {
-	flag("GainBrutalChargesInsteadEnduranceCharges"),
-	mod("EnduranceCharges", "OVERRIDE", 0),
-	flag("Condition:CanGainBrutalCharges"),
-			mod("Dummy", "DUMMY", 1, { type = "Condition", var = "CanGainBrutalCharges" })
-	 },
+	["调整暴击球数量下限的词缀改为调整榨取球数量下限"] = { flag("MinimumPowerChargesEqualsMinimumAbsorptionCharges") },
+	["调整狂怒球数量下限词缀改为调整痛苦球数量下限"] = { flag("MinimumFrenzyChargesEqualsMinimumAfflictionCharges") },
+	["调整耐力球数量下限的词缀改为调整残暴球数量下限"] = { flag("MinimumEnduranceChargesEqualsMinimumBrutalCharges") },
+	["榨取球数量上限等于暴击球数量上限"] = { flag("MaximumPowerChargesEqualsMaximumAbsorptionCharges") },
+	["痛苦球数量上限等于狂怒球数量上限"] = { flag("MaximumFrenzyChargesEqualsMaximumAfflictionCharges") },
+	["残暴球数量上限等于耐力球数量上限"] = { flag("MaximumEnduranceChargesEqualsMaximumBrutalCharges") },
+	["获得榨取球替代暴击球"] = { flag("PowerChargesConvertToAbsorptionCharges") },
+	["获得痛苦球替代狂怒球"] = { flag("FrenzyChargesConvertToAfflictionCharges") },
+	["获得残暴球替代耐力球"] = { flag("EnduranceChargesConvertToBrutalCharges") },
 	["右戒指栏位：不能再生魔力"] = { flag("NoManaRegen", { type = "SlotNumber", num = 2 }) },
 	["右戒指栏位：不能回复魔力"] = { flag("NoManaRegen", { type = "SlotNumber", num = 2 }) },
 	["烙印伤害提高 (%d+)%%"]= function(num) return {
