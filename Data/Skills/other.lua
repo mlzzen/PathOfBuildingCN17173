@@ -1386,7 +1386,7 @@ skills["GoreShockwave"] = {
 	},
 }
 skills["SupportGreaterSpellEcho"] = {
-	name = "Greater Spell Echo",
+	name = "高等施法回响",
 	hidden = true,
 	color = 3,
 	support = true,
