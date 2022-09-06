@@ -6504,7 +6504,7 @@ local specialModList = {
 	["以此种方式触发的奉献技能也会影响你"] = { mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "buffNotPlayer", value = false }) }, { type = "SkillName", skillNameList = { "Bone Offering", "Flesh Offering", "Spirit Offering" } }, { type = "SocketedIn", slotName = "{SlotName}" }) },
 
 	-- Conversion
-	["召唤生物伤害提高或降低，将同样套用于自身"] = { flag("MinionDamageAppliesToPlayer") , mod("ImprovedMinionDamageAppliesToPlayer", "INC", 100) }, --备注：increases and reductions to minion damage also affects? you
+	["召唤生物伤害提高或降低，将同样套用于自身"] = { flag("MinionDamageAppliesToPlayer") , mod("ImprovedMinionDamageAppliesToPlayer", "MAX", 100) }, --备注：increases and reductions to minion damage also affects? you
 	["召唤生物攻击速度的加成同时套用于你身上"] = { flag("MinionAttackSpeedAppliesToPlayer") , mod("ImprovedMinionAttackSpeedAppliesToPlayer", "INC", 100)}, --备注：increases and reductions to minion attack speed also affects? you
 	["对法术伤害的增幅与减益也会套用于攻击上"] ={ flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", 100)  }, --备注：increases and reductions to spell damage also apply to attacks
 
