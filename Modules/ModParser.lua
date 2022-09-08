@@ -2547,6 +2547,7 @@ local specialModList = {
 	["技能的魔力保留总降 (%d+)%%"]= function(num) return {  mod("ManaReserved", "MORE", -num)  } end,
 	["【(.+)】的总魔力保留额外降低 (%d+)%%"]= function(_, skill_name, num) return {  mod("ManaReserved", "MORE", -num,{ type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)})  } end,
 	["(.+)的总魔力保留额外降低 (%d+)%%"]= function(_, skill_name, num) return {  mod("ManaReserved", "MORE", -num,{ type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)})  } end,
+	["(.+)的总魔力保留效能额外提高 (%d+)%%"]= function(_, skill_name, num) return {  mod("ManaReservationEfficiency", "MORE", num,{ type = "SkillName", skillName =  FuckSkillActivityCnName(skill_name)})  } end,
 	["此物品上的技能石魔力消耗倍率为原来的 (%d+)%%"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("SupportManaMultiplier", "MORE", num - 100) }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
 	["总流血伤害额外降低 (%d+)%%"]= function(num) return {  mod("Damage", "MORE", -num,nil,nil, KeywordFlag.Bleed)  } end,
 	["对投射物攻击的总闪避率总增 (%d+)%%"]= function(num) return {  mod("ProjectileEvadeChance", "MORE", num)  } end,
