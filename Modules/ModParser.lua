@@ -6934,6 +6934,7 @@ local specialModList = {
 	["力量按照配置的每个专精天赋 %+(%d+)"] = function(num) return { mod("Str", "BASE", num, { type = "Multiplier", var = "PerAllocatedMastery" }) } end,
 	["敏捷按照配置的每个专精天赋 %+(%d+)"] = function(num) return { mod("Dex", "BASE", num, { type = "Multiplier", var = "PerAllocatedMastery" }) } end,
 	["智慧按照配置的每个专精天赋 %+(%d+)"] = function(num) return { mod("Int", "BASE", num, { type = "Multiplier", var = "PerAllocatedMastery" }) } end,
+	["分配给你的各类专精可增加(%d+)%%伤害"] = function(num) return { mod("Damage", "INC", num, { type = "Multiplier", var = "AllocatedMasteryType" }) } end,
 	["闪现射击和镜像射击的冷却回复率提高 (%d+)%%"] = function(num) return { mod("CooldownRecovery", "INC", num, { type = "SkillName", skillNameList = { "Blink Arrow", "Mirror Arrow" } } ) } end,
 	["攻击伤害格挡率在你近期内没有格挡过敌人的情况下 %+(%d+)%%"] = function(num) return { mod("BlockChance", "BASE", num, { type = "Condition", var = "BlockedRecently", neg = true }) } end,
 	["力量可以给所有法术伤害提供伤害加成"] = { flag("IronWill") },
