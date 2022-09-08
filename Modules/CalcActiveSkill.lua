@@ -381,9 +381,9 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 	activeSkill.skillModList = skillModList
 	activeSkill.baseSkillModList = skillModList
 
-	if skillModList:Flag(activeSkill.skillCfg, "DisableSkill") then
+	if skillModList:Flag(activeSkill.skillCfg, "DisableSkill") and not skillModList:Flag(activeSkill.skillCfg, "EnableSkill") then
 		skillFlags.disable = true
-activeSkill.disableReason = "技能被禁用"
+		activeSkill.disableReason = "此类技能被禁用"
 	end
 
 	if skillFlags.disable then
