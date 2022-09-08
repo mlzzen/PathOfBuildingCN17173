@@ -686,8 +686,10 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		item.name = itemLib.sanitiseItemText(itemData.typeLine)
 		if item.name:match("能量之刃") then
 			local oneHanded = false
+			local weaponTypeCn = { 单手剑 = "One Handed Sword", 双手剑 = "Two Handed Sword"}
 			for _, p in ipairs(itemData.properties) do
-				if self.build.data.weaponTypeInfo[p.name].oneHand then
+				if weaponTypeCn[p.name] and self.build.data.weaponTypeInfo[weaponTypeCn[p.name]]
+					and self.build.data.weaponTypeInfo[weaponTypeCn[p.name]].oneHand then
 					oneHanded = true
 					break
 				end
