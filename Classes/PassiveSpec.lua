@@ -305,7 +305,7 @@ function PassiveSpecClass:DecodeURL(url)
 		return "天赋树链接错误 (格式错误)"
 	end
 	local ver = b:byte(1) * 16777216 + b:byte(2) * 65536 + b:byte(3) * 256 + b:byte(4)
-	if ver > 4 then
+	if ver > 6 then
 		return "天赋树链接错误 (未知版本号 '"..ver.."')"
 	end
 	local classId = b:byte(5)	
