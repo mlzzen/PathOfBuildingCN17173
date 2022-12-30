@@ -10,28 +10,32 @@ local t_insert = table.insert
 local band = bit.band
 local bor = bit.bor
 local bnot = bit.bnot
+local m_huge = math.huge
+local function firstToUpper(str)
+	return (str:gsub("^%l", string.upper))
+end
 
 local conquerorList = {
-	["xibaqua"]		=	{id = 1, type = "vaal"},
-	["zerphi"]		=	{id = 2, type = "vaal"},
-	["doryani"]		=	{id = 3, type = "vaal"},
-	["ahuana"]		=	{id = "2_v2", type = "vaal"},
-	["deshret"]		=	{id = 1, type = "maraketh"},
-	["asenath"]		=	{id = 2, type = "maraketh"},
-	["nasima"]		=	{id = 3, type = "maraketh"},
-	["balbala"]		=	{id = "1_v2", type = "maraketh"},
-	["cadiro"]		=	{id = 1, type = "eternal"},
-	["victario"]	=	{id = 2, type = "eternal"},
-	["chitus"]		=	{id = 3, type = "eternal"},
-	["caspiro"]		=	{id = "3_v2", type = "eternal"},
-	["kaom"]		=	{id = 1, type = "karui"},
-	["rakiata"]		=	{id = 2, type = "karui"},
-	["kiloava"]		=	{id = 3, type = "karui"},
-	["akoya"]		=	{id = "3_v2", type = "karui"},
-	["venarius"]	=	{id = 1, type = "templar"},
-	["dominus"]		=	{id = 2, type = "templar"},
-	["avarius"]		=	{id = 3, type = "templar"},
-	["maxarius"]	=	{id = "1_v2", type = "templar"},
+	["xibaqua"]		=	{ id = 1, type = "vaal" },
+	["zerphi"]		=	{ id = 2, type = "vaal" },
+	["doryani"]		=	{ id = 3, type = "vaal" },
+	["ahuana"]		=	{ id = "2_v2", type = "vaal" },
+	["deshret"]		=	{ id = 1, type = "maraketh" },
+	["asenath"]		=	{ id = 2, type = "maraketh" },
+	["nasima"]		=	{ id = 3, type = "maraketh" },
+	["balbala"]		=	{ id = "1_v2", type = "maraketh" },
+	["cadiro"]		=	{ id = 1, type = "eternal" },
+	["victario"]	=	{ id = 2, type = "eternal" },
+	["chitus"]		=	{ id = 3, type = "eternal" },
+	["caspiro"]		=	{ id = "3_v2", type = "eternal" },
+	["kaom"]		=	{ id = 1, type = "karui" },
+	["rakiata"]		=	{ id = 2, type = "karui" },
+	["kiloava"]		=	{ id = 3, type = "karui" },
+	["akoya"]		=	{ id = "3_v2", type = "karui" },
+	["venarius"]	=	{ id = 1, type = "templar" },
+	["dominus"]		=	{ id = 2, type = "templar" },
+	["avarius"]		=	{ id = 3, type = "templar" },
+	["maxarius"]	=	{ id = "1_v2", type = "templar" },
 	
 	["夏巴夸亚"]		=	{id = 1, type = "vaal"},
 	["泽佛伊"]		=	{id = 2, type = "vaal"},
@@ -90,7 +94,6 @@ local formList = {
 	["附加 (%d+) %- (%d+) ([^\\x00-\\xff]*)伤害"] = "DMG",
 	["便提高 (%d+)%%"] = "INC", --备注：^(%d+)%% increased
 	["比平常慢 (%d+)%%"] = "RED",
-	["(%d+) 次击中"] = "BASE",
 	["加快 (%d+)%%"] = "INC",
 	["减慢 (%d+)%%"] = "RED",
 	--【中文化程序额外添加结束】
@@ -107,11 +110,23 @@ local formList = {
 	["^([%+%-]?[%d%.]+)%%? of"] = "BASE",
 	["([%+%-][%d%.]+)%%? 点"] = "BASE", --备注：^([%+%-][%d%.]+)%%? base
 	["额外(.*) ([%+%-]?[%d%.]+)%%? (.*)"] = "BASE", --备注：^([%+%-]?[%d%.]+)%%? additional
-	["你获得 ([%d%.]+)"] = "BASE", --备注：^you gain ([%d%.]+)
-	["^gains? ([%d%.]+)%% of"] = "BASE",
+	["(%d+) 次击中"] = "BASE", --(%d+) additional hits?
+	["你获得 ([%d%.]+)"] = "GAIN", --备注：^you gain ([%d%.]+)
+	["^获得? ([%d%.]+)%% of"] = "GAIN", --^gains? ([%d%.]+)%% of
+	["^获得 ([%d%.]+)"] = "GAIN",
+	["^grants ([%d%.]+)"] = "GRANTS",
+	["获得 %+(%d+)%% to"] = "GAIN",
+	["失去 ([%d%.]+)"] = "LOSE",
+	["失去 ([%d%.]+)%% of"] = "LOSE",
+	["^lose %+(%d+)%% to"] = "LOSE",
+	["^(%d+)"] = "BASE",
+	["^([%+%-]?%d+)%% chance"] = "CHANCE",
+	["^([%+%-]?%d+)%% chance to gain "] = "FLAG",
+	["^([%+%-]?%d+)%% additional chance"] = "CHANCE",
+	["costs? ([%+%-]?%d+)"] = "BASECOST",
+	
 	["([%+%-]?%d+)%% 几率"] = "CHANCE", --备注：^([%+%-]?%d+)%% chance
 	["有 ([%+%-]?%d+)%% 的几率"] = "CHANCE", 
-	["^([%+%-]?%d+)%% additional chance"] = "CHANCE",
 	["^([%+%-]?%d+)%% 的几率"] = "CHANCE", 
 	
 	["穿透? (%d+)%%"] = "PEN", --备注：penetrates? (%d+)%%
@@ -515,6 +530,8 @@ local modNameList = {
 	["闪避攻击"] = "EvadeChance", --备注：chance to evade attacks
 	["对投射物攻击的总闪避率"] = "ProjectileEvadeChance",
 	["chance to evade melee attacks"] = "MeleeEvadeChance",
+	["evasion rating against melee attacks"] = "MeleeEvasion",
+	["evasion rating against projectile attacks"] = "ProjectileEvasion",
 	-- Resistances
 	["物理伤害减免"] = "PhysicalDamageReduction", --备注：physical damage reduction
 	["physical damage reduction from hits"] = "PhysicalDamageReductionWhenHit",
