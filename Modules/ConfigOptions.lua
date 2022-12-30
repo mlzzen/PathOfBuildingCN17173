@@ -1318,6 +1318,7 @@ return {
 		enemyModList:NewMod("Condition:ChilledConfig", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyChilledEffect", type = "count", label = "冰缓效果:", ifOption = "conditionEnemyChilled", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Multiplier:ChillEffect", "BASE", val, "Config", { type = "Condition", var = "ChilledConfig" })
 		enemyModList:NewMod("ChillVal", "BASE", val, "Chill", { type = "Condition", var = "ChilledConfig" })
 		enemyModList:NewMod("DesiredChillVal", "BASE", val, "Chill", { type = "Condition", var = "ChilledConfig", neg = true })
 	end },
@@ -1346,6 +1347,7 @@ return {
 
 	end },
 	{ var = "conditionShockEffect", type = "count", label = "感电效果:", tooltip = "如果你有稳定的感电来源,\n\t会在该配置项和其他来源中应用最强的效果.", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Multiplier:ShockEffect", "BASE", val, "Config", { type = "Condition", var = "ShockedConfig" })
 		enemyModList:NewMod("ShockVal", "BASE", val, "Shock", { type = "Condition", var = "ShockedConfig" })
 		enemyModList:NewMod("DesiredShockVal", "BASE", val, "Shock", { type = "Condition", var = "ShockedConfig", neg = true })
 	end },
