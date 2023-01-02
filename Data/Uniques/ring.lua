@@ -698,6 +698,16 @@ Has Alt Variant: true
 {variant:3}击杀时恢复 5% 生命值
 {variant:3}击杀时获得肾上腺素，持续3秒
 ]],[[
+原初之罪
+紫晶戒指
+联盟: 禁忌圣域
+Source: Drops from unique{Lycia, Herald of the Scourge} in normal{The Beyond} while unique{The Original Scripture} is active in the normal{Relic Altar}
+等级需求: 52
+固定基底词缀: 1
+{tags:chaos,jewellery_resistance}+(17-23)% 混沌抗性
+所有元素伤害转换为混沌伤害
+附近敌人的混沌抗性为 0
+]],[[
 德瑞的魔具
 海灵戒指
 版本: 3.19.0以前
