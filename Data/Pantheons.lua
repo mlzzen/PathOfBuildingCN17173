@@ -20,7 +20,7 @@ return {
 			[3] = { name = "光明姐妹娥拉",
 				mods = {
 					-- base_avoid_freeze_%
-					[1] = { line = "不能被冻结", value = { 100 }, },
+					[1] = { line = "100% 几率避免被冰冻", value = { 100 }, },
 				},
 			},
 			[4] = { name = "复生者莫薇儿",
@@ -86,7 +86,7 @@ return {
 			[4] = { name = "毁灭者奇塔弗",
 				mods = {
 					-- avoid_ailments_%_from_crit
-					[1] = { line = "被暴击时有 50% 的几率免疫异常状态", value = { 50 }, },
+					[1] = { line = "50% 几率避免暴击造成的异常状态", value = { 50 }, },
 				},
 			},
 		},

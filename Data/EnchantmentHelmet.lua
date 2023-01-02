@@ -460,7 +460,7 @@ return {
 		["ENDGAME"] = {
 			"【剧毒旋风】的伤害提高 40%",
 			"【剧毒旋风】击中时有 20% 的几率施加死亡凋零，持续 2 秒",
-			"【剧毒旋风】有 25% 的几率继续抓回【回旋之刃】发射的投射物",
+			"剧毒旋风有 25% 几率让每一个抓回的投射物发射回旋之刃",
 		},
 	},
 	["劈砍"] = {
@@ -1039,12 +1039,12 @@ return {
 		["MERCILESS"] = {
 			"【怒焰奔腾】的伤害提高 25%",
 			"【怒焰奔腾】暴击率提高 60%",
-			"【怒焰奔腾】对燃烧中敌人的伤害提高 40%",
+			"40% increased Flame Surge Damage with Hits and Ailments against Burning Enemies",
 		},
 		["ENDGAME"] = {
 			"【怒焰奔腾】的伤害提高 40%",
 			"【怒焰奔腾】暴击率提高 90%",
-			"【怒焰奔腾】对燃烧中敌人的伤害提高 60%",
+			"60% increased Flame Surge Damage with Hits and Ailments against Burning Enemies",
 		},
 	},
 	["怨毒光环"] = {
@@ -2702,12 +2702,12 @@ return {
 	},
 	["闪电通道"] = {
 		["MERCILESS"] = {
-			"Lightning Conduit deals 25% increased Damage",
+			"闪电环廊造成的伤害增加25%",
 			"闪电环廊的施法速度增加8%",
 			"闪电环廊的效果区域增加16%",
 		},
 		["ENDGAME"] = {
-			"Lightning Conduit deals 40% increased Damage",
+			"闪电环廊造成的伤害增加40%",
 			"闪电环廊的施法速度增加12%",
 			"闪电环廊的效果区域增加24%",
 		},

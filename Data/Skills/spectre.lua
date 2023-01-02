@@ -276,6 +276,11 @@ skills["BreachCleave"] = {
 	},
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
+	statMap = {
+		["active_skill_merged_damage_+%_final_while_dual_wielding"] = {
+			mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "DualWielding" }),
+		},
+	},
 	baseFlags = {
 		attack = true,
 		melee = true,
@@ -2588,6 +2593,41 @@ skills["MonsterSplitIceSpear"] = {
 		[2] = { 0.80000001192093, 1.2000000476837, damageEffectiveness = 0.8, critChance = 7, levelRequirement = 68, statInterpolation = { 3, 3, }, },
 	},
 }
+skills["MonsterViperStrike"] = {
+	name = "Viper Strike",
+	hidden = true,
+	color = 4,
+	baseEffectiveness = 0.64999997615814,
+	incrementalEffectiveness = 0.025499999523163,
+	description = "击中敌人，将部分部分物理伤害转化为混沌伤害，并使敌人中毒。该技能受技能持续时间词缀影响。双持武器时会用两把武器同时攻击。限定爪类、匕首与剑类。",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Duration] = true, [SkillType.Multistrikeable] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, },
+	weaponTypes = {
+		["Claw"] = true,
+		["Thrusting One Handed Sword"] = true,
+		["Two Handed Sword"] = true,
+		["Dagger"] = true,
+		["One Handed Sword"] = true,
+	},
+	statDescriptionScope = "debuff_skill_stat_descriptions",
+	castTime = 1,
+	baseFlags = {
+		attack = true,
+		melee = true,
+		duration = true,
+	},
+	constantStats = {
+		{ "physical_damage_%_to_add_as_chaos", 10 },
+		{ "base_chance_to_poison_on_hit_%", 100 },
+		{ "base_skill_effect_duration", 4000 },
+	},
+	stats = {
+		"poison_duration_is_skill_duration",
+		"visual_hit_effect_chaos_is_green",
+	},
+	levels = {
+		[1] = { levelRequirement = 4, cost = { Mana = 5, }, },
+	},
+}
 skills["MonsterWarlordsMark"] = {
 	name = "Warlord's Mark",
 	hidden = true,
@@ -2922,11 +2962,6 @@ skills["NecromancerVulnerability"] = {
 		["physical_damage_taken_+%"] = {
 			mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 		},
-		["enemy_damaging_ailments_deal_damage_+%_faster_against_self"] = {
-			mod("SelfIgniteBurnFaster", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }), 
-			mod("SelfBleedFaster", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }), 
-			mod("SelfPoisonFaster", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
-		},
 	},
 	baseFlags = {
 		spell = true,
@@ -3129,11 +3164,6 @@ skills["SeawitchVulnerability"] = {
 		},
 		["physical_damage_taken_+%"] = {
 			mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
-		},
-		["enemy_damaging_ailments_deal_damage_+%_faster_against_self"] = {
-			mod("SelfIgniteBurnFaster", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }), 
-			mod("SelfBleedFaster", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }), 
-			mod("SelfPoisonFaster", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 		},
 	},
 	baseFlags = {
@@ -3451,11 +3481,6 @@ skills["SkeletonVulnerability"] = {
 		},
 		["physical_damage_taken_+%"] = {
 			mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
-		},
-		["enemy_damaging_ailments_deal_damage_+%_faster_against_self"] = {
-			mod("SelfIgniteBurnFaster", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }), 
-			mod("SelfBleedFaster", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }), 
-			mod("SelfPoisonFaster", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 		},
 	},
 	baseFlags = {
@@ -4483,10 +4508,6 @@ skills["HarvestNessaCrabScreechDebuff"] = {
 		area = true,
 		duration = true,
 	},
-	baseMods = {
-	},
-	qualityStats = {
-	},
 	stats = {
 		"frigid_roar_cold_damage_taken_+%",
 	},
@@ -4607,10 +4628,6 @@ skills["HarvestRhexScreechDebuff"] = {
 		spell = true,
 		area = true,
 		duration = true,
-	},
-	baseMods = {
-	},
-	qualityStats = {
 	},
 	stats = {
 		"thunderous_roar_lightning_damage_taken_+%",
@@ -6024,18 +6041,6 @@ skills["MonsterChanceToTemporalChainsOnHit1"] = {
 	baseMods = {
 		skill("debuff", true),
 		skill("radius", 22),
-		mod("MaxDoom", "BASE", 30),
-	},
-	qualityStats = {
-		Default = {
-			{ "curse_effect_+%", 0.5 },
-		},
-		Alternate1 = {
-			{ "hex_doom_gain_rate_+%", 2 },
-		},
-		Alternate2 = {
-			{ "base_curse_duration_+%", 1 },
-		},
 	},
 	stats = {
 		"base_skill_effect_duration",
@@ -6044,11 +6049,10 @@ skills["MonsterChanceToTemporalChainsOnHit1"] = {
 		"buff_time_passed_+%_other_than_temporal_chains",
 		"curse_effect_+%_final_vs_players",
 		"temporal_chains_action_speed_+%_vs_rare_or_unique_final",
-		"base_curse_skill_doom_gain_per_minute_if_cast_yourself",
 		"base_deal_no_damage",
 	},
 	levels = {
-		[1] = { 5000, 0, -20, -40, -50, -10, 600, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[1] = { 5000, 0, -20, -40, -50, -10, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, }, cost = { }, },
 	},
 }
 
@@ -6116,18 +6120,6 @@ skills["DelveMonsterEnfeebleOnHit"] = {
 	baseMods = {
 		skill("debuff", true),
 		skill("radius", 22),
-		mod("MaxDoom", "BASE", 30),
-	},
-	qualityStats = {
-		Default = {
-			{ "curse_effect_+%", 0.5 },
-		},
-		Alternate1 = {
-			{ "hex_doom_gain_rate_+%", 2 },
-		},
-		Alternate2 = {
-			{ "curse_cast_speed_+%", 0.5 },
-		},
 	},
 	stats = {
 		"base_skill_effect_duration",
@@ -6135,10 +6127,50 @@ skills["DelveMonsterEnfeebleOnHit"] = {
 		"accuracy_rating_+%",
 		"enfeeble_damage_+%_final",
 		"enfeeble_damage_+%_vs_rare_or_unique_final",
-		"base_curse_skill_doom_gain_per_minute_if_cast_yourself",
 		"base_deal_no_damage",
 	},
 	levels = {
-		[8] = { 9700, 4, -13, -24, -12, 600, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
+		[8] = { 9700, 4, -13, -24, -12, levelRequirement = 1, statInterpolation = { 1, 1, 1, 1, 1, 1, }, cost = { }, },
 	},
+}
+
+skills["MonsterVulnerabilityOnHit1"] = {
+	name = "Vulnerability",
+    color = 1,
+    baseEffectiveness = 0,
+    description = "Curse all targets in an area, causing them to take increased physical damage. Attacks against the cursed enemies have a chance to inflict bleeding, and ailments inflicted on them will deal damage faster.",
+    skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.CanRapidFire] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Hex] = true, },
+    statDescriptionScope = "curse_skill_stat_descriptions",
+    castTime = 0.5,
+    statMap = {
+        ["receive_bleeding_chance_%_when_hit_by_attack"] = {
+            mod("SelfBleedChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+        },
+        ["physical_damage_taken_+%"] = {
+            mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+        },
+    },
+    baseFlags = {
+        spell = true,
+        curse = true,
+        area = true,
+        duration = true,
+        hex = true,
+    },
+    baseMods = {
+        skill("debuff", true),
+        skill("radius", 22),
+    },
+    constantStats = {
+        { "receive_bleeding_chance_%_when_hit_by_attack", 25 },
+    },
+    stats = {
+        "base_skill_effect_duration",
+        "active_skill_base_radius_+",
+        "physical_damage_taken_+%",
+        "base_deal_no_damage",
+    },
+    levels = {
+        [3] = { 9200, 1, 31, levelRequirement = 1, statInterpolation = { 1, 1, 1, }, cost = { }, },
+    },
 }

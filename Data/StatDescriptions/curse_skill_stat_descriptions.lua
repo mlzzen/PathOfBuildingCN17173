@@ -1183,75 +1183,6 @@ return {
 		lang={
 			["Simplified Chinese"]={
 				[1]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="产生一片魔蛊区域\n魔蛊区域里的诅咒不会消减\n魔蛊区域结束时，其中的诅咒获得最大灭能"
-				}
-			}
-		},
-		name="curse_zone",
-		stats={
-			[1]="curse_apply_as_curse_zone"
-		}
-	},
-	[51]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="该技能施加的诅咒使最大灭能 {0:+d}"
-				}
-			}
-		},
-		name="max_doom",
-		stats={
-			[1]="curse_maximum_doom"
-		}
-	},
-	[52]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
-					[1]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					[2]={
-						k="per_minute_to_per_second",
-						v=1
-					},
-					[3]={
-						k="reminderstring",
-						v="ReminderTextDoom"
-					},
-					limit={
-						[1]={
-							[1]="#",
-							[2]="#"
-						}
-					},
-					text="诅咒每秒获得 {0} 点灭能"
-				}
-			}
-		},
-		name="curse_skill_doom",
-		stats={
-			[1]="curse_skill_doom_gain_per_minute"
-		}
-	},
-	[53]={
-		lang={
-			["Simplified Chinese"]={
-				[1]={
 					[1]={
 						k="reminderstring",
 						v="ReminderTextLowLife"
@@ -1288,7 +1219,7 @@ return {
 			[1]="damage_taken_+%_on_low_life"
 		}
 	},
-	[54]={
+	[51]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1315,7 +1246,7 @@ return {
 			[1]="debilitate_self_for_x_milliseconds_on_hit"
 		}
 	},
-	[55]={
+	[52]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1334,7 +1265,7 @@ return {
 			[1]="enemy_chance_to_double_stun_duration_%_vs_self"
 		}
 	},
-	[56]={
+	[53]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1357,7 +1288,7 @@ return {
 			[1]="enemy_damaging_ailments_deal_damage_+%_faster_against_self"
 		}
 	},
-	[57]={
+	[54]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1376,7 +1307,7 @@ return {
 			[1]="enemy_rage_regeneration_on_stun"
 		}
 	},
-	[58]={
+	[55]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1403,7 +1334,7 @@ return {
 			[1]="energy_shield_leech_on_any_damage_when_hit_permyriad"
 		}
 	},
-	[59]={
+	[56]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1435,7 +1366,7 @@ return {
 			[1]="enfeeble_damage_+%_vs_rare_or_unique_final"
 		}
 	},
-	[60]={
+	[57]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1463,7 +1394,7 @@ return {
 			[1]="grant_attacker_endurance_charge_when_hit_%_chance"
 		}
 	},
-	[61]={
+	[58]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1491,7 +1422,7 @@ return {
 			[1]="grant_attacker_frenzy_charge_when_hit_%_chance"
 		}
 	},
-	[62]={
+	[59]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1519,7 +1450,7 @@ return {
 			[1]="grant_attacker_power_charge_when_hit_%_chance"
 		}
 	},
-	[63]={
+	[60]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1547,7 +1478,7 @@ return {
 			[1]="grant_attacker_x_life_flask_charges_when_hit_once_per_500ms"
 		}
 	},
-	[64]={
+	[61]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1575,7 +1506,7 @@ return {
 			[1]="grant_attacker_x_mana_flask_charges_when_hit_once_per_500ms"
 		}
 	},
-	[65]={
+	[62]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1607,7 +1538,7 @@ return {
 			[1]="mark_skills_curse_effect_+%"
 		}
 	},
-	[66]={
+	[63]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1631,7 +1562,7 @@ return {
 			[2]="maximum_added_chaos_damage_taken"
 		}
 	},
-	[67]={
+	[64]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1655,7 +1586,7 @@ return {
 			[2]="maximum_added_physical_damage_taken"
 		}
 	},
-	[68]={
+	[65]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1687,7 +1618,7 @@ return {
 			[1]="base_physical_damage_over_time_taken_+%"
 		}
 	},
-	[69]={
+	[66]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1706,7 +1637,7 @@ return {
 			[1]="projectiles_hitting_self_split_into_x"
 		}
 	},
-	[70]={
+	[67]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1729,7 +1660,7 @@ return {
 			[1]="receive_bleeding_chance_%_when_hit_by_attack"
 		}
 	},
-	[71]={
+	[68]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1752,13 +1683,45 @@ return {
 			[1]="punishment_reflect_%_overkill_damage_to_nearby_allies_on_death"
 		}
 	},
-	[72]={
+	[69]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="你对被诅咒的敌人施加的流血持续时间延长 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="你对被诅咒的敌人施加的流血持续时间缩短 {0}%"
+				}
+			}
+		},
+		name="self_bleeding_duration_incr",
+		stats={
+			[1]="self_bleed_duration_+%"
+		}
+	},
+	[70]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
 					[1]={
 						k="reminderstring",
-						v="ReminderTextElementalStatusAilments"
+						v="ReminderTextElementalAilments"
 					},
 					limit={
 						[1]={
@@ -1775,7 +1738,7 @@ return {
 					},
 					[2]={
 						k="reminderstring",
-						v="ReminderTextElementalStatusAilments"
+						v="ReminderTextElementalAilments"
 					},
 					limit={
 						[1]={
@@ -1792,7 +1755,103 @@ return {
 			[1]="self_elemental_status_duration_-%"
 		}
 	},
+	[71]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="诅咒效果总增 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="诅咒效果总降 {0}%"
+				}
+			}
+		},
+		name="bane_curse_effect",
+		stats={
+			[1]="support_bane_curse_effect_+%_final"
+		}
+	},
+	[72]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="诅咒效果总增 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="诅咒效果总降 {0}%"
+				}
+			}
+		},
+		name="blasphemy_curse_effect",
+		stats={
+			[1]="support_blasphemy_curse_effect_+%_final"
+		}
+	},
 	[73]={
+		lang={
+			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="诅咒效果总增 {0}%"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="诅咒效果总降 {0}%"
+				}
+			}
+		},
+		name="hextouch_curse_effect",
+		stats={
+			[1]="support_hextouch_curse_effect_+%_final"
+		}
+	},
+	[74]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1824,7 +1883,7 @@ return {
 			[1]="temporal_chains_action_speed_+%_vs_rare_or_unique_final"
 		}
 	},
-	[74]={
+	[75]={
 		lang={
 			["Simplified Chinese"]={
 				[1]={
@@ -1861,7 +1920,7 @@ return {
 	["base_damage_taken_+%"]=47,
 	["base_fire_damage_resistance_%"]=5,
 	["base_lightning_damage_resistance_%"]=7,
-	["base_physical_damage_over_time_taken_+%"]=68,
+	["base_physical_damage_over_time_taken_+%"]=65,
 	["base_resist_all_elements_%"]=4,
 	["base_self_critical_strike_multiplier_-%"]=26,
 	["base_self_freeze_duration_-%"]=36,
@@ -1883,27 +1942,24 @@ return {
 	["chance_to_grant_power_charge_on_death_%"]=19,
 	["critical_strike_chance_+%"]=21,
 	["curse_apply_as_aura"]=44,
-	["curse_apply_as_curse_zone"]=50,
 	["curse_area_of_effect_+%"]=43,
-	["curse_maximum_doom"]=51,
-	["curse_skill_doom_gain_per_minute"]=52,
-	["damage_taken_+%_on_low_life"]=53,
-	["debilitate_self_for_x_milliseconds_on_hit"]=54,
+	["damage_taken_+%_on_low_life"]=50,
+	["debilitate_self_for_x_milliseconds_on_hit"]=51,
 	["degen_effect_+%"]=34,
 	["enemy_additional_critical_strike_chance_against_self"]=24,
 	["enemy_additional_critical_strike_multiplier_against_self"]=25,
-	["enemy_chance_to_double_stun_duration_%_vs_self"]=55,
-	["enemy_damaging_ailments_deal_damage_+%_faster_against_self"]=56,
-	["enemy_rage_regeneration_on_stun"]=57,
-	["energy_shield_leech_on_any_damage_when_hit_permyriad"]=58,
+	["enemy_chance_to_double_stun_duration_%_vs_self"]=52,
+	["enemy_damaging_ailments_deal_damage_+%_faster_against_self"]=53,
+	["enemy_rage_regeneration_on_stun"]=54,
+	["energy_shield_leech_on_any_damage_when_hit_permyriad"]=55,
 	["enfeeble_damage_+%_final"]=23,
-	["enfeeble_damage_+%_vs_rare_or_unique_final"]=59,
+	["enfeeble_damage_+%_vs_rare_or_unique_final"]=56,
 	["evasion_rating_+%_final_from_poachers_mark"]=29,
-	["grant_attacker_endurance_charge_when_hit_%_chance"]=60,
-	["grant_attacker_frenzy_charge_when_hit_%_chance"]=61,
-	["grant_attacker_power_charge_when_hit_%_chance"]=62,
-	["grant_attacker_x_life_flask_charges_when_hit_once_per_500ms"]=63,
-	["grant_attacker_x_mana_flask_charges_when_hit_once_per_500ms"]=64,
+	["grant_attacker_endurance_charge_when_hit_%_chance"]=57,
+	["grant_attacker_frenzy_charge_when_hit_%_chance"]=58,
+	["grant_attacker_power_charge_when_hit_%_chance"]=59,
+	["grant_attacker_x_life_flask_charges_when_hit_once_per_500ms"]=60,
+	["grant_attacker_x_mana_flask_charges_when_hit_once_per_500ms"]=61,
 	["life_granted_when_hit_by_attacks"]=39,
 	["life_granted_when_killed"]=41,
 	["life_leech_on_any_damage_when_hit_by_attack_permyriad"]=13,
@@ -1912,21 +1968,25 @@ return {
 	["mana_granted_when_killed"]=42,
 	["mana_leech_on_any_damage_when_hit_by_attack_permyriad"]=15,
 	["mana_leech_on_any_damage_when_hit_permyriad"]=16,
-	["mark_skills_curse_effect_+%"]=65,
-	["maximum_added_chaos_damage_taken"]=66,
-	["maximum_added_physical_damage_taken"]=67,
-	["minimum_added_chaos_damage_taken"]=66,
-	["minimum_added_physical_damage_taken"]=67,
+	["mark_skills_curse_effect_+%"]=62,
+	["maximum_added_chaos_damage_taken"]=63,
+	["maximum_added_physical_damage_taken"]=64,
+	["minimum_added_chaos_damage_taken"]=63,
+	["minimum_added_physical_damage_taken"]=64,
 	["monster_slain_flask_charges_granted_+%"]=12,
 	parent="skill_stat_descriptions",
 	["physical_damage_taken_+%"]=33,
 	["projectile_damage_taken_+%"]=30,
 	["projectiles_always_pierce_you"]=27,
-	["projectiles_hitting_self_split_into_x"]=69,
-	["punishment_reflect_%_overkill_damage_to_nearby_allies_on_death"]=71,
-	["receive_bleeding_chance_%_when_hit_by_attack"]=70,
-	["self_elemental_status_duration_-%"]=72,
+	["projectiles_hitting_self_split_into_x"]=66,
+	["punishment_reflect_%_overkill_damage_to_nearby_allies_on_death"]=68,
+	["receive_bleeding_chance_%_when_hit_by_attack"]=67,
+	["self_bleed_duration_+%"]=69,
+	["self_elemental_status_duration_-%"]=70,
+	["support_bane_curse_effect_+%_final"]=71,
+	["support_blasphemy_curse_effect_+%_final"]=72,
+	["support_hextouch_curse_effect_+%_final"]=73,
 	["temporal_chains_action_speed_+%_final"]=2,
-	["temporal_chains_action_speed_+%_vs_rare_or_unique_final"]=73,
-	["trigger_vicious_hex_explosion_when_curse_ends"]=74
+	["temporal_chains_action_speed_+%_vs_rare_or_unique_final"]=74,
+	["trigger_vicious_hex_explosion_when_curse_ends"]=75
 }

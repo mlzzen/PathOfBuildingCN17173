@@ -983,19 +983,10 @@ return {
 					limit={
 						[1]={
 							[1]=1,
-							[2]=99
-						}
-					},
-					text="你和周围友军有 {0}% 的几率避免被眩晕"
-				},
-				[2]={
-					limit={
-						[1]={
-							[1]=100,
 							[2]="#"
 						}
 					},
-					text="你和周围友军不能被眩晕"
+					text="你和周围友军有 {0}% 几率避免被晕眩"
 				}
 			}
 		},
@@ -1789,7 +1780,7 @@ return {
 				[1]={
 					[1]={
 						k="reminderstring",
-						v="ReminderTextElementalStatusAilments"
+						v="ReminderTextElementalAilments"
 					},
 					limit={
 						[1]={

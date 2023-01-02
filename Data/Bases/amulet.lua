@@ -13,7 +13,7 @@ itemBases["海灵护身符"] = {
 itemBases["珊瑚护身符"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
-	implicit = "生命每秒再生 (2-4)%",
+	implicit = "生命每秒再生 (2-4)",
 	implicitModTypes = { { "flat_life_regen", "resource", "life" }, },
 	req = { },
 }
@@ -97,7 +97,7 @@ itemBases["碧珠护身符"] = {
 itemBases["大理石护身符"] = {
 	type = "Amulet",
 	tags = { amuletatlas2 = true, not_for_sale = true, atlas_base_type = true, amulet = true, default = true, },
-	implicit = "生命每秒再生 (1.2-1.6)%",
+	implicit = "生命每秒再生 (1.2-1.6)",
 	implicitModTypes = { { "resource", "life" }, },
 	req = { level = 74, },
 }
@@ -239,7 +239,7 @@ itemBases["皇骨魔符"] = {
 	type = "Amulet",
 	subType = "Talisman",
 	tags = { default = true, talisman = true, amulet = true, },
-	implicit = "生命每秒再生 2%",
+	implicit = "生命每秒再生 2",
 	implicitModTypes = { { "resource", "life" }, },
 	req = { },
 }
@@ -408,5 +408,61 @@ itemBases["狼王魔符"] = {
 	subType = "Talisman",
 	tags = { amulet = true, default = true, },
 	implicitModTypes = { },
+	req = { },
+}
+itemBases["Avian Twins Talisman (Fire-To-Cold)"] = {
+	type = "Amulet",
+	subType = "Talisman",
+	tags = { default = true, talisman = true, amulet = true, },
+	implicit = "受到击中火焰伤害的 50% 转为冰霜伤害",
+	implicitModTypes = { { "elemental", "fire", "cold" }, },
+	req = { },
+}
+itemBases["Avian Twins Talisman (Fire-To-Lightning)"] = {
+	type = "Amulet",
+	subType = "Talisman",
+	tags = { default = true, talisman = true, amulet = true, },
+	implicit = "受到击中火焰伤害的 50% 转为闪电伤害",
+	implicitModTypes = { { "elemental", "fire", "lightning" }, },
+	req = { },
+}
+itemBases["Avian Twins Talisman (Cold-To-Lightning)"] = {
+	type = "Amulet",
+	subType = "Talisman",
+	tags = { default = true, talisman = true, amulet = true, },
+	implicit = "受到击中冰霜伤害的 50% 转为火焰伤害",
+	implicitModTypes = { { "elemental", "fire", "cold" }, },
+	req = { },
+}
+itemBases["Avian Twins Talisman (Cold-To-Fire)"] = {
+	type = "Amulet",
+	subType = "Talisman",
+	tags = { default = true, talisman = true, amulet = true, },
+	implicit = "受到击中冰霜伤害的 50% 转为闪电伤害",
+	implicitModTypes = { { "elemental", "cold", "lightning" }, },
+	req = { },
+}
+itemBases["Avian Twins Talisman (Lightning-To-Cold)"] = {
+	type = "Amulet",
+	subType = "Talisman",
+	tags = { default = true, talisman = true, amulet = true, },
+	implicit = "受到击中闪电伤害的 50% 转为冰霜伤害",
+	implicitModTypes = { { "elemental", "cold", "lightning" }, },
+	req = { },
+}
+itemBases["Monkey Paw Talisman (Power)"] = {
+	type = "Amulet",
+	subType = "Talisman",
+	tags = { default = true, talisman = true, amulet = true, },
+	implicit = "击败敌人有 10% 的几率获得暴击球",
+	implicitModTypes = { { "power_charge" }, },
+	req = { },
+}
+itemBases["Monkey Paw Talisman (Frenzy)"] = {
+	type = "Amulet",
+	subType = "Talisman",
+	tags = { default = true, talisman = true, amulet = true, },
+	implicit = "击败敌人有 10% 的几率获得狂怒球",
+	implicitModTypes = { { "frenzy_charge" }, },
 	req = { },
 }

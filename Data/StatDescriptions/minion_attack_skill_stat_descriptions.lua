@@ -203,6 +203,28 @@ return {
 	[8]={
 		lang={
 			["Simplified Chinese"]={
+				[1]={
+					limit={
+						[1]={
+							[1]=1,
+							[2]="#"
+						}
+					},
+					text="此攻击每击中一名敌人能使召唤生物获得{0}点生命"
+				},
+				[2]={
+					[1]={
+						k="negate",
+						v=1
+					},
+					limit={
+						[1]={
+							[1]="#",
+							[2]=-1
+						}
+					},
+					text="此攻击每击中一名敌人会使召唤生物损失{0}点生命"
+				}
 			}
 		},
 		name="life_gain_per_target",
@@ -761,7 +783,7 @@ return {
 				[1]={
 					[1]={
 						k="reminderstring",
-						v="ReminderTextElementalStatusAilments"
+						v="ReminderTextElementalAilments"
 					},
 					limit={
 						[1]={
@@ -1877,7 +1899,7 @@ return {
 				[1]={
 					[1]={
 						k="reminderstring",
-						v="ReminderTextElementalStatusAilments"
+						v="ReminderTextElementalAilments"
 					},
 					limit={
 						[1]={
@@ -3392,7 +3414,7 @@ return {
 							[2]="#"
 						}
 					},
-					text="该攻击和召唤生物的贯穿投射物的伤害提高 {0}%"
+					text="此次攻击的投射物和被穿透的召唤生物伤害提高 {0}%"
 				},
 				[2]={
 					[1]={
@@ -3405,7 +3427,7 @@ return {
 							[2]=-1
 						}
 					},
-					text="该攻击和召唤生物的贯穿投射物的伤害降低 {0}%"
+					text="此次攻击的投射物和被穿透的召唤生物伤害降低 {0}%"
 				}
 			}
 		},

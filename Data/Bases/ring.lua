@@ -174,49 +174,49 @@ itemBases["地线戒指"] = {
 itemBases["Dusk Ring"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
-	implicit = "Left ring slot: 15% reduced Skill Effect Duration\nRight ring slot: 15% increased Skill Effect Duration",
+	implicit = "左边的戒指栏位：技能效果的持续时间减少15%\n右边的戒指栏位：技能效果持续时间增加15%",
 	implicitModTypes = { {  }, {  }, },
 	req = { level = 24, },
 }
 itemBases["Penumbra Ring"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
-	implicit = "Left ring slot: 30% reduced Effect of Curses on you\nRight ring slot: 30% increased Effect of Curses on you",
+	implicit = "左边的戒指栏位：你受到的诅咒效果减弱30%\n右边的戒指栏位：你受到的诅咒效果增强30%",
 	implicitModTypes = { { "curse" }, { "curse" }, },
 	req = { level = 24, },
 }
 itemBases["Gloam Ring"] = {
 	type = "Ring",
 	tags = { ring = true, ring_can_roll_minion_modifiers = true, not_for_sale = true, default = true, },
-	implicit = "Left ring slot: Minions take 15% reduced Damage\nRight ring slot: Minions take 15% increased Damage",
+	implicit = "左边的戒指栏位：召唤生物受到的伤害降低15%\n右边的戒指栏位：召唤生物受到的伤害提高15%",
 	implicitModTypes = { { "minion" }, { "minion" }, },
 	req = { level = 24, },
 }
 itemBases["Tenebrous Ring"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
-	implicit = "Left ring slot: 30% reduced Duration of Ailments on You\nRight ring slot: 30% increased Duration of Ailments on You",
+	implicit = "左边的戒指栏位：你处于异常状态的时间减少30%\n右边的戒指栏位：你处于异常状态的时间增加30%",
 	implicitModTypes = { { "ailment" }, { "ailment" }, },
 	req = { level = 24, },
 }
 itemBases["Shadowed Ring"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
-	implicit = "Left ring slot: 25% of Cold Damage from Hits taken as Fire Damage\nRight ring slot: 25% of Fire Damage from Hits taken as Cold Damage",
+	implicit = "左边的戒指栏位：受到的冰霜伤害的25%转化为火焰伤害\n右边的戒指栏位：受到的火焰伤害的25%转化为冰霜伤害",
 	implicitModTypes = { { "elemental", "fire", "cold" }, { "elemental", "fire", "cold" }, },
 	req = { level = 24, },
 }
 itemBases["Shadowed Ring"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
-	implicit = "Left ring slot: 25% of Fire Damage from Hits taken as Lightning Damage\nRight ring slot: 25% of Lightning Damage from Hits taken as Fire Damage",
+	implicit = "左边的戒指栏位：受到的火焰伤害的25%转化为闪电伤害\n右边的戒指栏位：受到的闪电伤害的25%转化为火焰伤害",
 	implicitModTypes = { { "elemental", "fire", "lightning" }, { "elemental", "fire", "lightning" }, },
 	req = { level = 24, },
 }
 itemBases["Shadowed Ring"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
-	implicit = "Left ring slot: 25% of Lightning Damage from Hits taken as Cold Damage\nRight ring slot: 25% of Cold Damage from Hits taken as Lightning Damage",
+	implicit = "左边的戒指栏位：受到的闪电伤害的25%转化为冰霜伤害\n右边的戒指栏位：受到的冰霜伤害的25%转化为闪电伤害",
 	implicitModTypes = { { "elemental", "cold", "lightning" }, { "elemental", "cold", "lightning" }, },
 	req = { level = 24, },
 }

@@ -358,7 +358,7 @@ itemBases["真银药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, no_effect_flask_mod = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 6, chargesUsed = 40, chargesMax = 60, buff = { "猛攻" }, },
+	flask = { duration = 6, chargesUsed = 40, chargesMax = 60, buff = { "" }, },
 	req = { level = 40, },
 }
 itemBases["灰岩药剂"] = {
@@ -382,7 +382,7 @@ itemBases["刚玉药剂"] = {
 	subType = "Utility",
 	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 7.5, chargesUsed = 20, chargesMax = 50, buff = { "晕眩门槛提高 30%" }, },
+	flask = { duration = 7.5, chargesUsed = 20, chargesMax = 50, buff = { "晕眩门槛提高 30%", "生效期间若你被晕眩，则你不会再次被晕眩" }, },
 	req = { level = 27, },
 }
 itemBases["坚铁药剂"] = {

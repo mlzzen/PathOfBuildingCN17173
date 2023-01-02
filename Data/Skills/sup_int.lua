@@ -245,10 +245,10 @@ skills["SupportArcaneSurge"] = {
 	statDescriptionScope = "gem_stat_descriptions",
 	statMap = {
 		["support_arcane_surge_mana_regeneration_rate_+%"] = {
-			mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "秘术增强" }),
+			mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Arcane Surge" }),
 		},
 		["support_arcane_surge_spell_damage_+%_final"] = {
-			mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "秘术增强" }),
+			mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Arcane Surge" }),
 		},
 		["support_arcane_surge_spell_damage_+%_final_while_you_have_arcane_surge"] = {
 			mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "Condition", var = "AffectedByArcaneSurge" }),
@@ -420,6 +420,9 @@ skills["SupportBlasphemy"] = {
 	statMap = {
 		["curse_apply_as_aura"] = {
 		},
+		["support_blasphemy_curse_effect_+%_final"] = {
+			mod("CurseEffect", "MORE", nil),
+		},
 	},
 	qualityStats = {
 		Default = {
@@ -494,6 +497,9 @@ skills["SupportBlasphemyPlus"] = {
 	statDescriptionScope = "gem_stat_descriptions",
 	statMap = {
 		["curse_apply_as_aura"] = {
+		},
+		["support_blasphemy_curse_effect_+%_final"] = {
+			mod("CurseEffect", "MORE", nil),
 		},
 	},
 	qualityStats = {
@@ -767,7 +773,6 @@ skills["SupportCastWhileChannellingTriggered"] = {
 			mod("TriggeredDamage", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Triggered }),
 		},
 		["support_cast_while_channelling_triggered_skill_non_damaging_ailment_effect_+%"] = {
-			mod("TriggeredDamage", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Triggered }),
 			mod("EnemyChillEffect", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Triggered }),
 			mod("EnemyShockEffect", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Triggered }),
 			mod("EnemyFreezeEffect", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Triggered }),
@@ -1309,6 +1314,73 @@ skills["SupportControlledDestructionPlus"] = {
 		[20] = { 52, 10, manaMultiplier = 40, levelRequirement = 100, statInterpolation = { 1, 1, }, },
 	},
 }
+skills["SupportCursedGround"] = {
+	name = "诅咒之地辅助",
+	description = "Supports non-aura hex curse skills.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Hex, SkillType.AppliesCurse, },
+	addSkillTypes = { SkillType.PreventHexTransfer, },
+	excludeSkillTypes = { SkillType.Aura, },
+	statDescriptionScope = "gem_stat_descriptions",
+	qualityStats = {
+		Default = {
+			{ "skill_effect_duration_+%", 0.5 },
+		},
+		Alternate1 = {
+			{ "curse_area_of_effect_+%", 0.5 },
+		},
+		Alternate2 = {
+			{ "base_mana_cost_-%", 0.25 },
+		},
+	},
+	stats = {
+		"base_hex_zone_skill_duration_ms",
+	},
+	levels = {
+		[1] = { 15000, manaMultiplier = 40, levelRequirement = 31, statInterpolation = { 1, }, },
+		[2] = { 16000, manaMultiplier = 40, levelRequirement = 34, statInterpolation = { 1, }, },
+		[3] = { 17000, manaMultiplier = 40, levelRequirement = 36, statInterpolation = { 1, }, },
+		[4] = { 18000, manaMultiplier = 40, levelRequirement = 38, statInterpolation = { 1, }, },
+		[5] = { 19000, manaMultiplier = 40, levelRequirement = 40, statInterpolation = { 1, }, },
+		[6] = { 20000, manaMultiplier = 40, levelRequirement = 42, statInterpolation = { 1, }, },
+		[7] = { 21000, manaMultiplier = 40, levelRequirement = 44, statInterpolation = { 1, }, },
+		[8] = { 22000, manaMultiplier = 40, levelRequirement = 46, statInterpolation = { 1, }, },
+		[9] = { 23000, manaMultiplier = 40, levelRequirement = 48, statInterpolation = { 1, }, },
+		[10] = { 24000, manaMultiplier = 40, levelRequirement = 50, statInterpolation = { 1, }, },
+		[11] = { 25000, manaMultiplier = 40, levelRequirement = 52, statInterpolation = { 1, }, },
+		[12] = { 26000, manaMultiplier = 40, levelRequirement = 54, statInterpolation = { 1, }, },
+		[13] = { 27000, manaMultiplier = 40, levelRequirement = 56, statInterpolation = { 1, }, },
+		[14] = { 28000, manaMultiplier = 40, levelRequirement = 58, statInterpolation = { 1, }, },
+		[15] = { 29000, manaMultiplier = 40, levelRequirement = 60, statInterpolation = { 1, }, },
+		[16] = { 30000, manaMultiplier = 40, levelRequirement = 62, statInterpolation = { 1, }, },
+		[17] = { 31000, manaMultiplier = 40, levelRequirement = 64, statInterpolation = { 1, }, },
+		[18] = { 32000, manaMultiplier = 40, levelRequirement = 66, statInterpolation = { 1, }, },
+		[19] = { 33000, manaMultiplier = 40, levelRequirement = 68, statInterpolation = { 1, }, },
+		[20] = { 34000, manaMultiplier = 40, levelRequirement = 70, statInterpolation = { 1, }, },
+		[21] = { 35000, manaMultiplier = 40, levelRequirement = 72, statInterpolation = { 1, }, },
+		[22] = { 36000, manaMultiplier = 40, levelRequirement = 74, statInterpolation = { 1, }, },
+		[23] = { 37000, manaMultiplier = 40, levelRequirement = 76, statInterpolation = { 1, }, },
+		[24] = { 38000, manaMultiplier = 40, levelRequirement = 78, statInterpolation = { 1, }, },
+		[25] = { 39000, manaMultiplier = 40, levelRequirement = 80, statInterpolation = { 1, }, },
+		[26] = { 40000, manaMultiplier = 40, levelRequirement = 82, statInterpolation = { 1, }, },
+		[27] = { 41000, manaMultiplier = 40, levelRequirement = 84, statInterpolation = { 1, }, },
+		[28] = { 42000, manaMultiplier = 40, levelRequirement = 86, statInterpolation = { 1, }, },
+		[29] = { 43000, manaMultiplier = 40, levelRequirement = 88, statInterpolation = { 1, }, },
+		[30] = { 44000, manaMultiplier = 40, levelRequirement = 90, statInterpolation = { 1, }, },
+		[31] = { 44500, manaMultiplier = 40, levelRequirement = 91, statInterpolation = { 1, }, },
+		[32] = { 45000, manaMultiplier = 40, levelRequirement = 92, statInterpolation = { 1, }, },
+		[33] = { 45500, manaMultiplier = 40, levelRequirement = 93, statInterpolation = { 1, }, },
+		[34] = { 46000, manaMultiplier = 40, levelRequirement = 94, statInterpolation = { 1, }, },
+		[35] = { 46500, manaMultiplier = 40, levelRequirement = 95, statInterpolation = { 1, }, },
+		[36] = { 47000, manaMultiplier = 40, levelRequirement = 96, statInterpolation = { 1, }, },
+		[37] = { 47500, manaMultiplier = 40, levelRequirement = 97, statInterpolation = { 1, }, },
+		[38] = { 48000, manaMultiplier = 40, levelRequirement = 98, statInterpolation = { 1, }, },
+		[39] = { 48500, manaMultiplier = 40, levelRequirement = 99, statInterpolation = { 1, }, },
+		[40] = { 49000, manaMultiplier = 40, levelRequirement = 100, statInterpolation = { 1, }, },
+	},
+}
+
 skills["SupportCurseOnHit"] = {
 	name = "蛊咒（辅）",
 	description = "必须辅助击中敌人并施加魔蛊的技能。该魔蛊会在敌人被其它技能击中时施加给它们。不能辅助图腾、陷阱和地雷。召唤生物不能通过这种方式施加魔蛊。",
@@ -1322,7 +1394,9 @@ skills["SupportCurseOnHit"] = {
 	statMap = {
 		["damage_vs_cursed_enemies_per_enemy_curse_+%"] = {
 			mod("Damage", "INC", nil, 0, 0, { type = "Multiplier", var = "CurseOnEnemy" })
-		}
+		},
+		["support_hextouch_curse_effect_+%_final"] = {
+		},
 	},
 	qualityStats = {
 		Default = {
@@ -1393,6 +1467,11 @@ skills["SupportCurseOnHitCurse"] = {
 	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.AuraAffectsEnemies, SkillType.InbuiltTrigger, },
 	ignoreMinionTypes = true,
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_hextouch_curse_effect_+%_final"] = {
+			mod("CurseEffect", "MORE", nil),
+		},
+	},
 	qualityStats = {
 		Default = {
 			{ "curse_effect_+%", 0.5 },
@@ -1464,6 +1543,10 @@ skills["SupportCurseOnHitPlus"] = {
 	ignoreMinionTypes = true,
 	plusVersionOf = "SupportCurseOnHit",
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_hextouch_curse_effect_+%_final"] = {
+		},
+	},
 	constantStats = {
 		{ "apply_linked_curses_on_hit_%", 100 },
 	},
@@ -1503,6 +1586,11 @@ skills["SupportCurseOnHitCursePlus"] = {
 	ignoreMinionTypes = true,
 	plusVersionOf = "SupportCurseOnHitCurse",
 	statDescriptionScope = "gem_stat_descriptions",
+	statMap = {
+		["support_hextouch_curse_effect_+%_final"] = {
+			mod("CurseEffect", "MORE", nil),
+		},
+	},
 	qualityStats = {
 		Default = {
 			{ "curse_effect_+%", 0.5 },
@@ -1628,6 +1716,12 @@ skills["MinionFocusFire"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Instant] = true, [SkillType.Minion] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "debuff_skill_stat_descriptions",
 	castTime = 0,
+	statMap = {
+		["resist_all_%"] = {
+			mod("ElementalResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectCond = "EnemyHasDeathmark" }),
+			mod("ChaosResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectCond = "EnemyHasDeathmark" }),
+		},
+	},
 	baseFlags = {
 	},
 	qualityStats = {
@@ -2326,6 +2420,76 @@ skills["SupportMinionOffensiveStance"] = {
 		[40] = { 59, 7400, manaMultiplier = 20, levelRequirement = 100, statInterpolation = { 1, 1, }, },
 	},
 }
+skills["SupportHexBloom"] = {
+	name = "魔蛊绽放辅助",
+	description = "Supports hex curse skills. Hexes from auras or cursed ground cannot transfer.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Hex, SkillType.AppliesCurse, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Aura, SkillType.PreventHexTransfer, },
+	statDescriptionScope = "gem_stat_descriptions",
+	qualityStats = {
+		Default = {
+			{ "base_curse_duration_+%", 0.5 },
+		},
+		Alternate1 = {
+			{ "hex_transfer_on_death_range_+%", 0.2 },
+		},
+		Alternate2 = {
+			{ "curse_area_of_effect_+%", 0.5 },
+		},
+	},
+	constantStats = {
+		{ "transfer_hexes_to_X_nearby_enemies_on_kill", 1 },
+	},
+	stats = {
+		"hex_transfer_on_death_range_+%",
+	},
+	levels = {
+		[1] = { 0, manaMultiplier = 40, levelRequirement = 38, statInterpolation = { 1, }, },
+		[2] = { 1, manaMultiplier = 40, levelRequirement = 40, statInterpolation = { 1, }, },
+		[3] = { 3, manaMultiplier = 40, levelRequirement = 42, statInterpolation = { 1, }, },
+		[4] = { 4, manaMultiplier = 40, levelRequirement = 44, statInterpolation = { 1, }, },
+		[5] = { 6, manaMultiplier = 40, levelRequirement = 46, statInterpolation = { 1, }, },
+		[6] = { 7, manaMultiplier = 40, levelRequirement = 48, statInterpolation = { 1, }, },
+		[7] = { 9, manaMultiplier = 40, levelRequirement = 50, statInterpolation = { 1, }, },
+		[8] = { 10, manaMultiplier = 40, levelRequirement = 52, statInterpolation = { 1, }, },
+		[9] = { 12, manaMultiplier = 40, levelRequirement = 54, statInterpolation = { 1, }, },
+		[10] = { 13, manaMultiplier = 40, levelRequirement = 56, statInterpolation = { 1, }, },
+		[11] = { 15, manaMultiplier = 40, levelRequirement = 58, statInterpolation = { 1, }, },
+		[12] = { 16, manaMultiplier = 40, levelRequirement = 60, statInterpolation = { 1, }, },
+		[13] = { 18, manaMultiplier = 40, levelRequirement = 62, statInterpolation = { 1, }, },
+		[14] = { 19, manaMultiplier = 40, levelRequirement = 64, statInterpolation = { 1, }, },
+		[15] = { 21, manaMultiplier = 40, levelRequirement = 65, statInterpolation = { 1, }, },
+		[16] = { 22, manaMultiplier = 40, levelRequirement = 66, statInterpolation = { 1, }, },
+		[17] = { 24, manaMultiplier = 40, levelRequirement = 67, statInterpolation = { 1, }, },
+		[18] = { 25, manaMultiplier = 40, levelRequirement = 68, statInterpolation = { 1, }, },
+		[19] = { 27, manaMultiplier = 40, levelRequirement = 69, statInterpolation = { 1, }, },
+		[20] = { 28, manaMultiplier = 40, levelRequirement = 70, statInterpolation = { 1, }, },
+		[21] = { 30, manaMultiplier = 40, levelRequirement = 72, statInterpolation = { 1, }, },
+		[22] = { 31, manaMultiplier = 40, levelRequirement = 74, statInterpolation = { 1, }, },
+		[23] = { 33, manaMultiplier = 40, levelRequirement = 76, statInterpolation = { 1, }, },
+		[24] = { 34, manaMultiplier = 40, levelRequirement = 78, statInterpolation = { 1, }, },
+		[25] = { 36, manaMultiplier = 40, levelRequirement = 80, statInterpolation = { 1, }, },
+		[26] = { 37, manaMultiplier = 40, levelRequirement = 82, statInterpolation = { 1, }, },
+		[27] = { 39, manaMultiplier = 40, levelRequirement = 84, statInterpolation = { 1, }, },
+		[28] = { 40, manaMultiplier = 40, levelRequirement = 86, statInterpolation = { 1, }, },
+		[29] = { 42, manaMultiplier = 40, levelRequirement = 88, statInterpolation = { 1, }, },
+		[30] = { 43, manaMultiplier = 40, levelRequirement = 90, statInterpolation = { 1, }, },
+		[31] = { 44, manaMultiplier = 40, levelRequirement = 91, statInterpolation = { 1, }, },
+		[32] = { 45, manaMultiplier = 40, levelRequirement = 92, statInterpolation = { 1, }, },
+		[33] = { 45, manaMultiplier = 40, levelRequirement = 93, statInterpolation = { 1, }, },
+		[34] = { 46, manaMultiplier = 40, levelRequirement = 94, statInterpolation = { 1, }, },
+		[35] = { 47, manaMultiplier = 40, levelRequirement = 95, statInterpolation = { 1, }, },
+		[36] = { 48, manaMultiplier = 40, levelRequirement = 96, statInterpolation = { 1, }, },
+		[37] = { 48, manaMultiplier = 40, levelRequirement = 97, statInterpolation = { 1, }, },
+		[38] = { 49, manaMultiplier = 40, levelRequirement = 98, statInterpolation = { 1, }, },
+		[39] = { 50, manaMultiplier = 40, levelRequirement = 99, statInterpolation = { 1, }, },
+		[40] = { 51, manaMultiplier = 40, levelRequirement = 100, statInterpolation = { 1, }, },
+	},
+}
+
 skills["SupportRemoteMine2"] = {
 	name = "高爆地雷（辅）",
 	description = "辅助法术技能，或使用弓箭和法杖的攻击技能。你将投掷地雷，并使用被辅助技能来引爆。",
@@ -2631,14 +2795,6 @@ skills["ViciousHexExplosion"] = {
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Chaos] = true, [SkillType.Cooldown] = true, [SkillType.InbuiltTrigger] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
-	statMap = {
-		["doom_blast_hit_damage_+%_final_per_5_doom_on_hex"] = {
-			mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Multiplier", var = "HexDoom", div = 5 }),
-		},
-		["doom_blast_ailment_damage_+%_final_per_5_doom_on_hex"] = {
-			mod("Damage", "MORE", nil, ModFlag.Ailment, 0, { type = "Multiplier", var = "HexDoom", div = 5 }),
-		},
-	},
 	baseFlags = {
 		spell = true,
 		area = true,
@@ -4578,7 +4734,7 @@ skills["SupportMulticast"] = {
 			mod("Speed", "MORE", nil, ModFlag.Cast),
 		},
 		["support_spell_echo_final_repeat_damage_+%_final"] = {
-			mod("Damage", "MORE", nil),
+			mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "CastOnFrostbolt", neg = true }),
 			--Average out over the casts
 			div = 3
 		}
@@ -4666,7 +4822,7 @@ skills["SupportSpellEchoPlus"] = {
 			mod("Speed", "MORE", nil, ModFlag.Cast),
 		},
 		["spell_echo_plus_chance_double_damage_%_final"] = {
-			mod("DoubleDamageChance", "BASE", nil, ModFlag.Spell, 0),
+			mod("DoubleDamageChance", "BASE", nil, ModFlag.Spell, 0, { type = "Condition", var = "CastOnFrostbolt", neg = true }),
 			div = 2,
 		},
 	},
