@@ -4151,6 +4151,11 @@ local specialModList = {
 	} end,
 	["获得等同 ([%d%.]+)%% 最大生命的额外最大能量护盾"]= function(num) return {  mod("LifeGainAsEnergyShield", "BASE", num)  } end,
 	["获得等于最大生命 ([%d%.]+)%% 的额外最大能量护盾"]= function(num) return {  mod("LifeGainAsEnergyShield", "BASE", num)  } end,
+	["获得等于你混沌抗性一半的额外元素伤害减免"] = { 
+		mod("FireDamageReduction", "BASE", 1, { type = "PerStat", stat = "ChaosResist", div = 2 }),
+		mod("ColdDamageReduction", "BASE", 1, { type = "PerStat", stat = "ChaosResist", div = 2 }),
+		mod("LightningDamageReduction", "BASE", 1, { type = "PerStat", stat = "ChaosResist", div = 2 })
+	},
 	["至少有 (%d+) 点奉献时，获得等同 (%d+)%% 最大魔力的额外最大能量护盾"]= function(_,num1,num2) return {  mod("ManaGainAsEnergyShield", "BASE", tonumber(num2),{ type = "StatThreshold", stat = "Devotion", threshold = tonumber(num1) })  } end,
 	["至少 (%d+) 点奉献时，位于奉献地面之上免疫元素异常状态"]= function(num) return {
 	mod("AvoidShock", "BASE", 100,{ type = "Condition", var = "OnConsecratedGround" },{ type = "StatThreshold", stat = "Devotion", threshold = tonumber(num) })  ,
@@ -4367,6 +4372,7 @@ local specialModList = {
 	flag("SpellDamageAppliesToAttacks",{ type = "Condition", var = "UsingWand" }),
 	mod("ImprovedSpellDamageAppliesToAttacks", "INC", 100,{ type = "Condition", var = "UsingWand" }) },
 	["increases and reductions to cast speed apply to attack speed at (%d+)%% of their value"] =  function(num) return { flag("CastSpeedAppliesToAttacks"), mod("ImprovedCastSpeedAppliesToAttacks", "INC", num) } end,
+	["对施法速度的增强与减弱也作用于攻击速度"] =  function(num) return { flag("CastSpeedAppliesToAttacks"), mod("ImprovedCastSpeedAppliesToAttacks", "MAX", 100) } end,
 	["对法术伤害的增幅与减益也会套用于攻击上"] = { flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", 100) },
 	["对法术伤害的增幅与减益也套用于攻击，等于其数值的 (%d+)%%"] = function(num) return { flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", num) } end,
 	["对法术伤害的增幅与减益也会套用于攻击上，相当于其效果的 (%d+)%%"] = function(num) return { flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", num) } end,

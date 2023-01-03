@@ -90,6 +90,18 @@ replica: true
 {tags:attack,life}冰霜伤害的 (0.8-1)% 转化为生命偷取
 {variant:1}憎恨的总魔力保留额外降低 50%
 {variant:2}憎恨的总魔力保留效能额外提高 100%
+]],[[
+永恒诅咒
+玛瑙护身符
+联盟: 禁忌圣域
+源: 传奇boss【天灾先驱利西亚】普通【超越】
+等级需求: 52
+固定基底词缀: 1
+{tags:jewellery_attribute}+(16-24) 力量和智慧
+{tags:mana}+(40-70) to 最大魔力
+{tags:jewellery_resistance}+(-13-13)% 混沌抗性
+{tags:jewellery_resistance}-5% 所有元素抗性
+获得等于你混沌抗性一半的额外元素伤害减免
 ]],
 [[
 阿兹里圣徽【仿品】

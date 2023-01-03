@@ -369,6 +369,16 @@ Has Alt Variant: true
 {variant:4}{tags:jewellery_resistance}受到【寒冰之捷】影响时，最大冰霜抗性 +1%
 {variant:5}受到【寒冰之捷】影响时，冰霜伤害提高 (40-60)%
 忆境物品
+]],[[
+咒逐
+月光石戒指
+等级需求: 49
+固定基底词缀: 1
+{tags:jewellery_defense}+(15-25) 最大能量护盾
+{tags:jewellery_attribute}+(30-40) 智慧
+{tags:caster}施法速度提高 (10-15)%
+当你施放诅咒法术时，有 (10-20)% 的几率获得一个暴击球
+你的诅咒限制等于你的最大暴击球数量
 ]],
 [[
 恐惧之环(分裂)
