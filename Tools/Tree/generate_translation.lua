@@ -1,4 +1,4 @@
-﻿local version = "3_19"
+﻿local version = "3_20"
 local treeFilePathCn = "D:/Projects/PathOfBuildingCN17173-dev/TreeData/"
 local treeFilePathEn = "D:/Projects/PathOfBuilding/src/TreeData/"
 
