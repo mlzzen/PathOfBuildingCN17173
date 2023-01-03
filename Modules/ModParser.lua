@@ -6758,9 +6758,11 @@ local specialModList = {
 	["cannot be shocked"] = { mod("AvoidShock", "BASE", 100) },
 	["免疫感电"] = { mod("AvoidShock", "BASE", 100) }, --备注：immune to shock
 	["免疫冰冻"] = { mod("AvoidFreeze", "BASE", 100) }, --备注：cannot be frozen
+	["无法被冰冻"] = { mod("AvoidChill", "BASE", 100) }, --备注：cannot be chilled
 	["immune to freeze"] = { mod("AvoidFreeze", "BASE", 100) },
 	["免疫冰缓"] = { mod("AvoidChill", "BASE", 100) }, --备注：cannot be chilled
 	["免疫冰缓"] = { mod("AvoidChill", "BASE", 100) }, --备注：immune to chill
+	["无法被冰缓"] = { mod("AvoidChill", "BASE", 100) }, --备注：cannot be chilled
 	["cannot be ignited"] = { mod("AvoidIgnite", "BASE", 100) },
 	["免疫点燃"] = { mod("AvoidIgnite", "BASE", 100) }, --备注：immune to ignite
 	["你在耐力球达到上限时无法被感电"] = { mod("AvoidShock", "BASE", 100, { type = "StatThreshold", stat = "EnduranceCharges", thresholdStat = "EnduranceChargesMax" }) }, --备注：you cannot be shocked while at maximum endurance charges
