@@ -3452,6 +3452,14 @@ local specialModList = {
 	["最多可同时召唤额外 ([%+%-]?%d+) 个魔像"] = function(num) return { mod("ActiveGolemLimit", "BASE", num) } end,
 	["召唤魔像的数量上限 ([%+%-]?%d+)"] = function(num) return { mod("ActiveGolemLimit", "BASE", num) } end,
 	["魔像上限 ([%+%-]?%d+)"] = function(num) return { mod("ActiveGolemLimit", "BASE", num) } end,
+	["附近敌人的混沌抗性为 (%d+)"] = function(num) return {
+		mod("EnemyModifier", "LIST", { mod = mod("ChaosResist", "OVERRIDE", num) }),
+	} end,
+	["所有元素伤害转换为混沌伤害"] = {
+		mod("ColdDamageConvertToChaos", "BASE", 100),
+		mod("FireDamageConvertToChaos", "BASE", 100),
+		mod("LightningDamageConvertToChaos", "BASE", 100),
+	},
 	["最多可同时召唤额外 (%d) 个魔像"] = function(num) return { mod("ActiveGolemLimit", "BASE", num) } end,
 	["你和周围友军的伤害提高 (%d+)%%"]= function(num) return {  mod("ExtraAura", "LIST", { mod =  mod("Damage", "INC", num) }) } end,
 	["你和周围友军移动速度提高 (%d+)%%"]= function(num) return {  mod("ExtraAura", "LIST", { mod =  mod("MovementSpeed", "INC", num) }) } end,
