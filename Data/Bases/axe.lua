@@ -167,7 +167,7 @@ itemBases["残暴之斧"] = {
 itemBases["屠戮之斧"] = {
 	type = "One Handed Axe",
 	socketLimit = 3,
-	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { axe = true, onehand = true, top_tier_base_item_type = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 47, PhysicalMax = 87, CritChanceBase = 5, AttackRateBase = 1.3, Range = 11, },
 	req = { level = 63, str = 149, dex = 76, },
@@ -175,7 +175,7 @@ itemBases["屠戮之斧"] = {
 itemBases["瓦尔战斧"] = {
 	type = "One Handed Axe",
 	socketLimit = 3,
-	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { axe = true, onehand = true, top_tier_base_item_type = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 30, PhysicalMax = 90, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
 	req = { level = 65, str = 140, dex = 86, },
@@ -183,7 +183,7 @@ itemBases["瓦尔战斧"] = {
 itemBases["皇家之斧"] = {
 	type = "One Handed Axe",
 	socketLimit = 3,
-	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { axe = true, onehand = true, top_tier_base_item_type = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 54, PhysicalMax = 100, CritChanceBase = 5, AttackRateBase = 1.2, Range = 11, },
 	req = { level = 67, str = 167, dex = 57, },
@@ -191,7 +191,7 @@ itemBases["皇家之斧"] = {
 itemBases["狱火之刃"] = {
 	type = "One Handed Axe",
 	socketLimit = 3,
-	tags = { axe = true, onehand = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { axe = true, onehand = true, top_tier_base_item_type = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 51, PhysicalMax = 85, CritChanceBase = 5, AttackRateBase = 1.3, Range = 11, },
 	req = { level = 69, str = 158, dex = 76, },
@@ -375,7 +375,7 @@ itemBases["裂甲巨斧"] = {
 itemBases["艾兹麦巨斧"] = {
 	type = "Two Handed Axe",
 	socketLimit = 6,
-	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
+	tags = { axe = true, top_tier_base_item_type = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 87, PhysicalMax = 131, CritChanceBase = 5.7, AttackRateBase = 1.35, Range = 13, },
 	req = { level = 62, str = 140, dex = 86, },
@@ -383,7 +383,7 @@ itemBases["艾兹麦巨斧"] = {
 itemBases["瓦尔巨斧"] = {
 	type = "Two Handed Axe",
 	socketLimit = 6,
-	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
+	tags = { axe = true, top_tier_base_item_type = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicit = "击中时有 25% 的几率造成瘫痪",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 104, PhysicalMax = 174, CritChanceBase = 5, AttackRateBase = 1.15, Range = 13, },
@@ -392,7 +392,7 @@ itemBases["瓦尔巨斧"] = {
 itemBases["霸主巨斧"] = {
 	type = "Two Handed Axe",
 	socketLimit = 6,
-	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
+	tags = { axe = true, top_tier_base_item_type = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 90, PhysicalMax = 122, CritChanceBase = 5, AttackRateBase = 1.4, Range = 13, },
 	req = { level = 66, str = 140, dex = 86, },
@@ -400,7 +400,7 @@ itemBases["霸主巨斧"] = {
 itemBases["虚影巨斧"] = {
 	type = "Two Handed Axe",
 	socketLimit = 6,
-	tags = { axe = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
+	tags = { axe = true, top_tier_base_item_type = true, two_hand_weapon = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 96, PhysicalMax = 144, CritChanceBase = 6, AttackRateBase = 1.25, Range = 13, },
 	req = { level = 68, str = 149, dex = 76, },

@@ -185,7 +185,7 @@ itemBases["魔爪刃"] = {
 itemBases["刺眼钩"] = {
 	type = "Claw",
 	socketLimit = 3,
-	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
+	tags = { onehand = true, top_tier_base_item_type = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicit = "每击中一名敌人获得 50 点生命",
 	implicitModTypes = { { "resource", "life", "attack" }, },
 	weapon = { PhysicalMin = 26, PhysicalMax = 68, CritChanceBase = 6.3, AttackRateBase = 1.5, Range = 11, },
@@ -194,7 +194,7 @@ itemBases["刺眼钩"] = {
 itemBases["瓦尔战爪"] = {
 	type = "Claw",
 	socketLimit = 3,
-	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
+	tags = { onehand = true, top_tier_base_item_type = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicit = "物理攻击伤害的 2% 会转化为生命偷取",
 	implicitModTypes = { { "resource", "life", "physical", "attack" }, },
 	weapon = { PhysicalMin = 29, PhysicalMax = 76, CritChanceBase = 6.5, AttackRateBase = 1.3, Range = 11, },
@@ -203,7 +203,7 @@ itemBases["瓦尔战爪"] = {
 itemBases["帝国战爪"] = {
 	type = "Claw",
 	socketLimit = 3,
-	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
+	tags = { onehand = true, top_tier_base_item_type = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicit = "每击中一名敌人获得 46 点生命",
 	implicitModTypes = { { "resource", "life", "attack" }, },
 	weapon = { PhysicalMin = 25, PhysicalMax = 65, CritChanceBase = 6, AttackRateBase = 1.6, Range = 11, },
@@ -212,7 +212,7 @@ itemBases["帝国战爪"] = {
 itemBases["恐惧之牙"] = {
 	type = "Claw",
 	socketLimit = 3,
-	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
+	tags = { onehand = true, top_tier_base_item_type = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicit = "物理攻击伤害的 2% 会转化为生命偷取",
 	implicitModTypes = { { "resource", "life", "physical", "attack" }, },
 	weapon = { PhysicalMin = 18, PhysicalMax = 71, CritChanceBase = 6.3, AttackRateBase = 1.5, Range = 11, },

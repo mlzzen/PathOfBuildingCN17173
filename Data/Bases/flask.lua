@@ -356,9 +356,9 @@ itemBases["硫磺药剂"] = {
 itemBases["真银药剂"] = {
 	type = "Flask",
 	subType = "Utility",
-	tags = { flask = true, utility_flask = true, not_for_sale = true, no_effect_flask_mod = true, default = true, },
+	tags = { flask = true, utility_flask = true, not_for_sale = true, default = true, },
 	implicitModTypes = { },
-	flask = { duration = 6, chargesUsed = 40, chargesMax = 60, buff = { "" }, },
+	flask = { duration = 6, chargesUsed = 40, chargesMax = 60, buff = { "猛攻" }, },
 	req = { level = 40, },
 }
 itemBases["灰岩药剂"] = {

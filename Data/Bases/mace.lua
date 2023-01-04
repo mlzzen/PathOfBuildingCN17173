@@ -185,7 +185,7 @@ itemBases["坚锤"] = {
 itemBases["军团之锤"] = {
 	type = "One Handed Mace",
 	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { onehand = true, top_tier_base_item_type = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "敌人晕眩门槛降低 10%",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 35, PhysicalMax = 81, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
@@ -194,7 +194,7 @@ itemBases["军团之锤"] = {
 itemBases["锋刃重锤"] = {
 	type = "One Handed Mace",
 	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { onehand = true, top_tier_base_item_type = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "敌人晕眩门槛降低 10%",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 49, PhysicalMax = 82, CritChanceBase = 5, AttackRateBase = 1.3, Range = 11, },
@@ -203,7 +203,7 @@ itemBases["锋刃重锤"] = {
 itemBases["圣约之锤"] = {
 	type = "One Handed Mace",
 	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { onehand = true, top_tier_base_item_type = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "敌人晕眩门槛降低 15%",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 65, PhysicalMax = 82, CritChanceBase = 5, AttackRateBase = 1.2, Range = 11, },
@@ -212,7 +212,7 @@ itemBases["圣约之锤"] = {
 itemBases["梦魇之锤"] = {
 	type = "One Handed Mace",
 	socketLimit = 3,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { onehand = true, top_tier_base_item_type = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "敌人晕眩门槛降低 10%",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 38, PhysicalMax = 80, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
@@ -438,7 +438,7 @@ itemBases["灵石短杖"] = {
 itemBases["白金短杖"] = {
 	type = "Sceptre",
 	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { top_tier_base_item_type = true, onehand = true, sceptre = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "元素伤害提高 30%",
 	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
 	weapon = { PhysicalMin = 51, PhysicalMax = 76, CritChanceBase = 6, AttackRateBase = 1.25, Range = 11, },
@@ -447,7 +447,7 @@ itemBases["白金短杖"] = {
 itemBases["瓦尔短杖"] = {
 	type = "Sceptre",
 	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { top_tier_base_item_type = true, onehand = true, sceptre = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "元素伤害提高 32%",
 	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
 	weapon = { PhysicalMin = 37, PhysicalMax = 70, CritChanceBase = 6, AttackRateBase = 1.4, Range = 11, },
@@ -456,7 +456,7 @@ itemBases["瓦尔短杖"] = {
 itemBases["禁礼短杖"] = {
 	type = "Sceptre",
 	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { top_tier_base_item_type = true, onehand = true, sceptre = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "元素伤害提高 32%",
 	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
 	weapon = { PhysicalMin = 41, PhysicalMax = 95, CritChanceBase = 6, AttackRateBase = 1.2, Range = 11, },
@@ -465,7 +465,7 @@ itemBases["禁礼短杖"] = {
 itemBases["虚影短杖"] = {
 	type = "Sceptre",
 	socketLimit = 3,
-	tags = { onehand = true, sceptre = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	tags = { top_tier_base_item_type = true, onehand = true, sceptre = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "元素伤害提高 40%",
 	implicitModTypes = { { "elemental_damage", "damage", "elemental" }, },
 	weapon = { PhysicalMin = 50, PhysicalMax = 76, CritChanceBase = 6.2, AttackRateBase = 1.25, Range = 11, },
@@ -664,7 +664,7 @@ itemBases["巨型重锤"] = {
 itemBases["扫荡者"] = {
 	type = "Two Handed Mace",
 	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
+	tags = { two_hand_weapon = true, top_tier_base_item_type = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "敌人晕眩门槛降低 20%",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 77, PhysicalMax = 115, CritChanceBase = 5, AttackRateBase = 1.35, Range = 13, },
@@ -673,7 +673,7 @@ itemBases["扫荡者"] = {
 itemBases["戮魂重锤"] = {
 	type = "Two Handed Mace",
 	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
+	tags = { two_hand_weapon = true, top_tier_base_item_type = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "有 5% 的几率造成双倍伤害",
 	implicitModTypes = { { "damage" }, },
 	weapon = { PhysicalMin = 74, PhysicalMax = 138, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
@@ -682,7 +682,7 @@ itemBases["戮魂重锤"] = {
 itemBases["帝国重锤"] = {
 	type = "Two Handed Mace",
 	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
+	tags = { two_hand_weapon = true, top_tier_base_item_type = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "力量提高 10%",
 	implicitModTypes = { { "attribute" }, },
 	weapon = { PhysicalMin = 102, PhysicalMax = 153, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
@@ -691,7 +691,7 @@ itemBases["帝国重锤"] = {
 itemBases["惧灵重锤"] = {
 	type = "Two Handed Mace",
 	socketLimit = 6,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
+	tags = { two_hand_weapon = true, top_tier_base_item_type = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "有 25% 的几率使晕眩时间延长 1 倍",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 101, PhysicalMax = 137, CritChanceBase = 6, AttackRateBase = 1.15, Range = 13, },

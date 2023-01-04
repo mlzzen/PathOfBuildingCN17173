@@ -11,13 +11,13 @@ return {
 					[1] = { line = "若过去的 2 秒内你被晕眩或是格挡晕眩，你将无法再被晕眩", value = { 1 }, },
 				},
 			},
-			[2] = { name = "被诅咒的克莱奔船长",
+			[2] = { name = "幽足坦纳尔队长",
 				mods = {
 					-- base_stun_recovery_+%
 					[1] = { line = "晕眩回复和格挡回复提高 30%", value = { 30 }, },
 				},
 			},
-			[3] = { name = "光明姐妹娥拉",
+			[3] = { name = "被诅咒的克莱奔船长",
 				mods = {
 					-- base_avoid_freeze_%
 					[1] = { line = "100% 几率避免被冰冻", value = { 100 }, },
@@ -46,13 +46,13 @@ return {
 					[1] = { line = "近期内若你停止受到持续伤害，则生命和能量护盾回复速度提高 20%", value = { 20 }, },
 				},
 			},
-			[3] = { name = "丛林皇蛛",
+			[3] = { name = "切断者马雷格罗",
 				mods = {
 					-- debuff_time_passed_+%
 					[1] = { line = "你身上的减益效果消失速度提高 20%", value = { 20 }, },
 				},
 			},
-			[4] = { name = "虚空之异",
+			[4] = { name = "寡妇制造者阿玛拉",
 				mods = {
 					-- additional_chaos_resistance_against_damage_over_time_%
 					[1] = { line = "对持续伤害有 +40% 混沌抗性", value = { 40 }, },
@@ -71,19 +71,19 @@ return {
 					[2] = { line = "有 20% 的几率使受到的范围总伤害额外降低 50%", value = { 20 }, },
 				},
 			},
-			[2] = { name = "炎灵密卡拉",
+			[2] = { name = "空之边际乔瑞斯",
 				mods = {
 					-- elemental_damage_taken_+%_if_not_hit_recently
 					[1] = { line = "若你近期内没有被击中，则受到的元素伤害降低 8%", value = { -8 }, },
 				},
 			},
-			[3] = { name = "炽怒之灵",
+			[3] = { name = "烈焰之森",
 				mods = {
 					-- self_take_no_extra_damage_from_critical_strikes_if_have_been_crit_recently
 					[1] = { line = "近期你若受到过暴击伤害，则不再受到暴击的额外伤害", value = { 1 }, },
 				},
 			},
-			[4] = { name = "毁灭者奇塔弗",
+			[4] = { name = "灵箭之弦",
 				mods = {
 					-- avoid_ailments_%_from_crit
 					[1] = { line = "50% 几率避免暴击造成的异常状态", value = { 50 }, },
@@ -108,13 +108,13 @@ return {
 					[1] = { line = "10% 的几率免疫投射物", value = { 10 }, },
 				},
 			},
-			[3] = { name = "骨法师伯托克",
+			[3] = { name = "腐化者艾达尔克",
 				mods = {
 					-- elemental_damage_taken_+%_if_been_hit_recently
 					[1] = { line = "承受的元素伤害在你近期内被击中的情况下降低 6%", value = { -6 }, },
 				},
 			},
-			[4] = { name = "丛林巨石",
+			[4] = { name = "暗影姐妹科尔",
 				mods = {
 					-- avoid_chained_projectile_%_chance
 					[1] = { line = "避免被连锁弹射的投射物击中", value = { 100 }, },
@@ -141,7 +141,7 @@ return {
 					[1] = { line = "你身上的点燃持续时间总降 60%", value = { -60 }, },
 				},
 			},
-			[2] = { name = "撼地者米福德",
+			[2] = { name = "炎灵密卡拉",
 				mods = {
 					-- unaffected_by_burning_ground
 					[1] = { line = "不受燃烧地面影响", value = { 1 }, },
@@ -184,7 +184,7 @@ return {
 					[2] = { line = "有 50% 的几率反射魔蛊", value = { 50 }, },
 				},
 			},
-			[2] = { name = "苦痛主教",
+			[2] = { name = "微光巨侍法赫西",
 				mods = {
 					-- curse_effect_on_self_+%
 					[1] = { line = "你受到的诅咒效果降低 30%", value = { -30 }, },
@@ -263,7 +263,7 @@ return {
 					[1] = { line = "你受到的感电效果降低 60%", value = { -60 }, },
 				},
 			},
-			[2] = { name = "瓦瑟瑞斯",
+			[2] = { name = "疯狂男爵帕斯科",
 				mods = {
 					-- cannot_be_blinded
 					[1] = { line = "免疫致盲", value = { 1 }, },
@@ -280,12 +280,14 @@ return {
 				mods = {
 					-- life_flasks_gain_X_charges_every_3_seconds_if_you_have_not_used_a_life_flask_recently
 					[1] = { line = "若你近期内没使用生命药剂，则生命药剂每 3 秒获得 3 充能", value = { 3 }, },
+					-- life_recovery_+%_from_flasks_while_on_low_life
+					[2] = { line = "低血时，使用药剂会提高 60% 生命回复量", value = { 60 }, },
 				},
 			},
-			[2] = { name = "利希斯啸夜",
+			[2] = { name = "传奇神盗罗格斯",
 				mods = {
-					-- life_recovery_+%_from_flasks_while_on_low_life
-					[1] = { line = "低血时，使用药剂会提高 60% 生命回复量", value = { 60 }, },
+					-- enemy_life_regeneration_rate_+%_for_4_seconds_on_hit
+					[1] = { line = "近期内被你击中的敌人的生命再生率降低 50%", value = { -50 }, },
 				},
 			},
 		},

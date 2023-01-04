@@ -140,7 +140,7 @@ itemBases["魔性法杖"] = {
 itemBases["灵石法杖"] = {
 	type = "Wand",
 	socketLimit = 3,
-	tags = { onehand = true, wand = true, weapon = true, ranged = true, one_hand_weapon = true, default = true, },
+	tags = { top_tier_base_item_type = true, onehand = true, wand = true, weapon = true, ranged = true, one_hand_weapon = true, default = true, },
 	implicit = "法术伤害提高 (38-42)%",
 	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
 	weapon = { PhysicalMin = 35, PhysicalMax = 65, CritChanceBase = 7, AttackRateBase = 1.3, Range = 120, },
@@ -149,7 +149,7 @@ itemBases["灵石法杖"] = {
 itemBases["狂风法杖"] = {
 	type = "Wand",
 	socketLimit = 3,
-	tags = { onehand = true, wand = true, weapon = true, ranged = true, one_hand_weapon = true, default = true, },
+	tags = { top_tier_base_item_type = true, onehand = true, wand = true, weapon = true, ranged = true, one_hand_weapon = true, default = true, },
 	implicit = "法术伤害提高 (35-39)%",
 	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
 	weapon = { PhysicalMin = 25, PhysicalMax = 75, CritChanceBase = 7, AttackRateBase = 1.3, Range = 120, },
@@ -158,7 +158,7 @@ itemBases["狂风法杖"] = {
 itemBases["箴言法杖"] = {
 	type = "Wand",
 	socketLimit = 3,
-	tags = { onehand = true, wand = true, weapon = true, ranged = true, one_hand_weapon = true, default = true, },
+	tags = { top_tier_base_item_type = true, onehand = true, wand = true, weapon = true, ranged = true, one_hand_weapon = true, default = true, },
 	implicit = "法术伤害提高 (36-40)%",
 	implicitModTypes = { { "caster_damage", "damage", "caster" }, },
 	weapon = { PhysicalMin = 35, PhysicalMax = 64, CritChanceBase = 8, AttackRateBase = 1.2, Range = 120, },
@@ -204,7 +204,7 @@ itemBases["蓄能法杖"] = {
 itemBases["召集法杖"] = {
 	type = "Wand",
 	socketLimit = 3,
-	tags = { onehand = true, ranged = true, wandatlas1 = true, weapon_can_roll_minion_modifiers = true, wand = true, atlas_base_type = true, default = true, one_hand_weapon = true, weapon = true, },
+	tags = { onehand = true, ranged = true, wandatlas1 = true, weapon_can_roll_minion_modifiers = true, top_tier_base_item_type = true, wand = true, atlas_base_type = true, default = true, one_hand_weapon = true, weapon = true, },
 	implicit = "召唤生物的伤害提高 (26-30)%",
 	implicitModTypes = { { "damage", "minion" }, },
 	weapon = { PhysicalMin = 30, PhysicalMax = 55, CritChanceBase = 7, AttackRateBase = 1.4, Range = 120, },

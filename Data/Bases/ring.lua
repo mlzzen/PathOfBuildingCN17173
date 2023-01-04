@@ -82,9 +82,10 @@ itemBases["宝钻戒指"] = {
 }
 itemBases["双玉戒指"] = {
 	type = "Ring",
+	hidden = true,
 	tags = { ring = true, twostonering = true, default = true, },
-	implicit = "+(12-16)% 火焰与闪电抗性",
-	implicitModTypes = { { "elemental", "fire", "lightning", "resistance" }, },
+	implicit = "+(12-16)% 火焰与冰霜抗性",
+	implicitModTypes = { { "elemental", "fire", "cold", "resistance" }, },
 	req = { level = 20, },
 }
 itemBases["潜能之戒"] = {
@@ -171,49 +172,49 @@ itemBases["地线戒指"] = {
 	implicitModTypes = { {  }, {  }, {  }, },
 	req = { level = 24, },
 }
-itemBases["Dusk Ring"] = {
+itemBases["戒指：暮色"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
 	implicit = "左边的戒指栏位：技能效果的持续时间减少15%\n右边的戒指栏位：技能效果持续时间增加15%",
 	implicitModTypes = { {  }, {  }, },
 	req = { level = 24, },
 }
-itemBases["Penumbra Ring"] = {
+itemBases["戒指：半影"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
 	implicit = "左边的戒指栏位：你受到的诅咒效果减弱30%\n右边的戒指栏位：你受到的诅咒效果增强30%",
 	implicitModTypes = { { "curse" }, { "curse" }, },
 	req = { level = 24, },
 }
-itemBases["Gloam Ring"] = {
+itemBases["戒指：薄暮"] = {
 	type = "Ring",
 	tags = { ring = true, ring_can_roll_minion_modifiers = true, not_for_sale = true, default = true, },
 	implicit = "左边的戒指栏位：召唤生物受到的伤害降低15%\n右边的戒指栏位：召唤生物受到的伤害提高15%",
 	implicitModTypes = { { "minion" }, { "minion" }, },
 	req = { level = 24, },
 }
-itemBases["Tenebrous Ring"] = {
+itemBases["戒指：暗黑"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
 	implicit = "左边的戒指栏位：你处于异常状态的时间减少30%\n右边的戒指栏位：你处于异常状态的时间增加30%",
 	implicitModTypes = { { "ailment" }, { "ailment" }, },
 	req = { level = 24, },
 }
-itemBases["Shadowed Ring"] = {
+itemBases["戒指：暗影"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
 	implicit = "左边的戒指栏位：受到的冰霜伤害的25%转化为火焰伤害\n右边的戒指栏位：受到的火焰伤害的25%转化为冰霜伤害",
 	implicitModTypes = { { "elemental", "fire", "cold" }, { "elemental", "fire", "cold" }, },
 	req = { level = 24, },
 }
-itemBases["Shadowed Ring"] = {
+itemBases["戒指：暗影"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
 	implicit = "左边的戒指栏位：受到的火焰伤害的25%转化为闪电伤害\n右边的戒指栏位：受到的闪电伤害的25%转化为火焰伤害",
 	implicitModTypes = { { "elemental", "fire", "lightning" }, { "elemental", "fire", "lightning" }, },
 	req = { level = 24, },
 }
-itemBases["Shadowed Ring"] = {
+itemBases["戒指：暗影"] = {
 	type = "Ring",
 	tags = { ring = true, not_for_sale = true, default = true, },
 	implicit = "左边的戒指栏位：受到的闪电伤害的25%转化为冰霜伤害\n右边的戒指栏位：受到的冰霜伤害的25%转化为闪电伤害",

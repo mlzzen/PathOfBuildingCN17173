@@ -88,10 +88,10 @@ skills["AnimateGuardianWeapon"] = {
 	},
 }
 skills["TouchOfFire"] = {
-	name = "[DNT] Touch of Fire",
+	name = "烈焰之触",
 	hidden = true,
 	color = 4,
-	description = "[DNT] ",
+	description = "被焚界者的火焰触碰。",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Buff] = true, [SkillType.Instant] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.InstantShiftAttackForLeftMouse] = true, [SkillType.HasReservation] = true, [SkillType.Cooldown] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 0,
@@ -108,7 +108,7 @@ skills["TouchOfFire"] = {
 		"display_touch_of_fire",
 	},
 	levels = {
-		[1] = { cooldown = 5, levelRequirement = 70, },
+		[20] = { cooldown = 5, levelRequirement = 70, },
 	},
 }
 skills["SupportTriggerSpellOnBowAttack"] = {
@@ -1563,7 +1563,7 @@ skills["TriggeredIcicleNova"] = {
 	name = "爆环冰刺",
 	hidden = true,
 	color = 4,
-	description = "从被击败的敌人周围发射一圈寒冰投射物，并将造成的所有物理伤害转化为冰霜伤害。",
+	description = "从被击中的敌人周围发射一圈寒冰投射物，并将造成的所有物理伤害转化为冰霜伤害。",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Cold] = true, },
 	statDescriptionScope = "skill_stat_descriptions",
 	castTime = 1,
@@ -2194,7 +2194,7 @@ skills["ChannelledSnipe"] = {
 	hidden = true,
 	color = 2,
 	description = "持续吟唱给弓箭充能，积累层数。释放时，每层都会触发一种链接的弓类技能。这种方式不能触发持续吟唱技能。若没有链接任何技能，又至少积累了一层效果，则该技能会发射它原本的箭矢。无法用于图腾。",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Channel] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Channel] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
 		["Bow"] = true,
 	},

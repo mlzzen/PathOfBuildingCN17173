@@ -1625,7 +1625,7 @@ return {
 			}, 
 			["not"] = false, 
 			["sd"] = {
-				[1] = "你所施放诅咒的效果提高 (2-4)%", 
+				[1] = "你所施放诅咒的效果提高 2%", 
 			}, 
 			["isMultipleChoiceOption"] = false, 
 			["dn"] = "诅咒效果", 
@@ -1640,7 +1640,7 @@ return {
 			}, 
 			["stats"] = {
 				["curse_effect_+%"] = {
-					["max"] = 4, 
+					["max"] = 2, 
 					["fmt"] = "d", 
 					["index"] = 1, 
 					["min"] = 2, 
@@ -3212,7 +3212,7 @@ return {
 			}, 
 			["not"] = true, 
 			["sd"] = {
-				[1] = "你所施放诅咒的效果提高 (7-10)%", 
+				[1] = "你所施放诅咒的效果提高 (4-6)%", 
 				[2] = "诅咒技能的技能效果持续时间延长 20%", 
 			}, 
 			["isMultipleChoiceOption"] = false, 
@@ -3229,10 +3229,10 @@ return {
 			}, 
 			["stats"] = {
 				["curse_effect_+%"] = {
-					["max"] = 10, 
+					["max"] = 6, 
 					["fmt"] = "d", 
 					["index"] = 1, 
-					["min"] = 7, 
+					["min"] = 4, 
 					["statOrder"] = 2294, 
 				}, 
 				["curse_skill_effect_duration_+%"] = {
@@ -7164,14 +7164,14 @@ return {
 			["id"] = "vaal_small_curse_effect", 
 			["dn"] = "Curse Effect", 
 			["sd"] = {
-				[1] = "你所施放诅咒的效果提高 (2-4)%", 
+				[1] = "你所施放诅咒的效果提高 2%", 
 			}, 
 			["sortedStats"] = {
 				[1] = "curse_effect_+%", 
 			}, 
 			["stats"] = {
 				["curse_effect_+%"] = {
-					["max"] = 4, 
+					["max"] = 2, 
 					["fmt"] = "d", 
 					["index"] = 1, 
 					["min"] = 2, 
