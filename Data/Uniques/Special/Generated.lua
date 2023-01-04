@@ -438,6 +438,51 @@ end
 table.insert(skinOfTheLords, "已腐化")
 table.insert(data.uniques.generated, table.concat(skinOfTheLords, "\n"))
 
+local balanceOfTerrorMods = {
+	["Vulnerability: Double Damage"] = "如果你过去 10 秒内施放过【脆弱】，则有 (6-10)% 几率造成双倍伤害",
+	["Vulnerability: Unaffected by Bleeding"] = "如果你未被流血影响，则你可以在 10 秒内施放【脆弱】",
+	["Enfeeble: Critical Strike Multiplier"] = "如果你在 10 秒内施放过【衰弱】，则攻击和法术暴击伤害加成 +(30-40)%",
+	["Enfeeble: Take no Extra Crit Damage"] = "如果你在 10 秒内施放过【衰弱】，则暴击不会造成额外伤害",
+	["Despair: Immune to Curses"] = "如果你在过去 10 秒内施放过【绝望】，则对诅咒免疫",
+	["Despair: Inflict Withered"] = "如果你在过去 10 秒内施放过【绝望】，则击中有 50% 的几率施加【枯萎】两秒",
+	["Punishment: Immune to Reflected Damage"] = "如果你在过去 10 秒内施放过惩戒，则对反射伤害免疫",
+	["Punishment: Intimidate"] = "如果你在过去 10 秒内施放过惩戒，则在命中时恐吓敌人",
+	["Frostbite: Cold Exposure"] = "如果您在过去 10 秒内施放过冻伤，则在命中时造成冰霜曝露",
+	["Frostbite: Unaffected by Freeze"] = "如果你在过去 10 秒内施放过冻伤，则不会受到冰冻的影响",
+	["Flammability: Fire Exposure"] = "如果你在过去 10 秒内施放过易燃 ，则在命中时造成火焰曝露",
+	["Flammability: Unaffected by Ignite"] = "如果你在过去 10 秒内施放过易燃，则不会受到点燃影响",
+	["Conductivity: Lightning Exposure"] = "如果你在过去 10 秒内施放过导电，则在命中时造成闪电曝露",
+	["Conductivity: Unaffected by Shock"] = "如果你在过去 10 秒内施放过导电，则不会受到感电影响",
+	["Elemental Weakness: Immune to Exposure"] = "如果你在过去 10 秒内施放过元素要害，则对曝露免疫",
+	["Elemental Weakness: Physical Damage as a Random Element"] = "如果你在过去 10 秒内施放过元素要害，则获得 (30-40)% 物理伤害的 1 个随机元素伤害",
+	["Temporal Chains: Cooldown Recovery Rate"] = "如果你在过去 10 秒内施放过时空锁链，则冷却恢复速度提高 (20-25)%",
+	["Temporal Chains: Action Speed"] = "如果你在过去 10 秒内施放过时空锁链，则行动速度减缓不会低于基础速度",
+}
+
+local balanceOfTerror = {
+	"恐惧之平衡",
+	"钴蓝珠宝",
+	"联盟: 禁忌圣域",
+	"源: 【天灾先驱利西亚】专属掉落",
+	"Has Alt Variant: true",
+	"仅限: 1",
+	"等级需求: 56",
+}
+
+for name, _ in pairs(balanceOfTerrorMods) do
+	table.insert(balanceOfTerror, "Variant: "..name)
+end
+
+table.insert(balanceOfTerror, "+(10-15)% 所有元素抗性")
+
+local index = 1
+for _, line in pairs(balanceOfTerrorMods) do
+	table.insert(balanceOfTerror, "{variant:"..index.."}"..line)
+	index = index + 1
+end
+
+table.insert(data.uniques.generated, table.concat(balanceOfTerror, "\n"))
+
 local impossibleEscapeKeystones = {}
 for _, name in ipairs(data.keystones) do
 	if not isValueInArray(excludedItemKeystones, name) then
