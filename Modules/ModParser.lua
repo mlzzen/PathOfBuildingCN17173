@@ -3452,6 +3452,14 @@ local specialModList = {
 	["最多可同时召唤额外 ([%+%-]?%d+) 个魔像"] = function(num) return { mod("ActiveGolemLimit", "BASE", num) } end,
 	["召唤魔像的数量上限 ([%+%-]?%d+)"] = function(num) return { mod("ActiveGolemLimit", "BASE", num) } end,
 	["魔像上限 ([%+%-]?%d+)"] = function(num) return { mod("ActiveGolemLimit", "BASE", num) } end,
+	["附近敌人的混沌抗性为 (%d+)"] = function(num) return {
+		mod("EnemyModifier", "LIST", { mod = mod("ChaosResist", "OVERRIDE", num) }),
+	} end,
+	["所有元素伤害转换为混沌伤害"] = {
+		mod("ColdDamageConvertToChaos", "BASE", 100),
+		mod("FireDamageConvertToChaos", "BASE", 100),
+		mod("LightningDamageConvertToChaos", "BASE", 100),
+	},
 	["最多可同时召唤额外 (%d) 个魔像"] = function(num) return { mod("ActiveGolemLimit", "BASE", num) } end,
 	["你和周围友军的伤害提高 (%d+)%%"]= function(num) return {  mod("ExtraAura", "LIST", { mod =  mod("Damage", "INC", num) }) } end,
 	["你和周围友军移动速度提高 (%d+)%%"]= function(num) return {  mod("ExtraAura", "LIST", { mod =  mod("MovementSpeed", "INC", num) }) } end,
@@ -4143,6 +4151,11 @@ local specialModList = {
 	} end,
 	["获得等同 ([%d%.]+)%% 最大生命的额外最大能量护盾"]= function(num) return {  mod("LifeGainAsEnergyShield", "BASE", num)  } end,
 	["获得等于最大生命 ([%d%.]+)%% 的额外最大能量护盾"]= function(num) return {  mod("LifeGainAsEnergyShield", "BASE", num)  } end,
+	["获得等于你混沌抗性一半的额外元素伤害减免"] = { 
+		mod("FireDamageReduction", "BASE", 1, { type = "PerStat", stat = "ChaosResist", div = 2 }),
+		mod("ColdDamageReduction", "BASE", 1, { type = "PerStat", stat = "ChaosResist", div = 2 }),
+		mod("LightningDamageReduction", "BASE", 1, { type = "PerStat", stat = "ChaosResist", div = 2 })
+	},
 	["至少有 (%d+) 点奉献时，获得等同 (%d+)%% 最大魔力的额外最大能量护盾"]= function(_,num1,num2) return {  mod("ManaGainAsEnergyShield", "BASE", tonumber(num2),{ type = "StatThreshold", stat = "Devotion", threshold = tonumber(num1) })  } end,
 	["至少 (%d+) 点奉献时，位于奉献地面之上免疫元素异常状态"]= function(num) return {
 	mod("AvoidShock", "BASE", 100,{ type = "Condition", var = "OnConsecratedGround" },{ type = "StatThreshold", stat = "Devotion", threshold = tonumber(num) })  ,
@@ -4359,6 +4372,7 @@ local specialModList = {
 	flag("SpellDamageAppliesToAttacks",{ type = "Condition", var = "UsingWand" }),
 	mod("ImprovedSpellDamageAppliesToAttacks", "INC", 100,{ type = "Condition", var = "UsingWand" }) },
 	["increases and reductions to cast speed apply to attack speed at (%d+)%% of their value"] =  function(num) return { flag("CastSpeedAppliesToAttacks"), mod("ImprovedCastSpeedAppliesToAttacks", "INC", num) } end,
+	["对施法速度的增强与减弱也作用于攻击速度"] =  function(num) return { flag("CastSpeedAppliesToAttacks"), mod("ImprovedCastSpeedAppliesToAttacks", "MAX", 100) } end,
 	["对法术伤害的增幅与减益也会套用于攻击上"] = { flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", 100) },
 	["对法术伤害的增幅与减益也套用于攻击，等于其数值的 (%d+)%%"] = function(num) return { flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", num) } end,
 	["对法术伤害的增幅与减益也会套用于攻击上，相当于其效果的 (%d+)%%"] = function(num) return { flag("SpellDamageAppliesToAttacks"), mod("ImprovedSpellDamageAppliesToAttacks", "INC", num) } end,
@@ -6750,9 +6764,11 @@ local specialModList = {
 	["cannot be shocked"] = { mod("AvoidShock", "BASE", 100) },
 	["免疫感电"] = { mod("AvoidShock", "BASE", 100) }, --备注：immune to shock
 	["免疫冰冻"] = { mod("AvoidFreeze", "BASE", 100) }, --备注：cannot be frozen
+	["无法被冰冻"] = { mod("AvoidChill", "BASE", 100) }, --备注：cannot be chilled
 	["immune to freeze"] = { mod("AvoidFreeze", "BASE", 100) },
 	["免疫冰缓"] = { mod("AvoidChill", "BASE", 100) }, --备注：cannot be chilled
 	["免疫冰缓"] = { mod("AvoidChill", "BASE", 100) }, --备注：immune to chill
+	["无法被冰缓"] = { mod("AvoidChill", "BASE", 100) }, --备注：cannot be chilled
 	["cannot be ignited"] = { mod("AvoidIgnite", "BASE", 100) },
 	["免疫点燃"] = { mod("AvoidIgnite", "BASE", 100) }, --备注：immune to ignite
 	["你在耐力球达到上限时无法被感电"] = { mod("AvoidShock", "BASE", 100, { type = "StatThreshold", stat = "EnduranceCharges", thresholdStat = "EnduranceChargesMax" }) }, --备注：you cannot be shocked while at maximum endurance charges
