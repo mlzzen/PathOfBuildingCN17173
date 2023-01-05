@@ -915,7 +915,7 @@ Talisman Tier: 2
 {tags:jewellery_resistance}+(20-30)% 火焰抗性
 {tags:jewellery_elemental}(冰霜伤害提高 (30-50)%
 {tags:jewellery_resistance}获得 +(10-15)% 火焰、冰霜、闪电抗性
-{variant:1}{tags:caster}30% increased Radius of Curse Skills
+{variant:1}{tags:caster}诅咒范围扩大 30%
 {variant:2,3}{tags:caster}诅咒范围扩大 60%
 {tags:caster}免疫沉默诅咒
 {variant:1,2}获得 20 级的【幻象传送】
