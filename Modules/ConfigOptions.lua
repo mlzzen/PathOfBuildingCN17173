@@ -1446,13 +1446,11 @@ Boss伤害是将怪物的平均伤害分摊到四种类型上得到的数值
 如果需要更准确的计算，请填入具体的伤害数值
 
 普通Boss有以下加成:
-	诅咒效果降低 33%
 	元素抗性提高 +40%
 	混沌抗性提高 +25%
 	怪物平均伤害的94%
 
 守卫 / 异界首领有以下加成:
-	诅咒效果降低 66%
 	元素抗性提高+50%
 	混沌抗性提高% +30%
 	护甲提高 +33%
@@ -1460,7 +1458,6 @@ Boss伤害是将怪物的平均伤害分摊到四种类型上得到的数值
 	穿透 5% 抗性
 
 超级异界首领有以下加成:
-	诅咒效果降低 66%
 	元素抗性提高+50%
 	混沌抗性提高% +30%
 	护甲提高 +100%
@@ -1498,7 +1495,6 @@ Boss伤害是将怪物的平均伤害分摊到四种类型上得到的数值
 			build.configTab.varControls['enemyFirePen']:SetPlaceholder(defaultPen, true)
 		elseif val == "Boss" then
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("CurseEffectOnSelf", "MORE", -33, "Boss")
 			enemyModList:NewMod("AilmentThreshold", "MORE", 488, "Boss")
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 
@@ -1529,7 +1525,6 @@ Boss伤害是将怪物的平均伤害分摊到四种类型上得到的数值
 		elseif val == "Pinnacle" then
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("CurseEffectOnSelf", "MORE", -66, "Boss")
 			enemyModList:NewMod("Armour", "MORE", 33, "Boss")
 			enemyModList:NewMod("AilmentThreshold", "MORE", 404, "Boss")
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
@@ -1559,7 +1554,6 @@ Boss伤害是将怪物的平均伤害分摊到四种类型上得到的数值
 		elseif val == "Uber" then
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("CurseEffectOnSelf", "MORE", -66, "Boss")
 			enemyModList:NewMod("Armour", "MORE", 100, "Boss")
 			enemyModList:NewMod("DamageTaken", "MORE", -70, "Boss")
 			enemyModList:NewMod("AilmentThreshold", "MORE", 404, "Boss")
