@@ -8824,7 +8824,7 @@ c["击中目标时最多提高 50% 技能会发射一枚额外投射物 你和�
 c["法术伤害在双持武器时提高 20%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=2,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["受到击中物理伤害的 50% 转化为闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsLightning",type="BASE",value=50}},nil}
 c["反射 30 混沌伤害给近战攻击者 照亮范围缩小 25%"]={{[1]={flags=256,keywordFlags=0,name="ChaosDamage",type="INC",value=-25}},"反射 30 给者 照亮范围 "}
-c["光环技能的光环效果按照它们每保留 2% 魔力上限就总增 1%\光环技能的魔力保留总增 40%"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="FlaskEffect",type="MORE",value=1}},"的光环按照它们每保留 2% 魔力上限就\光环技能的魔力保留总增 40% "}
+c["光环技能的光环效果按照它们每保留 2% 魔力上限就总增 1%\n光环技能的魔力保留总增 40%"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="FlaskEffect",type="MORE",value=1}},"的光环按照它们每保留 2% 魔力上限就\n光环技能的魔力保留总增 40% "}
 c["击败敌人时回复 3% 最大魔力"]={nil,"击败敌人时回复 3% 最大魔力 "}
 c["法术伤害击中有 20% 的几率施加【中毒】"]={{[1]={flags=2,keywordFlags=0,name="PoisonChance",type="BASE",value=20}},nil}
 c["每个暴击球使你的【灵巧】效果提高 9%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="ElusiveEffect",type="INC",value=9}},nil}
