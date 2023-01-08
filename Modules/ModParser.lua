@@ -303,7 +303,7 @@ local modNameList = {
 	["你造成的中毒持续时间"] = { "EnemyPoisonDuration" }, --备注：duration of poisons you inflict
 	["物品数量"] = "LootQuantity",
 	["持续伤害"] = { "Damage", flags = ModFlag.Dot }, 
-	["生效期间，"] = "FlaskDuration",
+	["生效期间，"] = { tag = { type = "Condition", var = "UsingFlask" } },
 	["瓦尔技能的伤害"] = { "Damage",keywordFlags = KeywordFlag.Vaal },
 	["法术格挡几率"] = "SpellBlockChance", --备注：to block spells
 	["护甲值"] = "Armour", --备注：armour
@@ -2494,6 +2494,7 @@ local specialModList = {
 	["药剂持续期间，附加 (%d+)%% 火焰、冰霜、闪电抗性"]= function(num) return {  mod("ElementalResist", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
 	["药剂持续期间，附加 (%d+)%% 元素抗性"]= function(num) return {  mod("ElementalResist", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
 	["药剂持续期间，每秒回复 ([%d%.]+)%% 生命"]= function(num) return {  mod("LifeRegenPercent", "BASE", num,{ type = "Condition", var = "UsingFlask" })  } end,
+	["生效期间，元素抗性额外提高 (%d+)%%"]= function(num) return {  mod("ElementalResist", "BASE", num, { type = "Condition", var = "UsingFlask" })  } end,
 	["近期内你若有击败敌人，则造成伤害的 ([%d%.]+)%% 转化为生命和魔力偷取"]= function(num) return {
 	mod("DamageLifeLeech", "BASE", num,{ type = "Condition", var = "KilledRecently" }) ,
 	mod("DamageManaLeech", "BASE", num,{ type = "Condition", var = "KilledRecently" })   } end,
