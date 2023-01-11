@@ -2436,7 +2436,7 @@ skills["Cyclone"] = {
 	},
 	initialFunc = function(activeSkill, output)
 		local range = 0
-		if activeSkill.skillFlags.weapon1Attack and activeSkill.actor.weaponData1.range then
+		if activeSkill.skillFlags.weapon1Attack and activeSkill.actor.weaponData1.range and activeSkill.actor.weaponData1.rangeBonus then
 			local weapon1RangeBonus = activeSkill.skillModList:Sum("BASE", activeSkill.weapon1Cfg, "MeleeWeaponRange") + activeSkill.actor.weaponData1.rangeBonus
 			if activeSkill.skillFlags.weapon2Attack and activeSkill.actor.weaponData2.range then -- dual wield average
 				range = (weapon1RangeBonus + activeSkill.skillModList:Sum("BASE", activeSkill.weapon2Cfg, "MeleeWeaponRange") + activeSkill.actor.weaponData2.rangeBonus) / 2
