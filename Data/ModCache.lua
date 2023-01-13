@@ -7457,7 +7457,8 @@ c["此物品上的技能石受到 35 级的 紧急号令（辅） 辅助"]={{[1]
 c["先祖图腾激活后，它们提供的增益效果提高 100%"]={{[1]={[1]={skillNameList={[1]="先祖卫士",[2]="先祖战士长",[3]="瓦尔.先祖战士长"},type="SkillName"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=100}},nil}
 c["每秒回复 10% 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=10}},nil}
 c["此物品上的技能石受到 10 级的 紧急号令（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportUrgentOrders"}}},nil}
-c["若敌人冰缓，每 1% 冰缓效果获得 1% 冰霜伤害的额外火焰伤害"]={{[1]={[1]={div=1,stat="EnemyChillEffect",type="PerStat"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value="1"}},nil}
+c["若敌人冰缓，每 1% 冰缓效果获得 1% 冰霜伤害的额外火焰伤害"]={{[1]={[1]={actor="enemy",div=1,type="Multiplier",var="ChillEffect"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=1}},nil}
+c["每对敌人造成1%的冰缓效果就造成 1% 的冰霜伤害，并视为额外的火焰伤害"]={{[1]={[1]={actor="enemy",div=1,type="Multiplier",var="ChillEffect"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=1}},nil}
 c["该装备的护甲与闪避提高 80%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=80}},nil}
 c["其中 1 个增加的天赋为【饕餮群魔】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="饕餮群魔"}},nil}
 c["以阿华纳的名义用 8000 名祭品之血浸染"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id="2_v2",type="vaal"},id=8000}}}},nil}
