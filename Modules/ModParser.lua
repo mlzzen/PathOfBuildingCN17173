@@ -3661,6 +3661,9 @@ local specialModList = {
 	["此武器的攻击对敌人造成双倍伤害"] = { mod("DoubleDamageChance", "BASE", 100, nil, ModFlag.Hit, { type = "Condition", var = "{Hand}Attack" }) },
 	["此武器的攻击造成双倍伤害"] = { mod("DoubleDamageChance", "BASE", 100, nil, ModFlag.Hit, { type = "Condition", var = "{Hand}Attack" }) },
 	["该武器的攻击伤害翻倍"] = { mod("DoubleDamageChance", "BASE", 100, nil, ModFlag.Hit, { type = "Condition", var = "{Hand}Attack" }) },
+	["该武器施加的中毒效果有 (%d+)%% 的几率造成 (%d+)%% 伤害"] = function(num, _, more) return {
+		mod("Damage", "MORE", tonumber(more) * num / 100, nil, 0, KeywordFlag.Poison, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
+	} end,
 	["你若过去 8 秒内使用过战吼，则有 (%d+)%% 几率造成双倍伤害"]= function(num) return { mod("DoubleDamageChance", "BASE", num, { type = "Condition", var = "UsedWarcryInPast8Seconds" } ) } end,
 	["你若过去 8 秒内使用过战吼，则有 (%d+)%% 的几率造成双倍伤害"]= function(num) return { mod("DoubleDamageChance", "BASE", num, { type = "Condition", var = "UsedWarcryInPast8Seconds" } ) } end,
 	["投射物的伤害随着飞行距离提升，击中目标时最多提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num, nil, bor(ModFlag.Attack, ModFlag.Projectile), { type = "DistanceRamp", ramp = {{35,0},{70,1}} }) } end,
