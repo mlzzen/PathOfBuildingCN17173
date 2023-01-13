@@ -7029,7 +7029,7 @@ local specialModList = {
 		mod("OmniAttributeRequirements", "INC", num),
 		flag("OmniscienceRequirements")
 	} end,
-	["元素抗性减少 (%d+)%%"] = function(num) return { mod("ElementalResist", "BASE", -num) } end,
+	["元素抗性减少 (%d+)%%"] = function(num) return { mod("ElementalResist", "INC", -num) } end,
 	["元素技能造成三倍伤害"] = { mod("TripleDamageChance", "BASE", 100, { type = "SkillType", skillTypeList = { SkillType.Cold, SkillType.Fire, SkillType.Lightning } } ), },
 	["元素异常状态持续时间按照每 (%d+) 点智慧降低 (%d+)%%"] = function(_,num1,num2) return { 
 		mod("SelfShockDuration", "INC", -num2, { type = "PerStat", stat = "Int", div = num1 } ),
