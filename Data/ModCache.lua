@@ -7457,8 +7457,6 @@ c["此物品上的技能石受到 35 级的 紧急号令（辅） 辅助"]={{[1]
 c["先祖图腾激活后，它们提供的增益效果提高 100%"]={{[1]={[1]={skillNameList={[1]="先祖卫士",[2]="先祖战士长",[3]="瓦尔.先祖战士长"},type="SkillName"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=100}},nil}
 c["每秒回复 10% 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=10}},nil}
 c["此物品上的技能石受到 10 级的 紧急号令（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportUrgentOrders"}}},nil}
-c["若敌人冰缓，每 1% 冰缓效果获得 1% 冰霜伤害的额外火焰伤害"]={{[1]={[1]={actor="enemy",div=1,type="Multiplier",var="ChillEffect"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=1}},nil}
-c["每对敌人造成1%的冰缓效果就造成 1% 的冰霜伤害，并视为额外的火焰伤害"]={{[1]={[1]={actor="enemy",div=1,type="Multiplier",var="ChillEffect"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=1}},nil}
 c["该装备的护甲与闪避提高 80%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=80}},nil}
 c["其中 1 个增加的天赋为【饕餮群魔】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="饕餮群魔"}},nil}
 c["以阿华纳的名义用 8000 名祭品之血浸染"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id="2_v2",type="vaal"},id=8000}}}},nil}
@@ -9087,7 +9085,8 @@ c["护甲提高 80%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",val
 c["击败敌人后有 25% 几率获得 1 个狂怒球 当你身上没有狂怒球时，伤害提高 80%"]={{[1]={[1]={stat="FrenzyCharges",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=0,name="Damage",type="BASE",value=25}},"击败敌人后获得 1 个狂怒球 提高 80% "}
 c["当受到【奋锐光环】影响时，你创造奉献地面会获得【秘术增强】，持续 4 秒"]={nil,"当受到【奋锐光环】影响时，你创造奉献地面会获得【秘术增强】，持续 4 秒 "}
 c["每装备一个裂界者物品，就将物理伤害的 5% 视为额外混沌伤害"]={{[1]={[1]={type="Multiplier",varList={[1]="ElderItem"}},flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=5}},nil}
-c["若敌人冰冻，获得 100% 冰霜伤害的额外火焰伤害"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=100}},nil}
+c["每对敌人造成1%的冰缓效果就造成1%的冰霜伤害，并视为额外的火焰伤害"]={{[1]={[1]={actor="enemy",div=1,type="Multiplier",var="ChillEffect"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=1}},nil}
+c["攻击被冰冻的敌人获得等同于100%冰霜伤害的额外火焰伤害"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=100}},nil}
 c["【召唤灵体】的魔力消耗降低 45%"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-45}},nil}
 c["生命药剂每 3 秒获得 1 次使用次数"]={{[1]={flags=0,keywordFlags=0,name="LifeFlaskChargesGenerated",type="BASE",value=0.33333333333333}},nil}
 c["+13% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=13}},nil}
