@@ -2050,7 +2050,7 @@ function calcs.offence(env, actor, activeSkill)
 			globalOutput.MaxExplosiveArrowFuseCalculated = nil
 		end
 		-- Calculate crit chance, crit multiplier, and their combined effect
-		if skillModList:Flag(nil, "NeverCrit") then
+		if skillModList:Flag(cfg, "NeverCrit") then
 			output.PreEffectiveCritChance = 0
 			output.CritChance = 0
 			output.CritMultiplier = 0
@@ -2059,6 +2059,12 @@ function calcs.offence(env, actor, activeSkill)
 		else
 			local critOverride = skillModList:Override(cfg, "CritChance")
 			local baseCrit = critOverride or source.CritChance or 0
+
+			local baseCritFromMainHand = skillModList:Flag(cfg, "BaseCritFromMainHand")
+			if baseCritFromMainHand then
+				baseCrit = actor.weaponData1.CritChance
+			end
+
 			if critOverride == 100 then
 				output.PreEffectiveCritChance = 100
 				output.CritChance = 100

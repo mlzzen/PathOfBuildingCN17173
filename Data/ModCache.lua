@@ -5428,7 +5428,7 @@ c["施法速度提高 9%"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC
 c["击败敌人时有 5% 几率给予周围敌人不洁之力 击败敌人时有 5% 几率给予周围敌人【猛攻】状态"]={{},"击败敌人时给予周围敌人不洁之力 击败敌人时有 5% 几率给予周围敌人【猛攻】状态 "}
 c["魔像施放技能的冷却速度提高 25%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=25}},nil}
 c["此物品上的技能石受到 10 级的 击中附加诅咒（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportMarkOnHit"}}},nil}
-c["法术的基础暴击率等於主手武器的暴击率"]={nil,"法术的基础暴击率等於主手武器的暴击率 "}
+c["法术的基础暴击率等於主手武器的暴击率"]={{[1]={flags=2,keywordFlags=0,name="BaseCritFromMainHand",type="FLAG",value=true}},nil}
 c["施放时避免眩晕打断 法术的基础暴击率等於主手武器的暴击率"]={nil,"施放时避免眩晕打断 法术的基础暴击率等於主手武器的暴击率 "}
 c["增加【万物皆动】"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="clusterJewelKeystone",value="万物皆动"}}},nil}
 c["经验值获取提高 5% 火焰、冰霜、闪电伤害提高 20%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=5}},"经验值获取 提高 20% "}
@@ -8774,7 +8774,7 @@ c["获得 +8% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,nam
 c["附加 14 - 23 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=14},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=23}},nil}
 c["附加 24 - 36 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=24},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=36}},nil}
 c["你的混沌伤害可以点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="ChaosCanIgnite",type="FLAG",value=true}},nil}
-c["攻击无法造成暴击"]={nil,"攻击无法造成暴击 "}
+c["攻击无法造成暴击"]={{[1]={flags=1,keywordFlags=0,name="NeverCrit",type="FLAG",value=true},[2]={flags=1,keywordFlags=0,name="Condition:NeverCrit",type="FLAG",value=true}},nil}
 c["该装备的攻击暴击率提高 26%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=26}},nil}
 c["若你近期内至少击败 5 名敌人，则效果区域扩大 25%"]={{[1]={[1]={threshold=5,type="MultiplierThreshold",var="EnemyKilledRecently"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}},nil}
 c["属性词缀改为适配全知"]={{[1]={flags=0,keywordFlags=0,name="Omniscience",type="FLAG",value=true}},nil}
