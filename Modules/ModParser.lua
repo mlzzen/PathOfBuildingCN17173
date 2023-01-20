@@ -3879,6 +3879,7 @@ local specialModList = {
 	} end,
 	["被你嘲讽的敌人无法闪避攻击"] = { mod("EnemyModifier", "LIST", { mod = flag("CannotEvade", { type = "Condition", var = "Taunted" }) }) },
 	["攻击无法造成暴击"] = { flag("NeverCrit", nil, ModFlag.Attack), flag("Condition:NeverCrit", nil, ModFlag.Attack) },
+	["该武器的暴击率为 (%d+)%%"] = function(num) return { mod("WeaponData", "LIST", { key = "CritChance", value = num }) } end,
 	["当你在你在天赋树上连接到一个职业的出发位置时，你获得：野蛮人： 近战技能范围扩大 (%d+)%%决斗者：攻击伤害的 ([%d%.]+)%% 会转化为生命偷取游侠：移动速度提高 (%d+)%%暗影：%+([%d%.]+)%% 暴击率女巫：每秒回复 ([%d%.]+)%% 最大魔力圣堂武僧：伤害穿透 5%% 元素抗性贵族：%+25 所有属性"]= function(_,num_ymr,num_jdz,num_yx,num_ay,num_nw) return {
 	mod("AreaOfEffect", "INC", tonumber(num_ymr),nil, ModFlag.Melee,{ type = "Condition", var = "ConnectedTo野蛮人Start" }) ,
 	mod("DamageLifeLeech", "BASE", tonumber(num_jdz),nil, ModFlag.Attack,{ type = "Condition", var = "ConnectedTo决斗者Start" }),
@@ -3941,6 +3942,7 @@ local specialModList = {
 	["能量护盾再生率总降 (%d+)%%"]= function(num) return {
 	mod("EnergyShieldRegen", "MORE", -num)
 	}end,
+	["Base Spell Critical Strike Chance of Spells is equal to that of Main Hand Weapon"] = { flag("BaseCritFromMainHand", nil, ModFlag.Spell) },
 	["法术的基础暴击率等於主手武器的暴击率"] = { flag("BaseCritFromMainHand", nil, ModFlag.Spell) },
 	["武器攻击的基础暴击几率为 ([%d%.]+)%%"]= function(num) return { mod("WeaponBaseCritChance", "OVERRIDE", num) } end,
 	["基础武器暴击率为 ([%d%.]+)%%"]= function(num) return { mod("WeaponBaseCritChance", "OVERRIDE", num) } end,

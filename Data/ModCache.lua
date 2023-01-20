@@ -5428,6 +5428,7 @@ c["施法速度提高 9%"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC
 c["击败敌人时有 5% 几率给予周围敌人不洁之力 击败敌人时有 5% 几率给予周围敌人【猛攻】状态"]={{},"击败敌人时给予周围敌人不洁之力 击败敌人时有 5% 几率给予周围敌人【猛攻】状态 "}
 c["魔像施放技能的冷却速度提高 25%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=25}},nil}
 c["此物品上的技能石受到 10 级的 击中附加诅咒（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportMarkOnHit"}}},nil}
+c["Base Spell Critical Strike Chance of Spells is equal to that of Main Hand Weapon"]={{[1]={flags=2,keywordFlags=0,name="BaseCritFromMainHand",type="FLAG",value=true}},nil}
 c["法术的基础暴击率等於主手武器的暴击率"]={{[1]={flags=2,keywordFlags=0,name="BaseCritFromMainHand",type="FLAG",value=true}},nil}
 c["施放时避免眩晕打断 法术的基础暴击率等於主手武器的暴击率"]={nil,"施放时避免眩晕打断 法术的基础暴击率等於主手武器的暴击率 "}
 c["增加【万物皆动】"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="clusterJewelKeystone",value="万物皆动"}}},nil}
