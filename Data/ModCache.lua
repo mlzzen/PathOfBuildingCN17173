@@ -4280,6 +4280,7 @@ c["每秒回复 0.5% 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPerce
 c["20% 几率击中时造成瘫痪 击中时有 20% 几率使敌人中毒"]={{[1]={flags=0,keywordFlags=262144,name="PoisonChance",type="BASE",value=20}},"时造成瘫痪 击中时有 20% 几率 "}
 c["每秒对周围敌人造成 450 混沌伤害 击败敌人后 10 秒内持续承受 450 混沌伤害"]={nil,"每秒对周围敌人造成 450 混沌伤害 击败敌人后 10 秒内持续承受 450 混沌伤害 "}
 c["承受投射物攻击造成的物理伤害 -50"]={{[1]={flags=1,keywordFlags=0,name="ProjectileCountTaken",type="BASE",value=-50}},"物理伤害  "}
+c["效果持续期间受到击中伤害，则生命损失的 25% 会改为在 4 秒内逐渐丧失"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="LifeLossPrevented",type="BASE",value=25}},nil}
 c["承受投射物攻击造成的物理伤害 -10 承受投射物攻击造成的物理伤害 -50"]={{[1]={flags=1,keywordFlags=0,name="ProjectileCountTaken",type="BASE",value=-10}},"物理伤害  承受投射物攻击造成的物理伤害 -50 "}
 c["承受投射物攻击造成的物理伤害 -10"]={{[1]={flags=1,keywordFlags=0,name="ProjectileCountTaken",type="BASE",value=-10}},"物理伤害  "}
 c["20% 几率避免被冰缓"]={{[1]={flags=0,keywordFlags=0,name="AvoidChilled",type="BASE",value=20}},nil}
@@ -10498,6 +10499,7 @@ c["击败感电敌人后物品稀有度提高 50% 击败感电敌人后物品稀
 c["18% 法术伤害格挡几率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=18}},nil}
 c["+15% 流血持续伤害加成"]={{[1]={flags=0,keywordFlags=4194304,name="DotMultiplier",type="BASE",value=15}},nil}
 c["效果期间，你创造的【奉献地面】可以使敌人承受的伤害提高 9%"]={{[1]={[1]={type="Condition",var="UsingFlask"},[2]={actor="enemy",type="ActorCondition",var="OnConsecratedGround"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTakenConsecratedGround",type="INC",value=9}}}},nil}
+c["生效期间产生的奉献地面使敌人承受的伤害提高 (7-10)%"]={{[1]={[1]={type="Condition",var="UsingFlask"},[2]={actor="enemy",type="ActorCondition",var="OnConsecratedGround"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTakenConsecratedGround",type="INC",value=9}}}},nil}
 c["火焰伤害击中时有 10% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=10}},nil}
 c["受到击中冰霜伤害的 100% 转为闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageTakenAsLightning",type="BASE",value=100}},nil}
 c["+400 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=400}},nil}

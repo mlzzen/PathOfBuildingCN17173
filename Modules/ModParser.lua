@@ -3746,6 +3746,13 @@ local specialModList = {
 	["在效果持续期间，对位于奉献地面之上的敌人的暴击几率 %+([%d%.]+)%%"]= function(num) return {  mod("CritChance", "BASE", num,{ type = "Condition", var = "UsingFlask" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" })  } end,
 	["生效期间，对奉献地面上的敌人的暴击率 %+([%d%.]+)%%"]= function(num) return {  mod("CritChance", "BASE", num,{ type = "Condition", var = "UsingFlask" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" })  } end,
 	["药剂生效期间，对奉献地面上的敌人的暴击率提高 (%d+)%%"]= function(num) return {  mod("CritChance", "INC", num,{ type = "Condition", var = "UsingFlask" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" })  } end,
+	["生效期间，对奉献地面上的敌人暴击率提高 (%d+)%%"]= function(num) return {  mod("CritChance", "INC", num,{ type = "Condition", var = "UsingFlask" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" })  } end,
+	["生效期间，暴击率提高 (%d+)%%"]= function(num) return {  mod("CritChance", "INC", num,{ type = "Condition", var = "UsingFlask" })  } end,
+	["生效期间，护甲提高 (%d+)%%"]= function(num) return {  mod("Armour", "INC", num, { type = "Condition", var = "UsingFlask" } )  } end,
+	["生效期间，施法速度提高 (%d+)%%"]= function(num) return { mod("Speed", "INC", num, nil, ModFlag.Cast, {type="Condition",var="UsingFlask"}) } end,
+	["生效期间，闪避值提高 (%d+)%%"] = function(num) return { mod("Evasion", "INC", num, { type = "Condition", var = "UsingFlask" })  } end,
+	["生效期间，攻击速度提高 (%d+)%%"] = function(num) return { mod("Speed", "INC", num, nil, ModFlag.Attack, { type = "Condition", var = "UsingFlask" }) } end,
+	["生效期间，移动速度提高 (%d+)%%"] = function(num) return { mod("MovementSpeed", "INC", num, { type = "Condition", var = "UsingFlask" } ) } end,
 	["效果期间，你创造的【奉献地面】可以使敌人承受的伤害提高 (%d+)%%"]= function(num) return { mod("EnemyModifier", "LIST", { mod =  mod("DamageTakenConsecratedGround", "INC", num)},{ type = "Condition", var = "UsingFlask" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" }) } end,
 	["药剂持续时间内奉献地面上的敌人所受伤害提高 (%d+)%%"]= function(num) return { mod("EnemyModifier", "LIST", { mod =  mod("DamageTakenConsecratedGround", "INC", num)},{ type = "Condition", var = "UsingFlask" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" }) } end,
 	["生效期间产生的奉献地面使敌人承受的伤害提高 (%d+)%%"]= function(num) return { mod("EnemyModifier", "LIST", { mod =  mod("DamageTakenConsecratedGround", "INC", num)},{ type = "Condition", var = "UsingFlask" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" }) } end,
@@ -3857,6 +3864,7 @@ local specialModList = {
 	["持续吟唱时，每秒回复 ([%d%.]+)%% 最大生命"] = function(num) return {  mod("LifeRegenPercent", "BASE", num,{ type = "Condition", var = "OnChannelling" })  } end,
 	["拥有能量护盾时法术躲避几率 %+(%d+)%%"] = function(num) return {  mod("SpellDodgeChance", "BASE", num,{ type = "Condition", var = "HaveEnergyShield" })  } end,
 	["拥有能量护盾时闪避几率 %+(%d+)%%"] = function(num) return {  mod("EvadeChance", "BASE", num,{ type = "Condition", var = "HaveEnergyShield" })  } end,
+	["效果持续期间受到击中伤害，则生命损失的 (%d+)%% 会改为在 4 秒内逐渐丧失"] = function(num) return { mod("LifeLossPrevented", "BASE", num, { type = "Condition", var = "UsingFlask" }) } end,
 	["你没有能量护盾时无法格挡"] = function() return {
 	flag("CannotBlockAttacks",{ type = "Condition", var = "HaveEnergyShield", neg = true }),
 	flag("CannotBlockSpells",{ type = "Condition", var = "HaveEnergyShield", neg = true })
