@@ -1,0 +1,142 @@
+"Max Seismic Exert AoE",最大【震地战吼】增助范围
+"Avg Seismic Exert AoE",平均【震地战吼】增助范围
+"Maximum of:",最大:
+"Ancestral Cry Uptime",【先祖战吼】增助效果覆盖率
+"Infernal Cry Uptime",【炼狱呼嚎】增助效果覆盖率
+"Intimidating Cry Uptime",【威吓战吼】增助效果覆盖率
+"Rallying Cry Uptime",【激励战吼】增助效果覆盖率
+"Seismic Cry Uptime",【震地战吼】增助效果覆盖率
+"Exerted Attacks",增助攻击
+"Exerted Attack Damage",增助攻击伤害
+"Uptime Scaled Exerted Attacks",增助效果覆盖率加成后增助攻击
+"Uptime Scaled Exerted Attack Damage",增助效果覆盖率加成后增助攻击伤害
+"average exerted damage",平均增助伤害
+"second per attack",每秒攻击次数
+"fist of war cooldown",【战争铁拳】冷却时间
+"fist of war hit multiplier",【战争铁拳】击中加成
+"fist of war uptime ratio",【战争铁拳】使用速率
+"Explosive Arrow",爆炸箭矢
+"increased/reduced",提高/降低
+"more/less",额外总提高/额外总降低
+"crit chance",暴击几率
+"Crit is overcapped by",暴击几率溢出
+"%d%% increased Critical Strike Chance",等同词缀“提高暴击几率 %d%%
+"increased Critical Strike Chance",提高暴击几率
+"Crit confirmation roll",暴击确认
+"chance to hit",命中率
+"additional extra damage",额外伤害
+"increased/reduced extra crit damage taken by enemy",敌人承受额外暴击伤害的提高/降低 
+"extra crit damage",额外暴击伤害
+"portion of damage from non-crits",非暴击部分的伤害
+"portion of damage from crits",暴击部分的伤害
+"Base damage",基础伤害
+"base damage from",基础伤害来自
+"base damage multiplier",基础伤害加成
+"added damage",附加伤害
+"damage effectiveness",伤害效用
+"added damage multiplier",附加伤害加成
+"Hit damage",击中伤害
+"total damage",总伤害
+"Total damage",总伤害
+"converted to other damage types",转化为其他伤害
+"ruthless blow effect modifier",【无情一击】加成
+"fist of war effect modifier",【战争铁拳】加成
+"aggregated warcry exerted effect modifier",综合战吼增助效果加成
+"aggregated max warcry exerted effect modifier",
+"effective DPS modifier",有效DPS加成
+"You can't deal",你无法造成
+"average from non-crits",来自非暴击的平均伤害
+"average from crits",来自暴击的平均伤害
+"damage from non-crits",来自非暴击的伤害
+"damage from crits",来自暴击的伤害
+"average hit",平均击中
+"Both weapons",所有武器
+"skill hits with both weapons at once",技能使用2把武器同时击中
+"skill alternates weapons",技能交替使用2把武器
+"average damage",平均伤害
+"hit rate",击中频率
+"attack rate",攻击速度
+"average hit",平均伤害
+"trigger rate",触发速率
+"cast rate",施法速度
+"DPS multiplier for this skill",本技能 DPS 加成
+"stack multiplier for this skill",本技能层数加成
+"quantity multiplier for this skill",本技能数量加成
+"Chance on Non-crit",非暴击时的几率
+"Chance on Crit",暴击时的几率
+"Combined chance",综合几率
+"chance from non-crits",非暴击时的几率
+"chance from crits",暴击时的几率
+"source damage",源伤害
+"inflicting as though dealing more damage",视为更多伤害来计算异常
+"Damage from Non-crits",非暴击时的伤害
+"source damage from non-crits",非暴击时的源伤害
+"portion of instances created by non-crits",非暴击创建的实例
+"Damage from Crits",暴击时的伤害
+"source damage from crits",暴击时的源伤害
+"portion of instances created by crits",
+"active number of totems",激活的图腾数量
+"max number of stacks",最大层数
+"min source physical",源物理伤害下限
+"max source physical",源物理伤害上限
+"Dmg Derivation",伤害计算
+"Bleed DoT Multi",流血持续伤害加成
+"Non-Crit Dmg Derivation",非暴击伤害计算
+"Bleed DoT Multi for Non-Crit",非暴击流血持续伤害加成
+"Crit Dmg Derivation",暴击伤害计算
+"Bleed DoT Multi for Crit",暴击流血持续伤害加成
+"ailment effect modifier",异常状态加成
+"Bleed DPS",流血 DPS
+"base damage per second",每秒基础伤害
+"damage per second",每秒伤害
+"damage rate modifier",伤害速率加成
+"bleed stacks",流血层数
+"bleed chance based on chance to hit each second",每秒内实际击中造成的流血几率
+"effective DPS modifier from enemy debuffs",来自敌人debuffs的有效DPS加成
+"Uncapped raw Bleed DPS",未溢出的流血DPS
+"Capped Bleed DPS",溢出流血DPS
+"per second",每秒
+"base duration",基础持续时间
+"duration modifier",持续时间加成
+"debuff expires slower/faster",更快或较慢 debuff消退
+"can be changed in the Configuration tab",可以在配置界面修改
+"Ailment mode",异常计算模式
+"single poison damage per second",每秒单次中毒伤害
+"percent as Caustic ground",腐蚀地面占比
+"effect mult",效用加成
+"poison deals 30% per second",中毒每秒造成基础伤害的 30%
+"Uncapped raw Poison DPS",未封顶的中毒DPS
+"Capped Poison DPS",封顶中毒DPS
+"poison duration",中毒持续时间
+"damage per poison stack",
+"poison chance",中毒几率
+"hits per second",每秒击中
+"NOTE: Calculation uses new Weighted Avg Ailment formula",备注: 使用了新的异常状态公式进行计算
+"IgniteDuration / Cast Time",点燃持续时间 / 施法时间
+"min combined sources",合并源伤害下限
+"max combined sources",合并源伤害上限
+"Ignite DoT Multi",点燃持续伤害加成
+"Ignite DoT Multi for Non-Crit",非暴击点燃持续伤害加成
+"Ignite DoT Multi for Crit",暴击点燃持续伤害加成
+"ignite damage per second",点燃每秒伤害
+"percent as burning ground",燃烧地面比例
+"effect mult",效果加成
+"Ignite DPS",点燃DPS
+"burn rate modifier",燃烧速率加成
+"ignite stacks",点燃层数
+"Uncapped raw Ignite DPS",未封顶点燃DPS
+"Effect of Chill",冰缓效果
+"increased effect of chill",冰缓效果提高
+"Ailment Threshold is about equal to Life except on bosses where it is about half of their life",冰冻门槛大致等于怪物的生命，在boss身上的话是等于其生命的一半
+"Resulting ailment effect",异常效果
+"can be overridden in the Configuration tab",可以在配置中修改
+"stored damage",存储伤害
+"impale chance",穿刺几率
+"impale enemy physical damage reduction",敌人的穿刺物理伤害减伤
+"impale damage multiplier",穿刺伤害加成
+"Damage per Instance",每个实例伤害
+"skill duration",技能持续时间
+"The Saviour",【救世者】
+"The Saviour Mirage Warriors",【救世者】的蜃影救世者
+"No Saviour active skill found",
+"average physical hit",平均物理击中
