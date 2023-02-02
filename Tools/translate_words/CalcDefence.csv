@@ -1,0 +1,53 @@
+"Evasion to Armour",闪避 转 护甲
+"Mana to Energy Shield",魔力 转 能量护盾
+"Life to Armour",生命 转 护甲
+"Life to Energy Shield",生命 转 能量护盾
+"Enemy level",敌人等级
+"the Configuration tab",配置界面
+"Average enemy accuracy",平均敌人命中
+"Approximate evade chance",近似闪避率
+"Approximate projectile evade chance",近似投射物闪避率
+"Effective Evasion",有效闪避
+"maximum life",最大生命
+"percentage of life to maximum leech rate",生命偷取总回复上限占总生命百分比
+"maximum energy shield",最大能量护盾
+"percentage of energy shield to maximum leech rate",能量护盾偷取总回复上限占总能量护盾百分比
+"maximum mana",最大魔力
+"percentage of mana to maximum leech rate",魔力偷取总回复上限占总魔力百分比
+"Recharge rate",能量护盾充能速率
+"increased/reduced",提高/降低
+"more/less",额外提高/降低
+"Effective Recharge rate",有效能量护盾充能速率
+"recovery rate modifier",回复速率加成
+"faster start",更快开始
+"movement speed modifier",移动速度加成
+"action speed modifier",动作速度加成
+"effective movement speed modifier",有效移动速度加成
+"Total damage from the enemy",来自敌人的总伤害
+"modifiers to enemy damage",敌人伤害加成
+"enemy crit effect",敌人暴击效果
+"Total damage taken from the enemy after taken as",转伤后承受的伤害
+"DoT Multiplier",承受持续伤害加成
+"increased/reduced damage taken",增加/减少承受伤害
+"more/less damage taken",更多/更少承受伤害
+"Total damage taken after mitigation",免伤计算后承受的伤害
+"Enemy Pen",敌人穿透
+"unreserved mana",未保留的魔力
+"non-bypassed energy shield",未穿透能量护盾
+"Total life protected",总生命防护
+"portion taken from mana",魔力承受的部分
+"portion taken from life",生命承受的部分
+"Effective life",有效生命
+"guard limit",防卫上限
+"portion taken from guard",防卫承受的部分
+"portion taken from life and energy shield",能量护盾和生命承受部分
+"through MoM",穿过心灵升华
+"chance for block to fail",格挡失败的几率
+"Number of mitigated hits",未免伤次数
+"Chance to even be hit",平均被击中几率
+"total average number of hits you can take",能承受的总平均击中数
+"total incoming damage",即将承受的总伤害
+"total damage you can take",总有效血池
+"enemy attack/cast time",敌人攻击/施法时间
+"total time it would take to die",死亡前存活的总时间
+

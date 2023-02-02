@@ -7689,7 +7689,7 @@ c["此物品上的技能石受到 10 级的 启蒙(辅) 辅助"]={{[1]={[1]={slo
 c["+450 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=450}},nil}
 c["魔力再生率提高 20%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=20}},nil}
 c["此物品上的技能石受到 35 级的 吟唱时施放(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportCastWhileChannelling"}}},nil}
-c["投射物的伤害随着飞行距离提升， 击中目标时最多提高 60%"]={{[1]={flags=0,keywordFlags=262144,name="ProjectileCount",type="INC",value=60}},"的伤害随着飞行距离提升， 目标时最多 "}
+c["投射物的伤害随着飞行距离提升， 击中目标时最多提高 60%"]={{[1]={[1]={ramp={[1]={[1]=35,[2]=0},[2]={[1]=70,[2]=1}},type="DistanceRamp"},flags=1028,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["此物品上的技能石受到 10 级的 吟唱时施放(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportCastWhileChannelling"}}},nil}
 c["不能造成物理或元素伤害"]={nil,"不能造成物理或元素伤害 "}
 c["若你近期被击中，则每秒获得 1 个耐力球 耐力球数量上限 +1"]={{[1]={flags=0,keywordFlags=262144,name="EnduranceChargesMax",type="BASE",value=1}},"若你近期被，则每秒获得 1 个耐力球   "}
@@ -10706,7 +10706,7 @@ c["绝望可以影响魔蛊免疫的敌人 当你击败一个被诅咒的敌人�
 c["最大生命提高 40%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=40}},nil}
 c["伤害在持法杖时提高 10%"]={{[1]={[1]={type="Condition",var="UsingWand"},flags=0,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["物理伤害提高 80%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=80}},nil}
-c["投射物的伤害随着飞行距离提升， 击中目标时最多提高 50%"]={{[1]={flags=0,keywordFlags=262144,name="ProjectileCount",type="INC",value=50}},"的伤害随着飞行距离提升， 目标时最多 "}
+c["投射物的伤害随着飞行距离提升， 击中目标时最多提高 50%"]={{[1]={[1]={ramp={[1]={[1]=35,[2]=0},[2]={[1]=70,[2]=1}},type="DistanceRamp"},flags=1028,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["击败敌人时，你获得 1 颗耐力球 被击中时，每个耐力球可使你获得 1 秒的【猛攻】状态"]={{},"击败敌人时， 颗耐力球 被时，你获得 1 秒的【猛攻】状态 "}
 c["被击中时，每个耐力球可使你获得 2 秒的【猛攻】状态"]={{},"被时， 秒的【猛攻】状态 "}
 c["每个疾电球使攻击速度总增 2%"]={{[1]={[1]={type="Multiplier",var="BlitzCharge"},flags=1,keywordFlags=0,name="Speed",type="MORE",value=2}},nil}
