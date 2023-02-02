@@ -3681,6 +3681,9 @@ local specialModList = {
 	["获得【远射】"] = { flag("FarShot") },
 	["远射"] = { flag("FarShot") },
 	["狙击"] = { flag("FarShot") },
+	["maximum critical strike chance is (%d+)%%"] = function(num) return {
+		mod("CritChanceCap", "OVERRIDE", num),
+	} end,
 	["%-(%d+) 最大图腾数量"] = function(num) return { mod("ActiveTotemLimit", "BASE", -num) } end,
 	["([%+%-]?%d+) 召唤图腾数量上限"] = function(num) return { mod("ActiveTotemLimit", "BASE", num) } end,
 	["召唤图腾数量上限([%+%-]?%d+)"] = function(num) return { mod("ActiveTotemLimit", "BASE", num) } end,

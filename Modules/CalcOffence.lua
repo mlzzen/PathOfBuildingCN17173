@@ -951,7 +951,7 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.MineLayingTime = { }
 			breakdown.multiChain(breakdown.MineLayingTime, {
 				label = "放置速率:",
-				base = { "%.2f ^8(基础放置速率)", baseSpeed },
+				base = s_format("%.2f ^8(基础放置速率)", baseSpeed),
 				{ "%.2f ^8(提高/降低 放置速度)", 1 + skillModList:Sum("INC", skillCfg, "MineLayingSpeed") / 100 },
 				{ "%.2f ^8(额外提高/降低 总投掷速度)", skillModList:More(skillCfg, "MineLayingSpeed") },
 				{ "%.2f ^8(动作速度加成)",  output.ActionSpeedMod },
@@ -962,7 +962,7 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.MineThrowingTime = { }
 			breakdown.multiChain(breakdown.MineThrowingTime, {
 			label = "放置时间:",
-				base = { "%.2f ^8(基础放置时间)", 1 / (output.MineLayingSpeed * timeMod) },
+				base = s_format("%.2f ^8(基础放置时间)", 1 / (output.MineLayingSpeed * timeMod)),
 				{ "%.2f ^8(所有加成)", timeMod },
 				total = s_format("= %.2f ^8秒(每次放置)", output.MineLayingTime),
 			})
