@@ -3,7 +3,6 @@
 -- Module: Calc Tools
 -- Various functions used by the calculation modules
 --
-
 local pairs = pairs
 local t_insert = table.insert
 local t_remove = table.remove
@@ -39,28 +38,24 @@ function calcLib.val(modStore, name, cfg)
 	end
 end
 
-
 -- Validate the level of the given gem
 function calcLib.validateGemLevel(gemInstance)
-
 	local grantedEffect = gemInstance.grantedEffect or gemInstance.gemData.grantedEffect
 	if not grantedEffect.levels[gemInstance.level] then
-		if gemInstance.gemData and gemInstance.gemData.defaultLevel then
-			gemInstance.level = gemInstance.gemData.defaultLevel
-		else
-			-- Try limiting to the level range of the skill
-gemInstance.level = m_max(1, gemInstance.level or 1)
-			if #grantedEffect.levels > 0 then
-				gemInstance.level = m_min(#grantedEffect.levels, gemInstance.level)
-			end
-			if not grantedEffect.levels[gemInstance.level] then
-				-- That failed, so just grab any level
-				gemInstance.level = next(grantedEffect.levels)
-			end
+		-- Try limiting to the level range of the skill
+		gemInstance.level = m_max(1, gemInstance.level)
+		if #grantedEffect.levels > 0 then
+			gemInstance.level = m_min(#grantedEffect.levels, gemInstance.level)
 		end
-	end	
+	end
+	if not grantedEffect.levels[gemInstance.level] and gemInstance.gemData and gemInstance.gemData.defaultLevel then
+		gemInstance.level = gemInstance.gemData.defaultLevel
+	end
+	if not grantedEffect.levels[gemInstance.level] then
+		-- That failed, so just grab any level
+		gemInstance.level = next(grantedEffect.levels)
+	end
 end
- 
 
 -- Evaluate a skill type postfix expression
 function calcLib.doesTypeExpressionMatch(checkTypes, skillTypes, minionTypes)
@@ -89,38 +84,28 @@ end
 
 -- Check if given support skill can support the given active skill
 function calcLib.canGrantedEffectSupportActiveSkill(grantedEffect, activeSkill)
-	 
 	if grantedEffect.unsupported or activeSkill.activeEffect.grantedEffect.cannotBeSupported then
 		return false
 	end
 	if grantedEffect.supportGemsOnly and not activeSkill.activeEffect.gemData then
 		return false
 	end
-	if activeSkill.summonSkill then
-		return calcLib.canGrantedEffectSupportActiveSkill(grantedEffect, activeSkill.summonSkill)
-	end
-	if grantedEffect.excludeSkillTypes and grantedEffect.excludeSkillTypes[1] and calcLib.doesTypeExpressionMatch(grantedEffect.excludeSkillTypes, activeSkill.skillTypes) then
+	if grantedEffect.excludeSkillTypes[1] and calcLib.doesTypeExpressionMatch(grantedEffect.excludeSkillTypes, activeSkill.skillTypes) then
 		return false
 	end
-	if grantedEffect.requireSkillTypes == nil then 
-		return false
-	end 
 	return not grantedEffect.requireSkillTypes[1] or calcLib.doesTypeExpressionMatch(grantedEffect.requireSkillTypes, activeSkill.skillTypes, not grantedEffect.ignoreMinionTypes and activeSkill.minionSkillTypes)
 end
 
 -- Check if given gem is of the given type ("all", "strength", "melee", etc)
 function calcLib.gemIsType(gem, type)
 	return (type == "all" or 
-			(type == "elemental" and (gem.tags.fire or gem.tags.cold or gem.tags.lightning)) 
-			or (type == "aoe" and gem.tags.area) 
-			or (type == "physical_spell" and (gem.tags.physical and gem.tags.spell)) 
-			or (type == "chaos_spell" and (gem.tags.chaos and gem.tags.spell)) 		
-			
-			or (type == "warcry" and (gem.tags.warcry)) 		
-			or (type == "non-vaal" and not gem.tags.vaal)
-			or (type == "trap or mine" and (gem.tags.trap or gem.tags.mine)) 
-			or (type == gem.name:lower()) 
-			or gem.tags[type])
+			(type == "elemental" and (gem.tags.fire or gem.tags.cold or gem.tags.lightning)) or 
+			(type == "aoe" and gem.tags.area) or
+			(type == "trap or mine" and (gem.tags.trap or gem.tags.mine)) or
+			(type == "active skill" and gem.tags.active_skill) or
+			(type == "non-vaal" and not gem.tags.vaal) or
+			(type == gem.name:lower()) or
+			gem.tags[type])
 end
 
 -- From PyPoE's formula.py
@@ -159,51 +144,6 @@ function calcLib.getGemStatRequirement(level, isSupport, multi)
 	return req < 14 and 0 or req
 end
 
-function string.starts(String,Start)
-   return string.sub(String,1,string.len(Start))==Start
-end
-function string.ends(String,End)
-   return End=='' or string.sub(String,-string.len(End))==End
-end
-
-function print_r ( t )  
-    local print_r_cache={}
-    local function sub_print_r(t,indent)
-        if (print_r_cache[tostring(t)]) then
-            print(indent.."*"..tostring(t))
-        else
-            print_r_cache[tostring(t)]=true
-            if (type(t)=="table") then
-                for pos,val in pairs(t) do
-                    if (type(val)=="table") then
-                        print(indent.."["..pos.."] => "..tostring(t).." {")
-                        sub_print_r(val,indent..string.rep(" ",string.len(pos)+8))
-                        print(indent..string.rep(" ",string.len(pos)+6).."}")
-                    elseif (type(val)=="string") then
-                        print(indent.."["..pos..'] => "'..val..'"')
-                    else
-						if type(pos)=="table" then 
-						 print(indent.."[<table>] => "..tostring(val))
-						 else 
-						  print(indent.."["..pos.."] => "..tostring(val))
-						end 
-                       
-                    end
-                end
-            else
-                print(indent..tostring(t))
-            end
-        end
-    end
-    if (type(t)=="table") then
-        print(tostring(t).." {")
-       sub_print_r(t,"  ")
-        print("}")
-    else
-        sub_print_r(t,"  ")
-    end
-    print()
-end
 -- Build table of stats for the given skill instance
 function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
 	local stats = { }
@@ -217,9 +157,9 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
 			stats[stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
 		end
 	end
-	local level = grantedEffect.levels[skillInstance.level]
+	local level = grantedEffect.levels[skillInstance.level] or { }
 	local availableEffectiveness
-	local actorLevel = skillInstance.actorLevel or level.levelRequirement
+	local actorLevel = skillInstance.actorLevel or level.levelRequirement or 1
 	for index, stat in ipairs(grantedEffect.stats) do
 		-- Static value used as default (assumes statInterpolation == 1)
 		local statValue = level[index] or 1
@@ -227,18 +167,32 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
 			if level.statInterpolation[index] == 3 then
 				-- Effectiveness interpolation
 				if not availableEffectiveness then
-					availableEffectiveness = 
-						(3.885209 + 0.360246 * (actorLevel - 1)) * (grantedEffect.baseEffectiveness or 1)
-						* (1 + (grantedEffect.incrementalEffectiveness or 0)) ^ (actorLevel - 1)
+					availableEffectiveness =
+					(3.885209 + 0.360246 * (actorLevel - 1)) * (grantedEffect.baseEffectiveness or 1)
+							* (1 + (grantedEffect.incrementalEffectiveness or 0)) ^ (actorLevel - 1)
 				end
 				statValue = round(availableEffectiveness * level[index])
 			elseif level.statInterpolation[index] == 2 then
 				-- Linear interpolation; I'm actually just guessing how this works
-				local nextLevel = m_min(skillInstance.level + 1, #grantedEffect.levels)
-				local nextReq = grantedEffect.levels[nextLevel].levelRequirement
-				local prevReq = grantedEffect.levels[nextLevel - 1].levelRequirement
-				local nextStat = grantedEffect.levels[nextLevel][index]
-				local prevStat = grantedEffect.levels[nextLevel - 1][index]
+
+				-- Order the levels, since sometimes they skip around
+				local orderedLevels = { }
+				local currentLevelIndex
+				for level, _ in pairs(grantedEffect.levels) do
+					t_insert(orderedLevels, level)
+				end
+				table.sort(orderedLevels)
+				for idx, level in ipairs(orderedLevels) do
+					if skillInstance.level == level then
+						currentLevelIndex = idx
+					end
+				end
+
+				local nextLevelIndex = m_min(currentLevelIndex + 1, #orderedLevels)
+				local nextReq = grantedEffect.levels[orderedLevels[nextLevelIndex]].levelRequirement
+				local prevReq = grantedEffect.levels[orderedLevels[nextLevelIndex - 1]].levelRequirement
+				local nextStat = grantedEffect.levels[orderedLevels[nextLevelIndex]][index]
+				local prevStat = grantedEffect.levels[orderedLevels[nextLevelIndex - 1]][index]
 				statValue = round(prevStat + (nextStat - prevStat) * (actorLevel - prevReq) / (nextReq - prevReq))
 			end
 		end
@@ -251,7 +205,6 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect)
 	end
 	return stats
 end
-
 
 --- Correct the tags on conversion with multipliers so they carry over correctly
 --- @param mod table
