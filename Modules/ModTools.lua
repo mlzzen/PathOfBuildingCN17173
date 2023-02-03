@@ -45,27 +45,19 @@ function modLib.createMod(modName, modType, modVal, ...)
 	}
 end
 
-
 modLib.parseMod, modLib.parseModCache = LoadModule("Modules/ModParser", launch)
 
 function modLib.compareModParams(modA, modB)
-
 	if modA.name ~= modB.name or modA.type ~= modB.type or modA.flags ~= modB.flags or modA.keywordFlags ~= modB.keywordFlags or #modA ~= #modB then
 		return false
 	end
 	for i, tag in ipairs(modA) do
-
-		
 		if tag.type ~= modB[i].type then
 			return false
 		end
 		if modLib.formatTag(tag) ~= modLib.formatTag(modB[i]) then
 			return false
 		end
-		if tag.type =="GlobalEffect" and tag.effectType == "ExtraAuraEffect" then 
-			return false
-		end 
-		
 	end
 	return true
 end
@@ -155,7 +147,7 @@ function modLib.formatValue(value)
 		if paramName == "mod" then
 			ret = ret .. s_format("%s=[%s]", paramName, modLib.formatMod(value[paramName]))
 		else
-			ret = ret .. s_format("%s=%s", paramName, tostring(value[paramName]))
+			ret = ret .. s_format("%s=%s", paramName, modLib.formatValue(value[paramName]))
 		end
 	end
 	return "{"..ret.."}"
@@ -166,7 +158,6 @@ function modLib.formatModParams(mod)
 end
 
 function modLib.formatMod(mod)
-	 
 	return modLib.formatValue(mod.value) .. " = " .. modLib.formatModParams(mod)
 end
 
@@ -177,13 +168,3 @@ function modLib.setSource(mod, source)
 	end
 	return mod
 end
-
-function modLib.extractModTags(mod)
-	local modIndex = 1
-	local list = {}
-	while mod[modIndex] do
-		list[modIndex] = mod[modIndex]
-		modIndex = modIndex + 1
-	end
-	return list
-end 
