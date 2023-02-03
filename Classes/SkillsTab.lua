@@ -28,25 +28,25 @@ local groupSlotDropList = {
 
 local defaultGemLevelList = {
 	{
-		label = "Normal Maximum",
-		description = "All gems default to their highest valid non-corrupted gem level.",
+		label = "普通技能最大等级",
+		description = "所有宝石默认为其最高有效未腐化宝石等级",
 		gemLevel = "normalMaximum",
 	},
 	{
-		label = "Corrupted Maximum",
-		description = [[Normal gems default to their highest valid corrupted gem level.
-Awakened gems default to their highest valid non-corrupted gem level.]],
+		label = "腐化最大",
+		description = [[普通宝石默认为其最高有效腐化宝石等级
+强辅宝石默认为其最高有效未腐化宝石等级]],
 		gemLevel = "corruptedMaximum",
 	},
 	{
-		label = "Awakened Maximum",
-		description = "All gems default to their highest valid corrupted gem level.",
+		label = "强辅最大",
+		description = "所有宝石默认为最高有效腐化宝石等级",
 		gemLevel = "awakenedMaximum",
 	},
 	{
-		label = "Match Character Level",
-		description = [[All gems default to their highest valid non-corrupted gem level that your character meets the level requirement for.
-This hides gems with a minimum level requirement above your character level, preventing them from showing up in the dropdown list.]],
+		label = "匹配角色等级",
+		description = [[所有宝石默认为您的角色满足等级要求的最高有效未腐化宝石等级
+这会隐藏最低等级要求高于您的角色等级的宝石，防止它们出现在下拉列表中。]],
 		gemLevel = "characterLevel",
 	},
 }
