@@ -3,8 +3,6 @@
 -- Module: Calcs
 -- Manages the calculation system.
 --
-
-
 local pairs = pairs
 local ipairs = ipairs
 local t_insert = table.insert
@@ -12,7 +10,6 @@ local s_format = string.format
 local m_min = math.min
 
 local calcs = { }
-
 calcs.breakdownModule = "Modules/CalcBreakdown"
 LoadModule("Modules/CalcSetup", calcs)
 LoadModule("Modules/CalcPerform", calcs)
@@ -48,7 +45,7 @@ local function infoDump(env)
 	local mainSkill = env.minion and env.minion.mainSkill or env.player.mainSkill
 	ConPrintf("=== Main Skill ===")
 	for _, skillEffect in ipairs(mainSkill.effectList) do
-		--ConPrintf("%s %d/%d", skillEffect.grantedEffect.name, skillEffect.level, skillEffect.quality)
+		ConPrintf("%s %d/%d", skillEffect.grantedEffect.name, skillEffect.level, skillEffect.quality)
 	end
 	ConPrintf("=== Main Skill Flags ===")
 	ConPrintf("Mod: %s", modLib.formatFlags(mainSkill.skillCfg.flags, ModFlag))
@@ -60,9 +57,9 @@ local function infoDump(env)
 	prettyPrintTable(mainSkill.skillData)
 	ConPrintf("== Aux Skills ==")
 	for i, aux in ipairs(env.auxSkillList) do
-		--ConPrintf("Skill #%d:", i)
+		ConPrintf("Skill #%d:", i)
 		for _, skillEffect in ipairs(aux.effectList) do
-			--ConPrintf("  %s %d/%d", skillEffect.grantedEffect.name, skillEffect.level, skillEffect.quality)
+			ConPrintf("  %s %d/%d", skillEffect.grantedEffect.name, skillEffect.level, skillEffect.quality)
 		end
 	end
 	ConPrintf("== Output Table ==")
@@ -76,9 +73,9 @@ local function getCalculator(build, fullInit, modFunc)
 
 	-- Run base calculation pass
 	calcs.perform(env)
-	GlobalCache.dontUseCache = true
+	GlobalCache.noCache = true
 	local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", {}, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil })
-	GlobalCache.dontUseCache = nil
+	GlobalCache.noCache = nil
 	env.player.output.SkillDPS = fullDPS.skills
 	env.player.output.FullDPS = fullDPS.combinedDPS
 	env.player.output.FullDotDPS = fullDPS.TotalDotDPS
@@ -120,13 +117,13 @@ function calcs.getNodeCalculator(build)
 		env.modDB:AddList(calcs.buildModListForNodeList(env, nodeList))
 	end)
 end
+
 -- Get calculator for other changes (adding/removing nodes, items, gems, etc)
 function calcs.getMiscCalculator(build)
 	-- Run base calculation pass
 	local env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR")
 	calcs.perform(env)
 	local fullDPS = calcs.calcFullDPS(build, "CALCULATOR", {}, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = env})
-
 	env.player.output.SkillDPS = fullDPS.skills
 	env.player.output.FullDPS = fullDPS.combinedDPS
 	env.player.output.FullDotDPS = fullDPS.TotalDotDPS
@@ -135,7 +132,7 @@ function calcs.getMiscCalculator(build)
 
 	return function(override, accelerate)
 		local env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, "CALCULATOR", override)
-		GlobalCache.dontUseCache = true
+		GlobalCache.noCache = true
 		-- we need to preserve the override somewhere for use by possible trigger-based build-outs with overrides
 		env.override = override
 		calcs.perform(env, true)
@@ -149,7 +146,7 @@ function calcs.getMiscCalculator(build)
 			env.player.output.FullDPS = fullDPS.combinedDPS
 			env.player.output.FullDotDPS = fullDPS.TotalDotDPS
 		end
-		GlobalCache.dontUseCache = nil
+		GlobalCache.noCache = nil
 		return env.player.output
 	end, baseOutput	
 end
@@ -179,8 +176,6 @@ local function getActiveSkillCount(activeSkill)
 	end
 	return 1, true
 end
-
-
 
 function calcs.calcFullDPS(build, mode, override, specEnv)
 	local fullEnv, cachedPlayerDB, cachedEnemyDB, cachedMinionDB = calcs.initEnv(build, mode, override, specEnv)
@@ -212,19 +207,19 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 			local activeSkillCount, enabled = getActiveSkillCount(activeSkill)
 			if enabled then
 				local cachedData = getCachedData(activeSkill, mode)
-				if cachedData and next(override) == nil and not GlobalCache.dontUseCache then
+				if cachedData and next(override) == nil and not GlobalCache.noCache then
 					usedEnv = cachedData.Env
 					activeSkill = usedEnv.player.mainSkill
 				else
 					local forceCache = false
-					if GlobalCache.dontUseCache then 
+					if GlobalCache.noCache then 
 						forceCache = true
-						GlobalCache.dontUseCache = nil
+						GlobalCache.noCache = nil
 					end
 					fullEnv.player.mainSkill = activeSkill
 					calcs.perform(fullEnv, true)
 					usedEnv = fullEnv
-					GlobalCache.dontUseCache = forceCache
+					GlobalCache.noCache = forceCache
 				end
 				local minionName = nil
 				if activeSkill.minion or usedEnv.minion then
@@ -255,6 +250,11 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					end
 					if usedEnv.minion.output.CullMultiplier and usedEnv.minion.output.CullMultiplier > 1 and usedEnv.minion.output.CullMultiplier > fullDPS.cullingMulti then
 						fullDPS.cullingMulti = usedEnv.minion.output.CullMultiplier
+					end
+					-- This is a fix to prevent Absolution spell hit from being counted multiple times when increasing minions count
+					if activeSkill.activeEffect.grantedEffect.name == "Absolution" and fullEnv.modDB:Flag(false, "Condition:AbsolutionSkillDamageCountedOnce") then
+						activeSkillCount = 1
+						activeSkill.infoMessage2 = "Skill Damage"
 					end
 				end
 
@@ -333,7 +333,7 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 					skills = true,
 					everything = true,
 				}
-				fullEnv, _, _, _ = calcs.initEnv(build, mode, override or {}, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fullEnv, accelerate = accelerationTbl })
+				fullEnv, _, _, _ = calcs.initEnv(build, mode, override, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = fullEnv, accelerate = accelerationTbl })
 			end
 		end
 	end
@@ -384,8 +384,6 @@ function calcs.calcFullDPS(build, mode, override, specEnv)
 	return fullDPS
 end
 
-
-
 -- Process active skill
 function calcs.buildActiveSkill(env, mode, skill, setMark)
 	local fullEnv, _, _, _ = calcs.initEnv(env.build, mode, env.override)
@@ -400,8 +398,6 @@ function calcs.buildActiveSkill(env, mode, skill, setMark)
 	ConPrintf("[calcs.buildActiveSkill] Failed to process skill: " .. skill.activeEffect.grantedEffect.name)
 end
 
-
-
 -- Build output for display in the side bar or calcs tab
 function calcs.buildOutput(build, mode)
 	-- Build output for selected main skill
@@ -409,12 +405,39 @@ function calcs.buildOutput(build, mode)
 	calcs.perform(env)
 
 	local output = env.player.output
+	
+	for _, skill in ipairs(env.player.activeSkillList) do
+		local uuid = cacheSkillUUID(skill)
+		if not GlobalCache.cachedData["CACHE"][uuid] then
+			calcs.buildActiveSkill(env, "CACHE", skill)
+		end
+		if GlobalCache.cachedData["CACHE"][uuid] then
+			local EB = env.modDB:Flag(nil, "EnergyShieldProtectsMana")
+			for pool, costResource in pairs({["LifeUnreserved"] = "LifeCost", ["ManaUnreserved"] = "ManaCost", ["Rage"] = "RageCost", ["EnergyShield"] = "ESCost"}) do
+				local cachedCost = GlobalCache.cachedData["CACHE"][uuid].Env.player.output[costResource]
+				if cachedCost then
+					if EB and costResource == "ManaCost" then --Handling for mana cost warnings with EB allocated
+						output.EnergyShieldProtectsMana = true
+						output[costResource.."Warning"] = output[costResource.."Warning"] or (((output[pool] or 0) + (output["EnergyShield"] or 0)) < cachedCost)
+					else
+						output[costResource.."Warning"] = output[costResource.."Warning"] or ((output[pool] or 0) < cachedCost) -- defaulting to 0 to avoid crashing
+					end
+				end
+			end
+			for pool, costResource in pairs({["LifeUnreservedPercent"] = "LifePercentCost", ["ManaUnreservedPercent"] = "ManaPercentCost"}) do
+				local cachedCost = GlobalCache.cachedData["CACHE"][uuid].Env.player.output[costResource]
+				if cachedCost then
+					output[costResource.."PercentCostWarning"] = output[costResource.."PercentCostWarning"] or ((output[pool] or 0) < cachedCost)
+				end
+			end
+		end
+	end
 
 	-- Build output across all skills added to FullDPS skills
-	GlobalCache.dontUseCache = true
+	GlobalCache.noCache = true
 	local fullDPS = calcs.calcFullDPS(build, "CACHE", {}, { cachedPlayerDB = cachedPlayerDB, cachedEnemyDB = cachedEnemyDB, cachedMinionDB = cachedMinionDB, env = nil })
+	GlobalCache.noCache = nil
 
-	GlobalCache.dontUseCache = nil
 	-- Add Full DPS data to main `env`
 	env.player.output.SkillDPS = fullDPS.skills
 	env.player.output.FullDPS = fullDPS.combinedDPS
@@ -450,13 +473,10 @@ function calcs.buildOutput(build, mode)
 		env.enemyConditionsUsed = { }
 		env.enemyMultipliersUsed = { }
 		local function addCond(out, var, mod)
-		--lucifer
-			if var ~= nil then
-				if not out[var]  then
-					out[var] = { }
-				end
-				t_insert(out[var], mod)
+			if not out[var] then
+				out[var] = { }
 			end
+			t_insert(out[var], mod)
 		end
 		local function addCondTag(out, tag, mod)
 			if tag.varList then
@@ -609,7 +629,7 @@ function calcs.buildOutput(build, mode)
 		end
 		if env.modDB:Flag(nil, "LesserBrutalShrine") then
 			t_insert(combatList, "次级狂击神龛")
-		end		
+		end	
 		if env.modDB:Flag(nil, "Tailwind") then
 			t_insert(combatList, "提速尾流")
 		end
