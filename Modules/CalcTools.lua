@@ -99,15 +99,16 @@ end
 -- Check if given gem is of the given type ("all", "strength", "melee", etc)
 function calcLib.gemIsType(gem, type)
 	return (type == "all" or 
-		(type == "elemental" and (gem.tags.fire or gem.tags.cold or gem.tags.lightning)) 
-		or (type == "aoe" and gem.tags.area) 
-		or (type == "physical_spell" and (gem.tags.physical and gem.tags.spell)) 
-		or (type == "chaos_spell" and (gem.tags.chaos and gem.tags.spell)) 		
-		or (type == "warcry" and (gem.tags.warcry)) 		
-		or (type == "non-vaal" and not gem.tags.vaal)
-		or (type == "trap or mine" and (gem.tags.trap or gem.tags.mine)) 
-		or (type == gem.name:lower()) 
-		or gem.tags[type])
+		(type == "elemental" and (gem.tags.fire or gem.tags.cold or gem.tags.lightning)) or
+		(type == "aoe" and gem.tags.area) or
+		(type == "physical_spell" and (gem.tags.physical and gem.tags.spell)) or 
+		(type == "chaos_spell" and (gem.tags.chaos and gem.tags.spell)) or 		
+		(type == "warcry" and (gem.tags.warcry)) or	
+		(type == "non-vaal" and not gem.tags.vaal) or
+		(type == "trap or mine" and (gem.tags.trap or gem.tags.mine)) or
+		(type == "active skill" and gem.tags.active_skill) or
+		(type == gem.name:lower()) or
+		gem.tags[type])
 end
 
 -- From PyPoE's formula.py

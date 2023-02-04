@@ -2282,6 +2282,7 @@ local specialModList = {
 	}, key = "level", value = tonumber(num) }) } end,
 	["所有法术技能石等级 %+(%d+)"] = function( _, type_Cn,num) return { mod("GemProperty", "LIST", {
 	keywordList =  {"active_skill", "spell"}, key = "level", value = tonumber(num) }) } end,
+	-- 当词条是 所有法术技能石等级 +1 的时候，解析出来 type_Cn 为空字符串
 	["所有([^\\x00-\\xff]*)法术技能石等级 %+(%d+)"] = function( _, type_Cn,num) return { mod("GemProperty", "LIST", {
 	keywordList =  {"active_skill", "spell",type_Cn
 	:gsub("效果区域技能","aoe")

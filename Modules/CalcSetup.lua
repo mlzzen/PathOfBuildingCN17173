@@ -264,14 +264,21 @@ local function applyGemMods(effect, modList)
 	for _, value in ipairs(modList) do
 		local match = true
 		if value.keywordList then
+			match = true
 			for _, keyword in ipairs(value.keywordList) do
-				if not calcLib.gemIsType(effect.gemData, keyword) then
-					match = false
-					break
+				--lucifer 解析 所有法术技能石等级之类 的时候会多出来一个空字符串和0
+				if keyword~=""  and keyword ~=0 and  keyword~="0" then 
+					if  not calcLib.gemIsType(effect.gemData, keyword) then												 
+						match = false
+						break
+					end
 				end
 			end
-		elseif not calcLib.gemIsType(effect.gemData, value.keyword) then
-			match = false
+		else
+		--lucifer
+			if keyword~=""  and keyword ~=0 and  keyword~="0" then 
+				match = calcLib.gemIsType(effect.gemData, value.keyword)
+			end
 		end
 		if match then
 			effect[value.key] = (effect[value.key] or 0) + value.value
