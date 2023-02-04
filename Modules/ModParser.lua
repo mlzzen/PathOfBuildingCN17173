@@ -2201,6 +2201,13 @@ local specialModList = {
 	["非诅咒类光环的效果提高 (%d+)%%"]= function(num) return {  mod("AuraEffect", "INC", tonumber(num),{ type = "SkillType", skillType = SkillType.Aura }, { type = "SkillType", skillType = SkillType.AppliesCurse, neg = true } )  } end,
 	["所有身上装备的物品皆为已腐化时，每秒回复 (%d+) 能量护盾"] = function(num) return {  mod("EnergyShieldRegen", "BASE", num,{ type = "MultiplierThreshold", var = "NonCorruptedItem", threshold = 0, upper = true })  } end,
 	["感电时，每秒回复 (%d+)%% 能量护盾"] = function(num) return {  mod("EnergyShieldRegenPercent", "BASE", num,{ type = "Condition", var = "Shocked" })  } end,
+	-- Socketed gem modifiers
+	["此物品上装备的技能石等级 ([%+%-]%d+)"] = function(num) return { mod("GemProperty", "LIST", { keyword = "all", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end, --备注：%+(%d+) to level of socketed gems
+	["所有技能石品质 ([%+%-]%d+)%%"] = function(num, _, type) return { mod("GemProperty", "LIST", { keyword = "active_skill", key = "quality", value = num }) } end,	
+	["人物等级每到达 25 级，该插槽内的【主动技能石】等级 +1"] = function(num, _, div) return { mod("GemProperty", "LIST", { keyword = "active_skill", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }, { type = "Multiplier", var = "Level", div = tonumber(div) }) } end, --备注：%+(%d+) to level of socketed active skill gems per (%d+) player levels
+	["此物品上的技能石可以发射 (%d+) 个额外投射物"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ProjectileCount", "BASE", num) }, { type = "SocketedIn", slotName = "{SlotName}" }) } end, --备注：socketed gems fire (%d+) additional projectiles
+	["此物品上的技能石无魔力保留"] = { mod("ManaReserved", "MORE", -100, { type = "SocketedIn", slotName = "{SlotName}" }) }, --备注：socketed gems reserve no mana
+	["此物品上的红色技能石额外获得 (%d+)%% 的物理伤害，并转化为火焰伤害"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("PhysicalDamageGainAsFire", "BASE", num) }, { type = "SocketedIn", slotName = "{SlotName}", keyword = "strength" }) } end, --备注：socketed red gems get (%d+)%% physical damage as extra fire damage
 	["此物品上装备的【技能石】品质 %+(%d+)%%"] = function(num) return { mod("GemProperty", "LIST",  { keyword = "all", key = "quality", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
 	["此物品上装备的【辅助技能石】品质 %+(%d+)%%"] = function(num) return { mod("GemProperty", "LIST",  { keyword = "support", key = "quality", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
 	["此物品上装备的【([^\\x00-\\xff]*)石】等级 %+(%d+)"] = function( _, type_Cn,num) return { mod("GemProperty", "LIST", {
@@ -2345,6 +2352,8 @@ local specialModList = {
 	:gsub("持续吟唱","channelling")
 	:gsub("范围效果","aoe")
 	}, key = "level", value = tonumber(num) }) } end,
+	["([%+%-]%d+) to level of all chaos spell skill gems"] = function(num) return { mod("GemProperty", "LIST", { keywordList = { "spell", "chaos", "active_skill" }, key = "level", value = num }) } end,
+	["([%+%-]%d+) to level of all chaos skill gems"] = function(num) return { mod("GemProperty", "LIST", { keywordList = { "chaos", "active_skill" }, key = "level", value = num }) } end,
 	["此物品上装备的【([^\\x00-\\xff]*)石】品质 %+(%d+)%%"] = function( _, type_Cn,num) return { mod("GemProperty", "LIST", {
 	keyword = type_Cn:gsub("光环技能","aura")
 	:gsub("效果区域技能","aoe")
@@ -2375,6 +2384,12 @@ local specialModList = {
 	:gsub("范围效果技能","aoe")
 	:gsub("技能","all")
 	, key = "quality", value = tonumber(num) }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
+	["此物品上的火焰、冰霜、闪电技能石等级 %+(%d+)"] = function(num) return { mod("GemProperty", "LIST",  { keyword = "elemental", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
+	["所有物理法术技能石等级 %+(%d+)"] = function(num) return { mod("GemProperty", "LIST", { keyword = "physical_spell", key = "level", value = num }) } end,
+	["插入的主动技能石品质 %+(%d+)%%"] = function(num) return { mod("GemProperty", "LIST", { keyword = "active_skill", key = "quality", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
+	["所有魔卫复苏技能石等级 %+(%d+)"] = function(num)  return { mod("GemProperty", "LIST",  {  keyword =FuckSkillActivityCnName('魔卫复苏'), key = "level", value = num }) } end,
+	["所有召唤灵体技能石等级 %+(%d+)"] = function(num)  return { mod("GemProperty", "LIST",  { keyword =FuckSkillActivityCnName('召唤灵体'), key = "level", value = num }) } end,
+	["【(.+)】技能石等级 %+(%d+)"] = function(_,skill_name,num)  return { mod("GemProperty", "LIST",  { keyword =FuckSkillActivityCnName(skill_name), key = "level", value = num }) } end,
 	-- 一些涉及到技能名称的
 	["号召的冷却回复率提高 (%d+)%%"] = function(num) return { mod("CooldownRecovery", "INC", num, { type = "SkillName", skillName = "号召" }) } end,
 	["奉献技能的持续时间降低 (%d+)%%"] =  function(num) return {  mod("Duration", "INC", -num,
@@ -2913,8 +2928,6 @@ local specialModList = {
 	["火焰技能有 (%d+)%% 的几率使敌人中毒"] = function(num) return {  mod("PoisonChance", "BASE", num,nil,nil,KeywordFlag.Fire)  } end,
 	["冰霜技能有 (%d+)%% 的几率使敌人中毒"] = function(num) return {  mod("PoisonChance", "BASE", num,nil,nil,KeywordFlag.Cold)  } end,
 	["闪电技能击中有 (%d+)%% 的几率造成中毒"] = function(num) return {  mod("PoisonChance", "BASE", num,nil,nil,KeywordFlag.Lightning)  } end,
-	["此物品上的火焰、冰霜、闪电技能石等级 %+(%d+)"] = function(num) return { mod("GemProperty", "LIST",  { keyword = "elemental", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
-	["此物品上的元素技能石等级 %+(%d+)"] = function(num) return { mod("GemProperty", "LIST",  { keyword = "elemental", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
 	["拥有最大数量的狂怒球时，攻击有 (%d+)%% 几率使敌人中毒"] = function(num) return{ mod("PoisonChance", "BASE", num, nil, ModFlag.Attack, { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }) }end,
 	["拥有最大数量的狂怒球时，攻击有 (%d+)%% 的几率使敌人中毒"] = function(num) return{ mod("PoisonChance", "BASE", num, nil, ModFlag.Attack, { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }) }end,
 	["召唤生物获得等同 (%d+)%% 物理伤害的额外冰霜伤害"]=function(num) return { mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageGainAsCold", "BASE", num) })  } end,
@@ -3082,7 +3095,6 @@ local specialModList = {
 	["该武器击中致盲敌人时，附加 (%d+) %- (%d+) 基础火焰伤害"]= function(_,num1,num2) return {
 	mod("FireMin", "BASE", num1, { type = "Condition", var = "{Hand}Attack" } ,{ type = "ActorCondition", actor = "enemy", var = "Blinded" }),
 	mod("FireMax", "BASE", num2, { type = "Condition", var = "{Hand}Attack" } ,{ type = "ActorCondition", actor = "enemy", var = "Blinded" })  } end,
-	["人物等级每到达 (%d+) 级，该插槽内的【主动技能石】等级 %+(%d+)"] = function(div, _,num )return { mod("GemProperty", "LIST", { keyword = "active_skill", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }, { type = "Multiplier", var = "Level", div = tonumber(div) }) } end,
 	["玩家等级每提高 (%d+) 级，该武器攻击时便附加 (%d+) %- (%d+) 物理伤害"]= function(_,level,num1,num2) return {
 	mod("PhysicalMin", "BASE", num1,nil,ModFlag.Attack,{ type = "Condition", var = "{Hand}Attack" },{ type = "Multiplier", var = "Level", div = level } ) ,
 	mod("PhysicalMax", "BASE", num2,nil,ModFlag.Attack,{ type = "Condition", var = "{Hand}Attack" },{ type = "Multiplier", var = "Level", div = level } ) } end,
@@ -4193,7 +4205,6 @@ local specialModList = {
 	["冰霜闪现的冷却回复速度提高 (%d+)%%"] = function(num) return {
 	mod("CooldownRecovery", "INC", num, { type = "SkillName", skillName = "冰霜闪现" })
 	} end,
-	["所有物理法术技能石等级 %+(%d+)"] = function(num) return { mod("GemProperty", "LIST",  { keyword = "physical_spell", key = "level", value = num }) } end,
 	["每个红色插槽使召唤生物 (%d+)%% 的物理伤害转化为火焰伤害"]
 	= function(num) return { mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageConvertToFire", "BASE", num) },{ type = "Multiplier", var = "RedSocketIn{SlotName}" }) } end,
 	["每个绿色插槽使召唤生物 (%d+)%% 的物理伤害转化为冰霜伤害"] = function(num) return { 
@@ -5774,8 +5785,6 @@ local specialModList = {
 	["你击中冻结的敌人时触发 (%d+) 级爆环冰刺"] = function(num) return {
 	mod("ExtraSkill", "LIST", {  skillId ="TriggeredIcicleNova", level = tonumber(num), triggered = true})
 		} end,
-	["插入的主动技能石品质 %+(%d+)%%"] = function(num) return { mod("GemProperty", "LIST",
-	{ keyword = "active_skill", key = "quality", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end,
 	["被击中时有 (%d+)%% 的几率避免冰霜伤害"]= function(num) return {	mod("AvoidColdDamageChance", "BASE", num )  } end,
 	["被击中时有 (%d+)%% 的几率避免闪电伤害"]= function(num) return {	mod("AvoidLightningDamageChance", "BASE", num )  } end,
 	["被击中时有 (%d+)%% 的几率避免火焰伤害"]= function(num) return {	mod("AvoidFireDamageChance", "BASE", num )  } end,
@@ -6244,9 +6253,6 @@ local specialModList = {
 	["每个召唤的图腾使你每秒回复 ([%d%.]+)%% 魔力"] = function (num) return {
 			mod("ManaRegenPercent", "BASE", num, { type = "PerStat", stat = "TotemsSummoned" }),
 		} end,
-	["所有魔卫复苏技能石等级 %+(%d+)"] = function(num)  return { mod("GemProperty", "LIST",  {  keyword =FuckSkillActivityCnName('魔卫复苏'), key = "level", value = num }) } end,
-	["所有召唤灵体技能石等级 %+(%d+)"] = function(num)  return { mod("GemProperty", "LIST",  { keyword =FuckSkillActivityCnName('召唤灵体'), key = "level", value = num }) } end,
-	["【(.+)】技能石等级 %+(%d+)"] = function(_,skill_name,num)  return { mod("GemProperty", "LIST",  { keyword =FuckSkillActivityCnName(skill_name), key = "level", value = num }) } end,
 	["若双持不同类型的武器，则主手攻击伤害提高 (%d+)%%"] = function(num) return { mod("Damage", "INC", num,nil,ModFlag.Attack ,{ type = "Condition", var = "MainHandAttack" } ,{ type = "Condition", var = "WieldingDifferentWeaponTypes" } ) } end,
 	["若双持不同类型的武器，则副手攻击速度提高 (%d+)%%"] = function(num) return { mod("Speed", "INC", num,nil,ModFlag.Attack ,{ type = "Condition", var = "OffHandAttack" },{ type = "Condition", var = "WieldingDifferentWeaponTypes" }  ) } end,
 	["战吼的威力值无限"] = { flag("WarcryInfinitePower") },
@@ -6470,13 +6476,6 @@ local specialModList = {
 	["立即回复"] = {  mod("FlaskInstantRecovery", "BASE", 100) }, --备注：instant recovery
 	["(%d+)%% of recovery applied instantly"] = function(num) return { mod("FlaskInstantRecovery", "BASE", num) } end,
 	["穿戴对人物属性无需求"] = { flag("NoAttributeRequirements") }, --备注：has no attribute requirements
-	-- Socketed gem modifiers
-	["此物品上装备的技能石等级 ([%+%-]%d+)"] = function(num) return { mod("GemProperty", "LIST", { keyword = "all", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }) } end, --备注：%+(%d+) to level of socketed gems
-	["所有技能石品质 ([%+%-]%d+)%%"] = function(num, _, type) return { mod("GemProperty", "LIST", { keyword = "active_skill", key = "quality", value = num }) } end,	
-	["人物等级每到达 25 级，该插槽内的【主动技能石】等级 +1"] = function(num, _, div) return { mod("GemProperty", "LIST", { keyword = "active_skill", key = "level", value = num }, { type = "SocketedIn", slotName = "{SlotName}" }, { type = "Multiplier", var = "Level", div = tonumber(div) }) } end, --备注：%+(%d+) to level of socketed active skill gems per (%d+) player levels
-	["此物品上的技能石可以发射 (%d+) 个额外投射物"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ProjectileCount", "BASE", num) }, { type = "SocketedIn", slotName = "{SlotName}" }) } end, --备注：socketed gems fire (%d+) additional projectiles
-	["此物品上的技能石无魔力保留"] = { mod("ManaReserved", "MORE", -100, { type = "SocketedIn", slotName = "{SlotName}" }) }, --备注：socketed gems reserve no mana
-	["此物品上的红色技能石额外获得 (%d+)%% 的物理伤害，并转化为火焰伤害"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("PhysicalDamageGainAsFire", "BASE", num) }, { type = "SocketedIn", slotName = "{SlotName}", keyword = "strength" }) } end, --备注：socketed red gems get (%d+)%% physical damage as extra fire damage
 	-- Extra skill/support
 	["grants (%D+)"] = function(_, skill) return grantedExtraSkill(skill, 1) end,
 	["获得 (%d+) 级的(.+)"] = function(num, _, skill) return grantedExtraSkill(skill, num) end, --备注：grants level (%d+) (.+)
