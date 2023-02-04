@@ -25,8 +25,20 @@ common.curl = require("lcurl.safe")
 common.xml = require("xml")
 common.base64 = require("base64")
 common.sha1 = require("sha1")
--- Uncomment if you need to perform in-depth profiling
--- profiler = require("lua-profiler")
+
+-- Try to load a library return nil if failed. https://stackoverflow.com/questions/34965863/lua-require-fallback-error-handling
+function prerequire(...)
+    local status, lib = pcall(require, ...)
+    if(status) then return lib end
+    return nil
+end
+
+profiler = prerequire("lua-profiler")
+profiling = false
+
+if launch.devMode and profiler == nil then
+	ConPrintf("Unable to Load Profiler")
+end
 
 -- Class library
 common.classes = { }
@@ -130,22 +142,6 @@ function new(className, ...)
 	end
 	return object
 end
-
-function urlEncode(s)
-	if s == nil then
-		return ""
-	end
-	s = string.gsub(s, "([^%w%.%- ])", function(c) return string.format("%%%02X", string.byte(c)) end)  
-	return string.gsub(s, " ", "+")  
-end  
-
-function urlDecode(s)
-	if s == nil then
-		return ""
-	end
-	s = string.gsub(s, '%%(%x%x)', function(h) return string.char(tonumber(h, 16)) end)  
-	return s  
-end  
 
 function codePointToUTF8(codePoint)
 	if codePoint >= 0xD800 and codePoint <= 0xDFFF then
@@ -266,7 +262,6 @@ do
 		return toUnsigned(h)
 	end
 end
-
 
 local function bits(int, s, e)
 	return b_and(b_rshift(int, s), 2 ^ (e - s + 1) - 1)
@@ -410,7 +405,6 @@ function mergeDB(srcDB, modDB)
 	end
 end
 
-
 function specCopy(env)
 	local modDB = new("ModDB")
 	modDB:AddDB(env.modDB)
@@ -474,7 +468,7 @@ function isValueInArrayPred(table, predicate)
 end
 
 -- Pretty-prints a table
-function prettyPrintTable(tbl, pre)
+function prettyPrintTable(tbl, pre, outFile)
 	pre = pre or ""
 	local outNames = { }
 	for name in pairs(tbl) do
@@ -483,9 +477,13 @@ function prettyPrintTable(tbl, pre)
 	table.sort(outNames)
 	for _, name in ipairs(outNames) do
 		if type(tbl[name]) == "table" then
-			prettyPrintTable(tbl[name], pre .. name .. ".")
+			prettyPrintTable(tbl[name], pre .. name .. ".", outFile)
 		else
-			-- ConPrintf("%s%s = %s", pre, name, tostring(tbl[name]))
+			if outFile then
+				outFile:write(pre .. name .. " = " .. tostring(tbl[name]) .. "\n")
+			else
+				ConPrintf("%s%s = %s", pre, name, tostring(tbl[name]))
+			end
 		end
 	end
 end
@@ -567,7 +565,6 @@ end
 
 -- Formats "1234.56" -> "1,234.5"
 function formatNumSep(str)
-
 	if type(str) == "number" then
 		return str
 	end
@@ -590,6 +587,7 @@ function formatNumSep(str)
         return minus..integer..fraction:gsub("%.", main.decimalSeparator)
     end)
 end
+
 function getFormatNumSep(dec)
 	return function(val)
 		return formatNumSep(val, dec)
@@ -648,7 +646,6 @@ function copyFile(srcName, dstName)
 	return true
 end
 
-
 function zip(a, b)
     local zipped = { }
 	for i, _ in pairs(a) do
@@ -677,36 +674,32 @@ end
 
 -- Global Cache related
 function cacheData(uuid, env)
-	if GlobalCache.dontUseCache then
-		return
-	end
-
 	local mode = env.mode
+	if mode == "CALCULATOR" then return end
 
-	if not GlobalCache.cachedData[mode][uuid] or mode == "MAIN" or mode == "CALCS" then
-		-- If we previously had global data, we are about to over-ride it, set tables to `nil` for Lua Garbage Collection
-		if GlobalCache.cachedData[mode][uuid] then
-			GlobalCache.cachedData[mode][uuid].ActiveSkill = nil
-			GlobalCache.cachedData[mode][uuid].Env = nil
-		end
-		GlobalCache.cachedData[mode][uuid] = {
-			Name = env.player.mainSkill.activeEffect.grantedEffect.name,
-			Speed = env.player.output.Speed,
-			ManaCost = env.player.output.ManaCost,
-			HitChance = env.player.output.HitChance,
-			PreEffectiveCritChance = env.player.output.PreEffectiveCritChance,
-			CritChance = env.player.output.CritChance,
-			TotalDPS = env.player.output.TotalDPS,
-			ActiveSkill = env.player.mainSkill,
-			Env = env,
-		}
-		
-		
-
-		
+	-- If we previously had global data, we are about to over-ride it, set tables to `nil` for Lua Garbage Collection
+	if GlobalCache.cachedData[mode][uuid] then
+		GlobalCache.cachedData[mode][uuid].ActiveSkill = nil
+		GlobalCache.cachedData[mode][uuid].Env = nil
 	end
+	GlobalCache.cachedData[mode][uuid] = {
+		Name = env.player.mainSkill.activeEffect.grantedEffect.name,
+		Speed = env.player.output.Speed,
+		ManaCost = env.player.output.ManaCost,
+		LifeCost = env.player.output.LifeCost,
+		ESCost = env.player.output.ESCost,
+		RageCost = env.player.output.RageCost,
+		HitChance = env.player.output.HitChance,
+		AccuracyHitChance = env.player.output.AccuracyHitChance,
+		PreEffectiveCritChance = env.player.output.PreEffectiveCritChance,
+		CritChance = env.player.output.CritChance,
+		TotalDPS = env.player.output.TotalDPS,
+		ActiveSkill = env.player.mainSkill,
+		Env = env,
+	}
 end
--- Obtian a stored cached processed skill identified by
+
+-- Obtain a stored cached processed skill identified by
 --   its UUID and pulled from an appropriate env mode (e.g., MAIN)
 function getCachedData(skill, mode)
 	local uuid = cacheSkillUUID(skill)
@@ -717,7 +710,7 @@ end
 --   to be deleted if it's not longer needed
 function addDeleteGroupEntry(name)
 	if not GlobalCache.deleteGroup[name] then
-		GlobalCache.deleteGroup[name] = true		
+		GlobalCache.deleteGroup[name] = true
 	end
 end
 
@@ -725,13 +718,13 @@ end
 --   because it is still needed
 function removeDeleteGroupEntry(name)
 	if GlobalCache.deleteGroup[name] then
-		GlobalCache.deleteGroup[name] = nil		
+		GlobalCache.deleteGroup[name] = nil
 	end
 end
 
 -- Delete a skill-group entry from the skill list if it has
 --   been marked for deletion and nothing over-wrote that
-function deleteFabricatedGroup(skillsTab)	
+function deleteFabricatedGroup(skillsTab)
 	for index, socketGroup in ipairs(skillsTab.controls.groupList.list) do
 		if GlobalCache.deleteGroup[socketGroup.label] then
 			t_remove(skillsTab.controls.groupList.list, index)
@@ -747,19 +740,17 @@ function deleteFabricatedGroup(skillsTab)
 	end
 end
 
-
 -- Wipe all the tables associated with Global Cache
 function wipeGlobalCache()
-	--ConPrintf("WIPING GlobalCache.cacheData")
-	
 	wipeTable(GlobalCache.cachedData.MAIN)
 	wipeTable(GlobalCache.cachedData.CALCS)
 	wipeTable(GlobalCache.cachedData.CALCULATOR)
-	wipeTable(GlobalCache.cachedData.CACHE)	
+	wipeTable(GlobalCache.cachedData.CACHE)
 	wipeTable(GlobalCache.excludeFullDpsList)
 	wipeTable(GlobalCache.deleteGroup)
-	GlobalCache.dontUseCache = nil
+	GlobalCache.noCache = nil
 end
+
 -- Full DPS related: add to roll-up exclusion list
 -- this is for skills that are used by Mirage Warriors for example
 function addToFullDpsExclusionList(skill)
@@ -782,17 +773,64 @@ function supportEnabled(skillName, activeSkill)
 	return true
 end
 
+function stringify(thing)
+	if type(thing) == 'string' then
+		return thing
+	elseif type(thing) == 'number' then
+		return ""..thing;
+	elseif type(thing) == 'table' then
+		local s = "{";
+		for k,v in pairs(thing) do
+			s = s.."\n\t"
+			if type(k) == 'number' then
+				s = s.."["..k.."] = "
+			else
+				s = s.."[\""..k.."\"] = "
+			end
+			if type(v) == 'string' then
+				s = s.."\""..stringify(v).."\", "
+			else
+				if type(v) == "boolean" then
+					v = v and "true" or "false"
+				end
+				val = stringify(v)..", "
+				if type(v) == "table" then
+					val = string.gsub(val, "\n", "\n\t")
+				end
+				s = s..val;
+			end
+		end
+		return s.."\n}"
+	end
+end
+
 -- Class function to split a string on a single character (??) separator.
   -- returns a list of fields, not including the separator.
   -- Will return the first field as blank if the first character of the string is the separator
   -- Separator defaults to colon
-  function string:split(sep)
+function string:split(sep)
 	-- Initially from http://lua-users.org/wiki/SplitJoin
 	-- function will ignore duplicate separators
 	local sep, fields = sep or ":", {}
-	local pattern = string.format("([^%s]+)", sep)
+	local pattern = s_format("([^%s]+)", sep)
 	-- inject a blank entry if self begins with a colon
-	if string.sub(self, 1, 1) == ":" then t_insert(fields, "") end
+	if string.sub(self, 1, 1) == sep then t_insert(fields, "") end
 	self:gsub(pattern, function(c) fields[#fields+1] = c end)
 	return fields
 end
+
+function urlEncode(s)
+	if s == nil then
+		return ""
+	end
+	s = string.gsub(s, "([^%w%.%- ])", function(c) return string.format("%%%02X", string.byte(c)) end)  
+	return string.gsub(s, " ", "+")  
+end  
+
+function urlDecode(s)
+	if s == nil then
+		return ""
+	end
+	s = string.gsub(s, '%%(%x%x)', function(h) return string.char(tonumber(h, 16)) end)  
+	return s  
+end  
