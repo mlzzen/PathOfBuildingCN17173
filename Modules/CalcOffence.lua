@@ -3746,7 +3746,6 @@ function calcs.offence(env, actor, activeSkill)
 			local baseVal = calcAilmentDamage("Freeze", calcAverageSourceDamage("Freeze")) * skillModList:More(cfg, "FreezeAsThoughDealing")
 			if baseVal > 0 then
 				skillFlags.freeze = true
-				skillFlags.chill = true
 				output.FreezeDurationMod = 1 + skillModList:Sum("INC", cfg, "EnemyFreezeDuration") / 100 + enemyDB:Sum("INC", nil, "SelfFreezeDuration") / 100
 				if breakdown then
 					t_insert(breakdown.FreezeDPS, s_format("如果要触发最短0.3 秒冰冻, 目标的冰冻门槛不能大于  %.0f.", baseVal * 20 * output.FreezeDurationMod))

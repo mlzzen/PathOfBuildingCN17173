@@ -819,7 +819,7 @@ return {
 	{ var = "conditionSelfChill", type = "check", label = "你身上的^x3F6DB3冰缓^7是自己施加的?", ifOption = "conditionChilled", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ChilledSelf", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "conditionFrozen", type = "check", label = "你被冰冻?", ifCond = "Frozen", implyCond = "Chilled", tooltip = "在也意味着你被冰缓.", apply = function(val, modList, enemyModList)
+	{ var = "conditionFrozen", type = "check", label = "你被冰冻?", ifCond = "Frozen", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Frozen", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionShocked", type = "check", label = "你被感电?", ifCond = "Shocked", apply = function(val, modList, enemyModList)
@@ -1326,7 +1326,7 @@ return {
 		enemyModList:NewMod("Condition:Chilled", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 		enemyModList:NewMod("Condition:ChilledByYourHits", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "conditionEnemyFrozen", type = "check", label = "敌人被冰冻?", implyCond = "Chilled", tooltip = "这也意味着敌人被冰冻.", apply = function(val, modList, enemyModList)
+	{ var = "conditionEnemyFrozen", type = "check", label = "敌人被冰冻?", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Frozen", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyBrittle", type = "check", ifFlag = "inflictBrittle", label = "敌人被脆弱?", tooltip = "对脆弱的敌人的时提高自己的基础暴击率，最多 +6% \n勾选这个选项后可以在下面配置具体的脆弱效果", apply = function(val, modList, enemyModList)
