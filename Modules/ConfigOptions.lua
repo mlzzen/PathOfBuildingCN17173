@@ -1265,6 +1265,9 @@ return {
 	{ var = "multiplierPoisonOnEnemy", type = "count", label = "敌人身上的中毒层数:", implyCond = "Poisoned", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:PoisonStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "multiplierCurseExpiredOnEnemy", type = "count", label = "敌人的诅咒时间已过 #%:", ifEnemyMult = "CurseExpired", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Multiplier:CurseExpired", "BASE", val, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "multiplierWitheredStackCount", type = "count", label = "凋零层数:", ifFlag = "Condition:CanWither", tooltip = "每层凋零提高 6% 承受的^xD02090混沌^7伤害，最高15层.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:WitheredStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
