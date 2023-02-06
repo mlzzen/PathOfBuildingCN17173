@@ -686,7 +686,7 @@ return {
 		{ breakdown = "BrandAttachmentRange" },
 		{ modName = "BrandAttachmentRange", cfg = "skill"},
 	}, },
-	{ label = "最大爆炸箭矢层数", haveOutput = "MaxExplosiveArrowFuseCalculated", { format = "{0:output:MaxExplosiveArrowFuseCalculated} Fuses", }, },
+	{ label = "爆炸箭矢最大层数", haveOutput = "MaxExplosiveArrowFuseCalculated", { format = "{0:output:MaxExplosiveArrowFuseCalculated} Fuses", }, },
 	{ label = "重叠几率", haveOutput = "OverlapChance", { format = "{2:output:OverlapChance}%", { breakdown = "OverlapChance" }, }, },
 	{ label = "陷阱冷却时间", haveOutput = "TrapCooldown", { format = "{3:output:TrapCooldown}秒",
 		{ breakdown = "TrapCooldown" },
