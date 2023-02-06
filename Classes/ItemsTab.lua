@@ -697,56 +697,6 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 						end 
 						tooltip:AddLine(16, "类型: "..tagsStr)
 					end
-					local notableName = mod[1] and (mod[1]:match("其中 1 个增加的天赋为【(.+)】") or mod[1]:match("其中 1 个增加的天赋为(.+)"))
-					
-					local node = notableName and self.build.spec.tree.clusterNodeMap[notableName]
-					if node then
-						tooltip:AddSeparator(14)
-
-						-- Node name
-						self.socketViewer:AddNodeName(tooltip, node, self.build)
-
-						-- Node description
-						if node.sd[1] then
-							tooltip:AddLine(16, "")
-							for i, line in ipairs(node.sd) do
-								tooltip:AddLine(16, ((node.mods[i].extra or not node.mods[i].list) and colorCodes.UNSUPPORTED or colorCodes.MAGIC)..line)
-							end
-						end
-
-						-- Reminder text
-						if node.reminderText then
-							tooltip:AddSeparator(14)
-							for _, line in ipairs(node.reminderText) do
-								tooltip:AddLine(14, "^xA0A080"..line)
-							end
-						end
-
-						-- Comparison
-						tooltip:AddSeparator(14)
-						self:AppendAnointTooltip(tooltip, node, "配置 ")
-
-						-- Information of for this notable appears
-						local clusterInfo = self.build.data.clusterJewelInfoForNotable[notableName]
-						if clusterInfo then
-							tooltip:AddSeparator(14)
-							tooltip:AddLine(20, "^7"..notableName.." 可以出现在:")
-							local isFirstSize = true
-							for size, v in pairs(clusterInfo.size) do
-								tooltip:AddLine(18, colorCodes.MAGIC..size..":")
-								local sizeSkills = self.build.data.clusterJewels.jewels[size].skills
-								for i, type in ipairs(clusterInfo.jewelTypes) do
-									if sizeSkills[type] then
-										tooltip:AddLine(14, "^7    "..sizeSkills[type].name)
-									end
-								end
-								if not isFirstSize then
-									tooltip:AddLine(10, "")
-								end
-								isFirstSize = false
-							end
-						end
-					end
 				else
 					tooltip:AddLine(16, "^7"..#modList.." Tiers")
 					local minMod = self.displayItem.affixes[modList[1]]
@@ -788,6 +738,66 @@ self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.edi
 						end 
 						tooltip:AddLine(16, "类型: "..tagsStr)
 					end
+				end
+				local mod = self.displayItem.affixes[value.modId or modList[1]]
+				local notableName = mod[1] and (mod[1]:match("其中 1 个增加的天赋为【(.+)】") or mod[1]:match("其中 1 个增加的天赋为(.+)"))
+				local node = notableName and self.build.spec.tree.clusterNodeMap[notableName]
+				if node then
+					tooltip:AddSeparator(14)
+
+					-- Node name
+					self.socketViewer:AddNodeName(tooltip, node, self.build)
+
+					-- Node description
+					if node.sd[1] then
+						tooltip:AddLine(16, "")
+						for i, line in ipairs(node.sd) do
+							tooltip:AddLine(16, ((node.mods[i].extra or not node.mods[i].list) and colorCodes.UNSUPPORTED or colorCodes.MAGIC)..line)
+						end
+					end
+
+					-- Reminder text
+					if node.reminderText then
+						tooltip:AddSeparator(14)
+						for _, line in ipairs(node.reminderText) do
+							tooltip:AddLine(14, "^xA0A080"..line)
+						end
+					end
+
+					-- Comparison
+					tooltip:AddSeparator(14)
+					self:AppendAnointTooltip(tooltip, node, "配置")
+
+					-- Information of for this notable appears
+					local clusterInfo = self.build.data.clusterJewelInfoForNotable[notableName]
+					if clusterInfo then
+						tooltip:AddSeparator(14)
+						tooltip:AddLine(20, "^7"..notableName.." 可以出现在:")
+						local isFirstSize = true
+						for size, v in pairs(clusterInfo.size) do
+							tooltip:AddLine(18, colorCodes.MAGIC..size..":")
+							local sizeSkills = self.build.data.clusterJewels.jewels[size].skills
+							for i, type in ipairs(clusterInfo.jewelTypes) do
+								if sizeSkills[type] then
+									tooltip:AddLine(14, "^7    "..sizeSkills[type].name)
+								end
+							end
+							if not isFirstSize then
+								tooltip:AddLine(10, "")
+							end
+							isFirstSize = false
+						end
+					end
+				else
+					local mod = { }
+					if value.modId or #modList == 1 then
+						mod = self.displayItem.affixes[value.modId or modList[1]]
+					else
+						mod = self.displayItem.affixes[modList[1 + round((#modList - 1) * main.defaultItemAffixQuality)]]
+					end
+
+					-- Adding Mod
+					self:AddModComparisonTooltip(tooltip, mod)
 				end
 			end
 		end
@@ -1765,6 +1775,22 @@ function ItemsTabClass:UpdateDisplayItemRangeLines()
 	end
 end
 
+function ItemsTabClass:AddModComparisonTooltip(tooltip, mod)
+	local slotName = self.displayItem:GetPrimarySlot()
+	local newItem = new("Item", self.displayItem:BuildRaw())
+
+	for _, subMod in ipairs(mod) do
+		t_insert(newItem.explicitModLines, { line = subMod, modTags = mod.modTags, [mod.type] = true })
+	end
+
+	newItem:BuildAndParseRaw()
+
+	local calcFunc = self.build.calcsTab:GetMiscCalculator()
+	local outputBase = calcFunc({ repSlotName = slotName, repItem = self.displayItem }, {})
+	local outputNew = calcFunc({ repSlotName = slotName, repItem = newItem }, {})
+	self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew, "\n增加这条词缀会使得: ")	
+end
+
 -- Returns the first slot in which the given item is equipped
 function ItemsTabClass:GetEquippedSlotForItem(item)
 	for _, slot in ipairs(self.orderedSlots) do
@@ -2447,20 +2473,56 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 	controls.implicit = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 80, 45, 440, 18, nil, function()
 		buildList(controls.implicit2, controls.implicit, currentModType)
 	end)
+	controls.implicit.tooltipFunc = function(tooltip, mode, index, value)
+		tooltip:Clear()
+		if mode ~= "OUT" and value and value.mod then
+			for _, line in ipairs(value.mod) do
+				tooltip:AddLine(16, "^7"..line)
+			end
+			self:AddModComparisonTooltip(tooltip, value.mod)
+		end
+	end
 	controls.implicit2Label = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 75, 65, 0, 16, "^7基底#2:")
 	controls.implicit2 = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 80, 65, 440, 18, nil, function()
 		buildList(controls.implicit, controls.implicit2, currentModType)
 	end)
+	controls.implicit2.tooltipFunc = function(tooltip, mode, index, value)
+		tooltip:Clear()
+		if mode ~= "OUT" and value and value.mod then
+			for _, line in ipairs(value.mod) do
+				tooltip:AddLine(16, "^7"..line)
+			end
+			self:AddModComparisonTooltip(tooltip, value.mod)
+		end
+	end
 	controls.implicit3Label = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 75, 85, 0, 16, "^7基底#3:")
 	controls.implicit3 = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 80, 65, 440, 18, nil, function()
 		buildList(controls.implicit4, controls.implicit3, "ScourgeDownside")
 	end)
+	controls.implicit3.tooltipFunc = function(tooltip, mode, index, value)
+		tooltip:Clear()
+		if mode ~= "OUT" and value and value.mod then
+			for _, line in ipairs(value.mod) do
+				tooltip:AddLine(16, "^7"..line)
+			end
+			self:AddModComparisonTooltip(tooltip, value.mod)
+		end
+	end
 	controls.implicit3Label.shown = false
 	controls.implicit3.shown = false
 	controls.implicit4Label = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 75, 105, 0, 16, "^7基底#4:")
 	controls.implicit4 = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 80, 105, 440, 18, nil, function()
 		buildList(controls.implicit3, controls.implicit4, "ScourgeDownside")
 	end)
+	controls.implicit4.tooltipFunc = function(tooltip, mode, index, value)
+		tooltip:Clear()
+		if mode ~= "OUT" and value and value.mod then
+			for _, line in ipairs(value.mod) do
+				tooltip:AddLine(16, "^7"..line)
+			end
+			self:AddModComparisonTooltip(tooltip, value.mod)
+		end
+	end
 	controls.implicit4Label.shown = false
 	controls.implicit4.shown = false
 	buildList(controls.implicit, controls.implicit2, currentModType)
@@ -2772,45 +2834,31 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		item:BuildAndParseRaw()
 		return item
 	end
-controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 20, 0, 16, "^7来自:")
+	controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 20, 0, 16, "^7来自:")
 	controls.source = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 20, 150, 18, sourceList, function(index, value)
 		buildMods(value.sourceId)
 		controls.modSelect:SetSel(1)
 	end)
 	controls.source.enabled = #sourceList > 1
-controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 45, 0, 16, "^7加成:")
+	controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 45, 0, 16, "^7加成:")
 	controls.modSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 45, 600, 18, modList)
 	controls.modSelect.shown = function()
 		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
 	end
 	controls.modSelect.tooltipFunc = function(tooltip, mode, index, value)
-	
-		if value ~=nil   then 
-		
-			if value.spTip ~=nil then 
-				tooltip:Clear()
-				if  value then
-					for _, line in ipairs(value.spTip) do
-						tooltip:AddLine(16, "^7"..line)
-					end
-				end
-			elseif value.mod ~=nil then 
-				tooltip:Clear()
-				if mode ~= "OUT" and value then
-					for _, line in ipairs(value.mod) do
-						tooltip:AddLine(16, "^7"..line)
-					end
-				end
-			end 
-		
-		end 
-		 
+		tooltip:Clear()
+		if mode ~= "OUT" and value then
+			for _, line in ipairs(value.mod) do
+				tooltip:AddLine(16, "^7"..line)
+			end
+			self:AddModComparisonTooltip(tooltip, value.mod)
+		end
 	end
 	controls.custom = new("EditControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 45, 440, 18)
 	controls.custom.shown = function()
 		return sourceList[controls.source.selIndex].sourceId == "CUSTOM"
 	end
-controls.save = new("ButtonControl", nil, -45, 75, 80, 20, "增加", function()
+	controls.save = new("ButtonControl", nil, -45, 75, 80, 20, "增加", function()
 		self:SetDisplayItem(addModifier())
 		main:ClosePopup()
 	end)
@@ -2818,10 +2866,10 @@ controls.save = new("ButtonControl", nil, -45, 75, 80, 20, "增加", function()
 		tooltip:Clear()
 		self:AddItemTooltip(tooltip, addModifier())
 	end	
-controls.close = new("ButtonControl", nil, 45, 75, 80, 20, "取消", function()
+	controls.close = new("ButtonControl", nil, 45, 75, 80, 20, "取消", function()
 		main:ClosePopup()
 	end)
-main:OpenPopup(710, 105, "装备新增词缀", controls, "save", sourceList[controls.source.selIndex].sourceId == "CUSTOM" and "custom")	
+	main:OpenPopup(710, 105, "装备新增词缀", controls, "save", sourceList[controls.source.selIndex].sourceId == "CUSTOM" and "custom")	
 end
 
 
@@ -3029,6 +3077,7 @@ function ItemsTabClass:AddImplicitToDisplayItem()
 			for _, line in ipairs(value.mod) do
 				tooltip:AddLine(16, "^7"..line)
 			end
+			self:AddModComparisonTooltip(tooltip, value.mod)
 		end
 	end
 	controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 70, 0, 16, "^7词缀:")
@@ -3046,6 +3095,7 @@ function ItemsTabClass:AddImplicitToDisplayItem()
 			for _, line in ipairs(value.mod) do
 				tooltip:AddLine(16, "^7"..line)
 			end
+			self:AddModComparisonTooltip(tooltip, value.mod)
 		end
 	end
 	controls.custom = new("EditControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 45, 440, 18)
