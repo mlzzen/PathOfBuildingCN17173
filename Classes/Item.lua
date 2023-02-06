@@ -572,7 +572,7 @@ if combLine:match("%(%d+%-%d+ %- %d+%-%d+%)") or combLine:match("%(%-?[%d%.]+ %-
 						foundExplicit = true
 					end
 				elseif mode == "GAME" then
-					if gameModeStage == "IMPLICIT" or gameModeStage == "EXPLICIT" then
+					if gameModeStage == "IMPLICIT" or gameModeStage == "EXPLICIT" or (gameModeStage == "FINDIMPLICIT" and (not data.itemBases[line]) and not (self.name == line) and not line:find("Two%-Toned") and not (self.base and (line == self.base.type or self.base.subType and line == self.base.subType .. " " .. self.base.type))) then
 						t_insert(modLines, { line = line, extra = line, modList = { }, modTags = { }, variantList = variantList, scourge = scourge, crafted = crafted, custom = custom, fractured = fractured, exarch = exarch, eater = eater, synthesis = synthesis, implicit = implicit })
 					elseif gameModeStage == "FINDEXPLICIT" then
 						gameModeStage = "DONE"
