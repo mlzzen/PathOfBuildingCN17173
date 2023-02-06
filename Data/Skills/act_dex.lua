@@ -4112,10 +4112,10 @@ skills["FlamethrowerTrap"] = {
 		output.AverageActiveTraps = averageActiveTraps
 		if breakdown then
 			breakdown.AverageActiveTraps = { }
-			t_insert(breakdown.AverageActiveTraps, "Average active traps, not considering stored cooldown uses:")
-			t_insert(breakdown.AverageActiveTraps, s_format("%.2f^8 (skill duration)", duration))
-			t_insert(breakdown.AverageActiveTraps, s_format("/ %.2f^8 (cooldown)", cooldown))
-			t_insert(breakdown.AverageActiveTraps, s_format("= %.2f traps", averageActiveTraps))
+			t_insert(breakdown.AverageActiveTraps, "平均激活陷阱数量，不考虑存储的次数:")
+			t_insert(breakdown.AverageActiveTraps, s_format("%.2f^8 (技能持续时间)", duration))
+			t_insert(breakdown.AverageActiveTraps, s_format("/ %.2f^8 (冷却时间)", cooldown))
+			t_insert(breakdown.AverageActiveTraps, s_format("= %.2f 陷阱数量", averageActiveTraps))
 		end
 	end,
 	statMap = {
@@ -7747,22 +7747,22 @@ skills["PhysCascadeTrap"] = {
 	castTime = 1,
 	parts = {
 		{
-			name = "One wave hitting",
+			name = "单次震波击中",
 		},
 		{
-			name = "Average waves hitting configured size enemy",
+			name = "平均震波击中(根据配置的敌人体积计算)",
 		},
 		{
-			name = "All waves hitting",
+			name = "全部震波击中",
 		},
 		{
-			name = "Average active traps, one wave",
+			name = "平均陷阱数量, 单次震波",
 		},
 		{
-			name = "Average active traps, average waves",
+			name = "平均陷阱数量, 平均震波",
 		},
 		{
-			name = "Average active traps, all waves",
+			name = "平均陷阱数量, 全部震波",
 		},
 	},
 	preDamageFunc = function(activeSkill, output, breakdown)

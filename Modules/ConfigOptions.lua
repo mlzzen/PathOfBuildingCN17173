@@ -457,6 +457,30 @@ return {
 	{ var = "VaalMoltenShellDamageMitigated", type = "count", label = "减免的伤害数值:", tooltip = "最后一秒被瓦尔.熔岩护盾减免的伤害", ifSkill = "瓦尔.熔岩护盾", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "VaalMoltenShellDamageMitigated", value = val }, "Config", { type = "SkillName", skillName = "熔岩护盾" })
 	end },
+	{ label = "多段范围技能:", ifSkillList = { "震波陷阱", "电塔陷阱" } },
+	{ var = "enemySizePreset", type = "list", label = "敌人体积预设:", ifSkillList = { "震波陷阱", "电塔陷阱" }, defaultIndex = 2, tooltip = [[
+配置敌人的碰撞盒的半径，用于计算一些多重范围技能的效果(霰弹效应)
+"小型": 半径设为2.
+	绝大多数怪物和玩家的大小.
+"中型": 半径设为3.
+	绝大多数人形Boss的大小(如贤主;塑界者;伊泽洛).
+"大型": 半径设为5.
+	一些大型Boss的大小(如贤主;卡鲁之王冈姆;瓦尔超灵).
+"巨型": 半径设为11.
+	一些体型最大的Boss的大小(如贤主之核;惊海之王索亚格斯).]], list = {{val="Small",label="小型"},{val="Medium",label="中型"},{val="Large",label="大型"},{val="Huge",label="巨型"}}, apply = function(val, modList, enemyModList, build)
+		if val == "Small" then
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(2, true)
+		elseif val == "Medium" then
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(3, true)
+		elseif val == "Large" then
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(5, true)
+		elseif val == "Huge" then
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(11, true)
+		end
+	end },
+	{ var = "enemyRadius", type = "integer", label = "敌人半径:", ifSkillList = { "震波陷阱", "电塔陷阱" }, tooltip = "配置敌人的碰撞盒的半径，用于计算一些多重范围技能的效果(霰弹效应).", apply = function(val, modList, enemyModList)
+		modList:NewMod("EnemyRadius", "BASE", m_max(val, 1), "Config")
+	end },
 
 	-- Section: Map modifiers/curses
 	{ section = "地图词缀和玩家 Debuff", col = 2 },

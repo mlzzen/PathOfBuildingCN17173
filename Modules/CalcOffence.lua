@@ -1199,6 +1199,39 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 
+	-- Skill uptime
+	do
+		if not activeSkill.skillTypes[SkillType.Vaal] then -- exclude vaal skills as we currently don't support soul generation or gain prevention.
+			local cooldown = output.Cooldown or 0
+			for _, durationType in pairs({ "Duration", "DurationSecondary", "AuraDuration", "reserveDuration" }) do
+				local duration = output[durationType] or 0
+				if (duration ~= 0 and cooldown ~= 0) then
+					local uptime = 1
+					if skillModList:Flag(skillCfg, "NoCooldownRecoveryInDuration") then
+						uptime = duration / (cooldown + duration)
+					else
+						uptime = duration / (cooldown)
+					end
+					uptime = m_min(uptime, 1)
+					output[durationType.."Uptime"] = uptime * 100
+					if breakdown then
+						if skillModList:Flag(skillCfg, "NoCooldownRecoveryInDuration") then
+							breakdown[durationType.."Uptime"] = {
+								s_format("%.2fs / (%.2fs + %.2fs)", duration, cooldown, duration),
+								s_format("= %d%%", output[durationType.."Uptime"])
+							}
+						else
+							breakdown[durationType.."Uptime"] = {
+								s_format("%.2fs / %.2fs", duration, cooldown),
+								s_format("= %d%%", output[durationType.."Uptime"])
+							}
+						end
+					end
+				end
+			end
+		end
+	end
+
 	-- Calculate costs (may be slightly off due to rounding differences)
 	local costs = {
 		["Mana"] = { type = "Mana", upfront = true, percent = false, text = "mana", baseCost = 0, totalCost = 0, baseCostNoMult = 0 },
@@ -1214,55 +1247,57 @@ function calcs.offence(env, actor, activeSkill)
 		["ESPerMinute"] = { type = "ES", upfront = false, percent = false, text = "ES/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0 },
 		["ESPercentPerMinute"] = { type = "ES", upfront = false, percent = true, text = "ES/s", baseCost = 0, totalCost = 0, baseCostNoMult = 0 },
 	}
-	-- First pass to calculate base costs.  Used for cost conversion (e.g. Petrified Blood)
+	-- First pass to calculate base costs. Used for cost conversion (e.g. Petrified Blood)
 	for resource, val in pairs(costs) do
 		local skillCost = activeSkill.activeEffect.grantedEffectLevel.cost and activeSkill.activeEffect.grantedEffectLevel.cost[resource] or nil
 		local baseCost = round(skillCost and skillCost / data.costs[resource].Divisor or 0, 2)
-		local baseCostNoMult = skillModList:Sum("BASE", skillCfg, resource.."CostNoMult") or 0
-		local totalCost = 0
+		local baseCostNoMult = skillModList:Sum("BASE", skillCfg, resource.."CostNoMult") or 0 -- Flat cost from gem e.g. Divine Blessing
 		if val.upfront then
-			baseCost = baseCost + skillModList:Sum("BASE", skillCfg, resource.."CostBase")
-			if resource == "Mana" and skillData.baseManaCostIsAtLeastPercentUnreservedMana then
-				baseCost = m_max(baseCost, m_floor((output.ManaUnreserved or 0) * skillData.baseManaCostIsAtLeastPercentUnreservedMana / 100))
-			end
-			totalCost = skillModList:Sum("BASE", skillCfg, resource.."Cost")
-			if activeSkill.skillTypes[SkillType.ReservationBecomesCost] then
+			baseCost = baseCost + skillModList:Sum("BASE", skillCfg, resource.."CostBase") -- Rage Cost
+			val.totalCost = skillModList:Sum("BASE", skillCfg, resource.."Cost", "Cost")
+			if resource == "Mana" and activeSkill.skillTypes[SkillType.ReservationBecomesCost] and val.percent == false then --Divine Blessing
 				local reservedFlat = activeSkill.skillData[val.text.."ReservationFlat"] or activeSkill.activeEffect.grantedEffectLevel[val.text.."ReservationFlat"] or 0
 				baseCost = baseCost + reservedFlat
 				local reservedPercent = activeSkill.skillData[val.text.."ReservationPercent"] or activeSkill.activeEffect.grantedEffectLevel[val.text.."ReservationPercent"] or 0
-				baseCost = baseCost + (m_floor((output[resource] or 0) * reservedPercent / 100))
+				baseCost = baseCost + (round((output[resource] or 0) * reservedPercent / 100))
+			end
+			if resource == "Mana" and skillData.baseManaCostIsAtLeastPercentUnreservedMana then -- Archmage
+				baseCost = m_max(baseCost, m_floor((output.ManaUnreserved or 0) * skillData.baseManaCostIsAtLeastPercentUnreservedMana / 100))
 			end
 		end
-		if val.type == "Mana" and skillModList:Flag(skillCfg, "CostLifeInsteadOfMana") then
-			local target = resource:gsub("Mana", "Life")
-			costs[target].baseCost = costs[target].baseCost + baseCost
-			baseCost = 0
-			costs[target].totalCost = costs[target].totalCost + totalCost
-			totalCost = 0
-			costs[target].baseCostNoMult = costs[target].baseCostNoMult + baseCostNoMult
-			baseCostNoMult = 0
-		end
-		-- Extra cost (e.g. Petrified Blood) calculations happen after cost conversion (e.g. Blood Magic)
-		if val.type == "Mana" and skillModList:Sum("BASE", skillCfg, "ManaCostAsLifeCost") then
-			local target = resource:gsub("Mana", "Life")
-			costs[target].baseCost = costs[target].baseCost + (baseCost + baseCostNoMult) * skillModList:Sum("BASE", skillCfg, "ManaCostAsLifeCost") / 100
-		end
 		val.baseCost = val.baseCost + baseCost
-		val.totalCost = val.totalCost + totalCost
 		val.baseCostNoMult = val.baseCostNoMult + baseCostNoMult
-		output[(val.upfront and resource or resource:gsub("Minute", "Second")).."HasCost"] = val.baseCost > 0 or val.totalCost > 0 or val.baseCostNoMult > 0
+		if val.type == "Life" then
+			local manaType = resource:gsub("Life", "Mana")
+			if skillModList:Flag(skillCfg, "CostLifeInsteadOfMana") then -- Blood Magic / Lifetap
+				val.baseCost = val.baseCost + costs[manaType].baseCost
+				val.baseCostNoMult = val.baseCostNoMult + costs[manaType].baseCostNoMult
+				costs[manaType].baseCost = 0
+				costs[manaType].baseCostNoMult = 0
+			elseif skillModList:Sum("BASE", skillCfg, "ManaCostAsLifeCost") > 0 then -- Extra cost (e.g. Petrified Blood) calculations
+				local portion = skillModList:Sum("BASE", skillCfg, "ManaCostAsLifeCost") / 100
+				val.baseCost = val.baseCost + costs[manaType].baseCost * portion
+				val.baseCostNoMult = val.baseCostNoMult + costs[manaType].baseCostNoMult * portion
+			end
+		end
 	end
 	for resource, val in pairs(costs) do
+		local resource = val.upfront and resource or resource:gsub("Minute", "Second")
+		local hasCost = val.baseCost > 0 or val.totalCost > 0 or val.baseCostNoMult > 0
+		output[resource.."HasCost"] = hasCost
 		local dec = val.upfront and 0 or 2
-		local costName = (val.upfront and resource or resource:gsub("Minute", "Second")).."Cost"
-		local mult = floor(skillModList:More(skillCfg, "SupportManaMultiplier"), 2)
-		local more = floor(skillModList:More(skillCfg, val.type.."Cost", "Cost"), 2)
+		local costName = resource.."Cost"
+		local mult = 1
+		for _, value in ipairs(skillModList:Tabulate("MORE", skillCfg, "SupportManaMultiplier")) do
+			mult = m_floor(mult * (100 + value.mod.value)) / 100
+		end
+		local more = skillModList:More(skillCfg, val.type.."Cost", "Cost")
 		local inc = skillModList:Sum("INC", skillCfg, val.type.."Cost", "Cost")
-		output[costName] = floor(val.baseCost * mult + val.baseCostNoMult, dec)
-		output[costName] = floor(m_abs(inc / 100) * output[costName], dec) * (inc >= 0 and 1 or -1) + output[costName]
-		output[costName] = floor(m_abs(more - 1) * output[costName], dec) * (more >= 1 and 1 or -1) + output[costName]
-		output[costName] = m_max(0, floor(output[costName] + val.totalCost, dec))
-		if breakdown and output[costName] ~= val.baseCost then
+		output[costName] = m_floor(val.baseCost * mult + val.baseCostNoMult)
+		output[costName] = m_max(0, (1 + inc / 100) * output[costName])
+		output[costName] = m_max(0, more * output[costName])
+		output[costName] = m_max(0, round(output[costName] + val.totalCost, dec)) -- There are some weird rounding issues producing off by one in here.
+		if breakdown and hasCost then
 			breakdown[costName] = {
 				s_format("%.2f"..(val.percent and "%%" or "").." ^8(基础 "..val.text.." 消耗)", val.baseCost)
 			}
@@ -1279,7 +1314,7 @@ function calcs.offence(env, actor, activeSkill)
 				t_insert(breakdown[costName], s_format("x %.2f ^8(总增/总降 "..val.text.." 消耗)", more))
 			end
 			if val.totalCost ~= 0 then
-				t_insert(breakdown[costName], s_format("%+d ^8(- "..val.text.." 消耗)", val.totalCost))
+				t_insert(breakdown[costName], s_format("%+d ^8(总 "..val.text.." 消耗)", val.totalCost))
 			end
 			t_insert(breakdown[costName], s_format("= %"..(val.upfront and "d" or ".2f")..(val.percent and "%%" or ""), output[costName]))
 		end
@@ -1287,7 +1322,7 @@ function calcs.offence(env, actor, activeSkill)
 
 	-- account for Sacrificial Zeal
 	-- Note: Sacrificial Zeal grants Added Spell Physical Damage equal to 25% of the Skill's Mana Cost, and causes you to take Physical Damage over Time, for 4 seconds
-	if skillModList:Flag(nil, "Condition:SacrificialZeal") then
+	if skillModList:Flag(nil, "Condition:SacrificialZeal") and output.ManaHasCost then
 		local multiplier = 0.25
 		skillModList:NewMod("PhysicalMin", "BASE", m_floor(output.ManaCost * multiplier), "热情牺牲", ModFlag.Spell)
 		skillModList:NewMod("PhysicalMax", "BASE", m_floor(output.ManaCost * multiplier), "热情牺牲", ModFlag.Spell)
@@ -1320,11 +1355,11 @@ function calcs.offence(env, actor, activeSkill)
 		for otherTypeIndex = damageTypeIndex + 1, 5 do
 			-- For all possible destination types, check for global and skill conversions
 			otherType = dmgTypeList[otherTypeIndex]
-			globalConv[otherType] = skillModList:Sum("BASE", skillCfg, damageType.."DamageConvertTo"..otherType, isElemental[damageType] and "ElementalDamageConvertTo"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageConvertTo"..otherType or nil)
+			globalConv[otherType] = m_max(skillModList:Sum("BASE", skillCfg, damageType.."DamageConvertTo"..otherType, isElemental[damageType] and "ElementalDamageConvertTo"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageConvertTo"..otherType or nil), 0)
 			globalTotal = globalTotal + globalConv[otherType]
-			skillConv[otherType] = skillModList:Sum("BASE", skillCfg, "Skill"..damageType.."DamageConvertTo"..otherType)
+			skillConv[otherType] = m_max(skillModList:Sum("BASE", skillCfg, "Skill"..damageType.."DamageConvertTo"..otherType), 0)
 			skillTotal = skillTotal + skillConv[otherType]
-			add[otherType] = skillModList:Sum("BASE", skillCfg, damageType.."DamageGainAs"..otherType, isElemental[damageType] and "ElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageGainAs"..otherType or nil)
+			add[otherType] = m_max(skillModList:Sum("BASE", skillCfg, damageType.."DamageGainAs"..otherType, isElemental[damageType] and "ElementalDamageGainAs"..otherType or nil, damageType ~= "Chaos" and "NonChaosDamageGainAs"..otherType or nil), 0)
 		end
 		if skillTotal > 100 then
 			-- Skill conversion exceeds 100%, scale it down and remove non-skill conversions
@@ -3715,9 +3750,9 @@ function calcs.offence(env, actor, activeSkill)
 				ramping = true,
 			},
 			["Brittle"] = {
-				effList = { 5, 10 },
-				effect = function(damage, effectMod) return 25 * ((damage / enemyThreshold) ^ 0.4) * effectMod end,
-				thresh = function(damage, value, effectMod) return damage * ((25 * effectMod / value) ^ 2.5) end,
+				effList = { 2, 4 },
+				effect = function(damage, effectMod) return 10 * ((damage / enemyThreshold) ^ 0.4) * effectMod end,
+				thresh = function(damage, value, effectMod) return damage * ((10 * effectMod / value) ^ 2.5) end,
 				ramping = true,
 			},
 			["Sap"] = {
@@ -4165,6 +4200,13 @@ function calcs.offence(env, actor, activeSkill)
 	--Calculates and displays cost per second for skills that don't already have one (link skills)
 	for resource, val in pairs(costs) do
 		if(val.upfront and output[resource.."HasCost"] and output[resource.."Cost"] > 0 and not output[resource.."PerSecondHasCost"] and (output.Speed > 0 or output.Cooldown)) then
+			local usedResource = resource
+			local EB = env.modDB:Flag(nil, "EnergyShieldProtectsMana")
+
+			if EB and resource == "Mana" then
+				usedResource = "ES"
+			end
+			
 			local repeats = 1 + (skillModList:Sum("BASE", cfg, "RepeatCount") or 0)
 			local useSpeed = 1
 			local timeType

@@ -136,7 +136,7 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 			end)
 		}, },
 		{ label = "技能 分段", playerFlag = "multiPart", { controlName = "mainSkillPart", 
-			control = new("DropDownControl", nil, 0, 0, 150, 16, nil, function(index, value)
+			control = new("DropDownControl", nil, 0, 0, 250, 16, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
 				srcInstance.skillPartCalcs = index

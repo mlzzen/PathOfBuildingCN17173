@@ -6405,22 +6405,22 @@ skills["LightningTowerTrap"] = {
 	castTime = 1,
 	parts = {
 		{
-			name = "One wave hitting",
+			name = "单次电流击中",
 		},
 		{
-			name = "Average waves hitting configured size enemy",
+			name = "平均电流击中(根据配置的敌人体积计算)",
 		},
 		{
-			name = "All waves hitting",
+			name = "全部电流击中",
 		},
 		{
-			name = "Average active traps, one wave",
+			name = "平均陷阱数量, 单次电流",
 		},
 		{
-			name = "Average active traps, average waves",
+			name = "平均陷阱数量, 平均电流",
 		},
 		{
-			name = "Average active traps, all waves",
+			name = "平均陷阱数量, 全部电流",
 		},
 	},
 	preDamageFunc = function(activeSkill, output, breakdown)

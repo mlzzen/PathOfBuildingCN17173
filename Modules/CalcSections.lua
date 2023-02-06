@@ -599,7 +599,6 @@ return {
 { 1, "SkillTypeStats", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "技能类型-特殊状态", data = {
 	{ label = "魔力消耗", color = colorCodes.MANA, haveOutput = "ManaHasCost", { format = "{0:output:ManaCost}", { breakdown = "ManaCost" }, { modName = { "ManaCost", "Cost" }, cfg = "skill" }, }, },
 	{ label = "魔力百分比消耗", color = colorCodes.MANA, haveOutput = "ManaPercentHasCost", { format = "{0:output:ManaPercentCost}", { breakdown = "ManaPercentCost" }, { modName = { "ManaCost", "Cost" }, cfg = "skill" }, }, },
-
 	{ label = "魔力每秒消耗", color = colorCodes.MANA, haveOutput = "ManaPerSecondHasCost", { format = "{2:output:ManaPerSecondCost}", { breakdown = "ManaPerSecondCost" }, { modName = { "ManaCost", "Cost" }, cfg = "skill" }, }, },
 	{ label = "魔力每秒百分比消耗", color = colorCodes.MANA, haveOutput = "ManaPercentPerSecondHasCost", { format = "{2:output:ManaPercentPerSecondCost}", { breakdown = "ManaPercentPerSecondCost" }, { modName = { "ManaCost", "Cost" }, cfg = "skill" }, }, },
 	{ label = "生命消耗", color = colorCodes.LIFE, haveOutput = "LifeHasCost", { format = "{0:output:LifeCost}", { breakdown = "LifeCost" }, { modName = { "LifeCost", "Cost" }, cfg = "skill" }, }, },
@@ -607,13 +606,6 @@ return {
 	{ label = "生命每秒消耗", color = colorCodes.LIFE, haveOutput = "LifePerSecondHasCost", { format = "{2:output:LifePerSecondCost}", { breakdown = "LifePerSecondCost" }, { modName = { "LifeCost", "Cost" }, cfg = "skill" }, }, },
 	{ label = "生命每秒百分比消耗", color = colorCodes.LIFE, haveOutput = "LifePercentPerSecondHasCost", { format = "{2:output:LifePercentPerSecondCost}", { breakdown = "LifePercentPerSecondCost" }, { modName = { "LifeCost", "Cost" }, cfg = "skill" }, }, },
 	{ label = "能量护盾消耗", color = colorCodes.ES, haveOutput = "ESHasCost", { format = "{0:output:ESCost}", { breakdown = "ESCost" }, { modName = { "ESCost", "Cost" }, cfg = "skill" }, }, },
-
-
-
-
-
-
-
 	{ label = "能量护盾每秒消耗", color = colorCodes.ES, haveOutput = "ESPerSecondHasCost", { format = "{2:output:ESPerSecondCost}", { breakdown = "ESPerSecondCost" }, { modName = { "ESCost", "Cost" }, cfg = "skill" }, }, },
 	{ label = "能量护盾每秒百分比消耗", color = colorCodes.ES, haveOutput = "ESPercentPerSecondHasCost", { format = "{2:output:ESPercentPerSecondCost}", { breakdown = "ESPercentPerSecondCost" }, { modName = { "ESCost", "Cost" }, cfg = "skill" }, }, },
 	{ label = "怒火消耗", color = colorCodes.RAGE, haveOutput = "RageHasCost", { format = "{0:output:RageCost}", { breakdown = "RageCost" }, { modName = { "RageCost", "Cost" }, cfg = "skill" }, }, },
