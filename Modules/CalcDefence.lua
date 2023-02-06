@@ -933,6 +933,9 @@ function calcs.defence(env, actor)
 	for _, ailment in ipairs(data.ailmentTypeList) do
 		output["Self"..ailment.."Effect"] = calcLib.mod(modDB, nil, "Self"..ailment.."Effect") * (modDB:Flag(nil, "Condition:"..ailment.."edSelf") and calcLib.mod(modDB, nil, "Enemy"..ailment.."Effect") or calcLib.mod(enemyDB, nil, "Enemy"..ailment.."Effect")) * 100
 	end
+	for _, ailment in ipairs(data.elementalAilmentTypeList) do
+		output["Self"..ailment.."Effect"] = calcLib.mod(modDB, nil, "Self"..ailment.."Effect") * (modDB:Flag(nil, "Condition:"..ailment.."edSelf") and calcLib.mod(modDB, nil, "Enemy"..ailment.."Effect") or calcLib.mod(enemyDB, nil, "Enemy"..ailment.."Effect")) * 100
+	end
 	--Enemy damage input and modifications
 	do
 		output["totalEnemyDamage"] = 0

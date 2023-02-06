@@ -1264,7 +1264,9 @@ function calcs.perform(env, avoidCache)
 		end
 		if (activeSkill.activeEffect.grantedEffect.name == "瓦尔.闪电陷阱" or activeSkill.activeEffect.grantedEffect.name == "感电地面") then
 			-- Shock effect applies to shocked ground
-			local effect = activeSkill.skillModList:Sum("BASE", nil, "ShockedGroundEffect") * (1 + activeSkill.skillModList:Sum("INC", nil, "EnemyShockEffect") / 100)
+			local inc = activeSkill.skillModList:Sum("INC", nil, "EnemyShockEffect") + enemyDB:Sum("INC", nil, "SelfShockEffect")
+			local more = activeSkill.skillModList:Sum("MORE", nil, "EnemyShockEffect") * enemyDB:Sum("MORE", nil, "SelfShockEffect")
+			local effect = activeSkill.skillModList:Sum("BASE", nil, "ShockedGroundBase") * (1 + inc / 100) * more
 			modDB:NewMod("ShockOverride", "BASE", effect, "Shocked Ground", { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" } )
 		end
 		if activeSkill.skillData.supportBonechill and (activeSkill.skillTypes[SkillType.ChillingArea] or activeSkill.skillTypes[SkillType.NonHitChill] or not activeSkill.skillModList:Flag(nil, "CannotChill")) then
@@ -1272,7 +1274,9 @@ function calcs.perform(env, avoidCache)
 		end
 		if activeSkill.activeEffect.grantedEffect.name == "召唤飞掠者" then
 			if not activeSkill.skillModList:Flag(nil, "SkitterbotsCannotShock") then
-				local effect = data.nonDamagingAilment.Shock.default * (1 + activeSkill.skillModList:Sum("INC", { source = "Skill" }, "EnemyShockEffect") / 100)
+				local inc = activeSkill.skillModList:Sum("INC", { source = "Skill" }, "EnemyChillEffect") + enemyDB:Sum("INC", nil, "SelfChillEffect")
+				local more = activeSkill.skillModList:Sum("MORE", { source = "Skill" }, "EnemyChillEffect") * enemyDB:Sum("MORE", nil, "SelfChillEffect")
+				local effect = data.nonDamagingAilment.Chill.default * (1 + inc / 100) * more
 				modDB:NewMod("ShockOverride", "BASE", effect, activeSkill.activeEffect.grantedEffect.name)
 				enemyDB:NewMod("Condition:Shocked", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
 			end
@@ -1285,7 +1289,9 @@ function calcs.perform(env, avoidCache)
 				end
 			end
 		elseif activeSkill.skillTypes[SkillType.ChillingArea] or (activeSkill.skillTypes[SkillType.NonHitChill] and not activeSkill.skillModList:Flag(nil, "CannotChill")) then
-			local effect = data.nonDamagingAilment.Chill.default * (1 + activeSkill.skillModList:Sum("INC", nil, "EnemyChillEffect") / 100)
+			local inc = activeSkill.skillModList:Sum("INC", nil, "EnemyChillEffect") + enemyDB:Sum("INC", nil, "SelfChillEffect")
+			local more = activeSkill.skillModList:Sum("MORE", nil, "EnemyChillEffect") * enemyDB:Sum("MORE", nil, "SelfChillEffect")
+			local effect = data.nonDamagingAilment.Chill.default * (1 + inc / 100) * more
 			modDB:NewMod("ChillOverride", "BASE", effect, activeSkill.activeEffect.grantedEffect.name)
 			enemyDB:NewMod("Condition:Chilled", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
 			if activeSkill.skillData.supportBonechill then
@@ -3201,9 +3207,13 @@ function calcs.perform(env, avoidCache)
 					-- if not, use the generic modifiers
 					-- Scorch/Sap/Brittle do not have guaranteed sources from hits, and therefor will only end up in this bit of code if it's not supposed to apply the skillModList, which is bad
 					if ailment ~= "Scorch" and ailment ~= "Sap" and ailment ~= "Brittle" and not env.player.mainSkill.skillModList:Flag(nil, "Cannot"..ailment) and env.player.mainSkill.skillFlags.hit and modDB:Flag(nil, "ChecksHighestDamage") then
-						effect = effect * calcLib.mod(env.player.mainSkill.skillModList, nil, "Enemy"..ailment.."Effect")
+						local inc = env.player.mainSkill.skillModList:Sum("INC", nil, "Enemy"..ailment.."Effect") + enemyDB:Sum("INC", nil, "Self"..ailment.."Effect")
+						local more = env.player.mainSkill.skillModList:Sum("MORE", nil, "Enemy"..ailment.."Effect") * enemyDB:Sum("MORE", nil, "Self"..ailment.."Effect")
+						effect = effect * (1 + inc / 100) * more
 					else
-						effect = effect * calcLib.mod(modDB, nil, "Enemy"..ailment.."Effect")
+						local inc = modDB:Sum("INC", nil, "Enemy"..ailment.."Effect") + enemyDB:Sum("INC", nil, "Self"..ailment.."Effect")
+						local more = modDB:Sum("MORE", nil, "Enemy"..ailment.."Effect") * enemyDB:Sum("MORE", nil, "Self"..ailment.."Effect")
+						effect = effect * (1 + inc / 100) * more
 					end
 					modDB:NewMod(ailment.."Override", "BASE", effect, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 				end
