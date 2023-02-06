@@ -66,6 +66,45 @@ function main:Init()
 	if launch.devMode and IsKeyDown("CTRL") and IsKeyDown("SHIFT") then
 		self.allowTreeDownload = true
 	end
+
+
+	self.inputEvents = { }
+	self.popups = { }
+	self.tooltipLines = { }
+
+	self.gameAccounts = { }
+
+	self.buildSortMode = "NAME"
+	self.connectionProtocol = 0
+	self.nodePowerTheme = "RED/BLUE"
+	self.showThousandsSeparators = true
+	self.thousandsSeparator = ","
+	self.decimalSeparator = "."
+	self.defaultItemAffixQuality = 0.5
+	self.showTitlebarName = true
+	self.showWarnings = true
+	self.slotOnlyTooltips = true
+	self.POESESSID = ""
+
+	local ignoreBuild
+	if arg[1] then
+		buildSites.DownloadBuild(arg[1], nil, function(isSuccess, data)
+			if not isSuccess then
+				self:SetMode("BUILD", false, data)
+			else
+				local xmlText = Inflate(common.base64.decode(data:gsub("-","+"):gsub("_","/")))
+				self:SetMode("BUILD", false, "Imported Build", xmlText)
+				self.newModeChangeToTree = true
+			end
+		end)
+		arg[1] = nil -- Protect against downloading again this session.
+		ignoreBuild = true
+	end
+
+	if not ignoreBuild then
+		self:SetMode("BUILD", false, "Unnamed build")
+	end
+	self:LoadSettings(ignoreBuild)
 	self.tree = { }
 	self:LoadTree(latestTreeVersion)
 

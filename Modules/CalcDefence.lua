@@ -127,6 +127,11 @@ function calcs.defence(env, actor)
 				"Max: "..totemMax.."%",
 				"Total: "..totemTotal.."%",
 			}
+			breakdown["Totem"..elem.."Resist"] = {
+				"下限: "..min.."%",
+				"上限: "..totemMax.."%",
+				"总: "..totemTotal.."%",
+			}
 		end
 	end
 
@@ -492,7 +497,7 @@ function calcs.defence(env, actor)
 					s_format("近似闪避率: %d%%", output.EvadeChance),
 				}
 				breakdown.MeleeEvadeChance = {
-					s_format("敌人等级: %d ^8(%s 配置界面)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
+					s_format("敌人等级: %d ^8(%s 配置界面配置)", env.enemyLevel, env.configInput.enemyLevel and "覆盖了" or "可以从"),
 					s_format("平均敌人命中: %d", enemyAccuracy),
 					s_format("有效闪避: %d", output.MeleeEvasion),
 					s_format("近似近战闪避率: %d%%", output.MeleeEvadeChance),
@@ -512,7 +517,6 @@ function calcs.defence(env, actor)
 	}
 	local spellSuppressionChance =  modDB:Sum("BASE", weaponsCfg, "SpellSuppressionChance")
 	local totalSpellSuppressionChance = modDB:Override(weaponsCfg, "SpellSuppressionChance") or spellSuppressionChance
-	
 	-- Dodge
 	-- Acrobatics Spell Suppression to Spell Dodge Chance conversion.
 	if modDB:Flag(nil, "ConvertSpellSuppressionToSpellDodge") then
@@ -657,11 +661,11 @@ function calcs.defence(env, actor)
 			output.LifeRegen = 0
 			local lifeBase = modDB:Sum("BASE", nil, "LifeRegen")
 			if lifeBase > 0 then
-				modDB:NewMod("EnergyShieldRegen", "BASE", lifeBase, "Zealot's Oath")
+				modDB:NewMod("EnergyShieldRegen", "BASE", lifeBase, "狂热誓言")
 			end
 			local lifePercent = modDB:Sum("BASE", nil, "LifeRegenPercent")
 			if lifePercent > 0 then
-				modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "Zealot's Oath")
+				modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "狂热誓言")
 			end
 		else
 			if inc ~= 0 then -- legacy chain breaker increase/decrease regen rate to different resource.
@@ -699,10 +703,10 @@ function calcs.defence(env, actor)
 			breakdown[resource.."RegenRecovery"] = { }
 			breakdown.multiChain(breakdown[resource.."RegenRecovery"], {
 				label = resourceName.." Regeneration:",
-				base = s_format("%.1f ^8(基础)", baseRegen),
+				base = { "%.1f ^8(基础)", baseRegen },
 				{ "%.2f ^8(提高/降低)", 1 + inc/100 },
 				{ "%.2f ^8(额外提高/降低)", more },
-				{ "%.2f ^8(恢复率加成)", recoveryRateMod },
+				{ "%.2f ^8(回复率加成)", recoveryRateMod },
 				total = s_format("= %.1f ^8每秒", regenRate)
 			})
 			if modDB:Flag(nil, "UnaffectedBy"..resource.."Regen") then
@@ -752,14 +756,14 @@ function calcs.defence(env, actor)
 				breakdown.EnergyShieldRecharge = { }
 				breakdown.multiChain(breakdown.EnergyShieldRecharge, {
 					label = "能量护盾充能速率:",
-					base = s_format("%.1f ^8(33%% 每秒)", output.EnergyShield * data.misc.EnergyShieldRechargeBase),
+					base = { "%.1f ^8(33%% 每秒)", output.EnergyShield * data.misc.EnergyShieldRechargeBase },
 					{ "%.2f ^8(提高/降低)", 1 + inc/100 },
 					{ "%.2f ^8(额外提高/降低)", more },
 					total = s_format("= %.1f ^8每秒", recharge),
 				})
 				breakdown.multiChain(breakdown.EnergyShieldRecharge, {
 					label = "有效能量护盾充能速率:",
-					base = s_format("%.1f", recharge),
+					base = { "%.1f", recharge },
 					{ "%.2f ^8(回复速率加成)", output.EnergyShieldRecoveryRateMod },
 					total = s_format("= %.1f ^8每秒", output.EnergyShieldRecharge),
 				})
@@ -791,12 +795,12 @@ function calcs.defence(env, actor)
 			if breakdown then
 				if output[recoupType.."RecoveryRateMod"] ~= 1 then
 					breakdown[recoupType.."Recoup"] = {
-						s_format("%d%% ^8(base)", baseRecoup),
-						s_format("* %.2f ^8(recovery rate modifier)", output[recoupType.."RecoveryRateMod"]),
-						s_format("= %.1f%% over %d seconds", output[recoupType.."Recoup"], quickRecoup and 3 or 4)
+						s_format("%d%% ^8(基础)", baseRecoup),
+						s_format("* %.2f ^8(回复率加成)", output[recoupType.."RecoveryRateMod"]),
+						s_format("= %.1f%% 在 %d 秒内", output[recoupType.."Recoup"], quickRecoup and 3 or 4)
 					}
 				else
-					breakdown[recoupType.."Recoup"] = { s_format("%d%% over %d seconds", output[recoupType.."Recoup"], quickRecoup and 3 or 4) }
+					breakdown[recoupType.."Recoup"] = { s_format("%d%% 在 %d 秒内", output[recoupType.."Recoup"], quickRecoup and 3 or 4) }
 				end
 			end
 		end
@@ -984,7 +988,6 @@ function calcs.defence(env, actor)
 			if enemyOverwhelm == nil then
 				enemyOverwhelm = tonumber(env.configPlaceholder["enemy"..damageType.."enemyOverwhelm"]) or 0
 			end
-			
 			-- Add min-max enemy damage from mods
 			enemyDamage = enemyDamage + (enemyDB:Sum("BASE", enemyCfg, (damageType.."Min")) + enemyDB:Sum("BASE", enemyCfg, (damageType.."Max"))) / 2
 			
@@ -1145,7 +1148,7 @@ function calcs.defence(env, actor)
 				breakdown.multiChain(breakdown[damageType.."TakenDotMult"], {
 					label = "承受持续伤害加成:",
 					{ "%.2f ^8(抗性)", (1 - resist / 100) },
-					{ "%.2f ^8(%s 伤害减少)", (1 - reduction / 100), damageType:lower() },
+					{ "%.2f ^8(%s 减伤)", (1 - reduction / 100), damageType:lower() },
 					{ "%.2f ^8(增加/减少承受伤害)", (1 + takenInc / 100) },
 					{ "%.2f ^8(更多/更少承受伤害)", takenMore },
 					total = s_format("= %.2f", output[damageType.."TakenDotMult"]),
@@ -1197,14 +1200,23 @@ function calcs.defence(env, actor)
 			breakdown[damageType.."DamageReduction"] = { }
 			if armourReduct ~= 0 then
 				if resMult ~= 1 then
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("Enemy Hit Damage After Resistance: %d ^8(total incoming damage)", damage * resMult))
+					t_insert(breakdown[damageType.."DamageReduction"], s_format("敌人单次击中伤害(计算减伤): %d ^8(即将承受的总伤害)", damage * resMult))
 				else
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("Enemy Hit Damage: %d ^8(total incoming damage)", damage))
+					t_insert(breakdown[damageType.."DamageReduction"], s_format("敌人单次击中伤害: %d ^8(即将承受的总伤害", damage))
 				end
 				if percentOfArmourApplies ~= 100 then
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("%d%% percent of armour applies", percentOfArmourApplies))
+					t_insert(breakdown[damageType.."DamageReduction"], s_format("应用了 %d%% 的护甲", percentOfArmourApplies))
 				end
-				t_insert(breakdown[damageType.."DamageReduction"], s_format("Reduction from Armour: %d%%", armourReduct))
+				t_insert(breakdown[damageType.."DamageReduction"], s_format("来自护甲的减伤: %d%%", armourReduct))
+			end
+			if reduction ~= 0 then
+				t_insert(breakdown[damageType.."DamageReduction"], s_format("%s 伤害基础减免: %d%%", damageType, reduction))
+			end
+			if enemyOverwhelm ~= 0 then
+				t_insert(breakdown[damageType.."DamageReduction"], s_format("敌人压制 %s 的减伤: %d%%", damageType, enemyOverwhelm))
+			end
+			if (armourReduct ~= 0 and 1 or 0) + (reduction ~= 0 and 1 or 0) + (enemyOverwhelm ~= 0 and 1 or 0) >= 2 then
+				t_insert(breakdown[damageType.."DamageReduction"], s_format("总 %s 伤害减免: %d%%", damageType, 100 - reductMult * 100))
 			end
 			if reduction ~= 0 then
 				t_insert(breakdown[damageType.."DamageReduction"], s_format("Base %s Damage Reduction: %d%%", damageType, reduction))
@@ -1244,7 +1256,7 @@ function calcs.defence(env, actor)
 		if breakdown then
 			breakdown[damageType.."TakenHitMult"] = { }
 			if resist ~= 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("抗性: %.2f", 1 - resist / 100))
+				t_insert(breakdown[damageType.."TakenHitMult"], s_format("伤害减免: %.2f", 1 - resist / 100))
 			end
 			if enemyPen ~= 0 then
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("+ 敌人穿透: %.2f", enemyPen / 100))
@@ -1253,21 +1265,21 @@ function calcs.defence(env, actor)
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("= %.2f", resMult))
 			end
 			if reduction ~= 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("基础 %s 伤害降低: %.2f", damageType, 1 - reduction / 100))
+				t_insert(breakdown[damageType.."TakenHitMult"], s_format("%s 伤害基础减免: %.2f", damageType, 1 - reduction / 100))
 			end
 			if armourReduct ~= 0 then
 				if resMult ~= 1 then
-					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Enemy Hit Damage After Resistance: %d ^8(total incoming damage)", damage * resMult))
+					t_insert(breakdown[damageType.."TakenHitMult"], s_format("敌人单次击中伤害(计算减伤): %d ^8(即将承受的总伤害)", damage * resMult))
 				else
-					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Enemy Hit Damage: %d ^8(total incoming damage)", damage))
+					t_insert(breakdown[damageType.."TakenHitMult"], s_format("敌人单次击中伤害: %d ^8(即将承受的总伤害)", damage))
 				end
 				if percentOfArmourApplies ~= 100 then
-					t_insert(breakdown[damageType.."TakenHitMult"], s_format("%d%% percent of armour applies", percentOfArmourApplies))
+					t_insert(breakdown[damageType.."TakenHitMult"], s_format("应用了 %d%% 的护甲", percentOfArmourApplies))
 				end
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("Reduction from Armour: %.2f", 1 - armourReduct / 100))
+				t_insert(breakdown[damageType.."TakenHitMult"], s_format("来自护甲的减伤: %.2f", 1 - armourReduct / 100))
 			end
 			if enemyOverwhelm ~= 0 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("+ Enemy Overwhelm %s Damage: %.2f", damageType, enemyOverwhelm / 100))
+				t_insert(breakdown[damageType.."TakenHitMult"], s_format("+ 敌人压制 %s 的减伤: %.2f", damageType, enemyOverwhelm / 100))
 			end
 			if reduction ~= 0 or armourReduct ~= 0 or enemyOverwhelm ~= 0 then
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("= %.2f", reductMult))
@@ -1279,10 +1291,10 @@ function calcs.defence(env, actor)
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("+ Flat: %d", takenFlat))
 			end
 			if takenMult ~= 1 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("x Taken: %.3f", takenMult))
+				t_insert(breakdown[damageType.."TakenHitMult"], s_format("x 承伤加成: %.3f", takenMult))
 			end
 			if spellSuppressMult ~= 1 then
-				t_insert(breakdown[damageType.."TakenHitMult"], s_format("x Spell Suppression: %.3f", spellSuppressMult))
+				t_insert(breakdown[damageType.."TakenHitMult"], s_format("x 法术压制: %.3f", spellSuppressMult))
 			end
 			if takenMult ~= 1 or takenFlat ~= 0 or spellSuppressMult ~= 1 then
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("= %.3f", output[damageType.."TakenHitMult"]))
@@ -1349,8 +1361,8 @@ function calcs.defence(env, actor)
 			output.StunDuration = 0
 			output.BlockDuration = 0
 			if breakdown then
-				breakdown.StunDuration = {"Cannot be Stunned"}
-				breakdown.BlockDuration = {"Cannot be Stunned"}
+				breakdown.StunDuration = {"无法被晕眩"}
+				breakdown.BlockDuration = {"无法被晕眩"}
 			end
 		else
 			local stunDuration = (1 + modDB:Sum("INC", nil, "StunDuration") / 100)
@@ -1360,23 +1372,23 @@ function calcs.defence(env, actor)
 			output.StunDuration = baseStunDuration * stunDuration / stunRecovery
 			output.BlockDuration = baseStunDuration * stunDuration / stunAndBlockRecovery
 			if breakdown then
-				breakdown.StunDuration = {s_format("%.2fs ^8(base)", baseStunDuration)}
-				breakdown.BlockDuration = {s_format("%.2fs ^8(base)", baseStunDuration)}
+				breakdown.StunDuration = {s_format("%.2fs ^8(基础)", baseStunDuration)}
+				breakdown.BlockDuration = {s_format("%.2fs ^8(基础)", baseStunDuration)}
 				if stunDuration ~= 1 then
-					t_insert(breakdown.StunDuration, s_format("* %.2f ^8(increased duration)", stunDuration))
-					t_insert(breakdown.BlockDuration, s_format("* %.2f ^8(increased duration)", stunDuration))
+					t_insert(breakdown.StunDuration, s_format("* %.2f ^8(持续时间提高)", stunDuration))
+					t_insert(breakdown.BlockDuration, s_format("* %.2f ^8(持续时间提高)", stunDuration))
 				end
 				if stunRecovery ~= 1 then
-					t_insert(breakdown.StunDuration, s_format("/ %.2f ^8(increased/reduced recovery)", stunRecovery))
+					t_insert(breakdown.StunDuration, s_format("/ %.2f ^8(提高/降低回复)", stunRecovery))
 				end
 				if stunAndBlockRecovery ~= 1 then
-					t_insert(breakdown.BlockDuration, s_format("/ %.2f ^8(increased/reduced block recovery)", stunAndBlockRecovery))
+					t_insert(breakdown.BlockDuration, s_format("/ %.2f ^8(提高/降低格挡回复)", stunAndBlockRecovery))
 				end
 				if output.StunDuration ~= baseStunDuration then
-					t_insert(breakdown.StunDuration, s_format("= %.2fs", output.StunDuration))
+					t_insert(breakdown.StunDuration, s_format("= %.2f秒", output.StunDuration))
 				end
 				if output.BlockDuration ~= baseStunDuration then
-					t_insert(breakdown.BlockDuration, s_format("= %.2fs", output.BlockDuration))
+					t_insert(breakdown.BlockDuration, s_format("= %.2f秒", output.BlockDuration))
 				end
 			end
 		end
@@ -1391,16 +1403,16 @@ function calcs.defence(env, actor)
 		output.SelfStunChance = (baseStunChance > data.misc.MinStunChanceNeeded and baseStunChance or 0) * notAvoidChance / 100
 		if breakdown then
 			breakdown.SelfStunChance = {
-				s_format("%d%% ^8(stun multiplier)", data.misc.StunBaseMult),
-				s_format("* %.1f ^8(effective enemy stun damage)", effectiveEnemyDamage),
-				s_format("/ %d ^8(stun threshold)", output.StunThreshold)
+				s_format("%d%% ^8(晕眩加成)", data.misc.StunBaseMult),
+				s_format("* %.1f ^8(敌人等效晕眩伤害)", effectiveEnemyDamage),
+				s_format("/ %d ^8(晕眩阈值)", output.StunThreshold)
 			}
 			if baseStunChance < data.misc.MinStunChanceNeeded then
 				t_insert(breakdown.SelfStunChance, s_format("= %.2f%%", baseStunChance))
-				t_insert(breakdown.SelfStunChance, s_format("Stun Chance has to be more than %d%% to stun.", data.misc.MinStunChanceNeeded))
+				t_insert(breakdown.SelfStunChance, s_format("想要造成晕眩，晕眩几率需要大于 %d%%.", data.misc.MinStunChanceNeeded))
 			else
 				if notAvoidChance ~= 100 then
-					t_insert(breakdown.SelfStunChance, s_format("* %.2f ^8(1 - chance to avoid stun)", notAvoidChance / 100))
+					t_insert(breakdown.SelfStunChance, s_format("* %.2f ^8(1 - 避免晕眩几率)", notAvoidChance / 100))
 				end
 				t_insert(breakdown.SelfStunChance, s_format("= %.2f%%", output.SelfStunChance))
 			end
@@ -1431,22 +1443,22 @@ function calcs.defence(env, actor)
 		end
 		if breakdown then
 			breakdown["preventedLifeLossTotal"] = {
-				s_format("Total life protected:"),
+				s_format("保护的总生命(翻译待改进):"),
 			}
 			if output["preventedLifeLoss"] ~= 0 then
-				t_insert(breakdown["preventedLifeLossTotal"], s_format("%.2f ^8(portion taken over 4 seconds instead)", output["preventedLifeLoss"] / 100))
+				t_insert(breakdown["preventedLifeLossTotal"], s_format("%.2f ^8(四秒内承受)", output["preventedLifeLoss"] / 100))
 			end
 			if output["preventedLifeLossBelowHalf"] ~= 0 then
 				if portionLife ~= 1 then
 					if output["preventedLifeLoss"] ~= 0 then
 						t_insert(breakdown["preventedLifeLossTotal"], s_format(""))
 					end
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("%s%.2f ^8(initial portion taken by petrified blood)", output["preventedLifeLoss"] ~= 0 and "+ " or "", initialLifeLossBelowHalfPrevented / 100))
+					t_insert(breakdown["preventedLifeLossTotal"], s_format("%s%.2f ^8(赤血凝结初始承受)", output["preventedLifeLoss"] ~= 0 and "+ " or "", initialLifeLossBelowHalfPrevented / 100))
 					if output["preventedLifeLoss"] ~= 0 then
-						t_insert(breakdown["preventedLifeLossTotal"], s_format("* %.2f ^8(portion not already taken over time)", (1 - output["preventedLifeLoss"] / 100)))
+						t_insert(breakdown["preventedLifeLossTotal"], s_format("* %.2f ^8(不需要持续承受)", (1 - output["preventedLifeLoss"] / 100)))
 					end
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("* %.2f ^8(portion of life on low life)", portionLife))
-					t_insert(breakdown["preventedLifeLossTotal"], s_format("= %.2f ^8(final portion taken by petrified blood)", output["preventedLifeLossBelowHalf"] * portionLife / 100))
+					t_insert(breakdown["preventedLifeLossTotal"], s_format("* %.2f ^8(低血时的生命)", portionLife))
+					t_insert(breakdown["preventedLifeLossTotal"], s_format("= %.2f ^8(赤血凝结总承受)", output["preventedLifeLossBelowHalf"] * portionLife / 100))
 					t_insert(breakdown["preventedLifeLossTotal"], s_format(""))
 				else
 					t_insert(breakdown["preventedLifeLossTotal"], s_format("%s%.2f ^8(%s taken by petrified blood)", output["preventedLifeLoss"] ~= 0 and "+ " or "", initialLifeLossBelowHalfPrevented / 100, output["preventedLifeLoss"] ~= 0 and "initial portion" or "portion"))
@@ -1656,7 +1668,7 @@ function calcs.defence(env, actor)
 				if output[damageType.."EnergyShieldBypass"] > 0 then
 					local poolProtected = output.EnergyShieldRecoveryCap / (1 - output[damageType.."EnergyShieldBypass"] / 100) * (output[damageType.."EnergyShieldBypass"] / 100)
 					output[damageType.."TotalPool"] = m_max(output[damageType.."TotalPool"] - poolProtected, 0) + m_min(output[damageType.."TotalPool"], poolProtected) / (output[damageType.."EnergyShieldBypass"] / 100)
-				else
+				else 
 					output[damageType.."TotalPool"] = output[damageType.."TotalPool"] + output.EnergyShieldRecoveryCap
 				end
 			end
@@ -1666,7 +1678,7 @@ function calcs.defence(env, actor)
 				s_format("生命: %d", output.LifeRecoverable)
 			}
 			if output[damageType.."ManaEffectiveLife"] ~= output.LifeRecoverable then
-				t_insert(breakdown[damageType.."TotalPool"], s_format("%s 穿过心灵升华: %d", manatext, output[damageType.."ManaEffectiveLife"] - output.LifeRecoverable))
+				t_insert(breakdown[damageType.."TotalPool"], s_format("%s 穿透心灵升华: %d", manatext, output[damageType.."ManaEffectiveLife"] - output.LifeRecoverable))
 			end
 			if (not modDB:Flag(nil, "EnergyShieldProtectsMana")) and output[damageType.."EnergyShieldBypass"] < 100 then
 				t_insert(breakdown[damageType.."TotalPool"], s_format("Non-bypassed Energy Shield: %d", output[damageType.."TotalPool"] - output[damageType.."ManaEffectiveLife"]))
@@ -1674,7 +1686,7 @@ function calcs.defence(env, actor)
 			t_insert(breakdown[damageType.."TotalPool"], s_format("TotalPool: %d", output[damageType.."TotalPool"]))
 		end
 	end
-	
+				
 	-- helper function that iteratively reduces pools until life hits 0 to determine the number of hits it would take with given damage to die
 	function numberOfHitsToDie(DamageIn)
 		local numHits = 0
@@ -1727,7 +1739,7 @@ function calcs.defence(env, actor)
 			DamageIn["TrackLifeLossOverTime"] = false
 		end
 		DamageIn["WardBypass"] = DamageIn["WardBypass"] or modDB:Sum("BASE", nil, "WardBypass") or 0
-
+		
 		local iterationMultiplier = 1
 		local damageTotal = 0
 		local maxDamage = data.misc.ehpCalcMaxDamage
@@ -1854,7 +1866,7 @@ function calcs.defence(env, actor)
 				Damage = { }
 				for _, damageType in ipairs(dmgTypeList) do
 					Damage[damageType] = DamageIn[damageType] * speedUp
-				end
+				end	
 				if DamageIn.GainWhenHit then
 					Damage.GainWhenHit = true
 					Damage.LifeWhenHit = DamageIn.LifeWhenHit
@@ -1928,6 +1940,19 @@ function calcs.defence(env, actor)
 				DamageIn.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit + output.EnergyShieldOnSpellBlock * BlockChance
 			elseif damageCategoryConfig == "Average" then
 				DamageIn.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit + output.EnergyShieldOnSpellBlock / 2 * BlockChance
+			end
+		end
+		-- suppression
+		if damageCategoryConfig == "Spell" or damageCategoryConfig == "SpellProjectile" or damageCategoryConfig == "Average" then
+			suppressChance = output.SpellSuppressionChance / 100
+		end
+		-- We include suppression in damage reduction if it is 100% otherwise we handle it here.
+		if suppressChance < 1 then
+			-- unlucky config to lower the value of block, dodge, evade etc for ehp
+		if worstOf > 1 then
+			suppressChance = suppressChance * suppressChance
+			if worstOf == 4 then
+				suppressChance = suppressChance * suppressChance
 			end
 		end
 		-- suppression
@@ -2012,7 +2037,7 @@ function calcs.defence(env, actor)
 				t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.2f ^8(block effect)", output.BlockEffect / 100))
 			end
 			if suppressionEffect ~= 1 then
-				t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.3f ^8(suppression effect)", suppressionEffect))
+				t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.3f ^8(压制效用)", suppressionEffect))
 			end
 			if averageAvoidChance > 0 then
 				t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - averageAvoidChance / 100))
@@ -2042,30 +2067,30 @@ function calcs.defence(env, actor)
 			breakdown.ConfiguredNotHitChance = { }
 			if damageCategoryConfig == "Melee" or damageCategoryConfig == "Projectile" then
 				if output[damageCategoryConfig.."EvadeChance"] > 0 then
-					t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for evasion to fail)", 1 - output[damageCategoryConfig.."EvadeChance"] / 100))
+					t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(闪避失败几率)", 1 - output[damageCategoryConfig.."EvadeChance"] / 100))
 				end
 				if output.AttackDodgeChance > 0 then
-					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for dodge to fail)", 1 - output.AttackDodgeChance / 100))
+					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(躲避失败几率)", 1 - output.AttackDodgeChance / 100))
 				end
 				if damageCategoryConfig == "Projectile" and not output.specificTypeAvoidance and output.AvoidProjectilesChance > 0 then
-					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - output.AvoidProjectilesChance / 100))
+					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(避免伤害失败几率)", 1 - output.AvoidProjectilesChance / 100))
 				end
 			elseif damageCategoryConfig == "Spell" or damageCategoryConfig == "SpellProjectile" then
 				if output.SpellDodgeChance > 0 then
-					t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for dodge to fail)", 1 - output.SpellDodgeChance / 100))
+					t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(躲避失败几率)", 1 - output.SpellDodgeChance / 100))
 				end
 				if damageCategoryConfig == "SpellProjectile" and not output.specificTypeAvoidance and output.AvoidProjectilesChance > 0 then
-					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - output.AvoidProjectilesChance / 100))
+					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(避免伤害失败几率)", 1 - output.AvoidProjectilesChance / 100))
 				end
 			elseif damageCategoryConfig == "Average" then
 				if output.MeleeEvadeChance > 0 or output.ProjectileEvadeChance > 0 then
-					t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for evasion to fail, only applies to the attack portion)", 1 - (output.MeleeEvadeChance + output.ProjectileEvadeChance) / 2 / 100))
+					t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(闪避失败几率, 只与攻击相关的部分)", 1 - (output.MeleeEvadeChance + output.ProjectileEvadeChance) / 2 / 100))
 				end
 				if output.AttackDodgeChance > 0  or output.SpellDodgeChance > 0 then
-					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x%.2f ^8(chance for dodge to fail)", 1 - (output.AttackDodgeChance + output.SpellDodgeChance) / 2 / 100))
+					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x%.2f ^8(躲避失败几率)", 1 - (output.AttackDodgeChance + output.SpellDodgeChance) / 2 / 100))
 				end
 				if not output.specificTypeAvoidance and output.AvoidProjectilesChance > 0 then
-					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - output.AvoidProjectilesChance / 2 / 100))
+					t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(避免伤害失败几率)", 1 - output.AvoidProjectilesChance / 2 / 100))
 				end
 			end
 			if output.AvoidAllDamageFromHitsChance > 0 then
@@ -2103,7 +2128,7 @@ function calcs.defence(env, actor)
 			breakdown["EHPsurvivalTime"] = {
 				s_format("%.2f ^8(能承受的总平均击中数)", output["TotalNumberOfHits"]),
 				s_format("x %.2f ^8敌人攻击/施法时间", output.enemySkillTime),
-				s_format("= %.2f seconds ^8(死亡前存活的总时间)", output["EHPsurvivalTime"]),
+				s_format("= %.2f 秒 ^8(存活的总时间)", output["EHPsurvivalTime"]),
 			}
 		end
 	end
@@ -2136,16 +2161,16 @@ function calcs.defence(env, actor)
 				local multipleTypes = 0
 				breakdown[recoupType.."RecoupRecoveryMax"] = { }
 				if (output[recoupType.."Recoup"] or 0) > 0 then
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%d ^8(total damage taken during ehp calcs)", totalDamage))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of damage recouped)", output[recoupType.."Recoup"] / 100))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%d ^8(计算期间承受的总伤害)", totalDamage))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(吸纳的百分比)", output[recoupType.."Recoup"] / 100))
 					multipleTypes = multipleTypes + 1
 				end
 				if (output["Elemental"..recoupType.."Recoup"] or 0) > 0 and totalElementalDamage > 0 then
 					if multipleTypes > 0 then
 						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
 					end
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%d ^8(total elemental damage taken during ehp calcs)", multipleTypes > 0 and "+" or "", totalDamage))
-					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of damage recouped)", output["Elemental"..recoupType.."Recoup"] / 100))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%d ^8(计算期间承受的元素伤害)", multipleTypes > 0 and "+" or "", totalDamage))
+					t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(吸纳的百分比)", output["Elemental"..recoupType.."Recoup"] / 100))
 					multipleTypes = multipleTypes + 1
 				end
 				for _, damageType in ipairs(dmgTypeList) do
@@ -2153,17 +2178,17 @@ function calcs.defence(env, actor)
 						if multipleTypes > 0 then
 							t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format(""))
 						end
-						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%d ^8(total %s damage taken during ehp calcs)", multipleTypes > 0 and "+" or "", totalDamage, damageType))
-						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(percent of damage recouped)", output[damageType..recoupType.."Recoup"] / 100))
+						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("%s%d ^8(计算期间承受的 %s 伤害)", multipleTypes > 0 and "+" or "", totalDamage, damageType))
+						t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("* %.2f ^8(吸纳的百分比)", output[damageType..recoupType.."Recoup"] / 100))
 						multipleTypes = multipleTypes + 1
 					end
 				end
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %d ^8(total damage recoup amount)", output["Total"..recoupType.."RecoupRecovery"]))
+				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %d ^8(吸纳的总伤害)", output["Total"..recoupType.."RecoupRecovery"]))
 				breakdown[recoupType.."RecoupRecoveryAvg"] = copyTable(breakdown[recoupType.."RecoupRecoveryMax"])
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(over %d seconds)", recoupTime, recoupTime))
-				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %.2f per second ^8", output[recoupType.."RecoupRecoveryMax"]))
-				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(total time of the recoup (survival time + %d seconds))", (output["EHPsurvivalTime"] + recoupTime), recoupTime))
-				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("= %.2f per second ^8", output[recoupType.."RecoupRecoveryAvg"]))
+				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("/ %.2f ^8(在 %d 秒内)", recoupTime, recoupTime))
+				t_insert(breakdown[recoupType.."RecoupRecoveryMax"], s_format("= %.2f 每秒 ^8", output[recoupType.."RecoupRecoveryMax"]))
+				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("/ %.2f ^8(总吸纳时间 (存活时间 + %d 秒))", (output["EHPsurvivalTime"] + recoupTime), recoupTime))
+				t_insert(breakdown[recoupType.."RecoupRecoveryAvg"], s_format("= %.2f 每秒 ^8", output[recoupType.."RecoupRecoveryAvg"]))
 			end
 		end
 	end
@@ -2176,24 +2201,24 @@ function calcs.defence(env, actor)
 		if breakdown then
 			breakdown["LifeLossLostMax"] = { }
 			if output["LifeLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostMax"], s_format("( %d ^8(total damage prevented by Progenesis)", output["LifeLossLostOverTime"]))
+				t_insert(breakdown["LifeLossLostMax"], s_format("( %d ^8(茁育助长避免的伤害)", output["LifeLossLostOverTime"]))
 			end
 			if output["LifeBelowHalfLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostMax"], s_format("%s %d ^8(total damage prevented by petrified blood)", output["LifeLossLostOverTime"] ~= 0 and "+" or "(", output["LifeBelowHalfLossLostOverTime"]))
-				t_insert(breakdown["LifeLossLostMax"], s_format("* %.2f ^8(percent of damage taken from petrified blood)", LifeLossBelowHalfLost))
+				t_insert(breakdown["LifeLossLostMax"], s_format("%s %d ^8(赤血凝结避免的伤害)", output["LifeLossLostOverTime"] ~= 0 and "+" or "(", output["LifeBelowHalfLossLostOverTime"]))
+				t_insert(breakdown["LifeLossLostMax"], s_format("* %.2f ^8(赤血凝结承受伤害比例)", LifeLossBelowHalfLost))
 			end
-			t_insert(breakdown["LifeLossLostMax"], s_format(") / %.2f ^8(over 4 seconds)", 4))
-			t_insert(breakdown["LifeLossLostMax"], s_format("= %.2f per second", output["LifeLossLostMax"]))
+			t_insert(breakdown["LifeLossLostMax"], s_format(") / %.2f ^8(在 4 秒内)", 4))
+			t_insert(breakdown["LifeLossLostMax"], s_format("= %.2f 每秒", output["LifeLossLostMax"]))
 			breakdown["LifeLossLostAvg"] = { }
 			if output["LifeLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostAvg"], s_format("( %d ^8(total damage prevented by Progenesis)", output["LifeLossLostOverTime"]))
+				t_insert(breakdown["LifeLossLostAvg"], s_format("( %d ^8(茁育助长避免的伤害)", output["LifeLossLostOverTime"]))
 			end
 			if output["LifeBelowHalfLossLostOverTime"] ~= 0 then
-				t_insert(breakdown["LifeLossLostAvg"], s_format("%s %d ^8(total damage prevented by petrified blood)", output["LifeLossLostOverTime"] ~= 0 and "+" or "(", output["LifeBelowHalfLossLostOverTime"]))
-				t_insert(breakdown["LifeLossLostAvg"], s_format("* %.2f ^8(percent of damage taken from petrified blood)", LifeLossBelowHalfLost))
+				t_insert(breakdown["LifeLossLostAvg"], s_format("%s %d ^8(赤血凝结避免的伤害)", output["LifeLossLostOverTime"] ~= 0 and "+" or "(", output["LifeBelowHalfLossLostOverTime"]))
+				t_insert(breakdown["LifeLossLostAvg"], s_format("* %.2f ^8(赤血凝结承受伤害比例)", LifeLossBelowHalfLost))
 			end
-			t_insert(breakdown["LifeLossLostAvg"], s_format(") / %.2f ^8(total time of the degen (survival time + 4 seconds))", (output["EHPsurvivalTime"] + 4)))
-			t_insert(breakdown["LifeLossLostAvg"], s_format("= %.2f per second", output["LifeLossLostAvg"]))
+			t_insert(breakdown["LifeLossLostAvg"], s_format(") / %.2f ^8(总掉血时间 (存活时间 + 4 秒))", (output["EHPsurvivalTime"] + 4)))
+			t_insert(breakdown["LifeLossLostAvg"], s_format("= %.2f 每秒", output["LifeLossLostAvg"]))
 		end
 	end
 	
@@ -2205,14 +2230,14 @@ function calcs.defence(env, actor)
 			output["showNetRecoup"] = true
 			if breakdown then
 				breakdown["netLifeRecoupAndLossLostOverTimeMax"] = {
-					s_format("%.2f ^8(total life recouped per second)", output["LifeRecoupRecoveryMax"]),
-					s_format("- %.2f ^8(total life taken over time per second)", output["LifeLossLostMax"]),
-					s_format("= %.2f per second", output["netLifeRecoupAndLossLostOverTimeMax"]),
+					s_format("%.2f ^8(每秒吸纳的总生命)", output["LifeRecoupRecoveryMax"]),
+					s_format("- %.2f ^8(每秒损失的总生命)", output["LifeLossLostMax"]),
+					s_format("= %.2f 每秒", output["netLifeRecoupAndLossLostOverTimeMax"]),
 				}
 				breakdown["netLifeRecoupAndLossLostOverTimeAvg"] = {
-					s_format("%.2f ^8(total life recouped per second)", output["LifeRecoupRecoveryAvg"]),
-					s_format("- %.2f ^8(total life taken over time per second)", output["LifeLossLostAvg"]),
-					s_format("= %.2f per second", output["netLifeRecoupAndLossLostOverTimeAvg"]),
+					s_format("%.2f ^8(每秒吸纳的总生命)", output["LifeRecoupRecoveryAvg"]),
+					s_format("- %.2f ^8(每秒损失的总生命)", output["LifeLossLostAvg"]),
+					s_format("= %.2f 每秒", output["netLifeRecoupAndLossLostOverTimeAvg"]),
 				}
 			end
 		end
@@ -2245,6 +2270,7 @@ function calcs.defence(env, actor)
 				s_format("(%.1f + %.1f) * %.1f", portionNonElemental, portionElemental, PvpMultiplier),
 				s_format("= %.1f", output.PvPTotalTakenHit)
 			}
+			end
 		end
 	end
 
@@ -2271,10 +2297,10 @@ function calcs.defence(env, actor)
 				breakdown.TotalDegen = breakdown.TotalDegen or { 
 					rowList = { },
 					colList = {
-						{ label = "Type", key = "type" },
-						{ label = "Base", key = "base" },
-						{ label = "Multiplier", key = "mult" },
-						{ label = "Total", key = "total" },
+						{ label = "【类型】", key = "type" },
+						{ label = "【基础】", key = "base" },
+						{ label = "【加成】", key = "mult" },
+						{ label = "【总】", key = "total" },
 					}
 				}
 				t_insert(breakdown.TotalDegen.rowList, {
@@ -2286,10 +2312,10 @@ function calcs.defence(env, actor)
 				breakdown[damageType.."Degen"] = { 
 					rowList = { },
 					colList = {
-						{ label = "Type", key = "type" },
-						{ label = "Base", key = "base" },
-						{ label = "Multiplier", key = "mult" },
-						{ label = "Total", key = "total" },
+						{ label = "【类型】", key = "type" },
+						{ label = "【基础】", key = "base" },
+						{ label = "【加成】", key = "mult" },
+						{ label = "【总】", key = "total" },
 					}
 				}
 				t_insert(breakdown[damageType.."Degen"].rowList, {
@@ -2377,14 +2403,14 @@ function calcs.defence(env, actor)
 		output.NetEnergyShieldRegen = output.NetEnergyShieldRegen - totalEnergyShieldDegen
 		output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen
 		if breakdown then
-			t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(total life regen)", output.LifeRegenRecovery))
-			t_insert(breakdown.NetLifeRegen, s_format("- %.1f ^8(total life degen)", totalLifeDegen))
+			t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(最终生命回复)", output.LifeRegenRecovery))
+			t_insert(breakdown.NetLifeRegen, s_format("- %.1f ^8(总生命消减)", totalLifeDegen))
 			t_insert(breakdown.NetLifeRegen, s_format("= %.1f", output.NetLifeRegen))
-			t_insert(breakdown.NetManaRegen, s_format("%.1f ^8(total mana regen)", output.ManaRegenRecovery))
-			t_insert(breakdown.NetManaRegen, s_format("- %.1f ^8(total mana degen)", totalManaDegen))
+			t_insert(breakdown.NetManaRegen, s_format("%.1f ^8(最终魔力回复)", output.ManaRegenRecovery))
+			t_insert(breakdown.NetManaRegen, s_format("- %.1f ^8(总魔力消减)", totalManaDegen))
 			t_insert(breakdown.NetManaRegen, s_format("= %.1f", output.NetManaRegen))
-			t_insert(breakdown.NetEnergyShieldRegen, s_format("%.1f ^8(total energy shield regen)", output.EnergyShieldRegenRecovery))
-			t_insert(breakdown.NetEnergyShieldRegen, s_format("- %.1f ^8(total energy shield degen)", totalEnergyShieldDegen))
+			t_insert(breakdown.NetEnergyShieldRegen, s_format("%.1f ^8(最终能量护盾回复)", output.EnergyShieldRegenRecovery))
+			t_insert(breakdown.NetEnergyShieldRegen, s_format("- %.1f ^8(总能量护盾消减)", totalEnergyShieldDegen))
 			t_insert(breakdown.NetEnergyShieldRegen, s_format("= %.1f", output.NetEnergyShieldRegen))
 			breakdown.TotalNetRegen = {
 				s_format("Net Life Regen: %.1f", output.NetLifeRegen),
@@ -2394,7 +2420,6 @@ function calcs.defence(env, actor)
 			}
 		end
 	end
-	
 	
 	-- maximum hit taken
 	-- fix total pools, as they aren't used anymore
@@ -2550,7 +2575,7 @@ function calcs.defence(env, actor)
 					local convertedDamage = output[damageType.."MaximumHitTaken"] * convertPercent / 100
 					local multi = damageMultiplierForType(convertedDamage, damageConvertedType) * enemyDamageMult
 					t_insert(breakdown[damageType.."MaximumHitTaken"].rowList, {
-						type = s_format("%d%% as %s", convertPercent, damageConvertedType),
+						type = s_format("%d%% 转为 %s", convertPercent, damageConvertedType),
 						pool = s_format("%d", output[damageConvertedType.."TotalHitPool"]),
 						initial = s_format("%d", convertedDamage),
 						taken = s_format("x%.3f", multi),
@@ -2561,13 +2586,13 @@ function calcs.defence(env, actor)
 
 			local takenMult = output[damageType.."TotalHitPool"] / output[damageType.."MaximumHitTaken"] / enemyDamageMult
 
-			t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("%d (total pool)", output[damageType.."TotalHitPool"]))
-			t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("/ %.2f (modifiers to damage taken)", takenMult))
-			t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("/ %.2f (modifiers to enemy damage)", enemyDamageMult))
+			t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("%d (总血池)", output[damageType.."TotalHitPool"]))
+			t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("/ %.2f (承受伤害加成)", takenMult))
+			t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("/ %.2f (敌人伤害加成)", enemyDamageMult))
 
 			if useConversionSmoothing then
-				t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("= %d (approximate)", output[damageType.."MaximumHitTaken"]))
-				t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("You would take %d damage from such a hit.", takenHitFromDamage(output[damageType.."MaximumHitTaken"] * enemyDamageMult)))
+				t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("= %d (估计)", output[damageType.."MaximumHitTaken"]))
+				t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("你将在该次攻击中承受 %d 点伤害.", takenHitFromDamage(output[damageType.."MaximumHitTaken"] * enemyDamageMult)))
 			else
 				t_insert(breakdown[damageType.."MaximumHitTaken"], s_format("= %d", output[damageType.."MaximumHitTaken"]))
 			end

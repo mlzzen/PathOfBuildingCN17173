@@ -578,6 +578,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 	modDB:NewMod("Multiplier:AllocatedMastery", "BASE", allocatedMasteryCount, "")
 	modDB:NewMod("Multiplier:AllocatedMasteryType", "BASE", allocatedMasteryTypeCount, "")
 
+	modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount, "")
+	modDB:NewMod("Multiplier:AllocatedMastery", "BASE", allocatedMasteryCount, "")
+	modDB:NewMod("Multiplier:AllocatedMasteryType", "BASE", allocatedMasteryTypeCount, "")
+
 	-- Build and merge item modifiers, and create list of radius jewels
 	if not accelerate.requirementsItems then
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
@@ -722,7 +726,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					local type = env.player.itemList[slotName] and env.player.itemList[slotName].weaponData and env.player.itemList[slotName].weaponData[1].type
 					local info = env.data.weaponTypeInfo[type]
 					if info and type ~= "Bow" then
-						local name = info.oneHand and "能量之刃单手剑" or "能量之刃双手剑"
+						local name = info.oneHand and "Energy Blade One Handed" or "Energy Blade Two Handed"
 						local item = new("Item")
 						item.name = name
 						item.base = data.itemBases[name]
@@ -787,7 +791,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				elseif item.name:match("卡兰德之触") then
 					local otherRing = (slotName == "Ring 1" and build.itemsTab.items[build.itemsTab.orderedSlots[59].selItemId]) or (slotName == "Ring 2" and build.itemsTab.items[build.itemsTab.orderedSlots[58].selItemId])
-					if otherRing and not otherRing.name:match("卡兰德之触") then
+					if otherRing and not otherRing.name:match("Kalandra's Touch") then
 						local otherRingList = otherRing and copyTable(otherRing.modList or otherRing.slotModList[slot.slotNum]) or {}
 						for index, mod in ipairs(otherRingList) do
 							modLib.setSource(mod, item.modSource)
@@ -856,7 +860,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	-- Merge env.itemModDB with env.ModDB
 	mergeDB(env.modDB, env.itemModDB)
-
+	
 	-- Add granted passives (e.g., amulet anoints)
 	if not accelerate.nodeAlloc then
 		for _, passive in pairs(env.modDB:List(nil, "GrantedPassive")) do
@@ -991,7 +995,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 			build.mainSocketGroup = m_min(m_max(#build.skillsTab.socketGroupList, 1), build.mainSocketGroup or 1)
 			env.mainSocketGroup = build.mainSocketGroup
 		end
-
 		-- Below we re-order the socket group list in order to support modifiers introduced in 3.16
 		-- which allow a Shield (Weapon 2) to link to a Main Hand and an Amulet to link to a Body Armour
 		-- as we need their support gems and effects to be processed before we cross-link them to those slots
@@ -1181,7 +1184,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 				for _, value in ipairs(env.modDB:List(groupCfg, "GroupProperty")) do
 					env.player.modDB:AddMod(modLib.setSource(value.value, groupCfg.slotName or ""))
 				end
-				
 				if index == env.mainSocketGroup and #socketGroupSkillList > 0 then
 					-- Select the main skill from this socket group
 					local activeSkillIndex

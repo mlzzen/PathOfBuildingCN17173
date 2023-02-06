@@ -3934,7 +3934,7 @@ function calcs.offence(env, actor, activeSkill)
 				breakdown.multiChain(breakdown.DotChill, {
 					label = s_format("冰缓效果: ^8(最大 %d%%)", skillModList:Override(nil, "ChillMax") or ailmentData.Chill.max),
 					base = s_format("%d%% ^8(基础)", ailmentData.Chill.default),
-					{ "%.2f ^8(冰缓效果提高)", 1 + output.ChillEffectMod / 100},
+					{ "%.2f ^8(冰缓效果提高)", output.ChillEffectMod},
 					total = s_format("= %.0f%%", output.ChillSourceEffect)
 				})
 			end
@@ -3968,7 +3968,9 @@ function calcs.offence(env, actor, activeSkill)
 					local incDur = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Duration", "EnemyElementalAilmentDuration", "EnemyAilmentDuration") + enemyDB:Sum("INC", nil, "Self"..ailment.."Duration", "SelfElementalAilmentDuration", "SelfAilmentDuration")
 					local moreDur = skillModList:More(cfg, "Enemy"..ailment.."Duration", "EnemyElementalAilmentDuration", "EnemyAilmentDuration") * enemyDB:More(nil, "Self"..ailment.."Duration", "SelfElementalAilmentDuration", "SelfAilmentDuration")
 					output[ailment.."Duration"] = ailmentData[ailment].duration * (1 + incDur / 100) * moreDur * debuffDurationMult
-					output[ailment.."EffectMod"] = calcLib.mod(skillModList, cfg, "Enemy"..ailment.."Effect")
+					local inc = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Effect") + enemyDB:Sum("INC", nil, "Self"..ailment.."Effect")
+					local more = skillModList:Sum("MORE", cfg, "Enemy"..ailment.."Effect") * enemyDB:Sum("MORE", nil, "Self"..ailment.."Effect")
+					output[ailment.."EffectMod"] = (1 + inc / 100) * more
 					if breakdown then
 						local maximum = globalOutput["Maximum"..ailment] or ailmentData[ailment].max
 						local current = m_max(m_min(globalOutput["Current"..ailment] or 0, maximum), 0)
@@ -4412,16 +4414,16 @@ function calcs.offence(env, actor, activeSkill)
 				local preSpeed = output.TrapThrowingSpeed or output.MineLayingSpeed
 				local cooldown = output.TrapCooldown or output.Cooldown
 				useSpeed = (cooldown and cooldown > 0 and 1 / cooldown or preSpeed) / repeats
-				timeType = skillFlags.trap and "trap throwing" or "mine laying"
+				timeType = skillFlags.trap and "陷阱投掷" or "地雷放置"
 			elseif skillFlags.totem then
 				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.TotemPlacementSpeed > 0 and output.TotemPlacementSpeed or 1 / output.Cooldown) or output.TotemPlacementSpeed) / repeats
-				timeType = "totem placement"
+				timeType = "完全释放"
 			elseif skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "UseMaxUnleash") then
 				useSpeed = 1 / env.player.mainSkill.skillData.hitTimeOverride / repeats
 				timeType = "full unleash"
 			else
 				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.Speed > 0 and output.Speed or 1 / output.Cooldown) or output.Speed) / repeats
-				timeType = isTriggered and "trigger" or (skillFlags.totem and "totem placement" or skillFlags.attack and "attack" or "cast")
+				timeType = isTriggered and "触发" or (skillFlags.totem and "图腾放置" or skillFlags.attack and "攻击" or "施法")
 			end
 
 			output[usedResource.."PerSecondHasCost"] = true
@@ -4430,8 +4432,8 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				breakdown[usedResource.."PerSecondCost"] = copyTable(breakdown[resource.."Cost"])
 				t_remove(breakdown[usedResource.."PerSecondCost"])				
-				t_insert(breakdown[usedResource.."PerSecondCost"], s_format("x %.2f ^8("..timeType.." speed)", useSpeed))
-				t_insert(breakdown[usedResource.."PerSecondCost"], s_format("= %.2f per second", output[usedResource.."PerSecondCost"]))
+				t_insert(breakdown[usedResource.."PerSecondCost"], s_format("x %.2f ^8("..timeType.." 速度)", useSpeed))
+				t_insert(breakdown[usedResource.."PerSecondCost"], s_format("= %.2f 每秒", output[usedResource.."PerSecondCost"]))
 			end
 		end
 	end

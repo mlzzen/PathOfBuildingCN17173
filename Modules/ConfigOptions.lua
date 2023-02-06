@@ -457,6 +457,30 @@ return {
 	{ var = "VaalMoltenShellDamageMitigated", type = "count", label = "减免的伤害数值:", tooltip = "最后一秒被瓦尔.熔岩护盾减免的伤害", ifSkill = "瓦尔.熔岩护盾", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "VaalMoltenShellDamageMitigated", value = val }, "Config", { type = "SkillName", skillName = "熔岩护盾" })
 	end },
+	{ label = "多段范围技能:", ifSkillList = { "震波陷阱", "电塔陷阱" } },
+	{ var = "enemySizePreset", type = "list", label = "敌人体积预设:", ifSkillList = { "震波陷阱", "电塔陷阱" }, defaultIndex = 2, tooltip = [[
+配置敌人的碰撞盒的半径，用于计算一些多重范围技能的效果(霰弹效应)
+"小型": 半径设为2.
+	绝大多数怪物和玩家的大小.
+"中型": 半径设为3.
+	绝大多数人形Boss的大小(如贤主;塑界者;伊泽洛).
+"大型": 半径设为5.
+	一些大型Boss的大小(如贤主;卡鲁之王冈姆;瓦尔超灵).
+"巨型": 半径设为11.
+	一些体型最大的Boss的大小(如贤主之核;惊海之王索亚格斯).]], list = {{val="Small",label="小型"},{val="Medium",label="中型"},{val="Large",label="大型"},{val="Huge",label="巨型"}}, apply = function(val, modList, enemyModList, build)
+		if val == "Small" then
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(2, true)
+		elseif val == "Medium" then
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(3, true)
+		elseif val == "Large" then
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(5, true)
+		elseif val == "Huge" then
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(11, true)
+		end
+	end },
+	{ var = "enemyRadius", type = "integer", label = "敌人半径:", ifSkillList = { "震波陷阱", "电塔陷阱" }, tooltip = "配置敌人的碰撞盒的半径，用于计算一些多重范围技能的效果(霰弹效应).", apply = function(val, modList, enemyModList)
+		modList:NewMod("EnemyRadius", "BASE", m_max(val, 1), "Config")
+	end },
 
 	-- Section: Map modifiers/curses
 	{ section = "地图词缀和玩家 Debuff", col = 2 },
@@ -819,7 +843,7 @@ return {
 	{ var = "conditionSelfChill", type = "check", label = "你身上的^x3F6DB3冰缓^7是自己施加的?", ifOption = "conditionChilled", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ChilledSelf", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "conditionFrozen", type = "check", label = "你被冰冻?", ifCond = "Frozen", implyCond = "Chilled", tooltip = "在也意味着你被冰缓.", apply = function(val, modList, enemyModList)
+	{ var = "conditionFrozen", type = "check", label = "你被冰冻?", ifCond = "Frozen", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Frozen", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "conditionShocked", type = "check", label = "你被感电?", ifCond = "Shocked", apply = function(val, modList, enemyModList)
@@ -1265,6 +1289,9 @@ return {
 	{ var = "multiplierPoisonOnEnemy", type = "count", label = "敌人身上的中毒层数:", implyCond = "Poisoned", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:PoisonStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "multiplierCurseExpiredOnEnemy", type = "count", label = "敌人的诅咒时间已过 #%:", ifEnemyMult = "CurseExpired", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Multiplier:CurseExpired", "BASE", val, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "multiplierWitheredStackCount", type = "count", label = "凋零层数:", ifFlag = "Condition:CanWither", tooltip = "每层凋零提高 6% 承受的^xD02090混沌^7伤害，最高15层.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:WitheredStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
@@ -1326,7 +1353,7 @@ return {
 		enemyModList:NewMod("Condition:Chilled", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 		enemyModList:NewMod("Condition:ChilledByYourHits", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "conditionEnemyFrozen", type = "check", label = "敌人被冰冻?", implyCond = "Chilled", tooltip = "这也意味着敌人被冰冻.", apply = function(val, modList, enemyModList)
+	{ var = "conditionEnemyFrozen", type = "check", label = "敌人被冰冻?", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Frozen", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyBrittle", type = "check", ifFlag = "inflictBrittle", label = "敌人被脆弱?", tooltip = "对脆弱的敌人的时提高自己的基础暴击率，最多 +6% \n勾选这个选项后可以在下面配置具体的脆弱效果", apply = function(val, modList, enemyModList)
