@@ -3066,6 +3066,9 @@ function ItemsTabClass:AddImplicitToDisplayItem()
 		controls.modSelect:SetSel(1)
 	end)
 	controls.modGroupSelectLabel.shown = function()
+		if sourceList[controls.source.selIndex].sourceId == "CUSTOM" then
+			controls.modSelectLabel.y = 45
+		end
 		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
 	end
 	controls.modGroupSelect.shown = function()
@@ -3081,11 +3084,7 @@ function ItemsTabClass:AddImplicitToDisplayItem()
 		end
 	end
 	controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, 95, 70, 0, 16, "^7词缀:")
-	local dropdownData = nil
-	if #modList > 0 and #modGroups > 0 then
-		dropdownData = modList[modGroups[1].modListIndex]
-	end
-	controls.modSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 70, 600, 18, dropdownData)
+	controls.modSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, 100, 70, 600, 18, sourceList[controls.source.selIndex].sourceId ~= "CUSTOM" and modList[modGroups[1].modListIndex] or { })
 	controls.modSelect.shown = function()
 		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
 	end
