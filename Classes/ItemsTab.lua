@@ -2446,9 +2446,15 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 			buildImplicitList("ScourgeDownside")
 			controls.implicit3Label.shown = true
 			controls.implicit3.shown = true
+			main.popups[1].height = 147
+			controls.close.y = 117
+			controls.save.y = 117
 			if self.displayItem.rarity == "传奇" or self.displayItem.rarity == "遗产" then
 				controls.implicit4Label.shown = true
 				controls.implicit4.shown = true
+				main.popups[1].height = 165
+				controls.close.y = 135
+				controls.save.y = 135
 			end
 			controls.implicit2.y = 85
 			buildList(controls.implicit3, controls.implicit4, "ScourgeDownside")
@@ -2460,6 +2466,9 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 			controls.implicit4Label.shown = false
 			controls.implicit4.shown = false
 			controls.implicit2.y = 65
+			main.popups[1].height = 129
+			controls.close.y = 99
+			controls.save.y = 99
 		end
 		buildList(controls.implicit, controls.implicit2, currentModType)
 		buildList(controls.implicit2, controls.implicit, currentModType)
@@ -2528,7 +2537,7 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 	buildList(controls.implicit, controls.implicit2, currentModType)
 	buildList(controls.implicit2, controls.implicit, currentModType)
 	local modTypeCN = { Corrupted = "腐化", Scourge = "灾魇腐化"}
-	controls.save = new("ButtonControl", nil, -45, 135, 80, 20, modTypeCN[modType], function()
+	controls.save = new("ButtonControl", nil, -45, 99, 80, 20, modTypeCN[modType], function()
 		self:SetDisplayItem(corruptItem())
 		main:ClosePopup()
 	end)
@@ -2536,11 +2545,10 @@ function ItemsTabClass:CorruptDisplayItem(modType)
 		tooltip:Clear()
 		self:AddItemTooltip(tooltip, corruptItem(), nil, true)
 	end	
-	controls.close = new("ButtonControl", nil, 45, 135, 80, 20, "取消", function()
+	controls.close = new("ButtonControl", nil, 45, 99, 80, 20, "取消", function()
 		main:ClosePopup()
 	end)
-	-- how do I access this to resize it?
-	main:OpenPopup(540, 165, modTypeCN[modType].."装备", controls)
+	main:OpenPopup(540, 129, modTypeCN[modType].."装备", controls)
 end
 
 -- Opens the custom modifier popup
