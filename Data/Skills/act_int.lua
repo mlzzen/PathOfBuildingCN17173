@@ -1095,7 +1095,7 @@ skills["Blight"] = {
 	},
 	statMap = {
 		["display_max_blight_stacks"] = {
-			mod("Multiplier:枯萎MaxStages", "BASE", nil, 0, 0, { type = "SkillPart", skillPart = 1 }),
+			mod("Multiplier:BlightMaxStages", "BASE", nil, 0, 0, { type = "SkillPart", skillPart = 1 }),
 		},
 	},
 	baseFlags = {
@@ -1104,7 +1104,7 @@ skills["Blight"] = {
 		area = true,
 	},
 	baseMods = {
-		mod("Damage", "MORE", 100, 0, 0, { type = "Multiplier", var = "枯萎StageAfterFirst" }),
+		mod("Damage", "MORE", 100, 0, 0, { type = "Multiplier", var = "BlightStageAfterFirst" }),
 		skill("debuff", true),
 		skill("debuffSecondary", true),
 		skill("radius", 26),
@@ -1188,7 +1188,7 @@ skills["VaalBlight"] = {
 			mod("ChaosDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Hinder" }),
 		},
 		["display_max_blight_stacks"] = {
-			mod("Multiplier:枯萎MaxStages", "BASE", nil, 0, 0, { type = "SkillPart", skillPart = 1 }),
+			mod("Multiplier:BlightMaxStages", "BASE", nil, 0, 0, { type = "SkillPart", skillPart = 1 }),
 		},
 	},
 	baseFlags = {
@@ -3966,21 +3966,21 @@ skills["Flameblast"] = {
 	castTime = 0.2,
 	statMap = {
 		["charged_blast_spell_damage_+%_final_per_stack"] = {
-			mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Multiplier", var = "烈焰爆破StageAfterFirst" }),
+			mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Multiplier", var = "FlameblastStageAfterFirst" }),
 		},
 		["flameblast_ailment_damage_+%_final_per_stack"] = {
-			mod("Damage", "MORE", nil, 0, KeywordFlag.Ailment, { type = "Multiplier", var = "烈焰爆破StageAfterFirst" }),
+			mod("Damage", "MORE", nil, 0, KeywordFlag.Ailment, { type = "Multiplier", var = "FlameblastStageAfterFirst" }),
 		},
 		["base_skill_show_average_damage_instead_of_dps"] = {
 		},
 		["flameblast_maximum_stages"] = {
-			mod("Multiplier:烈焰爆破MaxStages", "BASE", nil),
+			mod("Multiplier:FlameblastMaxStages", "BASE", nil),
 		},
 		["flameblast_area_+%_final_per_stage"] = {
-			mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "烈焰爆破StageAfterFirst" }),
+			mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "FlameblastStageAfterFirst" }),
 		},
 		["vaal_flameblast_radius_+_per_stage"] = {
-			skill("radiusExtra", nil, { type = "Multiplier", var = "烈焰爆破StageAfterFirst" }),
+			skill("radiusExtra", nil, { type = "Multiplier", var = "FlameblastStageAfterFirst" }),
 		},
 	},
 	baseFlags = {
@@ -4075,13 +4075,13 @@ skills["VaalFlameblast"] = {
 	castTime = 0.5,
 	statMap = {
 		["charged_blast_spell_damage_+%_final_per_stack"] = {
-			mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Multiplier", var = "瓦尔.烈焰爆破Stage" }),
+			mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Multiplier", var = "VaalFlameblastStage" }),
 		},
 		["flameblast_ailment_damage_+%_final_per_stack"] = {
-			mod("Damage", "MORE", nil, 0, KeywordFlag.Ailment, { type = "Multiplier", var = "瓦尔.烈焰爆破Stage" }),
+			mod("Damage", "MORE", nil, 0, KeywordFlag.Ailment, { type = "Multiplier", var = "VaalFlameblastStage" }),
 		},
 		["vaal_flameblast_radius_+_per_stage"] = {
-			skill("radiusExtra", nil, { type = "Multiplier", var = "瓦尔.烈焰爆破Stage" }),
+			skill("radiusExtra", nil, { type = "Multiplier", var = "VaalFlameblastStage" }),
 		},
 	},
 	baseFlags = {
@@ -4089,7 +4089,7 @@ skills["VaalFlameblast"] = {
 		area = true,
 	},
 	baseMods = {
-		mod("Multiplier:瓦尔.烈焰爆破MaxStages", "BASE", 15),
+		mod("Multiplier:VaalFlameblastMaxStages", "BASE", 15),
 		skill("radius", 35),
 	},
 	qualityStats = {
@@ -6101,10 +6101,10 @@ skills["ExpandingFireCone"] = {
 			mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "SkillPart", skillPart = 2 }),
 		},
 		["flamethrower_damage_+%_per_stage_final"] = {
-			mod("Damage", "MORE", nil, 0, bit.bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Multiplier", var = "烧毁Stage" }),
+			mod("Damage", "MORE", nil, 0, bit.bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Multiplier", var = "IncinerateStage" }),
 		},
 		["expanding_fire_cone_radius_+_per_stage"] = {
-			skill("radiusExtra", nil, { type = "Multiplier", var = "烧毁Stage", limitVar = "IncinerateRadiusLimit", limitTotal = true }),
+			skill("radiusExtra", nil, { type = "Multiplier", var = "IncinerateStage", limitVar = "IncinerateRadiusLimit", limitTotal = true }),
 		},
 		["expanding_fire_cone_final_wave_always_ignite"] = {
 			mod("EnemyIgniteChance", "BASE", nil, 0, 0, { type = "SkillPart", skillPart = 2 }),
@@ -6114,7 +6114,7 @@ skills["ExpandingFireCone"] = {
 			mod("Multiplier:IncinerateRadiusLimit", "BASE", nil),
 		},
 		["expanding_fire_cone_maximum_number_of_stages"] = {
-			mod("Multiplier:烧毁MaxStages", "BASE", nil),
+			mod("Multiplier:IncinerateMaxStages", "BASE", nil),
 		},
 		["quality_display_incinerate_is_gem_hit"] = {
 			--Display Only

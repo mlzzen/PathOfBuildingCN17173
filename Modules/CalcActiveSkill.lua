@@ -16,6 +16,29 @@ local bor = bit.bor
 local band = bit.band
 local bnot = bit.bnot
 
+local stageSkillsCn = {
+	["刀刃乱舞"] = "BladeFlurry",
+    ["蓄力疾风闪"] = "ChargedDash",
+    ["旋风斩"] = "Cyclone",
+    ["冲击波"] = "Reave",
+    ["瓦尔.冲击波"] = "VaalReave",
+    ["天灾之箭"] = "ScourgeArrow",
+    ["枯萎"] = "Blight",
+    ["圣怨"] = "DivineTempest",
+    ["烈焰爆破"] = "Flameblast",
+    ["瓦尔.烈焰爆破"] = "VaalFlameblast",
+    ["冰霜护盾"] = "FrostGlobe",
+    ["烧毁"] = "Incinerate",
+    ["灼热光线"] = "FireBeam",
+    ["寒冬宝珠"] = "FrostFury",
+    ["忏悔烙印"] = "MagmaSigil",
+    ["冬潮烙印"] = "ImmolationSigil",
+    ["赤色誓言"] = "BloodSacramentUnique",
+    ["死亡之愿"] = "DeathWish",
+    ["狙击"] = "ChannelledSnipe",
+    ["爆炸箭矢"] = "ExplosiveArrow",
+}
+
 -- Merge level modifier with given mod list
 local mergeLevelCache = { }
 local function mergeLevelMod(modList, mod, value)
@@ -506,15 +529,16 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		end
 	end
 	
-	if skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."MaxStages") > 0 then
+	local stageSkill = stageSkillsCn[activeGrantedEffect.name:gsub("%s+", "")]
+	if stageSkill and skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:"..stageSkill.."MaxStages") > 0 then
 		skillFlags.multiStage = true
 		activeSkill.activeStageCount = (env.mode == "CALCS" and activeEffect.srcInstance.skillStageCountCalcs) or (env.mode ~= "CALCS" and activeEffect.srcInstance.skillStageCount)
-		local limit = skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."MaxStages")
+		local limit = skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:"..stageSkill.."MaxStages")
 		if limit > 0 then
 			if activeSkill.activeStageCount and activeSkill.activeStageCount > 0 then
-				skillModList:NewMod("Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."Stage", "BASE", m_min(limit, activeSkill.activeStageCount), "Base")
+				skillModList:NewMod("Multiplier:"..stageSkill.."Stage", "BASE", m_min(limit, activeSkill.activeStageCount), "Base")
 				activeSkill.activeStageCount = (activeSkill.activeStageCount or 0) - 1
-				skillModList:NewMod("Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."StageAfterFirst", "BASE", m_min(limit - 1, activeSkill.activeStageCount), "Base")
+				skillModList:NewMod("Multiplier:"..stageSkill.."StageAfterFirst", "BASE", m_min(limit - 1, activeSkill.activeStageCount), "Base")
 			end
 		end
 	end
