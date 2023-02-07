@@ -1290,13 +1290,14 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 	end
 end
 
-function buildMode:FormatStat(statData, statVal, overCapStatVal)
+function buildMode:FormatStat(statData, statVal, overCapStatVal, colorOverride)
 	if type(statVal) == "table" then return "" end
 	local val = statVal * ((statData.pc or statData.mod) and 100 or 1) - (statData.mod and 100 or 0)
-	local color = (statVal >= 0 and "^7" or statData.chaosInoc and "^8" or colorCodes.NEGATIVE)
+	local color = colorOverride or (statVal >= 0 and "^7" or statData.chaosInoc and "^8" or colorCodes.NEGATIVE)
 	if statData.label == "Unreserved Life" and statVal == 0 then
 		color = colorCodes.NEGATIVE
 	end
+
 	local valStr = s_format("%"..statData.fmt, val)
 	valStr:gsub("%.", main.decimalSeparator)
 	valStr = color .. formatNumSep(valStr)
@@ -1359,14 +1360,27 @@ function buildMode:AddDisplayStatList(statList, actor)
 							end
 						end
 					elseif not (statData.hideStat) then
+						-- Change the color of the stat label to red if cost exceeds pool
+						local output = actor.output
+						local poolVal = output[statData.pool]
+						local colorOverride = nil
+						if statData.stat:match("Cost$") and not statData.stat:match("PerSecondCost$") and statVal and poolVal then
+							if statData.stat == "ManaCost" and output.EnergyShieldProtectsMana then
+								if statVal > output.ManaUnreserved + output.EnergyShield then
+									colorOverride = colorCodes.NEGATIVE
+								end
+							elseif statVal > poolVal then
+								colorOverride = colorCodes.NEGATIVE
+							end
+						end
 						t_insert(statBoxList, {
 							height = 16,
 							labelColor..statData.label..":",
-							self:FormatStat(statData, statVal, overCapStatVal),
+							self:FormatStat(statData, statVal, overCapStatVal, colorOverride),
 						})
 					end
 				end
-				if statData.warnFunc and statVal and ((statData.condFunc and statData.condFunc(statVal, actor.output)) or not statData.condFunc) then 
+				if statData.warnFunc and statVal and ((statData.condFunc and statData.condFunc(statVal, actor.output)) or not statData.condFunc) then
 					local v = statData.warnFunc(statVal, actor.output)
 					if v then
 						InsertIfNew(self.controls.warnings.lines, v)
@@ -1379,6 +1393,17 @@ function buildMode:AddDisplayStatList(statList, actor)
 			elseif not statBoxList[#statBoxList] or statBoxList[#statBoxList][1] then
 				t_insert(statBoxList, { height = 6 })
 			end
+		end
+	end
+	for pool, warningFlag in pairs({["生命"] = "LifeCostWarning", ["魔力"] = "ManaCostWarning", ["怒火"] = "RageCostWarning", ["能量护盾"] = "ESCostWarning"}) do
+		if actor.output[warningFlag] then
+			local line = "没有足够的 "..(actor.output.EnergyShieldProtectsMana and pool == "魔力" and "能量护盾和魔力" or pool).." 来释放所选技能"
+			InsertIfNew(self.controls.warnings.lines, line)
+		end
+	end
+	for pool, warningFlag in pairs({["未保留的生命"] = "LifePercentCostPercentCostWarning", ["未保留的魔力"] = "ManaPercentCostPercentCostWarning"}) do		if actor.output[warningFlag] then
+			local line = "没有足够的 ".. pool .."% 来释放所选技能"
+			InsertIfNew(self.controls.warnings.lines, line)
 		end
 	end
 end
