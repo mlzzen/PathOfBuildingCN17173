@@ -6166,7 +6166,7 @@ c["最左边的 3 个魔法非恢复类药剂给你持续提供药剂效果"]={{
 c["攻击附加 8 - 13 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=8},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=13}},nil}
 c["生命每秒再生 1.5"]={nil,"生命每秒再生 1.5 "}
 c["获得额外混沌伤害，其数值等同于物理伤害的 10%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=10}},nil}
-c["分配给你的各类专精可增加2%伤害"]={{[1]={[1]={type="Multiplier",var="AllocatedMasteryType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
+c["分配给你的各类专精可增加2%伤害"]={{[1]={[1]={type="Multiplier",var="AllocatedMasteryType"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=2}},nil}
 c["被攻击击中时，有 15% 几率制造冰缓地面 承受的冰霜伤害降低 5%"]={{[1]={flags=1,keywordFlags=0,name="ColdDamageTaken",type="BASE",value=15}},"被击中时，制造冰缓地面 降低 5% "}
 c["+800 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=800}},nil}
 c["结界复原速度加快 30%"]={{[1]={flags=0,keywordFlags=0,name="WardRechargeFaster",type="INC",value=30}},nil}
@@ -9446,7 +9446,7 @@ c["捷技能召唤生物的伤害总增 25%"]={{[1]={flags=0,keywordFlags=0,name
 c["在效果持续期间，对位于奉献地面之上的敌人的暴击几率 +2%"]={{[1]={[1]={type="Condition",var="UsingFlask"},[2]={actor="enemy",type="ActorCondition",var="OnConsecratedGround"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=2}},nil}
 c["你使用技能时获得 1 个飓风之力"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainGaleForce",type="FLAG",value=true},[2]={[1]={type="Condition",var="CanGainGaleForce"},flags=0,keywordFlags=0,name="Dummy",type="DUMMY",value=1}},nil}
 c["持长杖时法术伤害格挡几率 +3%"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=3}},nil}
-c["你每控制一个魔侍，召唤生物伤害和施法速度便提高 2%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=2}}}},"你每控制一个魔侍，和施法速度 "}
+c["你每控制一个魔侍，召唤生物伤害和施法速度便提高 2%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="MORE",value=2}}}},"你每控制一个魔侍，和施法速度 "}
 c["分配给你的各类专精可增加3%伤害"]={{[1]={[1]={type="Multiplier",var="AllocatedMasteryType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=3}},nil}
 c["攻击附加 1 - 25 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=25}},nil}
 c["药剂持续期间，施法速度提高 15%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=16,keywordFlags=0,name="Speed",type="INC",value=15}},nil}

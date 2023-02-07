@@ -578,10 +578,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 	modDB:NewMod("Multiplier:AllocatedMastery", "BASE", allocatedMasteryCount, "")
 	modDB:NewMod("Multiplier:AllocatedMasteryType", "BASE", allocatedMasteryTypeCount, "")
 
-	modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount, "")
-	modDB:NewMod("Multiplier:AllocatedMastery", "BASE", allocatedMasteryCount, "")
-	modDB:NewMod("Multiplier:AllocatedMasteryType", "BASE", allocatedMasteryTypeCount, "")
-
 	-- Build and merge item modifiers, and create list of radius jewels
 	if not accelerate.requirementsItems then
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
