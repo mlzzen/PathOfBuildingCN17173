@@ -285,7 +285,7 @@ c["被冰冻后，你有 3 秒免疫冰冻"]={nil,"被冰冻后，你有 3 秒�
 c["技能魔力消耗降低 3%"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-3}},nil}
 c["闪电净化没有保留效果"]={{[1]={[1]={skillId="LightningResistAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationFlat",value=0}},[2]={[1]={skillId="LightningResistAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationFlat",value=0}},[3]={[1]={skillId="LightningResistAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationPercent",value=0}},[4]={[1]={skillId="LightningResistAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationPercent",value=0}}},nil}
 c["苦痛爬行者的伤害提高 85%"]={{[1]={[1]={skillId="HeraldOfAgony",type="SkillId"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=85}}}},nil}
-c["魔侍的施法速度提高 9%"]={{[1]={[2]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=9}}}},nil}
+c["魔侍的施法速度提高 9%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=9}}}},nil}
 c["当力量超过 400 点时，每秒回复 2% 生命"]={{[1]={[1]={stat="Str",threshold=400,type="StatThreshold"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2}},nil}
 c["地雷投掷技能的魔力保留效能提高 10%"]={{[1]={[1]={skillName="地雷投掷技能",type="SkillName"},flags=0,keywordFlags=0,name="ManaReservationEfficiency",type="INC",value="10"}},nil}
 c["3% increased Movement Speed 30% Chance to Block Spell Damage"]={{},"% increased Movement Speed 30% Chance to Block Spell Damage "}
@@ -540,7 +540,7 @@ c["烙印伤害提高 12%"]={{[1]={[1]={skillType=75,type="SkillType"},flags=0,k
 c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 苦痛劫掠"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 苦痛劫掠 "}
 c["双手近战武器的攻击 +45% 暴击伤害加成"]={{[1]={flags=301989888,keywordFlags=0,name="CritMultiplier",type="BASE",value=45}},nil}
 c["附加 175 - 300 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=175},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=300}},nil}
-c["魔像 +1000 护甲值"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Armour",type="BASE",value=1000}}}},nil}
+c["魔像 +1000 护甲值"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Armour",type="BASE",value=1000}}}},nil}
 c["你被冰冻时不会被感电"]={nil,"你被冰冻时不会被感电 "}
 c["暴击时制造奉献地面 暴击击败敌人时物品稀有度提高 50%"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="LootRarity",type="INC",value=50}},"制造奉献地面 暴击击败敌人时 "}
 c["10.0 每秒生命回复"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=10}},nil}
@@ -632,7 +632,7 @@ c["反射你的另一枚戒指"]={nil,"反射你的另一枚戒指 "}
 c["受到你嘲讽的敌人所承受的伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Taunted"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=10}}}},nil}
 c["弓类攻击的命中值提高 20%"]={{[1]={flags=131076,keywordFlags=0,name="Accuracy",type="INC",value=20}},nil}
 c["召唤生物的伤害提高 40%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=40}}}},nil}
-c["魔像体型缩小 25% 魔像的总伤害额外降低 45%"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=-25}}}},"体型 魔像的总额外降低 45% "}
+c["魔像体型缩小 25% 魔像的总伤害额外降低 45%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=-25}}}},"体型 魔像的总额外降低 45% "}
 c["16% Chance to Block Attack Damage Adds 2 to 4 Physical Damage"]={{}," to Block Attack Damage Adds 2 to 4 Physical Damage "}
 c["被击中时， 4 秒内回复等同于 10% 伤害的魔力 将承受伤害的 20% 吸纳为魔力"]={nil,"被击中时， 4 秒内回复等同于 10% 伤害的魔力 将承受伤害的 20% 吸纳为魔力 "}
 c["你被感电的持续时间延长 100%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=100}},"你被感电的 "}
@@ -969,7 +969,7 @@ c["物理伤害提高 24%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",
 c["近期内你若格挡过法术，攻击伤害格挡几率 +100%"]={{[1]={[1]={type="Condition",var="BlockedSpellRecently"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=100}},nil}
 c["先祖图腾激活后，它们提供的增益效果提高 30%"]={{[1]={[1]={skillNameList={[1]="先祖卫士",[2]="先祖战士长",[3]="瓦尔.先祖战士长"},type="SkillName"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=30}},nil}
 c["若你近期内有击败敌人，则效果区域扩大 5%，最多 50%"]={{[1]={[1]={limit=50,limitTotal=true,type="Multiplier",var="EnemyKilledRecently"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value="5"}},nil}
-c["受到魔侍的伤害提高 10%"]={{[1]={[2]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},"受到 "}
+c["受到魔侍的伤害提高 10%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},"受到 "}
 c["+4% 火焰持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="FireDotMultiplier",type="BASE",value=4}},nil}
 c["+25% 几率被点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=25}},"被 "}
 c["暴击球的持续时间延长 120%"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesDuration",type="INC",value=120}},nil}
@@ -1432,7 +1432,7 @@ c["近期你每消耗 200 魔力，技能的魔力消耗就提高 60%"]={{[1]={f
 c["每个耐力球可使每秒生命回复提高 75"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=75}},nil}
 c["被格挡的攻击对你造成 20% 伤害"]={{[1]={flags=0,keywordFlags=0,name="BlockEffect",type="BASE",value=20}},nil}
 c["生命上限降低 25%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=-25}},nil}
-c["魔像的最大生命提高 25%"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=25}}}},nil}
+c["魔像的最大生命提高 25%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=25}}}},nil}
 c["对抗标记的敌人时，击中和异常状态伤害提高 50%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=50}},nil}
 c["中毒持续时间延长 23%"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=23}},nil}
 c["有 10% 的几率在法术击中时使敌人缓速"]={{[1]={flags=0,keywordFlags=131072,name="MovementSpeed",type="BASE",value=10}}," to Hinder Enemies on Hit , with 30% reduced  "}
@@ -1525,7 +1525,7 @@ c["物品稀有度提高 35%"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",t
 c["斗转星移范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="斗转星移"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="斗转星移",value=true}}},nil}
 c["当你拥有兽化的召唤生物时，投射物攻击击中时有 20% 几率造成中毒"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={skillType=3,type="SkillType"},[3]={type="Condition",var="HaveBestialMinion"},flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=20}},nil}
 c["生命上限提高 4%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=4}},nil}
-c["插槽内魔像技能击中时有 25% 几率嘲讽 此物品上的技能石受到 17 级的 召唤生物伤害 辅助"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=262144,name="Damage",type="BASE",value=25}}}},"插槽内技能时嘲讽 此物品上的技能石受到 17 级的 召唤生物 辅助 "}
+c["插槽内魔像技能击中时有 25% 几率嘲讽 此物品上的技能石受到 17 级的 召唤生物伤害 辅助"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=262144,name="Damage",type="BASE",value=25}}}},"插槽内技能时嘲讽 此物品上的技能石受到 17 级的 召唤生物 辅助 "}
 c["被击中时承受 5 额外物理伤害"]={{[1]={flags=0,keywordFlags=262144,name="PhysicalDamage",type="BASE",value=5}},"被时承受  "}
 c["近战伤害击退敌人时，有 10% 的几率获得 1 个暴击球"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="BASE",value=10}},"击退敌人时，获得 1 个暴击球 "}
 c["+10% 冰霜与闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=10},[2]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=10}},nil}
@@ -1904,7 +1904,7 @@ c["弓类技能的持续伤害效果提高 12%"]={{[1]={flags=8,keywordFlags=102
 c["最大生命提高 35%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=35}},nil}
 c["刷新你诅咒的敌人身上的点燃、冰缓和感电的持续时间 当你施放诅咒法术时，移除元素异常状态"]={nil,"刷新你诅咒的敌人身上的点燃、冰缓和感电的持续时间 当你施放诅咒法术时，移除元素异常状态 "}
 c["击败流血的敌人时产生爆炸，造成等同其 5% 最大生命的物理伤害 流血持续时间缩短 25%"]={{[1]={flags=0,keywordFlags=4194304,name="Life",type="INC",value=-25}},"击败的敌人时产生爆炸，造成等同其 5% 的物理伤害 流血持续时间 "}
-c["每把幻化武器可使幻化守卫的伤害提高 5%"]={{[1]={[2]={skillName="幻化守卫",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",type="Multiplier",var="AnimatedWeapon"},flags=0,keywordFlags=0,name="Damage",type="INC",value=5}}}},nil}
+c["每把幻化武器可使幻化守卫的伤害提高 5%"]={{[1]={[1]={skillName="幻化守卫",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",type="Multiplier",var="AnimatedWeapon"},flags=0,keywordFlags=0,name="Damage",type="INC",value=5}}}},nil}
 c["地雷可以被额外触发 1 次 此物品上装备的【法术技能石】等级 +2"]={{},"可以被"}
 c["周围敌人有额外 2% 几率受到暴击"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="SelfExtraCritChance",type="BASE",value=2}}}},nil}
 c["击中时有 25% 几率偷取暴击，狂怒和耐力球 击中时有 100% 几率偷取暴击，狂怒和耐力球"]={{},"时偷取暴击，狂怒和耐力球 击中时有 100% 几率偷取暴击，狂怒和耐力球 "}
@@ -2068,7 +2068,7 @@ c["此物品上的技能石获得【元素之相】，效果降低 40% 此物品
 c["禁用除【冲刺】以外的旅行技能"]={{[1]={[1]={skillNameList={[1]="跃击",[2]="重盾冲锋",[3]="回旋之刃",[4]="暗影迷踪",[5]="烟雾地雷",[6]="闪现射击",[7]="魅影射击",[8]="凋零步",[9]="闪电传送",[10]="瓦尔.闪电传送",[11]="烈焰冲刺",[12]="灵体转换",[13]="冰霜闪现"},type="SkillName"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true}},nil}
 c["受到残暴打击后失去所有精神球 每个影响你的【深渊珠宝】可使最大精神球数量 +1"]={{},"受到残暴打击后失去所有精神球 最大精神球数量  "}
 c["若你在药剂生效期间消灭中毒的敌人，则周围的敌人也会中毒 在药剂生效期间，你造成的中毒效果有 20% 的几率伤害提高 100%"]={{[1]={[1]={type="Condition",var="UsingFlask"},[2]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=2097152,name="FlaskEffect",type="BASE",value=20}},"若你在消灭的敌人，则周围的敌人也会中毒 在你造成的中毒伤害提高 100% "}
-c["魔侍的移动速度提高 5% 魔侍的攻击速度提高 10%"]={{[1]={[2]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=5}}}},"魔侍 攻击速度提高 10% "}
+c["魔侍的移动速度提高 5% 魔侍的攻击速度提高 10%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=5}}}},"魔侍 攻击速度提高 10% "}
 c["15% 的物理伤害转换为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToChaos",type="BASE",value=15}},nil}
 c["若诅咒持续时间耗减了 75%，则被你诅咒的敌人受到的伤害提高 25% 若诅咒持续时间耗减了 75%，则被你诅咒的敌人受到的伤害提高 35%"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=25}},"若耗减了 75%，则被你的敌人受到的伤害 若诅咒持续时间耗减了 75%，则被你诅咒的敌人受到的伤害提高 35% "}
 c["投射物朝随机方向发射"]={nil,"投射物朝随机方向发射 "}
@@ -2333,7 +2333,7 @@ c["每个狂怒球都使你施加的流血伤害生效速度加快 4%"]={{[1]={[
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 精华吞噬"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 精华吞噬 "}
 c["偷取的每秒最大魔力总恢复量提高 50%"]={{[1]={flags=0,keywordFlags=0,name="MaxManaLeechRate",type="INC",value=50}},nil}
 c["拥有【猫之隐匿】时，你的攻击必定造成流血"]={{[1]={[1]={type="Condition",var="AffectedBy猫之隐匿"},flags=1,keywordFlags=0,name="BleedChance",type="BASE",value=100}},nil}
-c["灵体的暴击率提高 900%"]={{[1]={[2]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=900}}}},nil}
+c["灵体的暴击率提高 900%"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=900}}}},nil}
 c["其中 1 个增加的天赋为【不动之恶】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="不动之恶"}},nil}
 c["物理伤害提高 40%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=40}},nil}
 c["需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 伏击"]={nil,"需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 伏击 "}
@@ -2483,7 +2483,7 @@ c["优雅的魔力保留效能提高 50%"]={{[1]={[1]={skillName="优雅",type="
 c["近战伤害提高 16%"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
 c["+500 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=500}},nil}
 c["击败敌人时有 10% 几率给予周围友军 1 个暴击球 击中时有 5% 几率给予周围友军 1 个狂怒球"]={{},"击败敌人时给予周围友军 1 个暴击球 时有 5% 几率给予周围友军 1 个狂怒球 "}
-c["灵体的暴击率提高 1000%"]={{[1]={[2]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=1000}}}},nil}
+c["灵体的暴击率提高 1000%"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=1000}}}},nil}
 c["周围敌人有恶语术效果"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="HasMalediction",type="FLAG",value=true}}}},nil}
 c["若你近期内没有获得狂怒球，则攻击速度加快 23%"]={{[1]={[1]={neg=true,type="Condition",var="GainedFrenzyChargeRecently"},flags=1,keywordFlags=0,name="Speed",type="INC",value=23}},nil}
 c["低血时移动速度提高 7%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=7}},nil}
@@ -2856,7 +2856,7 @@ c["Serrated Arrow Quiver League: Race Events"]={nil,"Serrated Arrow Quiver Leagu
 c["每个红色插槽可为你和周围友军附加 64 - 96 基础火焰伤害"]={{[1]={[1]={type="Multiplier",var="RedSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=64}}},[2]={[1]={type="Multiplier",var="RedSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=96}}}},nil}
 c["若范围内有 40 点智慧，则【召唤魔侍】技能可以召唤最多 5 个魔侍法师 若范围内有 40 点智慧，则【召唤魔侍】技能可以召唤最多 15 个魔侍法师"]={nil,"若范围内有 40 点智慧，则【召唤魔侍】技能可以召唤最多 5 个魔侍法师 若范围内有 40 点智慧，则【召唤魔侍】技能可以召唤最多 15 个魔侍法师 "}
 c["攻击被嘲讽的敌人时，攻击伤害的 2% 转化为生命偷取"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Taunted"},flags=1,keywordFlags=0,name="DamageLifeLeech",type="BASE",value=2}},nil}
-c["魔像移动速度提高 90%"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=90}}}},nil}
+c["魔像移动速度提高 90%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=90}}}},nil}
 c["-1 暴击球数量上限"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesMax",type="BASE",value=-1}},nil}
 c["+16% 冰霜与闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=16},[2]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=16}},nil}
 c["冰霜异常效果提高 18%"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=18},[2]={flags=0,keywordFlags=0,name="EnemyChillEffect",type="INC",value=18},[3]={flags=0,keywordFlags=0,name="EnemyBrittleEffect",type="INC",value=18}},nil}
@@ -2995,7 +2995,7 @@ c["击中时有 25% 几率造成瘫痪 近期内你若受到【残暴打击】�
 c["范围内的天赋附加词缀：陷阱和地雷造成 3 - 6 额外物理伤害 陷阱和地雷击中时，有 25% 几率使敌人中毒"]={{},"内的天赋附加词缀：陷阱和地雷 陷阱和地雷击中时，有 25% 几率 "}
 c["获得【神性】时失去所有神圣球 周围队友的行动速度无法被减速至基础以下"]={nil,"获得【神性】时失去所有神圣球 周围队友的行动速度无法被减速至基础以下 "}
 c["攻击击中时有 20% 几率使目标中毒"]={{[1]={flags=1,keywordFlags=0,name="PoisonChance",type="BASE",value=20}},nil}
-c["魔像的最大生命提高 15%"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=15}}}},nil}
+c["魔像的最大生命提高 15%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=15}}}},nil}
 c["攻击附加 1-30 基础火焰伤害"]={{[1]={flags=1,keywordFlags=0,name="FireMin",type="BASE",value=1},[2]={flags=1,keywordFlags=0,name="FireMax",type="BASE",value=30}},nil}
 c["该装备的闪避与能量护盾提高 500%"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=500}},nil}
 c["最左边的 4 个魔法非恢复类药剂给你持续提供药剂效果"]={{[1]={flags=0,keywordFlags=0,name="ActiveMagicUtilityFlasks",type="BASE",value=4}},nil}
@@ -3006,7 +3006,7 @@ c["生效期间，使用瓦尔技能有 40% 几率降低阻灵术的持续时间
 c["24% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=24}},nil}
 c["+1 魔侍数量上限"]={{[1]={flags=0,keywordFlags=0,name="ActiveSkeletonLimit",type="BASE",value=1}},nil}
 c["+1% 冰霜抗性上限"]={{[1]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=1}},nil}
-c["魔像移动速度提高 100%"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=100}}}},nil}
+c["魔像移动速度提高 100%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=100}}}},nil}
 c["+0% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=0}},nil}
 c["幻影弓手不会跟随于你 召唤的幻影弓手数量上限 +2 不能在你的幻影弓手周围召唤幻影弓手"]={{},"幻影手不会跟随于你 召唤的幻影弓手数量上限  不能在你的幻影弓手周围召唤幻影弓手 "}
 c["物理伤害提高 14%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=14}},nil}
@@ -3169,7 +3169,7 @@ c["若你近期被击中，则每秒获得 1 个耐力球 耐力球达到上限�
 c["每秒失去 5% 能量护盾 生命全满时，生命偷取套用于能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=5}},"每秒%  生命全满时，生命偷取套用于能量护盾 "}
 c["【召唤愤怒狂灵】的伤害提高 213%"]={{[1]={[1]={skillName="召唤愤怒狂灵",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="INC",value=213}},nil}
 c["图腾放置范围扩大 25%"]={{},"  Placement range "}
-c["+2000 魔卫最大生命"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=2000}}}},nil}
+c["+2000 魔卫最大生命"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=2000}}}},nil}
 c["攻击技能的元素伤害提高 22%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=22}},nil}
 c["，受到的火焰和冰霜伤害的30%视为闪电伤害 禁用除闪电净化之外的其他光环技能"]={nil,"，受到的火焰和冰霜伤害的30%视为闪电伤害 禁用除闪电净化之外的其他光环技能 "}
 c["当你攻击时触发 20 级的【风暴突袭】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="StormCascadeTriggered",triggered=true}}},nil}
@@ -4052,7 +4052,7 @@ c["80% 的攻击格挡率同样套用于法术格挡"]={{[1]={flags=0,keywordFla
 c["烙印的效果区域在附着持续时间消减 50% 的情况下扩大 25% 烙印伤害提高 25%"]={{[1]={[1]={skillType=75,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="BASE",value=50}},"在附着持续时间消减 情况下扩大 25% 烙印伤害提高 25% "}
 c["闪避值与护甲提高 10%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=10}},nil}
 c["持盾牌时攻击伤害格挡率 +2%"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=2}},nil}
-c["灵体的最大生命提高 75%"]={{[1]={[2]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=75}}}},nil}
+c["灵体的最大生命提高 75%"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=75}}}},nil}
 c["攻击和法术附加 10 - 20 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=196608,name="ColdMin",type="BASE",value=10},[2]={flags=0,keywordFlags=196608,name="ColdMax",type="BASE",value=20}},nil}
 c["闪电伤害击中时有 10% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=10}},nil}
 c["持续时间降低 30%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-30}},nil}
@@ -4116,7 +4116,7 @@ c["当你拥有兽化的召唤生物时，投射物攻击击中时有 20% 几率
 c["每个狂怒球使旅行技能的冷却回复速度提高 9%"]={{[1]={[1]={skillType=90,type="SkillType"},[2]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=9}},nil}
 c["衰弱可以影响魔蛊免疫的敌人"]={nil,"衰弱可以影响魔蛊免疫的敌人 "}
 c["击败流血的敌人时产生爆炸，造成等同其 10% 最大生命的物理伤害"]={nil,"击败流血的敌人时产生爆炸，造成等同其 10% 最大生命的物理伤害 "}
-c["魔像的攻击和施法速度提高 18%"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=18}}}},nil}
+c["魔像的攻击和施法速度提高 18%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=18}}}},nil}
 c["药剂回复的魔力提高 100%"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=100}},nil}
 c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 自然的恩赐"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 自然的恩赐 "}
 c["近期内你若格挡过法术，则有 20% 几率格挡攻击"]={{[1]={[1]={type="Condition",var="BlockedSpellRecently"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=20}},nil}
@@ -4362,9 +4362,9 @@ c["当插槽内的辅助宝石达到最大等级时吞噬该宝石"]={nil,"当�
 c["护甲提高 (30-40)%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=-40}},"提高 (30)% "}
 c["其中 1 个增加的天赋为【特别预备】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="特别预备"}},nil}
 c["你打出暴击时获得【秘术增强】 你的【召唤灵体】也会随你一起获得【秘术增强】"]={nil,"你打出暴击时获得【秘术增强】 你的【召唤灵体】也会随你一起获得【秘术增强】 "}
-c["灵体的最大生命提高 100%"]={{[1]={[2]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=100}}}},nil}
+c["灵体的最大生命提高 100%"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=100}}}},nil}
 c["击败敌人时，召唤生物获得【不洁之力】，持续 10 秒 召唤生物获得额外混沌伤害，其数值等同于元素伤害的 20%"]={{},"击败敌人时，【不洁之力】，持续 10 秒 召唤生物获得"}
-c["你每控制一个魔侍，召唤生物伤害和施法速度便提高 2% 你每控制一个魔卫，召唤生物持续时间延长 2%"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=2}}}},"你每控制一个魔侍，和施法速度 你每控制一个，召唤生物持续时间延长 2% "}
+c["你每控制一个魔侍，召唤生物伤害和施法速度便提高 2% 你每控制一个魔卫，召唤生物持续时间延长 2%"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=2}}}},"你每控制一个魔侍，和施法速度 你每控制一个，召唤生物持续时间延长 2% "}
 c["施法速度提高 11%"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=11}},nil}
 c["此物品上的技能石受到 35 级的 附加闪电伤害(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportAddedLightningDamage"}}},nil}
 c["你的羁绊对象承受的伤害降低 5%"]={nil,"Your Linked Targets take 5% reduced Damage "}
@@ -4748,7 +4748,7 @@ c["混沌伤害提高 69%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",typ
 c["附加 4 - 7 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=4},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=7}},nil}
 c["流血伤害提高 25%"]={{[1]={flags=0,keywordFlags=4194304,name="Damage",type="INC",value=25}},nil}
 c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 狙击"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 狙击 "}
-c["受到魔侍的伤害提高 10% 受到鬼魂的伤害提高 10%"]={{[1]={[2]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},"受到 受到鬼魂的伤害提高 10% "}
+c["受到魔侍的伤害提高 10% 受到鬼魂的伤害提高 10%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},"受到 受到鬼魂的伤害提高 10% "}
 c["附加 4 - 8 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=4},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=8}},nil}
 c["受到【她的拥抱】影响时，每级根据你的最大生命和最大护盾总量，造成每秒 0.5% 火焰伤害"]={{[1]={[1]={stat="Life",type="PerStat"},[2]={type="Multiplier",var="Level"},[3]={type="Condition",var="HerEmbrace"},flags=0,keywordFlags=0,name="FireDegen",type="BASE",value=0.005},[2]={[1]={stat="EnergyShield",type="PerStat"},[2]={type="Multiplier",var="Level"},[3]={type="Condition",var="HerEmbrace"},flags=0,keywordFlags=0,name="FireDegen",type="BASE",value=0.005}},nil}
 c["击败敌人有 8% 的几率获得暴击球"]={nil,"a Power Charge on Kill "}
@@ -5359,7 +5359,7 @@ c["+20 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=20}},
 c["法术伤害压制率在能量护盾全满时 +10%"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=10}},nil}
 c["无法拥有非灵体召唤物 +2 最大灵体数量"]={{},"无法拥有非灵体召唤物  最大灵体数量 "}
 c["投射物击中时有 10% 的几率嘲讽敌人"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=10}}," to Taunt Enemies on  Hit "}
-c["魔卫击败敌人时，产生的爆炸会造成火焰伤害 被魔卫的击中击败的敌人会爆炸，造成其生命 50% 的火焰伤害"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireDamage",type="BASE",value=50}}}},"击败敌人时，产生的爆炸会造成 被魔卫的击中击败的敌人会爆炸，造成其生命 火焰伤害 "}
+c["魔卫击败敌人时，产生的爆炸会造成火焰伤害 被魔卫的击中击败的敌人会爆炸，造成其生命 50% 的火焰伤害"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireDamage",type="BASE",value=50}}}},"击败敌人时，产生的爆炸会造成 被魔卫的击中击败的敌人会爆炸，造成其生命 火焰伤害 "}
 c["无法拥有非灵体召唤物"]={nil,"无法拥有非灵体召唤物 "}
 c["+1000 灵体最大生命"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=1000}}}},nil}
 c["该装备的护甲与闪避提高 135%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=135}},nil}
@@ -5981,7 +5981,7 @@ c["至少有 200 点敏捷时，投射物攻击伤害提高 50%"]={{[1]={[1]={st
 c["+45 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=45}},nil}
 c["受到【寒冰之捷】影响时，+60% 冰霜抗性"]={{[1]={[1]={type="Condition",var="AffectedBy寒冰之捷"},flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=60}},nil}
 c["禁断之火上有匹配的词缀则配置 灵魂饮者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="灵魂饮者",side="之火"}}},nil}
-c["魔像的最大生命提高 20%"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=20}}}},nil}
+c["魔像的最大生命提高 20%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=20}}}},nil}
 c["敌人受到的元素异常状态时间缩短 20%"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=-20},[2]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=-20},[3]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=-20},[4]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-20},[5]={flags=0,keywordFlags=0,name="EnemyScorchDuration",type="INC",value=-20},[6]={flags=0,keywordFlags=0,name="EnemyBrittleDuration",type="INC",value=-20},[7]={flags=0,keywordFlags=0,name="EnemySapDuration",type="INC",value=-20}},nil}
 c["9 每秒魔力回复"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="BASE",value=9}},nil}
 c["每失去 1% 冰霜抗性，冰霜伤害就提高 20%，最多提高 300%"]={{[1]={[1]={neg=true,type="Condition",var="DualWielding"},[2]={div=1,limit=300,limitTotal=true,stat="MissingColdResist",type="PerStat"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=20},[2]={[1]={type="Condition",var="DualWielding"},[2]={div=1,limit=150,limitTotal=true,stat="MissingColdResist",type="PerStat"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=20}},nil}
@@ -6031,7 +6031,7 @@ c["冰霜伤害击中时有 10% 的几率冰冻敌人"]={{[1]={flags=0,keywordFl
 c["若你近期内受到过【残暴打击】，则 +30% 暴击伤害加成"]={{[1]={[1]={type="Condition",var="BeenSavageHitRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=30}},nil}
 c["药剂持续期间间延长 60%"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=60}},nil}
 c["击败敌人时回复 1% 生命 击败敌人回复 1% 能量护盾"]={nil,"击败敌人时回复 1% 生命 击败敌人回复 1% 能量护盾 "}
-c["魔像的攻击和施法速度提高 20%"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=20}}}},nil}
+c["魔像的攻击和施法速度提高 20%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=20}}}},nil}
 c["无法造成物理伤害"]={{[1]={flags=0,keywordFlags=0,name="DealNoPhysical",type="FLAG",value=true}},nil}
 c["25% 的几率使敌人受到冰冻，感电与点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=25},[2]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=25},[3]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=25}},nil}
 c["所有攻击都受到血魔法辅助"]={{[1]={flags=1,keywordFlags=0,name="SkillBloodMagic",type="FLAG",value=true}},nil}
@@ -6591,7 +6591,7 @@ c["提供钢铁呼唤"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LI
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 生在影中"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 生在影中 "}
 c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 强力复仇"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 强力复仇 "}
 c["右戒指栏位：不能回复魔力"]={{[1]={[1]={num=2,type="SlotNumber"},flags=0,keywordFlags=0,name="NoManaRegen",type="FLAG",value=true}},nil}
-c["魔侍的攻击速度提高 9%"]={{[1]={[2]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=9}}}},nil}
+c["魔侍的攻击速度提高 9%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=9}}}},nil}
 c["禁断之火上有匹配的词缀则配置 爆破专家"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="爆破专家",side="之火"}}},nil}
 c["对抗被诅咒的敌人时，击中和异常状态伤害提高 20%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=20}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 爆破专家"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 爆破专家 "}
@@ -6915,7 +6915,7 @@ c["承受的混沌伤害优先从魔力扣除"]={{[1]={flags=0,keywordFlags=0,na
 c["受非瓦尔防卫技能影响时，获得 20% 额外物理伤害减免 若近期内失去非瓦尔防卫技能增益效果，则受到的伤害总增 20%"]={{[1]={flags=0,keywordFlags=512,name="PhysicalDamageReduction",type="BASE",value=20}},"受非防卫技能影响时，获得  若近期内失去非瓦尔防卫技能增益效果，则受到的伤害总增 20% "}
 c["击中时有 100% 的几率嘲讽敌人"]={{}," to Taunt on Hit "}
 c["攻击和法术无法被闪避"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CannotBeEvaded",type="FLAG",value=true}},nil}
-c["魔像 +900 护甲值"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Armour",type="BASE",value=900}}}},nil}
+c["魔像 +900 护甲值"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Armour",type="BASE",value=900}}}},nil}
 c["+350 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=350}},nil}
 c["被击中时让敌人受到【灰烬缠身】"]={nil,"被击中时让敌人受到【灰烬缠身】 "}
 c["禁用除雷霆之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Wrath",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
@@ -7832,7 +7832,7 @@ c["物理伤害提高 140%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage"
 c["30% 几率避免致流血 有 30% 的几率避免被穿刺"]={{},"避免致 有 30% 的几率避免被穿刺 "}
 c["你能获得召唤生物攻击速度的增强与减弱效果"]={{[1]={flags=0,keywordFlags=0,name="MinionAttackSpeedAppliesToPlayer",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedMinionAttackSpeedAppliesToPlayer",type="MAX",value=100}},nil}
 c["其中 1 个增加的天赋为【邪恶之眼】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="邪恶之眼"}},nil}
-c["魔卫体型增大 25% 魔卫的物理伤害提高 100%"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}}}},"体型增大 25% 魔卫的 "}
+c["魔卫体型增大 25% 魔卫的物理伤害提高 100%"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}}}},"体型增大 25% 魔卫的 "}
 c["其中 1 个增加的天赋为【遁入虚无】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="遁入虚无"}},nil}
 c["其中 1 个增加的天赋为【逃之夭夭】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="逃之夭夭"}},nil}
 c["闪避值提高 135%"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=135}},nil}
@@ -7891,7 +7891,7 @@ c["其中 1 个增加的天赋为【绝缘】"]={{[1]={flags=0,keywordFlags=0,na
 c["其中 1 个增加的天赋为【绝妙镇压】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="绝妙镇压"}},nil}
 c["其中 1 个增加的天赋为【纯粹苦痛】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="纯粹苦痛"}},nil}
 c["低血时命中值提高 100%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=100}},nil}
-c["被魔卫的击中击败的敌人会爆炸，造成其生命 50% 的火焰伤害"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=50}}}},"被的击中击败的敌人会爆炸，造成其 火焰伤害 "}
+c["被魔卫的击中击败的敌人会爆炸，造成其生命 50% 的火焰伤害"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=50}}}},"被的击中击败的敌人会爆炸，造成其 火焰伤害 "}
 c["其中 1 个增加的天赋为【累累伤痕】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="累累伤痕"}},nil}
 c["生命在击败敌人时恢复 1%"]={{[1]={[1]={percent=1,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
 c["其中 1 个增加的天赋为【精确专注】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="精确专注"}},nil}
@@ -8440,7 +8440,7 @@ c["捷技能的魔力保留效能提高 10%"]={{[1]={[1]={skillType=62,type="Ski
 c["+20% 陷阱暴击伤害加成"]={{[1]={flags=0,keywordFlags=4096,name="CritMultiplier",type="BASE",value=20}},nil}
 c["使用时回复生命上限 50% 的生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=50}},"使用时回复 生命 "}
 c["击败敌人会扣除自身 1% 最大生命 击败敌人会扣除自身 1% 最大能量护盾"]={nil,"击败敌人会扣除自身 1% 最大生命 击败敌人会扣除自身 1% 最大能量护盾 "}
-c["你每控制一个愤怒狂灵，会使你攻击和施法速度便提高 2% 你每控制一个魔卫，每秒回复 0.6% 生命"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=2}}}},"你每控制一个愤怒狂灵，会使你 你每控制一个，每秒回复 0.6% 生命 "}
+c["你每控制一个愤怒狂灵，会使你攻击和施法速度便提高 2% 你每控制一个魔卫，每秒回复 0.6% 生命"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=2}}}},"你每控制一个愤怒狂灵，会使你 你每控制一个，每秒回复 0.6% 生命 "}
 c["攻击附加 1 - 64 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=64}},nil}
 c["攻击技能的冰霜伤害提高 80%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=80}},nil}
 c["你使用药剂时移除腐化之血效果"]={nil,"Removes Corrupted Blood when you use a Flask "}
@@ -8998,7 +8998,7 @@ c["攻击和法术暴击率提高 100%"]={{[1]={[1]={type="Global"},flags=0,keyw
 c["被夜刃辅助的技能的灵巧效果提高 40%"]={{[1]={flags=0,keywordFlags=0,name="NightbladeSupportedElusiveEffect",type="INC",value=40}},nil}
 c["召唤生物获得 1% 生命偷取"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageLifeLeech",type="BASE",value=1}}}},nil}
 c["药剂持续期间，技能魔力消耗提高 10%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ManaCost",type="INC",value=10}},nil}
-c["魔侍的攻击速度提高 10%"]={{[1]={[2]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=10}}}},nil}
+c["魔侍的攻击速度提高 10%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=10}}}},nil}
 c["击中敌人后有 10% 的几率使其致盲"]={{}," to Blind Enemies on Hit "}
 c["你能施加一个额外诅咒"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
 c["陷阱有 25% 的几率额外触发一次"]={{},"  to Trigger an additional time "}
@@ -9446,8 +9446,8 @@ c["捷技能召唤生物的伤害总增 25%"]={{[1]={flags=0,keywordFlags=0,name
 c["在效果持续期间，对位于奉献地面之上的敌人的暴击几率 +2%"]={{[1]={[1]={type="Condition",var="UsingFlask"},[2]={actor="enemy",type="ActorCondition",var="OnConsecratedGround"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=2}},nil}
 c["你使用技能时获得 1 个飓风之力"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainGaleForce",type="FLAG",value=true},[2]={[1]={type="Condition",var="CanGainGaleForce"},flags=0,keywordFlags=0,name="Dummy",type="DUMMY",value=1}},nil}
 c["持长杖时法术伤害格挡几率 +3%"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=3}},nil}
-c["你每控制一个魔侍，召唤生物伤害和施法速度便提高 2%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="MORE",value=2}}}},"你每控制一个魔侍，和施法速度 "}
-c["分配给你的各类专精可增加3%伤害"]={{[1]={[1]={type="Multiplier",var="AllocatedMasteryType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=3}},nil}
+c["你每控制一个魔侍，召唤生物伤害和施法速度便提高 2%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=2}}}},"你每控制一个魔侍，和施法速度 "}
+c["分配给你的各类专精可增加3%伤害"]={{[1]={[1]={type="Multiplier",var="AllocatedMasteryType"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=3}},nil}
 c["攻击附加 1 - 25 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=25}},nil}
 c["药剂持续期间，施法速度提高 15%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=16,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["药剂持续期间，魔力回复提高 50%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=50}},nil}
@@ -9517,7 +9517,7 @@ c["愤怒狂灵每秒受到等同于最大生命 20% 的混沌伤害"]={{[1]={fl
 c["Adds 1 to 9 Lightning Damage"]={nil,"Adds 1 to 9 Lightning Damage "}
 c["冰缓时，攻击速度加快 15%"]={{[1]={[1]={type="Condition",var="Chilled"},flags=1,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["拥有【猫之隐匿】时获得【迷踪】状态"]={{[1]={[1]={type="Condition",var="AffectedBy猫之隐匿"},flags=0,keywordFlags=0,name="Condition:Phasing",type="FLAG",value=true}},nil}
-c["+5000 魔卫最大生命"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=5000}}}},nil}
+c["+5000 魔卫最大生命"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=5000}}}},nil}
 c["范围内配置的力量和智慧总计 40 点时，【元素打击】无法选择冰霜元素"]={nil,"范围内配置的力量和智慧总计 40 点时，【元素打击】无法选择冰霜元素 "}
 c["+10 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=10}},nil}
 c["近战物理伤害提高 10%"]={{[1]={flags=256,keywordFlags=0,name="PhysicalDamage",type="INC",value=10}},nil}
@@ -9666,7 +9666,7 @@ c["周围敌人造成的元素伤害总降 8%"]={{[1]={flags=0,keywordFlags=0,na
 c["击败敌人时有 10% 几率获得 1 个随机能量球 击败敌人时有 15% 几率获得 1 个随机能量球"]={{},"击败敌人时获得 1 个随机能量球 击败敌人时有 15% 几率获得 1 个随机能量球 "}
 c["攻击技能的伤害在护体状态下提高 10%"]={{[1]={[1]={type="Condition",var="Fortified"},flags=0,keywordFlags=65536,name="Damage",type="INC",value=10}},nil}
 c["+12% 近战攻击暴击伤害加成"]={{[1]={flags=256,keywordFlags=0,name="CritMultiplier",type="BASE",value=12}},nil}
-c["你每控制一个魔卫，召唤生物持续时间延长 2%"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Duration",type="INC",value=2}}}},"你每控制一个， "}
+c["你每控制一个魔卫，召唤生物持续时间延长 2%"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Duration",type="INC",value=2}}}},"你每控制一个， "}
 c["剑类攻击造成的击中和异常状态伤害提高 14%"]={{[1]={flags=4194304,keywordFlags=786432,name="Damage",type="INC",value=14}},nil}
 c["最大魔力提高 10%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=10}},nil}
 c["对满血敌人的攻击和法术暴击伤害提高 +100%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=100},[2]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="4",type="BASE",value=100}},nil}
@@ -9829,9 +9829,9 @@ c["全局暴击伤害加成在你有狂怒球的情况下 +40%"]={{[1]={[1]={typ
 c["对感电目标的暴击率提高 100%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
 c["来自你身体装备的闪避值提高 100%"]={{[1]={[1]={slotName="Body Armour",type="SlotName"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=100}},nil}
 c["攻击和法术附加 1 - 4 基础闪电伤害"]={{[1]={flags=0,keywordFlags=196608,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=196608,name="LightningMax",type="BASE",value=4}},nil}
-c["魔卫的物理伤害提高 100% 魔卫的物理总伤害额外提高 100%"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}}}},"的 魔卫的物理总伤害额外提高 100% "}
+c["魔卫的物理伤害提高 100% 魔卫的物理总伤害额外提高 100%"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}}}},"的 魔卫的物理总伤害额外提高 100% "}
 c["插槽内的魔像技能每秒回复 5% 生命"]={{[1]={[1]={skillType=61,type="SkillType"},[2]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=5}}}},nil}
-c["魔卫的物理伤害提高 100%"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}}}},"的 "}
+c["魔卫的物理伤害提高 100%"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}}}},"的 "}
 c["你最低的属性每有 5 点，伤害提高 1%"]={{[1]={[1]={div=5,stat="LowestAttribute",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["【冬潮烙印】的冰缓效果提高 30%"]={{[1]={[1]={skillName="冬潮烙印",type="SkillName"},flags=0,keywordFlags=0,name="EnemyChillEffect",type="INC",value=30}},nil}
 c["免疫晕眩"]={{[1]={flags=0,keywordFlags=0,name="AvoidStun",type="BASE",value=100}},nil}
@@ -9877,7 +9877,7 @@ c["钢铁呼唤使用速度加快 100%"]={{},"钢铁呼唤使用速度 "}
 c["附加 13 - 19 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=13},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=19}},nil}
 c["斧类攻击造成的击中和异常状态伤害提高 24%"]={{[1]={flags=65536,keywordFlags=786432,name="Damage",type="INC",value=24}},nil}
 c["此物品上的技能石受到 1 级的 急冻 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportDamageAgainstChilled"}}},nil}
-c["魔像攻击附加 120 到 160 点物理伤害"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=120}}},[2]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=160}}}},nil}
+c["魔像攻击附加 120 到 160 点物理伤害"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=120}}},[2]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=160}}}},nil}
 c["+25 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=25}},nil}
 c["攻击投射物在击中最后目标后返回"]={nil,"Attack Projectiles Return to you from final Target "}
 c["附加 10 - 15 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=10},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=15}},nil}
@@ -10183,7 +10183,7 @@ c["+45 敏捷"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=45}},
 c["可在腐化时添加词缀 最大生命提高 40%，并且火焰抗性等量降低"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=40}},"可在腐化时添加词缀 ，并且火焰抗性等量降低 "}
 c["+60 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=60}},nil}
 c["魔侍的移动速度提高 5%"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=5}},"魔侍 "}
-c["魔侍的施法速度提高 10%"]={{[1]={[2]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=10}}}},nil}
+c["魔侍的施法速度提高 10%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=10}}}},nil}
 c["对流血敌人造成的攻击伤害的 2% 转化为生命偷取"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=1,keywordFlags=0,name="DamageLifeLeech",type="BASE",value=2}},nil}
 c["盾牌上每有 10 点最大能量护盾都使副手暴击率 +0.15%"]={{[1]={[1]={type="Condition",var="OffHandAttack"},[2]={skillType=1,type="SkillType"},[3]={div="10",stat="EnergyShieldOnWeapon 2",type="PerStat"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value="0.15"}},nil}
 c["持盾牌时，攻击技能造成的异常状态伤害提高 14%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=524288,name="Damage",type="INC",value=14}},nil}
@@ -11069,12 +11069,12 @@ c["你和周围友军具有提速尾流效果"]={{[1]={flags=0,keywordFlags=0,na
 c["你无法拥有非魔像类召唤生物 魔像体型缩小 25%"]={{},"你无法拥有非类召唤生物 魔像体型 "}
 c["每失去 1% 火焰抗性，火焰伤害就提高 18%，最多提高 300%"]={{[1]={[1]={neg=true,type="Condition",var="DualWielding"},[2]={div=1,limit=300,limitTotal=true,stat="MissingFireResist",type="PerStat"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=18},[2]={[1]={type="Condition",var="DualWielding"},[2]={div=1,limit=150,limitTotal=true,stat="MissingFireResist",type="PerStat"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=18}},nil}
 c["持盾牌时 +15% 元素抗性"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=15}},nil}
-c["魔像攻击附加 108 到 146 点物理伤害"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=108}}},[2]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=146}}}},nil}
+c["魔像攻击附加 108 到 146 点物理伤害"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=108}}},[2]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=146}}}},nil}
 c["近战击败敌人时，有 5% 几率获得不洁之力 4 秒"]={{},"击败敌人时，获得不洁之力 4 秒 "}
 c["受到怨毒光环影响时，你可以额外施加一个诅咒"]={{[1]={[1]={type="Condition",var="AffectedBy怨毒光环"},flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
 c["专注时有 40% 的几率伤害翻倍"]={{[1]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="DoubleDamageChance",type="BASE",value=40}},nil}
 c["攻击伤害在双持武器时提高 12%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=1,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
-c["魔像的最大生命提高 22%"]={{[1]={[2]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=22}}}},nil}
+c["魔像的最大生命提高 22%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=22}}}},nil}
 c["混沌伤害可以造成点燃、冰缓和感电效果"]={{[1]={flags=0,keywordFlags=0,name="ChaosCanIgnite",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ChaosCanChill",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="ChaosCanShock",type="FLAG",value=true}},nil}
 c["法术附加 56 - 84 基础混沌伤害"]={{[1]={flags=0,keywordFlags=131072,name="ChaosMin",type="BASE",value=56},[2]={flags=0,keywordFlags=131072,name="ChaosMax",type="BASE",value=84}},nil}
 c["受到鬼魂的伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}},"受到鬼魂的 "}
@@ -11276,7 +11276,7 @@ c["此物品上的技能石受到 1 级的 几率流血 辅助"]={{[1]={[1]={slo
 c["混沌伤害提高 (25-35)% 击中有 25% 的几率施加死亡凋零，持续 2 秒"]={{[1]={flags=0,keywordFlags=262144,name="ChaosDamage",type="BASE",value=-35}},"提高 (25)% 有 25% 的几率施加死亡凋零，持续 2 秒 "}
 c["获得【召唤残暴先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfBrutality"}}},nil}
 c["对未被穿刺的敌人时，你用双手武器施加的穿刺效果提高 30%"]={{[1]={flags=268435460,keywordFlags=0,name="ImpaleEffect",type="INC",value=30}},"   on Non-Impaled Enemies "}
-c["你每控制一个魔卫，召唤生物持续时间延长 2% 你每拥有一个灵体，召唤生物伤害提高 12%"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Duration",type="INC",value=2}}}},"你每控制一个， 你每拥有一个灵体，召唤生物伤害提高 12% "}
+c["你每控制一个魔卫，召唤生物持续时间延长 2% 你每拥有一个灵体，召唤生物伤害提高 12%"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Duration",type="INC",value=2}}}},"你每控制一个， 你每拥有一个灵体，召唤生物伤害提高 12% "}
 c["药剂持续期间，移动速度提高 36%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=36}},nil}
 c["你造成的感电会波及半径10内的其他敌人"]={nil,"你造成的感电会波及半径10内的其他敌人 "}
 c["药剂持续期间，获得 21 级的【绝望】诅咒光环"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ExtraCurse",type="LIST",value={level=21,skillId="Despair"}}},nil}
@@ -11464,7 +11464,7 @@ c["当暴击球被消耗或过期时获得耐力球"]={nil,"当暴击球被消�
 c["魔力回复速度提高 45%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=45}},nil}
 c["你有能量护盾时不能被眩晕"]={{[1]={[1]={type="Condition",var="HaveEnergyShield"},[2]={effectType="Global",type="GlobalEffect",unscalable=true},flags=0,keywordFlags=0,name="AvoidStun",type="BASE",value=100}},nil}
 c["持续伤害效果提高 35%"]={{[1]={flags=8,keywordFlags=0,name="Damage",type="INC",value=35}},nil}
-c["+500 魔卫最大生命"]={{[1]={[2]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=500}}}},nil}
+c["+500 魔卫最大生命"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=500}}}},nil}
 c["+40% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=40}},nil}
 c["不能使用其他戒指"]={nil,"不能使用其他戒指 "}
 c["若你的其他戒指中有【塑界之器】，则免疫法术造成的晕眩 击败敌人时有 20% 几率触发 20 级的【召唤异动奇点】"]={{},"免疫造成的晕眩 击败敌人时触发 20 级的【召唤异动奇点】 "}
