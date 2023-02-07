@@ -469,17 +469,21 @@ return {
 "巨型": 半径设为11.
 	一些体型最大的Boss的大小(如贤主之核;惊海之王索亚格斯).]], list = {{val="Small",label="小型"},{val="Medium",label="中型"},{val="Large",label="大型"},{val="Huge",label="巨型"}}, apply = function(val, modList, enemyModList, build)
 		if val == "Small" then
-			build.configTab.varControls['enemyRadius']:SetPlaceholder(2, true)
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(2, false)
+			modList:NewMod("EnemyRadius", "BASE", 2, "Config")
 		elseif val == "Medium" then
-			build.configTab.varControls['enemyRadius']:SetPlaceholder(3, true)
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(3, false)
+			modList:NewMod("EnemyRadius", "BASE", 3, "Config")
 		elseif val == "Large" then
-			build.configTab.varControls['enemyRadius']:SetPlaceholder(5, true)
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(5, false)
+			modList:NewMod("EnemyRadius", "BASE", 5, "Config")
 		elseif val == "Huge" then
-			build.configTab.varControls['enemyRadius']:SetPlaceholder(11, true)
+			build.configTab.varControls['enemyRadius']:SetPlaceholder(11, false)
+			modList:NewMod("EnemyRadius", "BASE", 11, "Config")
 		end
 	end },
 	{ var = "enemyRadius", type = "integer", label = "敌人半径:", ifSkillList = { "震波陷阱", "电塔陷阱" }, tooltip = "配置敌人的碰撞盒的半径，用于计算一些多重范围技能的效果(霰弹效应).", apply = function(val, modList, enemyModList)
-		modList:NewMod("EnemyRadius", "BASE", m_max(val, 1), "Config")
+		modList:NewMod("EnemyRadius", "OVERRIDE", m_max(val, 1), "Config")
 	end },
 
 	-- Section: Map modifiers/curses
