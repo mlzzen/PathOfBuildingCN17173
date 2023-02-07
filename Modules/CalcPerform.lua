@@ -935,7 +935,7 @@ local function doActorMisc(env, actor)
 			--This value is set to negative and not 0 or else reduced effect would not properly apply
 			local flaskEffectInc = -100			
 			for item in pairs(env.flasks) do
-				if item.baseName:match("Silver Flask") then
+				if item.baseName:match("Silver Flask") or item.baseName:match("真银药剂") then
 					onslaughtFromFlask = true
 					if flaskEffectInc < (item.flaskData.effectInc + modDB:Sum("INC", nil, "FlaskEffect")) / 100 then 
 						flaskEffectInc =  (item.flaskData.effectInc + modDB:Sum("INC", nil, "FlaskEffect")) / 100

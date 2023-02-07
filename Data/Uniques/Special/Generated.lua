@@ -454,7 +454,7 @@ local balanceOfTerrorMods = {
 	["Conductivity: Lightning Exposure"] = "如果你在过去 10 秒内施放过导电，则在命中时造成闪电曝露",
 	["Conductivity: Unaffected by Shock"] = "如果你在过去 10 秒内施放过导电，则不会受到感电影响",
 	["Elemental Weakness: Immune to Exposure"] = "如果你在过去 10 秒内施放过元素要害，则对曝露免疫",
-	["Elemental Weakness: Physical Damage as a Random Element"] = "如果你在过去 10 秒内施放过元素要害，则获得 (30-40)% 物理伤害的 1 个随机元素伤害",
+	["Elemental Weakness: Physical Damage as a Random Element"] = "如果你在过去 10 秒内施放过元素要害，获得等同于物理伤害的 (30-40)% 的随机元素伤害",
 	["Temporal Chains: Cooldown Recovery Rate"] = "如果你在过去 10 秒内施放过时空锁链，则冷却恢复速度提高 (20-25)%",
 	["Temporal Chains: Action Speed"] = "如果你在过去 10 秒内施放过时空锁链，则行动速度减缓不会低于基础速度",
 }

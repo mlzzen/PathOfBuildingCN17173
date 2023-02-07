@@ -255,7 +255,7 @@ end)
 function SkillsTabClass:GetBaseNameAndQuality(gemTypeLine, quality)
 	-- if quality is default or nil check the gem type line if we have alt qual by comparing to the existing list
 	if gemTypeLine and (quality == nil or quality == "" or quality == "Default") then
-		local firstword, otherwords = gemTypeLine:match("(%w+)%s(.+)")
+		local firstword, otherwords = gemTypeLine:match("(.+) (.+)")
 		if firstword and otherwords then
 			for _, entry in ipairs(alternateGemQualityList) do
 				if firstword == entry.label then

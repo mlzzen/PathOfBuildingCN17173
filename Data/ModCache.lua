@@ -319,7 +319,6 @@ c["附加 8 - 36 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="Lightn
 c["持盾牌时，攻击技能的伤害提高 12%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["附加 9 - 17 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=9},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=17}},nil}
 c["地雷类技能的效果区域扩大 10%"]={{[1]={flags=0,keywordFlags=8192,name="AreaOfEffect",type="INC",value=10}},nil}
-c["品质说明:"]={nil,"品质说明: "}
 c["使用瓦尔技能时，获得【猛攻】状态，持续 20 秒"]={nil,"使用瓦尔技能时，获得【猛攻】状态，持续 20 秒 "}
 c["召唤生物的最大生命提高 38%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=38}}}},nil}
 c["召唤的幻影弓手数量上限 +2"]={{[1]={flags=0,keywordFlags=0,name="MirageArcherMaxCount",type="BASE",value=2}},nil}
@@ -1020,6 +1019,7 @@ c["攻击速度提高 45%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC
 c["此物品上装备的【技能石】品质 +50%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="quality",keyword="all",value=50}}},nil}
 c["静止时 +1500 护甲"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1500}},nil}
 c["全局伤害提高 50%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
+c["如果你在过去 10 秒内施放过导电，则在命中时造成闪电曝露 如果你在过去 10 秒内施放过元素要害，获得等同于物理伤害的 40% 的随机元素伤害"]={{[1]={[1]={type="Condition",var="SelfCast导电，则在命中时造成闪电曝露如果你在过去10秒内施放过元素要害"},flags=0,keywordFlags=0,name="PhysicalDamageGainAsRandom",type="BASE",value="40"}},nil}
 c["承受攻击造成的物理伤害 -4"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageTaken",type="BASE",value=-4}},nil}
 c["10% 几率避免元素异常状态"]={{[1]={flags=0,keywordFlags=0,name="AvoidShock",type="BASE",value=10},[2]={flags=0,keywordFlags=0,name="AvoidFrozen",type="BASE",value=10},[3]={flags=0,keywordFlags=0,name="AvoidChilled",type="BASE",value=10},[4]={flags=0,keywordFlags=0,name="AvoidIgnite",type="BASE",value=10}},nil}
 c["+1000 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=1000}},nil}
@@ -1150,7 +1150,6 @@ c["瓦尔技能持续时间延长 20%"]={{[1]={flags=0,keywordFlags=512,name="Du
 c["生命每秒再生 1 近战物理伤害提高 10% +3 近战打击范围"]={{[1]={flags=256,keywordFlags=0,name="Life",type="INC",value=10}},"每秒再生 1 物理伤害 +3 近战打击范围 "}
 c["药剂持续期间，近战物理总伤害额外提高 25%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=256,keywordFlags=0,name="PhysicalDamage",type="MORE",value=25}},nil}
 c["获得附加混沌伤害，等于结界的 20%"]={{[1]={[1]={div=5,stat="Ward",type="PerStat"},flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=1},[2]={[1]={div=5,stat="Ward",type="PerStat"},flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=1}},nil}
-c["品质说明: 等级需求: 56"]={nil,"品质说明: 等级需求: 56 "}
 c["闪避值提高 14%"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=14}},nil}
 c["+140 最大魔力"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=140}},nil}
 c["在你周围施放的新星法术改为在目标地点施放"]={nil,"在你周围施放的新星法术改为在目标地点施放 "}
@@ -1532,7 +1531,6 @@ c["+10% 冰霜与闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",
 c["(8-10)% 几率避免元素异常状态 (8-10)% 几率避免被晕眩"]={{[1]={flags=0,keywordFlags=0,name="AvoidShock",type="BASE",value=-10},[2]={flags=0,keywordFlags=0,name="AvoidFrozen",type="BASE",value=-10},[3]={flags=0,keywordFlags=0,name="AvoidChilled",type="BASE",value=-10},[4]={flags=0,keywordFlags=0,name="AvoidIgnite",type="BASE",value=-10}},"(8)% 几率 (8-10)% 几率避免被晕眩 "}
 c["Goathide Buckler"]={nil,"Goathide Buckler "}
 c["攻击技能的闪电伤害提高 30%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=30}},nil}
-c["如果你在过去 10 秒内施放过元素要害，则获得 40% 物理伤害的 1 个随机元素伤害 如果你过去 10 秒内施放过【脆弱】，则有 10% 几率造成双倍伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=10}},"如果你在过去 10 秒内施放过元素要害，则获得 40% 的 1 个随机元素伤害 如果你过去 10 秒内施放过【脆弱】，则造成双倍伤害 "}
 c["【苦痛之捷】的增益效果提高 60%"]={{[1]={[1]={skillName="苦痛之捷",type="SkillName"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=60}},nil}
 c["该装备的护甲与能量护盾提高 450%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=450}},nil}
 c["你的能量护盾从 0 开始"]={nil,"你的能量护盾从 0 开始 "}
@@ -1677,7 +1675,6 @@ c["魔力上限提高 12%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC"
 c["法术暴击率提高 20%"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
 c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 不动信念"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 不动信念 "}
 c["法术伤害提高 8%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
-c["品质说明: 插槽: B-B-B-B-B-B"]={nil,"品质说明: 插槽: B-B-B-B-B-B "}
 c["附加 190 - 220 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=190},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=220}},nil}
 c["-50% 攻击和法术暴击伤害加成"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=-50}},nil}
 c["获得额外混沌伤害， 其数值等同于闪电伤害的 10%"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageGainAsChaos",type="BASE",value=10}},nil}
@@ -1962,7 +1959,6 @@ c["禁断之肉上有匹配的词缀则配置 骸骨屏障"]={{[1]={flags=0,keyw
 c["锤类或短杖的物理伤害提高 36%"]={{[1]={flags=1048576,keywordFlags=0,name="PhysicalDamage",type="INC",value=36}},nil}
 c["每连锁弹射 1 次，投射物获得额外混沌伤害，其数值等同于非混沌伤害的 18%"]={{[1]={[1]={stat="Chain",type="PerStat"},flags=1024,keywordFlags=0,name="NonChaosDamageGainAsChaos",type="BASE",value=18}},nil}
 c["受到【灰烬之捷】影响时，+1% 火焰抗性上限"]={{[1]={[1]={type="Condition",var="AffectedBy灰烬之捷"},flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=1}},nil}
-c["品质说明: 插槽: R-R-R"]={nil,"品质说明: 插槽: R-R-R "}
 c["你技能的非诅咒类光环效果提高 13%"]={{[1]={[1]={skillType=43,type="SkillType"},[2]={neg=true,skillType=79,type="SkillType"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=13}},nil}
 c["+5 【深海屏障】数量上限"]={{[1]={flags=0,keywordFlags=0,name="CrabBarriersMax",type="BASE",value=5}},nil}
 c["+30 to Accuracy Rating Projectiles Return to you from Final Target"]={{}," Accuracy Rating Projectiles Return to you from Final Target "}
@@ -2619,7 +2615,6 @@ c["投射物攻击技能的暴击伤害加成 +30%"]={{[1]={[1]={skillType=1,typ
 c["9% 攻击格挡几率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=9}},nil}
 c["副手攻击和法术附加 60 - 110 基础混沌伤害"]={{[1]={[1]={num=2,type="InSlot"},flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=60},[2]={[1]={num=2,type="InSlot"},flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=110}},nil}
 c["被你嘲讽的敌人的击中和异常状态伤害"]={nil,"被你嘲讽的敌人的击中和异常状态伤害 "}
-c["品质说明: 插槽: R-R-R-R"]={nil,"品质说明: 插槽: R-R-R-R "}
 c["法杖攻击的攻击速度提高 5%"]={{[1]={flags=8388613,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
 c["中毒时，击中获得一个暴击球 静止时，混沌抗性 +30%"]={{[1]={[1]={type="Condition",var="Poisoned"},[2]={type="Condition",var="Stationary"},flags=0,keywordFlags=262144,name="ChaosResist",type="BASE",value=30}},"获得一个暴击球   "}
 c["魔力回复速度提高 100%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=100}},nil}
@@ -3326,7 +3321,6 @@ c["受到【寒冰之捷】影响时，冰霜伤害提高 60%"]={{[1]={[1]={type
 c["受【优雅】影响时，+8% 闪避攻击击中率 受到【优雅】影响时，有 50% 的几率使击中你的敌人致盲"]={{[1]={[1]={type="Condition",var="AffectedBy优雅"},flags=0,keywordFlags=262144,name="EvadeChance",type="BASE",value=8}},"受【优雅】影响时， 率 有 50% 的几率使击中你的敌人致盲 "}
 c["10% increased Damage per Freeze, Shock and Ignite on Enemy"]={{},"% increased Damage  "}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 邪恶君王"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 邪恶君王 "}
-c["品质说明: 等级需求: 28"]={nil,"品质说明: 等级需求: 28 "}
 c["点燃敌人时获得【女神的祝福】 3 秒"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainHerEmbrace",type="FLAG",value=true}},nil}
 c["非低血状态时不造成伤害"]={{[1]={[1]={neg=true,type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DealNoLightning",type="FLAG",value=true},[2]={[1]={neg=true,type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DealNoCold",type="FLAG",value=true},[3]={[1]={neg=true,type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DealNoFire",type="FLAG",value=true},[4]={[1]={neg=true,type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DealNoChaos",type="FLAG",value=true},[5]={[1]={neg=true,type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DealNoPhysical",type="FLAG",value=true}},nil}
 c["旅行技能的冷却回复速度提高 80%"]={{[1]={[1]={skillType=90,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=80}},nil}
@@ -3841,7 +3835,6 @@ c["地雷投掷技能的魔力保留效能提高 30%"]={{[1]={[1]={skillName="�
 c["灼烧效果提高 50% 你击败灼烧的敌人时有 40% 的几率使周围所有敌人燃烧 4 秒，每秒造成被击败敌人 8% 生命的火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FlaskEffect",type="INC",value=50}},"灼烧 你击败灼烧的敌人时有 40% 的几率使周围所有敌人燃烧 4 秒，每秒造成被击败敌人 8% 生命的火焰伤害 "}
 c["物品掉落数量提高 24%"]={{[1]={flags=0,keywordFlags=0,name="LootQuantity",type="INC",value=24}},nil}
 c["法术附加 5 - 10 基础火焰伤害"]={{[1]={flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=5},[2]={flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=10}},nil}
-c["品质说明: 等级需求: 48"]={nil,"品质说明: 等级需求: 48 "}
 c["被你至少覆盖 1 层蜘蛛网的敌人伤害降低 10% 受你至少 1 层蜘蛛网影响的敌人，所有抗性 -10%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=-10}},"被你至少覆盖 1 层蜘蛛网的敌人 受你至少 1 层蜘蛛网影响的敌人，所有抗性 -10% "}
 c["混沌伤害提高 (25-35)%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="BASE",value=-35}},"提高 (25)% "}
 c["施法速度提高 20%"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
@@ -3869,650 +3862,645 @@ c["禁断之肉上有匹配的词缀则配置 完美胜出"]={{[1]={flags=0,keyw
 c["格挡回复提高 30%"]={{[1]={flags=0,keywordFlags=0,name="BlockRecovery",type="INC",value=30}},nil}
 c["物理伤害提高 500%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=500}},nil}
 c["召唤生物有 10% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=10}}}},nil}
-c["物理伤害提高 49%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=49}},nil}
-c["附加 11 - 21 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=11},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=21}},nil}
 c["混沌伤害提高 12%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=12}},nil}
 c["凌厉效果提高 30%"]={{[1]={flags=0,keywordFlags=0,name="FlaskEffect",type="INC",value=30}},"  of Cruelty "}
 c["副手暴击率在双持武器时 +1%"]={{[1]={[1]={type="Condition",var="OffHandAttack"},[2]={skillType=1,type="SkillType"},[3]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=1}},nil}
 c["格挡后的短时间内 +800 护甲"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=800}},nil}
-c["每秒再生 40 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=40}},nil}
-c["附加 36 - 68 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=36},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=68}},nil}
-c["该装备的物理伤害提高 49%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=49}},nil}
 c["Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield Lose 5% of Energy Shield per second Life Leech effects are not removed at Full Life"]={nil,"Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield Lose 5% of Energy Shield per second Life Leech effects are not removed at Full Life "}
 c["召唤生物的伤害提高 35%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=35}}}},nil}
 c["攻击技能的异常状态伤害提高 30%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=2048,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
-c["法杖攻击附加 2 到 40 点闪电伤害"]={{[1]={flags=8388612,keywordFlags=0,name="LightningMin",type="BASE",value=2},[2]={flags=8388612,keywordFlags=0,name="LightningMax",type="BASE",value=40}},nil}
 c["在被点燃后，你有 3 秒免疫点燃 被感电后，你有 1 秒免疫感电"]={nil,"在被点燃后，你有 3 秒免疫点燃 被感电后，你有 1 秒免疫感电 "}
-c["晕眩回复和格挡回复降低 40%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=-40}},nil}
-c["猛攻"]={{[1]={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},nil}
-c["攻击附加 4 - 53 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=4},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=53}},nil}
-c["弓类攻击附加 2 到 41 点闪电伤害"]={{[1]={flags=131076,keywordFlags=0,name="LightningMin",type="BASE",value="2"},[2]={flags=131076,keywordFlags=0,name="LightningMax",type="BASE",value="41"}},nil}
-c["攻击附加 2 - 37 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=2},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=37}},nil}
-c["攻击附加 3 - 53 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=3},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=53}},nil}
+c["物理伤害提高 49%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=49}},nil}
+c["附加 11 - 21 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=11},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=21}},nil}
+c["获得【召唤不屈先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfFocus"}}},nil}
+c["附加 36 - 68 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=36},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=68}},nil}
+c["该装备的物理伤害提高 49%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=49}},nil}
+c["法杖攻击附加 2 到 40 点闪电伤害"]={{[1]={flags=8388612,keywordFlags=0,name="LightningMin",type="BASE",value=2},[2]={flags=8388612,keywordFlags=0,name="LightningMax",type="BASE",value=40}},nil}
 c["每个暴击球可使攻击和施法速度提高 2%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="Speed",type="INC",value=2}},nil}
-c["若你近期内使用了召唤生物技能，则召唤生物的伤害提高 18%"]={{[1]={[1]={type="Condition",var="UsedMinionSkillRecently"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=18}}}},nil}
-c["元素之相"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="元素之相"}},nil}
+c["此物品上的技能石受到 1 级的 多重打击 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportMultistrike"}}},nil}
+c["猛攻"]={{[1]={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},nil}
 c["使用时扣除最大能量护盾的 20% 使用时承受最大生命 10% 的混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=10}},"使用时扣除的 20% 使用时承受最大生命 混沌伤害 "}
 c["击中稀有或传奇敌人时，有 10% 的几率获得 1 个狂怒球"]={nil,"a Frenzy Charge when you Hit a Rare or Unique Enemy "}
 c["晕眩敌人时有 15% 几率获得 1 个狂怒球"]={{},"晕眩敌人时获得 1 个狂怒球 "}
 c["近期内你若使用过战吼，则移动速度提高 15%"]={{[1]={[1]={type="Condition",var="UsedWarcryRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=15}},nil}
-c["攻击附加 5 - 7 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=7}},nil}
+c["攻击附加 4 - 53 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=4},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=53}},nil}
 c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 不动信念"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 不动信念 "}
+c["弓类攻击附加 2 到 41 点闪电伤害"]={{[1]={flags=131076,keywordFlags=0,name="LightningMin",type="BASE",value="2"},[2]={flags=131076,keywordFlags=0,name="LightningMax",type="BASE",value="41"}},nil}
+c["攻击附加 2 - 37 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=2},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=37}},nil}
+c["攻击附加 3 - 53 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=3},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=53}},nil}
+c["若你近期内使用了召唤生物技能，则召唤生物的伤害提高 18%"]={{[1]={[1]={type="Condition",var="UsedMinionSkillRecently"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=18}}}},nil}
+c["召唤生物的生命回复率降低 15%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=-15}}}},nil}
+c["元素之相"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="元素之相"}},nil}
+c["被清晰影响时，非吟唱技能的总魔力消耗 -5"]={{[1]={[1]={neg=true,skillType=57,type="SkillType"},[2]={type="Condition",var="AffectedBy清晰"},flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=-5}},nil}
+c["攻击附加 5 - 7 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=7}},nil}
+c["每个狂怒球会使承受的伤害提高 1%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=1}},nil}
 c["攻击附加 5 - 8 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=8}},nil}
 c["+150 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=150}},nil}
-c["品质说明: 插槽: G-G-G"]={nil,"品质说明: 插槽: G-G-G "}
-c["其中 1 个增加的天赋为【风暴之眼】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="风暴之眼"}},nil}
-c["召唤生物的生命回复率降低 15%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=-15}}}},nil}
-c["其中 1 个增加的天赋为【追随】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="追随"}},nil}
-c["被清晰影响时，非吟唱技能的总魔力消耗 -5"]={{[1]={[1]={neg=true,skillType=57,type="SkillType"},[2]={type="Condition",var="AffectedBy清晰"},flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=-5}},nil}
-c["46% 的攻击格挡率同样套用于法术格挡"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceConv",type="BASE",value=46}},nil}
-c["每个狂怒球会使承受的伤害提高 1%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=1}},nil}
-c["品质说明: 插槽: G-G-G-G"]={nil,"品质说明: 插槽: G-G-G-G "}
-c["+29% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=29}},nil}
 c["完美苦痛范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="完美苦痛"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="完美苦痛",value=true}}},nil}
 c["闪避值提高 25%"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=25}},nil}
-c["其中 1 个增加的天赋为【缓慢折磨】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="缓慢折磨"}},nil}
-c["+37% 火焰抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=37}},nil}
-c["投射物速度提高 25%"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=25}},nil}
+c["其中 1 个增加的天赋为【风暴之眼】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="风暴之眼"}},nil}
+c["其中 1 个增加的天赋为【追随】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="追随"}},nil}
+c["46% 的攻击格挡率同样套用于法术格挡"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceConv",type="BASE",value=46}},nil}
 c["获得等同 35% 物理攻击伤害的火焰伤害"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=35}},nil}
-c["范围伤害提高 21%"]={{[1]={flags=512,keywordFlags=0,name="Damage",type="INC",value=21}},nil}
+c["+29% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=29}},nil}
 c["用该武器击中时，获得额外冰霜或闪电伤害，其数值等同于物理伤害的 100%"]={{[1]={[1]={type="Condition",var="PhysicsRandomElementCold"},flags=8192,keywordFlags=0,name="PhysicalDamageGainAsCold",type="BASE",value=100},[2]={[1]={type="Condition",var="PhysicsRandomElementLightning"},flags=8192,keywordFlags=0,name="PhysicalDamageGainAsLightning",type="BASE",value=100}},nil}
 c["元素伤害降低 35%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=-35}},nil}
-c["此物品上的技能石受到 18 级的 集中效应 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportConcentratedEffect"}}},nil}
-c["此物品上的技能石受到 18 级的 提高燃烧伤害 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportIncreasedBurningDamage"}}},nil}
+c["其中 1 个增加的天赋为【缓慢折磨】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="缓慢折磨"}},nil}
+c["+37% 火焰抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=37}},nil}
 c["你和周围队友的移动速度提高 10%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}}}},nil}
 c["击败敌人时有 20% 几率触发 1 级的【召唤毒蛛】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="TriggeredSummonSpider",triggered=true}}},nil}
-c["获得额外混沌伤害，其数值等同于元素伤害的 6%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsChaos",type="BASE",value=6}},nil}
-c["伤害穿透 6% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalPenetration",type="BASE",value=6}},nil}
+c["投射物速度提高 25%"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=25}},nil}
+c["范围伤害提高 21%"]={{[1]={flags=512,keywordFlags=0,name="Damage",type="INC",value=21}},nil}
 c["能量护盾全满时，法术伤害提高 25%"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=2,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
-c["最大能量护盾提高 20%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=20}},nil}
+c["此物品上的技能石受到 18 级的 集中效应 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportConcentratedEffect"}}},nil}
 c["你的所有伤害均可造成冰冻"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanFreeze",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="LightningCanFreeze",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="FireCanFreeze",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="ChaosCanFreeze",type="FLAG",value=true}},nil}
 c["你身上的冰缓效果颠倒"]={{[1]={flags=0,keywordFlags=0,name="SelfChillEffectIsReversed",type="FLAG",value=true}},nil}
 c["低血时，法术伤害格挡几率额外 +30%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=30}},nil}
+c["此物品上的技能石受到 18 级的 提高燃烧伤害 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportIncreasedBurningDamage"}}},nil}
+c["获得额外混沌伤害，其数值等同于元素伤害的 6%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsChaos",type="BASE",value=6}},nil}
+c["伤害穿透 6% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalPenetration",type="BASE",value=6}},nil}
+c["最大能量护盾提高 20%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=20}},nil}
 c["双持或持盾牌时攻击伤害格挡几率 +3%"]={{[1]={[1]={type="Condition",varList={[1]="DualWielding",[2]="UsingShield"}},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=3}},nil}
+c["结界提高 41%"]={{[1]={flags=0,keywordFlags=0,name="Ward",type="INC",value=41}},nil}
 c["此物品上的技能石受到 1 级的 血魔法 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="未知：血魔法"}}},nil}
 c["暴击时，+40% 流血持续伤害加成"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=4194304,name="DotMultiplier",type="BASE",value=40}},nil}
 c["此物品上的技能石受到 35 级的 增幅(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportAdditionalQuality"}}},nil}
 c["攻击技能的元素伤害提高 34%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=34}},nil}
-c["结界提高 41%"]={{[1]={flags=0,keywordFlags=0,name="Ward",type="INC",value=41}},nil}
-c["品质说明: 插槽: G-B-B-B-B-R"]={nil,"品质说明: 插槽: G-B-B-B-B-R "}
-c["攻击技能的火焰、冰霜、闪电伤害提高 26%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=26}},nil}
-c["品质说明: 插槽: G-G-G-G-G-G"]={nil,"品质说明: 插槽: G-G-G-G-G-G "}
-c["此物品上装备的【弓技能石】等级 +2"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="bow",value=2}}},nil}
 c["你无法被瘫痪 你无法被缓速"]={nil,"你无法被瘫痪 你无法被缓速 "}
+c["攻击技能的火焰、冰霜、闪电伤害提高 26%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=26}},nil}
+c["此物品上装备的【弓技能石】等级 +2"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="bow",value=2}}},nil}
 c["其中 1 个增加的天赋为【奥法蠕虫】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="奥法蠕虫"}},nil}
-c["该装备 +12% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=12}},nil}
-c["你承受的流血伤害改为混沌伤害"]={nil,"你承受的流血伤害改为混沌伤害 "}
 c["召唤生物的法术伤害压制率 +22%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=22}}}},nil}
-c["能量护盾启动回复比平常快 50%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=50}},nil}
-c["附加 21 - 34 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=21},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=34}},nil}
+c["该装备 +10% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=10}},nil}
+c["你承受的流血伤害改为混沌伤害"]={nil,"你承受的流血伤害改为混沌伤害 "}
 c["若你近期内造成暴击，则移动速度加快 5%"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=5}},nil}
 c["持盾牌时有 +3% 的几率格挡法术伤害"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=3}},nil}
 c["+12 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=12}},nil}
 c["击中敌人时，用 10 级的【易燃】诅咒敌人"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=10,noSupports=true,skillId="Flammability",triggered=true}}},nil}
+c["能量护盾启动回复比平常快 50%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=50}},nil}
+c["附加 21 - 34 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=21},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=34}},nil}
 c["你身上的每层中毒状态使你每秒回复 50 能量护盾，最多可有 250 秒"]={{[1]={[1]={limit=250,limitTotal=true,type="Multiplier",var="PoisonStack"},flags=0,keywordFlags=0,name="EnergyShieldRegen",type="BASE",value=50}},nil}
-c["附加 22 - 37 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=22},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=37}},nil}
-c["附加 53 - 76 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=53},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=76}},nil}
 c["被击中时， 4 秒内回复等同于 10% 伤害的魔力"]={nil,"被击中时， 4 秒内回复等同于 10% 伤害的魔力 "}
-c["附加 85 - 160 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=85},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=160}},nil}
+c["附加 22 - 37 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=22},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=37}},nil}
 c["法术伤害压制率 +2%"]={{[1]={flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=2}},nil}
 c["在副手时，对敌人的冰缓持续时间延长 100% 若此武器装备在副手，此武器击中敌人时造成 1 秒的冰缓"]={{[1]={[1]={num=2,type="SlotNumber"},[2]={num=2,type="InSlot"},flags=8192,keywordFlags=0,name="Duration",type="INC",value=100}},"对敌人的冰缓 若此装备在，此武器击中敌人时造成 1 秒的冰缓 "}
 c["你被晕眩的时间延长 50% 每 1 个耐力球可使近战伤害提高 4%"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=256,keywordFlags=0,name="Damage",type="INC",value=50}},"你被晕眩的时间 提高 4% "}
 c["如果你在过去 10 秒内施放过导电，则不会受到感电影响"]={nil,"如果你在过去 10 秒内施放过导电，则不会受到感电影响 "}
-c["10 每秒魔力回复"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="BASE",value=10}},nil}
-c["其中 1 个增加的天赋为【掷象功】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="掷象功"}},nil}
+c["附加 53 - 76 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=53},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=76}},nil}
+c["附加 85 - 160 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=85},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=160}},nil}
+c["无法自动回复能量护盾"]={{[1]={flags=0,keywordFlags=0,name="NoEnergyShieldRegen",type="FLAG",value=true}},nil}
 c["+1 召唤圣物数量上限"]={{[1]={flags=0,keywordFlags=0,name="ActiveHolyRelicLimit",type="BASE",value=1}},nil}
 c["移动速度提高 13%"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=13}},nil}
-c["近期内你若没有被击中，则获得【狂热誓言】"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="Keystone",type="LIST",value="狂热誓言"}},nil}
-c["+3% 火焰抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=3}},nil}
+c["获得 -40% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-40}},nil}
+c["其中 1 个增加的天赋为【掷象功】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="掷象功"}},nil}
 c["范围效果提高 18%"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=18}},nil}
 c["受到【优雅】影响时，有 50% 的几率使击中你的敌人致盲 法术伤害压制率在受到优雅影响时 +15%"]={{[1]={[1]={type="Condition",var="AffectedBy优雅"},flags=0,keywordFlags=262144,name="SpellSuppressionChance",type="BASE",value=50}},"使你的敌人致盲 在受到优雅影响时 +15% "}
 c["匕首攻击造成的击中和异常状态伤害提高 12%"]={{[1]={flags=524288,keywordFlags=786432,name="Damage",type="INC",value=12}},nil}
 c["+1 近战打击范围"]={{[1]={flags=0,keywordFlags=0,name="MeleeWeaponRange",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="UnarmedRange",type="BASE",value=1}},nil}
 c["无法偷取"]={nil,"无法偷取 "}
 c["此武器的攻击穿透 5% 火焰、冰霜、闪电抗性"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="ElementalPenetration",type="BASE",value=5}},nil}
+c["近期内你若没有被击中，则获得【狂热誓言】"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="Keystone",type="LIST",value="狂热誓言"}},nil}
+c["+3% 火焰抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=3}},nil}
 c["近期内你若有击败敌人，则范围效果扩大 1%，最多 50%"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=1}},"，最多 50% "}
 c["近期内你若有打出过暴击，则施法速度提高 10%"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
-c["近期内你若打出过暴击，则攻击速度提高 10%"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=1,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
-c["此物品上的技能石受到 10 级的 击退 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportKnockback"}}},nil}
 c["保留 30% 生命"]={{[1]={flags=0,keywordFlags=0,name="ExtraLifeReserved",type="BASE",value=30}},nil}
-c["此武器的攻击穿透 30% 元素抗性"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="ElementalPenetration",type="BASE",value=30}},nil}
+c["近期内你若打出过暴击，则攻击速度提高 10%"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=1,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["生效时间缩短 60% 药剂持续期间，范围效果扩大 30%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=-60}},"生效时间 扩大 30% "}
-c["每点燃 1 个敌人，则受到 100 火焰伤害 被点燃时，火焰伤害的 2% 转化为生命偷取"]={nil,"每点燃 1 个敌人，则受到 100 火焰伤害 被点燃时，火焰伤害的 2% 转化为生命偷取 "}
+c["此物品上的技能石受到 10 级的 击退 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportKnockback"}}},nil}
+c["获得等同 15% 物理攻击伤害的火焰伤害"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=15}},nil}
+c["流血持续时间延长 60%"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=60}},nil}
 c["失去耐力球触发一个插入的战吼技能，它有 0.25 秒冷却时间"]={nil,"失去耐力球触发一个插入的战吼技能，它有 0.25 秒冷却时间 "}
 c["最大耐力球达到上限时失去所有耐力球 失去耐力球触发一个插入的战吼技能，它有 0.25 秒冷却时间"]={nil,"最大耐力球达到上限时失去所有耐力球 失去耐力球触发一个插入的战吼技能，它有 0.25 秒冷却时间 "}
-c["周围盟友在你死亡时，会回复等同你最大生命 1% 的生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},"周围盟友在你死亡时，会回复等同你 生命 "}
-c["召唤生物击中敌人时会使其中毒 召唤生物击中时有 60% 几率使目标中毒"]={{},"敌人时会使其中毒 召唤生物击中时使目标中毒 "}
 c["法术伤害击中有 8% 的几率击退敌人"]={{[1]={flags=2,keywordFlags=0,name="EnemyKnockbackChance",type="BASE",value=8}},nil}
-c["获得 -50% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-50}},nil}
+c["周围盟友在你死亡时，会回复等同你最大生命 1% 的生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},"周围盟友在你死亡时，会回复等同你 生命 "}
 c["+188 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=188}},nil}
 c["每 10 点敏捷可使近战物理伤害提高 2%"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=256,keywordFlags=0,name="PhysicalDamage",type="INC",value=2}},nil}
-c["反射 70 物理伤害给近战攻击者"]={{},nil}
+c["7 每秒生命回复"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=7}},nil}
 c["双持爪时攻击格挡率提高 10%"]={{[1]={[1]={type="Condition",var="DualWieldingClaws"},flags=0,keywordFlags=0,name="BlockChance",type="INC",value=10}},nil}
 c["+12% 持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="DotMultiplier",type="BASE",value=12}},nil}
+c["获得 -50% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-50}},nil}
+c["反射 70 物理伤害给近战攻击者"]={{},nil}
 c["苦痛共享"]={nil,"苦痛共享 "}
 c["瘀血爪印 对低血敌人，每个狂怒球可使伤害提高 3%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="LowLife"},[2]={type="Multiplier",var="FrenzyCharge"},flags=262148,keywordFlags=0,name="Damage",type="INC",value=3}},"瘀血印  "}
-c["承受攻击造成的物理伤害 -16"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageTaken",type="BASE",value=-16}},nil}
-c["陷阱伤害提高 23%"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=23}},nil}
 c["被点燃时施法速度提高 33%"]={{[1]={[1]={type="Condition",var="Ignited"},flags=16,keywordFlags=0,name="Speed",type="INC",value=33}},nil}
 c["最大生命提高 12%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=12}},nil}
 c["此物品上的技能石投射物会以环状的方式发射"]={nil,"投射物会以环状的方式发射 "}
 c["+18% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=18}},nil}
-c["无法获得能量护盾"]={{[1]={flags=0,keywordFlags=0,name="NoEnergyShieldRegen",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="NoEnergyShieldRecharge",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="CannotLeechEnergyShield",type="FLAG",value=true}},nil}
-c["投掷陷阱时，有 25% 的几率获得 1 个暴击球 获得 20 级的【捕熊陷阱】"]={{},"投掷时，获得 1 个暴击球 获得 20 级的【捕熊陷阱】 "}
+c["承受攻击造成的物理伤害 -16"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageTaken",type="BASE",value=-16}},nil}
+c["陷阱伤害提高 23%"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=23}},nil}
 c["若范围内含有至少 40 点力量，【戒备打击】会使周围友军获得护体 12 秒 若范围内含有至少 40 点力量，【戒备打击】会使周围友军获得护体 8 秒"]={nil,"若范围内含有至少 40 点力量，【戒备打击】会使护体 12 秒 若范围内含有至少 40 点力量，【戒备打击】会使周围友军获得护体 8 秒 "}
 c["生命和能量护盾在你使用混沌技能时失去 10%"]={{[1]={flags=0,keywordFlags=256,name="Life",type="BASE",value=10}},"和能量护盾在你使用时% "}
-c["投掷陷阱时，有 25% 的几率获得 1 个暴击球"]={{},"投掷时，获得 1 个暴击球 "}
-c["投掷陷阱时，有 15% 的几率获得 1 个暴击球 投掷陷阱时，有 25% 的几率获得 1 个暴击球"]={{},"投掷时，获得 1 个暴击球 投掷陷阱时，有 25% 的几率获得 1 个暴击球 "}
+c["若你至少拥有 500 层能量护盾，则每秒回复 50 生命"]={{[1]={[1]={stat="EnergyShield",threshold=500,type="StatThreshold"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value="50"}},nil}
+c["投掷陷阱时，有 25% 的几率获得 1 个暴击球 获得 20 级的【捕熊陷阱】"]={{},"投掷时，获得 1 个暴击球 获得 20 级的【捕熊陷阱】 "}
 c["你获得【肾上腺素】时移除所有异常状态和燃烧状态"]={nil,"Remove all Ailments and Burning when you gain Adrenaline "}
 c["此物品上装备的【主动技能石】等级 +1"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="active_skill",value=1}}},nil}
 c["每个挑战球使总攻击和移动速度总增 2%"]={{[1]={[1]={type="Multiplier",var="ChallengerCharge"},flags=1,keywordFlags=0,name="Speed",type="MORE",value=2},[2]={[1]={type="Multiplier",var="ChallengerCharge"},flags=0,keywordFlags=0,name="MovementSpeed",type="MORE",value=2}},nil}
 c["魔像的总生命额外降低 45%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="MORE",value=-45}}}},nil}
-c["其中 1 个增加的天赋为【深冬潜者】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="深冬潜者"}},nil}
+c["投掷陷阱时，有 25% 的几率获得 1 个暴击球"]={{},"投掷时，获得 1 个暴击球 "}
 c["狂怒球持续时间延长 15%"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesDuration",type="INC",value=15}},nil}
-c["陷阱伤害提高 28%"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=28}},nil}
+c["投掷陷阱时，有 15% 的几率获得 1 个暴击球 投掷陷阱时，有 25% 的几率获得 1 个暴击球"]={{},"投掷时，获得 1 个暴击球 投掷陷阱时，有 25% 的几率获得 1 个暴击球 "}
 c["60% 的闪电伤害转换为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageConvertToChaos",type="BASE",value=60}},nil}
 c["你可以拥有每种奉献各一个"]={nil,"你可以拥有每种奉献各一个 "}
 c["Your Physical Damage can Chill"]={nil,"Your Physical Damage can Chill "}
 c["禁断之肉上有匹配的词缀则配置 瓦拉克，风暴之拥"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="瓦拉克，风暴之拥",side="之肉"}}},nil}
 c["附加 413 - 518 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=413},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=518}},nil}
-c["4% 几率躲避法术击中"]={{[1]={flags=0,keywordFlags=0,name="SpellDodgeChance",type="BASE",value=4}},nil}
+c["其中 1 个增加的天赋为【深冬潜者】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="深冬潜者"}},nil}
 c["【召唤圣物】的冷却恢复速度降低 23%"]={{[1]={[1]={skillName="召唤圣物",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=-23}}}},nil}
-c["反射 260 物理伤害给近战攻击者"]={{},nil}
-c["反射 23 物理伤害给近战攻击者"]={{},nil}
+c["陷阱伤害提高 28%"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=28}},nil}
+c["4% 几率躲避法术击中"]={{[1]={flags=0,keywordFlags=0,name="SpellDodgeChance",type="BASE",value=4}},nil}
 c["火焰抗性降低 53%"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="INC",value=-53}},nil}
 c["对感电敌人造成伤害的 1% 转化为魔力偷取"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=0,name="DamageManaLeech",type="BASE",value=1}},nil}
 c["魔侍的持续时间延长 200%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="INC",value=200}},nil}
-c["击中时有 5% 几率给予周围友军 1 个狂怒球"]={{},"时给予周围友军 1 个狂怒球 "}
+c["反射 260 物理伤害给近战攻击者"]={{},nil}
 c["击中时用易燃诅咒敌人，它的效果提高 40%"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,noSupports=true,skillId="Flammability",triggered=true}},[2]={[1]={skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=40}},nil}
-c["击败敌人时有 10% 几率给予周围友军 1 个暴击球"]={{},"击败敌人时给予周围友军 1 个暴击球 "}
-c["闪电伤害击中时有 15% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=15}},nil}
+c["反射 23 物理伤害给近战攻击者"]={{},nil}
+c["击中时有 5% 几率给予周围友军 1 个狂怒球"]={{},"时给予周围友军 1 个狂怒球 "}
 c["爪类或匕首的投射物攻击伤害提高 20%"]={{[1]={[1]={modFlags=786432,type="ModFlagOr"},flags=1025,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
-c["获得【召唤不屈先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfFocus"}}},nil}
+c["击败敌人时有 10% 几率给予周围友军 1 个暴击球"]={{},"击败敌人时给予周围友军 1 个暴击球 "}
 c["周围友军的护身 +1 周围友军的护身 +10"]={{},"护身  周围友军的护身 +10 "}
 c["召唤生物命中值提高 12%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=12}}}},nil}
 c["获得 10 级主动技能 坚决战吼 +1 耐力球数量上限"]={{[1]={[1]={skillName="坚决战吼",type="SkillName"},flags=0,keywordFlags=0,name="EnduranceChargesMax",type="BASE",value=10}}," 级主动技能+1  "}
-c["+125 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=125}},nil}
+c["闪电伤害击中时有 15% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=15}},nil}
 c["攻击速度提高 24%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=24}},nil}
-c["低血时每秒回复 100 生命"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=100}},nil}
-c["低血时每秒回复 3% 生命"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}},nil}
+c["+125 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=125}},nil}
+c["每秒再生 40 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=40}},nil}
 c["法术伤害提高 38%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=38}},nil}
-c["低血时每秒回复 5% 生命"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=5}},nil}
+c["低血时每秒回复 100 生命"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=100}},nil}
 c["武器攻击的冰霜伤害提高 40% 攻击技能的冰霜伤害提高 40%"]={{[1]={flags=8192,keywordFlags=0,name="ColdDamage",type="INC",value=40}},"攻击的 攻击技能的冰霜伤害提高 40% "}
+c["低血时每秒回复 3% 生命"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}},nil}
+c["低血时每秒回复 5% 生命"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=5}},nil}
 c["低血时每秒回复 6% 生命"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=6}},nil}
 c["每秒再生 50 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=50}},nil}
 c["每秒回复 3% 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}},nil}
-c["你被冰冻的持续时间缩短 50%"]={{[1]={flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-50}},nil}
-c["25% 法术伤害格挡几率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=25}},nil}
 c["左戒指栏里有魔法戒指时，不会承受暴击的额外伤害"]={nil,"左戒指栏里有魔法戒指时，不会承受暴击的额外伤害 "}
-c["击败敌人回复 +25 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=25}},nil}
+c["你被冰冻的持续时间缩短 50%"]={{[1]={flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-50}},nil}
 c["榨取球数量上限等于暴击球数量上限"]={{[1]={flags=0,keywordFlags=0,name="MaximumPowerChargesEqualsMaximumAbsorptionCharges",type="FLAG",value=true}},nil}
-c["+5% 全部抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=5},[4]={flags=0,keywordFlags=0,name="ChaosResistMax",type="BASE",value=5}},nil}
-c["80% 的攻击格挡率同样套用于法术格挡"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceConv",type="BASE",value=80}},nil}
+c["25% 法术伤害格挡几率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=25}},nil}
+c["击败敌人回复 +25 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=25}},nil}
 c["烙印的效果区域在附着持续时间消减 50% 的情况下扩大 25% 烙印伤害提高 25%"]={{[1]={[1]={skillType=75,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="BASE",value=50}},"在附着持续时间消减 情况下扩大 25% 烙印伤害提高 25% "}
 c["闪避值与护甲提高 10%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=10}},nil}
 c["持盾牌时攻击伤害格挡率 +2%"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=2}},nil}
 c["灵体的最大生命提高 75%"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=75}}}},nil}
 c["攻击和法术附加 10 - 20 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=196608,name="ColdMin",type="BASE",value=10},[2]={flags=0,keywordFlags=196608,name="ColdMax",type="BASE",value=20}},nil}
-c["闪电伤害击中时有 10% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=10}},nil}
+c["+5% 全部抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=5},[4]={flags=0,keywordFlags=0,name="ChaosResistMax",type="BASE",value=5}},nil}
 c["持续时间降低 30%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-30}},nil}
 c["最多 5 次【脆弱重生】 每次【脆弱重生】都每秒回复 0.7% 生命"]={{},"最多 5 次【脆弱重生】 每次【脆弱重生】都"}
+c["80% 的攻击格挡率同样套用于法术格挡"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceConv",type="BASE",value=80}},nil}
+c["闪电伤害击中时有 10% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=10}},nil}
 c["+30% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=30}},nil}
 c["获得 +4% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=4}},nil}
 c["110 每秒生命回复"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=110}},nil}
 c["低血时不会被点燃"]={nil,"低血时不会被点燃 "}
-c["低血时移动速度提高 10%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}},nil}
-c["低血时 +25% 火焰抗性"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=25}},nil}
 c["魔力在烙印附着后消减时恢复 10%"]={nil,"Recover 10% of Mana when a Brand expires while Attached "}
 c["召唤生物获得等同 20% 物理伤害的额外冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamageGainAsCold",type="BASE",value=20}}}},nil}
 c["禁断之肉上有匹配的词缀则配置 强力复仇"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="强力复仇",side="之肉"}}},nil}
+c["低血时移动速度提高 10%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}},nil}
+c["低血时 +25% 火焰抗性"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=25}},nil}
 c["+5% 火焰抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=5}},nil}
-c["禁断之火上有匹配的词缀则配置 瓦拉克，风暴之拥"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="瓦拉克，风暴之拥",side="之火"}}},nil}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 火徒.努葛玛呼"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 火徒.努葛玛呼 "}
 c["120 每秒生命回复"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=120}},nil}
 c["6 每秒生命回复"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=6}},nil}
 c["插入的技能石的保留效能提高 30%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=30}}}},nil}
 c["插入的技能石的保留效果降低 25%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-25}}}},nil}
 c["装备时触发 20 级的【火焰神盾】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="FireAegis",triggered=true}}},nil}
-c["当你没有能量护盾时获得【不洁之力】 你制造的奉献地面将会是亵渎地面"]={nil,"当你没有能量护盾时获得【不洁之力】 你制造的奉献地面将会是亵渎地面 "}
-c["双持武器时，攻击暴击率提高 100%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=1,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
 c["魔侍的持续时间延长 175%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="INC",value=175}},nil}
 c["奉献效果降低 25%"]={{[1]={[1]={skillNameList={[1]="骸骨奉献",[2]="血肉奉献",[3]="灵魂奉献",[4]="血脉奉献"},type="SkillName"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=-25}}}},nil}
 c["【烙印召回】冷却回复速度提高 20%"]={{[1]={[1]={skillName="烙印召回",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=20}},nil}
-c["每个耐力球附加 27 到 42 基础火焰伤害"]={nil,"每个耐力球附加 27 到 42 基础火焰伤害 "}
+c["当你没有能量护盾时获得【不洁之力】 你制造的奉献地面将会是亵渎地面"]={nil,"当你没有能量护盾时获得【不洁之力】 你制造的奉献地面将会是亵渎地面 "}
 c["+30 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=30}},nil}
-c["+250 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=250}},nil}
+c["双持武器时，攻击暴击率提高 100%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=1,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
 c["当你拥有最大数量的狂怒球时，技能额外连锁弹射 1 次"]={{[1]={[1]={stat="FrenzyCharges",thresholdStat="FrenzyChargesMax",type="StatThreshold"},flags=0,keywordFlags=0,name="ChainCountMax",type="BASE",value=1}},nil}
 c["药剂持续期间，受到的击中伤害的 15% 转化为生命偷取"]={nil,"药剂持续期间，受到的击中伤害的 15% 转化为生命偷取 "}
 c["药剂持续期间，移动速度提高 30%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=30}},nil}
+c["受到【闪电净化】影响时，不受感电地面影响"]={nil,"受到【闪电净化】影响时，不受感电地面影响 "}
+c["若过去 8 秒内你造成过暴击，则每秒生命再生 2.3%"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2.3}},nil}
 c["25% 的物理伤害转换为冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToCold",type="BASE",value=25}},nil}
 c["所有属性提高 7%"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=7},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=7},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=7}},nil}
+c["持续吟唱时，有 10% 几率躲避法术击中"]={{[1]={[1]={type="Condition",var="OnChannelling"},flags=0,keywordFlags=0,name="SpellDodgeChance",type="BASE",value=10}},nil}
 c["混沌伤害的 0.4% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamageLifeLeech",type="BASE",value=0.4}},nil}
 c["该装备的护甲与能量护盾提高 350%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=350}},nil}
-c["持续吟唱时，有 10% 几率躲避法术击中"]={{[1]={[1]={type="Condition",var="OnChannelling"},flags=0,keywordFlags=0,name="SpellDodgeChance",type="BASE",value=10}},nil}
+c["周围友军的效果区域扩大 30%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30},onlyAllies=true}}},nil}
 c["攻击技能的火焰、冰霜、闪电伤害提高 15%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=15}},nil}
 c["格挡时回复能量护盾，数值等同于 2% 的护甲"]={{[1]={[1]={div=50,stat="Armour",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShieldOnBlock",type="BASE",value=1}},nil}
-c["周围友军的效果区域扩大 30%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30},onlyAllies=true}}},nil}
-c["获得 +50% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=50}},nil}
-c["+63% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=63}},nil}
 c["25% 的几率避免元素异常状态"]={{[1]={flags=0,keywordFlags=0,name="AvoidShock",type="BASE",value=25},[2]={flags=0,keywordFlags=0,name="AvoidFrozen",type="BASE",value=25},[3]={flags=0,keywordFlags=0,name="AvoidChilled",type="BASE",value=25},[4]={flags=0,keywordFlags=0,name="AvoidIgnite",type="BASE",value=25}},nil}
 c["魔力每秒再生25点，怒火再生1点"]={nil,"魔力每秒再生25点，怒火再生1点 "}
-c["受到诅咒的持续时间延长 100% +5% 攻击格挡率"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=100}},"受到的 +5% 攻击格挡率 "}
+c["附加 100 - 200 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=100},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=200}},nil}
 c["物理伤害提高 90%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=90}},nil}
-c["生命每秒再生 1.8 晕眩门槛提高 20%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=20}},"每秒再生 1.8 晕眩门槛 "}
-c["闪避和护甲提高 40 +75% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=75}},"闪避和提高 40  闪电抗性 "}
+c["+63% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=63}},nil}
+c["受到诅咒的持续时间延长 100% +5% 攻击格挡率"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=100}},"受到的 +5% 攻击格挡率 "}
 c["承受的元素伤害有 50% 视为混沌伤害 混沌抗性上限 +5%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageTaken",type="BASE",value=5}},"的有 50% 视为混沌伤害 混沌抗性上限  "}
-c["闪避和护甲提高 40"]={nil,"闪避和护甲提高 40 "}
+c["生命每秒再生 1.8 晕眩门槛提高 20%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=20}},"每秒再生 1.8 晕眩门槛 "}
 c["+3 Life Gained for Each Enemy Hit by your Spells"]={{}," Life Gained for Each Enemy Hit by your Spells "}
-c["装备时触发 20 级的【寒冰神盾】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ColdAegis",triggered=true}}},nil}
+c["闪避和护甲提高 40 +75% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=75}},"闪避和提高 40  闪电抗性 "}
 c["若你的右戒指栏装备有魔法戒指，则你具有无咒效果"]={nil,"若你的右戒指栏装备有魔法戒指，则你具有无咒效果 "}
-c["攻击附加 12 - 15 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=12},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=15}},nil}
+c["闪避和护甲提高 40"]={nil,"闪避和护甲提高 40 "}
 c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 战争使者"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 战争使者 "}
-c["攻击附加 4 - 8 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=4},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=8}},nil}
+c["装备时触发 20 级的【寒冰神盾】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ColdAegis",triggered=true}}},nil}
 c["低血时移动速度提高 8%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=8}},nil}
+c["攻击附加 12 - 15 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=12},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=15}},nil}
+c["攻击附加 4 - 8 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=4},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=8}},nil}
 c["攻击附加 4 - 8 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=4},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=8}},nil}
-c["近期内你若格挡过法术，攻击伤害格挡几率 +20%"]={{[1]={[1]={type="Condition",var="BlockedSpellRecently"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=20}},nil}
-c["近期内你若格挡过攻击伤害，法术伤害格挡几率 +100%"]={{[1]={[1]={type="Condition",var="BlockedAttackRecently"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=100}},nil}
 c["当你拥有兽化的召唤生物时，投射物攻击击中时有 20% 几率造成瘫痪 当你拥有兽化的召唤生物时，投射物攻击击中时有 20% 几率造成中毒"]={{[1]={[1]={type="Condition",var="HaveBestialMinion"},[2]={type="Condition",var="HaveBestialMinion"},flags=1,keywordFlags=0,name="ProjectileCount",type="BASE",value=20}},"击中时造成瘫痪 投射物攻击击中时有 20% 几率造成中毒 "}
 c["每个狂怒球使旅行技能的冷却回复速度提高 9%"]={{[1]={[1]={skillType=90,type="SkillType"},[2]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=9}},nil}
 c["衰弱可以影响魔蛊免疫的敌人"]={nil,"衰弱可以影响魔蛊免疫的敌人 "}
-c["击败流血的敌人时产生爆炸，造成等同其 10% 最大生命的物理伤害"]={nil,"击败流血的敌人时产生爆炸，造成等同其 10% 最大生命的物理伤害 "}
+c["近期内你若格挡过法术，攻击伤害格挡几率 +20%"]={{[1]={[1]={type="Condition",var="BlockedSpellRecently"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=20}},nil}
 c["魔像的攻击和施法速度提高 18%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=18}}}},nil}
 c["药剂回复的魔力提高 100%"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=100}},nil}
 c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 自然的恩赐"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 自然的恩赐 "}
-c["近期内你若格挡过法术，则有 20% 几率格挡攻击"]={{[1]={[1]={type="Condition",var="BlockedSpellRecently"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=20}},nil}
+c["近期内你若格挡过攻击伤害，法术伤害格挡几率 +100%"]={{[1]={[1]={type="Condition",var="BlockedAttackRecently"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=100}},nil}
 c["暴走 每 15 层暴走能量增加 1% 物品稀有度"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=1}},"暴走 每 15 层暴走能量  "}
+c["击败流血的敌人时产生爆炸，造成等同其 10% 最大生命的物理伤害"]={nil,"击败流血的敌人时产生爆炸，造成等同其 10% 最大生命的物理伤害 "}
+c["近期内你若格挡过法术，则有 20% 几率格挡攻击"]={{[1]={[1]={type="Condition",var="BlockedSpellRecently"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=20}},nil}
 c["近期内你若格挡过攻击，则有 20% 几率格挡法术"]={{[1]={[1]={type="Condition",var="BlockedAttackRecently"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=20}},nil}
 c["该装备 +6% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=6}},nil}
-c["附加 70 - 105 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=70},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=105}},nil}
+c["附加 65 - 105 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=65},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=105}},nil}
 c["每 10 点敏捷会使攻击速度提高 1%"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
 c["每有一个耐力球则获得额外混沌伤害， 其数值等同于火焰伤害的 2%"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="FireDamageGainAsChaos",type="BASE",value=2}},nil}
 c["你格挡近战伤害时用惩戒诅咒敌人，其效果提高 60%，且无视诅咒限制 你格挡投射物攻击伤害时，用时空锁链诅咒敌人，其效果提高 60%，且无视诅咒限制"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=60}},"你格挡时用惩戒诅咒敌人，其效果，且无视诅咒限制 你格挡投射物攻击伤害时，用时空锁链诅咒敌人，其效果提高 60%，且无视诅咒限制 "}
-c["召唤生物的伤害提高 18%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=18}}}},nil}
-c["无视诅咒数量上限，当格挡投射物攻击时施放 15 级【时空锁链】 无视诅咒数量上限，当格挡法术时施放 15 级【元素要害】"]={nil,"无视诅咒数量上限，当格挡投射物攻击时施放 15 级【时空锁链】 无视诅咒数量上限，当格挡法术时施放 15 级【元素要害】 "}
 c["弓类伤害提高 15%"]={{[1]={flags=131076,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
-c["附加 15 - 33 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=33}},nil}
+c["召唤生物的最大生命降低 30%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=-30}}}},nil}
 c["此物品上装备的【技能石】品质 +40%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="quality",keyword="all",value=40}}},nil}
-c["无视诅咒数量上限，当格挡近战攻击时施放 15 级【惩戒】 无视诅咒数量上限，当格挡投射物攻击时施放 15 级【时空锁链】"]={nil,"无视诅咒数量上限，当格挡近战攻击时施放 15 级【惩戒】 无视诅咒数量上限，当格挡投射物攻击时施放 15 级【时空锁链】 "}
-c["13% 法术伤害格挡几率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=13}},nil}
+c["无视诅咒数量上限，当格挡投射物攻击时施放 15 级【时空锁链】 无视诅咒数量上限，当格挡法术时施放 15 级【元素要害】"]={nil,"无视诅咒数量上限，当格挡投射物攻击时施放 15 级【时空锁链】 无视诅咒数量上限，当格挡法术时施放 15 级【元素要害】 "}
+c["附加 15 - 33 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=33}},nil}
 c["10% 几率避免中毒 10% 几率避免被晕眩 10% 几率避免致流血"]={{[1]={flags=0,keywordFlags=2097152,name="AvoidStun",type="BASE",value=10}},"避免 10% 几率 10% 几率避免致流血 "}
-c["每 100 玩家最大生命提高 5% 法术伤害"]={{[1]={[1]={div=100,stat="PlayerLife",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=5}},nil}
+c["无视诅咒数量上限，当格挡近战攻击时施放 15 级【惩戒】 无视诅咒数量上限，当格挡投射物攻击时施放 15 级【时空锁链】"]={nil,"无视诅咒数量上限，当格挡近战攻击时施放 15 级【惩戒】 无视诅咒数量上限，当格挡投射物攻击时施放 15 级【时空锁链】 "}
 c["你创造的【奉献地面】可以使敌人承受的伤害提高 15%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnConsecratedGround"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTakenConsecratedGround",type="INC",value=15}}}},nil}
 c["对感电敌人的伤害提高 40% 对感电敌人的击中伤害提高 40%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},"对感电敌人的 伤害提高 40% "}
 c["获得额外火焰伤害， 其数值等同于物理伤害的 5%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=5}},nil}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 黑暗统御者"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 黑暗统御者 "}
-c["每 100 玩家最大生命提高 2% 法术伤害"]={{[1]={[1]={div=100,stat="PlayerLife",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
+c["13% 法术伤害格挡几率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=13}},nil}
 c["当周围有至少 1 个灵柩，周围敌人的伤害降低 10%"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="NearbyCorpse"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=-10}}}},nil}
-c["每 100 玩家最大生命提高 5% 法术暴击几率"]={{[1]={[1]={div=100,stat="PlayerLife",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
+c["每 100 玩家最大生命提高 5% 法术伤害"]={{[1]={[1]={div=100,stat="PlayerLife",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=5}},nil}
 c["耐力球、狂怒球、暴击球下限 +1"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="FrenzyChargesMin",type="BASE",value=1},[3]={flags=0,keywordFlags=0,name="EnduranceChargesMin",type="BASE",value=1}},nil}
 c["有 23% 的几率点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=23}},nil}
+c["每 100 玩家最大生命提高 2% 法术伤害"]={{[1]={[1]={div=100,stat="PlayerLife",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
+c["每 100 玩家最大生命提高 5% 法术暴击几率"]={{[1]={[1]={div=100,stat="PlayerLife",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
 c["每 100 玩家最大生命提高 2% 法术暴击几率"]={{[1]={[1]={div=100,stat="PlayerLife",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=2}},nil}
 c["当你触发或施法法术技能时牺牲 10% 的血量"]={{},"当你触发或施法技能时牺牲 血量 "}
-c["其中 1 个增加的天赋为【液化启迪】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="液化启迪"}},nil}
-c["当你触发或施法法术技能时牺牲 4% 的血量"]={{},"当你触发或施法技能时牺牲 血量 "}
 c["时空锁链可以影响魔蛊免疫的敌人"]={nil,"时空锁链可以影响魔蛊免疫的敌人 "}
 c["被冰冻后，你有 3 秒免疫冰冻 在被点燃后，你有 3 秒免疫点燃"]={nil,"被冰冻后，你有 3 秒免疫冰冻 在被点燃后，你有 3 秒免疫点燃 "}
-c["同时可以放置最多 5 个额外陷阱"]={{[1]={flags=0,keywordFlags=0,name="ActiveTrapLimit",type="BASE",value=5}},nil}
-c["暴击时喷洒焦油"]={nil,"暴击时喷洒焦油 "}
+c["受到【奋锐光环】影响时，你创造的奉献地面效果可延续 2 秒 当你受到奋锐光环影响时，创造的【奉献地面】可以使敌人承受的伤害提高 10%"]={{[1]={[1]={type="Condition",var="AffectedBy奋锐光环"},flags=0,keywordFlags=0,name="ConsecratedGroundEffect",type="INC",value=10}},"可延续 2 秒 当你受到奋锐光环影响时，创造的【奉献地面】可以使敌人承受的伤害 "}
+c["当你触发或施法法术技能时牺牲 4% 的血量"]={{},"当你触发或施法技能时牺牲 血量 "}
 c["物理攻击伤害的 0.2% 转化为魔力偷取"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageManaLeech",type="BASE",value=0.2}},nil}
-c["召唤生物身上的来自你技能的光环效果提高 20%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]=20,[4]=1,flags=0,keywordFlags=0,name="AuraEffectOnSelf",type="INC",value=20}}}},nil}
+c["同时可以放置最多 5 个额外陷阱"]={{[1]={flags=0,keywordFlags=0,name="ActiveTrapLimit",type="BASE",value=5}},nil}
 c["+100 点闪避值和能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="BASE",value=100}},nil}
-c["生命回复无效"]={nil,"生命回复无效 "}
-c["每个暴击球可使法术伤害提高 14%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=2,keywordFlags=0,name="Damage",type="INC",value=14}},nil}
+c["暴击时喷洒焦油"]={nil,"暴击时喷洒焦油 "}
+c["召唤生物身上的来自你技能的光环效果提高 20%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]=20,[4]=1,flags=0,keywordFlags=0,name="AuraEffectOnSelf",type="INC",value=20}}}},nil}
 c["+1500 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=1500}},nil}
 c["女王敕令可以触发 20 级审判烈焰"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="AtziriUniqueStaffFlameblast",source="女王敕令",triggered=true}}},nil}
 c["若你有至少 150 点智慧，则中毒持续时间延长 25%"]={{[1]={[1]={stat="Int",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=25}},nil}
 c["火焰、冰霜、闪电伤害提高 20%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=20}},nil}
-c["使用时承受最大生命 10% 的混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=10}},"使用时承受 混沌伤害 "}
-c["每个暴击球可使法术伤害提高 16%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=2,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
+c["生命回复无效"]={nil,"生命回复无效 "}
+c["每个暴击球可使法术伤害提高 14%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=2,keywordFlags=0,name="Damage",type="INC",value=14}},nil}
 c["烙印技能的持续时间延长 12%"]={{[1]={[1]={skillType=75,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=12}},nil}
 c["物理伤害可以造成冰缓"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanChill",type="FLAG",value=true}},nil}
 c["你近战命中并晕眩敌人时，有 20% 的几率获得 1 个耐力球 有 20% 的几率使晕眩时间延长 1 倍"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunDuration",type="BASE",value=20}},"你命中并晕眩敌人时，获得 1 个耐力球 有 20% 的几率使延长 1 倍 "}
+c["使用时承受最大生命 10% 的混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=10}},"使用时承受 混沌伤害 "}
+c["每个暴击球可使法术伤害提高 16%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=2,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
+c["每个暴击球使你的【灵巧】效果提高 10%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="ElusiveEffect",type="INC",value=10}},nil}
 c["攻击技能有 20% 几率获得暴击球 每个暴击球可使法术伤害提高 6%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=2,keywordFlags=65536,name="Damage",type="BASE",value=20}},"获得暴击球 提高 6% "}
 c["攻击技能有 20% 几率获得暴击球"]={{},"获得暴击球 "}
-c["每个暴击球使你的【灵巧】效果提高 10%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="ElusiveEffect",type="INC",value=10}},nil}
 c["该装备 +8% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=8}},nil}
-c["近期内你若造成非暴击伤害，则 +25% 暴击伤害加成"]={{[1]={[1]={type="Condition",var="NonCritRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=25}},nil}
-c["法术附加 39 - 60 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=39},[2]={flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=60}},nil}
 c["召唤生物的攻击击中有 5% 几率瘫痪敌人"]={{},"瘫痪敌人 "}
-c["该装备的能量护盾提高 600%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=600}},nil}
+c["近期内你若造成非暴击伤害，则 +25% 暴击伤害加成"]={{[1]={[1]={type="Condition",var="NonCritRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=25}},nil}
 c["法术暴击率提高 100%"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
 c["法术伤害压制率按照每个暴击球 +2% 每个暴击球 +6% 暴击伤害加成"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},[2]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=2}},"按照   +6% 暴击伤害加成 "}
+c["法术附加 39 - 60 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=39},[2]={flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=60}},nil}
+c["该装备的能量护盾提高 600%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=600}},nil}
+c["护身持续时间延长 30% 攻击技能的伤害在护体状态下提高 20%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Condition",var="Fortify"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},"护身 伤害在提高 20% "}
 c["20% 的物理伤害转换为冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToCold",type="BASE",value=20}},nil}
 c["没有格档率"]={{[1]={flags=0,keywordFlags=0,name="ArmourData",type="LIST",value={key="BlockChance",value=0}}},nil}
-c["护身持续时间延长 30% 攻击技能的伤害在护体状态下提高 20%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Condition",var="Fortify"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},"护身 伤害在提高 20% "}
-c["承受来自致盲敌人的法术伤害降低 30% 没有格档率"]={{[1]={flags=2,keywordFlags=0,name="DamageTaken",type="INC",value=-30}},"来自致盲敌人的 没有格档率 "}
-c["击中和异常状态对致盲敌人的火焰伤害提高 50%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=786432,name="FireDamage",type="INC",value=50}},nil}
 c["满血时近战伤害提高 60%"]={{[1]={[1]={type="Condition",var="FullLife"},flags=256,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 亵渎之力"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 亵渎之力 "}
 c["被你击败的敌人直接被摧毁"]={nil,"your Hits are destroyed "}
 c["周围友军获得【终结】效果"]={nil,"【终结】效果 "}
 c["该装备的能量护盾提高 215%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=215}},nil}
+c["承受来自致盲敌人的法术伤害降低 30% 没有格档率"]={{[1]={flags=2,keywordFlags=0,name="DamageTaken",type="INC",value=-30}},"来自致盲敌人的 没有格档率 "}
+c["击中和异常状态对致盲敌人的火焰伤害提高 50%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=786432,name="FireDamage",type="INC",value=50}},nil}
 c["有图腾存在时效果区域扩大 25%"]={{[1]={[1]={type="Condition",var="HaveTotem"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}},nil}
+c["此物品上装备的【辅助技能石】品质 +30%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="quality",keyword="support",value=30}}},nil}
 c["你的陷阱触发后，随即触发 20 级的【战争迷雾】 对致盲敌人的火焰伤害提高 30%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=4096,name="FireDamage",type="INC",value=30}},"你的触发后，随即触发 20 级的【战争迷雾】  "}
 c["你的陷阱触发后，随即触发 20 级的【战争迷雾】"]={nil,"你的陷阱触发后，随即触发 20 级的【战争迷雾】 "}
-c["此物品上装备的【辅助技能石】品质 +30%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="quality",keyword="support",value=30}}},nil}
 c["+38% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=38}},nil}
 c["反射感电"]={nil,"反射感电 "}
-c["该武器对被感电敌人的击中伤害提高 45%"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={actor="enemy",type="ActorCondition",var="Shocked"},flags=4,keywordFlags=0,name="Damage",type="INC",value=45}},nil}
-c["【秘术增强】的增益效果随着战吼的【威力值】提高，最多提高 50%"]={{[1]={flags=0,keywordFlags=4,name="FlaskEffect",type="INC",value=50}},"【秘术增强】的增益随着的【威力值】提高，最多 "}
-c["使用战吼时，你和周围友军获得【秘术增强】 【秘术增强】的增益效果随着战吼的【威力值】提高，最多提高 50%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=4,name="FlaskEffect",type="INC",value=50},onlyAllies=true}}},"使用时，你和【秘术增强】 【秘术增强】的增益随着战吼的【威力值】提高，最多 "}
+c["药剂持续期间，物理伤害的 20% 转换为闪电伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="PhysicalDamageConvertToLightning",type="BASE",value=20}},nil}
 c["图腾的生命提高 50%"]={{[1]={flags=0,keywordFlags=0,name="TotemLife",type="INC",value=50}},nil}
 c["禁断之肉上有匹配的词缀则配置 钢铁大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="钢铁大师",side="之肉"}}},nil}
 c["锤类或短杖的物理伤害提高 14%"]={{[1]={flags=1048576,keywordFlags=0,name="PhysicalDamage",type="INC",value=14}},nil}
 c["+13% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=13}},nil}
-c["使用战吼时，你和周围友军获得【秘术增强】"]={nil,"使用战吼时，你和【秘术增强】 "}
+c["【秘术增强】的增益效果随着战吼的【威力值】提高，最多提高 50%"]={{[1]={flags=0,keywordFlags=4,name="FlaskEffect",type="INC",value=50}},"【秘术增强】的增益随着的【威力值】提高，最多 "}
 c["使用终结技时获得 20 点魔力"]={nil,"使用终结技时获得 20 点魔力 "}
-c["攻击附加 13 - 24 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=13},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=24}},nil}
-c["使用战吼时获得 2 个暴击球"]={nil,"使用战吼时获得 2 个暴击球 "}
+c["使用战吼时，你和周围友军获得【秘术增强】 【秘术增强】的增益效果随着战吼的【威力值】提高，最多提高 50%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=4,name="FlaskEffect",type="INC",value=50},onlyAllies=true}}},"使用时，你和【秘术增强】 【秘术增强】的增益随着战吼的【威力值】提高，最多 "}
+c["使用战吼时，你和周围友军获得【秘术增强】"]={nil,"使用战吼时，你和【秘术增强】 "}
 c["其中 1 个增加的天赋为【恶毒撕咬】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="恶毒撕咬"}},nil}
-c["寒冰之捷的魔力保留效能提高 40%"]={{[1]={[1]={skillName="寒冰之捷",type="SkillName"},flags=0,keywordFlags=0,name="ManaReservationEfficiency",type="INC",value="40"}},nil}
+c["攻击附加 13 - 24 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=13},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=24}},nil}
 c["30% 几率避免被冰冻"]={{[1]={flags=0,keywordFlags=0,name="AvoidFrozen",type="BASE",value=30}},nil}
 c["插槽无法被调整 此物品上装备的技能石等级 +1"]={{},"插槽无法被调整 此物品上装备的技能石等级  "}
-c["击中被嘲讽的敌人回复 +3 魔力"]={{[1]={flags=0,keywordFlags=262144,name="Mana",type="BASE",value=3}},"被嘲讽的敌人回复   "}
+c["使用战吼时获得 2 个暴击球"]={nil,"使用战吼时获得 2 个暴击球 "}
 c["攻击和法术附加 9 - 18 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=196608,name="ColdMin",type="BASE",value=9},[2]={flags=0,keywordFlags=196608,name="ColdMax",type="BASE",value=18}},nil}
 c["每个影响你的凶残之凝珠宝都使你的副手暴击伤害加成 +10，最多 50%"]={{[1]={flags=0,keywordFlags=0,name="MurderousEyeJewelCritMultiplier",type="BASE",value=10}},nil}
-c["此物品上装备的【战吼技能石】等级 +3"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="warcry",value=3}}},nil}
+c["禁用除元素净化之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Purity",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["该装备的护甲与能量护盾提高 240%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=240}},nil}
 c["每个地雷可使你的技能范围扩大  5%"]={{[1]={[1]={stat="ActiveMineLimit",type="PerStat"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=5}},nil}
 c["每个召唤的幻灵都给你【幽影之力】"]={{[1]={flags=0,keywordFlags=0,name="Condition:PhantasmalMight",type="FLAG",value=true}},nil}
+c["击中被嘲讽的敌人回复 +3 魔力"]={{[1]={flags=0,keywordFlags=262144,name="Mana",type="BASE",value=3}},"被嘲讽的敌人回复   "}
+c["此物品上装备的【战吼技能石】等级 +3"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="warcry",value=3}}},nil}
 c["你反射给怪物的 10% 伤害会变为回复生命"]={nil,"你反射给怪物的 10% 伤害会变为回复生命 "}
-c["你受到的诅咒效果提高 50%"]={{[1]={[1]={skillName="你受到",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value="50"}},nil}
-c["格挡攻击时反射 1 - 1000 物理伤害"]={nil,"格挡攻击时反射 1 - 1000 物理伤害 "}
 c["每有一个耐力球，护甲提高 8%"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="Armour",type="INC",value=8}},nil}
 c["速度提高 3%"]={{},"速度 "}
 c["双手近战武器攻击的攻击速度提高 10%"]={{[1]={flags=301989893,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["物理伤害提高 125%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=125}},nil}
+c["暴击球达到最大数量时，失去所有的暴击球"]={nil,"暴击球达到最大数量时，失去所有的暴击球 "}
+c["格挡攻击时反射 1 - 1000 物理伤害"]={nil,"格挡攻击时反射 1 - 1000 物理伤害 "}
 c["使用战吼后获得持续 4 秒的【猛攻】状态 战吼的增益效果提高 25%"]={{[1]={flags=0,keywordFlags=4,name="BuffEffect",type="INC",value=25}},"使用后获得持续 4 秒的【猛攻】状态  "}
 c["其中 1 个增加的天赋为【规律主宰】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="规律主宰"}},nil}
-c["击败被嘲讽的敌人获得 2 秒【猛攻】状态"]={nil,"击败被嘲讽的敌人获得 2 秒【猛攻】状态 "}
 c["若近期有使用【冲刺】技能，移动速度提高 25%"]={{[1]={[1]={type="Condition",var="CastDashRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=25}},nil}
-c["受到击中火焰伤害的 20% 转为冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="FireDamageTakenAsCold",type="BASE",value=20}},nil}
 c["药剂持续期间被石化"]={nil,"药剂持续期间被石化 "}
-c["持长杖时施法速度提高 10%"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
-c["其中 1 个增加的天赋为【统御之主】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="统御之主"}},nil}
+c["击败被嘲讽的敌人获得 2 秒【猛攻】状态"]={nil,"击败被嘲讽的敌人获得 2 秒【猛攻】状态 "}
+c["受到击中火焰伤害的 20% 转为冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="FireDamageTakenAsCold",type="BASE",value=20}},nil}
 c["80% reduced Reflected Damage taken during Flask Effect"]={{},"% reduced Reflected Damage taken during Flask Effect "}
-c["反射 50 冰霜伤害给近战攻击者"]={nil,"反射 50 冰霜伤害给近战攻击者 "}
-c["反射 10 冰霜伤害给近战攻击者 反射 50 冰霜伤害给近战攻击者"]={nil,"反射 10 冰霜伤害给近战攻击者 反射 50 冰霜伤害给近战攻击者 "}
+c["持长杖时施法速度提高 10%"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
+c["你的物理伤害造成感电"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanShock",type="FLAG",value=true}},nil}
 c["有护体的击中使护身效果提高 40%"]={{[1]={flags=0,keywordFlags=262144,name="FlaskEffect",type="INC",value=40}},"有护体的使护身 "}
-c["受到【猫之势】影响时，+1% 攻击和法术基础暴击率"]={{[1]={[1]={type="Condition",varList={[1]="AffectedBy猫之隐匿",[2]="AffectedBy猫之敏捷"}},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=1}},nil}
+c["反射 50 冰霜伤害给近战攻击者"]={nil,"反射 50 冰霜伤害给近战攻击者 "}
 c["击中时触发 1 级的【炼狱战吼】 被你战吼嘲讽的敌人被击败时爆炸，造成其最大生命 8% 的混沌伤害"]={{[1]={flags=0,keywordFlags=262144,name="Life",type="BASE",value=8}},"时触发 1 级的【炼狱战吼】 被你战吼嘲讽的敌人被击败时爆炸，造成其 混沌伤害 "}
-c["10% 法术格挡率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=10}},nil}
-c["12% 法术格挡率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=12}},nil}
+c["反射 10 冰霜伤害给近战攻击者 反射 50 冰霜伤害给近战攻击者"]={nil,"反射 10 冰霜伤害给近战攻击者 反射 50 冰霜伤害给近战攻击者 "}
+c["禁断之肉上有匹配的词缀则配置 暴徒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="暴徒",side="之肉"}}},nil}
 c["每个配置的核心天赋都使原能护盾可以承受 75 点元素伤害 禁用其它护盾技能"]={nil,"每个配置的核心天赋都使原能护盾可以承受 75 点元素伤害 禁用其它护盾技能 "}
-c["7 每秒生命回复"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=7}},nil}
+c["10% 法术格挡率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=10}},nil}
 c["每 16 秒获得一次【霸体】，持续 8 秒 霸体"]={nil,"每 16 秒获得一次【霸体】，持续 8 秒 霸体 "}
-c["耐力球持续时间延长 120%"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesDuration",type="INC",value=120}},nil}
+c["12% 法术格挡率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=12}},nil}
 c["全局伤害提高 275%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Damage",type="INC",value=275}},nil}
 c["周围盟友在你死亡时，会回复等同你最大生命 2% 的生命 周围盟友在你死亡时，会回复等同你最大生命 1% 的生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=2}},"周围盟友在你死亡时，会回复等同你 生命 周围盟友在你死亡时，会回复等同你最大生命 1% 的生命 "}
-c["你击败敌人时有 15% 的几率获得【秘术增强】"]={{},"你击败敌人时获得【秘术增强】 "}
+c["耐力球持续时间延长 120%"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesDuration",type="INC",value=120}},nil}
 c["禁断之肉上有匹配的词缀则配置 奉献女魔"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="奉献女魔",side="之肉"}}},nil}
 c["陷阱伤害提高 40%"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=40}},nil}
 c["你身上的减益效果消失速度提高 90%"]={{},nil}
-c["附加 1 - 230 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=230}},nil}
-c["雷霆的魔力保留效能提高 50%"]={{[1]={[1]={skillName="雷霆",type="SkillName"},flags=0,keywordFlags=0,name="ManaReservationEfficiency",type="INC",value="50"}},nil}
+c["召唤生物击中时有 60% 几率使目标中毒"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=60}}}},nil}
+c["你击败敌人时有 15% 的几率获得【秘术增强】"]={{},"你击败敌人时获得【秘术增强】 "}
 c["能量护盾上限提高 18%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=18}},nil}
 c["偷取时伤害提高 30%"]={{[1]={[1]={type="Condition",var="Leeching"},flags=0,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
+c["附加 74 - 121 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=74},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=121}},nil}
+c["使用时制造一团烟雾"]={{},nil}
 c["格挡时有 100% 几率使怪物逃跑"]={{},"格挡时使怪物逃跑 "}
 c["如果你在过去 10 秒内施放过导电，则在命中时造成闪电曝露"]={nil,"如果你在过去 10 秒内施放过导电，则在命中时造成闪电曝露 "}
-c["+20% 被诅咒怪物攻击格挡率"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=20}},nil}
-c["诅咒持续时间延长 100%"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=100}},nil}
 c["每 25 点敏捷都使冰霜伤害提高 1%"]={{[1]={[1]={div=25,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=1}},nil}
-c["移动速度提高 9%"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=9}},nil}
+c["+20% 被诅咒怪物攻击格挡率"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=20}},nil}
 c["你的奉献技能对自身的效果降低 50%"]={{[1]={[1]={skillNameList={[1]="骸骨奉献",[2]="血肉奉献",[3]="灵魂奉献",[4]="血脉奉献"},type="SkillName"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="BuffEffectOnPlayer",type="INC",value=-50}}}},nil}
+c["诅咒持续时间延长 100%"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=100}},nil}
+c["移动速度提高 9%"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=9}},nil}
 c["每个蓝色插槽使召唤生物 25% 的物理伤害转化为闪电伤害"]={{[1]={[1]={type="Multiplier",var="BlueSocketIn{SlotName}"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamageConvertToLightning",type="BASE",value=25}}}},nil}
-c["你所施放诅咒的效果提高 20%"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=20}},nil}
-c["如果你在过去 10 秒内施放过导电，则在命中时造成闪电曝露 如果你在过去 10 秒内施放过元素要害，则获得 40% 物理伤害的 1 个随机元素伤害"]={nil,"如果你在过去 10 秒内施放过导电，则在命中时造成闪电曝露 如果你在过去 10 秒内施放过元素要害，则获得 40% 物理伤害的 1 个随机元素伤害 "}
 c["若你近期内没受到伤害，则移动速度提高 10%"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}},nil}
+c["你所施放诅咒的效果提高 20%"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=20}},nil}
 c["击败敌人会扣除自身 1% 最大生命"]={nil,"击败敌人会扣除自身 1% 最大生命 "}
-c["魔蛊反射"]={nil,"魔蛊反射 "}
 c["所有属性提高 32%"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=32},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=32},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=32}},nil}
 c["每装备 1 个【裂界之器】，异常状态的伤害便提高 15%"]={{[1]={[1]={type="Multiplier",var="ElderItem"},flags=2048,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
+c["魔蛊反射"]={nil,"魔蛊反射 "}
 c["诅咒反射 魔蛊反射"]={nil,"诅咒反射 魔蛊反射 "}
 c["被诅咒时法术伤害格挡几率 +20%"]={{[1]={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=20}},nil}
 c["未被诅咒时攻击伤害格挡几率 +10%"]={{[1]={[1]={neg=true,type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=10}},nil}
 c["受到诅咒的持续时间缩短 50% 未被诅咒时攻击伤害格挡几率 +10%"]={{[1]={[1]={neg=true,type="Condition",var="Cursed"},flags=0,keywordFlags=2,name="Duration",type="INC",value=-50}},"受到的 攻击伤害格挡几率 +10% "}
-c["受到诅咒的持续时间缩短 50%"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=-50}},"受到的 "}
 c["10% 的几率使敌人受到冰冻，感电与点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=10},[2]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=10},[3]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=10}},nil}
-c["图腾伤害提高 40%"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=40}},nil}
+c["受到诅咒的持续时间缩短 50%"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=-50}},"受到的 "}
 c["30% 几率避免中毒 30% 几率避免致流血"]={{},"避免 30% 几率避免致流血 "}
-c["你偷取生命，数值等同于你的图腾造成伤害的 0.5%"]={{[1]={flags=0,keywordFlags=16384,name="DamageLifeLeechToPlayer",type="BASE",value=0.5}},nil}
+c["图腾伤害提高 40%"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=40}},nil}
 c["击败魔法怪物后的物品稀有度提高 150% 击败魔法怪物后的物品稀有度提高 150%"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=150}},"击败魔法怪物后的 击败魔法怪物后的物品稀有度提高 150% "}
+c["你偷取生命，数值等同于你的图腾造成伤害的 0.5%"]={{[1]={flags=0,keywordFlags=16384,name="DamageLifeLeechToPlayer",type="BASE",value=0.5}},nil}
 c["图腾使用技能造成伤害的 1% 转化为生命偷取 你偷取生命，数值等同于你的图腾造成伤害的 0.5%"]={nil,"图腾使用技能造成伤害的 1% 转化为生命偷取 你偷取生命，数值等同于你的图腾造成伤害的 0.5% "}
 c["图腾使用技能的范围效果扩大 15%"]={{[1]={flags=0,keywordFlags=16384,name="AreaOfEffect",type="INC",value=15}},nil}
 c["每拥有一个图腾可让你和图腾每秒回复 0.5% 生命 图腾使用技能的范围效果扩大 15%"]={{},"每拥有一个可让你和图腾15% "}
 c["每秒回复 0.5% 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.5}},nil}
-c["持长杖时攻击伤害格挡几率 +5%"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=5}},nil}
+c["你的暴击加成为 300%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="CritMultiplier",type="OVERRIDE",value=300}},nil}
 c["格挡时 25% 的几率获得耐力球"]={nil,"an Endurance Charge when you Block "}
-c["承受投射物攻击造成的物理伤害 -50"]={{[1]={flags=1,keywordFlags=0,name="ProjectileCountTaken",type="BASE",value=-50}},"物理伤害  "}
 c["20% 几率避免被冰缓"]={{[1]={flags=0,keywordFlags=0,name="AvoidChilled",type="BASE",value=20}},nil}
-c["承受投射物攻击造成的物理伤害 -10 承受投射物攻击造成的物理伤害 -50"]={{[1]={flags=1,keywordFlags=0,name="ProjectileCountTaken",type="BASE",value=-10}},"物理伤害  承受投射物攻击造成的物理伤害 -50 "}
+c["承受投射物攻击造成的物理伤害 -50"]={{[1]={flags=1,keywordFlags=0,name="ProjectileCountTaken",type="BASE",value=-50}},"物理伤害  "}
 c["最大魔力提高 8%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=8}},nil}
-c["承受投射物攻击造成的物理伤害 -10"]={{[1]={flags=1,keywordFlags=0,name="ProjectileCountTaken",type="BASE",value=-10}},"物理伤害  "}
+c["承受投射物攻击造成的物理伤害 -10 承受投射物攻击造成的物理伤害 -50"]={{[1]={flags=1,keywordFlags=0,name="ProjectileCountTaken",type="BASE",value=-10}},"物理伤害  承受投射物攻击造成的物理伤害 -50 "}
 c["所有伤害均可点燃"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanIgnite",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdCanIgnite",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="LightningCanIgnite",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="ChaosCanIgnite",type="FLAG",value=true}},nil}
-c["若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 4 把远程武器 若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 8 把远程武器"]={nil,"若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 4 把远程武器 若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 8 把远程武器 "}
+c["承受投射物攻击造成的物理伤害 -10"]={{[1]={flags=1,keywordFlags=0,name="ProjectileCountTaken",type="BASE",value=-10}},"物理伤害  "}
 c["攻击击中获得 1 点怒火。每 0.5 秒只会发生一次"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true},[2]={[1]={type="Condition",var="CanGainRage"},flags=0,keywordFlags=0,name="Dummy",type="DUMMY",value=1}},nil}
-c["每嘲讽 1 个敌人回复 +10 生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=10}},"每嘲讽 1 个敌人回复   "}
+c["若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 4 把远程武器 若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 8 把远程武器"]={nil,"若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 4 把远程武器 若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 8 把远程武器 "}
 c["增助攻击有 8% 的几率造成双倍伤害"]={{[1]={flags=1,keywordFlags=0,name="ExertDoubleDamageChance",type="BASE",value=8}},nil}
+c["每嘲讽 1 个敌人回复 +10 生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=10}},"每嘲讽 1 个敌人回复   "}
 c["战吼冷却回复速度提高 50%"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=50}},nil}
-c["攻击击中每个敌人会回复 +2 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=2}},nil}
-c["有 30% 的几率在击中没有闪避值的敌人时获得一个狂怒球"]={{[1]={flags=0,keywordFlags=262144,name="Evasion",type="BASE",value=30}},"在没有的敌人时获得一个狂怒球 "}
+c["剑类攻击造成的异常状态伤害提高 20%"]={{[1]={flags=4194304,keywordFlags=524288,name="Damage",type="INC",value=20}},nil}
 c["其中 1 个增加的天赋为【焚化炉】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="焚化炉"}},nil}
 c["击中时有 20% 的几率使敌人致盲"]={{},"时使敌人致盲 "}
 c["若持续时间耗减了 50%，你的诅咒效果提高 20%"]={{[1]={[1]={skillName="若持续时间耗减了 50%，你",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value="20"}},nil}
 c["该装备的能量护盾提高 120%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=120}},nil}
 c["锤类或短杖的攻击速度加快 3%"]={{[1]={flags=1048577,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
-c["+90 点闪避值和能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="BASE",value=90}},nil}
+c["有 30% 的几率在击中没有闪避值的敌人时获得一个狂怒球"]={{[1]={flags=0,keywordFlags=262144,name="Evasion",type="BASE",value=30}},"在没有的敌人时获得一个狂怒球 "}
 c["当你可能获得狂怒球时，有 45% 的几率直接获得最大数量的狂怒球 狂怒球持续时间延长 120%"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesDuration",type="BASE",value=45}},"当你可能获得狂怒球时，直接获得最大数量的狂怒球 延长 120% "}
+c["+90 点闪避值和能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="BASE",value=90}},nil}
 c["装备时触发 20 级的【元素神盾】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ElementalAegis",triggered=true}}},nil}
-c["+140 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=140}},nil}
 c["获得【召唤时空先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfTime"}}},nil}
-c["反击附加 250 - 300 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=250},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=300}},"反击 "}
+c["+140 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=140}},nil}
 c["物品掉落数量提高 25%"]={{[1]={flags=0,keywordFlags=0,name="LootQuantity",type="INC",value=25}},nil}
 c["Adds 1 to 4 Physical Damage to Bow Attacks"]={nil,"Adds 1 to 4 Physical Damage to Bow Attacks "}
+c["反击附加 250 - 300 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=250},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=300}},"反击 "}
 c["狂怒球持续时间延长 20%"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesDuration",type="INC",value=20}},nil}
-c["+170 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=170}},nil}
 c["此物品上的技能石受到 12 级的 受伤时施放 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=12,skillId="SupportCastOnDamageTaken"}}},nil}
 c["不能在你的幻影弓手周围召唤幻影弓手"]={nil,"Cannot Summon Mirage Archers while near your Mirage Archers "}
 c["药剂持续期间，能量护盾回复速度提高 400%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=400}},nil}
-c["击中流血敌人时有 30% 几率使敌人逃跑"]={{},"使敌人逃跑 "}
+c["+170 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=170}},nil}
 c["你使用生命药剂时移除一个随机非元素异常状态"]={nil,"Remove a random non-Elemental Ailment when you use a Life Flask "}
 c["若你近期内受到感电效果，则你不会再受到感电"]={nil,"You cannot be Shocked if you've been Shocked Recently "}
+c["附加 30 - 58 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=30},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=58}},nil}
 c["承受投射物攻击造成的物理伤害 -25 +5% 攻击格挡率"]={{[1]={flags=1,keywordFlags=0,name="ProjectileCountTaken",type="BASE",value=-25}},"物理伤害  +5% 攻击格挡率 "}
-c["物理伤害降低 10%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=-10}},nil}
 c["你具有次级狂击神龛效果"]={{[1]={flags=0,keywordFlags=0,name="Condition:LesserBrutalShrine",type="FLAG",value=true}},nil}
 c["在真菌地表上被你击败的敌人会爆炸，造成它们 5% 生命的混沌伤害"]={nil,"在真菌地表上被你击败的敌人会爆炸，造成它们 5% 生命的混沌伤害 "}
+c["+65 敏捷"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=65}},nil}
 c["附加 15 - 26 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=26}},nil}
-c["+43% 火焰抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=43}},nil}
 c["无法被冰冻"]={{[1]={flags=0,keywordFlags=0,name="AvoidChill",type="BASE",value=100}},nil}
-c["此物品上的技能石受到 35 级的 异常爆发(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportAilments"}}},nil}
+c["+43% 火焰抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=43}},nil}
 c["若你近期内没有打出过暴击，则获得 +60% 暴击伤害加成"]={{[1]={[1]={neg=true,type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=60}},nil}
+c["此物品上的技能石受到 35 级的 异常爆发(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportAilments"}}},nil}
 c["攻击和法术附加 14-33 基础火焰伤害"]={{[1]={flags=0,keywordFlags=196608,name="FireMin",type="BASE",value=14},[2]={flags=0,keywordFlags=196608,name="FireMax",type="BASE",value=33}},nil}
 c["击中时有 25% 几率用衰弱诅咒非诅咒敌人，其效果提高 80%"]={{[1]={flags=0,keywordFlags=262144,name="FlaskEffect",type="BASE",value=25}},"时用衰弱诅咒非诅咒敌人，其提高 80% "}
-c["攻击伤害的 0.5% 转化为魔力偷取"]={{[1]={flags=1,keywordFlags=0,name="DamageManaLeech",type="BASE",value=0.5}},nil}
 c["技能消耗降低 3%"]={{[1]={flags=0,keywordFlags=0,name="Cost",type="INC",value=-3}},nil}
+c["攻击伤害的 0.5% 转化为魔力偷取"]={{[1]={flags=1,keywordFlags=0,name="DamageManaLeech",type="BASE",value=0.5}},nil}
 c["受到的伤害 12% 转化为魔力回复"]={nil,"受到的伤害 12% 转化为魔力回复 "}
-c["击中敌人时有 5% 几率使敌人被衰弱 击中敌人时有 10% 几率使敌人被衰弱"]={{},"敌人时使敌人被衰弱 击中敌人时有 10% 几率使敌人被衰弱 "}
 c["+60 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=60}},nil}
-c["此物品上的技能石受到 10 级的 击中生命回复(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportLifeGainOnHit"}}},nil}
+c["击中敌人时有 5% 几率使敌人被衰弱 击中敌人时有 10% 几率使敌人被衰弱"]={{},"敌人时使敌人被衰弱 击中敌人时有 10% 几率使敌人被衰弱 "}
 c["如果你在过去 10 秒内施放过惩戒，则在命中时恐吓敌人"]={nil,"如果你在过去 10 秒内施放过惩戒，则在命中时恐吓敌人 "}
 c["双持爪时攻击格挡率提高 8%"]={{[1]={[1]={type="Condition",var="DualWieldingClaws"},flags=0,keywordFlags=0,name="BlockChance",type="INC",value=8}},nil}
 c["经验值获取提高 5% 经验值获取提高 3%"]={{},"经验值获取 经验值获取提高 3% "}
-c["攻击附加 10 - 25 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=10},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=25}},nil}
+c["此物品上的技能石受到 10 级的 击中生命回复(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportLifeGainOnHit"}}},nil}
 c["+35 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=35}},nil}
 c["箭矢对其穿透的目标所造成的击中伤害和异常状态伤害提高 50%"]={{[1]={[1]={stat="PierceCount",threshold=1,type="StatThreshold"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=50}},nil}
 c["周围友军获得物品稀有度提高 30%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=30},onlyAllies=true}}},nil}
 c["+45% 攻击和法术暴击伤害加成"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=45}},nil}
 c["召唤生物的伤害提高 45%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=45}}}},nil}
-c["技能效果持续时间缩短 13%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-13}},nil}
+c["攻击附加 10 - 25 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=10},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=25}},nil}
 c["其中 1 个增加的天赋为【力量倍增】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="力量倍增"}},nil}
 c["混沌抗性上限 +5%"]={{[1]={flags=0,keywordFlags=0,name="ChaosResistMax",type="BASE",value=5}},nil}
-c["格挡后的短时间内 +1500 护甲"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1500}},nil}
+c["技能效果持续时间缩短 13%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-13}},nil}
 c["赤红珠宝 仅限: 1"]={nil,"赤红珠宝 仅限: 1 "}
+c["格挡后的短时间内 +1500 护甲"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1500}},nil}
 c["格挡时回复 250 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeOnBlock",type="BASE",value=250}},nil}
 c["获得 30 级的主动技能【清算】，且可被此道具上的技能石辅助"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=30,skillId="Reckoning"}}},nil}
 c["格挡后的短时间内 +1000 护甲"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1000}},nil}
-c["护甲提高 160%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=160}},nil}
 c["伤害穿透 (2-4)% 的闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=-4}},"穿透 (2)% 的闪电抗性 "}
+c["护甲提高 160%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=160}},nil}
 c["耐力球达到上限时获得【猛攻】状态"]={{[1]={[1]={stat="EnduranceCharges",thresholdStat="EnduranceChargesMax",type="StatThreshold"},flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},nil}
 c["当不拥有耐力球时，所有属性的最大抗性上限 +3%"]={{[1]={[1]={stat="EnduranceCharges",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=3},[2]={[1]={stat="EnduranceCharges",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=3},[3]={[1]={stat="EnduranceCharges",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=3},[4]={[1]={stat="EnduranceCharges",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=0,name="ChaosResistMax",type="BASE",value=3}},nil}
-c["攻击击中每个敌人会回复 +19 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=19}},nil}
 c["全局防御提高 18%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Defences",type="INC",value=18}},nil}
-c["-10% 攻击和法术格挡率上限"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceMax",type="BASE",value=-10},[2]={flags=0,keywordFlags=0,name="SpellBlockChanceMax",type="BASE",value=-10}},nil}
+c["物理攻击伤害的 3% 会转化为生命偷取"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageLifeLeech",type="BASE",value=3}},nil}
 c["当插槽内的辅助宝石达到最大等级时吞噬该宝石"]={nil,"当插槽内的辅助宝石达到最大等级时吞噬该宝石 "}
 c["护甲提高 (30-40)%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=-40}},"提高 (30)% "}
+c["-10% 攻击和法术格挡率上限"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceMax",type="BASE",value=-10},[2]={flags=0,keywordFlags=0,name="SpellBlockChanceMax",type="BASE",value=-10}},nil}
 c["其中 1 个增加的天赋为【特别预备】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="特别预备"}},nil}
 c["你打出暴击时获得【秘术增强】 你的【召唤灵体】也会随你一起获得【秘术增强】"]={nil,"你打出暴击时获得【秘术增强】 你的【召唤灵体】也会随你一起获得【秘术增强】 "}
 c["灵体的最大生命提高 100%"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=100}}}},nil}
-c["击败敌人时，召唤生物获得【不洁之力】，持续 10 秒 召唤生物获得额外混沌伤害，其数值等同于元素伤害的 20%"]={{},"击败敌人时，【不洁之力】，持续 10 秒 召唤生物获得"}
 c["你每控制一个魔侍，召唤生物伤害和施法速度便提高 2% 你每控制一个魔卫，召唤生物持续时间延长 2%"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=2}}}},"你每控制一个魔侍，和施法速度 你每控制一个，召唤生物持续时间延长 2% "}
+c["击败敌人时，召唤生物获得【不洁之力】，持续 10 秒 召唤生物获得额外混沌伤害，其数值等同于元素伤害的 20%"]={{},"击败敌人时，【不洁之力】，持续 10 秒 召唤生物获得"}
 c["施法速度提高 11%"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=11}},nil}
-c["此物品上的技能石受到 35 级的 附加闪电伤害(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportAddedLightningDamage"}}},nil}
 c["你的羁绊对象承受的伤害降低 5%"]={nil,"Your Linked Targets take 5% reduced Damage "}
+c["此物品上的技能石受到 35 级的 附加闪电伤害(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportAddedLightningDamage"}}},nil}
 c["2% 几率躲避法术击中"]={{[1]={flags=0,keywordFlags=0,name="SpellDodgeChance",type="BASE",value=2}},nil}
 c["格挡时喷洒焦油 近期内你若有过格挡，你和周围友军每秒回复 5% 生命"]={{},"格挡时喷洒焦油 你和周围友军"}
-c["格挡时喷洒焦油"]={nil,"格挡时喷洒焦油 "}
 c["在过去 10 秒内被击中阻挡的物理伤害有 1.5% 转化为每秒生命再生"]={nil,"在过去 10 秒内被击中阻挡的物理伤害有 1.5% 转化为每秒生命再生 "}
-c["生命偷取的每秒总恢复量提高 1000%"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=1000}},nil}
-c["此物品上装备的【诅咒技能石】等级 +2"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="curse",value=2}}},nil}
-c["此物品上装备的【火焰技能石】等级 +1"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="fire",value=1}}},nil}
+c["格挡时喷洒焦油"]={nil,"格挡时喷洒焦油 "}
+c["魔力偷取的每秒总恢复量提高 1000%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=1000}},"偷取的每秒总恢复量 "}
+c["诅咒持续时间延长 50%"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=50}},nil}
 c["+300 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=300}},nil}
 c["技能的总魔力消耗 +50"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=50}},nil}
 c["无法闪避敌人攻击"]={{[1]={flags=0,keywordFlags=0,name="CannotEvade",type="FLAG",value=true}},nil}
-c["【迷踪】状态下，+12% 避免元素伤害几率"]={{[1]={[1]={type="Condition",var="Phasing"},flags=0,keywordFlags=0,name="AvoidFireDamageChance",type="BASE",value=12},[2]={[1]={type="Condition",var="Phasing"},flags=0,keywordFlags=0,name="AvoidColdDamageChance",type="BASE",value=12},[3]={[1]={type="Condition",var="Phasing"},flags=0,keywordFlags=0,name="AvoidLightningDamageChance",type="BASE",value=12}},nil}
+c["此物品上装备的【火焰技能石】等级 +1"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="fire",value=1}}},nil}
 c["插入的旅行技能的总伤害额外提高 80%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},[2]={skillType=90,type="SkillType"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="MORE",value=80}}}},nil}
 c["击败敌人时有 5% 几率获得 3 秒【猛攻】状态 击败敌人时有 10% 几率获得不洁之力 3 秒"]={{},"击败敌人时获得 3 秒【猛攻】状态 击败敌人时有 10% 几率获得不洁之力 3 秒 "}
 c["护甲提高 165%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=165}},nil}
-c["击败敌人时，你获得 1 颗耐力球 被击中时，每个耐力球可使你获得 1 秒的【猛攻】状态"]={{},"击败敌人时， 颗耐力球 被时，你获得 1 秒的【猛攻】状态 "}
+c["【迷踪】状态下，+12% 避免元素伤害几率"]={{[1]={[1]={type="Condition",var="Phasing"},flags=0,keywordFlags=0,name="AvoidFireDamageChance",type="BASE",value=12},[2]={[1]={type="Condition",var="Phasing"},flags=0,keywordFlags=0,name="AvoidColdDamageChance",type="BASE",value=12},[3]={[1]={type="Condition",var="Phasing"},flags=0,keywordFlags=0,name="AvoidLightningDamageChance",type="BASE",value=12}},nil}
+c["禁断之肉上有匹配的词缀则配置 信念之辉"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="信念之辉",side="之肉"}}},nil}
 c["格挡时回复 +40 魔力"]={{[1]={flags=0,keywordFlags=0,name="ManaOnBlock",type="BASE",value=40}},nil}
-c["格挡时回复 +50 魔力"]={{[1]={flags=0,keywordFlags=0,name="ManaOnBlock",type="BASE",value=50}},nil}
 c["火焰技能有 20% 几率使敌人中毒"]={{[1]={flags=0,keywordFlags=32,name="PoisonChance",type="BASE",value=20}},nil}
 c["斧类攻击造成的异常状态伤害提高 14%"]={{[1]={flags=65536,keywordFlags=524288,name="Damage",type="INC",value=14}},nil}
 c["暴走状态时创造一团烟雾"]={nil,"暴走状态时创造一团烟雾 "}
+c["格挡时回复 +50 魔力"]={{[1]={flags=0,keywordFlags=0,name="ManaOnBlock",type="BASE",value=50}},nil}
 c["获得【召唤高等不屈先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfFocusUber"}}},nil}
 c["19% 法术伤害格挡几率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=19}},nil}
 c["击败敌人时有 10% 的几率获得 4 秒【猛攻】状态"]={{[1]={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},"  on Kill "}
 c["有 20% 的几率使晕眩时间延长 1 倍"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunDuration",type="BASE",value=20}}," to double  "}
-c["附加 20 - 50 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=20},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=50}},nil}
+c["附加 2 - 10 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=2},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=10}},nil}
 c["该装备的护甲与能量护盾提高 1000%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=1000}},nil}
 c["该装备的护甲与能量护盾提高 400%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=400}},nil}
 c["每个耐力球 +3% 所有元素抗性"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=3}},nil}
 c["该装备的护甲与闪避提高 90%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=90}},nil}
-c["剑类攻击造成的异常状态伤害提高 20%"]={{[1]={flags=4194304,keywordFlags=524288,name="Damage",type="INC",value=20}},nil}
 c["药剂持续期间，获得额外混沌伤害，其数值等同于 25% 物理伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=25}},nil}
 c["每级 +1 能量护盾"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["在血姿态下击中稀有或传奇敌人时，有 25% 的几率获得一个挑战球 在沙姿态下击败敌人时，会获得一个挑战球"]={{},"在血姿态下稀有或传奇敌人时，获得一个挑战球 在沙姿态下击败敌人时，会获得一个挑战球 "}
 c["战吼的威力值无限"]={{[1]={flags=0,keywordFlags=0,name="WarcryInfinitePower",type="FLAG",value=true}},nil}
 c["暴击时有 10% 的几率获得暴击球 暴击时有 10% 的几率获得【灵巧】 你的暴击伤害无法被反射"]={{[1]={[1]={type="Condition",var="CriticalStrike"},[2]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=10}},"获得暴击球 有 10% 的几率获得【灵巧】 你的暴击无法被反射 "}
+c["附加 87 - 127 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=87},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=127}},nil}
 c["该装备 +3% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=3}},nil}
-c["该装备 +10% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=10}},nil}
 c["你施加的感电效果在药剂持续期间扩散给 20 格内的其它敌人"]={nil,"你施加的感电效果在药剂持续期间扩散给 20 格内的其它敌人 "}
 c["若你近期内打出过暴击，则攻击伤害格挡几率 +5%"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=5}},nil}
 c["25% 几率避免被点燃"]={{[1]={flags=0,keywordFlags=0,name="AvoidIgnite",type="BASE",value=25}},nil}
 c["闪电异常状态效果提高 20%"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockEffect",type="INC",value=20},[2]={flags=0,keywordFlags=0,name="EnemySapEffect",type="INC",value=20}},nil}
 c["你承受的流血伤害改为混沌伤害 +25% 几率中毒"]={{[1]={flags=0,keywordFlags=4194304,name="Damage",type="BASE",value=25}},"你承受的改为混沌伤害 中毒 "}
 c["在沙姿态下击败敌人时，会获得一个挑战球"]={nil,"a Challenger Charge when you Kill an Enemy  "}
-c["此物品上的技能石受到 10 级的 血气（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportBloodthirst"}}},nil}
+c["该装备 +12% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=12}},nil}
 c["召唤的魔像被击败 4 秒后会被重新召唤 召唤魔像的数量上限 +1"]={{},"召唤的被击败 4 秒后会被重新召唤 召唤魔像的数量上限  "}
 c["攻击附加 1 - 34 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=34}},nil}
-c["物理神盾消散时，暴击率提高 60%"]={{[1]={[1]={type="Condition",var="PhysicalAegisDepleted"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=60}},nil}
+c["此物品上的技能石受到 10 级的 血气（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportBloodthirst"}}},nil}
 c["你的羁绊对象的伤害提高 30%"]={nil,"Your Linked targets deal 30% increased Damage "}
-c["该装备的护甲与闪避提高 350%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=350}},nil}
+c["物理神盾消散时，暴击率提高 60%"]={{[1]={[1]={type="Condition",var="PhysicalAegisDepleted"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=60}},nil}
 c["+37% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=37}},nil}
+c["该装备的护甲与闪避提高 350%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=350}},nil}
 c["物理神盾没有消散时，周围敌人会目盲"]={{[1]={[1]={neg=true,type="Condition",var="PhysicalAegisDepleted"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Blinded",type="FLAG",value=true}}}},nil}
-c["+3% 闪电抗性上限"]={{[1]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=3}},nil}
-c["该装备的护甲与闪避提高 400%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=400}},nil}
+c["附加 25 - 45 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=25},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=45}},nil}
 c["获得额外混沌伤害，其数值等同于非混沌伤害的 10%"]={{[1]={flags=0,keywordFlags=0,name="NonChaosDamageGainAsChaos",type="BASE",value=10}},nil}
-c["+28% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=28}},nil}
+c["该装备的护甲与闪避提高 400%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=400}},nil}
 c["获得 20 级的主动技能【多里亚尼之触】，且可被此道具上的技能石辅助"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="TouchOfGod"}}},nil}
+c["+28% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=28}},nil}
 c["格挡回复提高 180%"]={{[1]={flags=0,keywordFlags=0,name="BlockRecovery",type="INC",value=180}},nil}
-c["你承受的来自中毒敌人的暴击额外伤害降低 50%"]={{},"你承受的来自敌人的暴击"}
 c["陷阱所使用的技能范围扩大 20%"]={{[1]={flags=0,keywordFlags=4096,name="AreaOfEffect",type="INC",value=20}},nil}
-c["禁断之火上有匹配的词缀则配置 森林之力.塔赫亚"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="森林之力.塔赫亚",side="之火"}}},nil}
-c["此物品上的技能石受到 10 级的 元素扩散(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportElementalProliferation"}}},nil}
+c["你承受的来自中毒敌人的暴击额外伤害降低 50%"]={{},"你承受的来自敌人的暴击"}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 血肉之章"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 血肉之章 "}
 c["药剂持续期间无法获得魔力 生效期间，瓦尔技能的伤害提高 100%"]={{[1]={flags=0,keywordFlags=512,name="Mana",type="INC",value=100}},"药剂持续期间无法获得 生效期间，的伤害 "}
-c["禁断之火上有匹配的词缀则配置 侠客"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="侠客",side="之火"}}},nil}
+c["此物品上的技能石受到 10 级的 元素扩散(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportElementalProliferation"}}},nil}
+c["其中 1 个增加的天赋为【灵活哨兵】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="灵活哨兵"}},nil}
 c["+31% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=31}},nil}
 c["此物品上的技能石受到 35 级的 暴击获得暴击球(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportPowerChargeOnCrit"}}},nil}
 c["+15% 火焰与冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=15}},nil}
-c["若近期内有过格挡，你则获得【迷踪】状态"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="Condition:Phasing",type="FLAG",value=true}},nil}
 c["被击中时, 10% 的伤害优先从魔力扣除 10% 的伤害优先从魔力扣除"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="BASE",value=10}},"被时, 优先从魔力扣除 10% 的伤害优先从魔力扣除 "}
-c["你至少有 25 点怒火时，周围敌人被压垮"]={{[1]={[1]={threshold=25,type="MultiplierThreshold",var="RageStack"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Crushed",type="FLAG",value=true}}}},nil}
+c["若近期内有过格挡，你则获得【迷踪】状态"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="Condition:Phasing",type="FLAG",value=true}},nil}
 c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 锐眼"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 锐眼 "}
+c["每 10 点怒火使物理伤害提高 6%"]={{[1]={[1]={div=10,type="Multiplier",var="Rage"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=6}},nil}
 c["击败敌人时，有 10% 几率为周围友军提供一个狂怒球"]={{},"击败敌人时，为周围友军提供一个狂怒球 "}
 c["击中时有 5% 几率为周围友军提供一个耐力球 击败敌人时，有 10% 几率为周围友军提供一个狂怒球"]={{},"时为周围友军提供一个耐力球 击败敌人时，有 10% 几率为周围友军提供一个狂怒球 "}
 c["击中时有 5% 几率为周围友军提供一个耐力球"]={{},"时为周围友军提供一个耐力球 "}
-c["若过去 8 秒内你造成过暴击，则每秒生命再生 2.3%"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2.3}},nil}
 c["召唤生物有 +0% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=0}}}},nil}
 c["生命按照每个耐力球每秒再生 0.6% 每有一个耐力球，攻击伤害格挡几率额外 +2%"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},[2]={type="Multiplier",var="EnduranceCharge"},flags=1,keywordFlags=0,name="Life",type="BASE"}},"按照每秒再生 0.6% 伤害格挡几率"}
 c["当你没有能量护盾时，护甲提高 100% 格挡时有 30% 几率获得 3 秒不洁之力"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=100}},"当你没有时，护甲 格挡时有 30% 几率获得 3 秒不洁之力 "}
 c["每 5 秒触发 20 级的【骸骨奉献】、【血肉奉献】或【灵魂奉献】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level="20",skillId="BoneOffering",triggered=true}},[2]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level="20",skillId="FleshOffering",triggered=true}},[3]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level="20",skillId="SpiritOffering",triggered=true}}},nil}
 c["生命再生率提高 40%"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=40}},nil}
 c["魔力回复速度提高 52%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=52}},nil}
-c["禁断之火上有匹配的词缀则配置 信念之诉"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="信念之诉",side="之火"}}},nil}
+c["物理伤害降低 10%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=-10}},nil}
 c["冰霜抗性降低 53%"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="INC",value=-53}},nil}
-c["你造成暴击时，失去 15% 能量护盾"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=15}},"你造成%  "}
+c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 神圣指引"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 神圣指引 "}
 c["若你近期内有吞噬 1 个灵柩，你和你的召唤生物的效果区域提高 30%"]={{[1]={[1]={type="Condition",var="ConsumedCorpseRecently"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30},[2]={[1]={type="Condition",var="ConsumedCorpseRecently"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}}}},nil}
+c["你造成暴击时，失去 15% 能量护盾"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=15}},"你造成%  "}
 c["药剂持续期间，混沌伤害不会穿透能量护盾 将生命扣至剩余 1 点，扣除的生命将在 2 秒内转换为能量护盾"]={nil,"药剂持续期间，混沌伤害不会穿透能量护盾 将生命扣至剩余 1 点，扣除的生命将在 2 秒内转换为能量护盾 "}
 c["该装备 +4% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=4}},nil}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 完美的暴行"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 完美的暴行 "}
 c["你身上的秘术增强效果提高 25%"]={{[1]={flags=0,keywordFlags=0,name="秘术增强Effect",type="INC",value=25}},nil}
-c["该装备 +11% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=11}},nil}
+c["禁断之火上有匹配的词缀则配置 完美的暴行"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="完美的暴行",side="之火"}}},nil}
 c["若你近期内有成功嘲讽敌人，则受到的伤害降低 10%"]={{[1]={[1]={type="Condition",var="TauntedEnemyRecently"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=-10}},nil}
 c["空手时法术附加 113 - 338 基础闪电伤害"]={{[1]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=113},[2]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=338}},nil}
 c["若你近期内施放过法术，则 +6% 法术伤害格挡几率"]={{[1]={[1]={type="Condition",var="CastSpellRecently"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=6}},nil}
+c["该装备 +11% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=11}},nil}
 c["该装备的护甲与闪避提高 225%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=225}},nil}
-c["该装备 +13% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=13}},nil}
 c["持续吟唱技能伤害提高 12%"]={{[1]={[1]={skillType=57,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["药剂持续期间，有 30% 几率点燃"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=30}},nil}
 c["(3-4)% 额外物理伤害减伤"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=-4}},"(3)% 额外 "}
 c["造成暴击时无视目标的元素抗性"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreElementalResistances",type="FLAG",value=true}},nil}
 c["药剂持续期间，法术格挡率提高 20%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=20}},nil}
+c["该装备 +13% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=13}},nil}
 c["阻挡被压制的法术伤害量 -10% 法术伤害压制率 +32%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="BASE",value=-10}},"阻挡被压制的量  伤害压制率 +32% "}
-c["承受的物理伤害有 15% 视为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=15}},nil}
 c["周围的友军和敌人跟你共享能量球"]={nil,"周围的友军和敌人跟你共享能量球 "}
 c["受到迅捷光环影响时，行动速度加快10%"]={{[1]={[1]={type="Condition",var="AffectedBy迅捷"},flags=0,keywordFlags=0,name="ActionSpeed",type="INC",value=10}},nil}
+c["承受的物理伤害有 15% 视为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=15}},nil}
 c["承受的闪电伤害有 15% 视为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageTakenAsFire",type="BASE",value=15}},nil}
-c["承受的冰霜伤害有 15% 视为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageTakenAsFire",type="BASE",value=15}},nil}
 c["你获得【坚毅之心】时，物理伤害提高 100% 裂界之器"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}},"你获得【坚毅之心】时， 裂界之器 "}
 c["总计消耗 200 点魔力后可以获得 1 个暴击球"]={nil,"a Power Charge after Spending a total of 200 Mana "}
-c["该装备 +23% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=23}},nil}
+c["承受的冰霜伤害有 15% 视为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageTakenAsFire",type="BASE",value=15}},nil}
 c["若范围内至少有 40 点敏捷，【双持打击】持握剑类时命中值提高 30% 若范围内至少有 40 点敏捷，【双持打击】持握爪类时攻击速度加快 15%"]={{[1]={flags=512,keywordFlags=0,name="Dex",type="INC",value=30}},"若内至少有 40 点，【双持打击】持握剑类时命中值 若范围内至少有 40 点敏捷，【双持打击】持握爪类时攻击速度加快 15% "}
-c["该装备的护甲提高 200%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=200}},nil}
+c["该装备 +23% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=23}},nil}
 c["每个狂怒球可使击中时有 2% 几率免疫元素伤害 每个狂怒球可使攻击伤害的 0.5% 转化为生命偷取"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},[2]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=262144,name="ElementalDamage",type="BASE",value=2}},"时免疫 攻击伤害的 0.5% 转化为生命偷取 "}
+c["该装备的护甲提高 200%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=200}},nil}
 c["承受的物理伤害有 20% 视为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=20}},nil}
 c["承受的闪电伤害有 20% 视为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageTakenAsFire",type="BASE",value=20}},nil}
-c["敏捷提高 18%"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=18}},nil}
-c["该装备 +25% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=25}},nil}
+c["获得 +48% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=48}},nil}
 c["火焰伤害提高 25%"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=25}},nil}
-c["药剂持续期间，物理伤害的 20% 转换为闪电伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="PhysicalDamageConvertToLightning",type="BASE",value=20}},nil}
+c["该装备 +25% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=25}},nil}
 c["有 25% 几率使晕眩时间延长 1 倍 附加 36 - 360 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunDuration",type="BASE",value=25}},"使延长 1 倍 附加 36 - 360 基础物理伤害 "}
 c["专注时，使周围敌人感电 4 秒"]={nil,"专注时，使周围敌人感电 4 秒 "}
 c["禁用其它护盾技能"]={{[1]={[1]={skillType=110,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Primal Aegis",type="SkillName"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["近期内你每击败 1 个感电敌人，则附加 1-10 基础闪电伤害"]={{[1]={[1]={type="Multiplier",var="ShockedEnemyKilledRecently"},flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={[1]={type="Multiplier",var="ShockedEnemyKilledRecently"},flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=10}},nil}
+c["该武器对被感电敌人的击中伤害提高 45%"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={actor="enemy",type="ActorCondition",var="Shocked"},flags=4,keywordFlags=0,name="Damage",type="INC",value=45}},nil}
 c["该武器对被冰冻敌人的击中伤害提高 60%"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={actor="enemy",type="ActorCondition",var="Frozen"},flags=4,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["该武器击中时必定造成元素异常状态 该武器对被点燃敌人的击中伤害提高 60%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},flags=8192,keywordFlags=0,name="Damage",type="INC",value=60}},"该击中时必定造成元素异常状态 该武器击中 "}
 c["该武器击中后造成的 100% 物理伤害转换为一种随机元素伤害"]={{[1]={flags=8192,keywordFlags=0,name="PhysicalDamageGainAsRandom",type="BASE",value=100}},nil}
-c["物理伤害提高 115%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=115}},nil}
 c["闪避值将随绝对冰霜抗性提高"]={{[1]={[1]={div=1,stat="ColdResistTotal",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=1}},nil}
 c["火焰伤害提高 70%"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=70}},nil}
-c["物理伤害提高 195%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=195}},nil}
+c["物理伤害提高 115%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=115}},nil}
 c["获得【女神的祝福】时有 33% 几率致盲周围敌人 获得【女神的祝福】时无法被冰冻，冰缓，或点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=33}},"获得【女神的祝福】时致盲周围敌人 获得【女神的祝福】时无法被，冰缓，或点燃 "}
+c["物理伤害提高 195%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=195}},nil}
 c["该武器击中敌人造成的感电如同总伤害额外提高 200% 该武器击中敌人造成的点燃总伤害额外提高 75%"]={{[1]={flags=8192,keywordFlags=0,name="EnemyIgniteChance",type="MORE"}}," 该击中敌人造成的总伤害额外提高 75% "}
 c["+240 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=240}},nil}
-c["无法造成非火焰、冰霜、闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="DealNoPhysical",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="DealNoChaos",type="FLAG",value=true}},nil}
 c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 无上奉献"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 无上奉献 "}
 c["晕眩回复和格挡回复提高 35%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=35}},nil}
+c["无法造成非火焰、冰霜、闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="DealNoPhysical",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="DealNoChaos",type="FLAG",value=true}},nil}
 c["获得等同武器物理伤害 700% 的随机一种额外火焰，冰霜，或者闪电伤害"]={{[1]={flags=8192,keywordFlags=0,name="PhysicalDamageGainAsRandom",type="BASE",value=700}},nil}
 c["获得等同武器物理伤害 300% 的随机一种额外火焰，冰霜，或者闪电伤害"]={{[1]={flags=8192,keywordFlags=0,name="PhysicalDamageGainAsRandom",type="BASE",value=300}},nil}
 c["该装备的攻击暴击率提高 63%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=63}},nil}
 c["周围敌人获得 -20% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=-20}}}},nil}
 c["+360 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=360}},nil}
-c["你的物理伤害造成感电"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanShock",type="FLAG",value=true}},nil}
 c["不能使用胸甲"]={nil,"不能使用胸甲 "}
 c["攻击附加 60 - 80 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=60},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=80}},nil}
 c["反射 50 冰霜伤害给近战攻击者 +5% 攻击格挡率"]={{[1]={flags=256,keywordFlags=0,name="ColdDamage",type="BASE",value=5}},"反射 50 给者  攻击格挡率 "}
+c["其中 1 个增加的天赋为【统御之主】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="统御之主"}},nil}
 c["物理攻击伤害的 0.6% 转化为魔力偷取"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageManaLeech",type="BASE",value=0.6}},nil}
-c["附加 35 - 70 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=35},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=70}},nil}
 c["敌人晕眩门槛降低 18%"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunThreshold",type="INC",value=-18}},nil}
 c["投射物的伤害随着飞行距离提升， 击中目标时最多提高 50% 技能会发射一枚额外投射物 你和周围友军具有提速尾流效果"]={{[1]={flags=0,keywordFlags=262144,name="ProjectileCount",type="INC",value=50}},"的伤害随着飞行距离提升， 目标时最多 技能会发射一枚额外投射物 你和周围友军具有提速尾流效果 "}
 c["+38 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=38}},nil}
@@ -4521,317 +4509,318 @@ c["+5% 混沌持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="ChaosDotMu
 c["投射物伤害提高 25%"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["当你获得【肾上腺素】时回复 25% 生命 你获得【肾上腺素】时移除所有异常状态和燃烧状态"]={nil,"当你获得【肾上腺素】时回复 25% 生命 你获得【肾上腺素】时移除所有异常状态和燃烧状态 "}
 c["连锁的投射物获得额外混沌伤害，其数值等同于非混沌伤害的 35%"]={{[1]={[1]={stat="Chain",threshold=1,type="StatThreshold"},flags=1024,keywordFlags=0,name="NonChaosDamageGainAsChaos",type="BASE",value=35}},nil}
+c["附加 35 - 70 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=35},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=70}},nil}
 c["若你近期内有击败敌人，则移动速度提高 15%"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=15}},nil}
-c["此物品上的技能石受到 35 级的 击中生命回复(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportLifeGainOnHit"}}},nil}
 c["战吼的增益效果提高 10%"]={{[1]={flags=0,keywordFlags=4,name="BuffEffect",type="INC",value=10}},nil}
+c["此物品上的技能石受到 35 级的 击中生命回复(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportLifeGainOnHit"}}},nil}
 c["召唤生物的移动速度提高 90%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=90}}}},nil}
 c["召唤生物的移动速度提高 100%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=100}}}},nil}
-c["召唤生物的最大生命提高 35%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=35}}}},nil}
 c["近战物理伤害提高 4%"]={{[1]={flags=256,keywordFlags=0,name="PhysicalDamage",type="INC",value=4}},nil}
 c["+55 to 最大魔力"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=55}},nil}
 c["非诅咒光环技能的持续时间延长 20%"]={{[1]={[1]={skillType=43,type="SkillType"},[2]={neg=true,skillType=79,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
-c["+185 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=185}},nil}
+c["召唤生物的最大生命提高 35%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=35}}}},nil}
 c["使用时获得 1 个暴击球 使用时获得 1 个狂怒球"]={nil,"使用时获得 1 个暴击球 使用时获得 1 个狂怒球 "}
 c["拥有【猫之隐匿】时，暴击有 20% 几率致盲敌人 对致盲的敌人的击中和异常状态伤害提高 50%"]={{[1]={[1]={type="Condition",var="AffectedBy猫之隐匿"},[2]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=786432,name="Damage",type="BASE",value=20}},"暴击致盲敌人 提高 50% "}
+c["+185 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=185}},nil}
 c["附加 450 - 575 基础火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=450},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=575}},nil}
-c["低血时免疫晕眩"]={nil,"低血时免疫晕眩 "}
 c["拥有 1 个额外的固有词缀 +30 全属性"]={{},"拥有 1 个"}
-c["受到的火焰伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="FireDamageTaken",type="INC",value=10}},nil}
+c["低血时免疫晕眩"]={nil,"低血时免疫晕眩 "}
 c["提高 135% 药剂充能消耗"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=135}},nil}
 c["每 10 点敏捷可使近战物理伤害提高 1%"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=256,keywordFlags=0,name="PhysicalDamage",type="INC",value=1}},nil}
+c["受到的火焰伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="FireDamageTaken",type="INC",value=10}},nil}
 c["火焰伤害击中时有 20% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=20}},nil}
 c["附加 475 - 600 基础火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=475},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=600}},nil}
-c["暴击时有 30% 几率致盲敌人 近战暴击会造成流血"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=256,keywordFlags=0,name="BleedChance",type="BASE",value=30}},"致盲敌人 暴击会 "}
 c["攻击瘫痪的敌人时，攻击伤害的 0.5% 转化为生命偷取"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Maimed"},flags=1,keywordFlags=0,name="DamageLifeLeech",type="BASE",value=0.5}},nil}
-c["暴击时有 30% 几率致盲敌人"]={{},"致盲敌人 "}
+c["暴击时有 30% 几率致盲敌人 近战暴击会造成流血"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=256,keywordFlags=0,name="BleedChance",type="BASE",value=30}},"致盲敌人 暴击会 "}
 c["召唤生物伤害提高 70%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=70}}}},nil}
+c["暴击时有 30% 几率致盲敌人"]={{},"致盲敌人 "}
 c["其中 1 个增加的天赋为【棱光之舞】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="棱光之舞"}},nil}
 c["附加 103 - 245 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=103},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=245}},nil}
 c["你攻击的目标会反射 100 物理伤害 +2 武器攻击范围"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamage",type="BASE",value=2}},"你的目标会反射 100   武器攻击范围 "}
-c["武器攻击的火焰、冰霜、闪电伤害提高 25%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=25}},"攻击的 "}
 c["格挡时有 35% 几率使攻击者感电 4 秒"]={{[1]={flags=0,keywordFlags=0,name="ShockBase",type="BASE",value=15}},nil}
-c["附加 115 - 260 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=115},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=260}},nil}
+c["每 10 点智慧可以为攻击附加 1 - 3 基础闪电伤害"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=3}},nil}
 c["用该武器击中时有 23% 几率施加 2 秒凋零"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true},[2]={[1]={type="Condition",var="CanWither"},flags=0,keywordFlags=0,name="Dummy",type="DUMMY",value=1}},nil}
+c["附加 115 - 260 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=115},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=260}},nil}
 c["药剂持续期间，使周围的敌人感电，他们受到的伤害提高 10%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ShockOverride",type="BASE",value=10}},nil}
-c["角色体型缩小 10%"]={{},"角色体型 "}
-c["每一级在击败敌人时获得 +1 生命 每级提高 1%火焰、冰霜、闪电伤害"]={{[1]={[1]={type="Multiplier",var="Level"},[2]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},"击败敌人时  提高 1%火焰、冰霜、闪电伤害 "}
+c["物品稀有度提高 23%"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=23}},nil}
 c["冰缓时，施法速度加快 20%"]={{[1]={[1]={type="Condition",var="Chilled"},flags=16,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
 c["弓类技能的持续伤害效果提高 25%"]={{[1]={flags=8,keywordFlags=1024,name="Damage",type="INC",value=25}},nil}
+c["每一级在击败敌人时获得 +1 生命 每级提高 1%火焰、冰霜、闪电伤害"]={{[1]={[1]={type="Multiplier",var="Level"},[2]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},"击败敌人时  提高 1%火焰、冰霜、闪电伤害 "}
 c["每一级在击败敌人时获得 +1 生命"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},"击败敌人时  "}
-c["每一级为你的攻击附加 1 - 2 基础物理伤害"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=1},[2]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=2}},nil}
 c["法术技能 +12% 中毒持续伤害加成"]={{[1]={flags=0,keywordFlags=131072,name="DotMultiplier",type="BASE",value=12}},nil}
-c["附加 65 - 105 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=65},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=105}},nil}
+c["每一级为你的攻击附加 1 - 2 基础物理伤害"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=1},[2]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=2}},nil}
 c["低血时，120% 的攻击格挡率套用于法术格挡"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="BlockChanceConv",type="BASE",value=120}},nil}
+c["附加 70 - 105 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=70},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=105}},nil}
 c["每个插槽内的红色技能石使攻击技能额外获得 5% 的物理伤害的额外火焰伤害 当插槽内全部为红色技能石时，获得【瓦尔冥约】"]={{},"每个插槽内的红色技能石使"}
-c["每个插槽内的红色技能石使攻击技能额外获得 5% 的物理伤害的额外火焰伤害"]={{},"每个插槽内的红色技能石使"}
 c["召唤生物 +15% 暴击伤害加成"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=15}}}},nil}
+c["每个插槽内的红色技能石使攻击技能额外获得 5% 的物理伤害的额外火焰伤害"]={{},"每个插槽内的红色技能石使"}
 c["附加 75 - 110 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=75},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=110}},nil}
-c["插槽内的的近战技能石范围扩大 15%"]={{[1]={[1]={keyword="melee",slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=15}}}},nil}
 c["持续吟唱技能伤害提高 25%"]={{[1]={[1]={skillType=57,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["对冰缓敌人附加 40 - 60 基础冰霜伤害"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=40},[2]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=60}},nil}
+c["插槽内的的近战技能石范围扩大 15%"]={{[1]={[1]={keyword="melee",slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=15}}}},nil}
 c["你的攻击击中每个敌人会失去 25 生命"]={{[1]={flags=1,keywordFlags=0,name="Life",type="BASE",value=25}},"你的击中每个敌人会  "}
 c["0 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=0}},nil}
 c["攻击速度降低 0%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=-0}},nil}
 c["该装备附加 625 - 775 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=625},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=775}},nil}
-c["此物品上的技能石受到 35 级的 吟唱时施放(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportCastWhileChannelling"}}},nil}
 c["攻击附加 14 - 26 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=14},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=26}},nil}
 c["召唤生物的施法速度提高 38%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=38}}}},nil}
 c["召唤生物有额外 4% 躲避击中几率"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="AttackDodgeChance",type="BASE",value=4}}}},nil}
 c["施法速度提高 17%"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=17}},nil}
 c["穿透后的箭矢 +50% 暴击伤害加成"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=50}},"穿透后的箭矢   "}
+c["此物品上的技能石受到 35 级的 吟唱时施放(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportCastWhileChannelling"}}},nil}
 c["攻击技能的效果区域缩小 40%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=-40}},nil}
-c["攻击附加 3 - 40 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=3},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=40}},nil}
 c["15% Increased Area of Effect"]={{},"% Increased Area of Effect "}
 c["伤害按照每个羁绊对象提高 20%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},"  per Linked target "}
+c["攻击附加 3 - 40 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=3},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=40}},nil}
 c["若范围内至少有 40 点敏捷，【双持打击】持握剑类时命中值提高 30%"]={{[1]={flags=512,keywordFlags=0,name="Dex",type="INC",value=30}},"若内至少有 40 点，【双持打击】持握剑类时命中值 "}
 c["【幻化之刃德尔维希】也会幻化一个【禅意苦行僧】的复制品"]={nil,"【幻化之刃德尔维希】也会幻化一个【禅意苦行僧】的复制品 "}
-c["【幻化之刃德尔维希】会使你主手和副手武器装备栏失效"]={{},nil}
 c["燃烧总伤害额外降低 40%"]={{}," "}
 c["物理攻击伤害的 0.8% 会转化为生命偷取"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageLifeLeech",type="BASE",value=0.8}},nil}
 c["技能的怒火消耗降低 18%"]={{[1]={flags=0,keywordFlags=0,name="RageCostBase",type="INC",value=-18}},nil}
+c["【幻化之刃德尔维希】会使你主手和副手武器装备栏失效"]={{},nil}
 c["暴走时触发 15 级的【幻化之刃德尔维希】"]={nil,nil}
-c["暴走 暴走时触发 15 级的【幻化之刃德尔维希】"]={nil,"暴走 暴走时触发 15 级的【幻化之刃德尔维希】 "}
 c["你的混沌伤害可使敌人中毒"]={nil,"你的混沌伤害可使敌人中毒 "}
-c["最大魔力提高 100%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=100}},nil}
+c["暴走 暴走时触发 15 级的【幻化之刃德尔维希】"]={nil,"暴走 暴走时触发 15 级的【幻化之刃德尔维希】 "}
 c["插入的瓦尔技能击中时无视敌方怪物的物理伤害减免物理 插入的瓦尔技能使用时提供灵巧效果"]={nil,"插入的瓦尔技能击中时无视敌方怪物的物理伤害减免物理 插入的瓦尔技能使用时提供灵巧效果 "}
 c["33% Chance to Gain a Frenzy Charge on Kill"]={{},"a Frenzy Charge on Kill "}
 c["闪电伤害提高 (7-12)%"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="BASE",value=-12}},"提高 (7)% "}
 c["陷阱冷却回复速度提高 50%"]={{[1]={flags=0,keywordFlags=4096,name="CooldownRecovery",type="INC",value=50}},nil}
-c["闪电伤害击中时有 18% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=18}},nil}
+c["最大魔力提高 100%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=100}},nil}
 c["钓鱼范围扩大 20%"]={{},"钓鱼 "}
 c["伤害提高 20%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
-c["附加 16 - 24 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=16},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=24}},nil}
+c["闪电伤害击中时有 18% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=18}},nil}
 c["该武器的攻击穿透 16% 的混沌抗性"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="ChaosPenetration",type="BASE",value=16}},nil}
-c["闪电伤害击中时有 20% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=20}},nil}
+c["附加 16 - 24 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=16},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=24}},nil}
 c["药剂持续期间，施法速度提高 10%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=16,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
+c["闪电伤害击中时有 20% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=20}},nil}
 c["装备在副手时，攻击可以额外发射 1 个投射物"]={{[1]={[1]={num=2,type="SlotNumber"},flags=1,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
-c["装备于主手时，攻击额外连锁弹射 1 次"]={{[1]={[1]={num=1,type="SlotNumber"},flags=1,keywordFlags=0,name="ChainCountMax",type="BASE",value=1}},nil}
 c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 镇压"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 镇压 "}
 c["你产生的具有生命再生效果的奉献地面 也会为你和友军回复能量护盾 你产生的奉献地面效果延续 4 秒"]={nil,"你产生的具有生命再生效果的奉献地面 也会为你和友军回复能量护盾 你产生的奉献地面效果延续 4 秒 "}
-c["武器攻击的火焰、冰霜、闪电伤害提高 55% 攻击技能的火焰、冰霜、闪电伤害提高 55%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=55}},"攻击的 攻击技能的火焰、冰霜、闪电伤害提高 55% "}
+c["装备于主手时，攻击额外连锁弹射 1 次"]={{[1]={[1]={num=1,type="SlotNumber"},flags=1,keywordFlags=0,name="ChainCountMax",type="BASE",value=1}},nil}
 c["攻击及法术伤害格挡几率降低 30%"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=-30},[2]={flags=0,keywordFlags=0,name="SpellBlockChance",type="INC",value=-30}},nil}
 c["闪电伤害提高 79%"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=79}},nil}
 c["技能魔力消耗降低 4%"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-4}},nil}
+c["武器攻击的火焰、冰霜、闪电伤害提高 55% 攻击技能的火焰、冰霜、闪电伤害提高 55%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=55}},"攻击的 攻击技能的火焰、冰霜、闪电伤害提高 55% "}
 c["武器攻击的火焰、冰霜、闪电伤害提高 55%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=55}},"攻击的 "}
-c["当你身上没有狂怒球时，伤害提高 70%"]={{[1]={[1]={stat="FrenzyCharges",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=0,name="Damage",type="INC",value=70}},nil}
 c["攻击速度提高 10%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["你格挡的攻击和法术无法将你晕眩 你的反击造成双倍伤害"]={nil,"你格挡的攻击和法术无法将你晕眩 你的反击造成双倍伤害 "}
+c["当你身上没有狂怒球时，伤害提高 70%"]={{[1]={[1]={stat="FrenzyCharges",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=0,name="Damage",type="INC",value=70}},nil}
 c["附加 34 - 45 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=34},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=45}},nil}
 c["附加 34 - 45 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=34},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=45}},nil}
-c["每装备一个裂界者物品，就将物理伤害的 5% 视为额外混沌伤害"]={{[1]={[1]={type="Multiplier",varList={[1]="ElderItem"}},flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=5}},nil}
 c["若你近期内引爆过地雷，则地雷类技能的效果范围扩大 15%"]={{[1]={[1]={type="Condition",var="DetonatedMinesRecently"},flags=0,keywordFlags=8192,name="AreaOfEffect",type="INC",value=15}},nil}
-c["击败敌人后有 25% 几率获得 1 个狂怒球"]={{},"击败敌人后获得 1 个狂怒球 "}
+c["每装备一个裂界者物品，就将物理伤害的 5% 视为额外混沌伤害"]={{[1]={[1]={type="Multiplier",varList={[1]="ElderItem"}},flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=5}},nil}
 c["获得额外冰霜伤害， 其数值等同于物理伤害的 10%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsCold",type="BASE",value=10}},nil}
+c["击败敌人后有 25% 几率获得 1 个狂怒球"]={{},"击败敌人后获得 1 个狂怒球 "}
 c["狂怒球持续时间缩短 20%"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesDuration",type="INC",value=-20}},nil}
-c["附加 38 - 50 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=38},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=50}},nil}
 c["召唤生物获得额外混沌伤害，其数值等同于元素伤害的 20%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalDamageGainAsChaos",type="BASE",value=20}}}},nil}
 c["狂热誓言"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="狂热誓言"}},nil}
 c["有 10% 的几率投掷 1 个额外的陷阱或地雷"]={{}," to throw up to 1 additional  or Mine "}
 c["+200 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=200}},nil}
-c["附加 38 - 50 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=38},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=50}},nil}
+c["附加 38 - 50 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=38},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=50}},nil}
 c["法杖攻击的攻击速度提高 6%"]={{[1]={flags=8388613,keywordFlags=0,name="Speed",type="INC",value=6}},nil}
 c["你被冰缓时，伤害穿透 10% 元素抗性"]={{[1]={[1]={type="Condition",var="Chilled"},flags=0,keywordFlags=0,name="ElementalPenetration",type="BASE",value=10}},nil}
+c["附加 38 - 50 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=38},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=50}},nil}
 c["近战暴击时触发插槽内的冰霜技能"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportUniqueCosprisMaliceColdSpellsCastOnMeleeCriticalStrike"}}},nil}
-c["法术附加 60 - 110 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=60},[2]={flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=110}},nil}
 c["魔力再生率提高 30%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=30}},nil}
 c["冰缓效果提高 30%"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillEffect",type="INC",value=30}},nil}
-c["附加 100 - 200 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=100},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=200}},nil}
+c["法术附加 60 - 110 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=60},[2]={flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=110}},nil}
 c["格挡时回复能量护盾，数值等同于 4% 的护甲"]={{[1]={[1]={div=25,stat="Armour",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShieldOnBlock",type="BASE",value=1}},nil}
 c["每有 50 点力量，攻击伤害格挡几率额外 +1%"]={{[1]={[1]={div=50,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=1}},nil}
+c["获得 +50% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=50}},nil}
 c["物理伤害提高 135%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=135}},nil}
 c["获得 +60% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=60}},nil}
-c["附加 38 - 90 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=38},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=90}},nil}
 c["敌人若位于你近期所生成的灵柩周围，则使其受到冰缓和感电"]={{[1]={[1]={type="Condition",var="SpawnedCorpseRecently"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Chilled",type="FLAG",value=true}}},[2]={[1]={type="Condition",var="SpawnedCorpseRecently"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Shocked",type="FLAG",value=true}}},[3]={[1]={type="Condition",var="SpawnedCorpseRecently"},flags=0,keywordFlags=0,name="ShockBase",type="BASE",value=15}},nil}
 c["获得额外混沌伤害，其数值等同于物理伤害的 60%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=60}},nil}
 c["法术伤害压制率在受到优雅影响时 +15%"]={{[1]={[1]={type="Condition",var="AffectedBy优雅"},flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=15}},nil}
 c["有 15% 的几率点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=15}},nil}
 c["同时可以放置最多 3 个额外的遥控地雷"]={{[1]={flags=0,keywordFlags=0,name="ActiveMineLimit",type="BASE",value=3}},nil}
+c["附加 38 - 90 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=38},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=90}},nil}
 c["10% 几率使敌人逃跑 被你感电的敌人施法速度降低 30%"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="BASE",value=10}},"使敌人逃跑 被你感电的敌人降低 30% "}
 c["攻击击中每个敌人会回复 +3 魔力"]={{[1]={flags=1,keywordFlags=0,name="ManaOnHit",type="BASE",value=3}},nil}
 c["附加 45 - 100 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=45},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=100}},nil}
 c["此武器的攻击穿透 30% 火焰、冰霜、闪电抗性"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="ElementalPenetration",type="BASE",value=30}},nil}
-c["召唤生物对中毒的敌人造成伤害的 5% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="Poisoned"},flags=4,keywordFlags=0,name="DamageLifeLeech",type="BASE",value=5}}}},nil}
 c["有 25% 的几率点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=25}},nil}
 c["暴击时有 50% 几率致盲敌人"]={{},"致盲敌人 "}
 c["若范围内含有 40 点力量，【熔岩之击】的投射物撞击地面时产生连锁效果 若范围内含有 40 点力量，【熔岩之击】的发射的总投射物额外减少 50%"]={{[1]={flags=512,keywordFlags=0,name="Str",type="BASE"}},"若内含有 40 点，【熔岩之击】的投射物撞击地面时产生连锁效果 若范围内含有 40 点力量，【熔岩之击】的发射的总投射物"}
-c["召唤生物有 +29% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=29}}}},nil}
+c["召唤生物对中毒的敌人造成伤害的 5% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="Poisoned"},flags=4,keywordFlags=0,name="DamageLifeLeech",type="BASE",value=5}}}},nil}
 c["技能效果持续时间缩短 5%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-5}},nil}
 c["物品掉落数量提高 17%"]={{[1]={flags=0,keywordFlags=0,name="LootQuantity",type="INC",value=17}},nil}
+c["召唤生物有 +29% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=29}}}},nil}
 c["获得 25 级的主动技能【嫉妒】，且可被此道具上的技能石辅助"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=25,skillId="Envy"}}},nil}
 c["召唤生物的伤害提高 25%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=25}}}},nil}
 c["用双手武器击中时，有 10% 的几率穿刺敌人"]={{[1]={flags=268435456,keywordFlags=0,name="ImpaleChance",type="BASE",value=10}},nil}
-c["召唤生物击中时有 60% 几率使目标中毒"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=60}}}},nil}
 c["8 每秒生命回复"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=8}},nil}
 c["范围内配置的敏捷和力量总计 40 点时，【灵盾投掷】连锁时发射碎片投射物 范围内配置的敏捷和力量总计 40 点时，【灵盾投掷】的碎片投射物数量额外降低 75%"]={{[1]={flags=512,keywordFlags=0,name="Dex",type="BASE"}},"内配置的和力量总计 40 点时，【灵盾投掷】连锁时发射碎片投射物 范围内配置的敏捷和力量总计 40 点时，【灵盾投掷】的碎片投射物数量"}
 c["你在拥有最大数量的耐力球时，获得【瓦尔冥约】状态"]={{[1]={[2]={stat="EnduranceCharges",thresholdStat="EnduranceChargesMax",type="StatThreshold"},flags=0,keywordFlags=0,name="Keystone",type="LIST",value="瓦尔冥约"}},nil}
 c["物理伤害提高 245%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=245}},nil}
+c["召唤生物击中敌人时会使其中毒 召唤生物击中时有 60% 几率使目标中毒"]={{},"敌人时会使其中毒 召唤生物击中时使目标中毒 "}
 c["召唤生物击中敌人时会使其中毒"]={nil,"击中敌人时会使其中毒 "}
-c["你的攻击击中每个敌人会回复 4 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=4}},nil}
 c["承受的物理伤害在耐力球达到上限时降低 10%"]={{[1]={[1]={stat="EnduranceCharges",thresholdStat="EnduranceChargesMax",type="StatThreshold"},flags=0,keywordFlags=0,name="PhysicalDamageTaken",type="INC",value=-10}},nil}
 c["复仇之灵范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="复仇之灵"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="复仇之灵",value=true}}},nil}
 c["你造成的流血的伤害生效速度加快 15%"]={{[1]={flags=0,keywordFlags=0,name="BleedFaster",type="INC",value=15}},nil}
+c["你的攻击击中每个敌人会回复 4 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=4}},nil}
 c["25% Increased Burning Damage 30% Chance to Ignite"]={{},"% Increased Burning Damage 30% Chance to Ignite "}
-c["每个蓝色插槽会使你物理攻击伤害的 0.3% 转化为魔力偷取"]={{[1]={[1]={type="Multiplier",var="BlueSocketIn{SlotName}"},flags=1,keywordFlags=0,name="PhysicalDamageManaLeech",type="BASE",value=0.3}},nil}
 c["被点燃时，火焰伤害的 2% 转化为生命偷取"]={{[1]={[1]={type="Condition",var="Ignited"},flags=0,keywordFlags=0,name="FireDamageLifeLeech",type="BASE",value=2}},nil}
 c["+12% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=12}},nil}
 c["范围内智慧和敏捷总计 40 点时，【元素打击】和【狂野打击】无法选择火焰元素"]={nil,"范围内智慧和敏捷总计 40 点时，【元素打击】和【狂野打击】无法选择火焰元素 "}
 c["+27% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=27}},nil}
 c["你击中传奇敌人时，有 10% 的几率获得【秘术增强】"]={nil,"Arcane Surge when you Hit a Unique enemy "}
+c["每个蓝色插槽会使你物理攻击伤害的 0.3% 转化为魔力偷取"]={{[1]={[1]={type="Multiplier",var="BlueSocketIn{SlotName}"},flags=1,keywordFlags=0,name="PhysicalDamageManaLeech",type="BASE",value=0.3}},nil}
 c["用双手武器击中时，有 20% 的几率穿刺敌人"]={{[1]={flags=268435456,keywordFlags=0,name="ImpaleChance",type="BASE",value=20}},nil}
 c["每个红色插槽会使你物理攻击伤害的 0.3% 转化为生命偷取"]={{[1]={[1]={type="Multiplier",var="RedSocketIn{SlotName}"},flags=1,keywordFlags=0,name="PhysicalDamageLifeLeech",type="BASE",value=0.3}},nil}
 c["其中 1 个增加的天赋为【野蛮嚎叫】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="野蛮嚎叫"}},nil}
-c["禁断之火上有匹配的词缀则配置 元素堡垒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="元素堡垒",side="之火"}}},nil}
 c["陷阱伤害提高 25%"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=25}},nil}
+c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 火焰塑形"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 火焰塑形 "}
 c["击败敌人后有 15% 几率获得 1 个狂怒球"]={{},"击败敌人后获得 1 个狂怒球 "}
 c["斧类攻击的物理伤害提高 80%"]={{[1]={flags=65540,keywordFlags=0,name="PhysicalDamage",type="INC",value=80}},nil}
 c["附加 80 - 180 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=80},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=180}},nil}
-c["附加 87 - 127 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=87},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=127}},nil}
 c["攻击者格挡时反射 4 到 8 物理伤害"]={nil,"攻击者格挡时反射 4 到 8 物理伤害 "}
 c["最大生命降低 25%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=-25}},nil}
 c["元素伤害提高 50%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=50}},nil}
-c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 秘术家"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 秘术家 "}
-c["附加 74 - 121 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=74},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=121}},nil}
+c["攻击击中每个敌人会回复 +2 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=2}},nil}
+c["禁断之火上有匹配的词缀则配置 秘术家"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="秘术家",side="之火"}}},nil}
 c["从生命偷取中获得的每秒最大总恢复量提高 40%"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=40}},nil}
 c["充能次数降低 0%"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-0}},nil}
 c["格挡时有 10% 几率使怪物逃跑 对受诅咒敌人造成伤害的 1% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=2,name="Damage",type="BASE",value=10}},"格挡时使怪物逃跑 对受敌人造成的 1% 转化为生命偷取 "}
 c["当敌人移动时，你的流血无法造成额外伤害"]={{[1]={flags=0,keywordFlags=0,name="Condition:NoExtraBleedDamageToMovingEnemy",type="FLAG",value=true}},nil}
 c["你的诅咒效果降低 20%"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=-20}},"你的 "}
+c["附加 1 - 230 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=230}},nil}
 c["附加 74 - 121 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=74},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=121}},nil}
-c["附加 74 - 121 基础火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=74},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=121}},nil}
 c["闪电伤害击中时有 40% 的几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=40}},nil}
 c["剑类 +1 近战打击范围"]={{[1]={flags=4194308,keywordFlags=0,name="MeleeWeaponRange",type="BASE",value=1},[2]={flags=4194308,keywordFlags=0,name="UnarmedRange",type="BASE",value=1}},nil}
-c["击中目标时最多提高 50% 技能会发射一枚额外投射物"]={{[1]={flags=0,keywordFlags=262144,name="ProjectileCount",type="INC",value=50}},"目标时最多 技能会发射一枚额外 "}
+c["附加 74 - 121 基础火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=74},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=121}},nil}
 c["技能效果持续时间延长 15%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=15}},nil}
 c["禁断之肉上有匹配的词缀则配置 博学者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="博学者",side="之肉"}}},nil}
 c["每个暴击球 +6% 暴击伤害加成"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=6}},nil}
-c["附加 98 - 140 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=98},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=140}},nil}
+c["击中目标时最多提高 50% 技能会发射一枚额外投射物"]={{[1]={flags=0,keywordFlags=262144,name="ProjectileCount",type="INC",value=50}},"目标时最多 技能会发射一枚额外 "}
 c["地雷的光环效果提高 30%"]={{[1]={flags=0,keywordFlags=8192,name="AuraEffect",type="INC",value=30}},nil}
-c["附加 28 - 40 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=28},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=40}},nil}
+c["附加 98 - 140 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=98},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=140}},nil}
 c["周围敌人被碾压"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Crushed",type="FLAG",value=true}}}},nil}
 c["沙姿态下 +1000 闪避值"]={{[1]={[1]={type="Condition",var="SandStance"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=1000}},nil}
 c["持续伤害提高 23%"]={{[1]={flags=8,keywordFlags=0,name="Damage",type="INC",value=23}},nil}
 c["召唤生物的最大生命提高 20%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=20}}}},nil}
 c["25% 几率避免被感电"]={{[1]={flags=0,keywordFlags=0,name="AvoidShock",type="BASE",value=25}},nil}
 c["20% 几率避免被冰冻"]={{[1]={flags=0,keywordFlags=0,name="AvoidFrozen",type="BASE",value=20}},nil}
+c["附加 28 - 40 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=28},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=40}},nil}
 c["附加 1 - 250 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=250}},nil}
-c["附加 98 - 140 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=98},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=140}},nil}
 c["护甲提高 24%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=24}},nil}
+c["附加 98 - 140 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=98},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=140}},nil}
 c["附加 28 - 40 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=28},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=40}},nil}
 c["附加 98 - 140 基础火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=98},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=140}},nil}
-c["附加 28 - 40 基础火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=28},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=40}},nil}
 c["其中 1 个增加的天赋为【赤血造诣】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="赤血造诣"}},nil}
-c["附加 98 - 140 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=98},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=140}},nil}
+c["附加 28 - 40 基础火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=28},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=40}},nil}
 c["若你击中的最高伤害类型为闪电，则你施加的总闪电异常状态效果总增 25%"]={{[1]={[1]={type="Condition",var="LightningIsHighestDamageType"},flags=0,keywordFlags=0,name="EnemyShockEffect",type="MORE",value=25}},nil}
 c["召唤生物的施法速度提高 10%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=10}}}},nil}
+c["附加 98 - 140 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=98},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=140}},nil}
 c["附加 28 - 40 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=28},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=40}},nil}
-c["药剂持续期间，15% 承受的击中物理伤害转化为冰霜伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=15}},nil}
 c["将伤害的 1% 转化为生命偷取"]={nil,"将伤害的 1% 转化为生命偷取 "}
+c["药剂持续期间，15% 承受的击中物理伤害转化为冰霜伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=15}},nil}
 c["附加 100 - 158 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=100},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=158}},nil}
 c["30% 的物理伤害转换为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToFire",type="BASE",value=30}},nil}
 c["火焰伤害击中时有 25% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=25}},nil}
-c["对点燃敌人的近战物理伤害提高 100%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},flags=256,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}},nil}
 c["你对冰缓敌人施加的闪电异常状态效果提高 25%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=0,keywordFlags=0,name="EnemyShockEffect",type="INC",value=25},[2]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=0,keywordFlags=0,name="EnemySapEffect",type="INC",value=25}},nil}
-c["暴击造成异常状态时，用于暴击伤害加成的词缀也套用于持续伤害加成，等于其数值的 50%"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplierAppliesToDegen",type="BASE",value=50}},nil}
+c["对点燃敌人的近战物理伤害提高 100%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},flags=256,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}},nil}
 c["其中 1 个增加的天赋为【撕裂】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="撕裂"}},nil}
-c["攻击击中每个敌人会回复 +12 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=12}},nil}
-c["点燃 1 个敌人后的短时间内，燃烧伤害提高 100%"]={{[1]={[1]={type="Condition",var="IgnitedEnemyRecently"},flags=0,keywordFlags=134217728,name="FireDamage",type="INC",value=100}},nil}
+c["暴击造成异常状态时，用于暴击伤害加成的词缀也套用于持续伤害加成，等于其数值的 50%"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplierAppliesToDegen",type="BASE",value=50}},nil}
+c["武器攻击的火焰、冰霜、闪电伤害提高 25%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=25}},"攻击的 "}
 c["周围敌人被干扰，移动速度降低 25% 对被干扰敌人的伤害提高 80%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Hindered"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-25}},"周围敌人被干扰， 伤害提高 80% "}
 c["爪类攻击的暴击率提高 60%"]={{[1]={flags=262148,keywordFlags=0,name="CritChance",type="INC",value=60}},nil}
+c["点燃 1 个敌人后的短时间内，燃烧伤害提高 100%"]={{[1]={[1]={type="Condition",var="IgnitedEnemyRecently"},flags=0,keywordFlags=134217728,name="FireDamage",type="INC",value=100}},nil}
 c["附加 65 - 76 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=65},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=76}},nil}
-c["使用【尊严】时，击中威吓敌人，持续 4 秒"]={nil,"使用【尊严】时，击中威吓敌人，持续 4 秒 "}
 c["无法偷取或自然回复魔力"]={{[1]={flags=0,keywordFlags=0,name="CannotLeechMana",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="NoManaRegen",type="FLAG",value=true}},nil}
 c["你身上的药剂效果提高 5%"]={{[1]={flags=0,keywordFlags=0,name="FlaskEffect",type="INC",value=5}},nil}
+c["使用【尊严】时，击中威吓敌人，持续 4 秒 受到【元素净化】影响时，+50% 混沌抗性"]={{[1]={[1]={type="Condition",var="AffectedBy尊严"},[2]={type="Condition",var="AffectedBy元素净化"},flags=0,keywordFlags=262144,name="ChaosResist",type="BASE",value=50}},"威吓敌人，持续 4 秒   "}
 c["护甲提高 (30-40)% (3-4)% 额外物理伤害减伤"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=-40}},"提高 (30)% (3-4)% 额外物理伤害减伤 "}
 c["武器上的每个红色插槽使物理伤害提高 25%"]={{[1]={[1]={type="Multiplier",var="RedSocketIn{SlotName}"},flags=8192,keywordFlags=0,name="PhysicalDamage",type="INC",value=25}},nil}
-c["获得额外冰霜伤害， 其数值等同于物理伤害的 28%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsCold",type="BASE",value=28}},nil}
 c["混沌伤害提高 69%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=69}},nil}
+c["获得额外冰霜伤害， 其数值等同于物理伤害的 28%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsCold",type="BASE",value=28}},nil}
 c["附加 4 - 7 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=4},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=7}},nil}
-c["流血伤害提高 25%"]={{[1]={flags=0,keywordFlags=4194304,name="Damage",type="INC",value=25}},nil}
 c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 狙击"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 狙击 "}
+c["流血伤害提高 25%"]={{[1]={flags=0,keywordFlags=4194304,name="Damage",type="INC",value=25}},nil}
 c["受到魔侍的伤害提高 10% 受到鬼魂的伤害提高 10%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},"受到 受到鬼魂的伤害提高 10% "}
 c["附加 4 - 8 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=4},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=8}},nil}
 c["受到【她的拥抱】影响时，每级根据你的最大生命和最大护盾总量，造成每秒 0.5% 火焰伤害"]={{[1]={[1]={stat="Life",type="PerStat"},[2]={type="Multiplier",var="Level"},[3]={type="Condition",var="HerEmbrace"},flags=0,keywordFlags=0,name="FireDegen",type="BASE",value=0.005},[2]={[1]={stat="EnergyShield",type="PerStat"},[2]={type="Multiplier",var="Level"},[3]={type="Condition",var="HerEmbrace"},flags=0,keywordFlags=0,name="FireDegen",type="BASE",value=0.005}},nil}
 c["击败敌人有 8% 的几率获得暴击球"]={nil,"a Power Charge on Kill "}
-c["+35 智慧"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=35}},nil}
 c["对抗魔法怪物时，击中伤害提高 30%"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=30}},"对抗魔法怪物时， "}
 c["当你获得【火之化身】时，暴击率提高 200%"]={{[1]={[1]={type="Condition",var="Have火之化身Keystone"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=200}},nil}
+c["+35 智慧"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=35}},nil}
 c["晕眩回复和格挡回复降低 35%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=-35}},nil}
-c["附加 7 - 12 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=7},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=12}},nil}
 c["法术伤害的 1% 转化为能量护盾偷取"]={{[1]={flags=2,keywordFlags=0,name="DamageEnergyShieldLeech",type="BASE",value=1}},nil}
 c["有 20% 的几率在你格挡时获得一个暴击球 持长杖时攻击伤害格挡几率 +6%"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=20}},"在你格挡时获得一个暴击球  +6% "}
 c["力量提高 8%"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=8}},nil}
 c["该装备的护甲与能量护盾提高 300%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=300}},nil}
 c["附加 140 - 168 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=140},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=168}},nil}
 c["技能的怒火消耗降低 25%"]={{[1]={flags=0,keywordFlags=0,name="RageCostBase",type="INC",value=-25}},nil}
-c["此物品上的技能石受到 1 级的 多重打击 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportMultistrike"}}},nil}
+c["附加 7 - 12 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=7},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=12}},nil}
 c["法术近期有获得强化则每 0.5 秒丢失 1 层强化"]={nil,"法术近期有获得强化则每 0.5 秒丢失 1 层强化 "}
 c["攻击附加 3 - 38 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=3},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=38}},nil}
-c["附加 8 - 14 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=8},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=14}},nil}
+c["晕眩回复和格挡回复降低 40%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=-40}},nil}
 c["对低血敌人，每个狂怒球可使伤害提高 6%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="LowLife"},[2]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Damage",type="INC",value=6}},nil}
 c["双持时攻击伤害格挡几率 +10%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=10}},nil}
 c["烙印技能的持续时间延长 15%"]={{[1]={[1]={skillType=75,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=15}},nil}
 c["若范围内含有 40 点敏捷，【灵体投掷】每次击中时，伤害提高 4%"]={{[1]={flags=512,keywordFlags=0,name="Dex",type="INC",value=4}},"若内含有 40 点，【灵体投掷】每次击中时，伤害 "}
 c["诅咒光环技能的魔力保留效能提高 20%"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=2,name="ManaReservationEfficiency",type="INC",value=20}},nil}
-c["攻击速度提高 21%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=21}},nil}
+c["附加 8 - 14 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=8},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=14}},nil}
 c["药剂给予的魔力恢复提高 25%"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=25}},nil}
 c["攻击附加 3 - 24 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=3},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=24}},nil}
-c["火焰伤害击中时有 15% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=15}},nil}
+c["攻击速度提高 21%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=21}},nil}
 c["每 20 点力量可使火焰伤害提高 1%"]={{[1]={[1]={div=20,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=1}},nil}
-c["你身上的增益效果提高 10%"]={{[1]={flags=0,keywordFlags=0,name="BuffEffectOnSelf",type="INC",value=10}},nil}
+c["火焰伤害击中时有 15% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=15}},nil}
 c["若你近期内消耗一个灵枢，每秒回复 2% 生命"]={{[1]={[1]={type="Condition",var="ConsumedCorpseRecently"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2}},nil}
 c["混沌伤害提高 25%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=25}},nil}
-c["光环效果对友方没有作用"]={{[1]={flags=0,keywordFlags=0,name="SelfAurasCannotAffectAllies",type="FLAG",value=true}},nil}
+c["你身上的增益效果提高 10%"]={{[1]={flags=0,keywordFlags=0,name="BuffEffectOnSelf",type="INC",value=10}},nil}
 c["双持攻击的命中值提高 8%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=8}},nil}
-c["技能的保留效果降低 5%"]={{[1]={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-5}},nil}
+c["光环效果对友方没有作用"]={{[1]={flags=0,keywordFlags=0,name="SelfAurasCannotAffectAllies",type="FLAG",value=true}},nil}
 c["你若至少有 600 点力量，则攻击速度加快 10%"]={{[1]={[1]={stat="Str",threshold=600,type="StatThreshold"},flags=1,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
+c["技能的保留效果降低 5%"]={{[1]={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-5}},nil}
 c["此物品上的技能石受到 1 级的【肉盾】辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportMinionDefensiveStance"}}},nil}
-c["每个狂怒球会使闪电伤害提高 18%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=18}},nil}
 c["+28 力量和敏捷"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=28},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=28},[3]={flags=0,keywordFlags=0,name="StrDex",type="BASE",value=28}},nil}
 c["其中 1 个增加的天赋为【武艺专精】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="武艺专精"}},nil}
 c["陷阱伤害提高 12%"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=12}},nil}
 c["当你击碎冰冻的敌人时，制造奉献地面 冰缓地面的效果提高 40%"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="INC",value=40}},"当你击碎的敌人时，制造奉献地面 冰缓地面的效果 "}
+c["每个狂怒球会使闪电伤害提高 18%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=18}},nil}
 c["其中 1 个增加的天赋为【连打带跑】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="连打带跑"}},nil}
 c["每个狂怒球会使闪电伤害提高 20%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=20}},nil}
-c["每个狂怒球会使承受的伤害提高 3%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=3}},nil}
 c["每 80 点力量都使攻击附加 1 到 80 点混沌伤害"]={{[1]={[1]={div=80,stat="Str",type="PerStat"},flags=1,keywordFlags=0,name="ChaosMin",type="BASE",value=1},[2]={[1]={div=80,stat="Str",type="PerStat"},flags=1,keywordFlags=0,name="ChaosMax",type="BASE",value=80}},nil}
 c["50% 几率避免被冰缓"]={{[1]={flags=0,keywordFlags=0,name="AvoidChilled",type="BASE",value=50}},nil}
-c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 坚毅圣战军"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 坚毅圣战军 "}
+c["每个狂怒球会使承受的伤害提高 3%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=3}},nil}
 c["地雷引爆速度提高 20%"]={nil,"Mines have 20% increased Detonation Speed "}
 c["使用时制造奉献地面"]={{},nil}
 c["弓类攻击的命中值提高 6%"]={{[1]={flags=131076,keywordFlags=0,name="Accuracy",type="INC",value=6}},nil}
+c["禁断之火上有匹配的词缀则配置 坚毅圣战军"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="坚毅圣战军",side="之火"}}},nil}
 c["附加 1 - 600 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=600}},nil}
-c["近期内你若被击中，技能可以额外发射 2 个投射物"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=2}},nil}
 c["持长杖时 +10% 攻击和法术暴击伤害加成"]={{[1]={[1]={type="Global"},[2]={type="Condition",var="UsingStaff"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=10}},nil}
-c["静止时护甲提高 80%"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="Armour",type="INC",value=80}},nil}
+c["近期内你若被击中，技能可以额外发射 2 个投射物"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=2}},nil}
 c["药剂给予的生命恢复提高 12%"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=12}},nil}
-c["获得额外火焰伤害，其数值等同于 83% 剑类物理伤害"]={{[1]={flags=4194304,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=83}},nil}
+c["静止时护甲提高 80%"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="Armour",type="INC",value=80}},nil}
 c["该装备的护甲提高 100%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=100}},nil}
-c["该装备的攻击暴击率提高 55%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=55}},nil}
+c["获得额外火焰伤害，其数值等同于 83% 剑类物理伤害"]={{[1]={flags=4194304,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=83}},nil}
 c["+28% 物理持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDotMultiplier",type="BASE",value=28}},nil}
 c["周围静止的敌人每 0.5 秒获得一个缓速藤蔓"]={nil,"周围静止的敌人每 0.5 秒获得一个缓速藤蔓 "}
 c["武器攻击的火焰、冰霜、闪电伤害提高 30% 攻击技能的火焰、冰霜、闪电伤害提高 30%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=30}},"攻击的 攻击技能的火焰、冰霜、闪电伤害提高 30% "}
-c["附加 5 - 50 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=50}},nil}
+c["该装备的攻击暴击率提高 55%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=55}},nil}
 c["生命在击败敌人时恢复 3%"]={{[1]={[1]={percent=3,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
+c["附加 5 - 50 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=50}},nil}
 c["获得【女神的祝福】时攻击速度和移动速度提高 20%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=20}},"获得【女神的祝福】时和移动速度 "}
-c["禁断之肉上有匹配的词缀则配置 盲目挑衅"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="盲目挑衅",side="之肉"}}},nil}
 c["有 20% 的几率用主手击中使敌人瘫痪 有 20% 的几率用副手击中使敌人目盲"]={{},"用使敌人瘫痪 有 20% 的几率用击中使敌人目盲 "}
 c["法杖攻击的命中值提高 8%"]={{[1]={flags=8388612,keywordFlags=0,name="Accuracy",type="INC",value=8}},nil}
 c["双持攻击的命中值提高 16%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=16}},nil}
 c["攻击打出暴击时，有 50% 几率造成流血"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=1,keywordFlags=0,name="BleedChance",type="BASE",value=50}},"打出 "}
 c["不能偷取魔力"]={{[1]={flags=0,keywordFlags=0,name="CannotLeechMana",type="FLAG",value=true}},nil}
-c["获得【女神的祝福】时无法被冰冻，冰缓，或点燃"]={nil,"获得【女神的祝福】时无法被冰冻，冰缓，或点燃 "}
+c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 疫病之源"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 疫病之源 "}
 c["+12% 冰霜持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="ColdDotMultiplier",type="BASE",value=12}},nil}
-c["获得【女神的祝福】时有 33% 几率致盲周围敌人"]={{},"获得【女神的祝福】时致盲周围敌人 "}
+c["获得【女神的祝福】时无法被冰冻，冰缓，或点燃"]={nil,"获得【女神的祝福】时无法被冰冻，冰缓，或点燃 "}
 c["近战攻击暴击率提高 30%"]={{[1]={flags=257,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
+c["获得【女神的祝福】时有 33% 几率致盲周围敌人"]={{},"获得【女神的祝福】时致盲周围敌人 "}
 c["+12% 闪电技能暴击伤害加成"]={{[1]={flags=0,keywordFlags=128,name="CritMultiplier",type="BASE",value=12}},nil}
-c["附加 6 - 66 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=66}},nil}
 c["受到【憎恨】影响时，附加 70 - 104 基础冰霜伤害"]={{[1]={[1]={type="Condition",var="AffectedBy憎恨"},flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=70},[2]={[1]={type="Condition",var="AffectedBy憎恨"},flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=104}},nil}
+c["附加 6 - 66 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=66}},nil}
 c["占用所有武器栏位 附加 6 - 66 基础物理伤害"]={{[1]={flags=8192,keywordFlags=0,name="PhysicalMin",type="BASE",value=6},[2]={flags=8192,keywordFlags=0,name="PhysicalMax",type="BASE",value=66}},"占用所有栏位  "}
 c["只能使用此武器造成伤害并点燃"]={nil,"只能使用此武器造成伤害并点燃 "}
 c["被点燃敌人的燃烧加快 50%"]={{[1]={flags=0,keywordFlags=0,name="IgniteBurnFaster",type="INC",value=50}},nil}
-c["100% 的物理伤害转换为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToFire",type="BASE",value=100}},nil}
 c["有 10% 的几率在你击中被标记的敌人时获得一个狂怒球"]={nil,"a Frenzy Charge when you Hit your Marked Enemy "}
 c["药剂给予的生命恢复提高 20%"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=20}},nil}
+c["100% 的物理伤害转换为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToFire",type="BASE",value=100}},nil}
 c["占用所有武器栏位 物理伤害提高 300%"]={{[1]={flags=8192,keywordFlags=0,name="PhysicalDamage",type="INC",value=300}},"占用所有栏位  "}
 c["角色体型增大 3% 敏捷提高 6%"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=6}},"角色体型增大 3%  "}
 c["此物品上的技能石受到 30 级的 齐射(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=30,skillId="SupportParallelProjectiles"}}},nil}
@@ -4839,240 +4828,239 @@ c["最大能量护盾提高 50%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShie
 c["攻击附加等同于最大能量护盾 20% 的闪电伤害"]={{[1]={[1]={percent=20,stat="EnergyShield",type="PercentStat"},[2]={type="Condition",var="{Hand}Attack"},[3]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=1}},nil}
 c["附加 1-75 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=75}},nil}
 c["+190 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=190}},nil}
-c["附加 40 - 73 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=40},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=73}},nil}
 c["+15 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=15}},nil}
 c["冰霜伤害提高 8%"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=8}},nil}
+c["附加 40 - 73 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=40},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=73}},nil}
 c["附加 50 - 80 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=50},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=80}},nil}
 c["附加 40 - 70 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=40},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=70}},nil}
-c["附加 1 - 50 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=50}},nil}
 c["能量护盾充能率总降 35%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="MORE",value=-35}},nil}
 c["需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 圣宗"]={nil,"需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 圣宗 "}
+c["附加 1 - 80 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=80}},nil}
 c["近期内你若使用过移动技能，技能可以额外发射 2 个投射物"]={{[1]={[1]={type="Condition",var="UsedMovementSkillRecently"},flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=2}},nil}
 c["追忆词缀"]={{[1]={flags=0,keywordFlags=0,name="Multiplier:SynthesisedItem",type="BASE",value=1}},nil}
-c["每 4 秒，冻结周围被冰缓的非传奇敌人，持续 0.6 秒 周围被冰缓敌人打出的击中伤害降低 10%"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=-10}},"每 4 秒，冻结周围被冰缓的非传奇敌人，持续 0.6 秒 周围被冰缓敌人打出的 "}
 c["被击败的敌人身上的诅咒将转移给周围 1 个敌人 魔蛊会从被击败的敌人身上传输给一个周围的敌人"]={nil,"被击败的敌人身上的诅咒将转移给周围 1 个敌人 魔蛊会从被击败的敌人身上传输给一个周围的敌人 "}
 c["攻击冰冻目标时附加 10 - 15 基础物理伤害 对冰缓敌人附加 40 - 60 基础冰霜伤害"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=1,keywordFlags=0,name="PhysicalMin",type="BASE",value=10},[2]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=1,keywordFlags=0,name="PhysicalMax",type="BASE",value=15}},"目标时 附加 40 - 60 基础冰霜伤害 "}
+c["每 4 秒，冻结周围被冰缓的非传奇敌人，持续 0.6 秒 周围被冰缓敌人打出的击中伤害降低 10%"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=-10}},"每 4 秒，冻结周围被冰缓的非传奇敌人，持续 0.6 秒 周围被冰缓敌人打出的 "}
 c["狂怒球达到上限时，+450 命中值"]={{[1]={[1]={stat="FrenzyCharges",thresholdStat="FrenzyChargesMax",type="StatThreshold"},flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=450}},nil}
-c["附加 98 - 178 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=98},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=178}},nil}
 c["近期内你若感电任意敌人，则伤害提高 35%"]={{[1]={[1]={type="Condition",var="ShockedEnemyRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=35}},nil}
+c["附加 98 - 178 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=98},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=178}},nil}
 c["狂怒球达到上限时，+500 命中值"]={{[1]={[1]={stat="FrenzyCharges",thresholdStat="FrenzyChargesMax",type="StatThreshold"},flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=500}},nil}
 c["当你没有狂怒球时，+50% 全局暴击伤害加成"]={{[1]={[1]={type="Global"},[2]={stat="FrenzyCharges",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=50}},nil}
-c["附加 115 - 205 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=115},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=205}},nil}
 c["每个召唤的魔像可使伤害提高 10%"]={{[1]={[1]={stat="ActiveGolemLimit",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["自身受到的元素异常状态时间缩短 20%"]={{[1]={flags=0,keywordFlags=0,name="SelfShockDuration",type="INC",value=-20},[2]={flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-20},[3]={flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-20},[4]={flags=0,keywordFlags=0,name="SelfIgniteDuration",type="INC",value=-20},[5]={flags=0,keywordFlags=0,name="SelfScorchDuration",type="INC",value=-20},[6]={flags=0,keywordFlags=0,name="SelfBrittleDuration",type="INC",value=-20},[7]={flags=0,keywordFlags=0,name="SelfSapDuration",type="INC",value=-20}},nil}
+c["附加 115 - 205 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=115},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=205}},nil}
 c["该装备的攻击暴击率提高 10%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=10}},nil}
 c["附加 19 - 43 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=19},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=43}},nil}
 c["物理伤害提高 45%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=45}},nil}
 c["附加 22 - 45 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=22},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=45}},nil}
 c["当你使用救世者造成重击，则召唤一名使用该攻击技能的蜃影武士 装备时触发等级 20 的反射"]={{},"当你使用救世者造成重击，则召唤一名使用该蜃影武士 装备时触发等级 反射 "}
 c["附加 1 - 65 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=65}},nil}
-c["法术伤害提高 83%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=83}},nil}
 c["该装备的能量护盾提高 138%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=138}},nil}
 c["每击败一名敌人获得15点生命 每击败一名敌人获得15点能量护盾"]={nil,"每击败一名敌人获得15点生命 每击败一名敌人获得15点能量护盾 "}
-c["最大能量护盾提高 10%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=10}},nil}
+c["法术伤害提高 83%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=83}},nil}
 c["生命在你格挡时 20"]={nil,"生命在你格挡时 20 "}
 c["对致盲的敌人的击中和异常状态伤害提高 60%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=60}},nil}
+c["最大能量护盾提高 10%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=10}},nil}
 c["附加 1 - 70 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=70}},nil}
-c["获得【召唤高等秘法先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfTheArcaneUber"}}},nil}
 c["插入的投射物法术环状发射投射物 插入的投射物法术的技能效果持续时间总降 80%"]={{[1]={[1]={keywordList={[1]="projectile",[2]="spell"},slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=2,keywordFlags=0,name="ProjectileCount",type="MORE",value=-80}}}},"环状发射 插入的投射物的技能效果持续时间 "}
 c["烙印暴击率提高 25%"]={{[1]={[1]={skillType=75,type="SkillType"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
+c["获得【召唤高等秘法先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfTheArcaneUber"}}},nil}
 c["击败敌人有 33% 几率获得狂怒球"]={{},"击败敌人获得狂怒球 "}
-c["闪电伤害击中时有 9% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=9}},nil}
 c["+120 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=120}},nil}
 c["冻伤以光环形式施放时，其保留效果降低 100%"]={{[1]={[1]={skillName="冻伤",type="SkillName"},flags=0,keywordFlags=0,name="Reserved",type="INC",value=-100}},nil}
+c["闪电伤害击中时有 9% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=9}},nil}
 c["附加 1 - 9 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=9}},nil}
 c["角色体型增大 5%"]={nil,"角色体型增大 5% "}
-c["你和周围友军的物品稀有度提高 30%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=30}}}},nil}
 c["该装备的能量护盾提高 230%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=230}},nil}
+c["你和周围友军的物品稀有度提高 30%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=30}}}},nil}
 c["黄金之刃 源: 竞赛排名奖励"]={nil,"黄金之刃 源: 竞赛排名奖励 "}
-c["黄金之刃"]={nil,"黄金之刃 "}
 c["你的击中无法穿透或无视元素抗性"]={{[1]={flags=0,keywordFlags=0,name="CannotIgnoreElementalResistances",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="CannotElementalPenetration",type="FLAG",value=true}},nil}
-c["召唤魔侍勇士时，若你近期用该武器击中过敌人则它用该武器造成三倍伤害"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={type="Condition",var="MainHandAttack"},flags=4,keywordFlags=0,name="TripleDamageChance",type="BASE",value=100}}}},nil}
+c["黄金之刃"]={nil,"黄金之刃 "}
 c["能量护盾充能率总降 40%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="MORE",value=-40}},nil}
-c["获得等同 15% 魔力的额外能量护盾"]={{[1]={flags=0,keywordFlags=0,name="ManaGainAsEnergyShield",type="BASE",value=15}},nil}
+c["召唤魔侍勇士时，若你近期用该武器击中过敌人则它用该武器造成三倍伤害"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={type="Condition",var="MainHandAttack"},flags=4,keywordFlags=0,name="TripleDamageChance",type="BASE",value=100}}}},nil}
 c["技能的生命消耗降低 15%"]={{[1]={flags=0,keywordFlags=0,name="LifeCost",type="INC",value=-15}},nil}
 c["击中敌人时，用 10 级的【时空锁链】诅咒敌人"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=10,noSupports=true,skillId="TemporalChains",triggered=true}}},nil}
 c["击中时有 10% 的几率获得狂怒球 狂怒球满时，击中时获得【猛攻效果】 4 秒"]={{[1]={flags=0,keywordFlags=262144,name="FlaskEffect",type="BASE",value=10}},"时获得狂怒球 狂怒球满时，击中时获得【猛攻】 4 秒 "}
 c["使用时每个耐力球都使你恢复 4% 生命"]={nil,"使用时每个耐力球都使你恢复 4% 生命 "}
-c["+290 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=290}},nil}
+c["敌人无法偷取你的魔力"]={nil,"敌人无法偷取你的魔力 "}
 c["击中流血敌人时有 25% 的几率使其致盲 被你瘫痪的敌人受到的物理伤害提高 10%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=0,keywordFlags=262144,name="PhysicalDamageTaken",type="BASE",value=25}},"使其致盲 被你瘫痪的敌人提高 10% "}
 c["召唤生物的伤害提高 59%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=59}}}},nil}
-c["附加 53 - 85 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=53},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=85}},nil}
+c["+290 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=290}},nil}
 c["你的副手未装备武器时，冰霜伤害提高 100%"]={{[1]={[1]={type="Condition",var="OffHandIsEmpty"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=100}},nil}
 c["锤类或短杖攻击造成的异常状态伤害提高 30%"]={{[1]={flags=1048576,keywordFlags=524288,name="Damage",type="INC",value=30}},nil}
 c["若你近期内没有击败敌人，则命中值提高 30%"]={{[1]={[1]={neg=true,type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=30}},nil}
 c["闪电伤害提高 (25-35)% 物理伤害的 10% 转换为闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageConvertToLightning",type="BASE",value=-35}},"提高 (25)% 物理伤害的 10%  "}
+c["附加 53 - 85 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=53},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=85}},nil}
 c["每 450 点护甲值可使攻击伤害提高 1%"]={{[1]={[1]={div=450,stat="Armour",type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["附加 65 - 100 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=65},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=100}},nil}
 c["+475 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=475}},nil}
-c["受到击中物理伤害的 10% 转化为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsChaos",type="BASE",value=10}},nil}
 c["属性需求提高 500%"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="INC",value=500},[2]={flags=0,keywordFlags=0,name="DexRequirement",type="INC",value=500},[3]={flags=0,keywordFlags=0,name="IntRequirement",type="INC",value=500}},nil}
 c["若你近期内有召唤图腾，攻击和施法速度提高 10%"]={{[1]={[1]={type="Condition",var="SummonedTotemRecently"},flags=0,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["+60 敏捷"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=60}},nil}
 c["法杖攻击的暴击率提高 30%"]={{[1]={flags=8388612,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
-c["50% 的物理伤害转换为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToChaos",type="BASE",value=50}},nil}
+c["受到击中物理伤害的 10% 转化为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsChaos",type="BASE",value=10}},nil}
 c["当你施放诅咒法术时，有 20% 的几率获得一个暴击球 你的诅咒限制等于你的最大暴击球数量"]={{},"当你施放法术时，获得一个暴击球 你的诅咒限制等于你的最大暴击球数量 "}
-c["此物品上的技能石受到 35 级的 助力之风（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportAdditionalCooldown"}}},nil}
+c["50% 的物理伤害转换为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToChaos",type="BASE",value=50}},nil}
 c["插入的技能石具有苦难秘辛 -20% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-20}},"插入的技能石具有苦难秘辛   "}
+c["此物品上的技能石受到 35 级的 助力之风（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportAdditionalCooldown"}}},nil}
 c["若攻击冻结了敌人，则获得一个耐力球"]={nil,"若攻击冻结了敌人，则获得一个耐力球 "}
-c["20% 几率使用冰霜伤害击中时冰冻敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=20}},nil}
 c["+17% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=17}},nil}
 c["暴击球数量下限在你有至少 150 点奉献时 +1"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesMin",type="BASE",value=1}},"在你有至少 150 点奉献时  "}
-c["获得 -15% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-15}},nil}
+c["20% 几率使用冰霜伤害击中时冰冻敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=20}},nil}
+c["-10% 全部抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=-10},[2]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=-10},[3]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=-10},[4]={flags=0,keywordFlags=0,name="ChaosResistMax",type="BASE",value=-10}},nil}
 c["近战单手武器攻击 +80% 暴击伤害加成"]={{[1]={flags=167772164,keywordFlags=0,name="CritMultiplier",type="BASE",value=80}},nil}
 c["附加 7 - 18 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=7},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=18}},nil}
 c["获得等同 15% 物理攻击伤害的闪电伤害"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageGainAsLightning",type="BASE",value=15}},nil}
-c["获得等同 15% 物理攻击伤害的火焰伤害"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=15}},nil}
 c["攻击和法术暴击率提高 70%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=70}},nil}
-c["近战单手武器攻击 +100% 暴击伤害加成"]={{[1]={flags=167772164,keywordFlags=0,name="CritMultiplier",type="BASE",value=100}},nil}
+c["此武器的攻击穿透 30% 元素抗性"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="ElementalPenetration",type="BASE",value=30}},nil}
 c["25% 几率避免被冰冻"]={{[1]={flags=0,keywordFlags=0,name="AvoidFrozen",type="BASE",value=25}},nil}
-c["命中值降低 100%"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-100}},nil}
+c["近战单手武器攻击 +100% 暴击伤害加成"]={{[1]={flags=167772164,keywordFlags=0,name="CritMultiplier",type="BASE",value=100}},nil}
 c["你身上的秘术增强效果提高 10%，最多 50%"]={{[1]={flags=0,keywordFlags=0,name="秘术增强Effect",type="INC",value=10}},"，最多 50% "}
 c["击败中毒 5 层以上的敌人时，有 30% 几率获得 1 个狂怒球"]={{},"击败 5 层以上的敌人时，获得 1 个狂怒球 "}
+c["命中值降低 100%"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-100}},nil}
 c["附加 8 - 20 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=8},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=20}},nil}
 c["附加 4 - 19 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=4},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=19}},nil}
 c["+13 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=13}},nil}
 c["移动技能的攻击速度提高 15%"]={{[1]={flags=1,keywordFlags=8,name="Speed",type="INC",value=15}},nil}
 c["召唤生物的最大生命提高 30%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=30}}}},nil}
-c["附加 6 - 22 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=22}},nil}
 c["+78 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=78}},nil}
 c["无法造成元素伤害"]={{[1]={flags=0,keywordFlags=0,name="DealNoLightning",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="DealNoCold",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="DealNoFire",type="FLAG",value=true}},nil}
-c["命中值降低 15%"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-15}},nil}
+c["附加 6 - 22 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=22}},nil}
 c["每个地雷使它附近敌人承受的伤害提高 2%，最高 10%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={limit=5,type="Multiplier",var="ActiveMineCount"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=2}}}},nil}
-c["攻击击中每个敌人会回复 +7 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=7}},nil}
+c["命中值降低 15%"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-15}},nil}
 c["对被诅咒的敌人的暴击几率提高 35%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=2,name="CritChance",type="INC",value=35}},"对被的敌人的 "}
 c["该装备的闪避与能量护盾提高 170%"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=170}},nil}
 c["每有 50 点力量就给攻击附加 1 到 80 点混沌伤害"]={{[1]={[1]={div=50,stat="Str",type="PerStat"},flags=1,keywordFlags=0,name="ChaosMin",type="BASE",value=1},[2]={[1]={div=50,stat="Str",type="PerStat"},flags=1,keywordFlags=0,name="ChaosMax",type="BASE",value=80}},nil}
+c["攻击击中每个敌人会回复 +7 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=7}},nil}
 c["攻击击中每个敌人会回复 +5 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=5}},nil}
-c["+340 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=340}},nil}
 c["低血时伤害提高 20%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
+c["+340 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=340}},nil}
 c["该装备的攻击暴击率提高 23%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=23}},nil}
 c["攻击击中每个敌人会回复 +40 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=40}},nil}
-c["附加 45 - 140 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=45},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=140}},nil}
 c["攻击技能的元素伤害提高 25%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=25}},nil}
 c["12% 额外物理伤害减伤"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=12}},nil}
 c["+23% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=23}},nil}
-c["你的攻击给敌人施加的每个诅咒都使你获得 28 点生命"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="LifeOnHit",type="BASE",value=28}},nil}
+c["附加 45 - 140 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=45},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=140}},nil}
+c["你的攻击给敌人施加的每个诅咒都使你获得 14 点魔力"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="ManaOnHit",type="BASE",value=14}},nil}
 c["附加 50 - 150 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=50},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=150}},nil}
 c["此物品上的技能石受到 30 级的 附加闪电伤害 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=30,skillId="SupportAddedLightningDamage"}}},nil}
 c["物品稀有度降低 40%"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=-40}},nil}
 c["近期内你若造成过伤害，则召唤生物伤害提高 70%"]={{[1]={[1]={type="Condition",var="HitRecently"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=70}}}},nil}
-c["附加 30 - 58 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=30},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=58}},nil}
 c["+5% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=5}},nil}
-c["每 10 点敏捷可使持续性物理伤害提高 2%"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=8,keywordFlags=0,name="PhysicalDamage",type="INC",value=2}},nil}
+c["击中流血敌人时有 30% 几率使敌人逃跑"]={{},"使敌人逃跑 "}
 c["物理伤害在使用双手近战武器时提高 10%"]={{[1]={flags=301989888,keywordFlags=0,name="PhysicalDamage",type="INC",value=10}},nil}
 c["被击中时有 25% 的几率获得耐力球"]={nil,"an Endurance Charge when you are Hit "}
+c["每 10 点敏捷可使持续性物理伤害提高 2%"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=8,keywordFlags=0,name="PhysicalDamage",type="INC",value=2}},nil}
 c["附加 35 - 65 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=35},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=65}},nil}
-c["此物品上的技能石受到 10 级的 快速攻击 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportFasterAttack"}}},nil}
 c["你若近期内造成暴击，则持续物理伤害加成 +6%"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="PhysicalDotMultiplier",type="BASE",value=6}},nil}
 c["击中时用插入的魔蛊诅咒敌人"]={nil,"击中时用插入的魔蛊诅咒敌人 "}
-c["禁断之火上有匹配的词缀则配置 秽言亡语"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="秽言亡语",side="之火"}}},nil}
-c["禁断之肉上有匹配的词缀则配置 美德之器"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="美德之器",side="之肉"}}},nil}
+c["此物品上的技能石受到 10 级的 快速攻击 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportFasterAttack"}}},nil}
+c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 彻骨之径"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 彻骨之径 "}
 c["绝望可以影响魔蛊免疫的敌人"]={nil,"绝望可以影响魔蛊免疫的敌人 "}
 c["每 5 点敏捷提高 1% 召唤生物造成的伤害"]={{[1]={[1]={div=5,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=1}}}},nil}
-c["击中时有 60% 几率使敌人中毒"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=60}},nil}
+c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 意识圣殿"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 意识圣殿 "}
 c["+14 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=14}},nil}
+c["击中时有 60% 几率使敌人中毒"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=60}},nil}
 c["攻击击中时使敌人中毒 击中时有 60% 几率使敌人中毒"]={{[1]={flags=1,keywordFlags=0,name="PoisonChance",type="BASE",value=60}},"击中时 击中时使敌人中毒 "}
 c["最大能量护盾降低 50%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=-50}},nil}
 c["20% 的物理伤害转换为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToChaos",type="BASE",value=20}},nil}
 c["攻击击中每个敌人会回复 +20 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=20}},nil}
 c["其中 1 个增加的天赋为【纯粹之力】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="纯粹之力"}},nil}
-c["药剂持续期间，攻击和法术附加 20-30 基础混沌伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=196608,name="ChaosMin",type="BASE",value=20},[2]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=196608,name="ChaosMax",type="BASE",value=30}},nil}
 c["持续时间延长 50%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}},nil}
 c["瓦尔冥约范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="瓦尔冥约"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="瓦尔冥约",value=true}}},nil}
 c["若你近期内有击败敌人，则伤害总增 10%"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=10}},nil}
-c["附加 2 - 10 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=2},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=10}},nil}
+c["药剂持续期间，攻击和法术附加 20-30 基础混沌伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=196608,name="ChaosMin",type="BASE",value=20},[2]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=196608,name="ChaosMax",type="BASE",value=30}},nil}
 c["目标方向随机投掷"]={nil,"目标方向随机投掷 "}
 c["你没有能量护盾时无法格挡"]={{[1]={[1]={neg=true,type="Condition",var="HaveEnergyShield"},flags=0,keywordFlags=0,name="CannotBlockAttacks",type="FLAG",value=true},[2]={[1]={neg=true,type="Condition",var="HaveEnergyShield"},flags=0,keywordFlags=0,name="CannotBlockSpells",type="FLAG",value=true}},nil}
-c["攻击技能的火焰、冰霜、闪电伤害提高 28%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=28}},nil}
+c["附加 20 - 50 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=20},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=50}},nil}
 c["法术伤害压制率 +20%"]={{[1]={flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=20}},nil}
-c["每 25 点敏捷可使攻击速度提高 1%"]={{[1]={[1]={div=25,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
+c["攻击技能的火焰、冰霜、闪电伤害提高 28%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=28}},nil}
 c["流血持续时间延长 15%"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=15}},nil}
-c["使用此武器攻击时，每 10 点智慧附加 1 - 10 基础闪电伤害"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={[1]={type="Condition",var="{Hand}Attack"},[2]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=10}},nil}
+c["每 25 点敏捷可使攻击速度提高 1%"]={{[1]={[1]={div=25,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
 c["你受到的点燃时间加成也适用于所有元素异常状态"]={nil,"你受到的点燃时间加成也适用于所有元素异常状态 "}
+c["使用此武器攻击时，每 10 点智慧附加 1 - 10 基础闪电伤害"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={[1]={type="Condition",var="{Hand}Attack"},[2]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=10}},nil}
 c["每 10 点智慧可以为攻击附加 1 - 6 基础闪电伤害"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=6}},nil}
 c["智慧提高 12%"]={{[1]={flags=0,keywordFlags=0,name="Int",type="INC",value=12}},nil}
-c["【召唤愤怒狂灵】的伤害提高 250%"]={{[1]={[1]={skillName="召唤愤怒狂灵",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="INC",value=250}},nil}
 c["【电球】的持续时间缩短 18%"]={{[1]={[1]={skillName="电球",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-18}},nil}
+c["召唤愤怒狂灵的最大数量减少 75%"]={{[1]={flags=0,keywordFlags=0,name="ActiveRagingSpiritLimit",type="INC",value=-75}},nil}
 c["攻击击中每个敌人会回复 +46 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=46}},nil}
 c["附加 1 - 55 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=55}},nil}
-c["攻击技能的火焰、冰霜、闪电伤害提高 23%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=23}},nil}
 c["每失去一个精神球，回复 3% 的能量护盾 当精神球失效或被消耗时，回复 3% 生命"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=3}},"每失去一个精神球，回复  当精神球失效或被消耗时，回复 3% 生命 "}
 c["击败敌人时有 5% 几率获得 3 秒【猛攻】状态"]={{},"击败敌人时获得 3 秒【猛攻】状态 "}
 c["召唤生物的法术伤害压制率 +15%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=15}}}},nil}
 c["【寒冰之捷】的增益效果提高 60%"]={{[1]={[1]={skillName="寒冰之捷",type="SkillName"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=60}},nil}
 c["此物品上的技能石受到 20 级的 增大范围 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="SupportIncreasedAreaOfEffect"}}},nil}
+c["攻击技能的火焰、冰霜、闪电伤害提高 23%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=23}},nil}
 c["使用此武器攻击时，每 10 点智慧附加 1 - 5 基础闪电伤害"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={[1]={type="Condition",var="{Hand}Attack"},[2]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=5}},nil}
-c["每 10 点智慧可以为攻击附加 1 - 3 基础闪电伤害"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=3}},nil}
 c["你攻击的目标会反射 100 物理伤害"]={nil,"你攻击的目标会反射 100 物理伤害 "}
 c["点燃 1 个敌人后回复 1% 最大生命"]={nil,"点燃 1 个敌人后回复 1% 最大生命 "}
 c["持续伤害提高 (25-35)% 技能效果持续时间延长 (7-11)%"]={{[1]={flags=8,keywordFlags=0,name="Damage",type="BASE",value=-35}},"提高 (25)% 技能效果持续时间延长 (7-11)% "}
-c["附加 1 - 650 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=650}},nil}
+c["攻击击中每个敌人会回复 +12 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=12}},nil}
 c["魔蛊会从被击败的敌人身上传输给一个周围的敌人"]={nil,"魔蛊会从被击败的敌人身上传输给一个周围的敌人 "}
 c["耐力球持续时间延长 20%"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesDuration",type="INC",value=20}},nil}
 c["该装备的闪避与能量护盾提高 160%"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=160}},nil}
+c["附加 1 - 650 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=650}},nil}
 c["晕眩门槛提高 20%"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=20}},nil}
 c["生命偷取会套用于能量护盾"]={{[1]={flags=0,keywordFlags=0,name="GhostReaver",type="FLAG",value=true}},nil}
 c["附加 1 - 700 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=700}},nil}
-c["附加 1 - 200 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=200}},nil}
 c["匕首攻击的攻击速度提高 4%"]={{[1]={flags=524293,keywordFlags=0,name="Speed",type="INC",value=4}},nil}
-c["附加 1 - 80 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=80}},nil}
+c["附加 1 - 200 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=200}},nil}
 c["命中值提高 18%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=18}},nil}
 c["需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 凝心者"]={nil,"需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 凝心者 "}
+c["附加 1 - 50 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=50}},nil}
 c["攻击击中每个敌人会回复 +31 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=31}},nil}
 c["你的法术击中每个敌人会回复 +18 生命"]={{[1]={flags=2,keywordFlags=0,name="LifeOnHit",type="BASE",value=18}},nil}
 c["每 5% 的攻击格挡率会使法术伤害提高 8%"]={{[1]={[1]={div=5,stat="BlockChance",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["你的法术击中每个敌人会回复 +8 生命"]={{[1]={flags=2,keywordFlags=0,name="LifeOnHit",type="BASE",value=8}},nil}
 c["攻击击中每个敌人会回复 +25 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=25}},nil}
-c["攻击击中每个敌人会回复 +15 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=15}},nil}
 c["禁用除坚定之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Determination",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
+c["攻击击中每个敌人会回复 +15 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=15}},nil}
 c["附加 1 - 60 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=60}},nil}
 c["附加 25 - 30 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=25},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=30}},nil}
-c["附加 10 - 12 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=10},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=12}},nil}
 c["击败敌人回复 +25 能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=25}},"击败敌人回复   "}
 c["该装备的闪避与能量护盾提高 200%"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=200}},nil}
-c["使用瓦尔技能时，获得【迷踪】状态，持续 10 秒"]={nil,"使用瓦尔技能时，获得【迷踪】状态，持续 10 秒 "}
+c["附加 10 - 12 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=10},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=12}},nil}
 c["击败冰冻敌人后物品掉落数量提高 15%"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="INC",value=15}},"击败敌人后物品掉落数量 "}
 c["每秒提供 1 点【脆弱重生】，最多 10 次"]={nil,"每秒提供 1 点【脆弱重生】，最多 10 次 "}
-c["使用瓦尔技能时，获得【迷踪】状态，持续 3 秒 使用瓦尔技能时，获得【迷踪】状态，持续 10 秒"]={nil,"使用瓦尔技能时，获得【迷踪】状态，持续 3 秒 使用瓦尔技能时，获得【迷踪】状态，持续 10 秒 "}
+c["使用瓦尔技能时，获得【迷踪】状态，持续 10 秒"]={nil,"使用瓦尔技能时，获得【迷踪】状态，持续 10 秒 "}
 c["该装备的闪避与能量护盾提高 120%"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=120}},nil}
+c["使用瓦尔技能时，获得【迷踪】状态，持续 3 秒 使用瓦尔技能时，获得【迷踪】状态，持续 10 秒"]={nil,"使用瓦尔技能时，获得【迷踪】状态，持续 3 秒 使用瓦尔技能时，获得【迷踪】状态，持续 10 秒 "}
 c["使用瓦尔技能时，获得【迷踪】状态，持续 3 秒"]={nil,"使用瓦尔技能时，获得【迷踪】状态，持续 3 秒 "}
-c["战吼技能冷却时间为 4 秒"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="OVERRIDE",value=4}},nil}
 c["同时可以放置最多 2 个额外的遥控地雷"]={{[1]={flags=0,keywordFlags=0,name="ActiveMineLimit",type="BASE",value=2}},nil}
+c["战吼技能冷却时间为 4 秒"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="OVERRIDE",value=4}},nil}
 c["召唤生物伤害提高或降低，将同样套用于自身"]={{[1]={flags=0,keywordFlags=0,name="MinionDamageAppliesToPlayer",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedMinionDamageAppliesToPlayer",type="MAX",value=100}},nil}
 c["战吼的增益效果提高 50%"]={{[1]={flags=0,keywordFlags=4,name="BuffEffect",type="INC",value=50}},nil}
 c["每击败一名敌人获得15点能量护盾"]={nil,"每击败一名敌人获得15点能量护盾 "}
 c["击中时触发 1 级的【炼狱战吼】"]={nil,"击中时触发 1 级的【炼狱战吼】 "}
-c["物理攻击伤害的 3% 会转化为生命偷取"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageLifeLeech",type="BASE",value=3}},nil}
 c["+6% 攻击格挡率"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=6}},nil}
+c["攻击击中每个敌人会回复 +19 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=19}},nil}
 c["攻击击中每个敌人会回复 +8 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=8}},nil}
-c["反射 81 物理伤害给近战攻击者"]={{},nil}
 c["持续伤害效果提高 12%"]={{[1]={flags=8,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
-c["反射 90 物理伤害给近战攻击者"]={{},nil}
+c["反射 81 物理伤害给近战攻击者"]={{},nil}
 c["敌人被点燃的持续时间延长 500%"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=500}},nil}
 c["无情击中恐吓敌人 4 秒"]={nil,"Ruthless Hits Intimidate Enemies for 4 seconds "}
 c["盾牌上每 75 点护甲值或闪避值都使攻击伤害提高 2%"]={{[1]={[1]={div=75,stat="EvasionOnWeapon 2",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=2},[2]={[1]={div=75,stat="ArmourOnWeapon 2",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
-c["药剂持续期间，获得额外混沌伤害，其数值等同于 15% 火焰、冰霜、闪电伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ElementalDamageGainAsChaos",type="BASE",value=15}},nil}
+c["反射 90 物理伤害给近战攻击者"]={{},nil}
 c["每装备一个魔法物品，伤害提高 23%"]={{[1]={[1]={type="Multiplier",var="MagicItem"},flags=0,keywordFlags=0,name="Damage",type="INC",value=23}},nil}
 c["被动物击中时承受 -40 物理伤害"]={{[1]={flags=0,keywordFlags=262144,name="PhysicalDamage",type="BASE",value=-40}},"被动物时承受   "}
+c["药剂持续期间，获得额外混沌伤害，其数值等同于 15% 火焰、冰霜、闪电伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ElementalDamageGainAsChaos",type="BASE",value=15}},nil}
 c["此物品上的技能石受到 12 级的 护体 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=12,skillId="SupportFortify"}}},nil}
 c["攻击击中每个敌人会回复 +21 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=21}},nil}
 c["使用该武器暴击时，有 20% 几率触发 25 级的【召唤幽狼】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=25,skillId="SummonRigwaldsPack",triggered=true}}},nil}
-c["受到【冰霜净化】影响时，承受的反射冰霜伤害降低 50%"]={{[1]={[1]={type="Condition",var="AffectedBy冰霜净化"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=-50}},"承受的反射 "}
+c["受到【冰霜净化】影响时，承受的反射冰霜伤害降低 50% 受到【冰霜净化】影响时，受到击中物理伤害的 10% 转换为冰霜伤害"]={{[1]={[1]={type="Condition",var="AffectedBy冰霜净化"},flags=0,keywordFlags=262144,name="ColdDamage",type="INC",value=-50}},"承受的反射 受到【冰霜净化】影响时，受到物理伤害的 10% 转换为冰霜伤害 "}
 c["获得 20 级的主动技能【憎恨】，且可被此道具上的技能石辅助"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="Hatred"}}},nil}
 c["你的法术击中每个敌人会回复 +3 生命"]={{[1]={flags=2,keywordFlags=0,name="LifeOnHit",type="BASE",value=3}},nil}
 c["附加 2 - 6 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=2},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=6}},nil}
-c["附加 18 - 35 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=18},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=35}},nil}
 c["增加 3 个珠宝插槽天赋"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="clusterJewelSocketCountOverride",value=3}}},nil}
 c["击中时 10% 几率造成流血"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=10}},nil}
+c["附加 18 - 35 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=18},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=35}},nil}
 c["击败被嘲讽的敌人获得 1 秒【猛攻】状态 受到你嘲讽的敌人所承受的伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=10}},"击败被嘲讽的敌人获得 1 秒【猛攻】状态 受到你嘲讽的敌人所 "}
 c["击败被嘲讽的敌人获得 1 秒【猛攻】状态"]={nil,"击败被嘲讽的敌人获得 1 秒【猛攻】状态 "}
-c["使用时制造一团烟雾"]={{},nil}
 c["格挡时有 100% 几率使怪物逃跑 对受诅咒敌人造成腐烂，每秒 700 点混沌伤害，持续 8 秒"]={{[1]={flags=0,keywordFlags=2,name="ChaosDamage",type="BASE",value=100}},"格挡时使怪物逃跑 对受敌人造成腐烂，每秒 700 点，持续 8 秒 "}
 c["范围内提高冰霜抗性的天赋也会提高击败敌人时获得狂怒球的概率"]={nil,"范围内提高冰霜抗性的天赋也会提高击败敌人时获得狂怒球的概率 "}
-c["攻击击中每个敌人会回复 +44 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=44}},nil}
+c["雷霆的魔力保留效能提高 50%"]={{[1]={[1]={skillName="雷霆",type="SkillName"},flags=0,keywordFlags=0,name="ManaReservationEfficiency",type="INC",value="50"}},nil}
 c["用该武器击中时，暴击率为 25%"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CritChance",type="OVERRIDE",value=25}},nil}
-c["命中值在低血时提高 100%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=100}},nil}
+c["攻击击中每个敌人会回复 +44 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=44}},nil}
 c["魔卫复苏击中时让敌人受到【灰烬缠身】 魔卫复苏每秒将其最大生命的 30% 转化为火焰伤害"]={nil,"魔卫复苏击中时让敌人受到【灰烬缠身】 魔卫复苏每秒将其最大生命的 30% 转化为火焰伤害 "}
 c["持续时间延长 25%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}},nil}
 c["远程武器攻击的物理伤害提高 150%"]={{[1]={flags=67108868,keywordFlags=0,name="PhysicalDamage",type="INC",value=150}},nil}
@@ -5084,211 +5072,212 @@ c["护身上限 -3"]={{[1]={flags=0,keywordFlags=0,name="MaximumFortification",t
 c["每有 1 个耐力球，便获得 1% 额外物理伤害减免"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=1}},nil}
 c["获得 30 级的【冲刺】技能"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=30,skillId="QuickDodge"}}},nil}
 c["持续时间缩短 60%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-60}},nil}
+c["命中值在低血时提高 100%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=100}},nil}
 c["攻击击中每个敌人会回复 +3 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=3}},nil}
 c["【召唤圣物】的冷却恢复速度降低 25%"]={{[1]={[1]={skillName="召唤圣物",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=-25}}}},nil}
-c["药剂持续期间，30% 承受的击中物理伤害转化为冰霜伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=30}},nil}
 c["闪电抗性不对承受的闪电伤害生效"]={{[1]={flags=0,keywordFlags=0,name="SelfIgnoreLightningResistance",type="FLAG",value=true}},nil}
+c["药剂持续期间，30% 承受的击中物理伤害转化为冰霜伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=30}},nil}
 c["其中 1 个增加的天赋为【腐烂抗力】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="腐烂抗力"}},nil}
 c["地雷组装速度提高 50%"]={{},"组装速度 "}
 c["地雷投掷速度降低 15%"]={{[1]={flags=0,keywordFlags=0,name="MineLayingSpeed",type="INC",value=-15}},nil}
-c["地雷放置速度降低 15%"]={{[1]={flags=0,keywordFlags=0,name="MineLayingSpeed",type="INC",value=-15}},nil}
 c["无法击退敌人"]={{[1]={flags=0,keywordFlags=0,name="CannotKnockback",type="FLAG",value=true}},nil}
 c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 圣宗"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 圣宗 "}
-c["若你至少拥有 800 点敏捷，可以投掷地雷的技能就会最多额外投掷 1 个地雷 地雷放置速度降低 15%"]={{[1]={flags=0,keywordFlags=8192,name="Dex",type="BASE"}},"若你至少拥有 800 点，可以就会最多"}
+c["地雷放置速度降低 15%"]={{[1]={flags=0,keywordFlags=0,name="MineLayingSpeed",type="INC",value=-15}},nil}
 c["法术附加 18 - 56 闪电伤害"]={{[1]={flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=18},[2]={flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=56}},nil}
-c["若你至少拥有 800 点敏捷，可以投掷地雷的技能就会最多额外投掷 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Dex",type="BASE"}},"若你至少拥有 800 点，可以就会最多"}
+c["若你至少拥有 800 点敏捷，可以投掷地雷的技能就会最多额外投掷 1 个地雷 地雷放置速度降低 15%"]={{[1]={flags=0,keywordFlags=8192,name="Dex",type="BASE"}},"若你至少拥有 800 点，可以就会最多"}
 c["攻击击中有 25% 的几率致盲敌人 持续物理伤害总增 20% 击中在你过去 20 秒内成功格挡的情况下无视敌方怪物的物理伤害减免"]={{[1]={flags=1,keywordFlags=17039360,name="PhysicalDamage",type="BASE",value=25}}," 几率致盲敌人 总增 20% 在你过去 20 秒内成功格挡的情况下无视敌方怪物的物理伤害减免 "}
+c["若你至少拥有 800 点敏捷，可以投掷地雷的技能就会最多额外投掷 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Dex",type="BASE"}},"若你至少拥有 800 点，可以就会最多"}
 c["若你至少拥有 800 点智慧，可以投掷地雷的技能就会最多额外投掷 1 个地雷 若你至少拥有 800 点敏捷，可以投掷地雷的技能就会最多额外投掷 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Int",type="BASE"}},"若你至少拥有 800 点，可以就会最多"}
-c["若你至少拥有 800 点智慧，可以投掷地雷的技能就会最多额外投掷 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Int",type="BASE"}},"若你至少拥有 800 点，可以就会最多"}
 c["你施法时，献祭生命的 5% 来获得等量的能量护盾 你施法时，献祭生命的 12% 来获得等量的能量护盾"]={nil,"你施法时，献祭生命的 5% 来获得等量的能量护盾 你施法时，献祭生命的 12% 来获得等量的能量护盾 "}
-c["若你至少拥有 500 点敏捷，可以放置地雷的技能就会最多额外放置 1 个地雷 若你至少拥有 800 点智慧，可以投掷地雷的技能就会最多额外投掷 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Dex",type="BASE"}},"若你至少拥有 500 点，可以放置的技能就会最多"}
+c["若你至少拥有 800 点智慧，可以投掷地雷的技能就会最多额外投掷 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Int",type="BASE"}},"若你至少拥有 800 点，可以就会最多"}
 c["生命回复速度提高 15%"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=15}},nil}
 c["徒手近战攻击的物理伤害总增 800%"]={{[1]={flags=16777216,keywordFlags=0,name="PhysicalDamage",type="MORE",value=800}},nil}
-c["若你至少拥有 500 点敏捷，可以放置地雷的技能就会最多额外放置 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Dex",type="BASE"}},"若你至少拥有 500 点，可以放置的技能就会最多"}
+c["若你至少拥有 500 点敏捷，可以放置地雷的技能就会最多额外放置 1 个地雷 若你至少拥有 800 点智慧，可以投掷地雷的技能就会最多额外投掷 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Dex",type="BASE"}},"若你至少拥有 500 点，可以放置的技能就会最多"}
 c["经验值获取提高 2%"]={{},"经验值获取 "}
 c["范围内的天赋被圣堂抑制"]={{[1]={flags=0,keywordFlags=0,name="好战的信仰",type="FLAG",value=true}},nil}
 c["精准的魔力保留效能提高 100%"]={{[1]={[1]={skillName="精准",type="SkillName"},flags=0,keywordFlags=0,name="ManaReservationEfficiency",type="INC",value="100"}},nil}
+c["若你至少拥有 500 点敏捷，可以放置地雷的技能就会最多额外放置 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Dex",type="BASE"}},"若你至少拥有 500 点，可以放置的技能就会最多"}
 c["若你至少拥有 500 点智慧，可以放置地雷的技能就会最多额外放置 1 个地雷 若你至少拥有 500 点敏捷，可以放置地雷的技能就会最多额外放置 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Int",type="BASE"}},"若你至少拥有 500 点，可以放置的技能就会最多"}
 c["若你至少拥有 500 点智慧，可以放置地雷的技能就会最多额外放置 1 个地雷"]={{[1]={flags=0,keywordFlags=8192,name="Int",type="BASE"}},"若你至少拥有 500 点，可以放置的技能就会最多"}
-c["每个白色插槽可为你和周围友军附加 47 - 61 基础混沌伤害"]={{[1]={[1]={type="Multiplier",var="WhiteSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=47}}},[2]={[1]={type="Multiplier",var="WhiteSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=61}}}},nil}
 c["击中时有 25% 几率造成瘫痪 物理伤害提高 320%"]={{[1]={flags=0,keywordFlags=262144,name="PhysicalDamage",type="BASE",value=25}},"时造成瘫痪 提高 320% "}
 c["红玉戒指"]={nil,"红玉戒指 "}
-c["+16% 火焰和冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=16},[2]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=16}},nil}
-c["每个绿色插槽可为你和周围友军附加 56 - 88 基础冰霜伤害"]={{[1]={[1]={type="Multiplier",var="GreenSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=56}}},[2]={[1]={type="Multiplier",var="GreenSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=88}}}},nil}
+c["每个白色插槽可为你和周围友军附加 47 - 61 基础混沌伤害"]={{[1]={[1]={type="Multiplier",var="WhiteSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=47}}},[2]={[1]={type="Multiplier",var="WhiteSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=61}}}},nil}
+c["攻击附加 1 - 50 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=50}},nil}
 c["最大生命提高 14%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=14}},nil}
-c["周围敌人的所有抗性提高 -10%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=-10}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-10}}}},nil}
+c["每个绿色插槽可为你和周围友军附加 56 - 88 基础冰霜伤害"]={{[1]={[1]={type="Multiplier",var="GreenSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=56}}},[2]={[1]={type="Multiplier",var="GreenSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=88}}}},nil}
 c["你所施放诅咒的效果提高 10%"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=10}},nil}
-c["每秒获得一个精神球"]={nil,"每秒获得一个精神球 "}
+c["周围敌人的所有抗性提高 -10%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=-10}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-10}}}},nil}
 c["每 1 个聚光之石有 20% 的几率免疫元素异常状态 每 1 个聚光之石获得 +1 最小狂怒球"]={{},"每 1 个聚光之石免疫元素 每 1 个聚光之石获得 +1 最小狂怒球 "}
-c["其中 1 个增加的天赋为【力量萃取】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="力量萃取"}},nil}
+c["每秒获得一个精神球"]={nil,"每秒获得一个精神球 "}
 c["图腾所使用攻击的攻击速度提高 6%"]={{[1]={flags=1,keywordFlags=16384,name="Speed",type="INC",value=6}},nil}
+c["其中 1 个增加的天赋为【力量萃取】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="力量萃取"}},nil}
 c["当精神球失效或被消耗时，回复 3% 生命"]={nil,"当精神球失效或被消耗时，回复 3% 生命 "}
 c["元素超载"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="元素超载"}},nil}
-c["每有 500 层能量护盾可每秒回复 1% 生命"]={{[1]={[1]={div="500",stat="EnergyShield",type="PerStat"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value="1"}},nil}
 c["暴击施加灼烧、脆弱、精疲力尽"]={{[1]={flags=0,keywordFlags=0,name="CritAlwaysAltAilments",type="FLAG",value=true}},nil}
 c["图腾放置速度提高 100%"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=100}},nil}
 c["攻击附加 29 - 45 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=29},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=45}},nil}
 c["副手暴击率 +10%"]={{[1]={[1]={type="Condition",var="OffHandAttack"},[2]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=10}},nil}
 c["持续混沌伤害提高 12%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=12},[2]={flags=0,keywordFlags=0,name="268435456",type="INC",value=12}},nil}
+c["每有 500 层能量护盾可每秒回复 1% 生命"]={{[1]={[1]={div="500",stat="EnergyShield",type="PerStat"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value="1"}},nil}
 c["每 2 点智慧 +1 最大生命"]={{[1]={[1]={div=2,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},nil}
-c["智慧不对最大魔力提供加成"]={{[1]={flags=0,keywordFlags=0,name="NoIntBonusToMana",type="FLAG",value=true}},nil}
 c["每秒回复 1.5% 能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRegenPercent",type="BASE",value=1.5}},nil}
-c["+180 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=180}},nil}
+c["智慧不对最大魔力提供加成"]={{[1]={flags=0,keywordFlags=0,name="NoIntBonusToMana",type="FLAG",value=true}},nil}
 c["当你施放诅咒法术时，有 20% 的几率获得一个暴击球"]={{},"当你施放法术时，获得一个暴击球 "}
 c["召唤生物的攻击速度提高 3%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=3}}}},nil}
+c["+180 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=180}},nil}
 c["该装备的护甲与能量护盾提高 70%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=70}},nil}
 c["若你至少拥有 1500 层能量护盾，则每秒回复 150 生命"]={{[1]={[1]={stat="EnergyShield",threshold=1500,type="StatThreshold"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value="150"}},nil}
 c["若你至少拥有 1000 层能量护盾，则每秒回复 100 生命"]={{[1]={[1]={stat="EnergyShield",threshold=1000,type="StatThreshold"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value="100"}},nil}
-c["若你至少拥有 500 层能量护盾，则每秒回复 50 生命"]={{[1]={[1]={stat="EnergyShield",threshold=500,type="StatThreshold"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value="50"}},nil}
 c["持盾牌时攻击伤害格挡率 +5%"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=5}},nil}
 c["获得 20 级的【捕熊陷阱】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level="20",skillId="BearTrap"}}},nil}
-c["你的能量护盾从 0 开始 无法获得能量护盾"]={nil,"你的能量护盾从 0 开始 无法获得能量护盾 "}
+c["无法获得能量护盾"]={{[1]={flags=0,keywordFlags=0,name="NoEnergyShieldRegen",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="NoEnergyShieldRecharge",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="CannotLeechEnergyShield",type="FLAG",value=true}},nil}
 c["持盾牌时，攻击技能造成的异常状态伤害提高 12%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=524288,name="Damage",type="INC",value=12}},nil}
 c["能量护盾充能时间提前 10%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=10}},nil}
-c["敌人无法偷取你的魔力 此物品上的技能石魔力消耗降低 50%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=-50}},"敌人无法偷取你的 此物品上的技能石魔力消耗 "}
+c["你的能量护盾从 0 开始 无法获得能量护盾"]={nil,"你的能量护盾从 0 开始 无法获得能量护盾 "}
 c["你无法拥有非幻化类召唤生物"]={nil,"你无法拥有非幻化类 "}
+c["敌人无法偷取你的魔力 此物品上的技能石魔力消耗降低 50%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=-50}},"敌人无法偷取你的 此物品上的技能石魔力消耗 "}
 c["获得 +28% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=28}},nil}
 c["你的闪电伤害可以冰冻但无法感电"]={{[1]={flags=0,keywordFlags=0,name="LightningCanFreeze",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="LightningCannotShock",type="FLAG",value=true}},nil}
 c["获得【召唤冰雷先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfStorms"}}},nil}
-c["攻击技能附加闪电伤害，等于最大魔力的 6%"]={nil,"攻击技能附加闪电伤害，等于最大魔力的 6% "}
 c["命中值提高 20%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=20}},nil}
+c["攻击技能附加闪电伤害，等于最大魔力的 6%"]={nil,"攻击技能附加闪电伤害，等于最大魔力的 6% "}
 c["其中 1 个增加的天赋为【探索符文】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="探索符文"}},nil}
-c["被击中时 30% 的闪电伤害优先从魔力优先扣除"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageTakenFromManaBeforeLife",type="BASE",value=30}},nil}
 c["憎恨没有保留效果"]={{[1]={[1]={skillId="Hatred",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationFlat",value=0}},[2]={[1]={skillId="Hatred",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationFlat",value=0}},[3]={[1]={skillId="Hatred",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationPercent",value=0}},[4]={[1]={skillId="Hatred",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationPercent",value=0}}},nil}
+c["被击中时 30% 的闪电伤害优先从魔力优先扣除"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageTakenFromManaBeforeLife",type="BASE",value=30}},nil}
 c["+20% 几率被感电 被击中时 30% 的闪电伤害优先从魔力优先扣除"]={{[1]={flags=0,keywordFlags=262144,name="LightningDamage",type="BASE",value=20}},"被感电 被时 30% 的优先从魔力优先扣除 "}
 c["无生命保留时法术附加 10 - 167 基础闪电伤害"]={{[1]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=10},[2]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=167}},nil}
 c["无生命保留时法术附加 59 - 102 基础火焰伤害"]={{[1]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=59},[2]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=102}},nil}
-c["无生命保留时法术附加 48 - 83 基础冰霜伤害"]={{[1]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=48},[2]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=83}},nil}
 c["受到【优雅】影响时，移动速度提高 15%"]={{[1]={[1]={type="Condition",var="AffectedBy优雅"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=15}},nil}
-c["无生命保留时法术附加 14 - 173 基础闪电伤害"]={{[1]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=14},[2]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=173}},nil}
+c["无生命保留时法术附加 48 - 83 基础冰霜伤害"]={{[1]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=48},[2]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=83}},nil}
 c["+70 敏捷"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=70}},nil}
 c["愤怒狂灵的最大生命提高 90%"]={{[1]={[1]={skillName="召唤愤怒狂灵",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=90}}}},nil}
-c["在奋锐光环影响下，偷取的每秒最大能量护盾总恢复量提高 30%"]={{[1]={[1]={type="Condition",var="AffectedBy奋锐光环"},flags=0,keywordFlags=0,name="MaxEnergyShieldLeechRate",type="INC",value=30}},nil}
+c["无生命保留时法术附加 14 - 173 基础闪电伤害"]={{[1]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=14},[2]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=173}},nil}
 c["诅咒光环技能的效果区域扩大 25%"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=2,name="AreaOfEffect",type="INC",value=25}},nil}
+c["最大魔力提高 5%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=5}},nil}
 c["无生命保留时法术附加 54 - 88 基础冰霜伤害"]={{[1]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=54},[2]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=88}},nil}
-c["凡人的信念"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="凡人的信念"}},nil}
 c["反射 10 冰霜伤害给近战攻击者 反射 100 冰霜伤害给近战攻击者"]={nil,"反射 10 冰霜伤害给近战攻击者 反射 100 冰霜伤害给近战攻击者 "}
 c["法术使你获得魔力，等于其每五次预支消耗魔力时的消耗"]={nil,"Spells cause you to gain Mana equal to their Upfront Cost every fifth time you Pay it "}
-c["技能魔力消耗提高 20%"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=20}},nil}
+c["凡人的信念"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="凡人的信念"}},nil}
 c["满血时移动速度提高 20%"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=20}},nil}
+c["技能魔力消耗提高 20%"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=20}},nil}
 c["法术有 20% 几率造成双倍伤害"]={{[1]={flags=2,keywordFlags=0,name="DoubleDamageChance",type="BASE",value=20}},nil}
 c["你和队友的伤害提高 15%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=15}}}},nil}
-c["起源珠宝"]={{[1]={flags=0,keywordFlags=0,name="Multiplier:PrimordialItem",type="BASE",value=1}},nil}
 c["低魔时受到的法术伤害提高 100%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=100}},"低魔时受到的 "}
+c["每个暴击球为法术附加 15 - 25 基础冰霜伤害"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=15},[2]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=25}},nil}
 c["伤害降低 30%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=-30}},nil}
 c["此物品上的诅咒技能石受到 22 级的 诅咒光环 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=22,skillId="SupportBlasphemy"}}},nil}
-c["其中 1 个增加的天赋为【直攻要害】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="直攻要害"}},nil}
 c["锤类或短杖的物理伤害提高 16%"]={{[1]={flags=1048576,keywordFlags=0,name="PhysicalDamage",type="INC",value=16}},nil}
 c["插入的技能石的消耗及保留加成为原来的 80%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="SupportManaMultiplier",type="MORE",value=-20}}}},nil}
-c["神殿持续时间延长 50%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}},"神殿 "}
+c["武器攻击的火焰、冰霜、闪电伤害提高 10%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=10}},"攻击的 "}
 c["Corroded Blade"]={nil,"Corroded Blade "}
 c["物品掉落数量提高 16%"]={{[1]={flags=0,keywordFlags=0,name="LootQuantity",type="INC",value=16}},nil}
 c["人物等级每到达 25 级，该插槽内的【主动技能石】等级 +1 玩家等级每提高 3 级，该武器攻击时便附加 3 - 5 物理伤害"]={{[1]={flags=8192,keywordFlags=0,name="PhysicalDamage",type="BASE",value=1}},"人物等级每到达 25 级，该插槽内的【主动技能石】等级  玩家等级每提高 3 级，该攻击时便附加 3 - 5  "}
+c["神殿持续时间延长 50%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=50}},"神殿 "}
 c["击败敌人回复 +15 能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldOnKill",type="BASE",value=15}},nil}
-c["受到憎恨光环影响时始终造成脆弱"]={{[1]={[1]={type="Condition",var="AffectedBy憎恨"},flags=0,keywordFlags=0,name="EnemyBrittleChance",type="BASE",value=100}},nil}
+c["禁用除憎恨之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Hatred",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["静止时受到的火焰、冰霜、闪电伤害降低 5%"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ElementalDamageTaken",type="INC",value=-5}},nil}
 c["获得额外火焰伤害， 其数值等同于物理伤害的 10%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=10}},nil}
-c["对致盲的敌人的击中和异常状态伤害提高 45%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=45}},nil}
 c["获得等同 10% 物理伤害的 1 个随机元素伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsRandom",type="BASE",value=10}},nil}
-c["10% 几率使敌人逃跑"]={{},"使敌人逃跑 "}
+c["对致盲的敌人的击中和异常状态伤害提高 45%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=45}},nil}
 c["获得额外冰霜伤害， 其数值等同于物理伤害的 15%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsCold",type="BASE",value=15}},nil}
 c["晕眩门槛提高 15%"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=15}},nil}
 c["对抗被【冰缓】的敌人时，击中的闪电伤害提高 25%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=0,keywordFlags=262144,name="LightningDamage",type="INC",value=25}},nil}
-c["获得 20 级的主动技能【猫之势】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="CatAspect"}}},nil}
+c["受到【猫之势】影响时，+1% 攻击和法术基础暴击率"]={{[1]={[1]={type="Condition",varList={[1]="AffectedBy猫之隐匿",[2]="AffectedBy猫之敏捷"}},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=1}},nil}
 c["其中 1 个增加的天赋为【末日使者】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="末日使者"}},nil}
 c["12% Increased Cast Speed"]={{},"% Increased Cast Speed "}
+c["获得 20 级的主动技能【猫之势】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="CatAspect"}}},nil}
 c["你反射给怪物的 100% 伤害会变为回复生命"]={nil,"你反射给怪物的 100% 伤害会变为回复生命 "}
-c["只影响大圈内的天赋"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=6}}},nil}
 c["攻击附加 12 - 30 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=12},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=30}},nil}
 c["任何伤害类型的最大伤害减免为 50%"]={{[1]={flags=0,keywordFlags=0,name="DamageReductionMax",type="OVERRIDE",value=50}},nil}
-c["暴击时获得【不洁之力】 4 秒"]={nil,"暴击时获得【不洁之力】 4 秒 "}
+c["只影响大圈内的天赋"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=6}}},nil}
 c["药剂效果结束时，周围敌人在 2 秒内陷入疲惫状态"]={nil,"药剂效果结束时，周围敌人在 2 秒内陷入疲惫状态 "}
 c["每个飓风之力使你身上的提速尾流效果提高 15%"]={{[1]={[1]={type="Multiplier",var="GaleForce"},flags=0,keywordFlags=0,name="TailwindEffectOnSelf",type="INC",value=15}},nil}
 c["每秒受到等同 15% 最大生命的混沌伤害"]={{[1]={[1]={div=1,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="ChaosDegen",type="BASE",value=0.15}},nil}
-c["反射 100 - 150 物理伤害给近战攻击者"]={nil,"反射 100 - 150 物理伤害给近战攻击者 "}
+c["暴击时获得【不洁之力】 4 秒"]={nil,"暴击时获得【不洁之力】 4 秒 "}
 c["箭矢飞得越远，暴击率越高，暴击率最多提高 100%"]={{[1]={[1]={ramp={[1]={[1]=35,[2]=0},[2]={[1]=70,[2]=1}},type="DistanceRamp"},flags=132097,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
-c["身上未装备已腐化的物品时，最大生命提高 10%"]={{[1]={[1]={threshold=0,type="MultiplierThreshold",upper=true,var="CorruptedItem"},flags=0,keywordFlags=0,name="Life",type="INC",value=10}},nil}
+c["反射 100 - 150 物理伤害给近战攻击者"]={nil,"反射 100 - 150 物理伤害给近战攻击者 "}
 c["暴击球的持续时间延长 20%"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesDuration",type="INC",value=20}},nil}
-c["异灵之体范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="异灵之体"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="异灵之体",value=true}}},nil}
+c["身上未装备已腐化的物品时，最大生命提高 10%"]={{[1]={[1]={threshold=0,type="MultiplierThreshold",upper=true,var="CorruptedItem"},flags=0,keywordFlags=0,name="Life",type="INC",value=10}},nil}
+c["投射物伤害按照每 16 点敏捷提高 1%"]={{[1]={[1]={div=16,stat="Dex",type="PerStat"},flags=1024,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["+280 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=280}},nil}
-c["身上未装备已腐化的物品时，每秒回复 400 生命"]={{[1]={[1]={threshold=0,type="MultiplierThreshold",upper=true,var="CorruptedItem"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=400}},nil}
 c["物理伤害提高 220%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=220}},nil}
-c["反射 15 火焰伤害给近战攻击者 反射 100 火焰伤害给近战攻击者"]={nil,"反射 15 火焰伤害给近战攻击者 反射 100 火焰伤害给近战攻击者 "}
+c["身上未装备已腐化的物品时，每秒回复 400 生命"]={{[1]={[1]={threshold=0,type="MultiplierThreshold",upper=true,var="CorruptedItem"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=400}},nil}
 c["你有 20 层护身"]={{[1]={flags=0,keywordFlags=0,name="MaximumFortification",type="OVERRIDE",value=20},[2]={flags=0,keywordFlags=0,name="Multiplier:Fortification",type="BASE",value=20},[3]={flags=0,keywordFlags=0,name="Condition:Fortified",type="FLAG",value=true}},nil}
 c["若范围内含有 40 点敏捷，\n则【虚空匕首】将向四周环绕发射 若范围内含有 40 点敏捷，\n则【虚空匕首】会额外发射 10 个投射物"]={{[1]={flags=512,keywordFlags=0,name="Dex",type="BASE"}},"若内含有 40 点，\n则【虚空匕首】将向四周环绕发射 若范围内含有 40 点敏捷，\n则【虚空匕首】会"}
 c["30% 几率避免致流血 有 30% 的几率避免被穿刺 若你近期内没有被击中，则闪避值提高 30%"]={{[1]={flags=0,keywordFlags=4194304,name="Evasion",type="BASE",value=30}},"避免致 有 30% 的几率避免被穿刺 若你近期内没有被击中，则提高 30% "}
+c["取护甲和闪避值之间的较低者，每 300 点可使攻击伤害提高 1%"]={{[1]={[1]={div=300,stat="LowestOfArmourAndEvasion",type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["身上未装备已腐化的物品时，最大生命提高 12%"]={{[1]={[1]={threshold=0,type="MultiplierThreshold",upper=true,var="CorruptedItem"},flags=0,keywordFlags=0,name="Life",type="INC",value=12}},nil}
 c["对被点燃敌人的伤害提高 15%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},flags=0,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
-c["攻击技能的火焰、冰霜、闪电伤害提高 24%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=24}},nil}
 c["禁断之肉上有匹配的词缀则配置 坚毅"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="坚毅",side="之肉"}}},nil}
 c["躲避法术击中的上限为 75%"]={{[1]={flags=0,keywordFlags=0,name="SpellDodgeChanceMax",source="Acrobatics",type="OVERRIDE",value=75}},nil}
 c["若你近期内使用了召唤生物技能，则召唤生物的伤害提高 30%"]={{[1]={[1]={type="Condition",var="UsedMinionSkillRecently"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=30}}}},nil}
+c["攻击技能的火焰、冰霜、闪电伤害提高 24%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=24}},nil}
 c["技能效果持续时间延长 13%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=13}},nil}
-c["召唤生物只能击败被点燃的敌人"]={nil,"只能击败被点燃的敌人 "}
 c["击败敌人时，召唤生物获得【不洁之力】，持续 10 秒"]={nil,"击败敌人时，【不洁之力】，持续 10 秒 "}
 c["召唤生物的最大生命降低 10%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=-10}}}},nil}
 c["药剂持续期间，+75% 攻击和法术暴击伤害加成"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=75}},nil}
 c["Gnarled Branch"]={nil,"Gnarled Branch "}
 c["8% 几率使敌人受到冰冻，感电与点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=8},[2]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=8},[3]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=8}},nil}
 c["图腾伤害提高 24%"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=24}},nil}
-c["每 50 点敏捷可使召唤生物的移动速度提高 2%"]={{[1]={[1]={div=50,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=2}}}},nil}
+c["召唤生物只能击败被点燃的敌人"]={nil,"只能击败被点燃的敌人 "}
 c["附加 115 - 265 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=115},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=265}},nil}
 c["攻击造成的物理伤害提高 14%"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamage",type="INC",value=14}},nil}
-c["获得等同 13% 魔力的额外能量护盾"]={{[1]={flags=0,keywordFlags=0,name="ManaGainAsEnergyShield",type="BASE",value=13}},nil}
+c["每 50 点敏捷可使召唤生物的移动速度提高 2%"]={{[1]={[1]={div=50,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=2}}}},nil}
 c["范围内含的力量和智慧总计 40 点时，【元素打击】的总冰霜伤害额外降低 50% 攻击技能的元素伤害提高 15%"]={{[1]={flags=512,keywordFlags=0,name="Str",type="BASE"},[2]={flags=512,keywordFlags=0,name="Int",type="BASE"},[3]={flags=512,keywordFlags=0,name="StrInt",type="BASE"}},"内含的总计 40 攻击技能的元素伤害提高 15% "}
 c["全局防御提高 100%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Defences",type="INC",value=100}},nil}
 c["附加 118 - 255 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=118},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=255}},nil}
-c["将承受伤害的 20% 吸纳为魔力"]={nil,"将承受伤害的 20% 吸纳为魔力 "}
+c["获得等同 13% 魔力的额外能量护盾"]={{[1]={flags=0,keywordFlags=0,name="ManaGainAsEnergyShield",type="BASE",value=13}},nil}
 c["生命上限提高 7%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=7}},nil}
+c["将承受伤害的 20% 吸纳为魔力"]={nil,"将承受伤害的 20% 吸纳为魔力 "}
 c["敌人无法偷取你的魔力 被击中时， 4 秒内回复等同于 10% 伤害的魔力"]={nil,"敌人无法偷取你的魔力 被击中时， 4 秒内回复等同于 10% 伤害的魔力 "}
-c["敌人无法偷取你的魔力"]={nil,"敌人无法偷取你的魔力 "}
 c["受到【活力】影响时，每击中一个敌人便会获得 +30 生命"]={{[1]={[1]={type="Condition",var="AffectedBy活力"},flags=0,keywordFlags=0,name="LifeOnHit",type="BASE",value=30}},nil}
 c["用该武器击中时有 25% 几率施加 2 秒凋零"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true},[2]={[1]={type="Condition",var="CanWither"},flags=0,keywordFlags=0,name="Dummy",type="DUMMY",value=1}},nil}
+c["获得等同 15% 魔力的额外能量护盾"]={{[1]={flags=0,keywordFlags=0,name="ManaGainAsEnergyShield",type="BASE",value=15}},nil}
 c["1% increased Armour per 50 Reserved Mana"]={{},"% increased Armour per 50 Reserved Mana "}
-c["获得等同于你魔力保留数值的护甲"]={{[1]={[1]={div=1,stat="ManaReserved",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}},nil}
 c["药剂持续期间，范围效果扩大 25%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}},nil}
-c["技能的保留效能降低 20%"]={{[1]={flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=-20}},nil}
+c["获得等同于你魔力保留数值的护甲"]={{[1]={[1]={div=1,stat="ManaReserved",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}},nil}
 c["全局暴击伤害加成在你有狂怒球的情况下 +50%"]={{[1]={[1]={type="Global"},[2]={stat="FrenzyCharges",threshold=1,type="StatThreshold"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=50}},nil}
 c["光环技能范围提高 18%"]={{[1]={flags=0,keywordFlags=1,name="AreaOfEffect",type="INC",value=18}},nil}
-c["禁断之火上有匹配的词缀则配置 完美胜出"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="完美胜出",side="之火"}}},nil}
+c["技能的保留效能降低 20%"]={{[1]={flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=-20}},nil}
+c["禁断之火上有匹配的词缀则配置 启发"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="启发",side="之火"}}},nil}
 c["+36% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=36}},nil}
-c["附加 15 - 33 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=33}},nil}
 c["对你施用的魔法功能药剂具有20%增益效果 药剂持续期间，驱散元素异常状态"]={nil,"对你施用的魔法功能药剂具有20%增益效果 药剂持续期间，驱散元素异常状态 "}
 c["护身持续时间延长 30% 攻击技能的伤害在护体状态下提高 20% 有护体的击中使护身效果提高 60%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Condition",var="Fortify"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},"护身 伤害在提高 20% 有护体的击中使护身效果提高 60% "}
+c["附加 15 - 33 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=33}},nil}
 c["所有身上穿戴的物品皆为已腐化时，每秒回复 35 魔力"]={{[1]={[1]={threshold=0,type="MultiplierThreshold",upper=true,var="NonCorruptedItem"},flags=0,keywordFlags=0,name="ManaRegen",type="BASE",value=35}},nil}
 c["所有身上装备的物品皆为已腐化时，每秒回复 400 能量护盾"]={{[1]={[1]={threshold=0,type="MultiplierThreshold",upper=true,var="NonCorruptedItem"},flags=0,keywordFlags=0,name="EnergyShieldRegen",type="BASE",value=400}},nil}
 c["所有身上装备的物品皆为已腐化时，每秒回复 250 能量护盾"]={{[1]={[1]={threshold=0,type="MultiplierThreshold",upper=true,var="NonCorruptedItem"},flags=0,keywordFlags=0,name="EnergyShieldRegen",type="BASE",value=250}},nil}
 c["附加 17 - 37 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=17},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=37}},nil}
-c["击败敌人后有 20% 几率获得 1 个精神球 每个影响你的【深渊珠宝】可使最大精神球数量 +1"]={{},"击败敌人后获得 1 个精神球 最大精神球数量 +1 "}
 c["法术伤害提高 23%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=23}},nil}
-c["当精神球失效或被消耗时，回复 5% 生命 击败敌人后有 20% 几率获得 1 个精神球"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=20}},"当精神球失效或被消耗时，回复 5%  击败敌人后获得 1 个精神球 "}
+c["击败敌人后有 20% 几率获得 1 个精神球 每个影响你的【深渊珠宝】可使最大精神球数量 +1"]={{},"击败敌人后获得 1 个精神球 最大精神球数量 +1 "}
 c["对流血敌人的命中值 +500"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=500}},nil}
 c["武器攻击的火焰、冰霜、闪电伤害提高 24%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=24}},"攻击的 "}
 c["攻击附加 13 - 23 基础混沌伤害"]={{[1]={flags=0,keywordFlags=65536,name="ChaosMin",type="BASE",value=13},[2]={flags=0,keywordFlags=65536,name="ChaosMax",type="BASE",value=23}},nil}
-c["当精神球失效或被消耗时，回复 5% 生命"]={nil,"当精神球失效或被消耗时，回复 5% 生命 "}
+c["当精神球失效或被消耗时，回复 5% 生命 击败敌人后有 20% 几率获得 1 个精神球"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=20}},"当精神球失效或被消耗时，回复 5%  击败敌人后获得 1 个精神球 "}
 c["禁断之火上有匹配的词缀则配置 坚毅"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="坚毅",side="之火"}}},nil}
-c["当你使用技能消耗至少 100 点魔力后有 50% 几率触发插入的法术，它有 0.1 秒冷却时间"]={{[1]={flags=0,keywordFlags=0,name="KitavaTriggerChance",source="奇塔弗之渴望",type="BASE",value="50"},[2]={flags=0,keywordFlags=0,name="KitavaRequiredManaCost",source="奇塔弗之渴望",type="BASE",value=100},[3]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportCastOnManaSpent"}}},nil}
+c["当精神球失效或被消耗时，回复 5% 生命"]={nil,"当精神球失效或被消耗时，回复 5% 生命 "}
 c["打击技能同时将其之前攻击的地点设为目标"]={nil,"打击技能同时将其之前攻击的地点设为目标 "}
+c["当你使用技能消耗至少 100 点魔力后有 50% 几率触发插入的法术，它有 0.1 秒冷却时间"]={{[1]={flags=0,keywordFlags=0,name="KitavaTriggerChance",source="奇塔弗之渴望",type="BASE",value="50"},[2]={flags=0,keywordFlags=0,name="KitavaRequiredManaCost",source="奇塔弗之渴望",type="BASE",value=100},[3]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportCastOnManaSpent"}}},nil}
 c["使用至少 100 魔力施放技能时，有 30% 几率触发插槽内的法术"]={{[1]={flags=0,keywordFlags=0,name="KitavaTriggerChance",source="奇塔弗之渴望",type="BASE",value="30"},[2]={flags=0,keywordFlags=0,name="KitavaRequiredManaCost",source="奇塔弗之渴望",type="BASE",value=100},[3]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportCastOnManaSpent"}}},nil}
 c["获得等同 5% 魔力的额外能量护盾"]={{[1]={flags=0,keywordFlags=0,name="ManaGainAsEnergyShield",type="BASE",value=5}},nil}
 c["低血时，技能魔力消耗降低 20%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-20}},nil}
-c["低血时 +20% 火焰、冰霜、闪电抗性"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=20}},nil}
 c["你和周围友军每秒回复 1.00% 生命"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}}}},nil}
 c["+50 智慧"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=50}},nil}
+c["低血时 +20% 火焰、冰霜、闪电抗性"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=20}},nil}
 c["攻击和法术附加 1 - 30 基础闪电伤害"]={{[1]={flags=0,keywordFlags=196608,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=196608,name="LightningMax",type="BASE",value=30}},nil}
 c["攻击和法术附加 1 - 13 基础闪电伤害"]={{[1]={flags=0,keywordFlags=196608,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=196608,name="LightningMax",type="BASE",value=13}},nil}
 c["插入的瓦尔技能每次施放需要的灵魂量总降 30%"]={{},"插入的每次施放需要的灵魂量 "}
 c["法杖攻击 +12% 暴击伤害加成"]={{[1]={flags=8388608,keywordFlags=0,name="CritMultiplier",type="BASE",value=12}},nil}
 c["此物品上装备的【光环技能石】等级 +2"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="aura",value=2}}},nil}
 c["+61% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=61}},nil}
-c["魔力回复速度降低 20%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=-20}},nil}
 c["法术附加 52 - 79 基础混沌伤害"]={{[1]={flags=0,keywordFlags=131072,name="ChaosMin",type="BASE",value=52},[2]={flags=0,keywordFlags=131072,name="ChaosMax",type="BASE",value=79}},nil}
-c["此物品上的技能石受到 20 级的 死亡时施放 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="SupportCastOnDeath"}}},nil}
+c["魔力回复速度降低 20%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=-20}},nil}
 c["12% increased Spell Damage 20% Increased Spell Damage"]={{},"% increased Spell Damage 20% Increased Spell Damage "}
-c["此物品上的技能石受到 35 级的 精准破坏(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportControlledDestruction"}}},nil}
-c["其中 1 个增加的天赋为【乱中有静】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="乱中有静"}},nil}
+c["此物品上的技能石受到 20 级的 死亡时施放 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="SupportCastOnDeath"}}},nil}
+c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 瓦拉克，风暴之拥"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 瓦拉克，风暴之拥 "}
 c["Crude Bow League: Race Events"]={nil,"Crude Bow League: Race Events "}
 c["主手武器击败敌人时，有 25% 的几率获得狂怒球 副手武器击败敌人时，有 25% 的几率获得 1 个耐力球 狂怒球达到上限时，物理伤害总增 10%"]={{[1]={[1]={type="Condition",var="MainHandAttack"},[2]={type="Condition",var="OffHandAttack"},flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=25}},"击败敌人时，获得狂怒球 击败敌人时，有 25% 的几率获得 1 个耐力球 狂怒球达到上限时，总增 10% "}
+c["分配给你的各类专精可增加2%伤害"]={{[1]={[1]={type="Multiplier",var="AllocatedMasteryType"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=2}},nil}
 c["周围友军获得 80% 魔力回复"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=80},onlyAllies=true}}},nil}
 c["+6% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=6}},nil}
 c["静止时 +800 护甲"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=800}},nil}
@@ -5296,11 +5285,10 @@ c["当暴击球达到上限时，获得等同 10% 物理伤害的混沌伤害"]=
 c["当你没有暴击球时，受到的暴击伤害降低 50%"]={{[1]={[1]={stat="PowerCharges",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=0,name="ReduceCritExtraDamage",type="BASE",value=50}},nil}
 c["召唤生物每秒回复 2% 生命"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2}}}},nil}
 c["格挡时召唤生物回复 10% 生命"]={nil,"格挡时回复 10% 生命 "}
-c["召唤生物有 +25% 法术伤害格挡几率"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=25}}}},nil}
 c["装备和技能石的属性需求降低 25%"]={{[1]={flags=0,keywordFlags=0,name="GlobalAttributeRequirements",type="INC",value=-25}},nil}
 c["提高 100% 药剂充能消耗"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=100}},nil}
+c["召唤生物有 +25% 法术伤害格挡几率"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=25}}}},nil}
 c["水银爪印"]={nil,"水银爪印 "}
-c["+65 敏捷"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=65}},nil}
 c["提高 150% 药剂充能消耗"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=150}},nil}
 c["50% Chance to Gain an Endurance Charge when you Block"]={{},"an Endurance Charge when you Block "}
 c["召唤生物的最大生命提高 25%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=25}}}},nil}
@@ -5313,176 +5301,176 @@ c["该装备的闪避与能量护盾提高 375%"]={{[1]={flags=0,keywordFlags=0,
 c["+28% 火焰持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="FireDotMultiplier",type="BASE",value=28}},nil}
 c["智慧按照配置的每个专精天赋 +5"]={{[1]={[1]={type="Multiplier",var="AllocatedMastery"},flags=0,keywordFlags=0,name="Int",type="BASE",value=5}},nil}
 c["可以召唤图腾的技能有 30% 的几率召唤两个图腾"]={nil,"Skills that would Summon a Totem have 30% chance to Summon two Totems instead "}
-c["低血时不能偷取"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="CannotLeechLife",type="FLAG",value=true},[2]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="CannotLeechMana",type="FLAG",value=true}},nil}
+c["+250 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=250}},nil}
 c["格挡时 20% 的几率获得耐力球 达到耐力球数量上限时 +6% 攻击伤害格挡几率"]={{[1]={flags=1,keywordFlags=0,name="EnduranceChargesMax",type="BASE",value=20}},"格挡时 几率获得耐力球 达到时 +6% 伤害格挡几率 "}
 c["格挡时有 40% 几率使攻击者感电 4 秒"]={{[1]={flags=0,keywordFlags=0,name="ShockBase",type="BASE",value=15}},nil}
-c["助力的攻击有 30% 的几率不消耗助力次数 低血时不能偷取"]={{},"助力的不消耗助力次数 不能偷取 "}
+c["低血时不能偷取"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="CannotLeechLife",type="FLAG",value=true},[2]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="CannotLeechMana",type="FLAG",value=true}},nil}
 c["陷阱投掷速度降低 30%"]={{[1]={flags=0,keywordFlags=0,name="TrapThrowingSpeed",type="INC",value=-30}},nil}
-c["助力的攻击有 30% 的几率不消耗助力次数"]={{},"助力的不消耗助力次数 "}
+c["助力的攻击有 30% 的几率不消耗助力次数 低血时不能偷取"]={{},"助力的不消耗助力次数 不能偷取 "}
 c["对流血敌人的命中值 +450"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=450}},nil}
+c["助力的攻击有 30% 的几率不消耗助力次数"]={{},"助力的不消耗助力次数 "}
 c["不能使用胸甲 15% 攻击格挡率"]={nil,"不能使用胸甲 15% 攻击格挡率 "}
-c["其中 1 个增加的天赋为【猛烈灌注】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="猛烈灌注"}},nil}
 c["受到【脆弱】诅咒时，敌人攻击你会特别不幸 你受到 10 级【脆弱】的诅咒"]={nil,"受到【脆弱】诅咒时，敌人攻击你会特别不幸 你受到 10 级【脆弱】的诅咒 "}
-c["该装备的能量护盾提高 225%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=225}},nil}
+c["其中 1 个增加的天赋为【猛烈灌注】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="猛烈灌注"}},nil}
+c["愤怒没有保留效果"]={{[1]={[1]={skillId="Anger",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationFlat",value=0}},[2]={[1]={skillId="Anger",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationFlat",value=0}},[3]={[1]={skillId="Anger",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationPercent",value=0}},[4]={[1]={skillId="Anger",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationPercent",value=0}}},nil}
 c["格挡时 10% 几率获得耐力球"]={{},"格挡时 获得耐力球 "}
-c["攻击附加 20 - 30 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=20},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=30}},nil}
 c["每秒生命偷取提高 100%"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=100}},nil}
+c["攻击附加 20 - 30 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=20},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=30}},nil}
 c["此物品上的技能石受到 30 级的 致盲 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=30,skillId="SupportBlind"}}},nil}
-c["此物品上的技能石受到 6 级的 致盲 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=6,skillId="SupportBlind"}}},nil}
 c["范围内配置的力量和智慧总计 40 点时，虹光技能不能选择冰霜效果"]={nil,"范围内配置的力量和智慧总计 40 点时，虹光技能不能选择冰霜效果 "}
 c["若近期内你获得暴走状态，击败敌人时额外获得 1 个瓦尔灵魂"]={{},"若近期内你获得暴走状态，击败敌人时"}
 c["无法偷取 不能偷取生命"]={nil,"无法偷取 不能偷取生命 "}
 c["惩戒可以影响魔蛊免疫的敌人"]={nil,"惩戒可以影响魔蛊免疫的敌人 "}
-c["此物品上的技能石受到 18 级的 致盲 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportBlind"}}},nil}
+c["此物品上的技能石受到 6 级的 致盲 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=6,skillId="SupportBlind"}}},nil}
 c["额外 3% 几率掉落知识卷轴"]={{},""}
-c["此物品上的技能石受到 30 级的 快速攻击 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=30,skillId="SupportFasterAttack"}}},nil}
+c["此物品上的技能石受到 18 级的 致盲 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportBlind"}}},nil}
 c["火之化身范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="火之化身"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="火之化身",value=true}}},nil}
+c["此物品上的技能石受到 30 级的 快速攻击 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=30,skillId="SupportFasterAttack"}}},nil}
 c["此物品上的技能石受到 12 级的 快速攻击 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=12,skillId="SupportFasterAttack"}}},nil}
 c["此物品上的技能石受到 18 级的 快速攻击 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportFasterAttack"}}},nil}
 c["此物品上的技能石受到 30 级的 近战物理伤害 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=30,skillId="SupportMeleePhysicalDamage"}}},nil}
-c["此物品上的技能石受到 18 级的 近战物理伤害 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportMeleePhysicalDamage"}}},nil}
 c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 秘术保佑"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 秘术保佑 "}
+c["此物品上的技能石受到 18 级的 近战物理伤害 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportMeleePhysicalDamage"}}},nil}
 c["你使用药剂时移除腐化之血效果 暴击时获得 1 充能 你使用药剂时回复 6% 生命"]={nil,"你使用药剂时移除腐化之血效果 暴击时获得 1 充能 你使用药剂时回复 6% 生命 "}
 c["当你没有获得【火之化身】时，+1000 护甲"]={{[1]={[1]={neg=true,type="Condition",var="Have火之化身Keystone"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1000}},nil}
-c["被击中时有 5% 几率制造感电地面"]={{},"被时制造感电地面 "}
 c["图腾施放的法术造成的伤害提高 25%"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=25}},nil}
+c["被击中时有 5% 几率制造感电地面"]={{},"被时制造感电地面 "}
 c["击中未被诅咒目标时，有 20% 几率对其施放任意诅咒 当敌人击中你时给予对方一个随机魔蛊，并且无视诅咒限制"]={{},"未被诅咒目标时，对其施放任意诅咒 当敌人击中你时给予对方一个随机魔蛊，并且无视诅咒限制 "}
-c["击中未被诅咒目标时，有 20% 几率对其施放任意诅咒"]={{},"未被诅咒目标时，对其施放任意诅咒 "}
 c["禁断之肉上有匹配的词缀则配置 意识圣殿"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="意识圣殿",side="之肉"}}},nil}
+c["击中未被诅咒目标时，有 20% 几率对其施放任意诅咒"]={{},"未被诅咒目标时，对其施放任意诅咒 "}
 c["该装备的能量护盾提高 170%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=170}},nil}
 c["攻击和法术附加 1 - 80 基础闪电伤害"]={{[1]={flags=0,keywordFlags=196608,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=196608,name="LightningMax",type="BASE",value=80}},nil}
-c["被击中时触发 10 级的感电地面"]={nil,"被击中时触发 10 级的感电地面 "}
 c["魔卫击败敌人时，产生的爆炸会造成火焰伤害"]={nil,"魔卫击败敌人时，产生的爆炸会造成火焰伤害 "}
-c["持爪类或匕首时，+6% 中毒持续伤害加成"]={{[1]={[1]={type="Condition",varList={[1]="UsingClaw",[2]="UsingDagger"}},flags=0,keywordFlags=0,name="DotMultiplier",type="BASE",value=6},[2]={[1]={type="Condition",varList={[1]="UsingClaw",[2]="UsingDagger"}},flags=0,keywordFlags=0,name="2097152",type="BASE",value=6}},nil}
+c["被击中时触发 10 级的感电地面"]={nil,"被击中时触发 10 级的感电地面 "}
 c["受到【奋锐光环】影响时，位于奉献地面之上的敌人受到的暴击几率提高 120%"]={{[1]={[1]={type="Condition",var="AffectedBy奋锐光环"},[2]={actor="enemy",type="ActorCondition",var="OnConsecratedGround"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=120}},nil}
 c["+20 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=20}},nil}
 c["法术伤害压制率在能量护盾全满时 +10%"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=10}},nil}
-c["无法拥有非灵体召唤物 +2 最大灵体数量"]={{},"无法拥有非灵体召唤物  最大灵体数量 "}
+c["持爪类或匕首时，+6% 中毒持续伤害加成"]={{[1]={[1]={type="Condition",varList={[1]="UsingClaw",[2]="UsingDagger"}},flags=0,keywordFlags=0,name="DotMultiplier",type="BASE",value=6},[2]={[1]={type="Condition",varList={[1]="UsingClaw",[2]="UsingDagger"}},flags=0,keywordFlags=0,name="2097152",type="BASE",value=6}},nil}
 c["投射物击中时有 10% 的几率嘲讽敌人"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=10}}," to Taunt Enemies on  Hit "}
 c["魔卫击败敌人时，产生的爆炸会造成火焰伤害 被魔卫的击中击败的敌人会爆炸，造成其生命 50% 的火焰伤害"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireDamage",type="BASE",value=50}}}},"击败敌人时，产生的爆炸会造成 被魔卫的击中击败的敌人会爆炸，造成其生命 火焰伤害 "}
+c["无法拥有非灵体召唤物 +2 最大灵体数量"]={{},"无法拥有非灵体召唤物  最大灵体数量 "}
 c["无法拥有非灵体召唤物"]={nil,"无法拥有非灵体召唤物 "}
-c["+1000 灵体最大生命"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=1000}}}},nil}
 c["该装备的护甲与闪避提高 135%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=135}},nil}
+c["+1000 灵体最大生命"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=1000}}}},nil}
 c["+22% 冰霜持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="ColdDotMultiplier",type="BASE",value=22}},nil}
 c["能量护盾的回复速度降低 50%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=-50}},nil}
 c["+75 最大魔力"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=75}},nil}
 c["此物品上的技能石受到 20 级的 集中效应 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="SupportConcentratedEffect"}}},nil}
 c["【愤怒狂灵】对周围敌人溅射火焰伤害"]={nil,"【愤怒狂灵】对周围敌人溅射火焰伤害 "}
 c["受到的暴击伤害降低 30%"]={{[1]={flags=0,keywordFlags=0,name="ReduceCritExtraDamage",type="BASE",value=30}},nil}
-c["【愤怒狂灵】击败被点燃的敌人后会刷新自身持续时间"]={nil,"【愤怒狂灵】击败被点燃的敌人后会刷新自身持续时间 "}
 c["所有元素伤害转换为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageConvertToChaos",type="BASE",value=100},[2]={flags=0,keywordFlags=0,name="FireDamageConvertToChaos",type="BASE",value=100},[3]={flags=0,keywordFlags=0,name="LightningDamageConvertToChaos",type="BASE",value=100}},nil}
-c["【愤怒狂灵】击中后必定造成点燃"]={{[1]={[1]={skillName="召唤愤怒狂灵",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=100}}}},nil}
+c["【愤怒狂灵】击败被点燃的敌人后会刷新自身持续时间"]={nil,"【愤怒狂灵】击败被点燃的敌人后会刷新自身持续时间 "}
 c["每装备 1 个被腐化的物品，所有抗性 -5%"]={{[1]={[1]={type="Multiplier",var="CorruptedItem"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-5},[2]={[1]={type="Multiplier",var="CorruptedItem"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=-5}},nil}
-c["召唤愤怒狂灵的最大数量减少 75%"]={{[1]={flags=0,keywordFlags=0,name="ActiveRagingSpiritLimit",type="INC",value=-75}},nil}
+c["【愤怒狂灵】击中后必定造成点燃"]={{[1]={[1]={skillName="召唤愤怒狂灵",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=100}}}},nil}
 c["敏捷提高 12%"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=12}},nil}
 c["药剂持续期间，使周围的敌人感电"]={nil,"药剂持续期间，使周围的敌人感电 "}
 c["对流血敌人的攻击伤害提高 40%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=1,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
+c["【召唤愤怒狂灵】的伤害提高 250%"]={{[1]={[1]={skillName="召唤愤怒狂灵",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="INC",value=250}},nil}
 c["近期你每消耗 200 魔力，法术伤害便提高 23%,最多可提高 2000%"]={{[1]={[1]={div=200,limit=2000,limitTotal=true,type="Multiplier",var="ManaSpentRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=23}},nil}
 c["近期你每消耗 200 魔力，法术伤害便提高 25%,最多可提高 2000%"]={{[1]={[1]={div=200,limit=2000,limitTotal=true,type="Multiplier",var="ManaSpentRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["近期你每消耗 200 魔力，法术伤害便提高 60%,最多可提高 2000%"]={{[1]={[1]={div=200,limit=2000,limitTotal=true,type="Multiplier",var="ManaSpentRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
-c["药剂的非即时生效类魔力回复也会同时回复生命"]={nil,"药剂的非即时生效类魔力回复也会同时回复生命 "}
 c["给冰缓的敌人造成感电效果时，有 10% 的几率获得一个暴击球"]={{[1]={flags=0,keywordFlags=0,name="Condition:Chilled",type="FLAG",value=true}},"a Power Charge when you Shock a  Enemy "}
 c["+6% 流血持续伤害加成"]={{[1]={flags=0,keywordFlags=4194304,name="DotMultiplier",type="BASE",value=6}},nil}
-c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 竞技挑战者"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 竞技挑战者 "}
+c["药剂的非即时生效类魔力回复也会同时回复生命"]={nil,"药剂的非即时生效类魔力回复也会同时回复生命 "}
+c["禁断之火上有匹配的词缀则配置 竞技挑战者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="竞技挑战者",side="之火"}}},nil}
 c["每个暴击球可使中毒伤害提高 18%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=2097152,name="Damage",type="INC",value=18}},nil}
 c["法术附加 19 - 34 基础混沌伤害"]={{[1]={flags=0,keywordFlags=131072,name="ChaosMin",type="BASE",value=19},[2]={flags=0,keywordFlags=131072,name="ChaosMax",type="BASE",value=34}},nil}
-c["自身的每个增益会为法术附加 3 - 7 基础火焰伤害"]={{[1]={[1]={type="Multiplier",var="BuffOnSelf"},flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=3},[2]={[1]={type="Multiplier",var="BuffOnSelf"},flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=7}},nil}
 c["+1 魔卫数量上限"]={{[1]={flags=0,keywordFlags=0,name="ActiveZombieLimit",type="BASE",value=1}},nil}
-c["击中被 1 层蜘蛛网影响的敌人时，有 10% 几率获得 1 个暴击球 每拥有 1 个暴击球，有 10% 几率造成中毒"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=262144,name="PoisonChance",type="BASE",value=10}},"被 1 层蜘蛛网影响的敌人时，获得 1 个暴击球 10% 几率 "}
+c["自身的每个增益会为法术附加 3 - 7 基础火焰伤害"]={{[1]={[1]={type="Multiplier",var="BuffOnSelf"},flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=3},[2]={[1]={type="Multiplier",var="BuffOnSelf"},flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=7}},nil}
 c["每有 1 个轮回球，便获得 1% 击中物理伤害减免"]={{[1]={[1]={type="Multiplier",var="SiphoningCharge"},flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=1}},nil}
 c["每个暴击球可使法术伤害提高 6%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=2,keywordFlags=0,name="Damage",type="INC",value=6}},nil}
 c["获得附加混沌伤害，等于结界的 25%"]={{[1]={[1]={div=4,stat="Ward",type="PerStat"},flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=1},[2]={[1]={div=4,stat="Ward",type="PerStat"},flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=1}},nil}
+c["击中被 1 层蜘蛛网影响的敌人时，有 10% 几率获得 1 个暴击球 每拥有 1 个暴击球，有 10% 几率造成中毒"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=262144,name="PoisonChance",type="BASE",value=10}},"被 1 层蜘蛛网影响的敌人时，获得 1 个暴击球 10% 几率 "}
 c["击中被 1 层蜘蛛网影响的敌人时，有 10% 几率获得 1 个暴击球"]={{},"被 1 层蜘蛛网影响的敌人时，获得 1 个暴击球 "}
 c["法术附加 21 - 36 基础混沌伤害"]={{[1]={flags=0,keywordFlags=131072,name="ChaosMin",type="BASE",value=21},[2]={flags=0,keywordFlags=131072,name="ChaosMax",type="BASE",value=36}},nil}
 c["+65 最大魔力"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=65}},nil}
 c["获得额外混沌伤害，其数值等同于火焰、冰霜、闪电伤害的 8%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsChaos",type="BASE",value=8}},nil}
 c["当你使用技能时触发 10 级的【虚空凝视】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=10,skillId="VoidGaze",triggered=true}}},nil}
-c["禁断之肉上有匹配的词缀则配置 虚无之塔"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="虚无之塔",side="之肉"}}},nil}
 c["召唤生物的伤害提高 36%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=36}}}},nil}
 c["召唤生物的暴击率提高 20%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=20}}}},nil}
+c["该装备的攻击暴击率提高 30%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
 c["敌人身上每个诅咒使你对他附加 37-71 点混沌伤害"]={{[1]={flags=0,keywordFlags=2,name="ChaosDamage",type="BASE",value=-71}},"敌人身上每个使你对他附加 37 "}
 c["将物理伤害的 75% 转化为一种随机元素"]={nil,"将物理伤害的 75% 转化为一种随机元素 "}
 c["敌人身上每个诅咒可使伤害提高 20%"]={{[1]={[1]={type="Multiplier",var="CurseOnEnemy"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
-c["诅咒持续时间延长 50%"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=50}},nil}
 c["此物品上装备的【召唤生物技能石】等级 +3"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="minion",value=3}}},nil}
 c["闪电伤害提高 12%"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=12}},nil}
+c["此物品上装备的【诅咒技能石】等级 +2"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="curse",value=2}}},nil}
 c["此物品上装备的【诅咒技能石】等级 +1"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="curse",value=1}}},nil}
 c["+190 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=190}},nil}
 c["爪类攻击 +20% 暴击伤害加成"]={{[1]={flags=262148,keywordFlags=0,name="CritMultiplier",type="BASE",value=20}},nil}
 c["每个暴击球可使伤害提高 10%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
-c["召唤生物的伤害提高 70%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=70}}}},nil}
 c["优雅的魔力保留效能提高 25%"]={{[1]={[1]={skillName="优雅",type="SkillName"},flags=0,keywordFlags=0,name="ManaReservationEfficiency",type="INC",value="25"}},nil}
+c["+6 愤怒狂灵数量上限"]={{[1]={flags=0,keywordFlags=0,name="ActiveRagingSpiritLimit",type="BASE",value=6}},nil}
 c["被击中时承受 5 额外物理伤害 被击中时承受 25 额外物理伤害"]={{[1]={flags=0,keywordFlags=262144,name="PhysicalDamage",type="BASE",value=5}},"被时承受  被击中时承受 25 额外物理伤害 "}
-c["反射 5 物理伤害给近战攻击者"]={{},nil}
 c["若你被火焰触碰，则获得肾上腺素"]={nil,"若你被火焰触碰，则获得肾上腺素 "}
-c["钢铁呼唤反射伤害提高 50% 钢铁呼唤反射伤害提高 25%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=50}},"钢铁呼唤反射 钢铁呼唤反射伤害提高 25% "}
+c["反射 5 物理伤害给近战攻击者"]={{},nil}
 c["灵巧对夜刃辅助的技能的暴击伤害加成 +40%"]={{[1]={flags=0,keywordFlags=0,name="NightbladeElusiveCritMultiplier",type="BASE",value=40}},nil}
-c["若所有装备均为【裂界之器】，使用药剂时移除 1 个异常状态"]={nil,"若所有装备均为【裂界之器】，使用药剂时移除 1 个异常状态 "}
+c["钢铁呼唤反射伤害提高 50% 钢铁呼唤反射伤害提高 25%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=50}},"钢铁呼唤反射 钢铁呼唤反射伤害提高 25% "}
 c["该装备的护甲与闪避提高 175%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=175}},nil}
-c["攻击伤害的 0.3% 转化为魔力偷取"]={{[1]={flags=1,keywordFlags=0,name="DamageManaLeech",type="BASE",value=0.3}},nil}
+c["若所有装备均为【裂界之器】，使用药剂时移除 1 个异常状态"]={nil,"若所有装备均为【裂界之器】，使用药剂时移除 1 个异常状态 "}
 c["持盾牌时 +4% 元素抗性"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=4}},nil}
+c["攻击伤害的 0.3% 转化为魔力偷取"]={{[1]={flags=1,keywordFlags=0,name="DamageManaLeech",type="BASE",value=0.3}},nil}
 c["攻击伤害的 0.6% 会转化为生命偷取"]={{[1]={flags=1,keywordFlags=0,name="DamageLifeLeech",type="BASE",value=0.6}},nil}
 c["物理伤害在使用双手近战武器时提高 30%"]={{[1]={flags=301989888,keywordFlags=0,name="PhysicalDamage",type="INC",value=30}},nil}
 c["此物品上的技能石受到 10 级的 低阶毒化(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportChanceToPoison"}}},nil}
 c["对法术伤害的增幅与减益也套用于攻击，等于其数值的 150%"]={{[1]={flags=0,keywordFlags=0,name="SpellDamageAppliesToAttacks",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedSpellDamageAppliesToAttacks",type="INC",value=150}},nil}
-c["对法术伤害的增幅与减益也会套用于攻击上"]={{[1]={flags=0,keywordFlags=0,name="SpellDamageAppliesToAttacks",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedSpellDamageAppliesToAttacks",type="INC",value=100}},nil}
 c["魔像施放技能的冷却速度提高 25%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=25}},nil}
+c["对法术伤害的增幅与减益也会套用于攻击上"]={{[1]={flags=0,keywordFlags=0,name="SpellDamageAppliesToAttacks",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedSpellDamageAppliesToAttacks",type="INC",value=100}},nil}
 c["攻击伤害的 0.8% 会转化为生命偷取"]={{[1]={flags=1,keywordFlags=0,name="DamageLifeLeech",type="BASE",value=0.8}},nil}
 c["施法速度提高 9%"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=9}},nil}
-c["附加 12 - 24 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=12},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=24}},nil}
 c["增加【万物皆动】"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="clusterJewelKeystone",value="万物皆动"}}},nil}
-c["法术的基础暴击率等於主手武器的暴击率"]={{[1]={flags=2,keywordFlags=0,name="BaseCritFromMainHand",type="FLAG",value=true}},nil}
+c["附加 12 - 24 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=12},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=24}},nil}
 c["陷阱被敌人触发时，有 30% 几率获得 4 秒暗影迷踪 你的陷阱被敌人触发时回复 100 生命"]={{[1]={flags=0,keywordFlags=4096,name="Life",type="BASE",value=30}},"被敌人触发时，获得 4 秒暗影迷踪 你的陷阱被敌人触发时回复 100  "}
+c["法术的基础暴击率等於主手武器的暴击率"]={{[1]={flags=2,keywordFlags=0,name="BaseCritFromMainHand",type="FLAG",value=true}},nil}
 c["施放时避免眩晕打断 法术的基础暴击率等於主手武器的暴击率"]={nil,"施放时避免眩晕打断 法术的基础暴击率等於主手武器的暴击率 "}
-c["经验值获取提高 5% 火焰、冰霜、闪电伤害提高 20%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=5}},"经验值获取 提高 20% "}
 c["药剂持续期间，受到的击中伤害的 15% 转化为生命偷取 药剂持续期间，物品掉落稀有度提高 30%"]={{[1]={[1]={type="Condition",var="UsingFlask"},[2]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=30}},"受到的的 15% 转化为生命偷取 物品掉落稀有度 "}
 c["击败敌人有 8% 的几率获得狂怒球 每个狂怒球可使伤害提高 8%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=8}},"击败敌人获得狂怒球 提高 8% "}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 势不可挡"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 势不可挡 "}
+c["经验值获取提高 5% 火焰、冰霜、闪电伤害提高 20%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=5}},"经验值获取 提高 20% "}
+c["禁断之火上有匹配的词缀则配置 势不可挡"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="势不可挡",side="之火"}}},nil}
 c["当你用弓攻击时，有 25% 几率触发一个插槽内的法术 你用弓类攻击时触发一个插入的法术，它有 0.3 秒冷却时间"]={{},"当你用时，触发一个插槽内的法术 你用弓类攻击时触发一个插入的法术，它有 0.3 秒冷却时间 "}
-c["当你用弓攻击时，有 25% 几率触发一个插槽内的法术"]={{},"当你用时，触发一个插槽内的法术 "}
 c["元素要害可以影响魔蛊免疫的敌人"]={nil,"元素要害可以影响魔蛊免疫的敌人 "}
-c["禁断之火上有匹配的词缀则配置 免费力量"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="免费力量",side="之火"}}},nil}
-c["闪避值提高 115%"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=115}},nil}
+c["当你用弓攻击时，有 25% 几率触发一个插槽内的法术"]={{},"当你用时，触发一个插槽内的法术 "}
+c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 强力复仇"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 强力复仇 "}
 c["攻击与施法速度提高 9%"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=9}},nil}
 c["冰霜伤害提高 12%"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=12}},nil}
+c["闪避值提高 115%"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=115}},nil}
 c["右戒指栏位：每秒回复 4% 能量护盾"]={{[1]={[1]={num=2,type="SlotNumber"},flags=0,keywordFlags=0,name="EnergyShieldRegenPercent",type="BASE",value=4}},nil}
-c["低血时最大闪避值提高 50%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},nil}
 c["其中 1 个增加的天赋为【破法】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="破法"}},nil}
 c["无魔力保留时，法术伤害提高 60%"]={{[1]={[1]={stat="ManaReserved",threshold=0,type="StatThreshold",upper=true},flags=2,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
+c["低血时最大闪避值提高 50%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},nil}
 c["你获得【鸟之力量】或【鸟之斗魄】时有 25% 几率触发 20 级的【鸟之龙卷】 你获得【鸟之力量】或【鸟之斗魄】时触发 20 级的【鸟之龙卷】"]={nil,nil}
-c["+225% 近战攻击暴击伤害加成"]={{[1]={flags=256,keywordFlags=0,name="CritMultiplier",type="BASE",value=225}},nil}
-c["物品稀有度提高 23%"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=23}},nil}
+c["----------------------------"]={nil,"---------------------------- "}
 c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 不知疲倦"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 不知疲倦 "}
 c["每级提高 1% 混沌伤害"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=1}},nil}
-c["+900 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=900}},nil}
+c["角色体型缩小 10%"]={{},"角色体型 "}
 c["能量护盾全满状态下防止+6%的被压制法术伤害 分配给你的各类专精可增加2%伤害 伤害的 2% 转化为能量护盾偷取 附近敌方怪物的行动速度最多达到基础值的92%"]={{[1]={flags=2,keywordFlags=0,name="EnergyShield",type="BASE",value=6}},"全满状态下防止的被压制伤害 分配给你的各类专精可增加2%伤害 伤害的 2% 转化为能量护盾偷取 附近敌方怪物的行动速度最多达到基础值的92% "}
-c["每 200 命中值可使攻击造成的投射物伤害提高 1%"]={{[1]={[1]={div=200,stat="Accuracy",type="PerStat"},flags=1025,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
+c["+900 命中值"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=900}},nil}
 c["+18 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=18}},nil}
-c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 光芒圣战军"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 光芒圣战军 "}
+c["每 200 命中值可使攻击造成的投射物伤害提高 1%"]={{[1]={[1]={div=200,stat="Accuracy",type="PerStat"},flags=1025,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
+c["禁断之火上有匹配的词缀则配置 光芒圣战军"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="光芒圣战军",side="之火"}}},nil}
 c["此物品上的技能石受到 30 级的 寒冰转烈焰 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=30,skillId="SupportColdToFire"}}},nil}
-c["对施法速度的增强与减弱也作用于攻击速度"]={{[1]={flags=0,keywordFlags=0,name="CastSpeedAppliesToAttacks",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedCastSpeedAppliesToAttacks",type="MAX",value=100}},nil}
 c["Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield"]={nil,"Energy Shield starts at zero Cannot Recharge or Regenerate Energy Shield "}
 c["敌人被点燃的持续时间缩短 90%"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-90}},nil}
-c["-10% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=-10}},nil}
+c["对施法速度的增强与减弱也作用于攻击速度"]={{[1]={flags=0,keywordFlags=0,name="CastSpeedAppliesToAttacks",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedCastSpeedAppliesToAttacks",type="MAX",value=100}},nil}
 c["你使用瓦尔技能时获得自身最大数量的暴击球"]={nil,"你使用瓦尔技能时获得自身最大数量的暴击球 "}
-c["攻击被冰冻的敌人获得等同于100%冰霜伤害的额外火焰伤害"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=100}},nil}
+c["-10% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=-10}},nil}
 c["当你诅咒一个未被诅咒的敌人时恢复 1% 魔力"]={nil,"当你诅咒一个未被诅咒的敌人时恢复 1% 魔力 "}
-c["每对敌人造成1%的冰缓效果就造成1%的冰霜伤害，并视为额外的火焰伤害"]={{[1]={[1]={div=1,stat="EnemyChillEffect",type="PerStat"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value="1"}},nil}
+c["攻击被冰冻的敌人获得等同于100%冰霜伤害的额外火焰伤害"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value=100}},nil}
 c["你击中造成的感电效果始终使承受的伤害提高至少 15%"]={{[1]={flags=0,keywordFlags=0,name="ShockBase",type="BASE",value=15}},nil}
-c["近期内你若使用过冰霜技能，则火焰伤害提高 30%"]={{[1]={[1]={type="Condition",var="UsedColdSkillRecently"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=30}},nil}
+c["每对敌人造成1%的冰缓效果就造成1%的冰霜伤害，并视为额外的火焰伤害"]={{[1]={[1]={div=1,stat="EnemyChillEffect",type="PerStat"},flags=0,keywordFlags=0,name="ColdDamageGainAsFire",type="BASE",value="1"}},nil}
 c["经验值获取降低 50% 物理攻击伤害的 0.4% 转化为魔力偷取"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamage",type="INC",value=-50}},"经验值获取 的 0.4% 转化为魔力偷取 "}
-c["闪电伤害击中时有 10% 的几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=10}},nil}
+c["近期内你若使用过冰霜技能，则火焰伤害提高 30%"]={{[1]={[1]={type="Condition",var="UsedColdSkillRecently"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=30}},nil}
 c["+16% 火焰与冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=16},[2]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=16}},nil}
-c["获得 +35% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=35}},nil}
+c["闪电伤害击中时有 10% 的几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=10}},nil}
 c["从盾牌获取的防御提高 40%"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Defences",type="INC",value=40}},nil}
 c["移动速度提高 10%"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}},nil}
+c["获得 +35% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=35}},nil}
 c["反射 4 物理伤害给近战攻击者"]={{},nil}
-c["获得 +40% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=40}},nil}
 c["+15 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=15}},nil}
 c["每 10 点奉献使对敌人施加的非伤害异常状态效果提高 3%"]={{[1]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="EnemyShockEffect",type="INC",value=3},[2]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="EnemyChillEffect",type="INC",value=3},[3]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="EnemyFreezeEffech",type="INC",value=3},[4]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="EnemyScorchEffect",type="INC",value=3},[5]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="EnemyBrittleEffect",type="INC",value=3},[6]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="EnemySapEffect",type="INC",value=3}},nil}
 c["该装备的攻击暴击率提高 28%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=28}},nil}
 c["图腾 +20% 元素抗性"]={{[1]={flags=0,keywordFlags=16384,name="ElementalResist",type="BASE",value=20}},nil}
-c["物品稀有度提高 10%"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=10}},nil}
+c["获得 +40% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=40}},nil}
 c["你受到 20 级【脆弱】的诅咒"]={{[1]={flags=0,keywordFlags=0,name="ExtraCurse",type="LIST",value={applyToPlayer=true,level=20,skillId="Vulnerability"}}},nil}
 c["你受到 10 级【脆弱】的诅咒"]={{[1]={flags=0,keywordFlags=0,name="ExtraCurse",type="LIST",value={applyToPlayer=true,level=10,skillId="Vulnerability"}}},nil}
 c["理智状态下，被击中时在一秒内再生 10% 生命"]={nil,"理智状态下，被击中时在一秒内再生 10% 生命 "}
@@ -5490,145 +5478,146 @@ c["获得【灵巧】有 25% 几率失去一个暴击球"]={{},"获得【灵巧�
 c["双持攻击的攻击速度提高 10%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=1,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["锤类、短杖、长杖攻击造成的击中和异常状态伤害提高 20%"]={{[1]={[1]={modFlags=3145728,type="ModFlagOr"},flags=4,keywordFlags=786432,name="Damage",type="INC",value=20}},nil}
 c["攻击击中时有 25% 的几率穿刺敌人"]={{[1]={flags=0,keywordFlags=65536,name="ImpaleChance",type="BASE",value=25}},nil}
+c["物品稀有度提高 10%"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=10}},nil}
 c["+160% 攻击和法术暴击伤害加成"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=160}},nil}
 c["免疫感电"]={{[1]={flags=0,keywordFlags=0,name="AvoidShock",type="BASE",value=100}},nil}
 c["攻击附加 15 - 25 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=15},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=25}},nil}
 c["攻击附加 6 - 12 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=6},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=12}},nil}
-c["你的召唤生物死亡时产生腐蚀地面，每秒造成等同它们 20% 最大生命的混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ExtraMinionSkill",type="LIST",value={skillId="SiegebreakerCausticGround"}}},nil}
 c["击败敌人时有 20% 几率触发 20 级的【藤蔓抽击】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level="20",skillId="TentacleSmash",triggered=true}}},nil}
 c["敌人受到的元素异常状态时间延长 15%"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=15},[3]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15},[4]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=15},[5]={flags=0,keywordFlags=0,name="EnemyScorchDuration",type="INC",value=15},[6]={flags=0,keywordFlags=0,name="EnemyBrittleDuration",type="INC",value=15},[7]={flags=0,keywordFlags=0,name="EnemySapDuration",type="INC",value=15}},nil}
 c["弓类的物理伤害提高 14%"]={{[1]={flags=131076,keywordFlags=0,name="PhysicalDamage",type="INC",value=14}},nil}
+c["对冰缓敌人的击中和异常状态伤害提高 70%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=70}},nil}
 c["有 25% 的几率避免被冰缓"]={{[1]={flags=0,keywordFlags=0,name="AvoidChilled",type="BASE",value=25}},nil}
-c["禁断之火上有匹配的词缀则配置 影响"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="影响",side="之火"}}},nil}
 c["用生命施放技能时，其伤害提高 30%"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=0,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["其中 1 个增加的天赋为【弥补之源】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="弥补之源"}},nil}
-c["晕眩和格挡回复降低 10%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=-10}},nil}
+c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 老当益壮"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 老当益壮 "}
 c["Regenerate 2 Mana Per Second"]={{}," "}
+c["晕眩和格挡回复降低 10%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=-10}},nil}
 c["50% 几率避免被冰冻"]={{[1]={flags=0,keywordFlags=0,name="AvoidFrozen",type="BASE",value=50}},nil}
-c["受到击中物理伤害的 8% 转化为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=8}},nil}
 c["【灰烬之捷】的增益效果提高 60%"]={{[1]={[1]={skillName="灰烬之捷",type="SkillName"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=60}},nil}
 c["击败敌人时，召唤生物获得【不洁之力】，持续 5 秒"]={nil,"击败敌人时，【不洁之力】，持续 5 秒 "}
 c["若范围内至少有 40 点敏捷，【双持打击】持握匕首时 +30% 暴击伤害加成"]={{[1]={flags=512,keywordFlags=0,name="Dex",type="BASE",value=30}},"若内至少有 40 点，【双持打击】持握匕首时  暴击伤害加成 "}
-c["+110 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=110}},nil}
+c["受到击中物理伤害的 8% 转化为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=8}},nil}
 c["受捷影响时，持续伤害提高 30%"]={{[1]={[1]={type="Condition",varList={[1]="AffectedBy苦痛之捷",[2]="AffectedBy纯净之捷",[3]="AffectedBy寒冰之捷",[4]="AffectedBy灰烬之捷",[5]="AffectedBy闪电之捷"}},flags=8,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
-c["Armour is increased by Overcapped Fire Resistance"]={nil,"Armour is increased by Overcapped Fire Resistance "}
+c["+110 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=110}},nil}
 c["有 100% 的几率以 200% 护甲值进行防御"]={{[1]={[1]={type="Condition",var="ArmourMax"},flags=0,keywordFlags=0,name="ArmourDefense",source="Armour Mastery: Max Calc",type="MAX",value=100},[2]={[1]={type="Condition",var="ArmourAvg"},flags=0,keywordFlags=0,name="ArmourDefense",source="Armour Mastery: Average Calc",type="MAX",value=100},[3]={[1]={neg=true,type="Condition",var="ArmourMax"},[2]={neg=true,type="Condition",var="ArmourAvg"},flags=0,keywordFlags=0,name="ArmourDefense",source="Armour Mastery: Min Calc",type="MAX",value=100}},nil}
 c["攻击打出暴击时，有 50% 几率造成瘫痪 若周围有稀有或传奇敌人，则 +60% 基础暴击伤害加成"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=1,keywordFlags=0,name="CritMultiplier",type="BASE",value=50}},"打出造成瘫痪 若周围有稀有或传奇敌人，则 +60%  "}
+c["Armour is increased by Overcapped Fire Resistance"]={nil,"Armour is increased by Overcapped Fire Resistance "}
 c["附加 18 - 27 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=18},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=27}},nil}
-c["被击中时承受额外 -20 火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireDamageTakenWhenHit",type="BASE",value=-20}},nil}
 c["攻击附加 8 - 16 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=8},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=16}},nil}
+c["被击中时承受额外 -20 火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireDamageTakenWhenHit",type="BASE",value=-20}},nil}
 c["+120 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=120}},nil}
-c["范围效果提高 20%"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
 c["生效时间延长 30%"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=30}},nil}
-c["+100 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=100}},nil}
+c["范围效果提高 20%"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
 c["攻击击中有 5% 几率致盲敌人"]={{}," 致盲敌人 "}
 c["每 4 点敏捷 +1 生命"]={{[1]={[1]={div=4,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},nil}
 c["15% 的几率使敌人受到冰冻，感电与点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=15},[3]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=15}},nil}
 c["击败敌人时回复 3% 最大魔力 【灼热光线】的光束长度延长 10%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=10}},"击败敌人时回复 3%  【灼热光线】的光束长度 "}
+c["+100 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=100}},nil}
 c["获得 12 级的【召唤巨石魔像】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level="12",skillId="SummonRockGolem"}}},nil}
-c["禁断之肉上有匹配的词缀则配置 暴徒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="暴徒",side="之肉"}}},nil}
+c["需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 处刑者"]={nil,"需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 处刑者 "}
 c["当力量超过 1000 时，魔卫造成伤害的 2% 将会转化为给你的生命偷取"]={nil,"当力量超过 1000 时，魔卫造成伤害的 2% 将会转化为给你的生命偷取 "}
-c["每 500 点力量可使魔卫召唤上限额外提高 1 个"]={{[1]={[1]={div=500,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="ActiveZombieLimit",type="BASE",value=1}},nil}
 c["冰霜伤害提高 (25-35)%"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="BASE",value=-35}},"提高 (25)% "}
+c["每 500 点力量可使魔卫召唤上限额外提高 1 个"]={{[1]={[1]={div=500,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="ActiveZombieLimit",type="BASE",value=1}},nil}
 c["每 300 点力量可使魔卫召唤上限额外提高 1 个"]={{[1]={[1]={div=300,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="ActiveZombieLimit",type="BASE",value=1}},nil}
-c["护甲提高 110%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=110}},nil}
 c["该装备的闪避与能量护盾提高 450%"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=450}},nil}
-c["----------------------------"]={nil,"---------------------------- "}
+c["护甲提高 110%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=110}},nil}
 c["持弓类施放法术时，触发一个插入的弓类技能 施法速度提高 12%"]={{[1]={flags=131092,keywordFlags=0,name="Speed",type="INC",value=12}},"类施放法术时，触发一个插入的弓类技能  "}
 c["你获得【鸟之力量】或【鸟之斗魄】时有 25% 几率触发 20 级的【鸟之龙卷】"]={nil,nil}
+c["+225% 近战攻击暴击伤害加成"]={{[1]={flags=256,keywordFlags=0,name="CritMultiplier",type="BASE",value=225}},nil}
 c["其中 1 个增加的天赋为【血肉盛宴】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="血肉盛宴"}},nil}
 c["专注时造成的异常状态持续时间延长 111%"]={{[1]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=111},[2]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=111},[3]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=111},[4]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=111},[5]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=111},[6]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=111},[7]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyScorchDuration",type="INC",value=111},[8]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyBrittleDuration",type="INC",value=111},[9]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemySapDuration",type="INC",value=111}},nil}
-c["专注时造成的异常状态持续时间延长 140%"]={{[1]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=140},[2]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=140},[3]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=140},[4]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=140},[5]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=140},[6]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=140},[7]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyScorchDuration",type="INC",value=140},[8]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyBrittleDuration",type="INC",value=140},[9]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemySapDuration",type="INC",value=140}},nil}
 c["每个暴击球可使每秒回复 0.5% 生命"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.5}},nil}
-c["你在专注时触发插入的法术，它有 0.25 秒冷却时间"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},[2]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportTriggerSpellFromHelmet"}}},nil}
+c["专注时造成的异常状态持续时间延长 140%"]={{[1]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=140},[2]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=140},[3]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=140},[4]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=140},[5]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=140},[6]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=140},[7]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyScorchDuration",type="INC",value=140},[8]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemyBrittleDuration",type="INC",value=140},[9]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="EnemySapDuration",type="INC",value=140}},nil}
 c["10% 几率使敌人受到冰冻，感电与点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=10},[2]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=10},[3]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=10}},nil}
-c["当你使用技能时，能量护盾有 10% 几率开始回复 异能魔力"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=10}},"当你使用技能时，开始回复 异能魔力 "}
+c["你在专注时触发插入的法术，它有 0.25 秒冷却时间"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},[2]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportTriggerSpellFromHelmet"}}},nil}
 c["生效期间，使用瓦尔技能有 40% 几率降低阻灵术的持续时间 若生效期间使用瓦尔技能，则阻灵术持续时间缩短 10%"]={{},"使用降低阻灵术的持续时间 若生效期间使用瓦尔技能，则阻灵术持续时间缩短 10% "}
 c["非暴击无法造成伤害"]={nil,"非暴击无法造成伤害 "}
-c["每 200 点命中值可使攻击暴击率提高 2%"]={{[1]={[1]={div=200,stat="Accuracy",type="PerStat"},flags=1,keywordFlags=0,name="CritChance",type="INC",value=2}},nil}
+c["当你使用技能时，能量护盾有 10% 几率开始回复 异能魔力"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=10}},"当你使用技能时，开始回复 异能魔力 "}
 c["攻击速度提高 25%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=25}},nil}
-c["每 5 秒触发 15 级的【血肉盛宴】 该装备的能量护盾提高 220%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=220}},"每 5 秒触发 15 级的【血肉盛宴】  "}
+c["每 200 点命中值可使攻击暴击率提高 2%"]={{[1]={[1]={div=200,stat="Accuracy",type="PerStat"},flags=1,keywordFlags=0,name="CritChance",type="INC",value=2}},nil}
 c["药剂持续期间，物理伤害的 50% 转换为闪电伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="PhysicalDamageConvertToLightning",type="BASE",value=50}},nil}
 c["击败敌人有 8% 的几率获得暴击球 每个暴击球可使伤害提高 8%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=8}},"击败敌人获得暴击球 提高 8% "}
+c["每 5 秒触发 15 级的【血肉盛宴】 该装备的能量护盾提高 220%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=220}},"每 5 秒触发 15 级的【血肉盛宴】  "}
 c["插入的技能石的保留效能提高 25%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=25}}}},nil}
 c["插入的技能石的保留效果降低 20%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-20}}}},nil}
 c["插槽内的诅咒技能无视诅咒限制 +40 智慧"]={{[1]={flags=0,keywordFlags=2,name="Int",type="BASE",value=40}},"插槽内的无视诅咒限制   "}
 c["无法造成冻结或冰缓"]={{[1]={flags=0,keywordFlags=0,name="CannotFreeze",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="CannotChill",type="FLAG",value=true}},nil}
 c["50% 几率造成脆弱"]={{[1]={flags=0,keywordFlags=0,name="BrittleChance",type="BASE",value=50}},nil}
-c["+90 最大充能数量"]={{}," 最大充能数量 "}
 c["至少 150 点奉献时，位于奉献地面之上免疫元素异常状态"]={{[1]={[1]={type="Condition",var="OnConsecratedGround"},[2]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="AvoidShock",type="BASE",value=100},[2]={[1]={type="Condition",var="OnConsecratedGround"},[2]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="AvoidChilled",type="BASE",value=100},[3]={[1]={type="Condition",var="OnConsecratedGround"},[2]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="AvoidFrozen",type="BASE",value=100},[4]={[1]={type="Condition",var="OnConsecratedGround"},[2]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="AvoidIgnite",type="BASE",value=100}},nil}
 c["【极地装甲】的增益效果提高 25%"]={{[1]={[1]={skillName="极地装甲",type="SkillName"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=25}},nil}
 c["每有一个影响你的捷光环，你的技能产生的"]={nil,"每有一个影响你的捷光环，你的技能产生的 "}
 c["获得 +24% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=24}},nil}
 c["获得 -25% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-25}},nil}
+c["+90 最大充能数量"]={{}," 最大充能数量 "}
 c["无法造成感电"]={{[1]={flags=0,keywordFlags=0,name="CannotShock",type="FLAG",value=true}},nil}
 c["此物品上的技能石受到 35 级的 齐射(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportParallelProjectiles"}}},nil}
 c["25% 几率造成精疲力尽"]={{[1]={flags=0,keywordFlags=0,name="SapChance",type="BASE",value=25}},nil}
-c["38% 几率烧灼敌人"]={{[1]={flags=0,keywordFlags=0,name="ScorchChance",type="BASE",value=38}},nil}
 c["获得 +12% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=12}},nil}
 c["获得 +13% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=13}},nil}
-c["需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 酋长"]={nil,"需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 酋长 "}
-c["附加 60 - 120 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=60},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=120}},nil}
+c["38% 几率烧灼敌人"]={{[1]={flags=0,keywordFlags=0,name="ScorchChance",type="BASE",value=38}},nil}
+c["禁断之肉上有匹配的词缀则配置 酋长"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="酋长",side="之肉"}}},nil}
 c["获得 +16% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=16}},nil}
 c["每秒从偷取获得的效果中，每 2% 使承受的伤害总降 1%"]={{[1]={flags=0,keywordFlags=0,name="FlaskEffect",type="MORE",value=-1}},"每秒从偷取获得的中，每 2% 使承受的伤害 "}
 c["20% Increased Attack Speed 500% Increased Ignite Duration on Enemies"]={{},"% Increased Attack Speed 500% Increased Ignite Duration  "}
 c["获得 +11% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=11}},nil}
-c["此物品上的技能石受到 35 级的 末日将至（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="ViciousHexSupport"}}},nil}
+c["附加 60 - 120 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=60},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=120}},nil}
 c["双持武器时，攻击技能的伤害提高 20%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
-c["25% 几率烧灼敌人"]={{[1]={flags=0,keywordFlags=0,name="ScorchChance",type="BASE",value=25}},nil}
+c["此物品上的技能石受到 35 级的 末日将至（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="ViciousHexSupport"}}},nil}
 c["你的图腾被毁时，给你施加一种随机魔蛊，其总效果额外提高 80%"]={{}," "}
 c["时空裂隙没有保留效果"]={{[1]={[1]={skillId="TemporalRift",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationFlat",value=0}},[2]={[1]={skillId="TemporalRift",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationFlat",value=0}},[3]={[1]={skillId="TemporalRift",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationPercent",value=0}},[4]={[1]={skillId="TemporalRift",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationPercent",value=0}}},nil}
 c["你受到点燃时，也会点燃周围 12 范围内的敌人 你受到点燃时，也会点燃周围 15 范围内的敌人"]={nil,"你受到点燃时，也会点燃周围 12 范围内的敌人 你受到点燃时，也会点燃周围 15 范围内的敌人 "}
 c["100% Increased Critical Strike Chance"]={{},"% Increased Critical Strike Chance "}
 c["你施加的目盲反作用到你身上"]={nil,"你施加的目盲反作用到你身上 "}
+c["25% 几率烧灼敌人"]={{[1]={flags=0,keywordFlags=0,name="ScorchChance",type="BASE",value=25}},nil}
 c["你每有 100 点智慧，周围队友的施法速度便提高 3%"]={{[1]={[1]={div=100,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=3},onlyAllies=true}}},nil}
-c["你每有 100 点敏捷，周围队友获得 +7% 暴击伤害加成"]={{[1]={[1]={div=100,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=7},onlyAllies=true}}},nil}
 c["+15 to Maximum Life +3% to All Elemental Resistances per Endurance Charge"]={{}," Maximum Life +3% to All Elemental Resistances per Endurance Charge "}
+c["你每有 100 点敏捷，周围队友获得 +7% 暴击伤害加成"]={{[1]={[1]={div=100,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=7},onlyAllies=true}}},nil}
 c["每 250 点总属性都使技能的保留效果降低 1% 分裂之物"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=-1},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=-1},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=-1},[4]={flags=0,keywordFlags=0,name="All",type="INC",value=-1}},"每 250 点总都使技能的保留效果 分裂之物 "}
-c["每 250 点总属性都使技能的保留效果降低 1%"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=-1},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=-1},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=-1},[4]={flags=0,keywordFlags=0,name="All",type="INC",value=-1}},"每 250 点总都使技能的保留效果 "}
 c["召唤生物有额外 5% 躲避击中几率"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="AttackDodgeChance",type="BASE",value=5}}}},nil}
 c["护身上限在专注时 +10"]={{[1]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="MaximumFortification",type="BASE",value=10}},"在  "}
+c["每 250 点总属性都使技能的保留效果降低 1%"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=-1},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=-1},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=-1},[4]={flags=0,keywordFlags=0,name="All",type="INC",value=-1}},"每 250 点总都使技能的保留效果 "}
 c["你每有 100 点智慧，周围队友的施法速度便提高 4%"]={{[1]={[1]={div=100,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=4},onlyAllies=true}}},nil}
-c["你每有 100 点敏捷，周围队友获得 +8% 暴击伤害加成"]={{[1]={[1]={div=100,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=8},onlyAllies=true}}},nil}
 c["药剂生效期间，结界不可破坏"]={nil,"药剂生效期间，结界不可破坏 "}
-c["Nearby Allies have 1% chance to Block Attack Damage per 100 Strength you have"]={nil,"Nearby Allies have 1% chance to Block Attack Damage per 100 Strength you have "}
+c["你每有 100 点敏捷，周围队友获得 +8% 暴击伤害加成"]={{[1]={[1]={div=100,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=8},onlyAllies=true}}},nil}
 c["【鸟之势】增益效果提高 100%"]={{[1]={[1]={skillName="鸟之势",type="SkillName"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=100}},nil}
-c["愤怒没有保留效果"]={{[1]={[1]={skillId="Anger",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationFlat",value=0}},[2]={[1]={skillId="Anger",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationFlat",value=0}},[3]={[1]={skillId="Anger",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationPercent",value=0}},[4]={[1]={skillId="Anger",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationPercent",value=0}}},nil}
+c["Nearby Allies have 1% chance to Block Attack Damage per 100 Strength you have"]={nil,"Nearby Allies have 1% chance to Block Attack Damage per 100 Strength you have "}
 c["格挡时 20% 几率获得耐力球 更明显打击效果"]={{[1]={flags=0,keywordFlags=0,name="FlaskEffect",type="BASE",value=20}},"格挡时 获得耐力球 更明显打击 "}
-c["被击中时，4 秒内恢复等于伤害 20% 的生命"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="BASE",value=20}},"被时，4 秒内恢复等于 生命 "}
+c["该装备的能量护盾提高 225%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=225}},nil}
 c["低血时法术伤害总增 30%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=2,keywordFlags=0,name="Damage",type="MORE",value=30}},nil}
+c["被击中时，4 秒内恢复等于伤害 20% 的生命"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="BASE",value=20}},"被时，4 秒内恢复等于 生命 "}
 c["如果敏捷高于智慧，则 +33% 暴击伤害加成"]={{[1]={[1]={type="Condition",var="DexHigherThanInt"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=33}},nil}
-c["每 10 点智慧 +2 最大生命"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Life",type="BASE",value=2}},nil}
 c["提高 100% 充能回复"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargeRecovery",type="INC",value=100}},nil}
-c["每 10 点敏捷可使元素伤害提高 1%"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=1}},nil}
+c["每 10 点智慧 +2 最大生命"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Life",type="BASE",value=2}},nil}
 c["此物品上装备的【捷技能石】等级 +2"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="herald",value=2}}},nil}
 c["无法获得暴击球"]={nil,"无法获得暴击球 "}
 c["暴击球的持续时间缩短 30%"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesDuration",type="INC",value=-30}},nil}
-c["力量高于智慧时，敏捷提高 15%"]={{[1]={[1]={type="Condition",var="StrHigherThanInt"},flags=0,keywordFlags=0,name="Dex",type="INC",value=15}},nil}
+c["每 10 点敏捷可使元素伤害提高 1%"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=1}},nil}
 c["格挡时有 20% 的几率获得暴击球"]={nil,"a Power Charge when you Block "}
 c["投射物速度总降 15%"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="MORE",value=-15}},nil}
+c["力量高于智慧时，敏捷提高 15%"]={{[1]={[1]={type="Condition",var="StrHigherThanInt"},flags=0,keywordFlags=0,name="Dex",type="INC",value=15}},nil}
 c["2 每秒生命回复"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=2}},nil}
 c["角色体型增大 10%"]={nil,"角色体型增大 10% "}
-c["照亮范围的扩大和缩小也同样作用于伤害"]={{[1]={flags=0,keywordFlags=0,name="LightRadiusAppliesToDamage",type="FLAG",value=true}},nil}
 c["你击中冻结的敌人时触发 20 级爆环冰刺"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="TriggeredIcicleNova",triggered=true}}},nil}
-c["此物品上的技能石受到 10 级的 近战（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportSlashingWeapon"}}},nil}
+c["照亮范围的扩大和缩小也同样作用于伤害"]={{[1]={flags=0,keywordFlags=0,name="LightRadiusAppliesToDamage",type="FLAG",value=true}},nil}
 c["击败敌人时有 5% 几率获得不洁之力 3 秒"]={{},"击败敌人时获得不洁之力 3 秒 "}
+c["此物品上的技能石受到 10 级的 近战（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportSlashingWeapon"}}},nil}
 c["火焰抗性降低 55%"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="INC",value=-55}},nil}
 c["闪电抗性降低 53%"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="INC",value=-53}},nil}
 c["火焰抗性 75%"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="OVERRIDE",value=75}},nil}
-c["闪电抗性降低 55%"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="INC",value=-55}},nil}
 c["流血状态下移动不再承受额外的伤害 流血时移动速度提高 15%"]={{},"状态下移动不再承受"}
-c["冰霜抗性降低 55%"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="INC",value=-55}},nil}
+c["闪电抗性降低 55%"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="INC",value=-55}},nil}
 c["击败敌人时，召唤生物有 30% 的几率获得 4 秒【猛攻】状态"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},"  on Kill "}
 c["物理伤害提高 5%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=5}},nil}
 c["你身上的捷增益效果提高 10%"]={{[1]={[1]={skillType=62,type="SkillType"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=10}},nil}
+c["冰霜抗性降低 55%"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="INC",value=-55}},nil}
 c["图腾有 10% 额外物理伤害减免"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=10}},nil}
 c["该装备的护甲与能量护盾提高 333%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=333}},nil}
-c["击中时有 25% 几率施加畏火"]={{[1]={flags=0,keywordFlags=0,name="FireExposureChance",type="BASE",value=25}},nil}
 c["你身上每层中毒效果都使移动速度加快 10%，最大 50%"]={{[1]={[1]={limit=50,limitTotal=true,type="Multiplier",var="PoisonStack"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}},nil}
+c["击中时有 25% 几率施加畏火"]={{[1]={flags=0,keywordFlags=0,name="FireExposureChance",type="BASE",value=25}},nil}
 c["获得【召唤高等冰雷先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfStormsUber"}}},nil}
-c["插槽内的技能石被 18 级的 闪电支配 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportOnslaughtOnSlayingShockedEnemy"}}},nil}
 c["闪避值在迷踪状态下提高 40%"]={{[1]={[1]={type="Condition",var="Phasing"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=40}},nil}
+c["插槽内的技能石被 18 级的 闪电支配 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportOnslaughtOnSlayingShockedEnemy"}}},nil}
 c["此物品上的技能石受到 18 级的 霜咬 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=18,skillId="SupportFrenzyChargeOnSlayingFrozenEnemy"}}},nil}
 c["法术技能只能在最后一次重复暴击"]={nil,"法术技能只能在最后一次重复暴击 "}
 c["法术技能最后一次重复始终暴击 法术技能只能在最后一次重复暴击"]={nil,"法术技能最后一次重复始终暴击 法术技能只能在最后一次重复暴击 "}
@@ -5636,18 +5625,18 @@ c["非暴击造成 20% 伤害 法术技能最后一次重复始终暴击"]={nil,
 c["非暴击造成 20% 伤害"]={nil,"非暴击造成 20% 伤害 "}
 c["每 10 点智慧提高 1% 闪避值"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=1}},nil}
 c["持续吟唱时有 10% 几率不被攻击击中"]={{[1]={[1]={type="Condition",var="OnChannelling"},flags=0,keywordFlags=0,name="AttackDodgeChance",type="BASE",value=10}},nil}
-c["插入的弓类技能触发时，造成的总伤害额外降低 33%"]={{},nil}
 c["对致盲的敌人时，攻击和法术暴击率提高 50%"]={{[1]={[1]={type="Global"},[2]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=50}},nil}
+c["插入的弓类技能触发时，造成的总伤害额外降低 33%"]={{},nil}
 c["插入的非持续吟唱型弓类技能被【狙击】触发"]={{[1]={[1]={keyword="bow",slotName="{SlotName}",type="SocketedIn"},[2]={skillType=35,type="SkillType"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="TriggeredBySnipe",type="FLAG",value=true}}},[2]={[1]={keyword="bow",slotName="{SlotName}",type="SocketedIn"},[2]={skillType=35,type="SkillType"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="showAverage",value=true}}}},[3]={[1]={keyword="bow",slotName="{SlotName}",type="SocketedIn"},[2]={skillType=35,type="SkillType"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="triggered",value=1}}}}},nil}
-c["获得 20 级的【狙击】技能"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ChannelledSnipe"}}},nil}
 c["每个暴击球暴击率降低 40%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=-40}},nil}
+c["获得 20 级的【狙击】技能"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ChannelledSnipe"}}},nil}
 c["投射物不能弹开近程的敌人 远射"]={nil,"投射物不能弹开近程的敌人 远射 "}
 c["召唤生物技能的魔力消耗降低 25%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-25}}}},nil}
-c["召唤生物转为【侵略】"]={nil,"转为【侵略】 "}
 c["药剂持续期间，有 30% 几率冰冻"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=30}},nil}
+c["召唤生物转为【侵略】"]={nil,"转为【侵略】 "}
 c["召唤生物技能的魔力消耗降低 30%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-30}}}},nil}
-c["攻击伤害提高 30%"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["能量护盾充能时间提前 20%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=20}},nil}
+c["攻击伤害提高 30%"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["若你近期内没有失去暴击球，则每秒获得一个暴击球 你格挡时失去所有暴击球"]={nil,"若你近期内没有失去暴击球，则每秒获得一个暴击球 你格挡时失去所有暴击球 "}
 c["若你近期内没有失去暴击球，则每秒获得一个暴击球"]={nil,"若你近期内没有失去暴击球，则每秒获得一个暴击球 "}
 c["来自攻击的投射物会分叉 来自攻击的投射物会额外分叉一次"]={nil,"来自攻击的投射物会分叉 来自攻击的投射物会额外分叉一次 "}
@@ -5655,171 +5644,171 @@ c["+30% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BA
 c["其中 1 个增加的天赋为【警戒之号】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="警戒之号"}},nil}
 c["攻击附加 10 - 130 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=10},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=130}},nil}
 c["攻击附加 30 - 65 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=30},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=65}},nil}
-c["攻击附加 40 - 75 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=40},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=75}},nil}
 c["攻击击中时有 20% 的几率穿刺敌人"]={{[1]={flags=0,keywordFlags=65536,name="ImpaleChance",type="BASE",value=20}},nil}
 c["用 160000 枚金币纪念卡迪罗"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=1,type="eternal"},id=160000}}}},nil}
-c["你和周围友军的魔力再生率提高 30%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=30}}}},nil}
+c["攻击附加 40 - 75 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=40},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=75}},nil}
 c["不再通过力量获得伤害加成，每 10 点力量会使近战伤害提高 3%"]={{[1]={flags=0,keywordFlags=0,name="StrDmgBonusRatioOverride",type="BASE",value=0.3}},nil}
 c["生命回复速度提高 18%"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=18}},nil}
+c["你和周围友军的魔力再生率提高 30%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=30}}}},nil}
 c["魔力回复速度降低 60%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=-60}},nil}
 c["元素抗性提高 20%"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="INC",value=20}},nil}
 c["其中 1 个增加的天赋为【放血】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="放血"}},nil}
 c["防御为零"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="MORE",value=-100},[2]={flags=0,keywordFlags=0,name="EnergyShield",type="MORE",value=-100},[3]={flags=0,keywordFlags=0,name="Evasion",type="MORE",value=-100},[4]={flags=0,keywordFlags=0,name="Ward",type="MORE",value=-100}},nil}
-c["格挡攻击时反射 1 - 220 闪电伤害 防御为零"]={nil,"格挡攻击时反射 1 - 220 闪电伤害 防御为零 "}
 c["此物品上的技能石受到 15 级的 闪电支配 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=15,skillId="SupportOnslaughtOnSlayingShockedEnemy"}}},nil}
 c["+85 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=85}},nil}
 c["召唤生物有 8% 几率冰冻、感电、点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=8}}},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=8}}},[3]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=8}}}},nil}
-c["击败敌人时有 10% 的几率获得 4 秒【猛攻】状态 护甲值和闪避值在猛攻期间提高 30%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=10}},"击败敌人时获得 4 秒【猛攻】状态 和闪避值在猛攻期间提高 30% "}
+c["格挡攻击时反射 1 - 220 闪电伤害 防御为零"]={nil,"格挡攻击时反射 1 - 220 闪电伤害 防御为零 "}
 c["【烙印召回】冷却回复速度提高 15%"]={{[1]={[1]={skillName="烙印召回",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},nil}
+c["击败敌人时有 10% 的几率获得 4 秒【猛攻】状态 护甲值和闪避值在猛攻期间提高 30%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=10}},"击败敌人时获得 4 秒【猛攻】状态 和闪避值在猛攻期间提高 30% "}
 c["照亮范围缩小 40%"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-40}},nil}
-c["晕眩回复和格挡回复提高 22%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=22}},nil}
 c["该装备的护甲与能量护盾提高 60%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=60}},nil}
-c["召唤生物的最大生命降低 30%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=-30}}}},nil}
+c["晕眩回复和格挡回复提高 22%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=22}},nil}
 c["你格挡近战伤害时用惩戒诅咒敌人，其效果提高 60%，且无视诅咒限制"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=60}},"你格挡时用惩戒诅咒敌人，其效果，且无视诅咒限制 "}
+c["召唤生物的伤害提高 18%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=18}}}},nil}
 c["召唤生物造成暴击后会在 5 秒内听到低语"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={neg=true,type="Condition",var="NeverCrit"},flags=0,keywordFlags=0,name="Damage",type="INC",value=50}}},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={neg=true,type="Condition",var="NeverCrit"},flags=0,keywordFlags=0,name="Speed",type="INC",value=50}}},[3]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={percent=20,stat="Life",type="PercentStat"},[2]={neg=true,type="Condition",var="NeverCrit"},flags=0,keywordFlags=0,name="ChaosDegen",type="BASE",value=1}}}},nil}
-c["禁断之火上有匹配的词缀则配置 苦痛劫掠"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="苦痛劫掠",side="之火"}}},nil}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 屠戮之欲"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 屠戮之欲 "}
 c["召唤生物的最大生命降低 40%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=-40}}}},nil}
 c["若你的右戒指栏装备有魔法戒指，则你具有无咒效果 左戒指栏里有魔法戒指时，不会承受暴击的额外伤害"]={nil,"若你的右戒指栏装备有魔法戒指，则你具有无咒效果 左戒指栏里有魔法戒指时，不会承受暴击的额外伤害 "}
 c["+75 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=75}},nil}
-c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 势不可挡"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 势不可挡 "}
-c["血姿态下获得 200 每秒生命回复"]={{[1]={[1]={type="Condition",var="BloodStance"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=200}},nil}
+c["暴击会击退被感电的敌人"]={nil,"Your Critical Strikes Knock Back Shocked Enemies "}
 c["+25% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=25}},nil}
-c["不能使用魔法非恢复类药剂"]={nil,"不能使用魔法非恢复类药剂 "}
+c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 追猎者"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 追猎者 "}
 c["若范围内含有 40 点敏捷，双持打击时副手武器对周围敌人造成扩散伤害"]={nil,"若范围内含有 40 点敏捷，双持打击时副手武器对周围敌人造成扩散伤害 "}
+c["其中 1 个增加的天赋为【乱中有静】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="乱中有静"}},nil}
 c["结界提高 35%"]={{[1]={flags=0,keywordFlags=0,name="Ward",type="INC",value=35}},nil}
 c["该装备的护甲提高 65%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=65}},nil}
 c["近距离暴击有 30% 的几率获得一个狂怒球"]={{},"近距离暴击获得一个狂怒球 "}
 c["每个狂怒球使流血 +4% 持续伤害加成"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=4194304,name="DotMultiplier",type="BASE",value=4}},nil}
-c["匕首攻击造成的击中和异常状态伤害提高 24%"]={{[1]={flags=524288,keywordFlags=786432,name="Damage",type="INC",value=24}},nil}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 启发"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 启发 "}
 c["你身上的秘术增强效果提高 30%"]={{[1]={flags=0,keywordFlags=0,name="秘术增强Effect",type="INC",value=30}},nil}
+c["匕首攻击造成的击中和异常状态伤害提高 24%"]={{[1]={flags=524288,keywordFlags=786432,name="Damage",type="INC",value=24}},nil}
 c["能量护盾 有 20% 的几率在你消灭敌人时开始充能"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=20}}," 在你消灭敌人时开始充能 "}
-c["法术伤害压制率 +25%"]={{[1]={flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=25}},nil}
 c["每个红色插槽 +100 最大生命"]={{[1]={[1]={type="Multiplier",var="RedSocketIn{SlotName}"},flags=0,keywordFlags=0,name="Life",type="BASE",value=100}},nil}
-c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 美德之器"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 美德之器 "}
+c["法术伤害压制率 +25%"]={{[1]={flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=25}},nil}
 c["100% Increased Physical Damage"]={{},"% Increased Physical Damage "}
 c["若范围内含有 40 点力量，【裂地之击】的角度扩大 35%"]={{[1]={flags=512,keywordFlags=0,name="Str",type="INC",value=35}},"若内含有 40 点，【裂地之击】的角度 "}
+c["禁断之火上有匹配的词缀则配置 美德之器"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="美德之器",side="之火"}}},nil}
 c["攻击和法术暴击率提高 65%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=65}},nil}
-c["法术伤害降低 80%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
 c["传奇Boss【灭界者】专属掉落"]={nil,"传奇Boss【灭界者】专属掉落 "}
+c["法术伤害降低 80%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
 c["附加 7 - 15 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=7},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=15}},nil}
-c["此物品上的技能石可以发射 1 个额外投射物"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}}}},nil}
 c["周围敌人的暴击伤害加成 -30%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=-30}}}},nil}
+c["此物品上的技能石可以发射 1 个额外投射物"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}}}},nil}
 c["附加 8 - 17 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=8},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=17}},nil}
 c["每个狂怒球可使冰霜伤害提高 15%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=15}},nil}
 c["暴击球达到最大数量时，获得 1 个狂怒球 每个狂怒球可使冰霜伤害提高 15%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=15}},"暴击球达到最大数量时，获得 1 个狂怒球  "}
-c["每个暴击球为法术附加 15 - 25 基础冰霜伤害"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=15},[2]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=25}},nil}
 c["伤害降低 25%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=-25}},nil}
-c["击败被冰冻的敌人时有 50% 几率获得暴击球 击败被冰冻的敌人时获得一个暴击球"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=50}},"击败被的敌人时获得暴击球 击败被冰冻的敌人时获得一个暴击球 "}
+c["起源珠宝"]={{[1]={flags=0,keywordFlags=0,name="Multiplier:PrimordialItem",type="BASE",value=1}},nil}
 c["其中 1 个增加的天赋为【按图索骥】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="按图索骥"}},nil}
 c["生命在你近期内引爆过地雷的情况下每秒再生 2.5%"]={{[1]={[1]={type="Condition",var="DetonatedMinesRecently"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2.5}},nil}
 c["药剂给予的魔力恢复提高 10%"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=10}},nil}
+c["击败被冰冻的敌人时有 50% 几率获得暴击球 击败被冰冻的敌人时获得一个暴击球"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=50}},"击败被的敌人时获得暴击球 击败被冰冻的敌人时获得一个暴击球 "}
 c["此物品上的技能石受到 10 级的 震波（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportBluntWeapon"}}},nil}
-c["每个暴击球为法术附加 10 - 20 基础冰霜伤害"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=10},[2]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=20}},nil}
 c["10% Increased Attack Speed +30 to Accuracy Rating"]={{},"% Increased Attack Speed +30 to Accuracy Rating "}
 c["所有物品上装备的【火焰技能石】等级 +1"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keywordList={[1]="active_skill",[2]="fire",[3]=0},value=1}}},nil}
-c["图腾所使用攻击的攻击速度提高 5%"]={{[1]={flags=1,keywordFlags=16384,name="Speed",type="INC",value=5}},nil}
+c["每个暴击球为法术附加 10 - 20 基础冰霜伤害"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=10},[2]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=20}},nil}
 c["+10% To All Elemental Resistances 50% Increased Duration of Elemental Ailments on Enemies"]={{}," All Elemental Resistances 50% Increased Duration of Elemental Ailments  "}
-c["此物品上的技能石受到 35 级的 死亡时施放(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportCastOnDeath"}}},nil}
+c["图腾所使用攻击的攻击速度提高 5%"]={{[1]={flags=1,keywordFlags=16384,name="Speed",type="INC",value=5}},nil}
 c["弓类伤害提高 30%"]={{[1]={flags=131076,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["+33% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=33}},nil}
 c["弓类技能的持续伤害效果提高 16%"]={{[1]={flags=8,keywordFlags=1024,name="Damage",type="INC",value=16}},nil}
-c["附加 1 - 40 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=40}},nil}
+c["此物品上的技能石受到 35 级的 死亡时施放(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportCastOnDeath"}}},nil}
 c["满血时闪避值提高 +1000"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=1000}},nil}
+c["附加 1 - 40 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=40}},nil}
 c["击败敌人有 35% 几率获得暴击球"]={{},"击败敌人获得暴击球 "}
 c["附加 1 - 45 基础闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=45}},nil}
-c["混沌伤害提高 35%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=35}},nil}
 c["召唤生物的施法速度提高 20%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=20}}}},nil}
 c["生命上限提高 6%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=6}},nil}
+c["混沌伤害提高 35%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=35}},nil}
 c["法术附加 31 - 100 闪电伤害"]={{[1]={flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=31},[2]={flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=100}},nil}
-c["此物品上的技能石受到 1 级的 启迪 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportReducedMana"}}},nil}
 c["召唤生物有 12% 的几率在攻击击中时穿刺敌人"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ImpaleChance",type="BASE",value=12}}}},nil}
 c["耐力球达到上限时你无法被晕眩"]={{[1]={[1]={stat="EnduranceCharges",thresholdStat="EnduranceChargesMax",type="StatThreshold"},flags=0,keywordFlags=0,name="AvoidStun",type="BASE",value=100}},nil}
-c["近期内你若打出过暴击，则每有 1 个暴击球，就会每秒受到 400 闪电伤害"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},[2]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="LightningDegen",type="BASE",value=400}},nil}
+c["此物品上的技能石受到 1 级的 启迪 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportReducedMana"}}},nil}
 c["图腾 +30% 元素抗性"]={{[1]={flags=0,keywordFlags=16384,name="ElementalResist",type="BASE",value=30}},nil}
 c["近战伤害在近程击中时提高 40%"]={{[1]={[1]={type="Condition",var="AtCloseRange"},flags=256,keywordFlags=262144,name="Damage",type="INC",value=40}},nil}
 c["持续伤害提高 10%"]={{[1]={flags=8,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["【电球】的持续时间缩短 15%"]={{[1]={[1]={skillName="电球",type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-15}},nil}
+c["近期内你若打出过暴击，则每有 1 个暴击球，就会每秒受到 400 闪电伤害"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},[2]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="LightningDegen",type="BASE",value=400}},nil}
 c["每个暴击球可使法术格挡几率提高 2%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=2}},nil}
 c["每个暴击球 +0.3% 攻击和法术基础暴击率"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.3}},nil}
 c["法术附加 35 - 105 闪电伤害"]={{[1]={flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=35},[2]={flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=105}},nil}
 c["法术伤害提高 45%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=45}},nil}
-c["若你在过去 8 秒内打出过暴击，则法术伤害提高 200%"]={{[1]={[1]={type="Condition",var="CritInPast8Sec"},flags=2,keywordFlags=0,name="Damage",type="INC",value=200}},nil}
 c["【复苏魔卫】不再需要灵枢 你复苏的魔卫视为灵枢"]={nil,"【复苏魔卫】不再需要灵枢 你复苏的魔卫视为灵枢 "}
 c["护甲值按照主手武器上每个红色插槽提高 10%"]={{[1]={[1]={type="Multiplier",var="RedSocketInWeapon 1"},flags=0,keywordFlags=0,name="Armour",type="INC",value=10}},nil}
-c["暴击无法造成伤害"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=-100}},nil}
+c["若你在过去 8 秒内打出过暴击，则法术伤害提高 200%"]={{[1]={[1]={type="Condition",var="CritInPast8Sec"},flags=2,keywordFlags=0,name="Damage",type="INC",value=200}},nil}
 c["获得【神性】时失去所有神圣球"]={nil,"获得【神性】时失去所有神圣球 "}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 征服者"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 征服者 "}
 c["爪类攻击的攻击速度提高 5%"]={{[1]={flags=262149,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
-c["此物品上的技能石由 1 级的 精准破坏 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="未知： 精准破坏 "}}},nil}
+c["暴击无法造成伤害"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=-100}},nil}
 c["14% 法术格挡率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=14}},nil}
-c["此物品上的技能石受到 10 级的 法术凝聚 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportHandcastSpellBoost"}}},nil}
+c["此物品上的技能石由 1 级的 精准破坏 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="未知： 精准破坏 "}}},nil}
 c["力量提高 6%"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=6}},nil}
+c["此物品上的技能石受到 10 级的 法术凝聚 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportHandcastSpellBoost"}}},nil}
 c["此物品上的技能石受到 1 级的 增大范围 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportIncreasedAreaOfEffect"}}},nil}
 c["此物品上的技能石受到 10 级的 精准破坏 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportControlledDestruction"}}},nil}
-c["此物品上的技能石受到 10 级的 秘术增强 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportArcaneSurge"}}},nil}
 c["最大暴击几率为 50%"]={nil,"最大暴击几率为 50% "}
 c["【蛛之势】可对敌人额外造成 1 层蜘蛛网"]={{[1]={[1]={skillName="蛛之势",type="SkillName"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="Multiplier:SpiderWebApplyStackMax",type="BASE",value=1}}}},nil}
+c["此物品上的技能石受到 10 级的 秘术增强 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportArcaneSurge"}}},nil}
 c["此物品上的技能石受到 10 级的 施法回响 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportMulticast"}}},nil}
-c["此物品上的技能石受到 1 级的 施法回响 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportMulticast"}}},nil}
 c["耐力球数量下限 +4"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesMin",type="BASE",value=4}},nil}
 c["药剂持续期间，法术伤害格挡几率 +30%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=30}},nil}
+c["此物品上的技能石受到 1 级的 施法回响 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportMulticast"}}},nil}
 c["玩家等级每提高 3 级，该武器攻击时便附加 3 - 5 物理伤害"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={div="3",type="Multiplier",var="Level"},flags=1,keywordFlags=0,name="PhysicalMin",type="BASE",value="3"},[2]={[1]={type="Condition",var="{Hand}Attack"},[2]={div="3",type="Multiplier",var="Level"},flags=1,keywordFlags=0,name="PhysicalMax",type="BASE",value="5"}},nil}
 c["召唤生物有+18% 攻击伤害格挡几率"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=18}}}},nil}
 c["对冰缓敌人造成的点燃伤害提高 100%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=0,keywordFlags=8388608,name="Damage",type="INC",value=100}},nil}
-c["此武器攻击造成的火焰、冰霜、闪电伤害提高 115%"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=115}},nil}
 c["50% Chance to avoid being Chilled Your Physical Damage can Chill"]={{}," to avoid being Chilled Your Physical Damage can Chill "}
 c["施法速度提高 3%"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["10% 的物理伤害转换为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToFire",type="BASE",value=10}},nil}
 c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 紧急时刻"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 紧急时刻 "}
+c["此武器攻击造成的火焰、冰霜、闪电伤害提高 115%"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=115}},nil}
 c["获得额外混沌伤害，其数值等同于物理伤害的 35%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=35}},nil}
-c["投射物伤害提高 20%"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["+30 智慧"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=30}},nil}
-c["获得额外混沌伤害，其数值等同于物理伤害的 15%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=15}},nil}
+c["投射物伤害提高 20%"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["每次近战击中可以让你携带的旗帜获得 1 层效果，每秒最多 5 层"]={nil,"每次近战击中可以让你携带的旗帜获得 1 层效果，每秒最多 5 层 "}
+c["获得额外混沌伤害，其数值等同于物理伤害的 15%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=15}},nil}
 c["附加 50 - 125 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=50},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=125}},nil}
 c["附加 30 - 92 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=30},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=92}},nil}
 c["物理伤害提高 263%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=263}},nil}
 c["击中时有 10% 几率致盲敌人"]={{},"时致盲敌人 "}
-c["物理伤害提高 275%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=275}},nil}
 c["引导时有 50% 几率避免被晕眩"]={{[1]={flags=0,keywordFlags=0,name="AvoidStun",type="BASE",value=50}},"引导时 "}
+c["物理伤害提高 275%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=275}},nil}
 c["此物品上的技能石受到 20 级的 致盲 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="SupportBlind"}}},nil}
 c["此物品上的技能石受到 5 级的 致盲 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=5,skillId="SupportBlind"}}},nil}
-c["火焰伤害击中时有 10% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=10}},nil}
 c["图腾伤害提高 10%"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=10}},nil}
-c["此物品上的技能石受到 10 级的 致命异常状态(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportDeadlyAilments"}}},nil}
-c["法术伤害提高 28%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=28}},nil}
+c["火焰伤害击中时有 10% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=10}},nil}
+c["此物品上的技能石受到 1 级的 和善 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportGenerosity"}}},nil}
 c["护甲提高 50%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=50}},nil}
-c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 破魔者"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 破魔者 "}
+c["法术伤害提高 28%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=28}},nil}
 c["每秒对周围敌人造成死亡凋零，持续 15 秒"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
+c["禁断之火上有匹配的词缀则配置 破魔者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="破魔者",side="之火"}}},nil}
 c["该武器击中致盲敌人时，附加 151 - 203 基础火焰伤害"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=0,name="FireMin",type="BASE",value="151"},[2]={[1]={type="Condition",var="{Hand}Attack"},[2]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=0,name="FireMax",type="BASE",value="203"}},nil}
-c["每秒失去 5% 能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=5}},"每秒%  "}
+c["生命全满时，生命偷取套用于能量护盾"]={nil,"生命全满时，生命偷取套用于能量护盾 "}
 c["对致盲的敌人时，攻击和法术暴击率提高 130%"]={{[1]={[1]={type="Global"},[2]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=130}},nil}
 c["附加 38 - 70 基础火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=38},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=70}},nil}
 c["法术伤害提高 31%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=31}},nil}
 c["若你近期内有施放法术，你和周围友军有 +10% 的几率格挡法术伤害"]={{[1]={[1]={type="Condition",var="CastSpellRecently"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=10}}}},nil}
-c["+33% 攻击和法术暴击伤害加成"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=33}},nil}
 c["给敌人施加的每个【枯萎】"]={nil,"给敌人施加的每个【枯萎】 "}
 c["赞美 10000 名被神主维纳留斯转化的新信徒"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=1,type="templar"},id=10000}}}},nil}
+c["+33% 攻击和法术暴击伤害加成"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=33}},nil}
 c["附加 45 - 80 基础火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=45},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=80}},nil}
 c["附加 22 - 44 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=22},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=44}},nil}
 c["法术伤害提高 33%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=33}},nil}
 c["法术伤害提高 18%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=18}},nil}
-c["法术附加 22 - 42 基础火焰伤害"]={{[1]={flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=22},[2]={flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=42}},nil}
 c["受你至少 1 层蜘蛛网影响的敌人，所有抗性 -10%"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={threshold=1,type="MultiplierThreshold",var="Spider's WebStack"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-10}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={threshold=1,type="MultiplierThreshold",var="Spider's WebStack"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=-10}}}},nil}
-c["伤害提高 70%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=70}},nil}
+c["法术附加 22 - 42 基础火焰伤害"]={{[1]={flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=22},[2]={flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=42}},nil}
 c["近期内你若有过格挡，则伤害穿透 15% 火焰抗性"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="FirePenetration",type="BASE",value=15}},nil}
+c["伤害提高 70%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=70}},nil}
 c["其中 1 个增加的天赋为【不可触及】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="不可触及"}},nil}
 c["命中敌人时有 10% 的几率使敌人【灰烬缠身】 击败敌人时有 10% 几率触发 8 级的【召唤愤怒狂灵】"]={{},"命中敌人时使敌人【灰烬缠身】 击败敌人时有 10% 几率触发 8 级的【召唤愤怒狂灵】 "}
 c["命中敌人时有 10% 的几率使敌人【灰烬缠身】"]={{},"命中敌人时使敌人【灰烬缠身】 "}
-c["火焰伤害击中时有 22% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=22}},nil}
 c["药剂回复的 100% 生命改为给周围友军回复"]={nil,"药剂回复的 100% 生命改为给周围友军回复 "}
 c["剑类攻击的攻击速度提高 35%"]={{[1]={flags=4194309,keywordFlags=0,name="Speed",type="INC",value=35}},nil}
+c["火焰伤害击中时有 22% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=22}},nil}
 c["燃烧伤害提高 50%"]={{[1]={flags=0,keywordFlags=134217728,name="FireDamage",type="INC",value=50}},nil}
 c["法术附加 6 - 9 基础火焰伤害"]={{[1]={flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=6},[2]={flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=9}},nil}
-c["+25% 持续火焰伤害加成"]={{[1]={flags=0,keywordFlags=0,name="FireDotMultiplier",type="BASE",value=25}},nil}
 c["此物品上的技能石受到 16 级的 技能陷阱化 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=16,skillId="SupportTrap"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 聚风"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="聚风",side="之肉"}}},nil}
+c["+25% 持续火焰伤害加成"]={{[1]={flags=0,keywordFlags=0,name="FireDotMultiplier",type="BASE",value=25}},nil}
 c["附加 14 - 22 基础火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=14},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=22}},nil}
 c["法术伤害提高 22%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=22}},nil}
 c["你造成的烈毒的伤害生效速度加快 40%"]={{[1]={flags=0,keywordFlags=0,name="PoisonFaster",type="INC",value=40}},nil}
@@ -5827,560 +5816,558 @@ c["法术附加 110 - 165 基础混沌伤害"]={{[1]={flags=0,keywordFlags=13107
 c["此物品上的技能石受到 35 级的 邪恶投掷(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportPhysicalProjectileAttackDamage"}}},nil}
 c["法术附加 130 - 190 基础混沌伤害"]={{[1]={flags=0,keywordFlags=131072,name="ChaosMin",type="BASE",value=130},[2]={flags=0,keywordFlags=131072,name="ChaosMax",type="BASE",value=190}},nil}
 c["此物品上的技能石受到 35 级的 粉碎（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportPulverise"}}},nil}
-c["法术伤害提高 42%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=42}},nil}
 c["召唤生物的施法速度提高 16%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=16}}}},nil}
+c["法术伤害提高 42%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=42}},nil}
 c["敌人被点燃的持续时间缩短 25%"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-25}},nil}
 c["击败被点燃的敌人回复 +10 生命 敌人被点燃的持续时间缩短 25%"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=10}},"击败被的敌人回复  生命 敌人被点燃的持续时间缩短 25% "}
 c["击败被点燃的敌人回复 +10 生命"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=10}},"击败被的敌人回复  生命 "}
 c["法术附加 6 - 12 基础火焰伤害"]={{[1]={flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=6},[2]={flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=12}},nil}
-c["每秒回复 2 魔力"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="BASE",value=2}},nil}
 c["被你嘲讽的敌人的击中和异常状态伤害 对其它目标总降 20%"]={{[1]={flags=0,keywordFlags=786432,name="Damage",type="MORE",value=-20}},"被你嘲讽的敌人的 对其它目标 "}
-c["获得 +20% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=20}},nil}
+c["每秒回复 2 魔力"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="BASE",value=2}},nil}
 c["投射物攻击技能的暴击率提高 10%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={skillType=3,type="SkillType"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=10}},nil}
 c["没有传奇敌人出现在你面前时，每 3 秒损失一个被吞噬的灵魂 最多 50 个被吞噬的灵魂"]={nil,"没有传奇敌人出现在你面前时，每 3 秒损失一个被吞噬的灵魂 最多 50 个被吞噬的灵魂 "}
-c["+6 愤怒狂灵数量上限"]={{[1]={flags=0,keywordFlags=0,name="ActiveRagingSpiritLimit",type="BASE",value=6}},nil}
+c["获得 +20% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=20}},nil}
 c["近战攻击暴击率提高 50%"]={{[1]={flags=257,keywordFlags=0,name="CritChance",type="INC",value=50}},nil}
 c["100% 的闪电伤害转换为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageConvertToChaos",type="BASE",value=100}},nil}
 c["每有 1 个地图物品属性影响该地区，则攻击速度提高 3% 每有 1 个地图物品属性影响该地区，则攻击伤害提高 6%"]={{[1]={flags=1,keywordFlags=0,name="Str",type="INC",value=3},[2]={flags=1,keywordFlags=0,name="Dex",type="INC",value=3},[3]={flags=1,keywordFlags=0,name="Int",type="INC",value=3},[4]={flags=1,keywordFlags=0,name="All",type="INC",value=3}},"每有 1 个地图物品影响该地区，则速度 每有 1 个地图物品属性影响该地区，则攻击伤害提高 6% "}
 c["当你获得【火之化身】时，50% 的物理伤害转换为火焰伤害"]={{[1]={[1]={type="Condition",var="Have火之化身Keystone"},flags=0,keywordFlags=0,name="PhysicalDamageConvertToFire",type="BASE",value=50}},nil}
 c["被击中时承受 25 额外物理伤害 苦痛灵曲"]={{[1]={flags=0,keywordFlags=262144,name="PhysicalDamage",type="BASE",value=25}},"被时承受  苦痛灵曲 "}
+c["召唤生物的伤害提高 70%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=70}}}},nil}
 c["法术伤害提高 26%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=26}},nil}
 c["法术伤害提高 21%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=21}},nil}
 c["偷取时受到的伤害降低 10%"]={{[1]={[1]={type="Condition",var="Leeching"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=-10}},nil}
 c["法术伤害提高 37%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=37}},nil}
-c["暴击球抵达上限时承受 500 冰霜伤害"]={nil,"暴击球抵达上限时承受 500 冰霜伤害 "}
 c["物理伤害提高 100%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}},nil}
+c["暴击球抵达上限时承受 500 冰霜伤害"]={nil,"暴击球抵达上限时承受 500 冰霜伤害 "}
 c["对近战攻击的闪避值降低25%"]={nil,"对近战攻击的闪避值降低25% "}
 c["你击中冻结的敌人时，有 50% 几率获得一个暴击球"]={{},"你冻结的敌人时，获得一个暴击球 "}
 c["每个狂怒球可使冰霜伤害提高 20%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=20}},nil}
-c["暴击球达到最大数量时，获得 1 个狂怒球 每个狂怒球可使冰霜伤害提高 20%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=20}},"暴击球达到最大数量时，获得 1 个狂怒球  "}
 c["近战伤害提高 25%"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
+c["暴击球达到最大数量时，获得 1 个狂怒球 每个狂怒球可使冰霜伤害提高 20%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=20}},"暴击球达到最大数量时，获得 1 个狂怒球  "}
 c["暴击球达到最大数量时，获得 1 个狂怒球"]={nil,"暴击球达到最大数量时，获得 1 个狂怒球 "}
-c["暴击球达到最大数量时，失去所有的暴击球 暴击球达到最大数量时，获得 1 个狂怒球"]={nil,"暴击球达到最大数量时，失去所有的暴击球 暴击球达到最大数量时，获得 1 个狂怒球 "}
 c["+55 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=55}},nil}
 c["击败敌人时有 25% 几率触发 20 级的【幻化武器】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="AnimateWeapon",triggered=true}}},nil}
 c["击败敌人有 4% 的几率获得暴击球"]={{},"击败敌人获得暴击球 "}
-c["暴击球达到最大数量时，失去所有的暴击球"]={nil,"暴击球达到最大数量时，失去所有的暴击球 "}
+c["暴击球达到最大数量时，失去所有的暴击球 暴击球达到最大数量时，获得 1 个狂怒球"]={nil,"暴击球达到最大数量时，失去所有的暴击球 暴击球达到最大数量时，获得 1 个狂怒球 "}
 c["格挡攻击时反射 1000 - 10000 物理伤害"]={nil,"格挡攻击时反射 1000 - 10000 物理伤害 "}
-c["你被脆弱诅咒，其效果提高 40%"]={{[1]={flags=0,keywordFlags=0,name="ExtraCurse",type="LIST",value={applyToPlayer=true,level=1,skillId="Vulnerability"}},[2]={[1]={skillName="Vulnerability",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=40}},nil}
+c["你受到的诅咒效果提高 50%"]={{[1]={[1]={skillName="你受到",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value="50"}},nil}
 c["双持时施法速度提高 6%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=16,keywordFlags=0,name="Speed",type="INC",value=6}},nil}
 c["召唤生物的伤害提高 20%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=20}}}},nil}
 c["击败中毒的敌人时，可使周围敌人中毒 击败中毒的敌人时，周围友军每秒回复 200 生命"]={nil,"击败中毒的敌人时，可使周围敌人中毒 击败中毒的敌人时，周围友军每秒回复 200 生命 "}
+c["你被脆弱诅咒，其效果提高 40%"]={{[1]={flags=0,keywordFlags=0,name="ExtraCurse",type="LIST",value={applyToPlayer=true,level=1,skillId="Vulnerability"}},[2]={[1]={skillName="Vulnerability",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=40}},nil}
 c["受到【脆弱】诅咒时，敌人攻击你会特别不幸"]={nil,"受到【脆弱】诅咒时，敌人攻击你会特别不幸 "}
 c["【尊严】的光环效果提高 53%"]={{[1]={[1]={skillName="尊严",type="SkillName"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=53}},nil}
-c["固定基底词缀三倍效果加成 已腐化"]={nil,"固定基底词缀三倍效果加成 已腐化 "}
 c["被击中时，每个耐力球可使你获得 1 秒的【猛攻】状态"]={{},"被时， 秒的【猛攻】状态 "}
 c["范围伤害提高 (7-12)%"]={{[1]={flags=512,keywordFlags=0,name="Damage",type="BASE",value=-12}},"提高 (7)% "}
+c["固定基底词缀三倍效果加成 已腐化"]={nil,"固定基底词缀三倍效果加成 已腐化 "}
 c["固定基底词缀三倍效果加成"]={nil,"固定基底词缀三倍效果加成 "}
 c["【奋锐光环】的光环效果提高 60%"]={{[1]={[1]={skillName="奋锐光环",type="SkillName"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=60}},nil}
 c["【怨毒光环】的光环效果提高 60%"]={{[1]={[1]={skillName="怨毒光环",type="SkillName"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=60}},nil}
-c["获得 +48% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=48}},nil}
 c["承受的冰霜伤害有 20% 视为火焰伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageTakenAsFire",type="BASE",value=20}},nil}
 c["锤类或短杖攻击造成的异常状态伤害提高 10%"]={{[1]={flags=1048576,keywordFlags=524288,name="Damage",type="INC",value=10}},nil}
-c["【纪律】的光环效果提高 60%"]={{[1]={[1]={skillName="纪律",type="SkillName"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=60}},nil}
+c["敏捷提高 18%"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=18}},nil}
 c["击中时有 25% 的几率致盲敌人"]={{},"时致盲敌人 "}
 c["+23% 火焰与混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=23},[2]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=23}},nil}
 c["范围内配置的智慧和敏捷总计 40 点时，虹光技能不能选择火焰效果"]={nil,"范围内配置的智慧和敏捷总计 40 点时，虹光技能不能选择火焰效果 "}
+c["【纪律】的光环效果提高 60%"]={{[1]={[1]={skillName="纪律",type="SkillName"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=60}},nil}
 c["【坚定】的光环效果提高 60%"]={{[1]={[1]={skillName="坚定",type="SkillName"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=60}},nil}
 c["愤怒光环的效果提高 60%"]={{[1]={[1]={skillName="愤怒",type="SkillName"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=60}},nil}
 c["你每拥有一个灵体，召唤生物伤害提高 12%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}}}},"你每拥有一个灵体， "}
 c["最大能量护盾提高 30%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=30}},nil}
-c["技能效果持续时间延长 45%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=45}},nil}
 c["+3% 全部抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=3},[2]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=3},[3]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=3},[4]={flags=0,keywordFlags=0,name="ChaosResistMax",type="BASE",value=3}},nil}
-c["药剂持续期间，攻击速度提高 36%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=1,keywordFlags=0,name="Speed",type="INC",value=36}},nil}
+c["技能效果持续时间延长 45%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=45}},nil}
 c["充能次数按照每次使用降低 20% 生效时间缩短 35%"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-20}},"按照每次使用 生效时间缩短 35% "}
-c["魔力偷取的每秒总恢复量提高 1000%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=1000}},"偷取的每秒总恢复量 "}
+c["药剂持续期间，攻击速度提高 36%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=1,keywordFlags=0,name="Speed",type="INC",value=36}},nil}
 c["技能效果持续时间延长 4%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=4}},nil}
 c["你技能给予召唤生物的非诅咒光环效果提高 20%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="AuraEffectOnSelf",type="INC",value=20}}}},nil}
+c["生命偷取的每秒总恢复量提高 1000%"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=1000}},nil}
 c["+13 智慧"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=13}},nil}
 c["药剂效果套用于你的魔卫和灵体身上"]={{[1]={[1]={skillNameList={[1]="魔卫复苏",[2]="召唤灵体"},type="SkillName"},flags=0,keywordFlags=0,name="FlasksApplyToMinion",type="FLAG",value=true}},nil}
 c["不会获得药剂的效果"]={{[1]={flags=0,keywordFlags=0,name="FlasksDoNotApplyToPlayer",type="FLAG",value=true}},nil}
 c["击中时有 15% 的几率击退敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackChance",type="BASE",value=15}},nil}
 c["灵体有 20 秒的持续时间"]={{[1]={[1]={skillName="召唤灵体",type="SkillName"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="duration",value=6}}},nil}
-c["目标方向随机投掷 陷阱不能被敌人触发"]={nil,"目标方向随机投掷 陷阱不能被敌人触发 "}
 c["攻击技能的冰霜伤害提高 12%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=12}},nil}
+c["目标方向随机投掷 陷阱不能被敌人触发"]={nil,"目标方向随机投掷 陷阱不能被敌人触发 "}
 c["元素伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=10}},nil}
-c["此物品上的技能石受到 10 级的 寒冰转烈焰(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportColdToFire"}}},nil}
 c["获得 5 级的主动技能【冻伤】，且可被此道具上的技能石辅助"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=5,skillId="Frostbite"}}},nil}
-c["生命全满时，生命偷取套用于能量护盾 获得等同 6% 最大生命的额外能量护盾"]={nil,"生命全满时，生命偷取套用于能量护盾 获得等同 6% 最大生命的额外能量护盾 "}
+c["此物品上的技能石受到 10 级的 寒冰转烈焰(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportColdToFire"}}},nil}
 c["此物品上装备的【魔像技能石】等级 +3"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="golem",value=3}}},nil}
-c["生命全满时，生命偷取套用于能量护盾"]={nil,"生命全满时，生命偷取套用于能量护盾 "}
+c["生命全满时，生命偷取套用于能量护盾 获得等同 6% 最大生命的额外能量护盾"]={nil,"生命全满时，生命偷取套用于能量护盾 获得等同 6% 最大生命的额外能量护盾 "}
 c["该武器击中致盲敌人时，附加 157 - 210 基础火焰伤害"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=0,name="FireMin",type="BASE",value="157"},[2]={[1]={type="Condition",var="{Hand}Attack"},[2]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=0,name="FireMax",type="BASE",value="210"}},nil}
-c["无法自动回复能量护盾"]={{[1]={flags=0,keywordFlags=0,name="NoEnergyShieldRegen",type="FLAG",value=true}},nil}
+c["每秒失去 5% 能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=5}},"每秒%  "}
 c["+25% 几率中毒 中毒时 +3% 全部抗性上限"]={{[1]={[1]={type="Condition",var="Poisoned"},flags=0,keywordFlags=2097152,name="FireResistMax",type="BASE",value=25},[2]={[1]={type="Condition",var="Poisoned"},flags=0,keywordFlags=2097152,name="ColdResistMax",type="BASE",value=25},[3]={[1]={type="Condition",var="Poisoned"},flags=0,keywordFlags=2097152,name="LightningResistMax",type="BASE",value=25},[4]={[1]={type="Condition",var="Poisoned"},flags=0,keywordFlags=2097152,name="ChaosResistMax",type="BASE",value=25}}," +3%  "}
-c["无法充能能量护盾"]={nil,"无法充能能量护盾 "}
 c["受到【雷霆】影响时，闪电伤害提高 60%"]={{[1]={[1]={type="Condition",var="AffectedBy雷霆"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=60}},nil}
+c["无法充能能量护盾"]={nil,"无法充能能量护盾 "}
 c["此物品上的技能石受到 10 级的 魔力偷取(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportManaLeech"}}},nil}
-c["物理攻击伤害下限总降 35%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalMin",type="MORE",value=-35}},nil}
 c["技能的生命保留效能提高 20%"]={{[1]={flags=0,keywordFlags=0,name="LifeReservationEfficiency",type="INC",value=20}},nil}
-c["图腾伤害提高 25%"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=25}},nil}
+c["物理攻击伤害下限总降 35%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalMin",type="MORE",value=-35}},nil}
 c["禁断之肉上有匹配的词缀则配置 无尽饥饿"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="无尽饥饿",side="之肉"}}},nil}
+c["图腾伤害提高 25%"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=25}},nil}
 c["攻击附加 1 - 18 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=18}},nil}
 c["物理攻击伤害下限总降 40%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalMin",type="MORE",value=-40}},nil}
-c["攻击附加 3 - 7 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=3},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=7}},nil}
 c["你暴击施加的非伤害型异常状态效果提高 50%"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyShockEffect",type="INC",value=50},[2]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyChillEffect",type="INC",value=50},[3]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=50},[4]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyScorchEffect",type="INC",value=50},[5]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyBrittleEffect",type="INC",value=50},[6]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemySapEffect",type="INC",value=50}},nil}
-c["物理攻击伤害下限总降 20%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalMin",type="MORE",value=-20}},nil}
+c["攻击附加 6 - 14 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=6},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=14}},nil}
 c["地雷投掷速度提高 4%"]={{[1]={flags=0,keywordFlags=0,name="MineLayingSpeed",type="INC",value=4}},nil}
-c["晕眩敌人时获得 50 生命 物理攻击伤害上限总增 20%"]={{[1]={flags=1,keywordFlags=0,name="Life",type="MORE",value=20}},"晕眩敌人时获得 50  物理伤害上限 "}
+c["物理攻击伤害下限总降 20%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalMin",type="MORE",value=-20}},nil}
 c["魔力上限提高 (17-23)% 魔力再生率提高 (15-25)%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=-23}},"提高 (17)% 魔力再生率提高 (15-25)% "}
 c["10% increased Evasion per 500 Maximum Mana 非低魔时获得【猛攻】"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=10}},"% increased  per 500 Maximum Mana 非低魔时获得【猛攻】 "}
-c["物理伤害的 0.6% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageLifeLeech",type="BASE",value=0.6}},nil}
+c["晕眩敌人时获得 50 生命 物理攻击伤害上限总增 20%"]={{[1]={flags=1,keywordFlags=0,name="Life",type="MORE",value=20}},"晕眩敌人时获得 50  物理伤害上限 "}
+c["火焰伤害的 0.6% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="FireDamageLifeLeech",type="BASE",value=0.6}},nil}
 c["生命偷取造成伤害的 200% 转化为混沌伤害 药剂持续期间，移动速度提高 15%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="Life",type="INC",value=15}},"偷取造成伤害的 200% 转化为混沌伤害 移动速度 "}
 c["生命偷取造成伤害的 200% 转化为混沌伤害"]={nil,"生命偷取造成伤害的 200% 转化为混沌伤害 "}
-c["被诅咒的敌人无法对你施加元素异常状态"]={nil,"被诅咒的敌人无法对你施加元素异常状态 "}
 c["投射物速度提高 75%"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=75}},nil}
+c["被诅咒的敌人无法对你施加元素异常状态"]={nil,"被诅咒的敌人无法对你施加元素异常状态 "}
 c["药剂持续期间，你造成的中毒持续时间延长 75%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=75}},nil}
-c["攻击附加 11 - 26 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=11},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=26}},nil}
 c["受到击中闪电伤害的 100% 转为冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageTakenAsCold",type="BASE",value=100}},nil}
-c["攻击附加 15 - 31 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=15},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=31}},nil}
+c["攻击附加 11 - 26 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=11},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=26}},nil}
 c["召唤生物格挡时，回复它 2% 生命"]={nil,"Recover 2% of their Life when they Block "}
-c["禁断之火上有匹配的词缀则配置 处刑者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="处刑者",side="之火"}}},nil}
-c["此物品上的技能石受到 20 级的 元素穿透 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="SupportElementalPenetration"}}},nil}
+c["攻击附加 15 - 31 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=15},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=31}},nil}
+c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 欺诈师"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 欺诈师 "}
 c["火焰伤害提高 79%"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=79}},nil}
 c["敌人被晕眩时间延长 40%"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunDuration",type="INC",value=40}},nil}
+c["每秒回复 1% 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}},nil}
 c["攻击附加 1 - 17 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=17}},nil}
-c["攻击附加 12 - 28 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=12},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=28}},nil}
 c["+35% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=35}},nil}
-c["攻击附加 6 - 14 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=6},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=14}},nil}
+c["攻击附加 12 - 28 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=12},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=28}},nil}
 c["物理攻击伤害上限总增 40%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalMax",type="MORE",value=40}},nil}
-c["攻击附加 16 - 32 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=16},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=32}},nil}
+c["攻击附加 3 - 7 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=3},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=7}},nil}
 c["冰霜伤害提高 (25-35)% 冰霜伤害的 0.2% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageLifeLeech",type="BASE",value=-35}},"提高 (25)% 冰霜伤害的 0.2%  "}
+c["攻击附加 16 - 32 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=16},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=32}},nil}
 c["攻击附加 8 - 16 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=8},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=16}},nil}
-c["武器攻击的火焰、冰霜、闪电伤害提高 10%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=10}},"攻击的 "}
 c["+38 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=38}},nil}
+c["其中 1 个增加的天赋为【直攻要害】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="直攻要害"}},nil}
 c["击中时有 15% 几率使敌人中毒"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=15}},nil}
-c["Melee Hits which Stun Fortify"]={nil,"Melee Hits which Stun Fortify "}
 c["召唤生物的攻击速度提高 4%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=4}}}},nil}
+c["Melee Hits which Stun Fortify"]={nil,"Melee Hits which Stun Fortify "}
 c["你的近战伤害晕眩敌人时有 20% 几率获得护体"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="BASE",value=20}},"你的晕眩敌人时获得护体 "}
-c["取护甲和闪避值之间的较低者，每 200 点可使攻击伤害提高 1%"]={{[1]={[1]={div=200,stat="LowestOfArmourAndEvasion",type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["药剂持续期间，有 30% 几率感电"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=30}},nil}
-c["取护甲和闪避值之间的较低者，每 300 点可使攻击伤害提高 1%"]={{[1]={[1]={div=300,stat="LowestOfArmourAndEvasion",type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
+c["取护甲和闪避值之间的较低者，每 200 点可使攻击伤害提高 1%"]={{[1]={[1]={div=200,stat="LowestOfArmourAndEvasion",type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["你技能的非诅咒类光环效果提高 (2-4)%"]={{[1]={flags=0,keywordFlags=0,name="AuraEffect",type="BASE",value=-4}},"你技能的提高 (2)% "}
 c["身上未装备已腐化的物品时，每秒回复 100 生命"]={{[1]={[1]={threshold=0,type="MultiplierThreshold",upper=true,var="CorruptedItem"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=100}},nil}
+c["反射 15 火焰伤害给近战攻击者 反射 100 火焰伤害给近战攻击者"]={nil,"反射 15 火焰伤害给近战攻击者 反射 100 火焰伤害给近战攻击者 "}
 c["附加 260 - 285 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=260},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=285}},nil}
-c["持续时间缩短 90%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-90}},nil}
 c["投射物伤害提高 30%"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["对感电敌人的击中伤害提高 40%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
-c["其中 1 个增加的天赋为【恶化创伤】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="恶化创伤"}},nil}
+c["持续时间缩短 90%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-90}},nil}
 c["法术伤害在持盾牌时提高 8%"]={{[1]={[1]={type="Condition",varList={[1]="UsingShield"}},flags=2,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["暴击时有 25% 几率获得暴击球"]={{},"获得暴击球 "}
+c["其中 1 个增加的天赋为【恶化创伤】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="恶化创伤"}},nil}
 c["感电会反射回自己身上"]={nil,"感电会反射回自己身上 "}
 c["你被感电的持续时间延长 100% 感电会反射回自己身上"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=100}},"你被感电的 感电会反射回自己身上 "}
-c["攻击附加 1 - 50 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=50}},nil}
 c["每个蓝色插槽可为你和周围友军附加 16 - 144 基础闪电伤害"]={{[1]={[1]={type="Multiplier",var="BlueSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningMin",type="BASE",value=16}}},[2]={[1]={type="Multiplier",var="BlueSocketIn{SlotName}"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningMax",type="BASE",value=144}}}},nil}
 c["该装备的闪避与能量护盾提高 350%"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=350}},nil}
 c["爪类攻击的攻击速度提高 10%"]={{[1]={flags=262149,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["魔力每秒再生 5 点"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="BASE",value=5}},nil}
+c["+16% 火焰和冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=16},[2]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=16}},nil}
 c["至少有 200 点智慧时，暴击率提高 60%"]={{[1]={[1]={stat="Int",threshold=200,type="StatThreshold"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=60}},nil}
-c["其中 1 个增加的天赋为【万物滋生】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="万物滋生"}},nil}
 c["每个生效中的狂怒球给予 1 秒【猛攻】状态 每个生效中的狂怒球给予 2 秒【猛攻】状态"]={nil,"每个生效中的狂怒球给予 1 秒【猛攻】状态 每个生效中的狂怒球给予 2 秒【猛攻】状态 "}
 c["中毒持续总时间额外降低 50%"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="MORE",value=-50}},nil}
+c["禁断之肉上有匹配的词缀则配置 启发"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="启发",side="之肉"}}},nil}
 c["击中时有 40% 的几率使目标中毒"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=40}},nil}
 c["物理伤害提高 33%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=33}},nil}
 c["至少有 200 点敏捷时，投射物攻击伤害提高 50%"]={{[1]={[1]={stat="Dex",threshold=200,type="StatThreshold"},flags=1025,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
-c["+45 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=45}},nil}
 c["受到【寒冰之捷】影响时，+60% 冰霜抗性"]={{[1]={[1]={type="Condition",var="AffectedBy寒冰之捷"},flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=60}},nil}
-c["禁断之火上有匹配的词缀则配置 灵魂饮者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="灵魂饮者",side="之火"}}},nil}
+c["+45 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=45}},nil}
 c["魔像的最大生命提高 20%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=20}}}},nil}
+c["有 5% 被击中的伤害优先由你的图腾承受"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="BASE",value=5}},"  from Hits is taken from your nearest 's Life before you "}
 c["敌人受到的元素异常状态时间缩短 20%"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=-20},[2]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=-20},[3]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=-20},[4]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-20},[5]={flags=0,keywordFlags=0,name="EnemyScorchDuration",type="INC",value=-20},[6]={flags=0,keywordFlags=0,name="EnemyBrittleDuration",type="INC",value=-20},[7]={flags=0,keywordFlags=0,name="EnemySapDuration",type="INC",value=-20}},nil}
 c["9 每秒魔力回复"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="BASE",value=9}},nil}
-c["每失去 1% 冰霜抗性，冰霜伤害就提高 20%，最多提高 300%"]={{[1]={[1]={neg=true,type="Condition",var="DualWielding"},[2]={div=1,limit=300,limitTotal=true,stat="MissingColdResist",type="PerStat"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=20},[2]={[1]={type="Condition",var="DualWielding"},[2]={div=1,limit=150,limitTotal=true,stat="MissingColdResist",type="PerStat"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=20}},nil}
 c["召唤生物每秒回复 1% 生命"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}}}},nil}
-c["没有被点燃，冰冻，感电时，护甲提高 40%"]={{[1]={[1]={neg=true,type="Condition",varList={[1]="Ignited",[2]="Frozen",[3]="Shocked"}},flags=0,keywordFlags=0,name="Armour",type="INC",value=40}},nil}
+c["每失去 1% 冰霜抗性，冰霜伤害就提高 20%，最多提高 300%"]={{[1]={[1]={neg=true,type="Condition",var="DualWielding"},[2]={div=1,limit=300,limitTotal=true,stat="MissingColdResist",type="PerStat"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=20},[2]={[1]={type="Condition",var="DualWielding"},[2]={div=1,limit=150,limitTotal=true,stat="MissingColdResist",type="PerStat"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=20}},nil}
 c["召唤生物不会造成冰霜以外的伤害"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DealNoPhysical",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DealNoLightning",type="FLAG",value=true}}},[3]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DealNoFire",type="FLAG",value=true}}},[4]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DealNoChaos",type="FLAG",value=true}}}},nil}
 c["+16 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=16}},nil}
+c["没有被点燃，冰冻，感电时，护甲提高 40%"]={{[1]={[1]={neg=true,type="Condition",varList={[1]="Ignited",[2]="Frozen",[3]="Shocked"}},flags=0,keywordFlags=0,name="Armour",type="INC",value=40}},nil}
 c["承受攻击造成的物理伤害 -40"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageTaken",type="BASE",value=-40}},nil}
-c["-10% 全部抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=-10},[2]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=-10},[3]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=-10},[4]={flags=0,keywordFlags=0,name="ChaosResistMax",type="BASE",value=-10}},nil}
 c["你产生的具有生命再生效果的奉献地面 也会为你和友军回复能量护盾"]={nil,"你产生的具有生命再生效果的奉献地面 也会为你和友军回复能量护盾 "}
 c["附加 440 - 545 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=440},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=545}},nil}
 c["附加 140 - 285 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=140},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=285}},nil}
-c["获得 -40% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-40}},nil}
+c["获得 -15% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-15}},nil}
 c["+25% 几率中毒"]={{}," "}
 c["附加 145 - 175 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=145},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=175}},nil}
-c["此物品上的技能石受到 10 级的 点燃扩散(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportIgniteProliferation"}}},nil}
+c["10 每秒魔力回复"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="BASE",value=10}},nil}
 c["伤害穿透 7% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosPenetration",type="BASE",value=7}},nil}
-c["当你击败稀有怪物时，会获得该怪物属性 20 秒"]={nil,"当你击败稀有怪物时，会获得该怪物属性 20 秒 "}
+c["此物品上的技能石受到 10 级的 点燃扩散(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportIgniteProliferation"}}},nil}
 c["被击中时会失去所有【脆弱重生】"]={nil,"被击中时会失去所有【脆弱重生】 "}
+c["当你击败稀有怪物时，会获得该怪物属性 20 秒"]={nil,"当你击败稀有怪物时，会获得该怪物属性 20 秒 "}
 c["对稀有怪的击中伤害提高 30% 当你击败稀有怪物时，会获得该怪物属性 20 秒"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=30}},"对稀有怪的 当你击败稀有怪物时，会获得该怪物属性 20 秒 "}
 c["对稀有怪的击中伤害提高 30% 对稀有怪的击中伤害提高 30%"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=30}},"对稀有怪的 对稀有怪的击中伤害提高 30% "}
 c["对稀有怪的击中伤害提高 30%"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=30}},"对稀有怪的 "}
 c["你的攻击给敌人施加的每个诅咒都使你获得 12 点魔力"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="ManaOnHit",type="BASE",value=12}},nil}
-c["你的攻击给敌人施加的每个诅咒都使你获得 24 点生命"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="LifeOnHit",type="BASE",value=24}},nil}
 c["投射物会穿透 1 个额外目标"]={{[1]={flags=0,keywordFlags=0,name="PierceCount",type="BASE",value=1}},nil}
-c["使用移动技能时，承受 200 额外物理伤害"]={{[1]={flags=0,keywordFlags=8,name="PhysicalDamage",type="BASE",value=200}},"使用时，承受  "}
+c["你的攻击给敌人施加的每个诅咒都使你获得 24 点生命"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="LifeOnHit",type="BASE",value=24}},nil}
 c["攻击技能的伤害在护体状态下提高 14%"]={{[1]={[1]={type="Condition",var="Fortified"},flags=0,keywordFlags=65536,name="Damage",type="INC",value=14}},nil}
 c["其中 1 个增加的天赋为【弥补之印】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="弥补之印"}},nil}
-c["你的攻击给敌人施加的每个诅咒都使你获得 14 点魔力"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="ManaOnHit",type="BASE",value=14}},nil}
+c["使用移动技能时，承受 200 额外物理伤害"]={{[1]={flags=0,keywordFlags=8,name="PhysicalDamage",type="BASE",value=200}},"使用时，承受  "}
 c["格挡时 20% 的几率获得耐力球"]={nil,"an Endurance Charge when you Block "}
 c["若你的其他戒指中有【裂界之器】，则法术伤害提高 70%"]={{[1]={[1]={type="Condition",var="ElderItemInRing {OtherSlotNum}"},flags=2,keywordFlags=0,name="Damage",type="INC",value=70}},nil}
 c["击败被冰冻的敌人时有 20% 几率获得 1 个狂怒球 当你拥有最大数量的狂怒球时，技能额外连锁弹射 1 次"]={{[1]={[1]={stat="FrenzyCharges",thresholdStat="FrenzyChargesMax",type="StatThreshold"},flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=20}},"击败被的敌人时获得 1 个狂怒球 当你技能额外连锁弹射 1 次 "}
 c["6 每秒魔力回复"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="BASE",value=6}},nil}
 c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 影响"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 影响 "}
+c["你的攻击给敌人施加的每个诅咒都使你获得 28 点生命"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="LifeOnHit",type="BASE",value=28}},nil}
 c["击中时用 30 级的【盗猎者印记】诅咒敌人，对诅咒免疫的敌人也有效"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=30,noSupports=true,skillId="PoachersMark",triggered=true}}},nil}
 c["对受到【盗猎者印记】诅咒的敌人附带【终结】效果 你可以【终结】被诅咒的敌人"]={nil,"对受到【盗猎者印记】诅咒的敌人附带【终结】效果 你可以【终结】被诅咒的敌人 "}
 c["能量护盾回复速度提高 13%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecoveryRate",type="INC",value=13}},nil}
-c["你的暴击加成为 300%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="CritMultiplier",type="OVERRIDE",value=300}},nil}
 c["承受投射物的攻击时，护甲提高 200% +25% 对投射物格挡率"]={{[1]={flags=0,keywordFlags=65536,name="ProjectileCountTaken",type="INC",value=200}},"的，护甲 +25% 对投射物格挡率 "}
+c["持长杖时攻击伤害格挡几率 +5%"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=5}},nil}
 c["药剂持续期间，获得的充能数提高 50% 药剂持续期间，魔力回复提高 50%"]={{[1]={[1]={type="Condition",var="UsingFlask"},[2]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=50}},"的充能数 提高 50% "}
-c["药剂持续期间，获得的充能数提高 50%"]={{},"的充能数 "}
 c["45% 的火焰伤害转换为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="FireDamageConvertToChaos",type="BASE",value=45}},nil}
+c["药剂持续期间，获得的充能数提高 50%"]={{},"的充能数 "}
 c["物理攻击伤害的 0.2% 会转化为生命偷取"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageLifeLeech",type="BASE",value=0.2}},nil}
 c["战吼技能不能增助位移技能"]={nil,"战吼技能不能增助位移技能 "}
 c["每 10 点智慧提高 2% 闪避值"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=2}},nil}
-c["冰霜伤害击中时有 10% 的几率冰冻敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=10}},nil}
 c["若你近期内受到过【残暴打击】，则 +30% 暴击伤害加成"]={{[1]={[1]={type="Condition",var="BeenSavageHitRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=30}},nil}
-c["药剂持续期间间延长 60%"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=60}},nil}
+c["冰霜伤害击中时有 10% 的几率冰冻敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=10}},nil}
 c["击败敌人时回复 1% 生命 击败敌人回复 1% 能量护盾"]={nil,"击败敌人时回复 1% 生命 击败敌人回复 1% 能量护盾 "}
 c["魔像的攻击和施法速度提高 20%"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=20}}}},nil}
-c["无法造成物理伤害"]={{[1]={flags=0,keywordFlags=0,name="DealNoPhysical",type="FLAG",value=true}},nil}
+c["药剂持续期间间延长 60%"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=60}},nil}
 c["25% 的几率使敌人受到冰冻，感电与点燃"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=25},[2]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=25},[3]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=25}},nil}
 c["所有攻击都受到血魔法辅助"]={{[1]={flags=1,keywordFlags=0,name="SkillBloodMagic",type="FLAG",value=true}},nil}
 c["主手附加 60 - 110 基础火焰伤害"]={{[1]={[1]={num=1,type="InSlot"},flags=0,keywordFlags=0,name="FireMin",type="BASE",value=60},[2]={[1]={num=1,type="InSlot"},flags=0,keywordFlags=0,name="FireMax",type="BASE",value=110}},nil}
 c["投射物伤害提高 80%"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=80}},nil}
-c["攻击被点燃敌人会使燃烧加快 35%"]={{[1]={flags=1,keywordFlags=0,name="IgniteBurnFaster",type="INC",value=35}},nil}
+c["无法造成物理伤害"]={{[1]={flags=0,keywordFlags=0,name="DealNoPhysical",type="FLAG",value=true}},nil}
 c["瓦尔技能持续时间延长 18%"]={{[1]={flags=0,keywordFlags=512,name="Duration",type="INC",value=18}},nil}
-c["周围友军获得每秒回复 2% 生命"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2},onlyAllies=true}}},nil}
+c["攻击被点燃敌人会使燃烧加快 35%"]={{[1]={flags=1,keywordFlags=0,name="IgniteBurnFaster",type="INC",value=35}},nil}
 c["单手武器的攻击伤害提高 20%"]={{[1]={flags=134217733,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
+c["周围友军获得每秒回复 2% 生命"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2},onlyAllies=true}}},nil}
 c["药剂持续期间，有 25% 几率感电"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=25}},nil}
 c["+68 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=68}},nil}
-c["+325 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=325}},nil}
 c["每 4 点力量 +2 魔力"]={{[1]={[1]={div=4,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=2}},nil}
+c["+325 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=325}},nil}
 c["药剂持续期间，敌人晕眩门槛降低 25%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="EnemyStunThreshold",type="INC",value=-25}},nil}
 c["闪电伤害的 0.6% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageLifeLeech",type="BASE",value=0.6}},nil}
 c["冰霜伤害的 0.6% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageLifeLeech",type="BASE",value=0.6}},nil}
-c["火焰伤害的 0.6% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="FireDamageLifeLeech",type="BASE",value=0.6}},nil}
 c["若你近期没有引爆地雷，则每秒失去 1 个暴击球"]={{},"若你近期没有引爆，则每秒 个暴击球 "}
 c["晕眩敌人时获得 50 生命"]={nil,"晕眩敌人时获得 50 生命 "}
 c["地雷暴击率提高 20%"]={{[1]={flags=0,keywordFlags=8192,name="CritChance",type="INC",value=20}},nil}
+c["物理伤害的 0.6% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageLifeLeech",type="BASE",value=0.6}},nil}
 c["+350 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=350}},nil}
 c["插槽内的珠宝效果提高 50%"]={{[1]={flags=0,keywordFlags=0,name="SocketedJewelEffect",type="INC",value=50}},nil}
 c["其中 1 个增加的天赋为【混元震天】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="混元震天"}},nil}
 c["若力量高于敏捷，则无法被点燃"]={{[1]={[1]={type="Condition",var="StrHigherThanDex"},flags=0,keywordFlags=0,name="AvoidIgnite",type="BASE",value=100}},nil}
-c["对抗魔法怪物时，击中伤害提高 30% 击败魔法敌人时，有 20% 几率获得它的非血族词缀，持续 20 秒"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=30}},"对抗魔法怪物时， 击败魔法敌人时，有 20% 几率获得它的非血族词缀，持续 20 秒 "}
-c["对被点燃敌人的伤害提高 33%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},flags=0,keywordFlags=0,name="Damage",type="INC",value=33}},nil}
+c["+33 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=33}},nil}
 c["召唤生物的范围效果扩大 8%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=8}}}},nil}
 c["火焰伤害提高 35%"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=35}},nil}
+c["对被点燃敌人的伤害提高 33%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},flags=0,keywordFlags=0,name="Damage",type="INC",value=33}},nil}
 c["能量护盾的回复速度提高 50%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=50}},nil}
 c["有 25% 几率使晕眩时间延长 1 倍"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunDuration",type="BASE",value=25}},"使延长 1 倍 "}
 c["每个暴击球可使攻击技能的火焰、冰霜、闪电伤害提高 25%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=25}},nil}
-c["攻击技能的火焰、冰霜、闪电伤害提高 20%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=20}},nil}
 c["你的暴击不造成额外暴击伤害"]={nil,"你的暴击不造成额外暴击伤害 "}
 c["若你的其他戒指中有【塑界之器】，则免疫法术造成的晕眩"]={nil,"若你的其他戒指中有【塑界之器】，则免疫法术造成的晕眩 "}
-c["冰缓效果和冰冻时长基于你能量护盾的 65% 计算"]={nil,"冰缓效果和冰冻时长基于你能量护盾的 65% 计算 "}
+c["攻击技能的火焰、冰霜、闪电伤害提高 20%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=20}},nil}
 c["4% 几率躲避攻击击中"]={{[1]={flags=0,keywordFlags=0,name="AttackDodgeChance",type="BASE",value=4}},nil}
-c["每个暴击球所获得物理攻击伤害的 0.2% 转化为魔力偷取"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=1,keywordFlags=0,name="PhysicalDamageManaLeech",type="BASE",value=0.2}},nil}
+c["冰缓效果和冰冻时长基于你能量护盾的 65% 计算"]={nil,"冰缓效果和冰冻时长基于你能量护盾的 65% 计算 "}
 c["全局最大能量护盾提高 40%，并且闪电抗性等量降低"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=40},[2]={flags=0,keywordFlags=0,name="LightningResist",type="INC",value=-40}},nil}
 c["击败冰缓的敌人回复 2% 生命"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},[2]={actor="enemy",type="ActorCondition",var="Chilled"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
+c["每个暴击球所获得物理攻击伤害的 0.2% 转化为魔力偷取"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=1,keywordFlags=0,name="PhysicalDamageManaLeech",type="BASE",value=0.2}},nil}
 c["武器攻击的火焰、冰霜、闪电伤害提高 20% +55 最大魔力"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=20}},"攻击的 +55 最大魔力 "}
 c["武器攻击的火焰、冰霜、闪电伤害提高 20%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=20}},"攻击的 "}
 c["击败敌人有 30% 的几率获得狂怒球 每个狂怒球可使伤害提高 15%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=30}},"击败敌人获得狂怒球 提高 15% "}
 c["此物品上的技能石受到 10 级的 快速施法(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportFasterCast"}}},nil}
 c["6% increased Evasion while Phasing 30% increased Evasion while Phasing"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=6}},"% increased  while Phasing 30% increased Evasion while Phasing "}
-c["6% increased Evasion while Phasing"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=6}},"% increased  while Phasing "}
 c["双持武器时，攻击技能的伤害提高 10%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
+c["6% increased Evasion while Phasing"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=6}},"% increased  while Phasing "}
 c["专注的冷却回复速度提高 40%"]={{[1]={[1]={type="Condition",var="Focused"},flags=0,keywordFlags=0,name="FocusCooldownRecovery",type="INC",value=40}},nil}
-c["对冰缓敌人的击中和异常状态伤害提高 70%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Chilled"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=70}},nil}
 c["投射物速度提高 20%"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=20}},nil}
 c["持续吟唱时，每秒有 25% 的几率获得一个耐力球"]={nil,"an Endurance Charge each second  "}
 c["你的晕眩门槛由能量护盾计算，而不再基于生命"]={nil,"你的晕眩门槛由能量护盾计算，而不再基于生命 "}
 c["空手时法术附加 135 - 360 基础闪电伤害"]={{[1]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=135},[2]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=360}},nil}
 c["不能被冻结"]={{[1]={[1]={effectType="Global",type="GlobalEffect",unscalable=true},flags=0,keywordFlags=0,name="AvoidFreeze",type="BASE",value=100}},nil}
-c["攻击击中时，召唤生物有 5% 几率嘲讽敌人"]={{},"击中时，嘲讽敌人 "}
+c["你的召唤生物死亡时产生腐蚀地面，每秒造成等同它们 20% 最大生命的混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ExtraMinionSkill",type="LIST",value={skillId="SiegebreakerCausticGround"}}},nil}
 c["需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 卫士"]={nil,"需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 卫士 "}
+c["攻击击中时，召唤生物有 5% 几率嘲讽敌人"]={{},"击中时，嘲讽敌人 "}
 c["奉献技能的持续时间降低 50%"]={{[1]={[1]={skillNameList={[1]="骸骨奉献",[2]="血肉奉献",[3]="灵魂奉献",[4]="血脉奉献"},type="SkillName"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-50}},nil}
 c["你可以拥有每种奉献各一个 奉献技能的持续时间降低 50%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-50}},"你可以拥有每种奉献各一个 奉献技能的 "}
 c["召唤生物的药剂使用次数减少 40% 召唤生物的药剂效果持续时间提高 80%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FlaskEffect",type="INC",value=80}}}},"药剂使用次数减少 40% 召唤生物的持续时间 "}
 c["召唤生物的药剂使用次数减少 40%"]={nil,"药剂使用次数减少 40% "}
 c["此物品上的技能石受到 10 级的 几率点燃(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportChanceToIgnite"}}},nil}
-c["你身上的减益效果消失速度提高 18%"]={{},nil}
 c["持续吟唱时，攻击和施法速度加快 8%"]={{[1]={[1]={type="Condition",var="OnChannelling"},flags=0,keywordFlags=0,name="Speed",type="INC",value=8}},nil}
-c["冷却回复速度提高 18%"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=18}},nil}
+c["你身上的减益效果消失速度提高 18%"]={{},nil}
 c["药剂持续期间，持续伤害提高 40%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=8,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["禁断之火上有匹配的词缀则配置 伏击"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="伏击",side="之火"}}},nil}
 c["耐力球，狂怒球，以及暴击球的持续时间延长 100%"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesDuration",type="INC",value=100},[2]={flags=0,keywordFlags=0,name="FrenzyChargesDuration",type="INC",value=100},[3]={flags=0,keywordFlags=0,name="EnduranceChargesDuration",type="INC",value=100}},nil}
 c["双手近战武器攻击的攻击速度提高 5%"]={{[1]={flags=301989893,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
-c["生命回复速度提高 20%"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=20}},nil}
+c["冷却回复速度提高 18%"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=18}},nil}
 c["对满血敌人的晕眩时间延长 60%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="EnemyStunDuration",type="INC",value=60}},nil}
 c["中毒持续时间延长 15%"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=15}},nil}
+c["生命回复速度提高 20%"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=20}},nil}
 c["攻击与施法速度提高 15%"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["获得【召唤高等时空先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfTimeUber"}}},nil}
 c["每 10 点怒火使物理伤害提高 5%"]={{[1]={[1]={div=10,type="Multiplier",var="Rage"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=5}},nil}
 c["+20 最大怒火"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=20}},nil}
-c["每 10 点怒火使物理伤害提高 6%"]={{[1]={[1]={div=10,type="Multiplier",var="Rage"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=6}},nil}
 c["若你近期内没有格挡过敌人，则法术伤害格挡率 +75%"]={{[1]={[1]={neg=true,type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=75}},nil}
-c["攻击附加 7 - 12 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=7},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=12}},nil}
+c["你至少有 25 点怒火时，周围敌人被压垮"]={{[1]={[1]={threshold=25,type="MultiplierThreshold",var="RageStack"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Crushed",type="FLAG",value=true}}}},nil}
 c["单手武器的攻击伤害提高 14%"]={{[1]={flags=134217733,keywordFlags=0,name="Damage",type="INC",value=14}},nil}
+c["攻击附加 7 - 12 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=7},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=12}},nil}
 c["持续时间延长 100%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=100}},nil}
-c["法师克星范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="法师克星"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="法师克星",value=true}}},nil}
-c["被你点燃的敌人将它们物理伤害的 15% 转化为火焰伤害 被你感电的敌人将物理伤害的 15% 转化为闪电伤害"]={nil,"被你点燃的敌人将它们物理伤害的 15% 转化为火焰伤害 被你感电的敌人将物理伤害的 15% 转化为闪电伤害 "}
+c["其中 1 个增加的天赋为【先祖之力】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="先祖之力"}},nil}
 c["武器攻击的火焰、冰霜、闪电伤害提高 12% 攻击和法术暴击伤害加成 +25%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=12}},"攻击的 攻击和法术暴击伤害加成 +25% "}
+c["被你点燃的敌人将它们物理伤害的 15% 转化为火焰伤害 被你感电的敌人将物理伤害的 15% 转化为闪电伤害"]={nil,"被你点燃的敌人将它们物理伤害的 15% 转化为火焰伤害 被你感电的敌人将物理伤害的 15% 转化为闪电伤害 "}
 c["被你点燃的敌人将它们物理伤害的 15% 转化为火焰伤害"]={nil,"被你点燃的敌人将它们物理伤害的 15% 转化为火焰伤害 "}
 c["你失去时空锁链时，获得最大怒火 你至少有 25 点怒火时免疫诅咒"]={nil,"你失去时空锁链时，获得最大怒火 你至少有 25 点怒火时免疫诅咒 "}
 c["钢铁呼唤的钢刃碎片数量上限 +4"]={nil,"Call of Steel has +4 to maximum Steel Shards "}
 c["攻击附加 1 - 4 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=4}},nil}
 c["药剂充能使用提高 15%"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=15}},nil}
-c["药剂充能使用提高 20%"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=20}},nil}
 c["格挡时有 25% 几率制造腐化地面"]={{},"格挡时制造腐化地面 "}
+c["药剂充能使用提高 20%"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=20}},nil}
 c["钓鱼稀有度提高 30%"]={{},"钓鱼稀有度 "}
 c["钓鱼池消耗量提高 50% 钓鱼范围扩大 20%"]={{},"钓鱼池消耗量 钓鱼扩大 20% "}
-c["钓鱼池消耗量提高 50%"]={{},"钓鱼池消耗量 "}
 c["魔卫的物理总伤害额外提高 113%"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamage",type="MORE",value=113}}}},nil}
-c["+33 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=33}},nil}
+c["钓鱼池消耗量提高 50%"]={{},"钓鱼池消耗量 "}
 c["若敏捷高于智慧，则无法被冰冻"]={{[1]={[1]={type="Condition",var="DexHigherThanInt"},flags=0,keywordFlags=0,name="AvoidFreeze",type="BASE",value=100}},nil}
 c["插入的技能石被 1 级的【流血几率】辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportChanceToBleed"}}},nil}
 c["攻击速度提高 11%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=11}},nil}
 c["暴击率提高 10%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=10}},nil}
-c["+55 敏捷"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=55}},nil}
+c["对抗魔法怪物时，击中伤害提高 30% 击败魔法敌人时，有 20% 几率获得它的非血族词缀，持续 20 秒"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=30}},"对抗魔法怪物时， 击败魔法敌人时，有 20% 几率获得它的非血族词缀，持续 20 秒 "}
 c["魔力上限提高 10%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=10}},nil}
+c["+55 敏捷"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=55}},nil}
 c["法术附加 11 - 26 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=11},[2]={flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=26}},nil}
 c["法术附加 15 - 31 基础火焰伤害"]={{[1]={flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=15},[2]={flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=31}},nil}
 c["药剂持续期间，元素伤害提高 30%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=30}},nil}
-c["法术附加 1 - 34 基础闪电伤害"]={{[1]={flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=34}},nil}
 c["攻击伤害格挡率按照已装备的盾牌上每 5% 的格挡率 +1%"]={{[1]={[1]={div="5",stat="ShieldBlockChance",type="PerStat"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value="1"}},nil}
-c["法术附加 6 - 14 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=6},[2]={flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=14}},nil}
+c["法术附加 1 - 34 基础闪电伤害"]={{[1]={flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=34}},nil}
 c["你每控制一个魔卫，每秒回复 0.6% 生命"]={{},"你每控制一个，"}
 c["若你近期内有击败敌人，则攻击伤害的 2% 转化为偷取生命和魔力"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=1,keywordFlags=0,name="DamageLifeLeech",type="BASE",value=2}},nil}
-c["法术附加 16 - 32 基础火焰伤害"]={{[1]={flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=16},[2]={flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=32}},nil}
+c["法术附加 6 - 14 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=131072,name="ColdMin",type="BASE",value=6},[2]={flags=0,keywordFlags=131072,name="ColdMax",type="BASE",value=14}},nil}
 c["具有该词缀时，最多可以有 5 个基底词缀"]={nil,"具有该词缀时，最多可以有 5 个基底词缀 "}
 c["禁断之肉上有匹配的词缀则配置 伏击"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="伏击",side="之肉"}}},nil}
 c["你的攻击击中每个敌人会失去 25 生命 投射物可以连锁弹射 +1 次"]={{[1]={flags=1,keywordFlags=0,name="Life",type="BASE",value=25}},"你的击中每个敌人会  投射物可以连锁弹射 +1 次 "}
-c["药剂持续期间，法术附加 15 - 65 基础闪电伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=15},[2]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=65}},nil}
+c["法术附加 16 - 32 基础火焰伤害"]={{[1]={flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=16},[2]={flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=32}},nil}
 c["+125 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=125}},nil}
+c["药剂持续期间，法术附加 15 - 65 基础闪电伤害"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=131072,name="LightningMin",type="BASE",value=15},[2]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=131072,name="LightningMax",type="BASE",value=65}},nil}
 c["暴击时有 50% 几率获得 1 充能 药剂持续期间，移动速度提高 30%"]={{[1]={[1]={type="Condition",var="CriticalStrike"},[2]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="MovementSpeed",type="BASE",value=50}},"获得 1 充能 提高 30% "}
 c["残暴球数量上限等于耐力球数量上限"]={{[1]={flags=0,keywordFlags=0,name="MaximumEnduranceChargesEqualsMaximumBrutalCharges",type="FLAG",value=true}},nil}
-c["调整耐力球数量下限的词缀改为调整残暴球数量下限"]={{[1]={flags=0,keywordFlags=0,name="MinimumEnduranceChargesEqualsMinimumBrutalCharges",type="FLAG",value=true}},nil}
 c["晕眩回复和格挡回复提高 40%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=40}},nil}
+c["调整耐力球数量下限的词缀改为调整残暴球数量下限"]={{[1]={flags=0,keywordFlags=0,name="MinimumEnduranceChargesEqualsMinimumBrutalCharges",type="FLAG",value=true}},nil}
 c["+700 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=700}},nil}
-c["获得痛苦球替代狂怒球"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesConvertToAfflictionCharges",type="FLAG",value=true}},nil}
 c["当你拥有最大数量的狂怒球时，攻击使敌人中毒"]={{[1]={[1]={stat="FrenzyCharges",thresholdStat="FrenzyChargesMax",type="StatThreshold"},flags=1,keywordFlags=0,name="PoisonChance",type="BASE",value=100}},nil}
 c["主手附加 100 - 120 基础火焰伤害"]={{[1]={[1]={num=1,type="InSlot"},flags=0,keywordFlags=0,name="FireMin",type="BASE",value=100},[2]={[1]={num=1,type="InSlot"},flags=0,keywordFlags=0,name="FireMax",type="BASE",value=120}},nil}
+c["获得痛苦球替代狂怒球"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesConvertToAfflictionCharges",type="FLAG",value=true}},nil}
 c["调整狂怒球数量下限词缀改为调整痛苦球数量下限"]={{[1]={flags=0,keywordFlags=0,name="MinimumFrenzyChargesEqualsMinimumAfflictionCharges",type="FLAG",value=true}},nil}
 c["+35% 攻击和法术暴击伤害加成"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=35}},nil}
-c["受到【怨毒光环】影响时，不受【中毒】影响"]={nil,"受到【怨毒光环】影响时，不受【中毒】影响 "}
+c["其中 1 个增加的天赋为【腐朽学徒】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="腐朽学徒"}},nil}
 c["有额外 10% 几率被暴击"]={{},"被暴击 "}
 c["+60% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=60}},nil}
 c["+1000 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=1000}},nil}
-c["每 50 点力量都使护甲降低 10%"]={{[1]={[1]={div=50,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="INC",value=-10}},nil}
 c["药剂持续期间，攻击速度提高 10%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=1,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
-c["最左边的 3 个魔法非恢复类药剂给你持续提供药剂效果"]={{[1]={flags=0,keywordFlags=0,name="ActiveMagicUtilityFlasks",type="BASE",value=3}},nil}
+c["每 50 点力量都使护甲降低 10%"]={{[1]={[1]={div=50,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="INC",value=-10}},nil}
 c["攻击附加 8 - 13 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=8},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=13}},nil}
 c["生命每秒再生 1.5"]={nil,"生命每秒再生 1.5 "}
 c["获得额外混沌伤害，其数值等同于物理伤害的 10%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsChaos",type="BASE",value=10}},nil}
-c["分配给你的各类专精可增加2%伤害"]={{[1]={[1]={type="Multiplier",var="AllocatedMasteryType"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=2}},nil}
+c["最左边的 3 个魔法非恢复类药剂给你持续提供药剂效果"]={{[1]={flags=0,keywordFlags=0,name="ActiveMagicUtilityFlasks",type="BASE",value=3}},nil}
 c["被攻击击中时，有 15% 几率制造冰缓地面 承受的冰霜伤害降低 5%"]={{[1]={flags=1,keywordFlags=0,name="ColdDamageTaken",type="BASE",value=15}},"被击中时，制造冰缓地面 降低 5% "}
 c["+800 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=800}},nil}
 c["结界复原速度加快 30%"]={{[1]={flags=0,keywordFlags=0,name="WardRechargeFaster",type="INC",value=30}},nil}
 c["+1 召唤图腾数量上限"]={{[1]={flags=0,keywordFlags=0,name="ActiveTotemLimit",type="BASE",value=1}},nil}
-c["禁断之火上有匹配的词缀则配置 勇士"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="勇士",side="之火"}}},nil}
+c["不能使用魔法非恢复类药剂"]={nil,"不能使用魔法非恢复类药剂 "}
 c["+200 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=200}},nil}
+c["禁断之火上有匹配的词缀则配置 勇士"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="勇士",side="之火"}}},nil}
 c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 勇士"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 勇士 "}
-c["禁断之火上有匹配的词缀则配置 欺诈师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="欺诈师",side="之火"}}},nil}
 c["当你击碎冰冻的敌人时，制造奉献地面"]={nil,"当你击碎冰冻的敌人时，制造奉献地面 "}
-c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 欺诈师"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 欺诈师 "}
+c["禁断之火上有匹配的词缀则配置 欺诈师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="欺诈师",side="之火"}}},nil}
 c["100% Increased Physical Damage 10% Increased Attack Speed"]={{},"% Increased Physical Damage 10% Increased Attack Speed "}
 c["击败敌人有 20% 的几率获得狂怒球 击中稀有或传奇敌人时，有 20% 的几率获得 1 个狂怒球"]={{},"击败敌人获得狂怒球 稀有或传奇敌人时，有 20% 的几率获得 1 个狂怒球 "}
 c["击败敌人时有 20% 的几率获得 4 秒【猛攻】状态"]={{[1]={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},"  on Kill "}
 c["药剂持续期间，攻击技能造成的火焰、冰霜、闪电伤害提高 30%"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=30}},nil}
 c["你的暴击不造成额外暴击伤害 燃烧总伤害额外降低 80%"]={{}," "}
+c["禁断之火上有匹配的词缀则配置 处刑者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="处刑者",side="之火"}}},nil}
 c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 处刑者"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 处刑者 "}
 c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 暴徒"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 暴徒 "}
 c["禁断之火上有匹配的词缀则配置 召唤师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="召唤师",side="之火"}}},nil}
 c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 召唤师"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 召唤师 "}
 c["你对已穿刺的敌人造成的穿刺伤害压制 20% 物理伤害减免"]={{[1]={flags=0,keywordFlags=0,name="EnemyImpalePhysicalDamageReduction",type="BASE",value=-20}},nil}
-c["禁断之火上有匹配的词缀则配置 卫士"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="卫士",side="之火"}}},nil}
 c["插入的技能石的保留效果降低 30%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="Reserved",type="INC",value=-30}}}},nil}
 c["命中值提高 12%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=12}},nil}
 c["物品稀有度提高 30%"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=30}},nil}
 c["该装备的护甲提高 125%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=125}},nil}
 c["攻击和法术附加 2 - 70 基础闪电伤害"]={{[1]={flags=0,keywordFlags=196608,name="LightningMin",type="BASE",value=2},[2]={flags=0,keywordFlags=196608,name="LightningMax",type="BASE",value=70}},nil}
-c["其中 1 个增加的天赋为【狂乱之相】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="狂乱之相"}},nil}
-c["其中 1 个增加的天赋为【先遣卫士】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="先遣卫士"}},nil}
+c["禁断之火上有匹配的词缀则配置 卫士"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="卫士",side="之火"}}},nil}
+c["火焰伤害击中时有 13% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=13}},nil}
 c["-15% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-15}},nil}
 c["获得 1 级的【疯狂之拥】技能"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="EmbraceMadness"}}},nil}
 c["双手近战武器攻击造成的晕眩时间延长 25%"]={{[1]={flags=301989888,keywordFlags=0,name="EnemyStunDuration",type="INC",value=25}},nil}
 c["若范围内有 40 点智慧，则【召唤魔侍】技能可以召唤最多 3 个魔侍法师"]={nil,"若范围内有 40 点智慧，则【召唤魔侍】技能可以召唤最多 3 个魔侍法师 "}
+c["其中 1 个增加的天赋为【先遣卫士】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="先遣卫士"}},nil}
 c["禁断之火上有匹配的词缀则配置 破坏者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="破坏者",side="之火"}}},nil}
-c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 破坏者"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 破坏者 "}
 c["祭血术"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="祭血术"}},nil}
 c["击败敌人时触发 10 级的【召唤幽狼】"]={nil,"击败敌人时触发 10 级的【召唤幽狼】 "}
-c["+5% 物理持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDotMultiplier",type="BASE",value=5}},nil}
+c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 破坏者"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 破坏者 "}
 c["+45% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=45}},nil}
 c["+0% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=0}},nil}
-c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 判官"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 判官 "}
+c["+5% 物理持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDotMultiplier",type="BASE",value=5}},nil}
 c["受到【迅捷】影响时，不受【时空锁链】影响"]={nil,"受到【迅捷】影响时，不受【时空锁链】影响 "}
-c["禁断之火上有匹配的词缀则配置 元素使"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="元素使",side="之火"}}},nil}
+c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 判官"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 判官 "}
 c["满血时移动速度提高 35%"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=35}},nil}
+c["禁断之火上有匹配的词缀则配置 元素使"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="元素使",side="之火"}}},nil}
 c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 元素使"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 元素使 "}
 c["禁断之火上有匹配的词缀则配置 追猎者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="追猎者",side="之火"}}},nil}
-c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 追猎者"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 追猎者 "}
 c["对最大能量护盾的增强与减弱效果改为作用于结界"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldToWard",type="FLAG",value=true}},nil}
-c["其中 1 个增加的天赋为【灵活哨兵】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="灵活哨兵"}},nil}
+c["血姿态下获得 200 每秒生命回复"]={{[1]={[1]={type="Condition",var="BloodStance"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=200}},nil}
 c["每个烙印可使暴击几率提高 20%"]={{[1]={[1]={stat="ActiveBrandLimit",type="PerStat"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
-c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 侠客"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 侠客 "}
+c["禁断之火上有匹配的词缀则配置 侠客"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="侠客",side="之火"}}},nil}
 c["格挡时有 40% 几率使攻击者冰缓 4 秒 格挡时有 40% 几率使攻击者感电 4 秒"]={{},"格挡时使者冰缓 4 秒 格挡时有 40% 几率使攻击者感电 4 秒 "}
-c["禁断之火上有匹配的词缀则配置 守护者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="守护者",side="之火"}}},nil}
+c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 侠客"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 侠客 "}
 c["魔卫的物理总伤害额外提高 125%"]={{[1]={[1]={skillName="魔卫复苏",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalDamage",type="MORE",value=125}}}},nil}
+c["禁断之火上有匹配的词缀则配置 守护者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="守护者",side="之火"}}},nil}
 c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 守护者"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 守护者 "}
-c["禁断之火上有匹配的词缀则配置 秘术家"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="秘术家",side="之火"}}},nil}
 c["低血时伤害提高 100%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="Damage",type="INC",value=100}},nil}
 c["插槽内魔像技能击中时有 25% 几率嘲讽"]={{},"插槽内技能时嘲讽 "}
 c["生命每秒再生 0.5 元素伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=10}},"每秒再生 0.5 元素伤害 "}
 c["受到【坚定】影响时，承受的反射物理伤害降低 50%"]={{[1]={[1]={type="Condition",var="AffectedBy坚定"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=-50}},"承受的反射 "}
+c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 秘术家"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 秘术家 "}
 c["禁断之火上有匹配的词缀则配置 寒冬塑形"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="寒冬塑形",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 寒冬塑形"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 寒冬塑形 "}
-c["禁断之火上有匹配的词缀则配置 黑暗统御者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="黑暗统御者",side="之火"}}},nil}
 c["物品稀有度提高 70%"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=70}},nil}
-c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 黑暗统御者"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 黑暗统御者 "}
+c["禁断之火上有匹配的词缀则配置 黑暗统御者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="黑暗统御者",side="之火"}}},nil}
 c["若范围内含有至少 40 点力量，【戒备打击】会使周围友军获得护体 3 秒 若范围内含有至少 40 点力量，【戒备打击】会使周围友军获得护体 12 秒"]={nil,"若范围内含有至少 40 点力量，【戒备打击】会使护体 3 秒 若范围内含有至少 40 点力量，【戒备打击】会使周围友军获得护体 12 秒 "}
+c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 黑暗统御者"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 黑暗统御者 "}
 c["禁断之火上有匹配的词缀则配置 凋零姿态"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="凋零姿态",side="之火"}}},nil}
-c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 凋零姿态"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 凋零姿态 "}
 c["攻击速度提高 5%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
 c["生命回复速率提高 25% 装备和技能石的属性需求降低 25%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=25}},"回复速率 装备和技能石的属性需求降低 25% "}
-c["禁断之火上有匹配的词缀则配置 骸骨屏障"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="骸骨屏障",side="之火"}}},nil}
+c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 凋零姿态"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 凋零姿态 "}
 c["40% increased Global Accuracy Rating Adds 1 to 9 Lightning Damage"]={{},"% increased Global Accuracy Rating Adds 1 to 9 Lightning Damage "}
 c["获得额外火焰伤害， 其数值等同于物理伤害的 35%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=35}},nil}
+c["禁断之火上有匹配的词缀则配置 骸骨屏障"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="骸骨屏障",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 骸骨屏障"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 骸骨屏障 "}
-c["禁断之火上有匹配的词缀则配置 虚无之塔"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="虚无之塔",side="之火"}}},nil}
 c["无法格挡法术"]={{[1]={flags=0,keywordFlags=0,name="CannotBlockSpells",type="FLAG",value=true}},nil}
+c["禁断之火上有匹配的词缀则配置 虚无之塔"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="虚无之塔",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 虚无之塔"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 虚无之塔 "}
 c["禁断之火上有匹配的词缀则配置 亵渎之力"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="亵渎之力",side="之火"}}},nil}
-c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 亵渎之力"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 亵渎之力 "}
 c["每隔 4 秒便在一秒内再生 30% 生命"]={{[1]={[1]={type="Condition",var="LifeRegenBurstFull"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=30},[2]={[1]={type="Condition",var="LifeRegenBurstAvg"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=7.5}},nil}
 c["每个狂怒球可使移动速度提高 4%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=4}},nil}
+c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 亵渎之力"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 亵渎之力 "}
 c["禁断之火上有匹配的词缀则配置 残劣壁垒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="残劣壁垒",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 残劣壁垒"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 残劣壁垒 "}
-c["禁断之火上有匹配的词缀则配置 禁忌力量"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="禁忌力量",side="之火"}}},nil}
 c["附加 155 - 235 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=155},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=235}},nil}
+c["禁断之火上有匹配的词缀则配置 禁忌力量"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="禁忌力量",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 禁忌力量"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 禁忌力量 "}
 c["禁断之火上有匹配的词缀则配置 火焰塑形"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="火焰塑形",side="之火"}}},nil}
-c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 火焰塑形"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 火焰塑形 "}
 c["击败敌人后有 15% 几率获得 1 个狂怒球 持握斧类时，每点【怒火】都使【流血】 +1% 持续伤害加成"]={{[1]={flags=65540,keywordFlags=0,name="DotMultiplier",type="BASE",value=15}},"击败敌人后获得 1 个狂怒球 持握时，每点【怒火】都使【流血】 +1%  "}
 c["霸体"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="霸体"}},nil}
-c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 元素堡垒"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 元素堡垒 "}
+c["禁断之火上有匹配的词缀则配置 元素堡垒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="元素堡垒",side="之火"}}},nil}
 c["你技能的非诅咒类光环效果提高 30%"]={{[1]={[1]={skillType=43,type="SkillType"},[2]={neg=true,skillType=79,type="SkillType"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=30}},nil}
-c["禁断之火上有匹配的词缀则配置 风暴塑形"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="风暴塑形",side="之火"}}},nil}
+c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 元素堡垒"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 元素堡垒 "}
 c["低血时每秒回复 2% 生命"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2}},nil}
+c["禁断之火上有匹配的词缀则配置 风暴塑形"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="风暴塑形",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 风暴塑形"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 风暴塑形 "}
 c["禁断之火上有匹配的词缀则配置 混沌天才"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="混沌天才",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 混沌天才"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 混沌天才 "}
 c["禁断之火上有匹配的词缀则配置 魔像使"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="魔像使",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 魔像使"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 使 "}
-c["禁断之火上有匹配的词缀则配置 奉献女魔"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="奉献女魔",side="之火"}}},nil}
 c["受到【灰烬之捷】影响时，+60% 火焰抗性"]={{[1]={[1]={type="Condition",var="AffectedBy灰烬之捷"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=60}},nil}
+c["禁断之火上有匹配的词缀则配置 奉献女魔"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="奉献女魔",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 奉献女魔"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 奉献女魔 "}
-c["禁断之火上有匹配的词缀则配置 精华吞噬"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="精华吞噬",side="之火"}}},nil}
 c["低血时 +23% 混沌抗性"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=23}},nil}
 c["你使敌人感电时，【闪电之捷】始终产生一个风暴"]={nil,"你使敌人感电时，【闪电之捷】始终产生一个风暴 "}
-c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 精华吞噬"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 精华吞噬 "}
+c["禁断之火上有匹配的词缀则配置 精华吞噬"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="精华吞噬",side="之火"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 炸弹专家"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="炸弹专家",side="之肉"}}},nil}
-c["禁断之火上有匹配的词缀则配置 原始之君"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="原始之君",side="之火"}}},nil}
+c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 精华吞噬"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 精华吞噬 "}
 c["法术附加 250 - 350 基础火焰伤害"]={{[1]={flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=250},[2]={flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=350}},nil}
+c["禁断之火上有匹配的词缀则配置 原始之君"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="原始之君",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 原始之君"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 原始之君 "}
-c["禁断之火上有匹配的词缀则配置 灵枢契约"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="灵枢契约",side="之火"}}},nil}
 c["瓦尔攻击技能改用怒火施放而非灵魂 阻灵术持续期间你无法获得怒火"]={nil,"瓦尔攻击技能改用怒火施放而非灵魂 阻灵术持续期间你无法获得怒火 "}
 c["该武器施加的中毒效果有 20% 的几率造成 300% 伤害"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={skillType=1,type="SkillType"},flags=0,keywordFlags=2097152,name="Damage",type="MORE",value=60}},nil}
+c["禁断之火上有匹配的词缀则配置 灵枢契约"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="灵枢契约",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 灵枢契约"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 灵枢契约 "}
-c["禁断之火上有匹配的词缀则配置 疫病之源"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="疫病之源",side="之火"}}},nil}
 c["火焰触碰时每秒受到 10000 点火焰伤害 若你被火焰触碰，则获得肾上腺素"]={nil,"火焰触碰时每秒受到 10000 点火焰伤害 若你被火焰触碰，则获得肾上腺素 "}
 c["药剂持续期间，物品数量提高 15%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="LootQuantity",type="INC",value=15}},nil}
 c["+25% 近战攻击暴击伤害加成"]={{[1]={flags=256,keywordFlags=0,name="CritMultiplier",type="BASE",value=25}},nil}
 c["每 4 秒便有 33% 的几率冻结周围被冰缓的传奇敌人，持续 0.6 秒"]={nil,"Every 4 seconds, 33% chance to Freeze nearby Chilled Unique Enemies for 0.6 seconds "}
+c["禁断之火上有匹配的词缀则配置 疫病之源"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="疫病之源",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 疫病之源"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 疫病之源 "}
-c["禁断之火上有匹配的词缀则配置 盲目挑衅"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="盲目挑衅",side="之火"}}},nil}
 c["冰霜伤害提高 45%"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=45}},nil}
-c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 盲目挑衅"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 盲目挑衅 "}
+c["禁断之火上有匹配的词缀则配置 盲目挑衅"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="盲目挑衅",side="之火"}}},nil}
 c["你技能的光环可使你和周围友军的攻击和施法 速度提高 2% 若你近期内有吞噬 1 个灵柩，你和你的召唤生物的效果区域提高 30%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=2},onlyAllies=true}}},"你技能的光环可使你和和施法 速度 若你近期内有吞噬 1 个灵柩，你和你的召唤生物的提高 30% "}
+c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 盲目挑衅"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 盲目挑衅 "}
 c["禁断之火上有匹配的词缀则配置 邪恶君王"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="邪恶君王",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 邪恶君王"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 邪恶君王 "}
 c["禁断之火上有匹配的词缀则配置 毁灭之心"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="毁灭之心",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 毁灭之心"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 毁灭之心 "}
-c["禁断之火上有匹配的词缀则配置 彻骨之径"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="彻骨之径",side="之火"}}},nil}
 c["你和友军受到你放置的旗帜影响，"]={nil,"你和友军受到你放置的旗帜影响， "}
-c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 彻骨之径"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 彻骨之径 "}
+c["禁断之火上有匹配的词缀则配置 彻骨之径"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="彻骨之径",side="之火"}}},nil}
 c["每个被暴击的敌人给予你 1 个暴击球"]={nil,"每个被暴击的敌人给予你 1 个暴击球 "}
 c["召唤生物的最大生命提高 (15-20)% 召唤生物的伤害提高 (25-35)%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=-20}}}},"提高 (15)% 召唤生物的伤害提高 (25-35)% "}
 c["当你的图腾死亡时，玩家受到 1 个 20 级的随机诅咒 你的图腾被毁时，给你施加一种随机魔蛊，其总效果额外提高 80%"]={{},"当你的死亡时，玩家受到 1 个 20 "}
 c["此物品上装备的【绿色技能石】等级 +1"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="dexterity",value=1}}},nil}
 c["攻击技能的火焰伤害提高 30%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=30}},nil}
+c["禁断之火上有匹配的词缀则配置 秽言亡语"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="秽言亡语",side="之火"}}},nil}
 c["需求 职业: 女巫 禁断之火上有匹配的词缀则配置 秽言亡语"]={nil,"需求 职业: 女巫 禁断之火上有匹配的词缀则配置 秽言亡语 "}
-c["禁断之火上有匹配的词缀则配置 紧急时刻"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="紧急时刻",side="之火"}}},nil}
 c["受到【灰烬之捷】影响时，最大火焰抗性 +1%"]={{[1]={[1]={type="Condition",var="AffectedBy灰烬之捷"},flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=1}},nil}
+c["禁断之火上有匹配的词缀则配置 紧急时刻"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="紧急时刻",side="之火"}}},nil}
 c["禁断之火上有匹配的词缀则配置 和谐之源"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="和谐之源",side="之火"}}},nil}
-c["范围伤害提高 50%"]={{[1]={flags=512,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["你击中穿刺的敌人时，也穿刺他周围的其它敌人 对你穿刺的敌人施加 4 次额外穿刺"]={nil,"你击中穿刺的敌人时，也穿刺他周围的其它敌人 对你穿刺的敌人施加 4 次额外穿刺 "}
-c["禁断之火上有匹配的词缀则配置 力量定罪"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="力量定罪",side="之火"}}},nil}
+c["范围伤害提高 50%"]={{[1]={flags=512,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["其中 1 个增加的天赋为【凌迟】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="凌迟"}},nil}
+c["禁断之火上有匹配的词缀则配置 力量定罪"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="力量定罪",side="之火"}}},nil}
 c["禁断之火上有匹配的词缀则配置 命运审判"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="命运审判",side="之火"}}},nil}
 c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 命运审判"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 命运审判 "}
 c["禁断之火上有匹配的词缀则配置 希望壁垒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="希望壁垒",side="之火"}}},nil}
-c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 希望壁垒"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 希望壁垒 "}
 c["双持时攻击伤害格挡几率 +3%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=3}},nil}
-c["禁断之火上有匹配的词缀则配置 坚毅圣战军"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="坚毅圣战军",side="之火"}}},nil}
+c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 希望壁垒"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 希望壁垒 "}
 c["每个狂怒球会使承受的伤害提高 6%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=6}},nil}
+c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 坚毅圣战军"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 坚毅圣战军 "}
 c["禁断之火上有匹配的词缀则配置 升华仪式"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="升华仪式",side="之火"}}},nil}
 c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 升华仪式"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 升华仪式 "}
-c["禁断之火上有匹配的词缀则配置 无上奉献"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="无上奉献",side="之火"}}},nil}
 c["持斧类或剑类时，+5% 持续物理伤害加成"]={{[1]={[1]={type="Condition",varList={[1]="UsingAxe",[2]="UsingSword"}},flags=0,keywordFlags=0,name="PhysicalDotMultiplier",type="BASE",value=5}},nil}
-c["攻击和法术总暴击率额外降低 60%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="MORE",value=-60}},nil}
+c["禁断之火上有匹配的词缀则配置 无上奉献"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="无上奉献",side="之火"}}},nil}
 c["生命在击败敌人时恢复 2%"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
 c["攻击技能的火焰伤害提高 12%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=12}},nil}
 c["提高 275% 药剂充能消耗"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=275}},nil}
 c["近战武器攻击造成的异常状态伤害提高 12%"]={{[1]={flags=33554432,keywordFlags=524288,name="Damage",type="INC",value=12}},nil}
+c["攻击和法术总暴击率额外降低 60%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="MORE",value=-60}},nil}
 c["禁断之火上有匹配的词缀则配置 秘术保佑"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="秘术保佑",side="之火"}}},nil}
 c["禁断之火上有匹配的词缀则配置 廉简之途"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="廉简之途",side="之火"}}},nil}
-c["禁断之火上有匹配的词缀则配置 光芒圣战军"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="光芒圣战军",side="之火"}}},nil}
 c["闪避值提高 475%"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=475}},nil}
 c["被感电后，你有 1 秒免疫感电 被感电后，你有 3 秒免疫感电"]={nil,"被感电后，你有 1 秒免疫感电 被感电后，你有 3 秒免疫感电 "}
 c["此物品上的技能石受到 12 级的 低阶多重投射 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=12,skillId="SupportLesserMultipleProjectiles"}}},nil}
 c["静止时，每秒获得 2 层【缓速藤蔓】 每层【缓速藤蔓】有 2% 的几率造成双倍伤害 每层【缓速藤蔓】使受到的总伤害额外降低 1%"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=2}},"每秒获得 2 层【缓速藤蔓】 每层【缓速藤蔓】造成双倍 每层【缓速藤蔓】使受到的总伤害额外降低 1% "}
 c["+26% 火焰持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="FireDotMultiplier",type="BASE",value=26}},nil}
+c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 光芒圣战军"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 光芒圣战军 "}
 c["禁断之火上有匹配的词缀则配置 至圣所"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="至圣所",side="之火"}}},nil}
 c["禁断之火上有匹配的词缀则配置 不动信念"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="不动信念",side="之火"}}},nil}
-c["禁断之火上有匹配的词缀则配置 忏悔之兆"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="忏悔之兆",side="之火"}}},nil}
 c["受到近战物理伤害的 40% 会反射给攻击者 受到近战物理伤害的 1000% 会反射给攻击者"]={nil,"受到近战物理伤害的 40% 会反射给攻击者 受到近战物理伤害的 1000% 会反射给攻击者 "}
 c["双手近战武器攻击造成的晕眩时间延长 10%"]={{[1]={flags=301989888,keywordFlags=0,name="EnemyStunDuration",type="INC",value=10}},nil}
 c["若近期内有召唤生物被击败，则每秒回复  2% 生命"]={{[1]={[1]={type="Condition",var="MinionsDiedRecently"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2}},nil}
+c["禁断之火上有匹配的词缀则配置 忏悔之兆"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="忏悔之兆",side="之火"}}},nil}
 c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 忏悔之兆"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 忏悔之兆 "}
-c["禁断之火上有匹配的词缀则配置 目的标识"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="目的标识",side="之火"}}},nil}
 c["+80 技能魔力消耗"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=80}},nil}
 c["该装备的护甲提高 210%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=210}},nil}
+c["禁断之火上有匹配的词缀则配置 目的标识"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="目的标识",side="之火"}}},nil}
 c["禁断之火上有匹配的词缀则配置 狂热之器"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="狂热之器",side="之火"}}},nil}
-c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 狂热之器"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 狂热之器 "}
 c["若你近期内用捷技能造成暴击，则 +15% 暴击伤害加成"]={{[1]={[1]={type="Condition",var="CritWithHeraldSkillRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=15}},nil}
 c["攻击技能的火焰伤害提高 80%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=80}},nil}
+c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 狂热之器"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 狂热之器 "}
 c["禁断之火上有匹配的词缀则配置 信念之辉"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="信念之辉",side="之火"}}},nil}
 c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 信念之辉"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 信念之辉 "}
-c["禁断之火上有匹配的词缀则配置 正义之庭"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="正义之庭",side="之火"}}},nil}
 c["暴走状态时获得【不洁之力】3 秒"]={nil,"暴走状态时获得【不洁之力】3 秒 "}
 c["受到【清晰】影响时，受到伤害的 10% 伤害优先从魔力扣除"]={{[1]={[1]={type="Condition",var="AffectedBy清晰"},flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=10}},nil}
 c["异常状态伤害提高 15%"]={{[1]={flags=0,keywordFlags=524288,name="Damage",type="INC",value=15}},nil}
+c["禁断之火上有匹配的词缀则配置 正义之庭"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="正义之庭",side="之火"}}},nil}
 c["此物品上装备的【辅助技能石】等级 +1"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="support",value=1}}},nil}
-c["禁断之火上有匹配的词缀则配置 神圣指引"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="神圣指引",side="之火"}}},nil}
 c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 疾电"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 疾电 "}
-c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 神圣指引"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 神圣指引 "}
+c["禁断之火上有匹配的词缀则配置 神圣指引"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="神圣指引",side="之火"}}},nil}
 c["技能可以连锁弹射 +1 次"]={{[1]={flags=0,keywordFlags=0,name="ChainCountMax",type="BASE",value=1}},nil}
 c["你造成暴击时，失去 15% 生命"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="Life",type="BASE",value=15}},"你造成%  "}
+c["禁断之火上有匹配的词缀则配置 信念之诉"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="信念之诉",side="之火"}}},nil}
 c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 信念之诉"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 信念之诉 "}
 c["禁断之火上有匹配的词缀则配置 意识圣殿"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="意识圣殿",side="之火"}}},nil}
-c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 意识圣殿"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 意识圣殿 "}
 c["诅咒技能的魔力消耗降低 10%"]={{[1]={flags=0,keywordFlags=2,name="ManaCost",type="INC",value=-10}},nil}
-c["禁断之火上有匹配的词缀则配置 美德之器"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="美德之器",side="之火"}}},nil}
+c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 意识圣殿"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 意识圣殿 "}
 c["攻击击中每个点燃的敌人会回复 +5 生命"]={{[1]={flags=1,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=5}},"击中每个的敌人会回复  生命 "}
 c["攻击和法术暴击率提高 58%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=58}},nil}
 c["当你或你的图腾使用法术击中 1 名敌人，便获得【秘术增强】效果"]={nil,"Arcane Surge when you or your Totems Hit an Enemy with a Spell "}
 c["+40% To Lightning Resistance"]={{}," Lightning Resistance "}
+c["需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 美德之器"]={nil,"需求 职业: 圣堂武僧 禁断之火上有匹配的词缀则配置 美德之器 "}
 c["禁断之火上有匹配的词缀则配置 死之狂怒.辛格拉"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="死之狂怒.辛格拉",side="之火"}}},nil}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 死之狂怒.辛格拉"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 死之狂怒.辛格拉 "}
 c["周围的敌人无法造成暴击 分裂之物"]={nil,"周围的敌人无法造成暴击 分裂之物 "}
 c["法术附加 150 - 250 基础火焰伤害"]={{[1]={flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=150},[2]={flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=250}},nil}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 死之狂怒.辛格拉"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 死之狂怒.辛格拉 "}
 c["禁断之火上有匹配的词缀则配置 屹立不摇"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="屹立不摇",side="之火"}}},nil}
 c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 屹立不摇"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 屹立不摇 "}
-c["禁断之火上有匹配的词缀则配置 血肉之章"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="血肉之章",side="之火"}}},nil}
 c["范围伤害提高 15%"]={{[1]={flags=512,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 血肉之章"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 血肉之章 "}
+c["禁断之火上有匹配的词缀则配置 血肉之章"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="血肉之章",side="之火"}}},nil}
 c["将承受的 40% 冰霜伤害视为闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageTakenAsLightning",type="BASE",value=40}},nil}
 c["格挡时有 20% 的几率获得暴击球 达到暴击球上限时，+6% 法术伤害格挡几率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=20}},"格挡时获得暴击球 达到暴击球上限时，+6%  "}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 森林之力.塔赫亚"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 森林之力.塔赫亚 "}
+c["禁断之火上有匹配的词缀则配置 森林之力.塔赫亚"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="森林之力.塔赫亚",side="之火"}}},nil}
 c["对投射物速度的增强与减弱效果也作用于弓类伤害"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeedAppliesToBowDamage",type="FLAG",value=true}},nil}
 c["增加【奇塔弗门徒】"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="clusterJewelKeystone",value="奇塔弗门徒"}}},nil}
 c["溢出伤害的 20% 转为生命偷取 生命偷取时攻击速度提高 20% 生命偷取时免疫晕眩 偷取时不受【流血】影响"]={{[1]={[1]={type="Condition",var="Leeching"},[2]={type="Condition",var="Leeching"},flags=1,keywordFlags=0,name="Damage",type="INC",value=20}},"溢出的 20% 转为生命偷取 速度 免疫晕眩 偷取时不受【流血】影响 "}
@@ -6389,65 +6376,66 @@ c["角色体型增大 3% 魔力回复速度提高 40%"]={{[1]={flags=0,keywordFl
 c["周围每个灵枢使你和周围友军每秒回复 5 魔力，最多每秒 50 点"]={nil,"周围每个灵枢使你和周围友军每秒回复 5 魔力，最多每秒 50 点 "}
 c["+20% 火焰与混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=20},[2]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=20}},nil}
 c["总混沌伤害总增 15%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="MORE",value=15}},nil}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 森林之力.塔赫亚"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 森林之力.塔赫亚 "}
 c["禁断之火上有匹配的词缀则配置 毁灭仪式"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="毁灭仪式",side="之火"}}},nil}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 毁灭仪式"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 毁灭仪式 "}
 c["药剂持续期间，你无法生命回复 回复量提高 100%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="Life",type="INC",value=100}},"你无法回复 回复量 "}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 毁灭仪式"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 毁灭仪式 "}
 c["禁断之火上有匹配的词缀则配置 屠戮之欲"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="屠戮之欲",side="之火"}}},nil}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 屠戮之欲"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 屠戮之欲 "}
 c["你每有一个暴击球便使召唤生物的暴击率提高 50%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",type="Multiplier",var="PowerChargeMax"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=50}}}},nil}
+c["禁断之火上有匹配的词缀则配置 苦痛劫掠"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="苦痛劫掠",side="之火"}}},nil}
 c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 苦痛劫掠"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 苦痛劫掠 "}
-c["禁断之火上有匹配的词缀则配置 完美的暴行"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="完美的暴行",side="之火"}}},nil}
 c["所有插槽都是白色"]={{},nil}
 c["近期内创造的召唤生物移动速度加快 30%"]={{[1]={[1]={type="Condition",var="MinionsCreatedRecently"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=30}}}},nil}
 c["若你最高的两种属性相等，则你获得灼热汇流、脆弱汇流、力竭汇流 无法点燃、冰缓、冻结、感电"]={nil,"若你最高的两种属性相等，则你获得灼热汇流、脆弱汇流、力竭汇流 无法点燃、冰缓、冻结、感电 "}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 完美的暴行"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 完美的暴行 "}
 c["禁断之火上有匹配的词缀则配置 不知疲倦"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="不知疲倦",side="之火"}}},nil}
 c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 不知疲倦"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 不知疲倦 "}
-c["禁断之火上有匹配的词缀则配置 势不可挡"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="势不可挡",side="之火"}}},nil}
 c["+150 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=150}},nil}
 c["晕眩和格挡回复降低 35%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=-35}},nil}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 势不可挡"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 势不可挡 "}
 c["禁断之火上有匹配的词缀则配置 火徒.努葛玛呼"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="火徒.努葛玛呼",side="之火"}}},nil}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 火徒.努葛玛呼"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 火徒.努葛玛呼 "}
 c["+8% 火焰抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=8}},nil}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 瓦拉克，风暴之拥"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 瓦拉克，风暴之拥 "}
+c["禁断之火上有匹配的词缀则配置 瓦拉克，风暴之拥"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="瓦拉克，风暴之拥",side="之火"}}},nil}
 c["+2 to Weapon Range"]={{[1]={flags=0,keywordFlags=0,name="WeaponRange",type="BASE",value=2}},nil}
-c["禁断之火上有匹配的词缀则配置 不可置疑"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="不可置疑",side="之火"}}},nil}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 瓦拉克，风暴之拥"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 瓦拉克，风暴之拥 "}
 c["魔力在你有秘术增强效果时每秒再生 5%"]={{[1]={[1]={type="Condition",var="AffectedByArcaneSurge"},flags=0,keywordFlags=0,name="ManaRegen",type="BASE",value=5}},nil}
+c["禁断之火上有匹配的词缀则配置 不可置疑"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="不可置疑",side="之火"}}},nil}
 c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 不可置疑"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 不可置疑 "}
 c["禁断之火上有匹配的词缀则配置 战争使者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="战争使者",side="之火"}}},nil}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 战争使者"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 战争使者 "}
 c["你被感电时，元素伤害击中特别幸运"]={{[1]={[1]={type="Condition",var="Shocked"},flags=0,keywordFlags=0,name="ElementalLuckHits",type="FLAG",value=true}},nil}
-c["禁断之火上有匹配的词缀则配置 坚不可破"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="坚不可破",side="之火"}}},nil}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 战争使者"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 战争使者 "}
 c["你的祝福技能被禁用"]={nil,"你的祝福技能被禁用 "}
 c["每秒生命偷取提高 30%"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechRate",type="INC",value=30}},nil}
+c["禁断之火上有匹配的词缀则配置 坚不可破"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="坚不可破",side="之火"}}},nil}
 c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 坚不可破"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 坚不可破 "}
-c["禁断之火上有匹配的词缀则配置 永不动摇"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="永不动摇",side="之火"}}},nil}
 c["敏捷提高 10%"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=10}},nil}
 c["力量需求降低 30%"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="INC",value=-30}},nil}
+c["禁断之火上有匹配的词缀则配置 永不动摇"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="永不动摇",side="之火"}}},nil}
 c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 永不动摇"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 永不动摇 "}
 c["禁断之火上有匹配的词缀则配置 战争使者.图克哈玛"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="战争使者.图克哈玛",side="之火"}}},nil}
 c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 战争使者.图克哈玛"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 战争使者.图克哈玛 "}
-c["禁断之火上有匹配的词缀则配置 灭无赦"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="灭无赦",side="之火"}}},nil}
 c["你的行动速度至少是基础值的108%"]={nil,"你的行动速度至少是基础值的108% "}
-c["此物品上的技能石受到 10 级的 快速投射(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportFasterProjectiles"}}},nil}
+c["禁断之火上有匹配的词缀则配置 灭无赦"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="灭无赦",side="之火"}}},nil}
 c["+300 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=300}},nil}
 c["技能的保留效能降低 80%"]={{[1]={flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=-80}},nil}
-c["禁断之火上有匹配的词缀则配置 塔赛里奥，纯净之水"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="塔赛里奥，纯净之水",side="之火"}}},nil}
+c["此物品上的技能石受到 10 级的 快速投射(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportFasterProjectiles"}}},nil}
 c["敌人受到的元素异常状态时间延长 20%"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=20},[2]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=20},[3]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=20},[4]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=20},[5]={flags=0,keywordFlags=0,name="EnemyScorchDuration",type="INC",value=20},[6]={flags=0,keywordFlags=0,name="EnemyBrittleDuration",type="INC",value=20},[7]={flags=0,keywordFlags=0,name="EnemySapDuration",type="INC",value=20}},nil}
 c["每10秒： 应对击中伤害获得 40% 的减伤，持续 5 秒"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="BASE",value=40}},"每10秒： 应对获得 减伤，持续 5 秒 "}
-c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 塔赛里奥，纯净之水"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 塔赛里奥，纯净之水 "}
+c["禁断之火上有匹配的词缀则配置 塔赛里奥，纯净之水"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="塔赛里奥，纯净之水",side="之火"}}},nil}
 c["你击败的敌人有 10% 的几率爆炸，造成等同该敌人最大生命四分之一的混沌伤害"]={nil,"Enemies you Kill have a 10% chance to Explode, dealing a quarter of their maximum Life as Chaos Damage "}
 c["击败敌人时有 5% 几率触发 18 级的【召唤幽狼】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=18,skillId="SummonRigwaldsPack",triggered=true}}},nil}
-c["禁断之火上有匹配的词缀则配置 雷默科，太阳之光"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="雷默科，太阳之光",side="之火"}}},nil}
+c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 塔赛里奥，纯净之水"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 塔赛里奥，纯净之水 "}
 c["+13% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=13}},nil}
 c["更明显打击效果"]={nil,"更明显打击效果 "}
+c["禁断之火上有匹配的词缀则配置 雷默科，太阳之光"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="雷默科，太阳之光",side="之火"}}},nil}
 c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 雷默科，太阳之光"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 雷默科，太阳之光 "}
 c["禁断之火上有匹配的词缀则配置 月使.亚欧红古"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="月使.亚欧红古",side="之火"}}},nil}
 c["需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 月使.亚欧红古"]={nil,"需求 职业: 野蛮人 禁断之火上有匹配的词缀则配置 月使.亚欧红古 "}
-c["禁断之火上有匹配的词缀则配置 手术大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="手术大师",side="之火"}}},nil}
 c["冰霜伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=10}},nil}
+c["禁断之火上有匹配的词缀则配置 手术大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="手术大师",side="之火"}}},nil}
 c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 手术大师"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 手术大师 "}
-c["禁断之火上有匹配的词缀则配置 聚风"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="聚风",side="之火"}}},nil}
 c["每个被暴击的敌人给予你 1 个暴击球 内在信念"]={nil,"每个被暴击的敌人给予你 1 个暴击球 内在信念 "}
+c["禁断之火上有匹配的词缀则配置 聚风"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="聚风",side="之火"}}},nil}
 c["禁断之火上有匹配的词缀则配置 占领军"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="占领军",side="之火"}}},nil}
 c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 占领军"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 占领军 "}
 c["禁断之火上有匹配的词缀则配置 大自然的复仇"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="大自然的复仇",side="之火"}}},nil}
@@ -6457,9 +6445,9 @@ c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 制毒宗师
 c["禁断之火上有匹配的词缀则配置 石英化身"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="石英化身",side="之火"}}},nil}
 c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 石英化身"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 石英化身 "}
 c["禁断之火上有匹配的词缀则配置 面纱女神"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="面纱女神",side="之火"}}},nil}
-c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 面纱女神"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 面纱女神 "}
 c["敌人被点燃的持续时间缩短 50%"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-50}},nil}
 c["你使用药剂时有 15% 的几率不消耗次数"]={{[1]={flags=0,keywordFlags=0,name="FlaskChanceNotConsumeCharges",type="BASE",value=15}},nil}
+c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 面纱女神"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 面纱女神 "}
 c["禁断之火上有匹配的词缀则配置 盗猎者之途"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="盗猎者之途",side="之火"}}},nil}
 c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 盗猎者之途"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 盗猎者之途 "}
 c["禁断之火上有匹配的词缀则配置 聚焦点"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="聚焦点",side="之火"}}},nil}
@@ -6469,336 +6457,336 @@ c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 无限弹药
 c["禁断之火上有匹配的词缀则配置 自然的恩赐"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="自然的恩赐",side="之火"}}},nil}
 c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 自然的恩赐"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 自然的恩赐 "}
 c["禁断之火上有匹配的词缀则配置 追猎使徒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="追猎使徒",side="之火"}}},nil}
-c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 追猎使徒"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 追猎使徒 "}
 c["增加 4 个天赋技能"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="clusterJewelNodeCount",value=4}}},nil}
+c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 追猎使徒"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 追猎使徒 "}
 c["禁断之火上有匹配的词缀则配置 风之结界"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="风之结界",side="之火"}}},nil}
-c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 风之结界"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 风之结界 "}
 c["+16 最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=16}},nil}
-c["禁断之火上有匹配的词缀则配置 制箭大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="制箭大师",side="之火"}}},nil}
+c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 风之结界"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 风之结界 "}
 c["每 600 闪避值提高 1% 移动速度，最多 75%"]={{[1]={[1]={div="600",limit=75,limitTotal=true,stat="Evasion",type="PerStat"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value="1"}},nil}
 c["在真菌地表上被你击败的敌人会爆炸，造成它们 5% 生命的混沌伤害 站定时，脚下产生真菌地表"]={nil,"在真菌地表上被你击败的敌人会爆炸，造成它们 5% 生命的混沌伤害 站定时，脚下产生真菌地表 "}
+c["禁断之火上有匹配的词缀则配置 制箭大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="制箭大师",side="之火"}}},nil}
 c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 制箭大师"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 制箭大师 "}
 c["禁断之火上有匹配的词缀则配置 极速进攻"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="极速进攻",side="之火"}}},nil}
-c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 极速进攻"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 极速进攻 "}
 c["+20% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=20}},nil}
 c["药剂持续期间你会被感电，受到的伤害提高 50%"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=50}},"药剂持续期间你会被感电， "}
 c["对低血敌人，每个狂怒球可使伤害提高 25%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="LowLife"},[2]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["攻击附加 5 - 10 基础物理伤害"]={{[1]={flags=0,keywordFlags=65536,name="PhysicalMin",type="BASE",value=5},[2]={flags=0,keywordFlags=65536,name="PhysicalMax",type="BASE",value=10}},nil}
-c["禁断之火上有匹配的词缀则配置 大自然的肾上腺素"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="大自然的肾上腺素",side="之火"}}},nil}
+c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 极速进攻"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 极速进攻 "}
 c["插入的技能石具有苦难秘辛"]={nil,"插入的技能石具有苦难秘辛 "}
 c["每个暴击球可使中毒持续时间延长 3%"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=3}},nil}
+c["禁断之火上有匹配的词缀则配置 大自然的肾上腺素"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="大自然的肾上腺素",side="之火"}}},nil}
 c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 大自然的肾上腺素"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 大自然的肾上腺素 "}
 c["禁断之火上有匹配的词缀则配置 炼金术大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="炼金术大师",side="之火"}}},nil}
 c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 炼金术大师"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 炼金术大师 "}
 c["禁断之火上有匹配的词缀则配置 冷酷使徒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="冷酷使徒",side="之火"}}},nil}
-c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 冷酷使徒"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 冷酷使徒 "}
 c["持盾牌时造成的攻击伤害提高 13%"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=1,keywordFlags=0,name="Damage",type="INC",value=13}},nil}
+c["需求 职业: 游侠 禁断之火上有匹配的词缀则配置 冷酷使徒"]={nil,"需求 职业: 游侠 禁断之火上有匹配的词缀则配置 冷酷使徒 "}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 镇压"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 镇压 "}
 c["禁断之火上有匹配的词缀则配置 无尽饥饿"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="无尽饥饿",side="之火"}}},nil}
-c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 无尽饥饿"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 无尽饥饿 "}
 c["剑类攻击的暴击率提高 20%"]={{[1]={flags=4194308,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
-c["禁断之火上有匹配的词缀则配置 刽子手"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="刽子手",side="之火"}}},nil}
+c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 无尽饥饿"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 无尽饥饿 "}
 c["火焰伤害击中时有 5% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=5}},nil}
-c["禁断之火上有匹配的词缀则配置 残暴热情"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="残暴热情",side="之火"}}},nil}
+c["禁断之火上有匹配的词缀则配置 刽子手"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="刽子手",side="之火"}}},nil}
 c["召唤的纯净哨兵伤害提高 100%"]={{[1]={[1]={skillId="HeraldOfPurity",type="SkillId"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=100}}}},nil}
-c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 残暴热情"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 残暴热情 "}
+c["禁断之火上有匹配的词缀则配置 残暴热情"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="残暴热情",side="之火"}}},nil}
 c["速度提高 3% 你和周围友军的伤害提高 30% 你和周围友军的元素抗性 +30%"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=3},onlyAllies=true}}},"速度 你和提高 30% 元素抗性 +30% "}
 c["受捷影响时，伤害提高 20%"]={{[1]={[1]={type="Condition",varList={[1]="AffectedBy苦痛之捷",[2]="AffectedBy纯净之捷",[3]="AffectedBy寒冰之捷",[4]="AffectedBy灰烬之捷",[5]="AffectedBy闪电之捷"}},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["+55 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=55}},nil}
-c["禁断之火上有匹配的词缀则配置 征服者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="征服者",side="之火"}}},nil}
+c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 残暴热情"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 残暴热情 "}
 c["阻灵术持续时间缩短 8%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-8}},"阻灵术 "}
 c["获得拉凯尔塔麾下 18000 名武士的领导权"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=2,type="karui"},id=18000}}}},nil}
 c["【烙印召回】冷却回复速度提高 100%"]={{[1]={[1]={skillName="烙印召回",type="SkillName"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=100}},nil}
+c["禁断之火上有匹配的词缀则配置 征服者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="征服者",side="之火"}}},nil}
 c["禁断之火上有匹配的词缀则配置 可敬的对手"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="可敬的对手",side="之火"}}},nil}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 可敬的对手"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 可敬的对手 "}
-c["禁断之火上有匹配的词缀则配置 血之眼"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="血之眼",side="之火"}}},nil}
 c["获得 1 级的主动技能【闪电传送】，且可被此道具上的技能石辅助"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="LightningWarp"}}},nil}
+c["禁断之火上有匹配的词缀则配置 血之眼"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="血之眼",side="之火"}}},nil}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 血之眼"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 血之眼 "}
-c["禁断之火上有匹配的词缀则配置 大师之形"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="大师之形",side="之火"}}},nil}
 c["你的法术击中每个敌人会失去 15 生命"]={{[1]={flags=2,keywordFlags=0,name="Life",type="BASE",value=15}},"你的击中每个敌人会  "}
-c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 大师之形"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 大师之形 "}
+c["禁断之火上有匹配的词缀则配置 大师之形"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="大师之形",side="之火"}}},nil}
 c["15% 法术格挡率"]={{[1]={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=15}},nil}
-c["禁断之火上有匹配的词缀则配置 强力复仇"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="强力复仇",side="之火"}}},nil}
+c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 大师之形"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 大师之形 "}
 c["药剂效果的持续时间延长 10%"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=10}},nil}
-c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 强力复仇"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 强力复仇 "}
+c["禁断之火上有匹配的词缀则配置 强力复仇"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="强力复仇",side="之火"}}},nil}
 c["你用弓类攻击时触发一个插入的法术，它有 0.3 秒冷却时间"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportTriggerSpellOnBowAttack"}}},nil}
+c["禁断之火上有匹配的词缀则配置 免费力量"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="免费力量",side="之火"}}},nil}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 免费力量"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 免费力量 "}
-c["禁断之火上有匹配的词缀则配置 痛苦铸造"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="痛苦铸造",side="之火"}}},nil}
 c["100% Increased Critical Strike Chance +45% to Global Critical Strike Multiplier"]={{},"% Increased Critical Strike Chance +45% to Global Critical Strike Multiplier "}
+c["禁断之火上有匹配的词缀则配置 痛苦铸造"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="痛苦铸造",side="之火"}}},nil}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 痛苦铸造"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 痛苦铸造 "}
-c["禁断之火上有匹配的词缀则配置 启发"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="启发",side="之火"}}},nil}
 c["技能的保留效果提高 10%"]={{[1]={flags=0,keywordFlags=0,name="Reserved",type="INC",value=10}},nil}
+c["禁断之火上有匹配的词缀则配置 完美胜出"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="完美胜出",side="之火"}}},nil}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 完美胜出"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 完美胜出 "}
 c["禁断之火上有匹配的词缀则配置 传奇灾星"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="传奇灾星",side="之火"}}},nil}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 传奇灾星"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 传奇灾星 "}
-c["禁断之火上有匹配的词缀则配置 不败英雄"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="不败英雄",side="之火"}}},nil}
 c["击败流血的敌人时产生爆炸，造成等同其 10% 最大生命的物理伤害 持续物理伤害总增 20%"]={{[1]={flags=0,keywordFlags=4194304,name="Life",type="MORE",value=20}},"击败的敌人时产生爆炸，造成等同其 10% 的物理伤害 持续物理伤害 "}
+c["禁断之火上有匹配的词缀则配置 不败英雄"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="不败英雄",side="之火"}}},nil}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 不败英雄"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 不败英雄 "}
 c["禁断之火上有匹配的词缀则配置 嗜战如命"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="嗜战如命",side="之火"}}},nil}
 c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 嗜战如命"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 嗜战如命 "}
 c["禁断之火上有匹配的词缀则配置 钢铁大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="钢铁大师",side="之火"}}},nil}
-c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 钢铁大师"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 钢铁大师 "}
 c["+1% 元素抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=1},[3]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=1}},nil}
 c["召唤生物的施法速度提高 8%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=8}}}},nil}
 c["受到雷霆光环影响时始终造成精疲力尽"]={{[1]={[1]={type="Condition",var="AffectedBy雷霆"},flags=0,keywordFlags=0,name="EnemySapChance",type="BASE",value=100}},nil}
 c["非伤害型异常状态效果提高 18%"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockEffect",type="INC",value=18},[2]={flags=0,keywordFlags=0,name="EnemyChillEffect",type="INC",value=18},[3]={flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=18},[4]={flags=0,keywordFlags=0,name="EnemyScorchEffect",type="INC",value=18},[5]={flags=0,keywordFlags=0,name="EnemyBrittleEffect",type="INC",value=18},[6]={flags=0,keywordFlags=0,name="EnemySapEffect",type="INC",value=18}},nil}
-c["禁断之火上有匹配的词缀则配置 竞技挑战者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="竞技挑战者",side="之火"}}},nil}
+c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 钢铁大师"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 钢铁大师 "}
 c["使用魔力药剂时也会回复 10% 最大生命"]={nil,"使用魔力药剂时也会回复 10% 最大生命 "}
+c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 竞技挑战者"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 竞技挑战者 "}
 c["禁断之火上有匹配的词缀则配置 老当益壮"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="老当益壮",side="之火"}}},nil}
-c["需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 老当益壮"]={nil,"需求 职业: 决斗者 禁断之火上有匹配的词缀则配置 老当益壮 "}
 c["近期内你若使用过火焰技能，则不会被冰冻或冰缓"]={nil,"近期内你若使用过火焰技能，则不会被冰冻或冰缓 "}
-c["禁断之火上有匹配的词缀则配置 爆破天才"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="爆破天才",side="之火"}}},nil}
+c["禁断之火上有匹配的词缀则配置 影响"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="影响",side="之火"}}},nil}
 c["+10% 近战攻击暴击伤害加成"]={{[1]={flags=256,keywordFlags=0,name="CritMultiplier",type="BASE",value=10}},nil}
-c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 爆破天才"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 爆破天才 "}
+c["禁断之火上有匹配的词缀则配置 爆破天才"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="爆破天才",side="之火"}}},nil}
 c["斧类或剑类的物理伤害提高 20%"]={{[1]={[1]={modFlags=4259840,type="ModFlagOr"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=20}},nil}
+c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 爆破天才"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 爆破天才 "}
 c["禁断之火上有匹配的词缀则配置 致命专注"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="致命专注",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 致命专注"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 致命专注 "}
 c["禁断之火上有匹配的词缀则配置 毒物私运"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="毒物私运",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 毒物私运"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 毒物私运 "}
-c["禁断之火上有匹配的词缀则配置 迷雾行者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="迷雾行者",side="之火"}}},nil}
 c["施法速度提高 13%"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=13}},nil}
-c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 迷雾行者"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 迷雾行者 "}
+c["禁断之火上有匹配的词缀则配置 迷雾行者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="迷雾行者",side="之火"}}},nil}
 c["击败少于 5 层中毒状态的敌人时，有 15% 几率获得 1 个暴击球 每个狂怒球可使中毒伤害提高 10%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=2097152,name="Damage",type="BASE",value=15}},"击败少于 5 层状态的敌人时，获得 1 个暴击球 中毒提高 10% "}
+c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 迷雾行者"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 迷雾行者 "}
 c["禁断之火上有匹配的词缀则配置 快人一步"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="快人一步",side="之火"}}},nil}
-c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 快人一步"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 快人一步 "}
 c["照亮范围扩大 10%"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=10}},nil}
 c["元素伤害提高 6%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=6}},nil}
-c["禁断之火上有匹配的词缀则配置 暗影"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="暗影",side="之火"}}},nil}
+c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 快人一步"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 快人一步 "}
 c["双手近战武器的攻击命中值提高 12%"]={{[1]={flags=301989888,keywordFlags=0,name="Accuracy",type="INC",value=12}},nil}
-c["禁断之火上有匹配的词缀则配置 破魔者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="破魔者",side="之火"}}},nil}
+c["禁断之火上有匹配的词缀则配置 暗影"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="暗影",side="之火"}}},nil}
 c["此物品上装备的【法术技能石】等级 +1"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="spell",value=1}}},nil}
 c["你的攻击击中每个敌人会回复 +7 生命"]={{[1]={flags=1,keywordFlags=0,name="LifeOnHit",type="BASE",value=7}},nil}
+c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 破魔者"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 破魔者 "}
 c["禁断之火上有匹配的词缀则配置 敏捷克星"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="敏捷克星",side="之火"}}},nil}
-c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 敏捷克星"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 敏捷克星 "}
 c["魔力回复速度提高 56%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=56}},nil}
+c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 敏捷克星"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 敏捷克星 "}
 c["禁断之火上有匹配的词缀则配置 凝心者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="凝心者",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 凝心者"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 凝心者 "}
-c["禁断之火上有匹配的词缀则配置 逃脱艺术"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="逃脱艺术",side="之火"}}},nil}
 c["沙姿态下 +850 闪避值"]={{[1]={[1]={type="Condition",var="SandStance"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=850}},nil}
 c["50% Increased Duration of Elemental Ailments on Enemies"]={{},"% Increased Duration of Elemental Ailments  "}
 c["该装备的护甲提高 120%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=120}},nil}
 c["5% 几率躲避攻击击中"]={{[1]={flags=0,keywordFlags=0,name="AttackDodgeChance",type="BASE",value=5}},nil}
+c["禁断之火上有匹配的词缀则配置 逃脱艺术"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="逃脱艺术",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 逃脱艺术"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 逃脱艺术 "}
 c["禁断之火上有匹配的词缀则配置 完美犯罪"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="完美犯罪",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 完美犯罪"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 完美犯罪 "}
-c["禁断之火上有匹配的词缀则配置 连锁反应"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="连锁反应",side="之火"}}},nil}
 c["持盾牌时攻击伤害格挡率 +3%"]={{[1]={[1]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=3}},nil}
 c["疯狂状态下，被你的击中击败的敌人会被毁灭"]={nil,"疯狂状态下，被你的击中击败的敌人会被毁灭 "}
 c["移动速度提高 25%"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=25}},nil}
+c["禁断之火上有匹配的词缀则配置 连锁反应"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="连锁反应",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 连锁反应"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 连锁反应 "}
-c["禁断之火上有匹配的词缀则配置 生在影中"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="生在影中",side="之火"}}},nil}
 c["提供钢铁呼唤"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ImpactingSteelReload"}}},nil}
-c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 生在影中"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 生在影中 "}
+c["禁断之火上有匹配的词缀则配置 生在影中"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="生在影中",side="之火"}}},nil}
 c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 强力复仇"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 强力复仇 "}
 c["右戒指栏位：不能回复魔力"]={{[1]={[1]={num=2,type="SlotNumber"},flags=0,keywordFlags=0,name="NoManaRegen",type="FLAG",value=true}},nil}
 c["魔侍的攻击速度提高 9%"]={{[1]={[1]={skillName="召唤魔侍",type="SkillName"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=9}}}},nil}
-c["禁断之火上有匹配的词缀则配置 爆破专家"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="爆破专家",side="之火"}}},nil}
+c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 生在影中"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 生在影中 "}
 c["对抗被诅咒的敌人时，击中和异常状态伤害提高 20%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=786432,name="Damage",type="INC",value=20}},nil}
+c["禁断之火上有匹配的词缀则配置 爆破专家"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="爆破专家",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 爆破专家"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 爆破专家 "}
-c["有 5% 被击中的伤害优先由你的图腾承受"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="BASE",value=5}},"  from Hits is taken from your nearest 's Life before you "}
 c["至少有 200 点力量时，+25% 火焰、冰霜、闪电抗性"]={{[1]={[1]={stat="Str",threshold=200,type="StatThreshold"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=25}},nil}
+c["禁断之火上有匹配的词缀则配置 灵魂饮者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="灵魂饮者",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 灵魂饮者"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 灵魂饮者 "}
-c["禁断之火上有匹配的词缀则配置 博学者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="博学者",side="之火"}}},nil}
 c["药剂生效期间拥有终结效果"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
+c["禁断之火上有匹配的词缀则配置 博学者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="博学者",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 博学者"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 博学者 "}
 c["禁断之火上有匹配的词缀则配置 淬毒打击"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="淬毒打击",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 淬毒打击"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 淬毒打击 "}
-c["禁断之火上有匹配的词缀则配置 不稳定化身"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="不稳定化身",side="之火"}}},nil}
 c["每个暴击球 +5% 暴击伤害加成"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=5}},nil}
 c["每 100 点生命保留 +30 最大能量护盾"]={{[1]={[1]={div=100,limitTotal=true,stat="LifeReserved",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=30}},nil}
-c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 不稳定化身"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 不稳定化身 "}
+c["禁断之火上有匹配的词缀则配置 不稳定化身"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="不稳定化身",side="之火"}}},nil}
 c["技能效果持续时间缩短 12%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-12}},nil}
+c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 不稳定化身"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 不稳定化身 "}
 c["禁断之火上有匹配的词缀则配置 炸弹专家"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="炸弹专家",side="之火"}}},nil}
 c["需求 职业: 暗影 禁断之火上有匹配的词缀则配置 炸弹专家"]={nil,"需求 职业: 暗影 禁断之火上有匹配的词缀则配置 炸弹专家 "}
-c["每秒回复 1% 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}},nil}
 c["攻击附加 1 - 68 基础闪电伤害"]={{[1]={flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=68}},nil}
+c["此物品上的技能石受到 20 级的 元素穿透 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="SupportElementalPenetration"}}},nil}
 c["每个狂怒球可使投射物速度提高 5%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=5}},nil}
 c["禁断之肉上有匹配的词缀则配置 欺诈师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="欺诈师",side="之肉"}}},nil}
-c["此物品上的技能石受到 10 级的 火焰穿透(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportFirePenetration"}}},nil}
 c["8% 几率避免被晕眩"]={{[1]={flags=0,keywordFlags=0,name="AvoidStun",type="BASE",value=8}},nil}
-c["需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 处刑者"]={nil,"需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 处刑者 "}
+c["此物品上的技能石受到 10 级的 火焰穿透(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportFirePenetration"}}},nil}
 c["周围友军击中造成的伤害特别幸运 移动速度提高 8%"]={{[1]={flags=0,keywordFlags=262144,name="Damage",type="INC",value=8}},"周围友军造成的特别幸运 移动速度 "}
 c["当力量超过 1000 时，魔卫造成伤害的 2% 将会转化为给你的生命偷取 当力量超过 1000 时，魔卫造成伤害的 2% 将会转化为给你的生命偷取"]={nil,"当力量超过 1000 时，魔卫造成伤害的 2% 将会转化为给你的生命偷取 当力量超过 1000 时，魔卫造成伤害的 2% 将会转化为给你的生命偷取 "}
 c["拥有【猫之隐匿】时，暴击有 20% 几率致盲敌人"]={{},"暴击致盲敌人 "}
+c["10% 几率使敌人逃跑"]={{},"使敌人逃跑 "}
 c["禁断之肉上有匹配的词缀则配置 锐眼"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="锐眼",side="之肉"}}},nil}
-c["需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 冠军"]={nil,"需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 冠军 "}
 c["幸存"]={nil,"幸存 "}
-c["禁断之肉上有匹配的词缀则配置 破坏者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="破坏者",side="之肉"}}},nil}
+c["需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 冠军"]={nil,"需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 冠军 "}
 c["不受感电影响 击败感电敌人时会爆炸，造成等同敌人最大生命 10% 的闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=10}},"不受感电影响 击败感电敌人时会爆炸，造成等同敌人 闪电伤害 "}
 c["你身上的捷增益总效果总增 50%"]={{[1]={[1]={skillType=62,type="SkillType"},flags=0,keywordFlags=0,name="BuffEffect",type="MORE",value=50}},nil}
+c["禁断之肉上有匹配的词缀则配置 破坏者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="破坏者",side="之肉"}}},nil}
 c["图腾放置速度提高 15%"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=15}},nil}
 c["需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 判官"]={nil,"需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 判官 "}
 c["在药剂持续期间，击败敌人会补充 3% 的生命"]={{[1]={[1]={div=33.333333333333,stat="Life",type="PerStat"},[2]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
-c["禁断之肉上有匹配的词缀则配置 酋长"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="酋长",side="之肉"}}},nil}
 c["Leech applies instantly during Flask effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="InstantLifeLeech",type="FLAG",value=true},[2]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="InstantManaLeech",type="FLAG",value=true}},nil}
 c["火焰、冰霜、闪电伤害提高 35%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=35}},nil}
-c["火焰伤害击中时有 13% 几率点燃敌人"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=13}},nil}
+c["需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 酋长"]={nil,"需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 酋长 "}
 c["需求 职业: 贵族 禁断之火上有匹配的词缀则配置 卫士"]={nil,"需求 职业: 贵族 禁断之火上有匹配的词缀则配置 卫士 "}
 c["受到的物理伤害提高 20%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTaken",type="INC",value=20}},nil}
 c["此物品上装备的【红色技能石】等级 +1"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyword="strength",value=1}}},nil}
+c["其中 1 个增加的天赋为【狂乱之相】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="狂乱之相"}},nil}
 c["禁断之肉上有匹配的词缀则配置 侠客"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="侠客",side="之肉"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 守护者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="守护者",side="之肉"}}},nil}
 c["需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 守护者"]={nil,"需求 职业: 贵族 禁断之肉上有匹配的词缀则配置 守护者 "}
 c["过去 10 秒内你若成功格挡，则你和周围友军无法被晕眩"]={nil,"过去 10 秒内你若成功格挡，则你和周围友军无法被晕眩 "}
 c["禁断之肉上有匹配的词缀则配置 寒冬塑形"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="寒冬塑形",side="之肉"}}},nil}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 寒冬塑形"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 寒冬塑形 "}
-c["禁断之肉上有匹配的词缀则配置 黑暗统御者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="黑暗统御者",side="之肉"}}},nil}
 c["召唤的纯净哨兵伤害提高 85%"]={{[1]={[1]={skillId="HeraldOfPurity",type="SkillId"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=85}}}},nil}
 c["攻击速度提高 50%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=50}},nil}
+c["禁断之肉上有匹配的词缀则配置 黑暗统御者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="黑暗统御者",side="之肉"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 凋零姿态"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="凋零姿态",side="之肉"}}},nil}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 凋零姿态"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 凋零姿态 "}
-c["该装备的攻击暴击率提高 30%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
 c["持续冰霜伤害提高 12%"]={{[1]={flags=0,keywordFlags=67108864,name="ColdDamage",type="INC",value=12}},nil}
 c["该装备的攻击暴击率提高 32%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=32}},nil}
 c["被击中时， 4 秒内回复等同于 10% 伤害的魔力 水银药剂也适用于周围友军"]={nil,"被击中时， 4 秒内回复等同于 10% 伤害的魔力 水银药剂也适用于周围友军 "}
 c["诅咒持续时间延长 40%"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=40}},nil}
-c["此物品上的技能石受到 10 级的 闪电支配(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportOnslaughtOnSlayingShockedEnemy"}}},nil}
+c["禁断之肉上有匹配的词缀则配置 虚无之塔"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="虚无之塔",side="之肉"}}},nil}
 c["周围静止的敌人每 0.5 秒获得一个缓速藤蔓 所有伤害都对至少被 3 个缓速蔓藤影响的敌人施加中毒"]={nil,"周围静止的敌人每 0.5 秒获得一个缓速藤蔓 所有伤害都对至少被 3 个缓速蔓藤影响的敌人施加中毒 "}
+c["此物品上的技能石受到 10 级的 闪电支配(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportOnslaughtOnSlayingShockedEnemy"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 残劣壁垒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="残劣壁垒",side="之肉"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 禁忌力量"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="禁忌力量",side="之肉"}}},nil}
-c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 禁忌力量"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 禁忌力量 "}
 c["冰霜伤害提高 109%"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=109}},nil}
 c["已复制"]={nil,"已复制 "}
 c["禁断之肉上有匹配的词缀则配置 血之眼"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="血之眼",side="之肉"}}},nil}
+c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 禁忌力量"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 禁忌力量 "}
 c["禁断之肉上有匹配的词缀则配置 火焰塑形"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="火焰塑形",side="之肉"}}},nil}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 火焰塑形"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 火焰塑形 "}
 c["生效期间，瓦尔技能的暴击率提高 120%"]={{},"的暴击率 "}
 c["禁断之肉上有匹配的词缀则配置 混沌天才"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="混沌天才",side="之肉"}}},nil}
-c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 混沌天才"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 混沌天才 "}
 c["法术伤害压制率在你近期内击中过敌人的情况下 +10%"]={{[1]={[1]={type="Condition",var="HitRecently"},flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=10}},nil}
-c["禁断之肉上有匹配的词缀则配置 魔像使"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="魔像使",side="之肉"}}},nil}
+c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 混沌天才"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 混沌天才 "}
 c["只能在此物品上放入已腐化的技能石"]={nil,"只能在此物品上放入已腐化的技能石 "}
+c["禁断之肉上有匹配的词缀则配置 魔像使"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="魔像使",side="之肉"}}},nil}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 魔像使"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 使 "}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 奉献女魔"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 奉献女魔 "}
 c["禁断之肉上有匹配的词缀则配置 精华吞噬"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="精华吞噬",side="之肉"}}},nil}
-c["禁断之肉上有匹配的词缀则配置 原始之君"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="原始之君",side="之肉"}}},nil}
 c["【闪电之捷】的风暴击中敌人的频率提高 40%"]={{[1]={flags=0,keywordFlags=0,name="HeraldStormFrequency",type="INC",value=40}},nil}
+c["禁断之肉上有匹配的词缀则配置 原始之君"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="原始之君",side="之肉"}}},nil}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 原始之君"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 原始之君 "}
-c["此物品上的技能石受到 20 级的 元素扩散 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="SupportElementalProliferation"}}},nil}
 c["其中 1 个增加的天赋为【多彩之色】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="多彩之色"}},nil}
+c["此物品上的技能石受到 20 级的 元素扩散 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="SupportElementalProliferation"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 疫病之源"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="疫病之源",side="之肉"}}},nil}
-c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 疫病之源"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 疫病之源 "}
 c["你在耐力球达到上限时无法被感电"]={{[1]={[1]={stat="EnduranceCharges",thresholdStat="EnduranceChargesMax",type="StatThreshold"},flags=0,keywordFlags=0,name="AvoidShock",type="BASE",value=100}},nil}
 c["获得【女神的祝福】时无法被冰冻，冰缓，或点燃 获得【女神的祝福】时攻击速度和移动速度提高 20%"]={{[1]={flags=1,keywordFlags=0,name="EnemyFreezeChance",type="INC",value=20}},"获得【女神的祝福】时无法被，冰缓，或点燃 获得【女神的祝福】时速度和移动速度 "}
+c["禁断之肉上有匹配的词缀则配置 盲目挑衅"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="盲目挑衅",side="之肉"}}},nil}
 c["火焰伤害提高 15%"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=15}},nil}
-c["其中 1 个增加的天赋为【法师猎人】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="法师猎人"}},nil}
 c["光环技能范围提高 20%"]={{[1]={flags=0,keywordFlags=1,name="AreaOfEffect",type="INC",value=20}},nil}
+c["其中 1 个增加的天赋为【法师猎人】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="法师猎人"}},nil}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 毁灭之心"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 毁灭之心 "}
-c["禁断之肉上有匹配的词缀则配置 神圣指引"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="神圣指引",side="之肉"}}},nil}
+c["禁断之肉上有匹配的词缀则配置 灵魂饮者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="灵魂饮者",side="之肉"}}},nil}
 c["此物品上的技能石受到 35 级的 充能支架 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportOvercharge"}}},nil}
 c["需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 秽言亡语"]={nil,"需求 职业: 女巫 禁断之肉上有匹配的词缀则配置 秽言亡语 "}
 c["非诅咒类光环的效果提高 18%"]={{[1]={[1]={skillType=43,type="SkillType"},[2]={neg=true,skillType=79,type="SkillType"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=18}},nil}
-c["禁断之肉上有匹配的词缀则配置 紧急时刻"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="紧急时刻",side="之肉"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 毒物私运"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="毒物私运",side="之肉"}}},nil}
+c["禁断之肉上有匹配的词缀则配置 紧急时刻"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="紧急时刻",side="之肉"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 和谐之源"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="和谐之源",side="之肉"}}},nil}
-c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 和谐之源"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 和谐之源 "}
 c["配置时触发 20 级原能护盾 每个配置的核心天赋都使原能护盾可以承受 75 点元素伤害 禁用其它护盾技能"]={nil,"配置时触发 20 级原能护盾 每个配置的核心天赋都使原能护盾可以承受 75 点元素伤害 禁用其它护盾技能 "}
 c["+150 护甲"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=150}},nil}
+c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 和谐之源"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 和谐之源 "}
 c["在你压制敌人的法术伤害时使其疲惫 1 秒"]={{[1]={flags=0,keywordFlags=0,name="DebilitateChance",type="BASE",value=100}},nil}
-c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 命运审判"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 命运审判 "}
 c["击中时造成流血"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=100}},nil}
+c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 命运审判"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 命运审判 "}
 c["此物品上的技能石受到 25 级的 【祝福】 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=25,skillId="SupportAuraDuration"}}},nil}
 c["+45% 火焰抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=45}},nil}
-c["禁断之肉上有匹配的词缀则配置 坚毅圣战军"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="坚毅圣战军",side="之肉"}}},nil}
 c["技能的总魔力消耗 -4"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=-4}},nil}
 c["暴击率随闪电抗性提高"]={{[1]={[1]={div=1,stat="LightningResist",type="PerStat"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=1}},nil}
-c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 坚毅圣战军"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 坚毅圣战军 "}
+c["禁断之肉上有匹配的词缀则配置 坚毅圣战军"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="坚毅圣战军",side="之肉"}}},nil}
 c["能量护盾全满状态下防止+6%的被压制法术伤害 分配给你的各类专精可增加2%伤害 伤害的 2% 转化为能量护盾偷取"]={{[1]={flags=2,keywordFlags=0,name="EnergyShield",type="BASE",value=6}},"全满状态下防止的被压制伤害 分配给你的各类专精可增加2%伤害 伤害的 2% 转化为能量护盾偷取 "}
 c["每个狂怒球附加 24 到 39 点冰霜伤害"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=196608,name="ColdMin",type="BASE",value=24},[2]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=196608,name="ColdMax",type="BASE",value=39}},nil}
 c["闪避值提高 210%"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=210}},nil}
+c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 坚毅圣战军"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 坚毅圣战军 "}
 c["禁断之肉上有匹配的词缀则配置 升华仪式"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="升华仪式",side="之肉"}}},nil}
-c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 升华仪式"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 升华仪式 "}
 c["-75% 所有元素抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=-75}},nil}
 c["+23% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=23}},nil}
-c["物理伤害的 10% 转换为闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToLightning",type="BASE",value=10}},nil}
+c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 升华仪式"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 升华仪式 "}
 c["你技能的非诅咒类光环效果提高 15%"]={{[1]={[1]={skillType=43,type="SkillType"},[2]={neg=true,skillType=79,type="SkillType"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=15}},nil}
-c["附加 27 - 37 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=27},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=37}},nil}
+c["物理伤害的 10% 转换为闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToLightning",type="BASE",value=10}},nil}
 c["命中值提高 35%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=35}},nil}
 c["获得等同 30% 物理攻击伤害的火焰伤害"]={{[1]={flags=1,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=30}},nil}
+c["附加 27 - 37 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=27},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=37}},nil}
 c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 秘术保佑"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 秘术保佑 "}
 c["禁断之肉上有匹配的词缀则配置 廉简之途"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="廉简之途",side="之肉"}}},nil}
 c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 廉简之途"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 廉简之途 "}
-c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 光芒圣战军"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 光芒圣战军 "}
 c["每秒回复 40 能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRegen",type="BASE",value=40}},nil}
-c["此物品上的技能石受到 10 级的 迅整（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportAdditionalTrapMine"}}},nil}
+c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 光芒圣战军"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 光芒圣战军 "}
 c["周围的敌人无法造成暴击 忆境物品"]={nil,"周围的敌人无法造成暴击 忆境物品 "}
 c["敏捷不给闪避值提供属性加成"]={{[1]={flags=0,keywordFlags=0,name="MageBane",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="NoDexBonusToEvasion",type="FLAG",value=true}},nil}
+c["此物品上的技能石受到 10 级的 迅整（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportAdditionalTrapMine"}}},nil}
 c["此物品上的技能石受到 10 级的 几率流血(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportChanceToBleed"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 目的标识"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="目的标识",side="之肉"}}},nil}
-c["禁断之肉上有匹配的词缀则配置 狂热之器"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="狂热之器",side="之肉"}}},nil}
 c["周围敌人的晕眩和格挡回复降低 10%"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=-10}},"周围敌人的 "}
 c["命中值提高 6%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=6}},nil}
 c["结界破坏时移除药剂效果"]={nil,"结界破坏时移除药剂效果 "}
 c["受到坚定影响时，耐力球数量上限+1"]={{[1]={[1]={type="Condition",var="AffectedBy坚定"},flags=0,keywordFlags=0,name="EnduranceChargesMax",type="BASE",value=1}},nil}
-c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 狂热之器"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 狂热之器 "}
+c["禁断之肉上有匹配的词缀则配置 狂热之器"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="狂热之器",side="之肉"}}},nil}
 c["长杖攻击的暴击率提高 40%"]={{[1]={flags=2097156,keywordFlags=0,name="CritChance",type="INC",value=40}},nil}
 c["引导时有 50% 几率避免被晕眩 持续吟唱技能伤害提高 30%"]={{[1]={[1]={skillType=57,type="SkillType"},flags=0,keywordFlags=0,name="AvoidStun",type="BASE",value=50}},"引导时 伤害提高 30% "}
 c["双持时攻击格挡率提高 10%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=10}},nil}
-c["禁断之肉上有匹配的词缀则配置 信念之辉"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="信念之辉",side="之肉"}}},nil}
+c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 狂热之器"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 狂热之器 "}
 c["近期内你若没有格挡，你的攻击伤害格挡率将处于最高值 若近期内有过格挡，你则获得【迷踪】状态"]={nil,"近期内你若没有格挡，你的攻击伤害格挡率将处于最高值 若近期内有过格挡，你则获得【迷踪】状态 "}
+c["击败敌人时，你获得 1 颗耐力球 被击中时，每个耐力球可使你获得 1 秒的【猛攻】状态"]={{},"击败敌人时， 颗耐力球 被时，你获得 1 秒的【猛攻】状态 "}
 c["禁断之肉上有匹配的词缀则配置 正义之庭"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="正义之庭",side="之肉"}}},nil}
-c["禁断之肉上有匹配的词缀则配置 淬毒打击"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="淬毒打击",side="之肉"}}},nil}
 c["近战技能的范围扩大 12%"]={{[1]={flags=256,keywordFlags=0,name="AreaOfEffect",type="INC",value=12}},nil}
 c["格挡攻击时反射 240 - 300 物理伤害"]={nil,"格挡攻击时反射 240 - 300 物理伤害 "}
 c["禁断之肉上有匹配的词缀则配置 彻骨之径"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="彻骨之径",side="之肉"}}},nil}
-c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 神圣指引"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 神圣指引 "}
+c["禁断之肉上有匹配的词缀则配置 神圣指引"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="神圣指引",side="之肉"}}},nil}
 c["晕眩门槛提高 30%"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=30}},nil}
 c["每秒回复 100 能量护盾"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRegen",type="BASE",value=100}},nil}
 c["连锁范围扩大 15%"]={{}," Chaining range "}
 c["双手近战武器攻击造成的击中和异常状态伤害提高 25%"]={{[1]={flags=301989888,keywordFlags=786432,name="Damage",type="INC",value=25}},nil}
+c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 神圣指引"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 神圣指引 "}
 c["禁断之肉上有匹配的词缀则配置 信念之诉"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="信念之诉",side="之肉"}}},nil}
-c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 意识圣殿"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 意识圣殿 "}
 c["物理伤害提高 88%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=88}},nil}
 c["该装备的能量护盾提高 70%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=70}},nil}
-c["元素异常状态持续时间按照每 15 点智慧降低 2%"]={{[1]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfShockDuration",type="INC",value=-2},[2]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-2},[3]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-2},[4]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfIgniteDuration",type="INC",value=-2},[5]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfScorchDuration",type="INC",value=-2},[6]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfBrittleDuration",type="INC",value=-2},[7]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfSapDuration",type="INC",value=-2}},nil}
+c["禁断之肉上有匹配的词缀则配置 美德之器"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="美德之器",side="之肉"}}},nil}
 c["受到【纯净之捷】影响时，物理伤害提高 60%"]={{[1]={[1]={type="Condition",var="AffectedBy纯净之捷"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=60}},nil}
+c["元素异常状态持续时间按照每 15 点智慧降低 2%"]={{[1]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfShockDuration",type="INC",value=-2},[2]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-2},[3]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-2},[4]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfIgniteDuration",type="INC",value=-2},[5]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfScorchDuration",type="INC",value=-2},[6]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfBrittleDuration",type="INC",value=-2},[7]={[1]={div="15",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="SelfSapDuration",type="INC",value=-2}},nil}
 c["禁断之肉上有匹配的词缀则配置 死之狂怒.辛格拉"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="死之狂怒.辛格拉",side="之肉"}}},nil}
 c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 死之狂怒.辛格拉"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 死之狂怒.辛格拉 "}
-c["非暴击时有 20% 的几率获得一个暴击球 暴击球数量上限 +1"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="PowerChargesMax",type="BASE",value=20}},"非获得一个暴击球  +1 "}
 c["15% Increased Area of Effect Reflects 8 to 14 Physical Damage to Attacks on Block"]={{},"% Increased Area of Effect Reflects 8 to 14 Physical Damage to Attacks on Block "}
 c["生效期间产生的奉献地面使敌人承受的伤害提高 10%"]={{[1]={[1]={type="Condition",var="UsingFlask"},[2]={actor="enemy",type="ActorCondition",var="OnConsecratedGround"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTakenConsecratedGround",type="INC",value=10}}}},nil}
 c["每 10 点奉献使技能魔力消耗降低 1%"]={{[1]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-1}},nil}
-c["禁断之肉上有匹配的词缀则配置 森林之力.塔赫亚"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="森林之力.塔赫亚",side="之肉"}}},nil}
+c["非暴击时有 20% 的几率获得一个暴击球 暴击球数量上限 +1"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="PowerChargesMax",type="BASE",value=20}},"非获得一个暴击球  +1 "}
 c["此物品上的技能石获得【元素之相】，效果降低 40%"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="FlaskEffect",type="INC",value=-40}}}},"获得【元素之相】， "}
-c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 森林之力.塔赫亚"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 森林之力.塔赫亚 "}
+c["禁断之肉上有匹配的词缀则配置 森林之力.塔赫亚"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="森林之力.塔赫亚",side="之肉"}}},nil}
 c["攻击和法术总暴击率额外降低 40%"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="MORE",value=-40}},nil}
 c["攻击伤害的 0.6% 转化为魔力偷取"]={{[1]={flags=1,keywordFlags=0,name="DamageManaLeech",type="BASE",value=0.6}},nil}
-c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 毁灭仪式"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 毁灭仪式 "}
+c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 森林之力.塔赫亚"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 森林之力.塔赫亚 "}
 c["每完成 25 次暴走连击，范围效果扩大 2% 每达到 50 次暴走连击，就获得 1 个狂怒球"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=2}},"每完成 25 次暴走连击， 每达到 50 次暴走连击，就获得 1 个狂怒球 "}
 c["尊严没有保留效果"]={{[1]={[1]={skillId="PhysicalDamageAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationFlat",value=0}},[2]={[1]={skillId="PhysicalDamageAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationFlat",value=0}},[3]={[1]={skillId="PhysicalDamageAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationPercent",value=0}},[4]={[1]={skillId="PhysicalDamageAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationPercent",value=0}}},nil}
-c["禁断之肉上有匹配的词缀则配置 屠戮之欲"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="屠戮之欲",side="之肉"}}},nil}
+c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 毁灭仪式"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 毁灭仪式 "}
 c["穿刺者"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="穿刺者"}},nil}
-c["禁断之肉上有匹配的词缀则配置 苦痛劫掠"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="苦痛劫掠",side="之肉"}}},nil}
+c["禁断之肉上有匹配的词缀则配置 屠戮之欲"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="屠戮之欲",side="之肉"}}},nil}
 c["经验值获取提高 2% 你每装备一个传奇装备，智慧提高 3%"]={{[1]={[1]={type="Multiplier",var="UniqueItem"},flags=0,keywordFlags=0,name="Int",type="INC",value=2}},"经验值获取 提高 3% "}
 c["不受感电影响"]={nil,"不受感电影响 "}
-c["此物品上的技能石受到 10 级的 献祭 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportImmolation"}}},nil}
+c["禁断之肉上有匹配的词缀则配置 苦痛劫掠"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="苦痛劫掠",side="之肉"}}},nil}
 c["若击中造成【流血】，则其施加的【穿刺】效果提高 15%"]={{[1]={flags=0,keywordFlags=262144,name="ImpaleEffectOnBleed",type="INC",value=15}},nil}
 c["法术伤害在双持武器时提高 10%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
+c["此物品上的技能石受到 10 级的 献祭 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportImmolation"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 不知疲倦"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="不知疲倦",side="之肉"}}},nil}
-c["暴击会击退被感电的敌人"]={nil,"Your Critical Strikes Knock Back Shocked Enemies "}
 c["你装备魔法戒指时，敌人击中你的伤害会特别不幸"]={nil,"你装备魔法戒指时，敌人击中你的伤害会特别不幸 "}
 c["你总共消耗 12 枚钢刃碎片后技能在 4 秒内发射 3 枚额外投射物"]={{[1]={[1]={type="Condition",var="Consumed12SteelShardsRecently"},flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=3}},nil}
-c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 瓦拉克，风暴之拥"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 瓦拉克，风暴之拥 "}
+c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 势不可挡"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 势不可挡 "}
 c["承受的冰霜伤害降低 5%"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageTaken",type="INC",value=-5}},nil}
-c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 不可置疑"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 不可置疑 "}
+c["此物品上的技能石受到 35 级的 精准破坏(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportControlledDestruction"}}},nil}
 c["30% 的物理伤害转换为混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToChaos",type="BASE",value=30}},nil}
-c["禁断之肉上有匹配的词缀则配置 战争使者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="战争使者",side="之肉"}}},nil}
+c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 不可置疑"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 不可置疑 "}
 c["长杖攻击的暴击率提高 20%"]={{[1]={flags=2097156,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
 c["你的魔蛊有无限的持续时间"]={nil,"你的魔蛊有无限的持续时间 "}
+c["禁断之肉上有匹配的词缀则配置 战争使者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="战争使者",side="之肉"}}},nil}
 c["10% 的物理伤害转换为冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToCold",type="BASE",value=10}},nil}
 c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 永不动摇"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 永不动摇 "}
 c["只影响中圈内的天赋"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=5}}},nil}
 c["禁断之肉上有匹配的词缀则配置 灭无赦"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="灭无赦",side="之肉"}}},nil}
-c["受到【闪电净化】影响时，不受【导电】影响 受到【闪电净化】影响时，不受感电地面影响"]={nil,"受到【闪电净化】影响时，不受【导电】影响 受到【闪电净化】影响时，不受感电地面影响 "}
 c["最大魔力提高 60%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=60}},nil}
 c["格挡时有 30% 几率获得 3 秒不洁之力"]={{},"格挡时获得 3 秒不洁之力 "}
 c["闪避值提高 250%"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=250}},nil}
+c["每个耐力球附加 27 到 42 基础火焰伤害"]={nil,"每个耐力球附加 27 到 42 基础火焰伤害 "}
 c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 塔赛里奥，纯净之水"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 塔赛里奥，纯净之水 "}
 c["附加 1 - 4 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=4}},nil}
 c["禁断之肉上有匹配的词缀则配置 月使.亚欧红古"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="月使.亚欧红古",side="之肉"}}},nil}
 c["+200 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=200}},nil}
-c["禁断之肉上有匹配的词缀则配置 手术大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="手术大师",side="之肉"}}},nil}
 c["如果你在过去 10 秒内施放过时空锁链，则冷却恢复速度提高 25%"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=25}},"如果你在过去 10 秒内施放过时空锁链，则 "}
+c["禁断之肉上有匹配的词缀则配置 手术大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="手术大师",side="之肉"}}},nil}
 c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 手术大师"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 手术大师 "}
 c["对敌人的闪电异常效果持续时间延长 50%"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=50},[2]={flags=0,keywordFlags=0,name="EnemySapDuration",type="INC",value=50}},nil}
 c["禁断之肉上有匹配的词缀则配置 占领军"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="占领军",side="之肉"}}},nil}
@@ -6807,356 +6795,355 @@ c["禁断之肉上有匹配的词缀则配置 大自然的复仇"]={{[1]={flags=
 c["其中 1 个增加的天赋为【肿胀灵枢】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="肿胀灵枢"}},nil}
 c["禁断之肉上有匹配的词缀则配置 制毒宗师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="制毒宗师",side="之肉"}}},nil}
 c["每个暴击球都使效果区域扩大 3%，最大 50%"]={{[1]={[1]={globalLimit=50,globalLimitKey="VastPower",type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=3}},nil}
-c["你不能被穿刺"]={nil,"You cannot be Impaled "}
 c["攻击击中被诅咒敌人时有 25% 几率造成流血"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=1,keywordFlags=0,name="BleedChance",type="BASE",value=25}},nil}
 c["从盾牌获取的防御提高 (20-30)%"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},flags=0,keywordFlags=0,name="Defences",type="BASE",value=-30}},"提高 (20)% "}
+c["你不能被穿刺"]={nil,"You cannot be Impaled "}
 c["技能魔力消耗降低 5%"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=-5}},nil}
-c["禁断之肉上有匹配的词缀则配置 盗猎者之途"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="盗猎者之途",side="之肉"}}},nil}
 c["召唤【德瑞的塑像】时可以触发插槽内的诅咒技能"]={nil,"召唤【德瑞的塑像】时可以触发插槽内的诅咒技能 "}
+c["禁断之肉上有匹配的词缀则配置 盗猎者之途"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="盗猎者之途",side="之肉"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 聚焦点"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="聚焦点",side="之肉"}}},nil}
 c["此物品上的技能石受到 10 级的 霜咬(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportFrenzyChargeOnSlayingFrozenEnemy"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 弹射"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="弹射",side="之肉"}}},nil}
-c["攻击附加 10 - 20 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=10},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=20}},nil}
 c["当你点燃 1 个敌人时，回复 30 生命 敌人被点燃的持续时间延长 15%"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=15}},"当你 1 个敌人时，回复 30 生命 敌人被点燃的持续时间 "}
-c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 狙击"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 狙击 "}
+c["攻击附加 10 - 20 基础火焰伤害"]={{[1]={flags=0,keywordFlags=65536,name="FireMin",type="BASE",value=10},[2]={flags=0,keywordFlags=65536,name="FireMax",type="BASE",value=20}},nil}
 c["弓类攻击的命中值提高 15%"]={{[1]={flags=131076,keywordFlags=0,name="Accuracy",type="INC",value=15}},nil}
 c["范围内提高冰霜抗性的天赋也会以 35% 的比例提高法术伤害压制率"]={{[1]={flags=512,keywordFlags=0,name="ColdResist",type="BASE",value=35}},"内提高的天赋也会以 比例提高法术伤害压制率 "}
+c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 狙击"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 狙击 "}
 c["禁断之肉上有匹配的词缀则配置 无限弹药"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="无限弹药",side="之肉"}}},nil}
 c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 无限弹药"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 无限弹药 "}
 c["每 10 点奉献使自身受到的元素异常时间缩短 4%"]={{[1]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="SelfShockDuration",type="INC",value=-4},[2]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-4},[3]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-4},[4]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="SelfIgniteDuration",type="INC",value=-4},[5]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="SelfScorchDuration",type="INC",value=-4},[6]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="SelfBrittleDuration",type="INC",value=-4},[7]={[1]={div=10,stat="Devotion",type="PerStat"},flags=0,keywordFlags=0,name="SelfSapDuration",type="INC",value=-4}},nil}
 c["禁断之肉上有匹配的词缀则配置 追猎使徒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="追猎使徒",side="之肉"}}},nil}
-c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 追猎使徒"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 追猎使徒 "}
 c["反射 10 冰霜伤害给近战攻击者 你的冰霜伤害可以点燃"]={nil,"反射 10 冰霜伤害给近战攻击者 你的冰霜伤害可以点燃 "}
 c["红玉戒指 双玉戒指(冰闪)"]={nil,"红玉戒指 双玉戒指(冰闪) "}
 c["武器攻击的火焰、冰霜、闪电伤害提高 15%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=15}},"攻击的 "}
 c["近期内你若被击中，则闪避值提高 50%"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},nil}
 c["远射"]={{[1]={flags=0,keywordFlags=0,name="FarShot",type="FLAG",value=true}},nil}
-c["禁断之肉上有匹配的词缀则配置 风之结界"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="风之结界",side="之肉"}}},nil}
+c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 追猎使徒"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 追猎使徒 "}
 c["此物品上的技能石受到 10 级的 三位一体（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportTrinity"}}},nil}
+c["禁断之肉上有匹配的词缀则配置 风之结界"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="风之结界",side="之肉"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 制箭大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="制箭大师",side="之肉"}}},nil}
-c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 制箭大师"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 制箭大师 "}
 c["暴击时触发 10 级的【奉献】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=10,skillId="TriggeredConsecrate",triggered=true}}},nil}
+c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 制箭大师"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 制箭大师 "}
 c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 碎裂"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 碎裂 "}
 c["禁断之肉上有匹配的词缀则配置 极速进攻"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="极速进攻",side="之肉"}}},nil}
 c["此物品上的技能石受到 35 级的 穿透(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportPierce"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 炼金术大师"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="炼金术大师",side="之肉"}}},nil}
-c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 炼金术大师"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 炼金术大师 "}
 c["+25% 火焰持续伤害加成"]={{[1]={flags=0,keywordFlags=0,name="FireDotMultiplier",type="BASE",value=25}},nil}
 c["你技能的非诅咒类光环效果提高 3%"]={{[1]={[1]={skillType=43,type="SkillType"},[2]={neg=true,skillType=79,type="SkillType"},flags=0,keywordFlags=0,name="AuraEffect",type="INC",value=3}},nil}
 c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 痛苦铸造"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 痛苦铸造 "}
 c["静止时每秒回复 2% 生命"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=2}},nil}
+c["需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 炼金术大师"]={nil,"需求 职业: 游侠 禁断之肉上有匹配的词缀则配置 炼金术大师 "}
 c["禁断之肉上有匹配的词缀则配置 冷酷使徒"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="冷酷使徒",side="之肉"}}},nil}
 c["此物品上的技能石受到 10 级的 冰霜穿透(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportColdPenetration"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 镇压"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="镇压",side="之肉"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 征服者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="征服者",side="之肉"}}},nil}
-c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 征服者"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 征服者 "}
 c["召唤飞掠者的魔力保留效能提高 50%"]={{[1]={[1]={skillName="召唤飞掠者",type="SkillName"},flags=0,keywordFlags=0,name="ManaReservationEfficiency",type="INC",value="50"}},nil}
+c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 征服者"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 征服者 "}
 c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 血之眼"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 血之眼 "}
 c["徒手近战攻击的物理伤害总增 1000%"]={{[1]={flags=16777216,keywordFlags=0,name="PhysicalDamage",type="MORE",value=1000}},nil}
-c["此物品上的技能石受到 10 级的 会心一击（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportProjectileIntensity"}}},nil}
 c["充能回复量提高 40%"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargeRecovery",type="INC",value=40}},nil}
-c["禁断之肉上有匹配的词缀则配置 启发"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="启发",side="之肉"}}},nil}
+c["此物品上的技能石受到 10 级的 会心一击（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportProjectileIntensity"}}},nil}
 c["来自攻击的投射物会额外分叉一次"]={nil,"来自攻击的投射物会额外分叉一次 "}
 c["物理伤害提高 152%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=152}},nil}
 c["图腾放置速度提高 5%"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=5}},nil}
 c["至少有 200 点敏捷时，投射物攻击伤害提高 45%"]={{[1]={[1]={stat="Dex",threshold=200,type="StatThreshold"},flags=1025,keywordFlags=0,name="Damage",type="INC",value=45}},nil}
 c["来自攻击的投射物会分叉"]={nil,"来自攻击的投射物会分叉 "}
-c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 完美胜出"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 完美胜出 "}
+c["其中 1 个增加的天赋为【万物滋生】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="万物滋生"}},nil}
 c["你在天赋树上连接到游侠的出发位置时，你获得：药剂充能获取率提高 20%"]={{[1]={[1]={type="Condition",var="ConnectedTo游侠Start"},flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=20}},nil}
+c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 完美胜出"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 完美胜出 "}
 c["此物品上的技能石受到 35 级的 极速腐化(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportRapidDecay"}}},nil}
 c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 传奇灾星"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 传奇灾星 "}
 c["获得等于最大生命 15% 的额外最大能量护盾"]={{[1]={flags=0,keywordFlags=0,name="LifeGainAsEnergyShield",type="BASE",value=15}},nil}
-c["此物品上的技能石受到 10 级的 神圣祝福（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportAuraDuration"}}},nil}
 c["被击中时让敌人受到【灰烬缠身】 火之化身"]={nil,"被击中时让敌人受到【灰烬缠身】 火之化身 "}
 c["爪类攻击造成的击中和异常状态伤害提高 12%"]={{[1]={flags=262144,keywordFlags=786432,name="Damage",type="INC",value=12}},nil}
+c["此物品上的技能石受到 10 级的 神圣祝福（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportAuraDuration"}}},nil}
 c["怒火固有损耗减慢 20%"]={nil,"Inherent loss of Rage is 20% slower "}
-c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 竞技挑战者"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 竞技挑战者 "}
 c["攻击击中有 20% 的几率致盲敌人"]={{}," to Blind Enemies on Hit  "}
 c["全局防御提高 50%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Defences",type="INC",value=50}},nil}
-c["该装备的能量护盾提高 60%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
+c["需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 竞技挑战者"]={nil,"需求 职业: 决斗者 禁断之肉上有匹配的词缀则配置 竞技挑战者 "}
 c["易燃可以影响魔蛊免疫的敌人 你对被诅咒的敌人施加的点燃持续时间延长 30%"]={{[1]={flags=0,keywordFlags=2,name="EnemyIgniteChance",type="INC",value=30}},"易燃可以影响魔蛊免疫的敌人 你对被的敌人施加的持续时间 "}
+c["该装备的能量护盾提高 60%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
 c["需求 职业: 决斗者"]={nil,"需求 职业: 决斗者 "}
-c["禁断之肉上有匹配的词缀则配置 爆破天才"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="爆破天才",side="之肉"}}},nil}
 c["锤类或短杖的物理伤害提高 10%"]={{[1]={flags=1048576,keywordFlags=0,name="PhysicalDamage",type="INC",value=10}},nil}
+c["禁断之肉上有匹配的词缀则配置 爆破天才"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="爆破天才",side="之肉"}}},nil}
 c["需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 毒物私运"]={nil,"需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 毒物私运 "}
 c["需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 快人一步"]={nil,"需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 快人一步 "}
-c["召集部队"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="召集部队"}},nil}
 c["每 10 秒，获得额外火焰伤害，  其数值等同于物理伤害的 100%，持续 4 秒"]={{},"每 10 秒，获得"}
+c["召集部队"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="召集部队"}},nil}
 c["武器攻击的火焰、冰霜、闪电伤害提高 24% 物理伤害提高 175%"]={{[1]={flags=8192,keywordFlags=0,name="ElementalDamage",type="INC",value=24}},"攻击的 物理伤害提高 175% "}
-c["其中 1 个增加的天赋为【冬眠者】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="冬眠者"}},nil}
-c["禁断之肉上有匹配的词缀则配置 敏捷克星"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="敏捷克星",side="之肉"}}},nil}
+c["受到【清晰】影响时，技能的总魔力消耗 -5"]={{[1]={[1]={type="Condition",var="AffectedBy清晰"},flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=-5}},nil}
 c["召唤生物获得 +18% 格挡法术伤害率"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=18}}}},nil}
+c["禁断之肉上有匹配的词缀则配置 敏捷克星"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="敏捷克星",side="之肉"}}},nil}
 c["禁断之肉上有匹配的词缀则配置 逃脱艺术"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="逃脱艺术",side="之肉"}}},nil}
 c["需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 逃脱艺术"]={nil,"需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 逃脱艺术 "}
 c["禁断之肉上有匹配的词缀则配置 完美犯罪"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="完美犯罪",side="之肉"}}},nil}
 c["需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 连锁反应"]={nil,"需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 连锁反应 "}
-c["禁断之肉上有匹配的词缀则配置 生在影中"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="生在影中",side="之肉"}}},nil}
 c["对流血敌人的攻击和法术暴击率提高 80%"]={{[1]={[1]={type="Global"},[2]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=80}},nil}
 c["近期内你若造成非暴击伤害，则 +60% 暴击伤害加成"]={{[1]={[1]={type="Condition",var="NonCritRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=60}},nil}
+c["禁断之肉上有匹配的词缀则配置 生在影中"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="生在影中",side="之肉"}}},nil}
 c["此物品上的技能石受到 35 级的 诅咒之地辅助 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportCursedGround"}}},nil}
-c["禁断之肉上有匹配的词缀则配置 爆破专家"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="爆破专家",side="之肉"}}},nil}
 c["混沌伤害提高 10%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=10}},nil}
-c["需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 爆破专家"]={nil,"需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 爆破专家 "}
+c["禁断之肉上有匹配的词缀则配置 爆破专家"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="爆破专家",side="之肉"}}},nil}
 c["+25% 火焰与混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=25},[2]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=25}},nil}
-c["禁断之肉上有匹配的词缀则配置 灵魂饮者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="灵魂饮者",side="之肉"}}},nil}
+c["需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 爆破专家"]={nil,"需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 爆破专家 "}
 c["需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 正义之庭"]={nil,"需求 职业: 圣堂武僧 禁断之肉上有匹配的词缀则配置 正义之庭 "}
-c["生命每秒再生 0.6"]={nil,"生命每秒再生 0.6 "}
+c["禁断之肉上有匹配的词缀则配置 淬毒打击"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="淬毒打击",side="之肉"}}},nil}
 c["每拥有 1 个狂怒球，有 2% 几率躲避攻击击中"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="AttackDodgeChance",type="BASE",value=2}},nil}
-c["流血持续时间延长 60%"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=60}},nil}
+c["生命每秒再生 0.6"]={nil,"生命每秒再生 0.6 "}
 c["火焰伤害的 1% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="FireDamageLifeLeech",type="BASE",value=1}},nil}
 c["失去耐力球触发一个插入的战吼技能，它有 0.25 秒冷却时间 +80 最大生命"]={{[1]={flags=0,keywordFlags=4,name="Life",type="BASE",value=80}},"失去耐力球触发一个插入的技能，它有 0.25 秒冷却时间   "}
-c["此物品上的技能石受到 25 级的 元素穿透 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=25,skillId="SupportElementalPenetration"}}},nil}
+c["每点燃 1 个敌人，则受到 100 火焰伤害 被点燃时，火焰伤害的 2% 转化为生命偷取"]={nil,"每点燃 1 个敌人，则受到 100 火焰伤害 被点燃时，火焰伤害的 2% 转化为生命偷取 "}
 c["地雷伤害可以穿透 10% 元素抗性"]={{[1]={flags=0,keywordFlags=8192,name="ElementalPenetration",type="BASE",value=10}},nil}
 c["若你近期内有消耗灵柩，则伤害提高 14%"]={{[1]={[1]={type="Condition",var="ConsumedCorpseRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=14}},nil}
+c["此物品上的技能石受到 25 级的 元素穿透 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=25,skillId="SupportElementalPenetration"}}},nil}
 c["需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 焚烧"]={nil,"需求 职业: 暗影 禁断之肉上有匹配的词缀则配置 焚烧 "}
-c["需求 职业: 暗影"]={nil,"需求 职业: 暗影 "}
 c["药剂持续期间，使用的瓦尔技能无法附加阻灵术效果"]={nil,"药剂持续期间，使用的瓦尔技能无法附加阻灵术效果 "}
 c["承受的混沌伤害优先从魔力扣除"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamageTakenFromManaBeforeLife",type="BASE",value=100}},nil}
 c["受非瓦尔防卫技能影响时，获得 20% 额外物理伤害减免 若近期内失去非瓦尔防卫技能增益效果，则受到的伤害总增 20%"]={{[1]={flags=0,keywordFlags=512,name="PhysicalDamageReduction",type="BASE",value=20}},"受非防卫技能影响时，获得  若近期内失去非瓦尔防卫技能增益效果，则受到的伤害总增 20% "}
 c["击中时有 100% 的几率嘲讽敌人"]={{}," to Taunt on Hit "}
-c["攻击和法术无法被闪避"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CannotBeEvaded",type="FLAG",value=true}},nil}
+c["需求 职业: 暗影"]={nil,"需求 职业: 暗影 "}
 c["魔像 +900 护甲值"]={{[1]={[1]={skillType=61,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Armour",type="BASE",value=900}}}},nil}
 c["+350 点闪避值"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=350}},nil}
 c["被击中时让敌人受到【灰烬缠身】"]={nil,"被击中时让敌人受到【灰烬缠身】 "}
+c["攻击和法术无法被闪避"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CannotBeEvaded",type="FLAG",value=true}},nil}
 c["禁用除雷霆之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Wrath",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["受到活力影响时，被击中时在1秒内恢复15%的生命值"]={nil,"受到活力影响时，被击中时在1秒内恢复15%的生命值 "}
-c["禁用除闪电净化之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="LightningResistAura",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["闪避值提高 12%"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=12}},nil}
+c["禁用除闪电净化之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="LightningResistAura",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["，受到的火焰和冰霜伤害的30%视为闪电伤害"]={nil,"，受到的火焰和冰霜伤害的30%视为闪电伤害 "}
 c["此物品上的技能石受到 35 级的 魔蛊绽放辅助 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportHexBloom"}}},nil}
 c["禁用除冰霜净化之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="ColdResistAura",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
-c["法术伤害压制率按照每个狂怒球 +2%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=2}},"按照  "}
 c["冰霜伤害提高 23%"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=23}},nil}
 c["+8% 地雷暴击伤害加成"]={{[1]={flags=0,keywordFlags=8192,name="CritMultiplier",type="BASE",value=8}},nil}
+c["法术伤害压制率按照每个狂怒球 +2%"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=2}},"按照  "}
 c["禁用除火焰净化之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="FireResistAura",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["其中 1 个增加的天赋为【天才】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="天才"}},nil}
-c["禁用除元素净化之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Purity",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["使用时有 75% 几率使敌人逃跑 提高 100% 药剂充能消耗"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="BASE",value=75}},"使用时使敌人逃跑 提高 100%  "}
 c["击中被嘲讽的敌人回复 +3 魔力 使用战吼时获得 2 个暴击球"]={{[1]={flags=0,keywordFlags=262144,name="Mana",type="BASE",value=3}},"被嘲讽的敌人回复   使用战吼时获得 2 个暴击球 "}
-c["使用尊严时消灭的敌人有25%的几率爆炸，造成相当于最大生命值十分之一的物理伤害 禁用除尊严之外的其他光环技能"]={nil,"使用尊严时消灭的敌人有25%的几率爆炸，造成相当于最大生命值十分之一的物理伤害 禁用除尊严之外的其他光环技能 "}
+c["寒冰之捷的魔力保留效能提高 40%"]={{[1]={[1]={skillName="寒冰之捷",type="SkillName"},flags=0,keywordFlags=0,name="ManaReservationEfficiency",type="INC",value="40"}},nil}
 c["最大能量护盾提高 6%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=6}},nil}
+c["使用尊严时消灭的敌人有25%的几率爆炸，造成相当于最大生命值十分之一的物理伤害 禁用除尊严之外的其他光环技能"]={nil,"使用尊严时消灭的敌人有25%的几率爆炸，造成相当于最大生命值十分之一的物理伤害 禁用除尊严之外的其他光环技能 "}
 c["此物品上的技能石受到 35 级的 魔力偷取(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportManaLeech"}}},nil}
 c["禁用除精准之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="AccuracyAndCritsAura",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["禁用除怨毒光环之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="DamageOverTimeAura",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["附加 23 - 35 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=23},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=35}},nil}
-c["禁用除憎恨之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Hatred",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["受到近战物理伤害的 40% 会反射给攻击者"]={nil,"受到近战物理伤害的 40% 会反射给攻击者 "}
 c["击败敌人时召唤 1 级的低阶神殿"]={nil,nil}
+c["受到憎恨光环影响时始终造成脆弱"]={{[1]={[1]={type="Condition",var="AffectedBy憎恨"},flags=0,keywordFlags=0,name="EnemyBrittleChance",type="BASE",value=100}},nil}
 c["禁用除迅捷之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Haste",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
-c["受到优雅影响时，狂怒球数量上限+1"]={{[1]={[1]={type="Condition",var="AffectedBy优雅"},flags=0,keywordFlags=0,name="FrenzyChargesMax",type="BASE",value=1}},nil}
 c["100% 几率造成冰冻、感电与点燃效果"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="BASE",value=100},[2]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=100},[3]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="BASE",value=100}},nil}
+c["受到优雅影响时，狂怒球数量上限+1"]={{[1]={[1]={type="Condition",var="AffectedBy优雅"},flags=0,keywordFlags=0,name="FrenzyChargesMax",type="BASE",value=1}},nil}
 c["禁用除纪律之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Discipline",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["禁用除愤怒之外的其他光环技能"]={{[1]={[1]={skillType=43,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true},[2]={[1]={skillId="Anger",type="SkillId"},flags=0,keywordFlags=0,name="EnableSkill",type="FLAG",value=true}},nil}
 c["受到愤怒光环影响时始终造成烧灼"]={{[1]={[1]={type="Condition",var="AffectedBy愤怒"},flags=0,keywordFlags=0,name="EnemyScorchChance",type="BASE",value=100}},nil}
-c["最大魔力提高 5%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=5}},nil}
 c["+13% 混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=13}},nil}
 c["负面效果持续时间缩短速度提高 100%"]={{[1]={flags=0,keywordFlags=0,name="SelfDebuffExpirationRate",type="BASE",value=100}},nil}
 c["无生命保留时法术附加 64 - 107 基础火焰伤害"]={{[1]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="FireMin",type="BASE",value=64},[2]={[1]={stat="LifeReserved",threshold=0,type="StatThreshold",upper=true},flags=0,keywordFlags=131072,name="FireMax",type="BASE",value=107}},nil}
-c["蓝色插槽内的技能石额外获得 100% 经验 穿戴对人物属性无需求"]={{},"蓝色插槽内的技能石"}
+c["在奋锐光环影响下，偷取的每秒最大能量护盾总恢复量提高 30%"]={{[1]={[1]={type="Condition",var="AffectedBy奋锐光环"},flags=0,keywordFlags=0,name="MaxEnergyShieldLeechRate",type="INC",value=30}},nil}
 c["火焰、冰霜、闪电伤害提高 18%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=18}},nil}
-c["+15 敏捷"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=15}},nil}
+c["蓝色插槽内的技能石额外获得 100% 经验 穿戴对人物属性无需求"]={{},"蓝色插槽内的技能石"}
 c["攻击速度降低 20%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=-20}},nil}
 c["+90 最大魔力"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=90}},nil}
+c["+15 敏捷"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=15}},nil}
 c["受【奋锐光环】影响时，暴击穿透敌人 10% 的元素抗性"]={{[1]={[1]={type="Condition",var="CriticalStrike"},[2]={type="Condition",var="AffectedBy奋锐光环"},flags=0,keywordFlags=0,name="ElementalPenetration",type="BASE",value=10}},nil}
-c["当你受到奋锐光环影响时，创造的【奉献地面】可以使敌人承受的伤害提高 10%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnConsecratedGround"},[2]={type="Condition",var="AffectedBy奋锐光环"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTakenConsecratedGround",type="INC",value=10}}}},nil}
 c["+33% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=33}},nil}
-c["受到【奋锐光环】影响时，你创造的奉献地面效果可延续 2 秒 当你受到奋锐光环影响时，创造的【奉献地面】可以使敌人承受的伤害提高 10%"]={{[1]={[1]={type="Condition",var="AffectedBy奋锐光环"},flags=0,keywordFlags=0,name="ConsecratedGroundEffect",type="INC",value=10}},"可延续 2 秒 当你受到奋锐光环影响时，创造的【奉献地面】可以使敌人承受的伤害 "}
+c["当你受到奋锐光环影响时，创造的【奉献地面】可以使敌人承受的伤害提高 10%"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnConsecratedGround"},[2]={type="Condition",var="AffectedBy奋锐光环"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageTakenConsecratedGround",type="INC",value=10}}}},nil}
 c["当你触发或施法法术技能时牺牲 4% 的血量 当你触发或施法法术技能时牺牲 10% 的血量"]={{},"当你触发或施法技能时牺牲 血量 当你触发或施法法术技能时牺牲 10% 的血量 "}
+c["其中 1 个增加的天赋为【液化启迪】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="液化启迪"}},nil}
 c["受到【雷霆】影响时，40% 的物理伤害转化为闪电伤害"]={{[1]={[1]={type="Condition",var="AffectedBy雷霆"},flags=0,keywordFlags=0,name="PhysicalDamageConvertToLightning",type="BASE",value=40}},nil}
 c["受到【雷霆】影响时，获得物理伤害 25% 的额外闪电伤害"]={{[1]={[1]={type="Condition",var="AffectedBy雷霆"},flags=0,keywordFlags=0,name="PhysicalDamageGainAsLightning",type="BASE",value=25}},nil}
-c["有 25% 的几率在攻击击中时施加腐蚀"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanCorrode",type="FLAG",value=true}},nil}
 c["+75% 冰霜抗性"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=75}},nil}
 c["法杖攻击的暴击率提高 50%"]={{[1]={flags=8388612,keywordFlags=0,name="CritChance",type="INC",value=50}},nil}
-c["受到【雷霆】影响时，暴击率提高 100%"]={{[1]={[1]={type="Condition",var="AffectedBy雷霆"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
+c["有 25% 的几率在攻击击中时施加腐蚀"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanCorrode",type="FLAG",value=true}},nil}
 c["锤类或短杖的暴击率提高 16%"]={{[1]={flags=1048576,keywordFlags=0,name="CritChance",type="INC",value=16}},nil}
-c["神威之盾"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="神威之盾"}},nil}
+c["受到【雷霆】影响时，暴击率提高 100%"]={{[1]={[1]={type="Condition",var="AffectedBy雷霆"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
 c["获得等同 15% 物理伤害的 1 个随机元素伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageGainAsRandom",type="BASE",value=15}},nil}
 c["击败敌人有 20% 几率时获得耐力球 每秒回复 4% 生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=20}},"击败敌人时获得耐力球 每秒回复 4%  "}
 c["+(20-30)% 闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=-30}},"+(20)%  "}
+c["神威之盾"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="神威之盾"}},nil}
 c["受到【活力】影响时，药剂的生命回复提高 70%"]={{[1]={[1]={type="Condition",var="AffectedBy活力"},flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=70}},nil}
 c["受到【活力】影响时，伤害的 1.2% 转化为生命偷取"]={{[1]={[1]={type="Condition",var="AffectedBy活力"},flags=0,keywordFlags=0,name="DamageLifeLeech",type="BASE",value=1.2}},nil}
-c["受到【闪电净化】影响时，不受感电地面影响 受到【活力】影响时，伤害的 1.2% 转化为生命偷取"]={nil,"受到【闪电净化】影响时，不受感电地面影响 受到【活力】影响时，伤害的 1.2% 转化为生命偷取 "}
 c["法术伤害在持握长杖时提高 12%"]={{[1]={[1]={type="Condition",varList={[1]="UsingStaff"}},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["召唤德瑞的塑像时，触发插入的魔蛊技能"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=20,skillId="SupportCursePillarTriggerCurses"}}},nil}
-c["受到【闪电净化】影响时，不受感电地面影响"]={nil,"受到【闪电净化】影响时，不受感电地面影响 "}
+c["受到【闪电净化】影响时，不受感电地面影响 受到【活力】影响时，伤害的 1.2% 转化为生命偷取"]={nil,"受到【闪电净化】影响时，不受感电地面影响 受到【活力】影响时，伤害的 1.2% 转化为生命偷取 "}
 c["装备 1 件魔法物品时，物品掉落数量提高 13%"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="MagicItem"},flags=0,keywordFlags=0,name="LootQuantity",type="INC",value=13}},nil}
 c["需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 灭无赦"]={nil,"需求 职业: 野蛮人 禁断之肉上有匹配的词缀则配置 灭无赦 "}
-c["受到【闪电净化】影响时，受到击中物理伤害的 10% 转换为闪电伤害"]={{[1]={[1]={type="Condition",var="AffectedBy闪电净化"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsLightning",type="BASE",value=10}},nil}
+c["受到【闪电净化】影响时，不受【导电】影响 受到【闪电净化】影响时，不受感电地面影响"]={nil,"受到【闪电净化】影响时，不受【导电】影响 受到【闪电净化】影响时，不受感电地面影响 "}
 c["【鸟之斗魄】的持续时间 +0 秒"]={{[1]={[1]={skillName="鸟之势",type="SkillName"},flags=0,keywordFlags=0,name="SecondaryDuration",type="BASE",value=0}},nil}
+c["受到【闪电净化】影响时，受到击中物理伤害的 10% 转换为闪电伤害"]={{[1]={[1]={type="Condition",var="AffectedBy闪电净化"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsLightning",type="BASE",value=10}},nil}
 c["受到【闪电净化】影响时，承受的反射火焰伤害降低 50% 受到【闪电净化】影响时，受到击中物理伤害的 10% 转换为闪电伤害"]={{[1]={[1]={type="Condition",var="AffectedBy闪电净化"},flags=0,keywordFlags=262144,name="FireDamage",type="INC",value=-50}},"承受的反射 受到【闪电净化】影响时，受到物理伤害的 10% 转换为闪电伤害 "}
-c["受到【闪电净化】影响时，承受的反射火焰伤害降低 50%"]={{[1]={[1]={type="Condition",var="AffectedBy闪电净化"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=-50}},"承受的反射 "}
 c["附加 19 - 29 基础混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="ChaosMin",type="BASE",value=19},[2]={flags=0,keywordFlags=0,name="ChaosMax",type="BASE",value=29}},nil}
 c["附加 29 - 39 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=29},[2]={flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=39}},nil}
-c["此物品上的技能石受到 10 级的 附加闪电伤害(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportAddedLightningDamage"}}},nil}
+c["受到【闪电净化】影响时，承受的反射火焰伤害降低 50%"]={{[1]={[1]={type="Condition",var="AffectedBy闪电净化"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=-50}},"承受的反射 "}
 c["物理伤害的 30% 转换为闪电伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageConvertToLightning",type="BASE",value=30}},nil}
+c["此物品上的技能石受到 10 级的 附加闪电伤害(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportAddedLightningDamage"}}},nil}
 c["受到【冰霜净化】影响时，不受【冻伤】影响 受到【闪电净化】影响时，免疫感电"]={nil,"受到【冰霜净化】影响时，不受【冻伤】影响 受到【闪电净化】影响时，免疫感电 "}
 c["受到【冰霜净化】影响时，不受【冻伤】影响"]={nil,"受到【冰霜净化】影响时，不受【冻伤】影响 "}
 c["受到【冰霜净化】影响时，不受冰缓地面影响 受到【冰霜净化】影响时，不受【冻伤】影响"]={nil,"受到【冰霜净化】影响时，不受冰缓地面影响 受到【冰霜净化】影响时，不受【冻伤】影响 "}
 c["受到【冰霜净化】影响时，受到击中物理伤害的 10% 转换为冰霜伤害"]={{[1]={[1]={type="Condition",var="AffectedBy冰霜净化"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsCold",type="BASE",value=10}},nil}
-c["受到【冰霜净化】影响时，承受的反射冰霜伤害降低 50% 受到【冰霜净化】影响时，受到击中物理伤害的 10% 转换为冰霜伤害"]={{[1]={[1]={type="Condition",var="AffectedBy冰霜净化"},flags=0,keywordFlags=262144,name="ColdDamage",type="INC",value=-50}},"承受的反射 受到【冰霜净化】影响时，受到物理伤害的 10% 转换为冰霜伤害 "}
 c["使用该武器暴击时，有 20% 几率触发 20 级的【召唤幽狼】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="SummonRigwaldsPack",triggered=true}}},nil}
-c["此物品上的技能石受到 1 级的 和善 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportGenerosity"}}},nil}
+c["受到【冰霜净化】影响时，承受的反射冰霜伤害降低 50%"]={{[1]={[1]={type="Condition",var="AffectedBy冰霜净化"},flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=-50}},"承受的反射 "}
 c["+18 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=18}},nil}
+c["此物品上的技能石受到 10 级的 致命异常状态(辅) 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=10,skillId="SupportDeadlyAilments"}}},nil}
 c["受到【火焰净化】影响时，不受【易燃】影响"]={nil,"受到【火焰净化】影响时，不受【易燃】影响 "}
-c["受到【火焰净化】影响时，不受燃烧地面影响 受到【火焰净化】影响时，不受【易燃】影响"]={nil,"受到【火焰净化】影响时，不受燃烧地面影响 受到【火焰净化】影响时，不受【易燃】影响 "}
 c["法术伤害压制率 +8%"]={{[1]={flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=8}},nil}
 c["法术伤害提高 85%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=85}},nil}
+c["受到【火焰净化】影响时，不受燃烧地面影响 受到【火焰净化】影响时，不受【易燃】影响"]={nil,"受到【火焰净化】影响时，不受燃烧地面影响 受到【火焰净化】影响时，不受【易燃】影响 "}
 c["受到【火焰净化】影响时，受到击中物理伤害的 10% 转换为火焰伤害"]={{[1]={[1]={type="Condition",var="AffectedBy火焰净化"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=10}},nil}
 c["受到【火焰净化】影响时，承受的反射火焰伤害降低 50% 受到【火焰净化】影响时，受到击中物理伤害的 10% 转换为火焰伤害"]={{[1]={[1]={type="Condition",var="AffectedBy火焰净化"},flags=0,keywordFlags=262144,name="FireDamage",type="INC",value=-50}},"承受的反射 受到【火焰净化】影响时，受到物理伤害的 10% 转换为火焰伤害 "}
 c["受到【火焰净化】影响时，承受的反射火焰伤害降低 50%"]={{[1]={[1]={type="Condition",var="AffectedBy火焰净化"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=-50}},"承受的反射 "}
 c["受到【火焰净化】影响时，免疫点燃"]={nil,"受到【火焰净化】影响时，免疫点燃 "}
 c["受到【元素净化】影响时，不受【元素要害】影响 受到【火焰净化】影响时，免疫点燃"]={nil,"受到【元素净化】影响时，不受【元素要害】影响 受到【火焰净化】影响时，免疫点燃 "}
 c["受到【元素净化】影响时，不受【元素要害】影响"]={nil,"受到【元素净化】影响时，不受【元素要害】影响 "}
-c["受到【元素净化】影响时，受到击中物理伤害的 12% 转换为闪电伤害"]={{[1]={[1]={type="Condition",var="AffectedBy元素净化"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsLightning",type="BASE",value=12}},nil}
 c["若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 8 把远程武器"]={nil,"若范围内含有 40 点敏捷，【幻化武器】可以幻化最多 8 把远程武器 "}
 c["反射 1 - 250 闪电伤害给近战攻击者 混沌伤害不能穿透能量护盾"]={nil,"反射 1 - 250 闪电伤害给近战攻击者 混沌伤害不能穿透能量护盾 "}
-c["受到【元素净化】影响时，受到击中物理伤害的 12% 转换为火焰伤害"]={{[1]={[1]={type="Condition",var="AffectedBy元素净化"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=12}},nil}
+c["受到【元素净化】影响时，受到击中物理伤害的 12% 转换为闪电伤害"]={{[1]={[1]={type="Condition",var="AffectedBy元素净化"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsLightning",type="BASE",value=12}},nil}
 c["敌人被晕眩时间延长 35%"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunDuration",type="INC",value=35}},nil}
 c["每秒获得 1 个虚空之矢"]={nil,"每秒获得 1 个虚空之矢 "}
+c["受到【元素净化】影响时，受到击中物理伤害的 12% 转换为火焰伤害"]={{[1]={[1]={type="Condition",var="AffectedBy元素净化"},flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=12}},nil}
 c["受到【元素净化】影响时，承受的反射元素伤害减低 50% 受到【元素净化】影响时，受到击中物理伤害的 12% 转换为冰霜伤害"]={nil,"受到【元素净化】影响时，承受的反射元素伤害减低 50% 受到【元素净化】影响时，受到击中物理伤害的 12% 转换为冰霜伤害 "}
 c["受到【元素净化】影响时，承受的反射元素伤害减低 50%"]={nil,"受到【元素净化】影响时，承受的反射元素伤害减低 50% "}
-c["受到【元素净化】影响时，+50% 混沌抗性"]={{[1]={[1]={type="Condition",var="AffectedBy元素净化"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=50}},nil}
 c["+35 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=35}},nil}
-c["使用【尊严】时，击中威吓敌人，持续 4 秒 受到【元素净化】影响时，+50% 混沌抗性"]={{[1]={[1]={type="Condition",var="AffectedBy尊严"},[2]={type="Condition",var="AffectedBy元素净化"},flags=0,keywordFlags=262144,name="ChaosResist",type="BASE",value=50}},"威吓敌人，持续 4 秒   "}
+c["受到【元素净化】影响时，+50% 混沌抗性"]={{[1]={[1]={type="Condition",var="AffectedBy元素净化"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=50}},nil}
 c["由插入的诅咒技能施加的魔蛊被反射给了你"]={nil,"由插入的诅咒技能施加的魔蛊被反射给了你 "}
 c["每个蓝色插槽会使你物理攻击伤害的 0.4% 转化为魔力偷取"]={{[1]={[1]={type="Multiplier",var="BlueSocketIn{SlotName}"},flags=1,keywordFlags=0,name="PhysicalDamageManaLeech",type="BASE",value=0.4}},nil}
+c["使用【尊严】时，击中威吓敌人，持续 4 秒"]={nil,"使用【尊严】时，击中威吓敌人，持续 4 秒 "}
 c["物理伤害在使用骄傲时提高 60%"]={{[1]={[1]={type="Condition",var="AffectedBy尊严"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=60}},nil}
 c["受到【精准】影响时，+30% 暴击伤害加成"]={{[1]={[1]={type="Condition",var="AffectedBy精准"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=30}},nil}
 c["受到【精准】影响时，攻击速度提高 15%"]={{[1]={[1]={type="Condition",var="AffectedBy精准"},flags=1,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["攻击伤害在受精准影响时提高 60%"]={{[1]={[1]={type="Condition",var="AffectedBy精准"},flags=1,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["插入的闪电法术触发时造成的法术伤害提高 100%"]={{},nil}
 c["在受精准影响时不会陷入目盲状态"]={nil,"在受精准影响时不会陷入目盲状态 "}
-c["受【怨毒光环】影响时，你造成的伤害类异常状态的伤害生效速度提高 15%"]={{[1]={[1]={type="Condition",var="AffectedBy怨毒光环"},flags=0,keywordFlags=0,name="PoisonFaster",type="INC",value=15},[2]={[1]={type="Condition",var="AffectedBy怨毒光环"},flags=0,keywordFlags=0,name="IgniteBurnFaster",type="INC",value=15},[3]={[1]={type="Condition",var="AffectedBy怨毒光环"},flags=0,keywordFlags=0,name="BleedFaster",type="INC",value=15}},nil}
 c["每个【深海屏障】可使伤害提高 3%"]={{[1]={[1]={type="Multiplier",var="CrabBarrier"},flags=0,keywordFlags=0,name="Damage",type="INC",value=3}},nil}
 c["若你近期内有击败敌人，则效果区域扩大 30%"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}},nil}
-c["其中 1 个增加的天赋为【腐朽学徒】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="腐朽学徒"}},nil}
+c["受【怨毒光环】影响时，你造成的伤害类异常状态的伤害生效速度提高 15%"]={{[1]={[1]={type="Condition",var="AffectedBy怨毒光环"},flags=0,keywordFlags=0,name="PoisonFaster",type="INC",value=15},[2]={[1]={type="Condition",var="AffectedBy怨毒光环"},flags=0,keywordFlags=0,name="IgniteBurnFaster",type="INC",value=15},[3]={[1]={type="Condition",var="AffectedBy怨毒光环"},flags=0,keywordFlags=0,name="BleedFaster",type="INC",value=15}},nil}
 c["获得榨取球替代暴击球"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesConvertToAbsorptionCharges",type="FLAG",value=true}},nil}
+c["受到【怨毒光环】影响时，不受【中毒】影响"]={nil,"受到【怨毒光环】影响时，不受【中毒】影响 "}
 c["受到【怨毒光环】影响时，不受【流血】影响"]={nil,"受到【怨毒光环】影响时，不受【流血】影响 "}
-c["被【怨毒光环】影响时，+22% 伤害持续时间加成"]={{[1]={[1]={type="Condition",var="AffectedBy怨毒光环"},flags=0,keywordFlags=0,name="DotMultiplier",type="BASE",value=22}},nil}
 c["没有药剂效果时，移动速度加快 10%"]={{[1]={[1]={neg=true,type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}},nil}
+c["被【怨毒光环】影响时，+22% 伤害持续时间加成"]={{[1]={[1]={type="Condition",var="AffectedBy怨毒光环"},flags=0,keywordFlags=0,name="DotMultiplier",type="BASE",value=22}},nil}
 c["受到【憎恨】影响时，40% 的物理伤害转换为冰霜伤害"]={{[1]={[1]={type="Condition",var="AffectedBy憎恨"},flags=0,keywordFlags=0,name="PhysicalDamageConvertToCold",type="BASE",value=40}},nil}
 c["受到【憎恨】影响时，伤害穿透 15% 冰霜抗性"]={{[1]={[1]={type="Condition",var="AffectedBy憎恨"},flags=0,keywordFlags=0,name="ColdPenetration",type="BASE",value=15}},nil}
 c["受到【迅捷】影响时，不受【时空锁链】影响 受到【憎恨】影响时，附加 70 - 104 基础冰霜伤害"]={{[1]={[1]={type="Condition",var="AffectedBy迅捷"},flags=0,keywordFlags=0,name="ColdMin",type="BASE",value=70},[2]={[1]={type="Condition",var="AffectedBy迅捷"},flags=0,keywordFlags=0,name="ColdMax",type="BASE",value=104}},"不受【时空锁链】影响 受到【憎恨】影响时， "}
-c["受到【迅捷】影响时获得【迷踪】状态"]={{[1]={[1]={type="Condition",var="AffectedBy迅捷"},flags=0,keywordFlags=0,name="Condition:Phasing",type="FLAG",value=true}},nil}
 c["混沌伤害提高 90%"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=90}},nil}
+c["受到【迅捷】影响时获得【迷踪】状态"]={{[1]={[1]={type="Condition",var="AffectedBy迅捷"},flags=0,keywordFlags=0,name="Condition:Phasing",type="FLAG",value=true}},nil}
 c["受到【迅捷】影响时，击败敌人获得 4 秒【猛攻】状态"]={nil,"受到【迅捷】影响时，击败敌人获得 4 秒【猛攻】状态 "}
 c["获得 +30% 火焰、冰霜、闪电抗性"]={{[1]={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=30}},nil}
 c["受到【迅捷】影响时，位移技能的冷却速度提高 50% 受到【迅捷】影响时，你身上的负面效果消退速度加快 20%"]={{[1]={[1]={type="Condition",var="AffectedBy迅捷"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=50}},"位移技能的 受到【迅捷】影响时，你身上的负面效果消退速度加快 20% "}
 c["受到【优雅】影响时，不受【衰弱】影响 法术伤害压制率在受到迅捷影响时 +8%"]={{[1]={[1]={type="Condition",var="AffectedBy优雅"},flags=0,keywordFlags=0,name="SpellSuppressionChance",type="BASE",value=8}},"不受【衰弱】影响 在受到迅捷影响时  "}
 c["---------------------------- 【*】上面这条词缀游戏中是会换行的，如果从游戏中复制或导入，那么需要手动修改为1行"]={nil,"---------------------------- 【*】上面这条词缀游戏中是会换行的，如果从游戏中复制或导入，那么需要手动修改为1行 "}
-c["受到【纪律】影响时，能量护盾提早 40% 开始恢复"]={{[1]={[1]={type="Condition",var="AffectedBy纪律"},flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=40}},nil}
 c["每有 1% 的法术伤害格挡几率，则魔力回复速度提高 1%"]={{[1]={[1]={div=1,stat="SpellBlockChance",type="PerStat"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=1}},nil}
 c["你的法术击中每个敌人会失去 15 生命 你的攻击击中每个敌人会失去 25 生命"]={{[1]={flags=2,keywordFlags=0,name="Life",type="BASE",value=15}},"你的击中每个敌人会  你的攻击击中每个敌人会失去 25 生命 "}
+c["受到【纪律】影响时，能量护盾提早 40% 开始恢复"]={{[1]={[1]={type="Condition",var="AffectedBy纪律"},flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=40}},nil}
 c["每击败一名敌人获得15点魔力"]={nil,"每击败一名敌人获得15点魔力 "}
 c["闪电伤害击中时有 50% 几率使敌人受到感电效果影响"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="BASE",value=50}},nil}
 c["受到【纪律】影响时，每击中一个敌人便会获得 +30 能量护盾"]={{[1]={[1]={type="Condition",var="AffectedBy纪律"},flags=0,keywordFlags=0,name="EnergyShieldOnHit",type="BASE",value=30}},nil}
-c["受到【纪律】影响时，+8% 的几率格挡法术伤害"]={{[1]={[1]={type="Condition",var="AffectedBy纪律"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=8}},nil}
 c["使用时获得 1 个耐力球 药剂持续期间，攻击伤害格挡几率 +50%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=50}},"使用时获得 1 个耐力球   "}
-c["受到【坚定】影响时，不受【脆弱】影响 受到【纪律】影响时，+8% 的几率格挡法术伤害"]={{[1]={[1]={type="Condition",var="AffectedBy坚定"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=8}},"不受【脆弱】影响 受到【纪律】影响时，几率 "}
+c["受到【纪律】影响时，+8% 的几率格挡法术伤害"]={{[1]={[1]={type="Condition",var="AffectedBy纪律"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=8}},nil}
 c["法术伤害提高 (7-12)%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="BASE",value=-12}},"提高 (7)% "}
-c["受到【坚定】影响时，不受【脆弱】影响"]={nil,"受到【坚定】影响时，不受【脆弱】影响 "}
+c["受到【坚定】影响时，不受【脆弱】影响 受到【纪律】影响时，+8% 的几率格挡法术伤害"]={{[1]={[1]={type="Condition",var="AffectedBy坚定"},flags=0,keywordFlags=0,name="SpellBlockChance",type="BASE",value=8}},"不受【脆弱】影响 受到【纪律】影响时，几率 "}
 c["攻击速度提高 22%"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=22}},nil}
+c["受到【坚定】影响时，不受【脆弱】影响"]={nil,"受到【坚定】影响时，不受【脆弱】影响 "}
 c["其中 1 个增加的天赋为【自圆其说】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="自圆其说"}},nil}
 c["受到【坚定】影响时，获得额外 8% 物理伤害减免"]={{[1]={[1]={type="Condition",var="AffectedBy坚定"},flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=8}},nil}
-c["受到【坚定】影响时攻击伤害格挡几率 +8%"]={{[1]={[1]={type="Condition",var="AffectedBy坚定"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=8}},nil}
 c["冰霜异常状态效果提高 10%"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=10},[2]={flags=0,keywordFlags=0,name="EnemyChillEffect",type="INC",value=10},[3]={flags=0,keywordFlags=0,name="EnemyBrittleEffect",type="INC",value=10}},nil}
 c["在被点燃后，你有 3 秒免疫点燃"]={nil,"在被点燃后，你有 3 秒免疫点燃 "}
 c["在药剂持续期间，击败敌人会补充 2% 的生命"]={{[1]={[1]={div=50,stat="Life",type="PerStat"},[2]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
+c["受到【坚定】影响时攻击伤害格挡几率 +8%"]={{[1]={[1]={type="Condition",var="AffectedBy坚定"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=8}},nil}
 c["此物品上的技能石受到 35 级的 召唤幻影（辅） 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=35,skillId="SupportSummonGhostOnKill"}}},nil}
-c["受到【清晰】影响时，技能的总魔力消耗 -5"]={{[1]={[1]={type="Condition",var="AffectedBy清晰"},flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=-5}},nil}
 c["禁断之肉上有匹配的词缀则配置 破魔者"]={{[1]={flags=0,keywordFlags=0,name="GrantedAscendancyNode",type="LIST",value={name="破魔者",side="之肉"}}},nil}
+c["其中 1 个增加的天赋为【冬眠者】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="冬眠者"}},nil}
 c["受到【清晰】影响时，你使用技能时有 15% 的几率回复 10% 魔力"]={{[1]={[1]={type="Condition",var="AffectedBy清晰"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=15}},"你使用技能时回复 10%  "}
 c["受到【清晰】影响时，魔力回复速度提高 15%"]={{[1]={[1]={type="Condition",var="AffectedBy清晰"},flags=0,keywordFlags=0,name="ManaRecoveryRate",type="INC",value=15}},nil}
-c["受到【清晰】影响时，获得等同最大魔力 10% 的额外最大能量护盾"]={{[1]={[1]={type="Condition",var="AffectedBy清晰"},flags=0,keywordFlags=0,name="ManaGainAsEnergyShield",type="BASE",value=10}},nil}
 c["你造成的流血效果将作用到你身上"]={nil,"你造成的流血效果将作用到你身上 "}
+c["受到【清晰】影响时，获得等同最大魔力 10% 的额外最大能量护盾"]={{[1]={[1]={type="Condition",var="AffectedBy清晰"},flags=0,keywordFlags=0,name="ManaGainAsEnergyShield",type="BASE",value=10}},nil}
 c["每 10 点力量提高 2% 能量护盾"]={{[1]={[1]={div=10,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=2}},nil}
 c["受到【愤怒】影响时，获得物理伤害 25% 的额外火焰伤害"]={{[1]={[1]={type="Condition",var="AffectedBy愤怒"},flags=0,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=25}},nil}
-c["受到【愤怒】影响时，+50% 攻击和法术暴击伤害加成"]={{[1]={[1]={type="Condition",var="AffectedBy愤怒"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=50}},nil}
 c["Adds 1 to 4 Physical Damage"]={nil,"Adds 1 to 4 Physical Damage "}
+c["受到【愤怒】影响时，+50% 攻击和法术暴击伤害加成"]={{[1]={[1]={type="Condition",var="AffectedBy愤怒"},flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=50}},nil}
 c["受到【愤怒】影响时，火焰伤害的 1.5% 转化为生命偷取"]={{[1]={[1]={type="Condition",var="AffectedBy愤怒"},flags=0,keywordFlags=0,name="FireDamageLifeLeech",type="BASE",value=1.5}},nil}
-c["最大魔力提高 6%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=6}},nil}
 c["Adds 2 to 4 Physical Damage"]={nil,"Adds 2 to 4 Physical Damage "}
+c["最大魔力提高 6%"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=6}},nil}
 c["生命在你格挡时 (6-10)"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=-10}},"在你格挡时 (6) "}
 c["恶毒结界范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="恶毒结界"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="恶毒结界",value=true}}},nil}
-c["多面好手范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="多面好手"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="多面好手",value=true}}},nil}
 c["混沌技能效果持续时间延长 40%"]={{[1]={flags=0,keywordFlags=256,name="Duration",type="INC",value=40}},nil}
-c["烈士意志范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="烈士意志"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="烈士意志",value=true}}},nil}
+c["多面好手范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="多面好手"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="多面好手",value=true}}},nil}
 c["魔力回复速度提高 50%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=50}},nil}
-c["惘信者范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="惘信者"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="惘信者",value=true}}},nil}
+c["烈士意志范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="烈士意志"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="烈士意志",value=true}}},nil}
 c["每秒回复 4% 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=4}},nil}
 c["召唤的魔侍有 10% 的几率在击中时使敌人陷入死亡凋零状态 2 秒"]={{[1]={[1]={skillName="Summon Skeleton",type="SkillName"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}}}},nil}
 c["闪避值与护甲提高 45%"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=45}},nil}
 c["【迷踪】状态时有 20% 几率躲避投射物"]={{[1]={[1]={type="Condition",var="Phasing"},flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=20}},"躲避 "}
 c["召唤生物拥有不洁之力"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={addToMinion=true},flags=0,keywordFlags=0,name="UnholyMight",type="FLAG",value=true}}}},nil}
+c["惘信者范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="惘信者"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="惘信者",value=true}}},nil}
 c["无上自我范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="无上自我"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="无上自我",value=true}}},nil}
 c["无上衰败范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="无上衰败"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="无上衰败",value=true}}},nil}
-c["每个狂怒球提高 8% 闪避值"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=8}},nil}
 c["护甲提高 200%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=200}},nil}
-c["附加 25 - 45 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=25},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=45}},nil}
+c["每个狂怒球提高 8% 闪避值"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=8}},nil}
 c["火焰伤害提高 (25-35)% 火焰伤害的 0.2% 转化为生命偷取"]={{[1]={flags=0,keywordFlags=0,name="FireDamageLifeLeech",type="BASE",value=-35}},"提高 (25)% 火焰伤害的 0.2%  "}
 c["物理神盾消散时，攻击和施法速度加快 15%"]={{[1]={[1]={type="Condition",var="PhysicalAegisDepleted"},flags=0,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["火焰、冰霜、闪电伤害提高 100%"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=100}},nil}
+c["+3% 闪电抗性上限"]={{[1]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=3}},nil}
 c["苦痛灵曲范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="苦痛灵曲"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="苦痛灵曲",value=true}}},nil}
 c["灵能护盾范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="灵能护盾"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="灵能护盾",value=true}}},nil}
-c["其中 1 个增加的天赋为【先祖之力】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="先祖之力"}},nil}
 c["击败冰冻敌人后物品掉落数量提高 25%"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeChance",type="INC",value=25}},"击败敌人后物品掉落数量 "}
 c["被你感电的敌人将物理伤害的 15% 转化为闪电伤害"]={nil,"被你感电的敌人将物理伤害的 15% 转化为闪电伤害 "}
-c["钢铁意志范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="钢铁意志"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="钢铁意志",value=true}}},nil}
+c["法师克星范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="法师克星"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="法师克星",value=true}}},nil}
 c["双持时攻击格挡率提高 8%"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=8}},nil}
+c["钢铁意志范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="钢铁意志"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="钢铁意志",value=true}}},nil}
 c["霸体范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="霸体"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="霸体",value=true}}},nil}
-c["钢铁之握范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="钢铁之握"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="钢铁之握",value=true}}},nil}
 c["技能效果持续时间延长 20%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
+c["钢铁之握范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="钢铁之握"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="钢铁之握",value=true}}},nil}
 c["失衡卫士范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="失衡卫士"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="失衡卫士",value=true}}},nil}
-c["邪法宗师范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="邪法宗师"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="邪法宗师",value=true}}},nil}
 c["感电效果提高 20%"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockEffect",type="INC",value=20}},nil}
-c["灵能护体范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="灵能护体"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="灵能护体",value=true}}},nil}
+c["邪法宗师范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="邪法宗师"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="邪法宗师",value=true}}},nil}
 c["最大生命提高 7%"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=7}},nil}
+c["灵能护体范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="灵能护体"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="灵能护体",value=true}}},nil}
 c["元素超载范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="元素超载"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="元素超载",value=true}}},nil}
 c["每10秒："]={nil,"每10秒： "}
 c["异能魔力范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="异能魔力"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="异能魔力",value=true}}},nil}
 c["使用元素技能时，有 10% 的几率使周围的敌人【目盲】"]={{}," to Blind nearby Enemies when you use an Elemental Skill "}
-c["投射物伤害按照每 16 点敏捷提高 1%"]={{[1]={[1]={div=16,stat="Dex",type="PerStat"},flags=1024,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["+29% 火焰抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=29}},nil}
+c["异灵之体范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="异灵之体"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="异灵之体",value=true}}},nil}
 c["召集部队范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="召集部队"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="召集部队",value=true}}},nil}
 c["斧类攻击造成的异常状态伤害提高 30%"]={{[1]={flags=65536,keywordFlags=524288,name="Damage",type="INC",value=30}},nil}
-c["先祖魂约范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="先祖魂约"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="先祖魂约",value=true}}},nil}
 c["低血时物品掉落数量提高 16%"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LootQuantity",type="INC",value=16}},nil}
 c["周围的敌人无法造成暴击"]={nil,"周围的敌人无法造成暴击 "}
 c["钢铁呼唤反射伤害的效果区域扩大 40% 钢铁呼唤使用速度加快 40%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},"钢铁呼唤反射的效果区域 钢铁呼唤使用速度加快 40% "}
+c["先祖魂约范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="先祖魂约"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="先祖魂约",value=true}}},nil}
 c["移形换影范围内的天赋可以在未连结至天赋树的情况下配置"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="impossibleEscapeKeystone",value="移形换影"}},[2]={flags=0,keywordFlags=0,name="ImpossibleEscapeKeystones",type="LIST",value={key="移形换影",value=true}}},nil}
 c["如果你未被流血影响，则你可以在 10 秒内施放【脆弱】 如果你在过去 10 秒内施放过惩戒，则在命中时恐吓敌人"]={nil,"如果你未被流血影响，则你可以在 10 秒内施放【脆弱】 如果你在过去 10 秒内施放过惩戒，则在命中时恐吓敌人 "}
-c["如果你未被流血影响，则你可以在 10 秒内施放【脆弱】"]={nil,"如果你未被流血影响，则你可以在 10 秒内施放【脆弱】 "}
 c["+70 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=70}},nil}
-c["如果你在过去 10 秒内施放过【绝望】，则对诅咒免疫 如果你未被流血影响，则你可以在 10 秒内施放【脆弱】"]={nil,"如果你在过去 10 秒内施放过【绝望】，则对诅咒免疫 如果你未被流血影响，则你可以在 10 秒内施放【脆弱】 "}
+c["如果你未被流血影响，则你可以在 10 秒内施放【脆弱】"]={nil,"如果你未被流血影响，则你可以在 10 秒内施放【脆弱】 "}
 c["若你近期被击中，则每秒获得 1 个耐力球"]={{}," Endurance Charge every second  "}
 c["你使用技能时有 25% 几率获得 1 个轮回球"]={{},"你使用技能时获得 1 个轮回球 "}
 c["命中值提高 50%"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=50}},nil}
-c["如果你在过去 10 秒内施放过【绝望】，则对诅咒免疫"]={nil,"如果你在过去 10 秒内施放过【绝望】，则对诅咒免疫 "}
+c["如果你在过去 10 秒内施放过【绝望】，则对诅咒免疫 如果你未被流血影响，则你可以在 10 秒内施放【脆弱】"]={nil,"如果你在过去 10 秒内施放过【绝望】，则对诅咒免疫 如果你未被流血影响，则你可以在 10 秒内施放【脆弱】 "}
 c["击败敌人时获得 2 秒【猛攻】状态 击败敌人时获得 4 秒【猛攻】状态"]={nil,"击败敌人时获得 2 秒【猛攻】状态 击败敌人时获得 4 秒【猛攻】状态 "}
+c["如果你在过去 10 秒内施放过【绝望】，则对诅咒免疫"]={nil,"如果你在过去 10 秒内施放过【绝望】，则对诅咒免疫 "}
 c["如果你在过去 10 秒内施放过【绝望】，则击中有 50% 的几率施加【枯萎】两秒"]={{},"如果你在过去 10 秒内施放过【绝望】，则施加【枯萎】两秒 "}
-c["如果你在过去 10 秒内施放过易燃 ，则在命中时造成火焰曝露 如果你在过去 10 秒内施放过【绝望】，则击中有 50% 的几率施加【枯萎】两秒"]={{},"如果你在过去 10 秒内施放过易燃 ，则在命中时造成火焰曝露 如果你在过去 10 秒内施放过【绝望】，则施加【枯萎】两秒 "}
 c["若你近期内引爆过地雷，则地雷类技能造成的范围伤害提高 30%"]={{[1]={[1]={type="Condition",var="DetonatedMinesRecently"},flags=512,keywordFlags=8192,name="Damage",type="INC",value=30}},nil}
 c["每 1 个聚光之石可使火焰、冰霜、闪电伤害提高 12%"]={{[1]={[1]={type="Multiplier",var="GrandSpectrum"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=12},[2]={flags=0,keywordFlags=0,name="Multiplier:GrandSpectrum",type="BASE",value=1}},nil}
 c["烙印伤害提高 20%"]={{[1]={[1]={skillType=75,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["+25 力量"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=25}},nil}
-c["锤类或短杖 +16% 暴击伤害加成"]={{[1]={flags=1048580,keywordFlags=0,name="CritMultiplier",type="BASE",value=16}},nil}
+c["如果你在过去 10 秒内施放过易燃 ，则在命中时造成火焰曝露 如果你在过去 10 秒内施放过【绝望】，则击中有 50% 的几率施加【枯萎】两秒"]={{},"如果你在过去 10 秒内施放过易燃 ，则在命中时造成火焰曝露 如果你在过去 10 秒内施放过【绝望】，则施加【枯萎】两秒 "}
 c["击败敌人时触发 1 级的【召唤毒蛛】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="TriggeredSummonSpider",triggered=true}}},nil}
+c["锤类或短杖 +16% 暴击伤害加成"]={{[1]={flags=1048580,keywordFlags=0,name="CritMultiplier",type="BASE",value=16}},nil}
 c["如果你在过去 10 秒内施放过时空锁链，则行动速度减缓不会低于基础速度 如果你在过去 10 秒内施放过易燃 ，则在命中时造成火焰曝露"]={nil,"如果你在过去 10 秒内施放过时空锁链，则行动速度减缓不会低于基础速度 如果你在过去 10 秒内施放过易燃 ，则在命中时造成火焰曝露 "}
 c["如果您在过去 10 秒内施放过冻伤，则在命中时造成冰霜曝露 如果你在过去 10 秒内施放过时空锁链，则行动速度减缓不会低于基础速度"]={nil,"如果您在过去 10 秒内施放过冻伤，则在命中时造成冰霜曝露 如果你在过去 10 秒内施放过时空锁链，则行动速度减缓不会低于基础速度 "}
-c["陷阱伤害提高 14%"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=14}},nil}
 c["攻击击中流血的敌人时瘫痪敌人"]={nil,"Attacks Maim on Hit against Bleeding Enemies "}
+c["陷阱伤害提高 14%"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=14}},nil}
 c["药剂持续期间，范围效果扩大 15%"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=15}},nil}
 c["如果你在过去 10 秒内施放过元素要害，则对曝露免疫"]={nil,"如果你在过去 10 秒内施放过元素要害，则对曝露免疫 "}
 c["如果你在过去 10 秒内施放过时空锁链，则冷却恢复速度提高 25% 如果你在过去 10 秒内施放过元素要害，则对曝露免疫"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=25}},"如果你在过去 10 秒内施放过时空锁链，则 如果你在过去 10 秒内施放过元素要害，则对曝露免疫 "}
 c["如果你在 10 秒内施放过【衰弱】，则攻击和法术暴击伤害加成 +40% 如果你在过去 10 秒内施放过时空锁链，则冷却恢复速度提高 25%"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=40}},"如果你在 10 秒内施放过【衰弱】，则  如果你在过去 10 秒内施放过时空锁链，则冷却恢复速度提高 25% "}
-c["如果你在 10 秒内施放过【衰弱】，则攻击和法术暴击伤害加成 +40%"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=40}},"如果你在 10 秒内施放过【衰弱】，则  "}
 c["魔力回复速度提高 65%"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=65}},nil}
 c["你技能的光环使你和队友"]={nil,"你技能的光环使你和队友 "}
 c["火焰净化没有保留效果"]={{[1]={[1]={skillId="FireResistAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationFlat",value=0}},[2]={[1]={skillId="FireResistAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationFlat",value=0}},[3]={[1]={skillId="FireResistAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="manaReservationPercent",value=0}},[4]={[1]={skillId="FireResistAura",type="SkillId"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="lifeReservationPercent",value=0}}},nil}
+c["如果你在 10 秒内施放过【衰弱】，则攻击和法术暴击伤害加成 +40%"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=40}},"如果你在 10 秒内施放过【衰弱】，则  "}
 c["如果你在过去 10 秒内施放过惩戒，则对反射伤害免疫 如果你在 10 秒内施放过【衰弱】，则攻击和法术暴击伤害加成 +40%"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="BASE",value=40}},"如果你在过去 10 秒内施放过惩戒，则对反射免疫 如果你在 10 秒内施放过【衰弱】，则和法术暴击伤害加成  "}
 c["如果你在过去 10 秒内施放过惩戒，则对反射伤害免疫"]={nil,"如果你在过去 10 秒内施放过惩戒，则对反射伤害免疫 "}
 c["如果你在过去 10 秒内施放过易燃，则不会受到点燃影响"]={nil,"如果你在过去 10 秒内施放过易燃，则不会受到点燃影响 "}
-c["如果你在过去 10 秒内施放过元素要害，则获得 40% 物理伤害的 1 个随机元素伤害"]={nil,"如果你在过去 10 秒内施放过元素要害，则获得 40% 物理伤害的 1 个随机元素伤害 "}
 c["格挡时有 10% 几率使怪物逃跑"]={{},"格挡时使怪物逃跑 "}
 c["物理伤害提高 30%"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=30}},nil}
 c["如果你在 10 秒内施放过【衰弱】，则暴击不会造成额外伤害 如果你在过去 10 秒内施放过冻伤，则不会受到冰冻的影响"]={{},"如果你在 10 秒内施放过【衰弱】，则暴击不会造成"}

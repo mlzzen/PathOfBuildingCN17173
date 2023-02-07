@@ -858,6 +858,7 @@ local modFlagList = {
 	["斧类攻击"] =  { flags = bor(ModFlag.Axe, ModFlag.Hit) },
 	["弓类攻击"] =  { flags = bor(ModFlag.Bow, ModFlag.Hit) },
 	["弓类技能的"] = { keywordFlags = KeywordFlag.Bow },
+	["弓类技能"] = { keywordFlags = KeywordFlag.Bow },
 	["爪类攻击"] = { flags = bor(ModFlag.Claw, ModFlag.Hit) },
 	["匕首攻击"] =  { flags = bor(ModFlag.Dagger, ModFlag.Hit) },
 	["锤类攻击"] = { flags = bor(ModFlag.Mace, ModFlag.Hit)  },
@@ -6556,6 +6557,10 @@ local specialModList = {
 		mod("PhysicalDamageGainAsCold", "BASE", num, nil, ModFlag.Weapon),
 		mod("PhysicalDamageGainAsFire", "BASE", num, nil, ModFlag.Weapon)
 	} end,
+	["如果你在过去 10 秒内施放过(.+)，获得等同于物理伤害的 (%d+)%% 的随机元素伤害"] = function(_, curse, num) return {
+		mod("PhysicalDamageGainAsRandom", "BASE", num, { type = "Condition", var = "SelfCast"..curse:gsub("^%l", string.upper):gsub(" %l", string.upper):gsub(" ", "") })
+	} end,
+
 	-- Crit
 	["幸运的暴击率"] = { flag("CritChanceLucky") }, --备注：your critical strike chance is lucky
 	["你的暴击不造成额外伤害"] = { flag("NoCritMultiplier") }, --备注：your critical strikes do not deal extra damage
