@@ -273,6 +273,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild)
 		{ stat = "AverageHit", label = "平均击中", fmt = ".1f", compPercent = true },
 		{ stat = "PvpAverageHit", label = "PvP 平均击中", fmt = ".1f", compPercent = true, flag = "isPvP" },
 		{ stat = "AverageDamage", label = "平均伤害", fmt = ".1f", compPercent = true, flag = "attack" },
+		{ stat = "AverageBurstDamage", label = "平均爆发伤害", fmt = ".1f", compPercent = true, condFunc = function(v,o) return o.AverageBurstHits and o.AverageBurstHits > 1 and v > 0 end },
 		{ stat = "PvpAverageDamage", label = "PvP 平均伤害", fmt = ".1f", compPercent = true, flag = "attackPvP" },
 
 

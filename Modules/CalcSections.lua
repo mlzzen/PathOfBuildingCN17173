@@ -342,7 +342,7 @@ return {
 
 } },
 
-{ 3, "战吼", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "战吼增助", data = {
+{ 3, "Warcries", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "战吼增助", data = {
 	extra = "{2:output:TheoreticalOffensiveWarcryEffect} 平均伤害加成  |  {2:output:TheoreticalMaxOffensiveWarcryEffect} 最大伤害加成",
 	colWidth = 114,
 	{
@@ -404,7 +404,7 @@ return {
 	},
 } }
 } },
-{ 3, "持续伤害", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "技能持续伤害", data = {
+{ 3, "Dot", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "技能持续伤害", data = {
 	extra = "{1:output:TotalDotCalcSection} total DoT",
 	flag = "dot",
 	colWidth = 95,
@@ -554,7 +554,7 @@ return {
 	{ label = "副手暴击效果", bgCol = colorCodes.OFFHANDBG, flag = "weapon2Attack", { format = "x {3:output:OffHand.CritEffect}", { breakdown = "OffHand.CritEffect" }, }, },
 } }
 } },
-{ 1, "穿刺", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "穿刺", data = {
+{ 1, "Impale", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "穿刺", data = {
     flag = "impale",
 	extra = "{0:output:ImpaleChance}%",
 	{ label = "最大穿刺层数", { format = "{0:output:ImpaleStacksMax}", { modName = "ImpaleStacksMax" } }, },
@@ -769,10 +769,10 @@ return {
 		{ breakdown = "CorpseLife" },
 		{ modName = "CorpseLife", cfg = "skill" },
 	}, },
-	{ label = "爆炸伤害", haveOutput = "ShowBurst", { format = "{1:output:AverageBurstDamage}", { breakdown = "AverageBurstDamage" }, }, },
+	{ label = "爆发伤害", haveOutput = "ShowBurst", { format = "{1:output:AverageBurstDamage}", { breakdown = "AverageBurstDamage" }, }, },
 } }
 } },
-{ 1, "击中几率", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "命中率", data = {
+{ 1, "HitChance", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "命中率", data = {
 	extra = "{0:output:HitChance}%",
 	flag = "attack",
 	{ label = "主手命中率", bgCol = colorCodes.MAINHANDBG, flag = "weapon1Attack", { format = "{0:output:MainHand.Accuracy}", 
