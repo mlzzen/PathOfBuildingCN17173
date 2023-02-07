@@ -13,11 +13,9 @@ local t_remove = table.remove
 local m_abs = math.abs
 local m_floor = math.floor
 local m_ceil = math.ceil
-local m_modf = math.modf
 local m_min = math.min
 local m_max = math.max
 local m_sqrt = math.sqrt
-local m_pi = math.pi
 local m_pow = math.pow
 local bor = bit.bor
 local band = bit.band
@@ -29,10 +27,7 @@ local tempTable2 = { }
 local tempTable3 = { }
 
 local isElemental = { Fire = true, Cold = true, Lightning = true }
-local cnElemental = { Fire = "火焰", Cold = "冰霜", Lightning = "闪电" }
 
-
-local isChaos = { Chaos = true }
 -- List of all damage types, ordered according to the conversion sequence
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
 local dmgTypeFlags = {
@@ -141,7 +136,6 @@ local function calcAilmentSourceDamage(activeSkill, output, cfg, breakdown, dama
 	end
 	return min * convMult, max * convMult
 end
-
 
 ---Calculates skill radius
 ---@param baseRadius number
@@ -315,7 +309,6 @@ function calcs.offence(env, actor, activeSkill)
 		skillFlags.notAverage = true
 	end
 
-
 	if skillFlags.disable then
 		-- Skill is disabled
 		output.CombinedDPS = 0
@@ -408,7 +401,6 @@ function calcs.offence(env, actor, activeSkill)
 		skillFlags.focused = true
 	end
 
-
 	-- Update skill data
 	for _, value in ipairs(skillModList:List(skillCfg, "SkillData")) do
 		if value.merge == "MAX" then
@@ -466,17 +458,19 @@ function calcs.offence(env, actor, activeSkill)
 	-- set flask scaling
 	output.LifeFlaskRecovery = env.itemModDB.multipliers["LifeFlaskRecovery"]
 
-	if skillModList:Flag(nil, "Condition:EnergyBladeActive") then
+	if modDB.conditions["AffectedByEnergyBlade"] then
 		local dmgMod = calcLib.mod(skillModList, skillCfg, "EnergyBladeDamage")
 		local critMod = calcLib.mod(skillModList, skillCfg, "EnergyBladeCritChance")
 		local speedMod = calcLib.mod(skillModList, skillCfg, "EnergyBladeAttackSpeed")
 		for slotName, weaponData in pairs({ ["Weapon 1"] = "weaponData1", ["Weapon 2"] = "weaponData2" }) do
-			if actor.itemList[slotName] and actor.itemList[slotName].weaponData and actor.itemList[slotName].weaponData[1] then
-				actor[weaponData].CritChance = actor[weaponData].CritChance * critMod
-				actor[weaponData].AttackRate = actor[weaponData].AttackRate * speedMod
+			if actor.itemList[slotName] and actor.itemList[slotName].weaponData and actor.itemList[slotName].weaponData[1] and actor[weaponData].name and data.itemBases[actor[weaponData].name] then
+				local weaponBaseData = data.itemBases[actor[weaponData].name].weapon
+				actor[weaponData].CritChance = weaponBaseData.CritChanceBase * critMod
+				actor[weaponData].AttackRate = weaponBaseData.AttackRateBase * speedMod
+				actor[weaponData].Range = weaponBaseData.Range
 				for _, damageType in ipairs(dmgTypeList) do
-					actor[weaponData][damageType.."Min"] = (actor[weaponData][damageType.."Min"] or 0) + m_floor(skillModList:Sum("BASE", skillCfg, "EnergyBladeMin"..damageType) * dmgMod)
-					actor[weaponData][damageType.."Max"] = (actor[weaponData][damageType.."Max"] or 0) + m_floor(skillModList:Sum("BASE", skillCfg, "EnergyBladeMax"..damageType) * dmgMod)
+					actor[weaponData][damageType.."Min"] = (weaponBaseData[damageType.."Min"] or 0) + m_floor(skillModList:Sum("BASE", skillCfg, "EnergyBladeMin"..damageType) * dmgMod)
+					actor[weaponData][damageType.."Max"] = (weaponBaseData[damageType.."Max"] or 0) + m_floor(skillModList:Sum("BASE", skillCfg, "EnergyBladeMax"..damageType) * dmgMod)
 				end
 			end
 		end
@@ -669,6 +663,7 @@ function calcs.offence(env, actor, activeSkill)
 		-- Applies DPS multiplier based on seals count
 		output.SealCooldown = skillModList:Sum("BASE", skillCfg, "SealGainFrequency") / calcLib.mod(skillModList, skillCfg, "SealGainFrequency")
 		output.SealMax = skillModList:Sum("BASE", skillCfg, "SealCount")
+		output.AverageBurstHits = output.SealMax
 		output.TimeMaxSeals = output.SealCooldown * output.SealMax
 
 		if not skillData.hitTimeOverride then
@@ -688,7 +683,7 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.SealGainTime = { }
 			breakdown.multiChain(breakdown.SealGainTime, {
 				label = "Gain frequency:",
-				base = s_format("%.2fs ^8(base gain frequency)", skillModList:Sum("BASE", skillCfg, "SealGainFrequency")),
+				base = { "%.2fs ^8(base gain frequency)", skillModList:Sum("BASE", skillCfg, "SealGainFrequency") },
 				{ "%.2f ^8(increased/reduced gain frequency)", 1 + skillModList:Sum("INC", skillCfg, "SealGainFrequency") / 100 },
 				{ "%.2f ^8(action speed modifier)",  output.ActionSpeedMod },
 				total = s_format("= %.2fs ^8per Seal", output.SealCooldown),
@@ -745,6 +740,7 @@ function calcs.offence(env, actor, activeSkill)
 	local isAttack = skillFlags.attack
 
 	runSkillFunc("preSkillTypeFunc")
+
 	-- Calculate skill type stats
 	if skillFlags.minion then
 		if activeSkill.minion and activeSkill.minion.minionData.limit then
@@ -843,9 +839,9 @@ function calcs.offence(env, actor, activeSkill)
 		calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
 	end
 	if activeSkill.skillTypes[SkillType.Aura] then
-		output.AuraEffectMod = calcLib.mod(skillModList, skillCfg, "AuraEffect")
+		output.AuraEffectMod = calcLib.mod(skillModList, skillCfg, "AuraEffect", not skillData.auraCannotAffectSelf and "SkillAuraEffectOnSelf" or nil)
 		if breakdown then
-			breakdown.AuraEffectMod = breakdown.mod(skillModList, skillCfg, "AuraEffect")
+			breakdown.AuraEffectMod = breakdown.mod(skillModList, skillCfg, "AuraEffect", not skillData.auraCannotAffectSelf and "SkillAuraEffectOnSelf" or nil)
 		end
 	end
 	if activeSkill.skillTypes[SkillType.HasReservation] and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] then
@@ -893,7 +889,7 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.TrapThrowingSpeed = { }
 			breakdown.multiChain(breakdown.TrapThrowingSpeed, {
 				label = "投掷速率:",
-				base = s_format("%.2f ^8(基础投掷速率)", baseSpeed),
+				base = { "%.2f ^8(基础投掷速率)", baseSpeed },
 				{ "%.2f ^8(提高/降低 投掷速度)", 1 + skillModList:Sum("INC", skillCfg, "TrapThrowingSpeed") / 100 },
 				{ "%.2f ^8(额外提高/降低 总投掷速度)", skillModList:More(skillCfg, "TrapThrowingSpeed") },
 				{ "%.2f ^8(动作速度加成)",  output.ActionSpeedMod },
@@ -904,11 +900,12 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.TrapThrowingTime = { }
 			breakdown.multiChain(breakdown.TrapThrowingTime, {
 				label = "投掷时间:",
-				base = s_format("%.2f ^8(基础投掷时间)", 1 / (output.TrapThrowingSpeed * timeMod)),
+				base = { "%.2f ^8(基础投掷时间)", 1 / (output.TrapThrowingSpeed * timeMod) },
 				{ "%.2f ^8(所有加成)", timeMod },
 				total = s_format("= %.2f ^8秒(每次投掷)", output.TrapThrowingTime),
 			})
 		end
+
 		local baseCooldown = skillData.trapCooldown or skillData.cooldown
 		if baseCooldown then
 			output.TrapCooldown = baseCooldown / calcLib.mod(skillModList, skillCfg, "CooldownRecovery")
@@ -917,7 +914,7 @@ function calcs.offence(env, actor, activeSkill)
 				breakdown.TrapCooldown = {
 					s_format("%.2fs ^8(基础)", skillData.trapCooldown or skillData.cooldown or 4),
 					s_format("/ %.2f ^8(提高/降低 冷却回复速度)", 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100),
-					s_format("= %.2f秒", output.TrapCooldown),
+					s_format("rounded up to nearest server tick"),
 					s_format("= %.3fs", output.TrapCooldown)
 				}
 			end
@@ -936,7 +933,7 @@ function calcs.offence(env, actor, activeSkill)
 				s_format("%.2fs ^8(基础)", skillData.cooldown + skillModList:Sum("BASE", skillCfg, "CooldownRecovery")),
 				s_format("/ %.2f ^8(提高/降低 冷却速度)", 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100),
 				s_format("调整为最接近的服务器速率"),
-				s_format("= %.2f秒", output.Cooldown)
+				s_format("= %.3f秒", output.Cooldown)
 			}
 		end
 	end
@@ -999,7 +996,7 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.TotemPlacementTime = { }
 			breakdown.multiChain(breakdown.TotemPlacementTime, {
 				label = "放置速度:",
-				base = s_format("%.2f ^8(基础放置速度)", baseSpeed),
+				base = { "%.2f ^8(基础放置速度)", baseSpeed },
 				{ "%.2f ^8(提高/降低 放置速度)", 1 + skillModList:Sum("INC", skillCfg, "TotemPlacementSpeed") / 100 },
 				{ "%.2f ^8(额外总提高/额外总降低 放置速度)", skillModList:More(skillCfg, "TotemPlacementSpeed") },
 				{ "%.2f ^8(动作速度加成)",  output.ActionSpeedMod },
@@ -1015,6 +1012,9 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		output.TotemLifeMod = calcLib.mod(skillModList, skillCfg, "TotemLife")
 		output.TotemLife = round(m_floor(env.data.monsterAllyLifeTable[skillData.totemLevel] * env.data.totemLifeMult[activeSkill.skillTotemId]) * output.TotemLifeMod)
+		output.TotemEnergyShield = skillModList:Sum("BASE", skillCfg, "TotemEnergyShield")
+		output.TotemBlockChance = skillModList:Sum("BASE", skillCfg, "TotemBlockChance")
+		output.TotemArmour = skillModList:Sum("BASE", skillCfg, "TotemArmour")
 		if breakdown then
 			breakdown.TotemLifeMod = breakdown.mod(skillModList, skillCfg, "TotemLife")
 			breakdown.TotemLife = {
@@ -1024,9 +1024,12 @@ function calcs.offence(env, actor, activeSkill)
 				"x "..output.TotemLifeMod.." ^8(图腾生命加成)",
 				"= "..output.TotemLife,
 			}
+			breakdown.TotemEnergyShield = breakdown.mod(skillModList, skillCfg, "TotemEnergyShield")
+			breakdown.TotemBlockChance = breakdown.mod(skillModList, skillCfg, "TotemBlockChance")
+			breakdown.TotemArmour = breakdown.mod(skillModList, skillCfg, "TotemArmour")
 		end
 	end
-	if skillFlags.brand then
+	if skillCfg.skillName and skillCfg.skillName:match("Brand") then
 		output.BrandAttachmentRange = data.misc.BrandAttachmentRangeBase * calcLib.mod(skillModList, skillCfg, "BrandAttachmentRange")
 		output.ActiveBrandLimit = skillModList:Sum("BASE", skillCfg, "ActiveBrandLimit")
 		if breakdown then
@@ -1055,6 +1058,7 @@ function calcs.offence(env, actor, activeSkill)
 			}
 		end
 	end
+
 	-- General's Cry
 	if skillData.triggeredByGeneralsCry then
 		local mirageActiveSkill = nil
@@ -1526,10 +1530,16 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	local storedMainHandAccuracy = nil
+	local storedSustainedTraumaBreakdown = { }
+	-- Calculate how often you hit (speed, accuracy, block, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
 		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
-		
+
+		if skillData.averageBurstHits then
+			output.AverageBurstHits = skillData.averageBurstHits
+		end
+
 		-- Calculate hit chance 
 		output.Accuracy = m_max(0, calcLib.val(skillModList, "Accuracy", cfg))
 		if breakdown then
@@ -1546,14 +1556,34 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 		if not isAttack or skillModList:Flag(cfg, "CannotBeEvaded") or skillData.cannotBeEvaded or (env.mode_effective and enemyDB:Flag(nil, "CannotEvade")) then
-			output.HitChance = 100
+			output.AccuracyHitChance = 100
 		else
 			local enemyEvasion = m_max(round(calcLib.val(enemyDB, "Evasion")), 0)
-			output.HitChance = calcs.hitChance(enemyEvasion, output.Accuracy) * calcLib.mod(skillModList, cfg, "HitChance")
+			output.AccuracyHitChance = calcs.hitChance(enemyEvasion, output.Accuracy) * calcLib.mod(skillModList, cfg, "HitChance")
 			if breakdown then
+				breakdown.AccuracyHitChance = {
+					"Enemy level: "..env.enemyLevel..(env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
+					"Average enemy evasion: "..enemyEvasion,
+					"Approximate hit chance: "..output.AccuracyHitChance.."%",
+				}
+			end
+		end
+		--enemy block chance
+		output.enemyBlockChance = m_min(m_max((enemyDB:Sum("BASE", cfg, "BlockChance") or 0), 0), 100)
+		output.HitChance = output.AccuracyHitChance * (1 - output.enemyBlockChance / 100)
+		if output.enemyBlockChance > 0 and not isAttack then
+			globalOutput.enemyHasSpellBlock = true
+		end
+		if breakdown and output.enemyBlockChance > 0 then
+			if output.AccuracyHitChance < 100 then
 				breakdown.HitChance = {
-					"敌人等级: "..env.enemyLevel..(env.configInput.enemyLevel and " ^8(从配置界面的获取值" or " ^8(可以从配置界面修改)"),
-					"敌人平均闪避: "..enemyEvasion,
+					"命中率: "..output.AccuracyHitChance.."%",
+					"敌人格挡几率: "..output.enemyBlockChance.."%",
+					"预计击中几率: "..output.HitChance.."%",
+				}
+			else
+				breakdown.HitChance = {
+					"敌人格挡几率: "..output.enemyBlockChance.."%",
 					"预计击中几率: "..output.HitChance.."%",
 				}
 			end
@@ -1632,14 +1662,105 @@ function calcs.offence(env, actor, activeSkill)
 			else
 				baseTime = skillData.castTimeOverride or activeSkill.activeEffect.grantedEffect.castTime or 1
 			end
-			local inc = skillModList:Sum("INC", cfg, "Speed")
 			local more = skillModList:More(cfg, "Speed")
+			output.Repeats = 1 + (skillModList:Sum("BASE", cfg, "RepeatCount") or 0)
+
+			--Calculates the max number of trauma stacks you can sustain
+			if activeSkill.activeEffect.grantedEffect.name == "Boneshatter" then
+				local effectiveAttackRateCap = data.misc.ServerTickRate * output.Repeats
+				local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
+				local traumaPerAttack = 1 + m_min(skillModList:Sum("BASE", cfg, "ExtraTrauma"), 100) / 100
+				local incAttackSpeedPerTrauma = skillModList:Sum("INC", skillCfg, "SpeedPerTrauma")
+				-- compute trauma using an exact form.
+				local configTrauma = skillModList:Sum("BASE", skillCfg, "Multiplier:TraumaStacks")
+				local inc = skillModList:Sum("INC", cfg, "Speed") - incAttackSpeedPerTrauma * configTrauma -- remove trauma attack speed added by config.
+				local attackSpeedBeforeInc = 1 / baseTime * globalOutput.ActionSpeedMod * more
+				local incAttackSpeedPerTraumaCap = (effectiveAttackRateCap - attackSpeedBeforeInc * (1 + inc / 100)) / attackSpeedBeforeInc * 100
+				local traumaRateBeforeInc = traumaPerAttack * (output.HitChance / 100) * attackSpeedBeforeInc / output.Repeats
+				local trauma = traumaRateBeforeInc * (1 + inc / 100) / ( 1 / duration - traumaRateBeforeInc * incAttackSpeedPerTrauma / 100 )
+				local traumaBreakdown = trauma
+				local invalid = false
+				if trauma < 0 or incAttackSpeedPerTrauma * trauma > incAttackSpeedPerTraumaCap then -- invalid long term trauma generation as maximum attack rate is once per tick.
+					trauma = traumaPerAttack * (output.HitChance / 100) * effectiveAttackRateCap / output.Repeats * duration
+					invalid = true
+				end
+				skillModList:NewMod("Multiplier:SustainableTraumaStacks", "BASE", trauma, "Maximum Sustainable Trauma Stacks")
+				if breakdown then
+					storedSustainedTraumaBreakdown = { }
+					if incAttackSpeedPerTrauma == 0 then
+						breakdown.multiChain(storedSustainedTraumaBreakdown, {
+							label = "Attack Speed",
+							base = { "%.2f ^8(base)", 1 / baseTime },
+							{ "%.2f ^8(increased/reduced)", 1 + inc/100 },
+							{ "%.2f ^8(more/less)", more },
+							{ "%.2f ^8(action speed modifier)", globalOutput.ActionSpeedMod },
+							total = s_format("= %.2f ^8attacks per second", attackSpeedBeforeInc * (1 + inc/100))
+						})
+						breakdown.multiChain(storedSustainedTraumaBreakdown, {
+							label = "Trauma",
+							base = { "%.2f ^8(base)", attackSpeedBeforeInc * (1 + inc/100) },
+							{ "%.2f ^8(trauma per attack)", traumaPerAttack },
+							{ "%.2f ^8(chance to hit)", (output.HitChance / 100) },
+							{ "%.2f ^8(duration)", duration }
+						})
+						if output.Repeats ~= 1 then
+							t_insert(storedSustainedTraumaBreakdown, s_format("/ %.2f ^8(repeats)", output.Repeats))
+						end
+					else
+						breakdown.multiChain(storedSustainedTraumaBreakdown, {
+							label = "Attack Speed before increased Attack Speed",
+							base = { "%.2f ^8(base)", 1 / baseTime },
+							{ "%.2f ^8(more/less)", more },
+							{ "%.2f ^8(action speed modifier)", globalOutput.ActionSpeedMod },
+							total = s_format("= %.2f ^8attacks per second", attackSpeedBeforeInc)
+						})
+						breakdown.multiChain(storedSustainedTraumaBreakdown, {
+							label = "Trauma per second before increased Attack Speed",
+							base = { "%.2f ^8(base)", attackSpeedBeforeInc },
+							{ "%.2f ^8(trauma per attack)", traumaPerAttack },
+							{ "%.2f ^8(chance to hit)", (output.HitChance / 100) },
+						})
+						if output.Repeats ~= 1 then
+							t_insert(storedSustainedTraumaBreakdown, s_format("/ %.2f ^8(repeats)", output.Repeats))
+						end
+						t_insert(storedSustainedTraumaBreakdown, s_format("= %.2f ^8trauma per second", traumaRateBeforeInc))
+						t_insert(storedSustainedTraumaBreakdown, "Trauma")
+						t_insert(storedSustainedTraumaBreakdown, s_format("%.2f ^8(base)", traumaRateBeforeInc))
+						t_insert(storedSustainedTraumaBreakdown, s_format("x %.2f ^8(increased/reduced)", (1 + inc / 100)))
+						t_insert(storedSustainedTraumaBreakdown, s_format("/ %.4f ^8(1 / duration - trauma per second * increased attack speed per trauma / 100)", ( 1 / duration - traumaRateBeforeInc * incAttackSpeedPerTrauma / 100 )))
+					end
+					t_insert(storedSustainedTraumaBreakdown, s_format("= "..(invalid and "^1" or "").."%d ^8trauma", traumaBreakdown))
+					if invalid then
+						t_insert(storedSustainedTraumaBreakdown, "Attack Speed exceeds cap recalculating")
+						breakdown.multiChain(storedSustainedTraumaBreakdown, {
+							base = { "%.2f ^8(base)", effectiveAttackRateCap },
+							{ "%.2f ^8(trauma per attack)", traumaPerAttack },
+							{ "%.2f ^8(chance to hit)", (output.HitChance / 100) },
+							{ "%.2f ^8(duration)", (duration) },
+						})
+						if output.Repeats ~= 1 then
+							t_insert(storedSustainedTraumaBreakdown, s_format("/ %.2f ^8(repeats)", output.Repeats))
+						end
+						t_insert(storedSustainedTraumaBreakdown, s_format("= %d ^8trauma", trauma))
+					end
+				end
+			end
+			if skillModList:Sum("BASE", skillCfg, "Multiplier:TraumaStacks") == 0 then
+				skillModList:NewMod("Multiplier:TraumaStacks", "BASE", skillModList:Sum("BASE", skillCfg, "Multiplier:SustainableTraumaStacks"), "Maximum Sustainable Trauma Stacks")
+			end
+			local inc = skillModList:Sum("INC", cfg, "Speed")
 			output.Speed = 1 / baseTime * round((1 + inc/100) * more, 2)
 			output.CastRate = output.Speed
-			output.Repeats = 1 + (skillModList:Sum("BASE", cfg, "RepeatCount") or 0)
 			if skillFlags.selfCast then
 				-- Self-cast skill; apply action speed
 				output.Speed = output.Speed * globalOutput.ActionSpeedMod
+				output.CastRate = output.Speed
+			end
+			if skillFlags.totem then
+				-- Totem skill. Apply action speed
+				local totemActionSpeed = 1 + (modDB:Sum("INC", nil, "TotemActionSpeed") / 100)
+				output.TotemActionSpeed = totemActionSpeed
+				output.Speed = output.Speed * totemActionSpeed
 				output.CastRate = output.Speed
 			end
 			if output.Cooldown then
@@ -1661,7 +1782,7 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				breakdown.Speed = { }
 				breakdown.multiChain(breakdown.Speed, {
-					base = s_format("%.2f ^8(基础)", 1 / baseTime),
+					base = { "%.2f ^8(基础)", 1 / baseTime },
 					{ "%.2f ^8(提高/降低)", 1 + inc/100 },
 					{ "%.2f ^8(额外总提高/额外总降低)", more },
 					{ "%.2f ^8(动作速度加成)", skillFlags.selfCast and globalOutput.ActionSpeedMod or 1 },
@@ -1681,7 +1802,7 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown and calcLib.mod(skillModList, skillCfg, "SkillAttackTime") > 0 then
 				breakdown.Time = { }
 				breakdown.multiChain(breakdown.Time, {
-					base = s_format("%.2f ^8(基础)", 1 / (output.Speed * calcLib.mod(skillModList, skillCfg, "SkillAttackTime") )),
+					base = { "%.2f ^8(基础)", 1 / (output.Speed * calcLib.mod(skillModList, skillCfg, "SkillAttackTime") ) },
 					{ "%.2f ^8(总加成)", calcLib.mod(skillModList, skillCfg, "SkillAttackTime")  },
 					total = s_format("= %.2f ^8每秒攻击", output.Time)
 				})
@@ -1691,7 +1812,7 @@ function calcs.offence(env, actor, activeSkill)
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime
 			--Brands always have hitTimeOverride
-			if skillFlags.brand then
+			if skillCfg.skillName and skillCfg.skillName:match("Brand") then
 				output.BrandTicks = m_floor(output.Duration * output.HitSpeed)
 			end
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
@@ -1699,9 +1820,14 @@ function calcs.offence(env, actor, activeSkill)
 			output.HitSpeed = 1 / output.HitTime
 		end
 	end
+	if breakdown then
+		breakdown.SustainableTrauma = storedSustainedTraumaBreakdown
+	end
+	output.SustainableTrauma = activeSkill.activeEffect.grantedEffect.name == "Boneshatter" and skillModList:Sum("BASE", skillCfg, "Multiplier:SustainableTraumaStacks")
 
 	if isAttack then
 		-- Combine hit chance and attack speed
+		combineStat("AccuracyHitChance", "AVERAGE")
 		combineStat("HitChance", "AVERAGE")
 		combineStat("Speed", "AVERAGE")
 		combineStat("HitSpeed", "OR")
@@ -1716,7 +1842,7 @@ function calcs.offence(env, actor, activeSkill)
 		if skillFlags.bothWeaponAttack then
 			if breakdown then
 				breakdown.Speed = {
-					"所有武器:",
+					"Both weapons:",
 					s_format("(%.2f + %.2f) / 2", output.MainHand.Speed, output.OffHand.Speed),
 					s_format("= %.2f", output.Speed),
 				}
@@ -1730,6 +1856,7 @@ function calcs.offence(env, actor, activeSkill)
 		output.QuantityMultiplier = quantityMultiplier
 	end
 
+	--Calculate damage (exerts, crits, ruthless, DPS, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
 		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
@@ -1746,8 +1873,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		if env.mode_buffs then
 			-- Iterative over all the active skills to account for exerted attacks provided by warcries
-			if (activeSkill.activeEffect.grantedEffect.name == "瓦尔.裂地之击" or not activeSkill.skillTypes[SkillType.Vaal]) and not activeSkill.skillTypes[SkillType.Channel] and not activeSkill.skillModList:Flag(cfg, "SupportedByMultistrike") then
-
+			if (activeSkill.activeEffect.grantedEffect.name == "瓦尔.裂地之击" or not activeSkill.skillTypes[SkillType.Vaal]) and not activeSkill.skillTypes[SkillType.Triggered] and not activeSkill.skillTypes[SkillType.Channel] and not activeSkill.skillModList:Flag(cfg, "SupportedByMultistrike") then
 				for index, value in ipairs(actor.activeSkillList) do
 					if value.activeEffect.grantedEffect.name == "Ancestral Cry" and activeSkill.skillTypes[SkillType.MeleeSingleTarget] and not globalOutput.AncestralCryCalculated then
 						globalOutput.AncestralCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB)
@@ -1771,7 +1897,6 @@ function calcs.offence(env, actor, activeSkill)
 								t_insert(globalBreakdown.AncestralUpTimeRatio, s_format("+ %.2f) ^8(战吼施放时间)", globalOutput.AncestralCryCastTime))
 							else
 								t_insert(globalBreakdown.AncestralUpTimeRatio, s_format("/ %.2f ^8(平均战吼冷却时间)", globalOutput.AncestralCryCooldown))
-
 							end
 							t_insert(globalBreakdown.AncestralUpTimeRatio, s_format("= %d%%", globalOutput.AncestralUpTimeRatio))
 						end
@@ -1937,8 +2062,8 @@ function calcs.offence(env, actor, activeSkill)
 							AoEImpact = AoEImpact + (i * SeismicAoEPerExert)
 							MaxSingleAoEImpact = MaxSingleAoEImpact + SeismicAoEPerExert
 						end
-
 						local AvgAoEImpact = AoEImpact / globalOutput.SeismicExertsCount
+
 						-- account for AoE increase
 						if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 							skillModList:NewMod("AreaOfEffect", "INC", MaxSingleAoEImpact * 100, "最大【震地战吼】增助范围")
@@ -2071,22 +2196,23 @@ function calcs.offence(env, actor, activeSkill)
 		--Calculates the max number of fuses you can sustain
 		--Does not take into account mines or traps
 		if activeSkill.activeEffect.grantedEffect.name == "爆炸箭矢" and activeSkill.skillPart == 2 then
-			local hitRate = m_floor(output.HitChance / 100 * globalOutput.Speed * globalOutput.ActionSpeedMod * (skillData.dpsMultiplier or 1)) + 1
+			local hitRate = output.HitChance / 100 * globalOutput.Speed * globalOutput.ActionSpeedMod * (skillData.dpsMultiplier or 1)
 			if skillFlags.totem then
 				local activeTotems = env.modDB:Override(nil, "TotemsSummoned") or skillModList:Sum("BASE", skillCfg, "ActiveTotemLimit", "ActiveBallistaLimit")
 				hitRate = hitRate * activeTotems
 			end
 			local duration = calcSkillDuration(activeSkill.skillModList, activeSkill.skillCfg, activeSkill.skillData, env, enemyDB)
 			local skillMax = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "ExplosiveArrowMaxFuseCount")
-			local maximum = m_min(hitRate * duration, skillMax)
+			local maximum = m_min(m_floor(hitRate * duration) + 1, skillMax)
 			skillModList:NewMod("Multiplier:ExplosiveArrowStage", "BASE", maximum, "Base")
 			skillModList:NewMod("Multiplier:ExplosiveArrowStageAfterFirst", "BASE", maximum - 1, "Base")
 			globalOutput.MaxExplosiveArrowFuseCalculated = maximum
 		else
 			globalOutput.MaxExplosiveArrowFuseCalculated = nil
 		end
+
 		-- Calculate crit chance, crit multiplier, and their combined effect
-		if skillModList:Flag(nil, "NeverCrit") then
+		if skillModList:Flag(cfg, "NeverCrit") then
 			output.PreEffectiveCritChance = 0
 			output.CritChance = 0
 			output.CritMultiplier = 0
@@ -2095,6 +2221,12 @@ function calcs.offence(env, actor, activeSkill)
 		else
 			local critOverride = skillModList:Override(cfg, "CritChance")
 			local baseCrit = critOverride or source.CritChance or 0
+
+			local baseCritFromMainHand = skillModList:Flag(cfg, "BaseCritFromMainHand")
+			if baseCritFromMainHand then
+				baseCrit = actor.weaponData1.CritChance
+			end
+
 			if critOverride == 100 then
 				output.PreEffectiveCritChance = 100
 				output.CritChance = 100
@@ -2109,7 +2241,7 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				output.CritChance = (baseCrit + base) * (1 + inc / 100) * more
 				local preCapCritChance = output.CritChance
-				output.CritChance = m_min(output.CritChance, 100)
+				output.CritChance = m_min(output.CritChance, skillModList:Override(nil, "CritChanceCap") or skillModList:Sum("BASE", cfg, "CritChanceCap"))
 				if (baseCrit + base) > 0 then
 					output.CritChance = m_max(output.CritChance, 0)
 				end
@@ -2120,14 +2252,15 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				local preHitCheckCritChance = output.CritChance
 				if env.mode_effective then
-					output.CritChance = output.CritChance * output.HitChance / 100
+					output.CritChance = output.CritChance * output.AccuracyHitChance / 100
 				end
 				if breakdown and output.CritChance ~= baseCrit then
 					breakdown.CritChance = { }
+					local baseCritFromMainHandStr = baseCritFromMainHand and " from main weapon" or ""
 					if base ~= 0 then
-						t_insert(breakdown.CritChance, s_format("(%g + %g) ^8(基础)", baseCrit, base))
+						t_insert(breakdown.CritChance, s_format("(%g + %g) ^8(基础%s)", baseCrit, base, baseCritFromMainHandStr))
 					else
-						t_insert(breakdown.CritChance, s_format("%g ^8(基础)", baseCrit + base))
+						t_insert(breakdown.CritChance, s_format("%g ^8(基础%s)", baseCrit + base, baseCritFromMainHandStr))
 					end
 					if inc ~= 0 then
 						t_insert(breakdown.CritChance, s_format("x %.2f", 1 + inc/100).." ^8(提高/降低)")
@@ -2145,10 +2278,10 @@ function calcs.offence(env, actor, activeSkill)
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preLuckyCritChance / 100, preLuckyCritChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", preHitCheckCritChance))
 					end
-					if env.mode_effective and output.HitChance < 100 then
+					if env.mode_effective and output.AccuracyHitChance < 100 then
 						t_insert(breakdown.CritChance, "暴击确认:")
 						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
-						t_insert(breakdown.CritChance, s_format("x %.2f ^8(命中率)", output.HitChance / 100))
+						t_insert(breakdown.CritChance, s_format("x %.2f ^8(命中率)", output.AccuracyHitChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", output.CritChance))
 					end
 				end
@@ -2182,11 +2315,11 @@ function calcs.offence(env, actor, activeSkill)
 				breakdown.CritEffect = {
 					s_format("(1 - %.4f) ^8(非暴击部分的伤害)", critChancePercentage),
 					s_format("+ [ (%.4f x %g) ^8(暴击部分的伤害)", critChancePercentage, output.CritMultiplier),
-
 					s_format("= %.3f", output.CritEffect),
 				}
 			end
 		end
+
 		output.ScaledDamageEffect = 1
 	
 		-- Calculate chance and multiplier for dealing triple damage on Normal and Crit
@@ -2209,16 +2342,20 @@ function calcs.offence(env, actor, activeSkill)
 			output.DoubleDamageChance = m_max(output.DoubleDamageChance - output.TripleDamageChance * output.DoubleDamageChance / 100, 0)
 		end
 		output.DoubleDamageEffect = 1 + output.DoubleDamageChance / 100
-		output.ScaledDamageEffect = output.ScaledDamageEffect * output.DoubleDamageEffect	
+		output.ScaledDamageEffect = output.ScaledDamageEffect * output.DoubleDamageEffect
+
+		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * (skillData.dpsMultiplier or 1)
+
 		-- Calculate culling DPS
 		local criticalCull = skillModList:Max(cfg, "CriticalCullPercent") or 0
 		if criticalCull > 0 then
-			criticalCull = criticalCull * (output.CritChance / 100)
+			criticalCull = m_min(criticalCull, criticalCull * (1 - (1 - output.CritChance / 100) ^ hitRate))
 		end
 		local regularCull = skillModList:Max(cfg, "CullPercent") or 0
 		local maxCullPercent = m_max(criticalCull, regularCull)
 		globalOutput.CullPercent = maxCullPercent
 		globalOutput.CullMultiplier = 100 / (100 - globalOutput.CullPercent)
+
 		-- Calculate base hit damage
 		for _, damageType in ipairs(dmgTypeList) do
 			local damageTypeMin = damageType.."Min"
@@ -2257,6 +2394,7 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 		end
+
 		-- Calculate hit damage for each damage type
 		local totalHitMin, totalHitMax, totalHitAvg = 0, 0, 0
 		local totalCritMin, totalCritMax, totalCritAvg = 0, 0, 0
@@ -2274,9 +2412,9 @@ function calcs.offence(env, actor, activeSkill)
 			local lifeLeechTotal = 0
 			local energyShieldLeechTotal = 0
 			local manaLeechTotal = 0
-			local noLifeLeech = skillModList:Flag(cfg, "CannotLeechLife") or enemyDB:Flag(nil, "CannotLeechLifeFromSelf")
-			local noEnergyShieldLeech = skillModList:Flag(cfg, "CannotLeechEnergyShield") or enemyDB:Flag(nil, "CannotLeechEnergyShieldFromSelf")
-			local noManaLeech = skillModList:Flag(cfg, "CannotLeechMana") or enemyDB:Flag(nil, "CannotLeechManaFromSelf")
+			local noLifeLeech = skillModList:Flag(cfg, "CannotLeechLife") or enemyDB:Flag(nil, "CannotLeechLifeFromSelf") or skillModList:Flag(cfg, "CannotGainLife")
+			local noEnergyShieldLeech = skillModList:Flag(cfg, "CannotLeechEnergyShield") or enemyDB:Flag(nil, "CannotLeechEnergyShieldFromSelf") or skillModList:Flag(cfg, "CannotGainEnergyShield")
+			local noManaLeech = skillModList:Flag(cfg, "CannotLeechMana") or enemyDB:Flag(nil, "CannotLeechManaFromSelf") or skillModList:Flag(cfg, "CannotGainMana")
 			for _, damageType in ipairs(dmgTypeList) do
 				local damageTypeHitMin, damageTypeHitMax, damageTypeHitAvg, damageTypeLuckyChance, damageTypeHitAvgLucky, damageTypeHitAvgNotLucky = 0, 0, 0, 0, 0
 				if skillFlags.hit and canDeal[damageType] then
@@ -2298,7 +2436,7 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(【无情一击】加成)", output.RuthlessBlowHitEffect))
 						end
 						if output.FistOfWarHitEffect ~= 1 then
-						t_insert(breakdown[damageType], s_format("x %.2f ^8(【战争铁拳】加成)", output.FistOfWarHitEffect))
+							t_insert(breakdown[damageType], s_format("x %.2f ^8(【战争铁拳】加成)", output.FistOfWarHitEffect))
 						end
 						if globalOutput.OffensiveWarcryEffect ~= 1  and not activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(综合战吼增助效果加成)", globalOutput.OffensiveWarcryEffect))
@@ -2361,15 +2499,15 @@ function calcs.offence(env, actor, activeSkill)
 								-- Default to using the current damage type 
 								local elementUsed = damageType
 								if isElemental[damageType] then
-									resist = m_min(enemyDB:Sum("BASE", nil, damageType.."Resist", "ElementalResist") * calcLib.mod(enemyDB, nil, damageType.."Resist", "ElementalResist"), data.misc.EnemyMaxResist)
+									resist = m_min(enemyDB:Sum("BASE", nil, damageType.."Resist", "ElementalResist") * m_max(calcLib.mod(enemyDB, nil, damageType.."Resist", "ElementalResist"), 0), data.misc.EnemyMaxResist)
 									takenInc = takenInc + enemyDB:Sum("INC", cfg, "ElementalDamageTaken")
 								elseif damageType == "Chaos" then
-									resist = m_min(enemyDB:Sum("BASE", nil, "ChaosResist") * calcLib.mod(enemyDB, nil, "ChaosResist"), data.misc.EnemyMaxResist)
+									resist = m_min(enemyDB:Sum("BASE", nil, "ChaosResist") * m_max(calcLib.mod(enemyDB, nil, "ChaosResist"), 0), data.misc.EnemyMaxResist)
 								end
 								-- Find the lowest resist of all the elements and use that if it's lower
 								for _, eleDamageType in ipairs(dmgTypeList) do
 									if isElemental[eleDamageType] and useThisResist(eleDamageType) and damageType ~= eleDamageType then
-										local currentElementResist = m_min(enemyDB:Sum("BASE", nil, eleDamageType.."Resist", "ElementalResist") * calcLib.mod(enemyDB, nil, eleDamageType.."Resist", "ElementalResist"), data.misc.EnemyMaxResist)
+										local currentElementResist = m_min(enemyDB:Sum("BASE", nil, eleDamageType.."Resist", "ElementalResist") * m_max(calcLib.mod(enemyDB, nil, eleDamageType.."Resist", "ElementalResist"), 0), data.misc.EnemyMaxResist)
 										-- If it's explicitly lower, then use the resist and update which element we're using to account for penetration
 										if resist > currentElementResist then
 											resist = currentElementResist
@@ -2390,7 +2528,7 @@ function calcs.offence(env, actor, activeSkill)
 									resist = env.player.output[damageType.."Resist"]
 								else
 									local base = resist + enemyDB:Sum("BASE", nil, "ElementalResist")
-									resist = base * calcLib.mod(enemyDB, nil, damageType.."Resist")
+									resist = base * m_max(calcLib.mod(enemyDB, nil, damageType.."Resist"), 0)
 								end
 								pen = skillModList:Sum("BASE", cfg, damageType.."Penetration", "ElementalPenetration")
 								takenInc = takenInc + enemyDB:Sum("INC", cfg, "ElementalDamageTaken")
@@ -2398,7 +2536,7 @@ function calcs.offence(env, actor, activeSkill)
 								resist = enemyDB:Sum("BASE", nil, damageType.."Resist")
 								pen = skillModList:Sum("BASE", cfg, "ChaosPenetration")
 							end
-							resist = m_max(m_min(resist, data.misc.EnemyMaxResist), data.misc.ResistFloor)
+							resist = m_max(m_min(enemyDB:Override(nil, damageType.."Resist") or resist, data.misc.EnemyMaxResist), data.misc.ResistFloor)
 						end
 						if skillFlags.projectile then
 							takenInc = takenInc + enemyDB:Sum("INC", nil, "ProjectileDamageTaken")
@@ -2478,7 +2616,6 @@ function calcs.offence(env, actor, activeSkill)
 						}
 					end
 				end
-				
 				if pass == 1 then
 					output[damageType.."CritAverage"] = damageTypeHitAvg
 					totalCritAvg = totalCritAvg + damageTypeHitAvg
@@ -2529,6 +2666,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		
 		local highestType = "Physical"
+
 		-- For each damage type, calculate percentage of total damage. Also tracks the highest damage type and outputs a Condition:TypeIsHighestDamageType flag for whichever the highest type is
 		for _, damageType in ipairs(dmgTypeList) do
 			if output[damageType.."HitAverage"] > 0 then
@@ -2537,15 +2675,13 @@ function calcs.offence(env, actor, activeSkill)
 					highestType = damageType
 				end
 				if breakdown then
-					t_insert(breakdown[damageType], s_format("占总伤害的: %d%%", portion))
+					t_insert(breakdown[damageType], s_format("Portion of total damage: %d%%", portion))
 				end
 			end
 		end
 		if not skillModList:Flag(nil, "IsHighestDamageTypeOVERRIDE") then
 			skillModList:NewMod("Condition:"..highestType.."IsHighestDamageType", "FLAG", true, "Config")
 		end
-
-		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * (skillData.dpsMultiplier or 1)
 
 		-- Calculate leech
 		local function getLeechInstances(amount, total)
@@ -2577,9 +2713,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.EnergyShieldOnHit = 0
 			output.ManaOnHit = 0
 		else
-			output.LifeOnHit = skillModList:Sum("BASE", cfg, "LifeOnHit") + enemyDB:Sum("BASE", cfg, "SelfLifeOnHit")
-			output.EnergyShieldOnHit = skillModList:Sum("BASE", cfg, "EnergyShieldOnHit") + enemyDB:Sum("BASE", cfg, "SelfEnergyShieldOnHit")
-			output.ManaOnHit = skillModList:Sum("BASE", cfg, "ManaOnHit") + enemyDB:Sum("BASE", cfg, "SelfManaOnHit")
+			output.LifeOnHit = not skillModList:Flag(cfg, "CannotGainLife") and (skillModList:Sum("BASE", cfg, "LifeOnHit") + enemyDB:Sum("BASE", cfg, "SelfLifeOnHit")) or 0
+			output.EnergyShieldOnHit = not skillModList:Flag(cfg, "CannotGainEnergyShield") and (skillModList:Sum("BASE", cfg, "EnergyShieldOnHit") + enemyDB:Sum("BASE", cfg, "SelfEnergyShieldOnHit")) or 0
+			output.ManaOnHit = not skillModList:Flag(cfg, "CannotGainMana") and (skillModList:Sum("BASE", cfg, "ManaOnHit") + enemyDB:Sum("BASE", cfg, "SelfManaOnHit")) or 0
 		end
 		output.LifeOnHitRate = output.LifeOnHit * hitRate
 		output.EnergyShieldOnHitRate = output.EnergyShieldOnHit * hitRate
@@ -2591,16 +2727,18 @@ function calcs.offence(env, actor, activeSkill)
 			output.EnergyShieldOnKill = 0
 			output.ManaOnKill = 0
 		else
-			output.LifeOnKill = m_floor(skillModList:Sum("BASE", cfg, "LifeOnKill"))
-			output.EnergyShieldOnKill = m_floor(skillModList:Sum("BASE", cfg, "EnergyShieldOnKill"))
-			output.ManaOnKill = m_floor(skillModList:Sum("BASE", cfg, "ManaOnKill"))
+			output.LifeOnKill = not skillModList:Flag(cfg, "CannotGainLife") and (m_floor(skillModList:Sum("BASE", cfg, "LifeOnKill"))) or 0
+			output.EnergyShieldOnKill = not skillModList:Flag(cfg, "CannotGainEnergyShield") and (m_floor(skillModList:Sum("BASE", cfg, "EnergyShieldOnKill"))) or 0
+			output.ManaOnKill = not skillModList:Flag(cfg, "CannotGainMana") and (m_floor(skillModList:Sum("BASE", cfg, "ManaOnKill"))) or 0
 		end
 
 		-- Calculate average damage and final DPS
 		output.AverageHit = totalHitAvg * (1 - output.CritChance / 100) + totalCritAvg * output.CritChance / 100
 		output.AverageDamage = output.AverageHit * output.HitChance / 100
+		globalOutput.AverageBurstHits = output.AverageBurstHits or 1
+		globalOutput.AverageBurstDamage = output.AverageDamage * globalOutput.AverageBurstHits or 0
+		globalOutput.ShowBurst = globalOutput.AverageBurstHits > 1
 		output.TotalDPS = output.AverageDamage * (globalOutput.HitSpeed or globalOutput.Speed) * (skillData.dpsMultiplier or 1) * quantityMultiplier
-
 		if breakdown then
 			if output.CritEffect ~= 1 then
 				breakdown.AverageHit = { }
@@ -2615,13 +2753,20 @@ function calcs.offence(env, actor, activeSkill)
 				t_insert(breakdown.AverageHit, s_format("+ %.1f x %.4f ^8(来自暴击的伤害)", totalCritAvg, output.CritChance / 100))
 				t_insert(breakdown.AverageHit, s_format("= %.1f", output.AverageHit))
 			end
-			if isAttack then
+			if output.HitChance < 100 then
 				breakdown.AverageDamage = { }
 				t_insert(breakdown.AverageDamage, s_format("%s:", pass.label))
 				t_insert(breakdown.AverageDamage, s_format("%.1f ^8(平均击中)", output.AverageHit))
 				t_insert(breakdown.AverageDamage, s_format("x %.2f ^8(击中几率)", output.HitChance / 100))
 				t_insert(breakdown.AverageDamage, s_format("= %.1f", output.AverageDamage))
 			end
+		end
+		if globalBreakdown and globalOutput.AverageBurstDamage > 0 then
+			globalBreakdown.AverageBurstDamage = { }		
+			t_insert(globalBreakdown.AverageBurstDamage, s_format("%.1f ^8(average hit)", output.AverageHit))
+			t_insert(globalBreakdown.AverageBurstDamage, s_format("x %.2f ^8(chance to hit)", output.HitChance / 100))
+			t_insert(globalBreakdown.AverageBurstDamage, s_format("x %.2f ^8(number of hits)", globalOutput.AverageBurstHits))
+			t_insert(globalBreakdown.AverageBurstDamage, s_format("= %.1f", globalOutput.AverageBurstDamage))
 		end
 		
 		
@@ -2646,10 +2791,12 @@ function calcs.offence(env, actor, activeSkill)
 			if PvpTvalue then
 				PvpTvalue = PvpTvalue / 1000
 			else
-				if skillFlags.mine then
-					PvpTvalue = output.MineLayingTime*globalOutput.ActionSpeedMod
+				if skillData.cooldown then
+					PvpTvalue = skillData.cooldown
+				elseif skillFlags.mine then
+					PvpTvalue = (output.MineLayingTime or 1) / globalOutput.ActionSpeedMod
 				elseif skillFlags.trap then
-					PvpTvalue = output.TrapThrowingTime*globalOutput.ActionSpeedMod
+					PvpTvalue = (output.TrapThrowingTime or 1) / globalOutput.ActionSpeedMod
 				else
 					PvpTvalue = 1/((globalOutput.HitSpeed or globalOutput.Speed)/globalOutput.ActionSpeedMod)
 				end
@@ -2864,6 +3011,7 @@ function calcs.offence(env, actor, activeSkill)
 	skillFlags.igniteCanStack = skillModList:Flag(skillCfg, "IgniteCanStack")
 	skillFlags.igniteToChaos = skillModList:Flag(skillCfg, "IgniteToChaos")
 	skillFlags.impale = false
+	--Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
 		local source, output, cfg, breakdown = pass.source, pass.output, pass.cfg, pass.breakdown
@@ -2880,7 +3028,11 @@ function calcs.offence(env, actor, activeSkill)
 		else
 			output.PoisonChanceOnCrit = m_min(100, skillModList:Sum("BASE", cfg, "PoisonChance") + enemyDB:Sum("BASE", nil, "SelfPoisonChance"))
 		end
-
+		if not skillFlags.hit then
+			output.ImpaleChanceOnCrit = 0
+		else
+			output.ImpaleChanceOnCrit = m_min(100, skillModList:Sum("BASE", cfg, "ImpaleChance"))
+		end
 		if not skillFlags.hit or skillModList:Flag(cfg, "CannotKnockback") then
 			output.KnockbackChanceOnCrit = 0
 		else
@@ -2972,11 +3124,12 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			return sourceHitDmg, sourceCritDmg
 		end
-		local function calcAilmentDamage(type, sourceHitDmg, sourceCritDmg)
+
+		local function calcAilmentDamage(type, sourceCritChance, sourceHitDmg, sourceCritDmg)
 			-- Calculate the inflict chance and base damage of a secondary effect (bleed/poison/ignite/shock/freeze)
 			local chanceOnHit, chanceOnCrit = output[type.."ChanceOnHit"], output[type.."ChanceOnCrit"]
-			local chanceFromHit = chanceOnHit * (1 - output.CritChance / 100)
-			local chanceFromCrit = chanceOnCrit * output.CritChance / 100
+			local chanceFromHit = chanceOnHit * (1 - sourceCritChance / 100)
+			local chanceFromCrit = chanceOnCrit * sourceCritChance / 100
 			local chance = chanceFromHit + chanceFromCrit
 			output[type.."Chance"] = chance
 			local baseFromHit = sourceHitDmg * chanceFromHit / (chanceFromHit + chanceFromCrit)
@@ -3050,7 +3203,6 @@ function calcs.offence(env, actor, activeSkill)
 			return baseVal
 		end
 
-
 		-- Calculate bleeding chance and damage
 		if canDeal.Physical and (output.BleedChanceOnHit + output.BleedChanceOnCrit) > 0 then
 			activeSkill[pass.label ~= "Off Hand" and "bleedCfg" or "OHbleedCfg"] = {
@@ -3074,7 +3226,7 @@ function calcs.offence(env, actor, activeSkill)
 			local maxStacks = skillModList:Override(cfg, "BleedStacksMax") or skillModList:Sum("BASE", cfg, "BleedStacksMax")
 			globalOutput.BleedStacksMax = maxStacks
 			local durationBase = skillData.bleedDurationIsSkillDuration and skillData.duration or data.misc.BleedDurationBase
-			local durationMod = calcLib.mod(skillModList, dotCfg, "EnemyBleedDuration", "SkillAndDamagingAilmentDuration", skillData.bleedIsSkillEffect and "Duration" or nil) * calcLib.mod(enemyDB, nil, "SelfBleedDuration") / calcLib.mod(enemyDB, dotCfg, "BleedExpireRate")
+			local durationMod = calcLib.mod(skillModList, dotCfg, "EnemyBleedDuration", "EnemyAilmentDuration", "SkillAndDamagingAilmentDuration", skillData.bleedIsSkillEffect and "Duration" or nil) * calcLib.mod(enemyDB, nil, "SelfBleedDuration", "SelfAilmentDuration") / calcLib.mod(enemyDB, dotCfg, "BleedExpireRate")
 			local rateMod = calcLib.mod(skillModList, cfg, "BleedFaster") + enemyDB:Sum("INC", nil, "SelfBleedFaster")  / 100
 			globalOutput.BleedDuration = durationBase * durationMod / rateMod * debuffDurationMult
 			local bleedStacks = (output.HitChance / 100) * (globalOutput.BleedDuration / output.Time) / maxStacks
@@ -3116,7 +3268,6 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 			if globalBreakdown then
-
 				if sourceHitDmg == sourceCritDmg then
 					globalBreakdown.BleedDPS = {
 						s_format(colorCodes.CUSTOM.."备注: 使用了新的异常状态公式进行计算"),
@@ -3146,7 +3297,9 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 			local basePercent = skillData.bleedBasePercent or data.misc.BleedPercentBase
-			local baseVal = calcAilmentDamage("Bleed", sourceHitDmg, sourceCritDmg) * basePercent / 100 * output.RuthlessBlowBleedEffect * output.FistOfWarAilmentEffect * globalOutput.AilmentWarcryEffect
+			-- over-stacking bleed stacks increases the chance a critical bleed is present
+			local ailmentCritChance = 100 * (1 - m_pow(1 - output.CritChance / 100, bleedStacks))
+			local baseVal = calcAilmentDamage("Bleed", ailmentCritChance, sourceHitDmg, sourceCritDmg) * basePercent / 100 * output.RuthlessBlowBleedEffect * output.FistOfWarAilmentEffect * globalOutput.AilmentWarcryEffect
 			if baseVal > 0 then
 				skillFlags.bleed = true
 				skillFlags.duration = true
@@ -3163,10 +3316,11 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				local effectMod = calcLib.mod(skillModList, dotCfg, "AilmentEffect")
 				output.BaseBleedDPS = baseVal * effectMod * rateMod * effMult
-				bleedStacks = m_min(maxStacks, (output.HitChance / 100) * globalOutput.BleedDuration / output.Time)
+				bleedStacksUncapped = (output.HitChance / 100) * globalOutput.BleedDuration / output.Time
 				if skillFlags.totem then
-					bleedStacks = m_min(maxStacks, (output.HitChance / 100) * globalOutput.BleedDuration / output.Time * activeTotems)
+					bleedStacksUncapped = bleedStacksUncapped * activeTotems
 				end
+				local bleedStacks = m_min(maxStacks, bleedStacksUncapped)
 				local chanceToHitInOneSecInterval = 1 - m_pow(1 - (output.HitChance / 100), output.Speed)
 				local BleedDPSUncapped = (baseVal * effectMod * rateMod) * bleedStacks * chanceToHitInOneSecInterval * effMult
 				local BleedDPSCapped = m_min(BleedDPSUncapped, data.misc.DotDpsCap)
@@ -3177,7 +3331,7 @@ function calcs.offence(env, actor, activeSkill)
 				if breakdown then
 					if output.CritBleedDotMulti and (output.CritBleedDotMulti ~= output.BleedDotMulti) then
 						local chanceFromHit = output.BleedChanceOnHit / 100 * (1 - globalOutput.CritChance / 100)
-						local chanceFromCrit = output.BleedChanceOnCrit / 100 * output.CritChance / 100
+						local chanceFromCrit = output.BleedChanceOnCrit / 100 * ailmentCritChance / 100
 						local totalFromHit = chanceFromHit / (chanceFromHit + chanceFromCrit)
 						local totalFromCrit = chanceFromCrit / (chanceFromHit + chanceFromCrit)
 						breakdown.BleedDotMulti = breakdown.critDot(output.BleedDotMulti, output.CritBleedDotMulti, totalFromHit, totalFromCrit)
@@ -3207,7 +3361,7 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(breakdown.BleedDPS, s_format("x %.2f ^8(异常状态效果加成)", effectMod))
 						end
 						if rateMod ~= 1 then
-							t_insert(breakdown.BleedDPS, s_format("x %.2f ^8(速率加成)", rateMod))
+							t_insert(breakdown.BleedDPS, s_format("x %.2f ^8(伤害速率加成)", rateMod))
 						end
 						if bleedStacks ~= 1 then
 							t_insert(breakdown.BleedDPS, s_format("x %d ^8(流血层数)", bleedStacks))
@@ -3219,14 +3373,13 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(breakdown.BleedDPS, s_format("x %.3f ^8(来自敌人减益效果的等效DPS加成)", effMult))
 						end
 						if output.BleedDPS ~= BleedDPSUncapped then
-							t_insert(breakdown.BleedDPS, s_format("= %.1f ^8(未封顶的流血DPS)", BleedDPSUncapped))
+							t_insert(breakdown.BleedDPS, s_format("= %.1f ^8(未溢出的流血DPS)", BleedDPSUncapped))
 							t_insert(breakdown.BleedDPS, s_format("^8(流血DPS ^1溢出 ^7 %.1f ^8:^7 %.1f%%^8", BleedDPSUncapped - BleedDPSCapped, (BleedDPSUncapped - BleedDPSCapped) / BleedDPSCapped * 100))
 							t_insert(breakdown.BleedDPS, s_format("= %d ^8(实际流血DPS)", BleedDPSCapped))
 						else
 							t_insert(breakdown.BleedDPS, s_format("= %.1f ^8每秒", output.BleedDPS))
 						end
 					end
-
 					if globalOutput.BleedDuration ~= durationBase then
 						globalBreakdown.BleedDuration = {
 							s_format("%.2fs ^8(基础持续时间)", durationBase)
@@ -3266,6 +3419,22 @@ function calcs.offence(env, actor, activeSkill)
 				breakdown.PoisonCold = { damageTypes = { } }
 				breakdown.PoisonFire = { damageTypes = { } }
 				breakdown.PoisonChaos = { damageTypes = { } }
+			end
+			local rateMod = calcLib.mod(skillModList, cfg, "PoisonFaster") + enemyDB:Sum("INC", nil, "SelfPoisonFaster")  / 100
+			local durationBase
+			if skillData.poisonDurationIsSkillDuration then
+				durationBase = skillData.duration
+			else
+				durationBase = data.misc.PoisonDurationBase
+			end
+			local durationMod = calcLib.mod(skillModList, dotCfg, "EnemyPoisonDuration", "EnemyAilmentDuration", "SkillAndDamagingAilmentDuration", skillData.poisonIsSkillEffect and "Duration" or nil) * calcLib.mod(enemyDB, nil, "SelfPoisonDuration", "SelfAilmentDuration")
+			globalOutput.PoisonDuration = durationBase * durationMod / rateMod * debuffDurationMult
+			local PoisonStacks = globalOutput.PoisonDuration * (globalOutput.HitSpeed or globalOutput.Speed) * (skillData.dpsMultiplier or 1) * (skillData.stackMultiplier or 1) * quantityMultiplier
+			if PoisonStacks < 1 and (env.configInput.multiplierPoisonOnEnemy or 0) <= 1 then
+				skillModList:NewMod("Condition:SinglePoison", "FLAG", true, "poison")
+			end
+			if skillModList:Flag(nil, "Condition:SinglePoison") then
+				PoisonStacks = m_min(PoisonStacks, 1)
 			end
 			for sub_pass = 1, 2 do
 				if skillModList:Flag(dotCfg, "AilmentsAreNeverFromCrit") or sub_pass == 1 then
@@ -3327,15 +3496,14 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if globalBreakdown then
 				globalBreakdown.PoisonDPS = {
-					s_format("异常计算模式: %s ^8(可以在配置界面修改)", igniteMode == "CRIT" and "暴击伤害" or "平均伤害")
+					s_format("异常计算模式: %s ^8(可以在配置界面修改)", igniteMode == "CRIT" and "Crits Only" or "Average Damage")
 				}
 			end
-			local baseVal = calcAilmentDamage("Poison", sourceHitDmg, sourceCritDmg) * data.misc.PoisonPercentBase * output.FistOfWarAilmentEffect * globalOutput.AilmentWarcryEffect
+			local baseVal = calcAilmentDamage("Poison", output.CritChance, sourceHitDmg, sourceCritDmg) * data.misc.PoisonPercentBase * output.FistOfWarAilmentEffect * globalOutput.AilmentWarcryEffect
 			if baseVal > 0 then
 				skillFlags.poison = true
 				skillFlags.duration = true
 				local effMult = 1
-				--抗性计算
 				if env.mode_effective then
 					local resist = m_min(enemyDB:Sum("BASE", nil, "ChaosResist") * calcLib.mod(enemyDB, nil, "ChaosResist"), data.misc.EnemyMaxResist)
 					local takenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", "ChaosDamageTaken", "ChaosDamageTakenOverTime")
@@ -3347,7 +3515,6 @@ function calcs.offence(env, actor, activeSkill)
 					end
 				end
 				local effectMod = calcLib.mod(skillModList, dotCfg, "AilmentEffect")
-				local rateMod = calcLib.mod(skillModList, cfg, "PoisonFaster") + enemyDB:Sum("INC", nil, "SelfPoisonFaster")  / 100
 				local PoisonDPSUncapped = baseVal * effectMod * rateMod * effMult
 				local PoisonDPSCapped = m_min(PoisonDPSUncapped, data.misc.DotDpsCap)
 				output.PoisonDPS = PoisonDPSCapped
@@ -3355,34 +3522,26 @@ function calcs.offence(env, actor, activeSkill)
 				if groundMult > 0 then
 					local CausticGroundDPSUncapped = baseVal * effectMod * rateMod * effMult * groundMult / 100
 					local CausticGroundDPSCapped = m_min(CausticGroundDPSUncapped, data.misc.DotDpsCap)
-					if PoisonDPSCapped + CausticGroundDPSCapped > data.misc.DotDpsCap then
-						CausticGroundDPSCapped = data.misc.DotDpsCap - CausticGroundDPSCapped
-					end
 					globalOutput.CausticGroundDPS = CausticGroundDPSCapped
 					globalOutput.CausticGroundFromPoison = true
 					if globalBreakdown then
 						globalBreakdown.CausticGroundDPS = {
 							s_format("%.1f ^8(每秒单次中毒伤害)", baseVal * effectMod * rateMod),
 							s_format("* %.1f%% ^8(腐蚀地面占比)", groundMult),
-							s_format("* %.3f ^8(等效加成)", effMult),
+							s_format("* %.3f ^8(效果加成)", effMult),
 							s_format("= %.1f ^8每秒", globalOutput.CausticGroundDPS)
 						}
 					end
 				end
-				local durationBase
-				if skillData.poisonDurationIsSkillDuration then
-					durationBase = skillData.duration
-				else
-					durationBase = data.misc.PoisonDurationBase
-				end
-				local durationMod = calcLib.mod(skillModList, dotCfg, "EnemyPoisonDuration", "SkillAndDamagingAilmentDuration", skillData.poisonIsSkillEffect and "Duration" or nil) * calcLib.mod(enemyDB, nil, "SelfPoisonDuration")
-				globalOutput.PoisonDuration = durationBase * durationMod / rateMod * debuffDurationMult
 				output.PoisonDamage = output.PoisonDPS * globalOutput.PoisonDuration
 				if skillData.showAverage then
 					output.TotalPoisonAverageDamage = output.HitChance / 100 * output.PoisonChance / 100 * output.PoisonDamage
 					output.TotalPoisonDPS = output.PoisonDPS
 				else
-					output.TotalPoisonStacks = output.HitChance / 100 * output.PoisonChance / 100 * globalOutput.PoisonDuration * (globalOutput.HitSpeed or globalOutput.Speed) * (skillData.dpsMultiplier or 1) * (skillData.stackMultiplier or 1) * quantityMultiplier
+					output.TotalPoisonStacks = output.HitChance / 100 * output.PoisonChance / 100 * PoisonStacks
+					if skillModList:Flag(nil, "Condition:SinglePoison") and (PoisonStacks >= 1) then
+						output.TotalPoisonStacks = 1
+					end
 					output.TotalPoisonDPS = m_min(PoisonDPSCapped * output.TotalPoisonStacks, data.misc.DotDpsCap)
 				end
 				if breakdown then
@@ -3403,18 +3562,18 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(breakdown.PoisonDPS, s_format("%.1f ^8(每秒基础伤害)", baseVal))
 						end
 						if effectMod ~= 1 then
-							t_insert(breakdown.PoisonDPS, s_format("x %.2f ^8(异常状态效果加成)", effectMod))
+							t_insert(breakdown.PoisonDPS, s_format("x %.2f ^8(异常效果加成)", effectMod))
 						end
 						if rateMod ~= 1 then
-							t_insert(breakdown.PoisonDPS, s_format("x %.2f ^8(伤害生效速率加成)", rateMod))
+							t_insert(breakdown.PoisonDPS, s_format("x %.2f ^8(伤害速率加成)", rateMod))
 						end
 						if effMult ~= 1 then
-							t_insert(breakdown.PoisonDPS, s_format("x %.3f ^8(敌人身上减益效果的等效DPS加成)", effMult))
+							t_insert(breakdown.PoisonDPS, s_format("x %.3f ^8(来自敌人debuffs的有效DPS加成)", effMult))
 						end
 						if output.PoisonDPS ~= PoisonDPSUncapped then
-							t_insert(breakdown.PoisonDPS, s_format("= %.1f ^8(未封顶的中毒DPS)", PoisonDPSUncapped))
+							t_insert(breakdown.PoisonDPS, s_format("= %.1f ^8(未溢出的中毒DPS)", PoisonDPSUncapped))
 							t_insert(breakdown.PoisonDPS, s_format("^8(中毒DPS ^1溢出 ^7 %.1f ^8:^7 %.1f%%^8)", PoisonDPSUncapped - PoisonDPSCapped, (PoisonDPSUncapped - PoisonDPSCapped) / PoisonDPSCapped * 100))
-							t_insert(breakdown.PoisonDPS, s_format("= %d ^8(实际中毒DPS)", PoisonDPSCapped))
+							t_insert(breakdown.PoisonDPS, s_format("= %d ^8(溢出中毒DPS)", PoisonDPSCapped))
 						else
 							t_insert(breakdown.PoisonDPS, s_format("= %.1f ^8每秒", output.PoisonDPS))
 						end
@@ -3427,7 +3586,7 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(globalBreakdown.PoisonDuration, s_format("x %.2f ^8(持续时间加成)", durationMod))
 						end
 						if rateMod ~= 1 then
-							t_insert(globalBreakdown.PoisonDuration, s_format("/ %.2f ^8(伤害生效速率加成)", rateMod))
+							t_insert(globalBreakdown.PoisonDuration, s_format("/ %.2f ^8(伤害速率加成)", rateMod))
 						end
 						if debuffDurationMult ~= 1 then
 							t_insert(globalBreakdown.PoisonDuration, s_format("/ %.2f ^8(更快或较慢 debuff消退)", 1 / debuffDurationMult))
@@ -3447,14 +3606,18 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(breakdown.TotalPoisonStacks, pass.label..":")
 						end
 						breakdown.multiChain(breakdown.TotalPoisonStacks, {
-							base = s_format("%.2fs ^8(中毒持续时间)", globalOutput.PoisonDuration),
+							base = { "%.2fs ^8(中毒持续时间)", globalOutput.PoisonDuration },
 							{ "%.2f ^8(中毒几率)", output.PoisonChance / 100 },
 							{ "%.2f ^8(命中几率)", output.HitChance / 100 },
 							{ "%.2f ^8(每秒击中)", globalOutput.HitSpeed or globalOutput.Speed },
-							{ "%g ^8(本技能DPS加成)", skillData.dpsMultiplier or 1 },
+							{ "%g ^8(本技能 DPS 加成)", skillData.dpsMultiplier or 1 },
+							{ "%g ^8(本技能层数加成)", skillData.stackMultiplier or 1 },
 							{ "%g ^8(本技能数量加成)", quantityMultiplier },
 							total = s_format("= %.1f", output.TotalPoisonStacks),
 						})
+						if skillModList:Flag(nil, "Condition:SinglePoison") then
+							t_insert(breakdown.TotalPoisonStacks, "Capped to 1")
+						end
 					end
 				end
 			end
@@ -3491,7 +3654,7 @@ function calcs.offence(env, actor, activeSkill)
 
 			local rateMod = (calcLib.mod(skillModList, cfg, "IgniteBurnFaster") + enemyDB:Sum("INC", nil, "SelfIgniteBurnFaster") / 100)  / calcLib.mod(skillModList, cfg, "IgniteBurnSlower")
 			local durationBase = data.misc.IgniteDurationBase
-			local durationMod = m_max(calcLib.mod(skillModList, dotCfg, "EnemyIgniteDuration", "SkillAndDamagingAilmentDuration") * calcLib.mod(enemyDB, nil, "SelfIgniteDuration"), 0)
+			local durationMod = m_max(calcLib.mod(skillModList, dotCfg, "EnemyIgniteDuration", "EnemyAilmentDuration", "EnemyElementalAilmentDuration", "SkillAndDamagingAilmentDuration") * calcLib.mod(enemyDB, nil, "SelfIgniteDuration", "SelfAilmentDuration", "SelfElementalAilmentDuration"), 0)
 			globalOutput.IgniteDuration = durationBase * durationMod / rateMod * debuffDurationMult
 			globalOutput.IgniteDuration = globalOutput.IgniteDuration > data.misc.IgniteMinDuration and globalOutput.IgniteDuration or 0
 			local igniteStacks = 1
@@ -3582,15 +3745,17 @@ function calcs.offence(env, actor, activeSkill)
 						s_format("* %.2f ^8(非暴击点燃持续伤害加成)", output.IgniteDotMulti),
 						s_format("= %.2f", sourceHitDmg),
 						s_format(""),
-						s_format("暴击时伤害计算:"),
+						s_format("暴击伤害计算:"),
 						s_format("(%.2f + (%.2f - %.2f) ^8(合并源伤害下限 + (合并源伤害上限 - 合并源伤害下限)", output.IgniteTotalMin, output.IgniteTotalMax, output.IgniteTotalMin),
 						s_format("/ 2^(1 / (%.2f + 1))) ^8(/ 2^(1 / (stack potential + 1)))", igniteStacks),
-						s_format("* %.2f ^8(非暴击点燃持续伤害加成)", output.CritIgniteDotMulti),
+						s_format("* %.2f ^8(暴击点燃持续伤害加成)", output.CritIgniteDotMulti),
 						s_format("= %.2f", sourceCritDmg),
 					}
 				end
 			end
-			local baseVal = calcAilmentDamage("Ignite", sourceHitDmg, sourceCritDmg) * data.misc.IgnitePercentBase * output.FistOfWarAilmentEffect * globalOutput.AilmentWarcryEffect
+			-- over-stacking ignite stacks increases the chance a critical ignite is present
+			local ailmentCritChance = 100 * (1 - m_pow(1 - output.CritChance / 100, igniteStacks))
+			local baseVal = calcAilmentDamage("Ignite", ailmentCritChance, sourceHitDmg, sourceCritDmg) * data.misc.IgnitePercentBase * output.FistOfWarAilmentEffect * globalOutput.AilmentWarcryEffect
 			if baseVal > 0 then
 				skillFlags.ignite = true
 				local effMult = 1
@@ -3632,16 +3797,13 @@ function calcs.offence(env, actor, activeSkill)
 					local fireEffMult = (1 - resist / 100) * (1 + takenInc / 100) * takenMore
 					local BurningGroundDPSUncapped = baseVal * effectMod * rateMod * fireEffMult * groundMult / 100
 					local BurningGroundDPSCapped = m_min(BurningGroundDPSUncapped, data.misc.DotDpsCap)
-					if IgniteDPSCapped + BurningGroundDPSCapped > data.misc.DotDpsCap then
-						BurningGroundDPSCapped = data.misc.DotDpsCap - IgniteDPSCapped
-					end
 					globalOutput.BurningGroundDPS = BurningGroundDPSCapped
 					globalOutput.BurningGroundFromIgnite = true
 					if globalBreakdown then
 						globalBreakdown.BurningGroundDPS = {
 							s_format("%.1f ^8(每秒点燃伤害)", baseVal * effectMod * rateMod),
 							s_format("* %.1f%% ^8(燃烧地面比例)", groundMult),
-							s_format("* %.3f ^8(等效加成)", fireEffMult),
+							s_format("* %.3f ^8(效果加成)", fireEffMult),
 							s_format("= %.1f ^8每秒", globalOutput.BurningGroundDPS)
 						}
 					end
@@ -3652,10 +3814,10 @@ function calcs.offence(env, actor, activeSkill)
 					output.IgniteStacksMax = maxStacks
 					output.TotalIgniteDPS = output.IgniteDPS
 				end
+
 				if breakdown then
 					t_insert(breakdown.IgniteDPS, "x 0.9 ^8(ignite deals 90% per second)")
 					t_insert(breakdown.IgniteDPS, s_format("= %.1f", baseVal, 1))
-
 					if baseVal ~= output.IgniteDPS then
 						t_insert(breakdown.IgniteDPS, "")
 						t_insert(breakdown.IgniteDPS, "点燃DPS:")
@@ -3663,7 +3825,7 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(breakdown.IgniteDPS, s_format("%.1f ^8(每秒基础伤害)", baseVal))
 						end
 						if effectMod ~= 1 then
-							t_insert(breakdown.IgniteDPS, s_format("x %.2f ^8(异常状态伤害加成)", effectMod))
+							t_insert(breakdown.IgniteDPS, s_format("x %.2f ^8(异常状态加成)", effectMod))
 						end
 						if rateMod ~= 1 then
 							t_insert(breakdown.IgniteDPS, s_format("x %.2f ^8(燃烧速率加成)", rateMod))
@@ -3672,19 +3834,19 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(breakdown.IgniteDPS, s_format("x %d ^8(点燃层数)", output.IgniteStacksMax))
 						end
 						if effMult ~= 1 then
-							t_insert(breakdown.IgniteDPS, s_format("x %.3f ^8(敌人身上减益效果的等效DPS加成)", effMult))
+							t_insert(breakdown.IgniteDPS, s_format("x %.3f ^8(来自敌人debuffs的有效DPS加成)", effMult))
 						end
 						if output.IgniteDPS ~= IgniteDPSUncapped then
-							t_insert(breakdown.IgniteDPS, s_format("= %.1f ^8(点燃DPS)", IgniteDPSUncapped))
+							t_insert(breakdown.IgniteDPS, s_format("= %.1f ^8(未溢出点燃DPS)", IgniteDPSUncapped))
 							t_insert(breakdown.IgniteDPS, s_format("^8(点燃DPS ^1溢出 ^7 %.1f ^8:^7 %.1f%%^8", IgniteDPSUncapped - IgniteDPSCapped, (IgniteDPSUncapped - IgniteDPSCapped) / IgniteDPSCapped * 100))
-							t_insert(breakdown.IgniteDPS, s_format("= %d ^8(实际点燃DPS)", IgniteDPSCapped))
+							t_insert(breakdown.IgniteDPS, s_format("= %d ^8(溢出点燃DPS)", IgniteDPSCapped))
 						else
 							t_insert(breakdown.IgniteDPS, s_format("= %.1f ^8每秒", output.IgniteDPS))
 						end
 					end
 					if output.CritIgniteDotMulti and (output.CritIgniteDotMulti ~= output.IgniteDotMulti) then
 						local chanceFromHit = output.IgniteChanceOnHit / 100 * (1 - globalOutput.CritChance / 100)
-						local chanceFromCrit = output.IgniteChanceOnCrit / 100 * output.CritChance / 100
+						local chanceFromCrit = output.IgniteChanceOnCrit / 100 * ailmentCritChance / 100
 						local totalFromHit = chanceFromHit / (chanceFromHit + chanceFromCrit)
 						local totalFromCrit = chanceFromCrit / (chanceFromHit + chanceFromCrit)
 						breakdown.IgniteDotMulti = breakdown.critDot(output.IgniteDotMulti, output.CritIgniteDotMulti, totalFromHit, totalFromCrit)
@@ -3712,7 +3874,7 @@ function calcs.offence(env, actor, activeSkill)
 						if debuffDurationMult ~= 1 then
 							t_insert(globalBreakdown.IgniteDuration, s_format("/ %.2f ^8(更快或较慢 debuff消退)", 1 / debuffDurationMult))
 						end
-						t_insert(globalBreakdown.IgniteDuration, s_format("= %.2f秒", globalOutput.IgniteDuration))
+						t_insert(globalBreakdown.IgniteDuration, s_format("= %.2fs", globalOutput.IgniteDuration))
 					end
 				end
 			end
@@ -3764,11 +3926,10 @@ function calcs.offence(env, actor, activeSkill)
 		}
 		if activeSkill.skillTypes[SkillType.ChillingArea] or activeSkill.skillTypes[SkillType.NonHitChill] then
 			skillFlags.chill = true
-			local inc = skillModList:Sum("INC", cfg, "EnemyChillEffect") + enemyDB:Sum("INC", nil, "SelfChillEffect")
-			local more = skillModList:Sum("MORE", cfg, "EnemyChillEffect") * enemyDB:Sum("MORE", nil, "SelfChillEffect")
-			output.ChillEffectMod = (1 + inc / 100) * more
-			output.ChillDurationMod = 1 + skillModList:Sum("INC", cfg, "EnemyChillDuration") / 100
-			output.ChillSourceEffect = m_min(skillModList:Override(nil, "ChillMax") or ailmentData.Chill.max, m_floor(ailmentData.Chill.default * output.ChillEffectMod))			if breakdown then
+			output.ChillEffectMod = skillModList:Sum("INC", cfg, "EnemyChillEffect")
+			output.ChillDurationMod = 1 + skillModList:Sum("INC", cfg, "EnemyChillDuration", "EnemyAilmentDuration", "EnemyElementalAilmentDuration") / 100
+			output.ChillSourceEffect = m_min(skillModList:Override(nil, "ChillMax") or ailmentData.Chill.max, m_floor(ailmentData.Chill.default * (1 + output.ChillEffectMod / 100)))
+			if breakdown then
 				breakdown.DotChill = { }
 				breakdown.multiChain(breakdown.DotChill, {
 					label = s_format("冰缓效果: ^8(最大 %d%%)", skillModList:Override(nil, "ChillMax") or ailmentData.Chill.max),
@@ -3781,13 +3942,13 @@ function calcs.offence(env, actor, activeSkill)
 		if (output.FreezeChanceOnHit + output.FreezeChanceOnCrit) > 0 then
 			if globalBreakdown then
 				globalBreakdown.FreezeDurationMod = {
-					s_format("异常计算模式: %s ^8(可以从配置界面修改)", igniteMode == "CRIT" and "暴击伤害" or "平均伤害")
+					s_format("异常计算模式: %s ^8(可以从配置界面修改)", igniteMode == "CRIT" and "Crits Only" or "Average Damage")
 				}
 			end
-			local baseVal = calcAilmentDamage("Freeze", calcAverageSourceDamage("Freeze")) * skillModList:More(cfg, "FreezeAsThoughDealing")
+			local baseVal = calcAilmentDamage("Freeze", output.CritChance, calcAverageSourceDamage("Freeze")) * skillModList:More(cfg, "FreezeAsThoughDealing")
 			if baseVal > 0 then
 				skillFlags.freeze = true
-				output.FreezeDurationMod = 1 + skillModList:Sum("INC", cfg, "EnemyFreezeDuration") / 100 + enemyDB:Sum("INC", nil, "SelfFreezeDuration") / 100
+				output.FreezeDurationMod = 1 + skillModList:Sum("INC", cfg, "EnemyFreezeDuration", "EnemyAilmentDuration", "EnemyElementalAilmentDuration") / 100 + enemyDB:Sum("INC", nil, "SelfFreezeDuration", "SelfElementalAilmentDuration", "SelfAilmentDuration") / 100
 				if breakdown then
 					t_insert(breakdown.FreezeDPS, s_format("如果要触发最短0.3 秒冰冻, 目标的冰冻门槛不能大于  %.0f.", baseVal * 20 * output.FreezeDurationMod))
 					t_insert(breakdown.FreezeDPS, s_format("^8(冰冻门槛大致等于怪物的生命，在boss身上的话是等于其生命的一半)"))
@@ -3801,11 +3962,11 @@ function calcs.offence(env, actor, activeSkill)
 						s_format("Ailment mode: %s ^8(可以在配置界面修改)", igniteMode == "CRIT" and "Crits Only" or "Average Damage")
 					}
 				end
-				local damage = calcAilmentDamage(ailment, calcAverageSourceDamage(ailment)) * skillModList:More(cfg, ailment.."AsThoughDealing")
+				local damage = calcAilmentDamage(ailment, output.CritChance, calcAverageSourceDamage(ailment)) * skillModList:More(cfg, ailment.."AsThoughDealing")
 				if damage > 0 then
 					skillFlags[string.lower(ailment)] = true
-					local incDur = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Duration") + enemyDB:Sum("INC", nil, "Self"..ailment.."Duration")
-					local moreDur = skillModList:More(cfg, "Enemy"..ailment.."Duration") * enemyDB:More(nil, "Self"..ailment.."Duration")
+					local incDur = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Duration", "EnemyElementalAilmentDuration", "EnemyAilmentDuration") + enemyDB:Sum("INC", nil, "Self"..ailment.."Duration", "SelfElementalAilmentDuration", "SelfAilmentDuration")
+					local moreDur = skillModList:More(cfg, "Enemy"..ailment.."Duration", "EnemyElementalAilmentDuration", "EnemyAilmentDuration") * enemyDB:More(nil, "Self"..ailment.."Duration", "SelfElementalAilmentDuration", "SelfAilmentDuration")
 					output[ailment.."Duration"] = ailmentData[ailment].duration * (1 + incDur / 100) * moreDur * debuffDurationMult
 					local inc = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Effect") + enemyDB:Sum("INC", nil, "Self"..ailment.."Effect")
 					local more = skillModList:Sum("MORE", cfg, "Enemy"..ailment.."Effect") * enemyDB:Sum("MORE", nil, "Self"..ailment.."Effect")
@@ -3829,7 +3990,7 @@ function calcs.offence(env, actor, activeSkill)
 						if desired > 0 and not isValueInArray(val.effList, desired) and current == 0 then
 							t_insert(val.effList, desired)
 						end
-						breakdown[ailment.."DPS"].label = "异常状态效果"..((current > 0 and val.ramping) and s_format(" ^8(敌人身上有 ^7%s%% 的 ^8%s 效果)^7", current, ailment) or "")
+						breakdown[ailment.."DPS"].label = "异常状态效果"..((current > 0 and val.ramping) and s_format(" ^8(with a ^7%s%% ^8%s on the enemy)^7", current, ailment) or "")
 						breakdown[ailment.."DPS"].footer = s_format("^8(异常状态门槛大致等于怪物的生命,在boss身上的话有特定的门槛设置)\n(以上表格表示当敌人的异常状态为 X, 你的 ^8%s 效果为 Y)", ailment:lower())
 						breakdown[ailment.."DPS"].rowList = { }
 						breakdown[ailment.."DPS"].colList = {
@@ -3870,21 +4031,22 @@ function calcs.offence(env, actor, activeSkill)
 						if isAttack then
 							t_insert(breakdown[ailment.."Duration"], pass.label..":")
 						end
-						t_insert(breakdown[ailment.."Duration"], s_format("%.2fs ^8(基础持续时间)", ailmentData[ailment].duration))
+						t_insert(breakdown[ailment.."Duration"], s_format("%.2fs ^8(base duration)", ailmentData[ailment].duration))
 						if incDur ~= 0 then
-							t_insert(breakdown[ailment.."Duration"], s_format("x %.2f ^8(提高/降低持续时间)", 1 + incDur / 100))
+							t_insert(breakdown[ailment.."Duration"], s_format("x %.2f ^8(increased/reduced duration)", 1 + incDur / 100))
 						end
 						if moreDur ~= 1 then
-							t_insert(breakdown[ailment.."Duration"], s_format("x %.2f ^8(总增/总降持续时间)", moreDur))
+							t_insert(breakdown[ailment.."Duration"], s_format("x %.2f ^8(more/less duration)", moreDur))
 						end
 						if debuffDurationMult ~= 1 then
-							t_insert(breakdown[ailment.."Duration"], s_format("/ %.2f ^8(debuff消散速度减缓/加快)", 1 / debuffDurationMult))
+							t_insert(breakdown[ailment.."Duration"], s_format("/ %.2f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
 						end
 						t_insert(breakdown[ailment.."Duration"], s_format("= %.2fs", output[ailment.."Duration"]))
 					end
 				end
 			end
 		end
+
 		-- Calculate knockback chance/distance
 		output.KnockbackChance = m_min(100, output.KnockbackChanceOnHit * (1 - output.CritChance / 100) + output.KnockbackChanceOnCrit * output.CritChance / 100 + enemyDB:Sum("BASE", nil, "SelfKnockbackChance"))
 		if output.KnockbackChance > 0 then
@@ -3923,9 +4085,10 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		-- Calculate impale chance and modifiers
-		if canDeal.Physical and output.ImpaleChance > 0 then
+		if canDeal.Physical and (output.ImpaleChance + output.ImpaleChanceOnCrit) > 0 then
 			skillFlags.impale = true
-			local impaleChance = m_min(output.ImpaleChance/100, 1)
+			local critChance = output.CritChance / 100
+			local impaleChance =  (m_min(output.ImpaleChance/100, 1) * (1 - critChance) + m_min(output.ImpaleChanceOnCrit/100, 1) * critChance)
 			local maxStacks = skillModList:Sum("BASE", cfg, "ImpaleStacksMax") -- magic number: base stacks duration
 			local configStacks = enemyDB:Sum("BASE", cfg, "Multiplier:ImpaleStacks")
 			local impaleStacks = m_min(maxStacks, configStacks)
@@ -4050,9 +4213,46 @@ function calcs.offence(env, actor, activeSkill)
 					s_format("%.2fs ^8(基础持续时间)", 8)
 				}
 				if debuffDurationMult ~= 1 then
-					t_insert(breakdown.DecayDuration, s_format("/ %.2f ^8(debuff消散速度减缓/加快)", 1 / debuffDurationMult))
+					t_insert(breakdown.DecayDuration, s_format("/ %.2f ^8(更快或较慢 debuff消退)", 1 / debuffDurationMult))
 				end
 				t_insert(breakdown.DecayDuration, s_format("= %.2f秒", output.DecayDuration))
+			end
+		end
+	end
+	
+	local baseDropsBurningGround = modDB:Sum("BASE", nil, "DropsBurningGround")
+	if baseDropsBurningGround > 0 then
+		if canDeal.Fire then
+			local dotCfg = {
+				flags = bor(ModFlag.Dot),
+				keywordFlags = 0
+			}
+			local dotTakenCfg = copyTable(dotCfg, true)
+			local dotTypeCfg = copyTable(dotCfg, true)
+			dotTypeCfg.keywordFlags = bor(dotTypeCfg.keywordFlags, KeywordFlag.FireDot)
+			local effMult = 1
+			if env.mode_effective then
+				local resist = 0
+				local takenInc = enemyDB:Sum("INC", dotTakenCfg, "DamageTaken", "DamageTakenOverTime", "FireDamageTaken", "FireDamageTakenOverTime")
+				local takenMore = enemyDB:More(dotTakenCfg, "DamageTaken", "DamageTakenOverTime", "FireDamageTaken", "FireDamageTakenOverTime")
+				if env.modDB:Flag(nil, "EnemyFireResistEqualToYours") then
+					resist = env.player.output.FireResist
+				else
+					resist = enemyDB:Sum("BASE", nil, "FireResist")
+				        local base = resist + enemyDB:Sum("BASE", dotTypeCfg, "ElementalResist")
+				        resist = base * calcLib.mod(enemyDB, nil, "FireResist")
+				        takenInc = takenInc + enemyDB:Sum("INC", dotTypeCfg, "ElementalDamageTaken")
+				end
+				resist = m_min(resist, data.misc.EnemyMaxResist)
+				effMult = (1 - resist / 100) * (1 + takenInc / 100) * takenMore
+			end
+			local inc = modDB:Sum("INC", dotTypeCfg, "Damage", "FireDamage", "ElementalDamage")
+			local more = round(modDB:More(dotTypeCfg, "Damage", "FireDamage", "ElementalDamage"), 2)
+			local mult = modDB:Sum("BASE", dotTypeCfg, "DotMultiplier", "FireDotMultiplier")
+			local total = baseDropsBurningGround * (1 + inc/100) * more * (1 + mult/100) * effMult
+			if not output.BurningGroundDPS or output.BurningGroundDPS < total then
+				output.BurningGroundDPS = total
+				output.BurningGroundFromIgnite = false
 			end
 		end
 	end
@@ -4064,7 +4264,6 @@ function calcs.offence(env, actor, activeSkill)
 		skillTypes = skillCfg.skillTypes,
 		slotName = skillCfg.slotName,
 		flags = bor(ModFlag.Dot, skillCfg.flags),
-
 		keywordFlags = band(skillCfg.keywordFlags, bnot(KeywordFlag.Hit)),
 	}
 	if bor(dotCfg.flags, ModFlag.Area) == dotCfg.flags and not skillData.dotIsArea then
@@ -4079,10 +4278,10 @@ function calcs.offence(env, actor, activeSkill)
 	if bor(dotCfg.flags, ModFlag.Attack) == dotCfg.flags and not skillData.dotIsAttack then
 		dotCfg.flags = band(dotCfg.flags, bnot(ModFlag.Attack))
 	end
-
 	if bor(dotCfg.flags, ModFlag.Hit) == dotCfg.flags and not skillData.dotIsHit then
 		dotCfg.flags = band(dotCfg.flags, bnot(ModFlag.Hit))
 	end
+
 	-- spell_damage_modifiers_apply_to_skill_dot does not apply to enemy damage taken
 	local dotTakenCfg = copyTable(dotCfg, true)
 	if (skillData.dotIsSpell) then
@@ -4163,15 +4362,15 @@ function calcs.offence(env, actor, activeSkill)
 		output.TotalDotCalcSection = output.TotalDot
 		if breakdown then
 			breakdown.TotalDot = {
-				s_format("%.1f ^8(每个实例的伤害)", output.TotalDotInstance),
-				s_format("x %.2f ^8(每秒击中次数)", speed),
+				s_format("%.1f ^8(每个实例伤害)", output.TotalDotInstance),
+				s_format("x %.2f ^8(每秒击中)", speed),
 				s_format("x %.2f ^8(技能持续时间)", output.Duration),
 			}
 			if skillData.dpsMultiplier then
-				t_insert(breakdown.TotalDot, s_format("x %g ^8(技能DPS加成)", skillData.dpsMultiplier))
+				t_insert(breakdown.TotalDot, s_format("x %g ^8(本技能 DPS 加成)", skillData.dpsMultiplier))
 			end
 			if quantityMultiplier > 1 then
-				t_insert(breakdown.TotalDot, s_format("x %g ^8(技能数量加成)", quantityMultiplier))
+				t_insert(breakdown.TotalDot, s_format("x %g ^8(本技能数量加成)", quantityMultiplier))
 			end
 			t_insert(breakdown.TotalDot, s_format("= %.1f", output.TotalDot))
 		end
@@ -4211,29 +4410,34 @@ function calcs.offence(env, actor, activeSkill)
 			local useSpeed = 1
 			local timeType
 			local isTriggered = skillData.triggeredWhileChannelling or skillData.triggeredByCoC or skillData.triggeredByMeleeKill or skillData.triggeredByCospris or skillData.triggeredByMjolner or skillData.triggeredByUnique or skillData.triggeredByFocus or skillData.triggeredByCraft or skillData.triggeredByManaSpent or skillData.triggeredByParentAttack
-			if (skillFlags.trap or skillFlags.mine) then
+			if skillFlags.trap or skillFlags.mine then
 				local preSpeed = output.TrapThrowingSpeed or output.MineLayingSpeed
-				useSpeed = (output.Cooldown and output.Cooldown > 0 and (preSpeed > 0 and preSpeed or 1 / output.Cooldown) or preSpeed) / repeats
+				local cooldown = output.TrapCooldown or output.Cooldown
+				useSpeed = (cooldown and cooldown > 0 and 1 / cooldown or preSpeed) / repeats
 				timeType = skillFlags.trap and "陷阱投掷" or "地雷放置"
+			elseif skillFlags.totem then
+				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.TotemPlacementSpeed > 0 and output.TotemPlacementSpeed or 1 / output.Cooldown) or output.TotemPlacementSpeed) / repeats
+				timeType = "完全释放"
 			elseif skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "UseMaxUnleash") then
 				useSpeed = 1 / env.player.mainSkill.skillData.hitTimeOverride / repeats
-				timeType = "完全释放"
+				timeType = "full unleash"
 			else
 				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.Speed > 0 and output.Speed or 1 / output.Cooldown) or output.Speed) / repeats
 				timeType = isTriggered and "触发" or (skillFlags.totem and "图腾放置" or skillFlags.attack and "攻击" or "施法")
 			end
 
-			output[resource.."PerSecondHasCost"] = true
-			output[resource.."PerSecondCost"] = output[resource.."Cost"] * useSpeed
+			output[usedResource.."PerSecondHasCost"] = true
+			output[usedResource.."PerSecondCost"] = output[resource.."Cost"] * useSpeed
 
 			if breakdown then
-				breakdown[resource.."PerSecondCost"] = copyTable(breakdown[resource.."Cost"])
-				t_remove(breakdown[resource.."PerSecondCost"])				
-				t_insert(breakdown[resource.."PerSecondCost"], s_format("x %.2f ^8("..timeType.." 速度)", useSpeed))
-				t_insert(breakdown[resource.."PerSecondCost"], s_format("= %.2f 每秒", output[resource.."PerSecondCost"]))
+				breakdown[usedResource.."PerSecondCost"] = copyTable(breakdown[resource.."Cost"])
+				t_remove(breakdown[usedResource.."PerSecondCost"])				
+				t_insert(breakdown[usedResource.."PerSecondCost"], s_format("x %.2f ^8("..timeType.." 速度)", useSpeed))
+				t_insert(breakdown[usedResource.."PerSecondCost"], s_format("= %.2f 每秒", output[usedResource.."PerSecondCost"]))
 			end
 		end
 	end
+
 	-- The Saviour
 	if activeSkill.activeEffect.grantedEffect.name == "反射" then
 		local usedSkill = nil
@@ -4245,7 +4449,6 @@ function calcs.offence(env, actor, activeSkill)
 				local uuid = cacheSkillUUID(triggerSkill)
 				if not GlobalCache.cachedData[calcMode][uuid] then
 					calcs.buildActiveSkill(env, calcMode, triggerSkill)
-					env.dontCache = true
 				end
 				-- We found a skill and it can crit
 				if GlobalCache.cachedData[calcMode][uuid] and GlobalCache.cachedData[calcMode][uuid].CritChance and GlobalCache.cachedData[calcMode][uuid].CritChance > 0 then
@@ -4265,7 +4468,6 @@ function calcs.offence(env, actor, activeSkill)
 		if usedSkill then
 			local moreDamage = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "SaviourMirageWarriorLessDamage")
 			local maxMirageWarriors = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "SaviourMirageWarriorMaxCount")
-
 			local newSkill, newEnv = calcs.copyActiveSkill(env, calcMode, usedSkill)
 
 			-- Add new modifiers to new skill (which already has all the old skill's modifiers)
@@ -4303,8 +4505,10 @@ function calcs.offence(env, actor, activeSkill)
 			-- Re-link over the breakdown (if present)
 			if newEnv.player.breakdown then
 				env.player.breakdown = newEnv.player.breakdown
+
 				-- Make any necessary corrections to breakdown
 				env.player.breakdown.ManaCost = nil
+
 				if newSkill.minion then
 					env.minion.breakdown = newEnv.minion.breakdown
 				end
@@ -4313,6 +4517,7 @@ function calcs.offence(env, actor, activeSkill)
 			activeSkill.infoMessage2 = "未发现救世者可用的主动技能"
 		end
 	end
+
 	-- Calculate combined DPS estimate, including DoTs
 	local baseDPS = output[(skillData.showAverage and "AverageDamage") or "TotalDPS"]
 	output.CombinedDPS = baseDPS
@@ -4394,10 +4599,10 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			t_insert(breakdown.ImpaleDPS, s_format("x %.2f ^8(穿刺伤害加成)", ((output.ImpaleModifier or 1) - 1)))
 			if skillData.dpsMultiplier then
-				t_insert(breakdown.ImpaleDPS, s_format("x %g ^8(这个技能的dps伤害加成)", skillData.dpsMultiplier))
+				t_insert(breakdown.ImpaleDPS, s_format("x %g ^8(本技能 DPS 加成)", skillData.dpsMultiplier))
 			end
 			if quantityMultiplier > 1 then
-				t_insert(breakdown.ImpaleDPS, s_format("x %g ^8(这个技能的数量加成)", quantityMultiplier))
+				t_insert(breakdown.ImpaleDPS, s_format("x %g ^8(本技能数量加成)", quantityMultiplier))
 			end
 			t_insert(breakdown.ImpaleDPS, s_format("= %.1f", output.ImpaleDPS))
 		end
@@ -4443,4 +4648,3 @@ function calcs.offence(env, actor, activeSkill)
 	output.CullingDPS = output.CombinedDPS * (bestCull - 1)
 	output.CombinedDPS = output.CombinedDPS * bestCull
 end
-

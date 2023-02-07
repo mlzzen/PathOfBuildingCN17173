@@ -61,21 +61,17 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("Condition:Burning", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "Condition", var = "Ignited" })
 	modDB:NewMod("Condition:Poisoned", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "MultiplierThreshold", var = "PoisonStack", threshold = 1 })
 	modDB:NewMod("Blind", "FLAG", true, "Base", { type = "Condition", var = "Blinded" })
-
 	modDB:NewMod("Chill", "FLAG", true, "Base", { type = "Condition", var = "Chilled" })
 	modDB:NewMod("Freeze", "FLAG", true, "Base", { type = "Condition", var = "Frozen" })
 	modDB:NewMod("Fortify", "FLAG", true, "Base", { type = "Condition", var = "Fortify" })
 	modDB:NewMod("Fortified", "FLAG", true, "Base", { type = "Condition", var = "Fortified" })
 	modDB:NewMod("Fanaticism", "FLAG", true, "Base", { type = "Condition", var = "Fanaticism" })
-
 	modDB:NewMod("Onslaught", "FLAG", true, "Base", { type = "Condition", var = "Onslaught" })
 	modDB:NewMod("UnholyMight", "FLAG", true, "Base", { type = "Condition", var = "UnholyMight" })
 	modDB:NewMod("Tailwind", "FLAG", true, "Base", { type = "Condition", var = "Tailwind" })
 	modDB:NewMod("Adrenaline", "FLAG", true, "Base", { type = "Condition", var = "Adrenaline" })
 	modDB:NewMod("AlchemistsGenius", "FLAG", true, "Base", { type = "Condition", var = "AlchemistsGenius" })
 	modDB:NewMod("LuckyHits", "FLAG", true, "Base", { type = "Condition", var = "LuckyHits" })
-
-
 	modDB:NewMod("Convergence", "FLAG", true, "Base", { type = "Condition", var = "Convergence" })
 	modDB:NewMod("PhysicalDamageReduction", "BASE", -15, "Base", { type = "Condition", var = "Crushed" })
 	modDB:NewMod("CritChanceCap", "BASE", 100, "Base")
@@ -123,8 +119,8 @@ function calcs.buildModListForNode(env, node)
 			if i == 1 then wipeTable(modList) end
 			modList:AddMod(mod.mod)
 		end
-
 	end
+
 	node.grantedSkills = { }
 	for _, skill in ipairs(modList:List(nil, "ExtraSkill")) do
 		if skill.name ~= "Unknown" then
@@ -198,9 +194,11 @@ function wipeEnv(env, accelerate)
 		wipeTable(env.minion.modDB.conditions)
 		wipeTable(env.minion.modDB.multipliers)
 	end
+
 	if accelerate.everything then
 		return
 	end
+
 	-- Passive tree node allocations
 	-- Also in a further pass tracks Legion influenced mods
 	if not accelerate.nodeAlloc then
@@ -209,6 +207,7 @@ function wipeEnv(env, accelerate)
 		wipeTable(env.grantedPassives)
 		wipeTable(env.grantedSkillsNodes)
 	end
+
 	if not accelerate.requirementsItems then
 		-- Item-related tables
 		wipeTable(env.itemModDB.mods)
@@ -238,6 +237,7 @@ function wipeEnv(env, accelerate)
 		-- Requirements from Items (Str, Dex, Int)
 		wipeTable(env.requirementsTableItems)
 	end
+
 	-- Requirements from Gems (Str, Dex, Int)
 	if not accelerate.requirementsGems then
 		wipeTable(env.requirementsTableGems)
@@ -246,6 +246,7 @@ function wipeEnv(env, accelerate)
 	if not accelerate.skills then
 		-- Player Active Skills generation
 		wipeTable(env.player.activeSkillList)
+
 		-- Enhances Active Skills with skill ModFlags, KeywordFlags
 		-- and modifiers that affect skill scaling (e.g., global buffs/effects)
 		wipeTable(env.auxSkillList)
@@ -263,14 +264,21 @@ local function applyGemMods(effect, modList)
 	for _, value in ipairs(modList) do
 		local match = true
 		if value.keywordList then
+			match = true
 			for _, keyword in ipairs(value.keywordList) do
-				if not calcLib.gemIsType(effect.gemData, keyword) then
-					match = false
-					break
+				--lucifer 解析 所有法术技能石等级之类 的时候会多出来一个空字符串和0
+				if keyword~=""  and keyword ~=0 and  keyword~="0" then 
+					if  not calcLib.gemIsType(effect.gemData, keyword) then												 
+						match = false
+						break
+					end
 				end
 			end
-		elseif not calcLib.gemIsType(effect.gemData, value.keyword) then
-			match = false
+		else
+		--lucifer
+			if keyword~=""  and keyword ~=0 and  keyword~="0" then 
+				match = calcLib.gemIsType(effect.gemData, value.keyword)
+			end
 		end
 		if match then
 			effect[value.key] = (effect[value.key] or 0) + value.value
@@ -295,7 +303,6 @@ end
 -- 5. Builds a list of active skills and their supports (calcs.createActiveSkill)
 -- 6. Builds modifier lists for all active skills (calcs.buildActiveSkillModList)
 function calcs.initEnv(build, mode, override, specEnv)
-
 	-- accelerator variables
 	local cachedPlayerDB = specEnv and specEnv.cachedPlayerDB or nil
 	local cachedEnemyDB = specEnv and specEnv.cachedEnemyDB or nil
@@ -398,7 +405,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.mode_combat = false
 		env.mode_effective = false
 	end
-
 	classStats = env.spec.tree.characterData and env.spec.tree.characterData[env.classId] or env.spec.tree.classes[env.classId]
 
 	if not cachedPlayerDB then
@@ -566,8 +572,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 			nodes = copyTable(env.spec.allocNodes, true)
 		end
 		env.allocNodes = nodes
-
 	end
+	
+	modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount, "")
+	modDB:NewMod("Multiplier:AllocatedMastery", "BASE", allocatedMasteryCount, "")
+	modDB:NewMod("Multiplier:AllocatedMasteryType", "BASE", allocatedMasteryTypeCount, "")
 
 	modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount, "")
 	modDB:NewMod("Multiplier:AllocatedMastery", "BASE", allocatedMasteryCount, "")
@@ -695,8 +704,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 					env.itemModDB.multipliers["AbyssJewel"] = (env.itemModDB.multipliers["AbyssJewel"] or 0) + 1
 					env.itemModDB.multipliers[item.baseName:gsub(" ","")] = (env.itemModDB.multipliers[item.baseName:gsub(" ","")] or 0) + 1
 				end
-				if item.type == "Shield" and env.allocNodes[45175] and env.allocNodes[45175].dn == "灵能护盾" then
-					-- Special handling for Necromantic Aegis 
+				if item.type == "Shield" and env.allocNodes[45175] and env.allocNodes[45175].dn == "Necromantic Aegis" then
+					-- Special handling for Necromantic Aegis
 					env.aegisModList = new("ModList")
 					for _, mod in ipairs(srcList) do
 						-- Filter out mods that apply to socketed gems, or which add supports
@@ -840,7 +849,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 				end
 			end
 		end
-
 		if override.toggleFlask then
 			if env.flasks[override.toggleFlask] then
 				env.flasks[override.toggleFlask] = nil
@@ -872,7 +880,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			matchedName[name].matched = true
 			local node = env.spec.tree.ascendancyMap[name]
 			if node and (not override.removeNodes or not override.removeNodes[node.id]) then
-				if env.itemModDB.conditions["禁断之肉"] == env.spec.curClassName and env.itemModDB.conditions["禁断之火"] == env.spec.curClassName then
+				if env.itemModDB.conditions["ForbiddenFlesh"] == env.spec.curClassName and env.itemModDB.conditions["ForbiddenFlame"] == env.spec.curClassName then
 					env.allocNodes[node.id] = node
 					env.grantedPassives[node.id] = true
 				end
@@ -895,10 +903,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 		end
 	end
-	
+
 	-- Merge Granted Skills Tables
 	env.grantedSkills = tableConcat(env.grantedSkillsNodes, env.grantedSkillsItems)
-
+	
 	if not accelerate.skills then
 		if env.mode == "MAIN" then
 			-- Process extra skills granted by items or tree nodes
@@ -921,7 +929,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					t_insert(build.skillsTab.socketGroupList, group)
 					markList[group] = true
 				end
-				
+
 				-- Update the group
 				group.sourceItem = grantedSkill.sourceItem
 				group.sourceNode = grantedSkill.sourceNode
@@ -955,7 +963,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				end
 				build.skillsTab:ProcessSocketGroup(group)
 			end
-			
+
 			-- Remove any socket groups that no longer have a matching item
 			local i = 1
 			while build.skillsTab.socketGroupList[i] do
@@ -1010,7 +1018,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				local groupCfg = {}
 				groupCfg.slotName = socketGroup.slot and socketGroup.slot:gsub(" Swap","")
 				local propertyModList = env.modDB:List(groupCfg, "GemProperty")
-
+				
 				-- Build list of supports for this socket group
 				local supportList = { }
 				if not socketGroup.source then
@@ -1024,7 +1032,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							grantedEffect = env.data.skills["Support"..value.skillId]
 						end
 						if grantedEffect then
-							t_insert(supportList, { 
+							t_insert(supportList, {
 								grantedEffect = grantedEffect,
 								level = value.level,
 								quality = 0,
@@ -1120,7 +1128,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 								t_insert(crossLinkedSupportList[value.targetSlotName], supportItem)
 							end
 						end
-					end	
+					end
 				end
 
 				-- Create active skills
@@ -1176,7 +1184,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 				for _, value in ipairs(env.modDB:List(groupCfg, "GroupProperty")) do
 					env.player.modDB:AddMod(modLib.setSource(value.value, groupCfg.slotName or ""))
 				end
-
 				if index == env.mainSocketGroup and #socketGroupSkillList > 0 then
 					-- Select the main skill from this socket group
 					local activeSkillIndex
@@ -1238,7 +1245,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			env.player.mainSkill = calcs.createActiveSkill(defaultEffect, { }, env.player)
 			t_insert(env.player.activeSkillList, env.player.mainSkill)
 		end
-
+		
 		-- Build skill modifier lists
 		for _, activeSkill in pairs(env.player.activeSkillList) do
 			calcs.buildActiveSkillModList(env, activeSkill)

@@ -81,7 +81,7 @@ end
 
 function BuildListClass:RenameBuild(build, copyOnName)
 	local controls = { }
-controls.label = new("LabelControl", nil, 0, 20, 0, 16, "^7输入新的 "..(build.folderName and "文件夹名:" or "Build名:"))
+	controls.label = new("LabelControl", nil, 0, 20, 0, 16, "^7输入新的 "..(build.folderName and "文件夹名:" or "Build名:"))
 	controls.edit = new("EditControl", nil, 0, 40, 350, 20, build.folderName or build.buildName, nil, "\\/:%*%?\"<>|%c", 100, function(buf)
 		controls.save.enabled = false
 		if build.folderName then
@@ -104,7 +104,7 @@ controls.label = new("LabelControl", nil, 0, 20, 0, 16, "^7输入新的 "..(buil
 			end
 		end
 	end)
-controls.save = new("ButtonControl", nil, -45, 70, 80, 20, "保存", function()
+	controls.save = new("ButtonControl", nil, -45, 70, 80, 20, "保存", function()
 		local newBuildName = controls.edit.buf
 		if build.folderName then
 			if copyOnName then
@@ -112,7 +112,7 @@ controls.save = new("ButtonControl", nil, -45, 70, 80, 20, "保存", function()
 			else
 				local res, msg = os.rename(build.fullFileName, main.buildPath..build.subPath..newBuildName)
 				if not res then
-main:OpenMessagePopup("Error", "无法重命名 '"..build.fullFileName.."' 为 '"..newBuildName.."': "..msg)
+					main:OpenMessagePopup("Error", "无法重命名 '"..build.fullFileName.."' 为 '"..newBuildName.."': "..msg)
 					return
 				end
 			end
@@ -122,13 +122,13 @@ main:OpenMessagePopup("Error", "无法重命名 '"..build.fullFileName.."' 为 '
 			if copyOnName then
 				local res, msg = copyFile(build.fullFileName, main.buildPath..build.subPath..newFileName)
 				if not res then
-main:OpenMessagePopup("Error", "无法复制Build: "..msg)
+					main:OpenMessagePopup("Error", "无法复制Build: "..msg)
 					return
 				end
 			else
 				local res, msg = os.rename(build.fullFileName, main.buildPath..build.subPath..newFileName)
 				if not res then
-main:OpenMessagePopup("Error", "无法重命名 '"..build.fullFileName.."' 为 '"..newFileName.."': "..msg)
+					main:OpenMessagePopup("Error", "无法重命名 '"..build.fullFileName.."' 为 '"..newFileName.."': "..msg)
 					return
 				end
 			end
@@ -139,21 +139,21 @@ main:OpenMessagePopup("Error", "无法重命名 '"..build.fullFileName.."' 为 '
 		self.listMode:SelectControl(self)
 	end)
 	controls.save.enabled = false
-controls.cancel = new("ButtonControl", nil, 45, 70, 80, 20, "取消", function()
+	controls.cancel = new("ButtonControl", nil, 45, 70, 80, 20, "取消", function()
 		main:ClosePopup()
 		self.listMode:SelectControl(self)
 	end)
-main:OpenPopup(370, 100, (copyOnName and "复制 " or "重命名 ")..(build.folderName and "文件夹" or "Build"), controls, "save", "edit")	
+	main:OpenPopup(370, 100, (copyOnName and "复制 " or "重命名 ")..(build.folderName and "文件夹" or "Build"), controls, "save", "edit")	
 end
 
 function BuildListClass:DeleteBuild(build)
 	if build.folderName then
 		if NewFileSearch(build.fullFileName.."/*") or NewFileSearch(build.fullFileName.."/*", true) then
-main:OpenMessagePopup("文件夹删除", "这个文件夹不为空.")
+			main:OpenMessagePopup("文件夹删除", "这个文件夹不为空.")
 		else
 			local res, msg = RemoveDir(build.fullFileName)
 			if not res then
-main:OpenMessagePopup("Error", "无法删除 '"..build.fullFileName.."': "..msg)
+				main:OpenMessagePopup("Error", "无法删除 '"..build.fullFileName.."': "..msg)
 				return
 			end
 			self.listMode:BuildList()
@@ -161,7 +161,7 @@ main:OpenMessagePopup("Error", "无法删除 '"..build.fullFileName.."': "..msg)
 			self.selValue = nil
 		end
 	else
-main:OpenConfirmPopup("删除前确认", "你确定要删除这个Build:\n"..build.buildName.."\n删除后无法还原.", "删除", function()
+		main:OpenConfirmPopup("删除前确认", "你确定要删除这个Build:\n"..build.buildName.."\n删除后无法还原.", "删除", function()
 			os.remove(build.fullFileName)
 			self.listMode:BuildList()
 			self.selIndex = nil

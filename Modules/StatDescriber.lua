@@ -1,10 +1,8 @@
-﻿-- Path of Building
+-- Path of Building
 --
 -- Module: Stat Describer
 -- Manages stat description files, and provides stat descriptions
 --
-
-
 local pairs = pairs
 local ipairs = ipairs
 local t_insert = table.insert
@@ -12,45 +10,7 @@ local s_format = string.format
 
 local scopes = { }
 
-local hideText ={
-"trap_override_pvp_scaling_time_ms",
-"base_deal_no_damage",
-"display_",
-"skill_cannot_",
-"is_area_damage",
-"base_skill_show_average_damage_instead_of_dps",
-"consolw_skill_dont_chase",
-"skill_can_add_multiple_charges_per_action",
-"skill_override_pvp_scaling_time_ms",
-"base_skill_is_mined",
-"base_skill_is_",
-"projectile_speed_variation_",
-"skill_visual_scale_",
-"spell_maximum_base_",
-"attack_maximum_added",
-"base_is_",
-"secondary_maximum_base_",
-"base_totem_range",
-"modifiers_to_totem_duration_also_affect_soul_prevention_duration",
-"ancestor_totem_parent_activiation_range",
-"cannot_cancel_skill_before_contact_point",
-"totem_ignores_vaal_skill_cost",
-"shock_art_variation",
-"ignite_art_variation",
-"visual_hit_effect",
-"arc_chain_distance",
-		"arc_enhanced_behaviour",
-		"disable_visual_hit_effect",
-		"skill_can_",
-		"override_turn_duration_ms",
-		"projectile_remove_default_spread",
-		"additional_projectiles_fired_with_distance_offset",
-		"projectile_spread_radius",
-}
 local function getScope(scopeName)
-	if scopeName == nil then 
-		return nil
-	end 
 	if not scopes[scopeName] then
 		local scope = LoadModule("Data/StatDescriptions/"..scopeName)
 		scope.name = scopeName
@@ -103,22 +63,26 @@ local function applySpecial(val, spec)
 		val[spec.v].min = val[spec.v].min / 15
 		val[spec.v].max = val[spec.v].max / 15
 	elseif spec.k == "divide_by_five" then
-		val[spec.v].min = round(val[spec.v].min / 5, 1)
-		val[spec.v].max = round(val[spec.v].max / 5, 1)
+		val[spec.v].min = val[spec.v].min / 5
+		val[spec.v].max = val[spec.v].max / 5
 		val[spec.v].fmt = "g"
 	elseif spec.k == "divide_by_six" then
-		val[spec.v].min = round(val[spec.v].min / 6, 1)
-		val[spec.v].max = round(val[spec.v].max / 6, 1)
+		val[spec.v].min = val[spec.v].min / 6
+		val[spec.v].max = val[spec.v].max / 6
+		val[spec.v].fmt = "g"
+	elseif spec.k == "divide_by_ten_1dp_if_required" then
+		val[spec.v].min = round(val[spec.v].min / 10, 1)
+		val[spec.v].max = round(val[spec.v].max / 10, 1)
 		val[spec.v].fmt = "g"
 	elseif spec.k == "divide_by_twelve" then
-		val[spec.v].min = round(val[spec.v].min / 12, 1)
-		val[spec.v].max = round(val[spec.v].max / 12, 1)
+		val[spec.v].min = val[spec.v].min / 12
+		val[spec.v].max = val[spec.v].max / 12
 		val[spec.v].fmt = "g"
 	elseif spec.k == "divide_by_one_hundred" then
-		val[spec.v].min = round(val[spec.v].min / 100, 1)
-		val[spec.v].max = round(val[spec.v].max / 100, 1)
+		val[spec.v].min = val[spec.v].min / 100
+		val[spec.v].max = val[spec.v].max / 100
 		val[spec.v].fmt = "g"
-	elseif spec.k == "divide_by_one_hundred_2dp" then
+	elseif spec.k == "divide_by_one_hundred_2dp_if_required" or spec.k == "divide_by_one_hundred_2dp" then
 		val[spec.v].min = round(val[spec.v].min / 100, 2)
 		val[spec.v].max = round(val[spec.v].max / 100, 2)
 		val[spec.v].fmt = "g"
@@ -129,6 +93,10 @@ local function applySpecial(val, spec)
 	elseif spec.k == "divide_by_twenty_then_double_0dp" then -- O_O
 		val[spec.v].min = round(val[spec.v].min / 20) * 2
 		val[spec.v].max = round(val[spec.v].max / 20) * 2
+	elseif spec.k == "divide_by_one_thousand" then
+		val[spec.v].min = val[spec.v].min / 1000
+		val[spec.v].max = val[spec.v].max / 1000
+		val[spec.v].fmt = "g"
 	elseif spec.k == "per_minute_to_per_second" then
 		val[spec.v].min = round(val[spec.v].min / 60, 1)
 		val[spec.v].max = round(val[spec.v].max / 60, 1)
@@ -201,18 +169,6 @@ local function applySpecial(val, spec)
 		ConPrintf("Unknown description function: %s", spec.k)
 	end
 end
-function ishideText(lineInfo)
-
-	for index,text in pairs(hideText) do
-		
-		if  string.starts(lineInfo,text) then 
-			return true
-		end
-	end 	
-	return false
-   
-end
-
 
 return function(stats, scopeName)
 	local rootScope = getScope(scopeName)

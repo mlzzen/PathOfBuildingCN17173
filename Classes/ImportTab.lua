@@ -86,9 +86,9 @@ return "^7角色导入状态: "..self.charImportStatus
 	end)
 	self.controls.accountHistory:SelByValue(urlDecode(main.lastAccountName))
 
-self.controls.accountNameUnicode = new("LabelControl", {"TOPLEFT",self.controls.accountRealm,"BOTTOMLEFT"}, 0, 16, 0, 14, "^7注意！你需要先去官网公开你的角色.")
-self.controls.accountNameURLEncoder = new("ButtonControl", {"TOPLEFT",self.controls.accountNameUnicode,"BOTTOMLEFT"}, 0, 4, 170, 18, "不能快速安全登录的都是假官网", function()
-OpenURL("https://poe.game.qq.com/login/tencent")
+	self.controls.accountNameUnicode = new("LabelControl", {"TOPLEFT",self.controls.accountRealm,"BOTTOMLEFT"}, 0, 16, 0, 14, "^7注意！你需要先去官网公开你的角色.")
+	self.controls.accountNameURLEncoder = new("ButtonControl", {"TOPLEFT",self.controls.accountNameUnicode,"BOTTOMLEFT"}, 0, 4, 170, 18, "不能快速安全登录的都是假官网", function()
+		OpenURL("https://poe.game.qq.com/login/tencent")
 	end)
 
 	-- Stage: input POESESSID
@@ -322,7 +322,7 @@ function ImportTabClass:DownloadCharacterList()
 	self.charImportStatus = "正在获取角色列表..."
 	local accountName = urlEncode(self.controls.accountName.buf)
 	local realm = realmList[self.controls.accountRealm.selIndex]
-	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and 		main.gameAccounts[accountName].sessionID)
+	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and main.gameAccounts[accountName].sessionID)
 	launch:DownloadPage("https://poe.game.qq.com/character-window/get-characters?accountName="..accountName.."&realm="..realm.realmCode, function(page, errMsg)
 		if errMsg == "Response code: 403" then
 			self.charImportStatus = colorCodes.NEGATIVE.."角色没有公开."
@@ -448,7 +448,8 @@ function ImportTabClass:DownloadPassiveTree()
 	self.charImportStatus = "获取角色天赋树信息中..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
 	local accountName = self.controls.accountName.buf
-	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and main.gameAccounts[accountName].sessionID)
+	local encodeName = urlEncode(accountName)
+	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[encodeName] and main.gameAccounts[encodeName].sessionID)
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
 	launch:DownloadPage("https://poe.game.qq.com/character-window/get-passive-skills?accountName="..accountName.."&character="..charData.name.."&realm="..realm.realmCode, function(page, errMsg)
@@ -475,7 +476,8 @@ function ImportTabClass:DownloadItems()
 	self.charImportStatus = "获取角色装备中..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
 	local accountName = self.controls.accountName.buf
-	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and main.gameAccounts[accountName].sessionID)
+	local encodeName = urlEncode(accountName)
+	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[encodeName] and main.gameAccounts[encodeName].sessionID)
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
 	launch:DownloadPage("https://poe.game.qq.com/character-window/get-items?accountName="..accountName.."&character="..charData.name.."&realm="..realm.realmCode, function(page, errMsg)

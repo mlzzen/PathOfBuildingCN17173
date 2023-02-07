@@ -4,8 +4,6 @@
 -- Passive tree spec class.
 -- Manages node allocation and pathing for a given passive spec
 --
---local launch, main = ...
-
 local pairs = pairs
 local ipairs = ipairs
 local t_insert = table.insert
@@ -15,13 +13,9 @@ local m_max = math.max
 local m_floor = math.floor
 local b_lshift = bit.lshift
 
-
-local _build=nil
-
-
 local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, build, treeVersion)
 	self.UndoHandler()
-	_build=build;
+
 	self.build = build
 	self.treeVersion = treeVersion
 	self.tree = main:LoadTree(treeVersion)
@@ -46,6 +40,7 @@ local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, b
 	-- List of currently allocated nodes
 	-- Keys are node IDs, values are nodes
 	self.allocNodes = { }
+
 	-- List of nodes allocated in subgraphs; used to maintain allocation when loading, and when rebuilding subgraphs
 	self.allocSubgraphNodes = { }
 
@@ -62,9 +57,10 @@ local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, b
 
 	-- Keys are mastery node IDs, values are mastery effect IDs
 	self.masterySelections = { }
-	
+
 	self:SelectClass(0)
 end)
+
 function PassiveSpecClass:Load(xml, dbFileName)
 	self.title = xml.attrib.title
 	local url
@@ -123,45 +119,6 @@ function PassiveSpecClass:Load(xml, dbFileName)
 	elseif url then
 		self:DecodeURL(url)
 	end
-	for _, node in pairs(xml) do
-		if type(node) == "table" then
-			if node.elem == "EditedNodes" then
-				for _, child in ipairs(node) do
-					if not child.attrib.nodeId then
-						launch:ShowErrMsg("^1Error parsing '%s': 'EditedNode' element missing 'nodeId' attribute", dbFileName)
-						return true
-					end
-					if not child.attrib.editorSeed then
-						launch:ShowErrMsg("^1Error parsing '%s': 'EditedNode' element missing 'editorSeed' attribute", dbFileName)
-						return true
-					end
-
-					local editorSeed = tonumber(child.attrib.editorSeed)
-					local nodeId = tonumber(child.attrib.nodeId)
-					if not self.tree.legion.editedNodes then
-						self.tree.legion.editedNodes = { }
-					end
-					if not self.tree.legion.editedNodes[editorSeed] then
-						self.tree.legion.editedNodes[editorSeed] = { }
-					end
-					self.tree.legion.editedNodes[editorSeed][nodeId] = copyTable(self.nodes[nodeId], true)
-					self.tree.legion.editedNodes[editorSeed][nodeId].id = nodeId
-					self.tree.legion.editedNodes[editorSeed][nodeId].dn = child.attrib.nodeName
-					self.tree.legion.editedNodes[editorSeed][nodeId].icon = child.attrib.icon
-					if self.tree.legion.nodes[child.attrib.spriteId] then
-						self.tree.legion.editedNodes[editorSeed][nodeId].sprites = self.tree.legion.nodes[child.attrib.spriteId].sprites
-					end
-					local modCount = 0
-					for _, modLine in ipairs(child) do
-						for line in string.gmatch(modLine .. "\r\n", "([^\r\n\t]*)\r?\n") do
-							self:NodeAdditionOrReplacementFromString(self.tree.legion.editedNodes[editorSeed][nodeId], line, modCount == 0)
-							modCount = modCount + 1
-						end
-					end
-				end
-			end
-		end
-	end
 	self:ResetUndo()
 end
 
@@ -174,29 +131,6 @@ function PassiveSpecClass:Save(xml)
 	for mastery, effect in pairs(self.masterySelections) do
 		t_insert(masterySelections, "{"..mastery..","..effect.."}")
 	end
-	local editedNodes = {
-		elem = "EditedNodes"
-	}
-	if self.tree.legion.editedNodes then
-		for seed, nodes in pairs(self.tree.legion.editedNodes) do
-			for nodeId, node in pairs(nodes) do
-				local editedNode = { elem = "EditedNode", attrib = { nodeId = tostring(nodeId), editorSeed = tostring(seed), nodeName = node.dn, icon = node.icon, spriteId = node.spriteId } }
-				for _, modLine in ipairs(node.sd) do
-					t_insert(editedNode, modLine)
-				end
-				-- Do not save current editedNode data unless the current node is conquered
-				if self.nodes[nodeId] and self.nodes[nodeId].conqueredBy then
-					-- Do not save current editedNode data unless the current node is allocated
-					for allocNodeId in pairs(self.allocNodes) do
-						if nodeId == allocNodeId then
-							t_insert(editedNodes, editedNode)
-						end
-					end
-				end
-			end
-		end
-	end
-	t_insert(xml, editedNodes)
 	xml.attrib = { 
 		title = self.title,
 		treeVersion = self.treeVersion,
@@ -207,9 +141,9 @@ function PassiveSpecClass:Save(xml)
 		masteryEffects = table.concat(masterySelections, ",")
 	}
 	t_insert(xml, {
-	-- Legacy format
+		-- Legacy format
 		elem = "URL", 
-[1] = self:EncodeURL("https://poe.game.qq.com/passive-skill-tree/")
+		[1] = self:EncodeURL("https://poe.game.qq.com/passive-skill-tree/")
 	})
 
 	local sockets = {
@@ -224,16 +158,11 @@ function PassiveSpecClass:Save(xml)
 	end
 	t_insert(xml, sockets)
 
-	self.modFlag = false
 end
 
 function PassiveSpecClass:PostLoad()
-	-- This will also rebuild paths
 	self:BuildClusterJewelGraphs()
-	 
 end
-
-
 
 -- Import passive spec from the provided class IDs and node hash list
 function PassiveSpecClass:ImportFromNodeList(classId, ascendClassId, hashList, masteryEffects)
@@ -292,8 +221,14 @@ function PassiveSpecClass:AllocateMasteryEffects(masteryEffects)
 		self.masterySelections[id] = effectId
 		self.allocatedMasteryCount = self.allocatedMasteryCount + 1
 		if not self.allocatedMasteryTypes[self.allocNodes[id].name] then
-			self.allocatedMasteryTypes[self.allocNodes[id].name] = true
+			self.allocatedMasteryTypes[self.allocNodes[id].name] = 1
 			self.allocatedMasteryTypeCount = self.allocatedMasteryTypeCount + 1
+		else
+			local prevCount = self.allocatedMasteryTypes[self.allocNodes[id].name]
+			self.allocatedMasteryTypes[self.allocNodes[id].name] = prevCount + 1
+			if prevCount == 0 then
+				self.allocatedMasteryTypeCount = self.allocatedMasteryTypeCount + 1
+			end
 		end
 	end
 end
@@ -444,7 +379,7 @@ function PassiveSpecClass:SelectAscendClass(ascendClassId)
 end
 
 -- Determines if the given class's start node is connected to the current class's start node
--- Attempts to find a path between the nodes which doesn't pass through any ascendancy nodes (i.e Ascendant)
+-- Attempts to find a path between the nodes which doesn't pass through any ascendancy nodes (i.e. Ascendant) 
 function PassiveSpecClass:IsClassConnected(classId)
 	for _, other in ipairs(self.nodes[self.tree.classes[classId].startNodeId].linked) do
 		-- For each of the nodes to which the given class's start node connects...
@@ -458,9 +393,9 @@ function PassiveSpecClass:IsClassConnected(classId)
 			end
 			other.visited = false
 			if found then
-				-- Found a path, so the given class's start node is definately connected to the current class's start node
+				-- Found a path, so the given class's start node is definitely connected to the current class's start node
 				-- There might still be nodes which are connected to the current tree by an entirely different path though
-				-- E.g via Ascendant or by connecting to another "first passive node"
+				-- E.g. via Ascendant or by connecting to another "first passive node"
 				return true
 			end
 		end
@@ -469,9 +404,7 @@ function PassiveSpecClass:IsClassConnected(classId)
 end
 
 -- Clear the allocated status of all non-class-start nodes
---重置天赋节点
 function PassiveSpecClass:ResetNodes()
-	
 	for id, node in pairs(self.nodes) do
 		if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" then
 			node.alloc = false
@@ -481,11 +414,6 @@ function PassiveSpecClass:ResetNodes()
 	wipeTable(self.masterySelections)
 end
 
-function PassiveSpecClass:getAllocNodes()
-	
-	return self.allocNodes;
-end 
-
 -- Allocate the given node, if possible, and all nodes along the path to the node
 -- An alternate path to the node may be provided, otherwise the default path will be used
 -- The path must always contain the given node, as will be the case for the default path
@@ -494,10 +422,9 @@ function PassiveSpecClass:AllocNode(node, altPath)
 		-- Node cannot be connected to the tree as there is no possible path
 		return
 	end
-	
+
 	-- Allocate all nodes along the path
-	if node.dependsOnIntuitiveLeapLike  then
-		
+	if node.dependsOnIntuitiveLeapLike then
 		node.alloc = true
 		self.allocNodes[node.id] = node
 	else
@@ -518,7 +445,7 @@ function PassiveSpecClass:AllocNode(node, altPath)
 		end
 	end
 
-	-- Rebuild all dependancies and paths for all allocated nodes
+	-- Rebuild all dependencies and paths for all allocated nodes
 	self:BuildAllDependsAndPaths()
 end
 
@@ -531,13 +458,13 @@ function PassiveSpecClass:DeallocSingleNode(node)
 	end
 end
 
--- Deallocate the given node, and all nodes which depend on it (i.e which are only connected to the tree through this node)
+-- Deallocate the given node, and all nodes which depend on it (i.e. which are only connected to the tree through this node)
 function PassiveSpecClass:DeallocNode(node)
 	for _, depNode in ipairs(node.depends) do
 		self:DeallocSingleNode(depNode)
 	end
 
-	-- Rebuild all paths and dependancies for all allocated nodes
+	-- Rebuild all paths and dependencies for all allocated nodes
 	self:BuildAllDependsAndPaths()
 end
 
@@ -567,7 +494,6 @@ function PassiveSpecClass:FindStartFromNode(node, visited, noAscend)
 	-- Mark the current node as visited so we don't go around in circles
 	node.visited = true
 	t_insert(visited, node)
-
 	-- For each node which is connected to this one, check if...
 	for _, other in ipairs(node.linked) do
 		-- Either:
@@ -576,7 +502,7 @@ function PassiveSpecClass:FindStartFromNode(node, visited, noAscend)
 		local startIndex = #visited + 1
 		if other.alloc and 
 		  (other.type == "ClassStart" or other.type == "AscendClassStart" or 
-		  	(not other.visited and node.type ~= "Mastery" and self:FindStartFromNode(other, visited, noAscend))
+		    (not other.visited and node.type ~= "Mastery" and self:FindStartFromNode(other, visited, noAscend))
 		  ) then
 			if node.ascendancyName and not other.ascendancyName then
 				-- Pathing out of Ascendant, un-visit the outside nodes
@@ -615,8 +541,7 @@ function PassiveSpecClass:BuildPathFromNode(root)
 		o = o + 1
 		local curDist = node.pathDist + 1
 		-- Iterate through all nodes that are connected to this one
-		if node.linked ~=nil then 
-			for _, other in ipairs(node.linked) do
+		for _, other in ipairs(node.linked) do
 			-- Paths must obey these rules:
 			-- 1. They must not pass through class or ascendancy class start nodes (but they can start from such nodes)
 			-- 2. They cannot pass between different ascendancy classes or between an ascendancy class and the main tree
@@ -639,10 +564,7 @@ function PassiveSpecClass:BuildPathFromNode(root)
 				i = i + 1
 			end
 		end
-		end 
-		
 	end
-	
 end
 
 -- Determine this node's distance from the class' start
@@ -708,11 +630,11 @@ end
 function PassiveSpecClass:BuildAllDependsAndPaths()
 	-- This table will keep track of which nodes have been visited during each path-finding attempt
 	local visited = { }
-	local attributes = { "敏捷", "智慧", "力量" }
-	-- Check all nodes for other nodes which depend on them (i.e are only connected to the tree through that node)
+	local attributes = { "Dexterity", "Intelligence", "Strength" }
+	-- Check all nodes for other nodes which depend on them (i.e. are only connected to the tree through that node)
 	for id, node in pairs(self.nodes) do
 		node.depends = wipeTable(node.depends)
-		node.dependsOnIntuitiveLeapLike  = false
+		node.dependsOnIntuitiveLeapLike = false
 		node.conqueredBy = nil
 
 		-- ignore cluster jewel nodes that don't have an id in the tree
@@ -720,7 +642,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			self:ReplaceNode(node,self.tree.nodes[id])
 		end
 
-		if node.type ~= "ClassStart" and node.type ~= "Socket" then
+		if node.type ~= "ClassStart" and node.type ~= "Socket" and not node.ascendancyName then
 			for nodeId, itemId in pairs(self.jewels) do
 				local item = self.build.itemsTab.items[itemId]
 				if item and item.jewelRadiusIndex and self.allocNodes[nodeId] and item.jewelData then
@@ -757,6 +679,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			node.depends[1] = node -- All nodes depend on themselves
 		end
 	end
+
 	for id, node in pairs(self.nodes) do
 		-- If node is conquered, replace it or add mods
 		if node.conqueredBy and node.type ~= "Socket" then
@@ -950,9 +873,15 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 				node.reminderText = { "提示: 鼠标右键单击选择其他效果" }
 				self.tree:ProcessStats(node)
 				self.allocatedMasteryCount = self.allocatedMasteryCount + 1
-				if not self.allocatedMasteryTypes[node.name] then
-					self.allocatedMasteryTypes[node.name] = true
+				if not self.allocatedMasteryTypes[self.allocNodes[id].name] then
+					self.allocatedMasteryTypes[self.allocNodes[id].name] = 1
 					self.allocatedMasteryTypeCount = self.allocatedMasteryTypeCount + 1
+				else
+					local prevCount = self.allocatedMasteryTypes[self.allocNodes[id].name]
+					self.allocatedMasteryTypes[self.allocNodes[id].name] = prevCount + 1
+					if prevCount == 0 then
+						self.allocatedMasteryTypeCount = self.allocatedMasteryTypeCount + 1
+					end
 				end
 			else
 				self.nodes[id].alloc = false
@@ -967,17 +896,15 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 
 	for id, node in pairs(self.allocNodes) do
 		node.visited = true
-
 		local anyStartFound = (node.type == "ClassStart" or node.type == "AscendClassStart")
-		if node.linked ~= nil then 
-				for _, other in ipairs(node.linked) do
+		for _, other in ipairs(node.linked) do
 			if other.alloc and not isValueInArray(node.depends, other) then
-				-- The other node is allocated and isn't already dependant on this node, so try and find a path to a start node through it
+				-- The other node is allocated and isn't already dependent on this node, so try and find a path to a start node through it
 				if other.type == "ClassStart" or other.type == "AscendClassStart" then
 					-- Well that was easy!
 					anyStartFound = true
 				elseif self:FindStartFromNode(other, visited) then
-					-- We found a path through the other node, therefore the other node cannot be dependant on this node
+					-- We found a path through the other node, therefore the other node cannot be dependent on this node
 					anyStartFound = true
 					for i, n in ipairs(visited) do
 						n.visited = false
@@ -1022,8 +949,6 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 				end
 			end
 		end
-		end 
-	
 		node.visited = false
 		if not anyStartFound then
 			-- No start nodes were found through ANY nodes
@@ -1094,6 +1019,7 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
 	old.spriteId = newNode.spriteId
 	old.reminderText = newNode.reminderText or { }
 end
+
 ---Reconnects altered timeless jewel to class start, for Pure Talent
 ---@param node table @ The node to add the Condition:ConnectedTo[Class] flag to, if applicable
 function PassiveSpecClass:ReconnectNodeToClassStart(node)
@@ -1124,6 +1050,7 @@ function PassiveSpecClass:BuildClusterJewelGraphs()
 		t_remove(subGraph.parentSocket.linked, index)
 	end
 	wipeTable(self.subGraphs)
+
 	local importedGroups = { }
 	local importedNodes = { }
 	if self.jewel_data then
@@ -1138,14 +1065,10 @@ function PassiveSpecClass:BuildClusterJewelGraphs()
 			end
 		end
 	end
-
 	for nodeId in pairs(self.tree.sockets) do
 		local node = self.tree.nodes[nodeId]
 		local jewel = self:GetJewel(self.jewels[nodeId])
-	
-		
 		if node and node.expansionJewel and node.expansionJewel.size == 2 and jewel and jewel.jewelData.clusterJewelValid then
-			
 			-- This is a Large Jewel Socket, and it has a cluster jewel in it
 			self:BuildSubgraph(jewel, self.nodes[nodeId], nil, nil, importedNodes, importedGroups)
 		end
@@ -1163,6 +1086,7 @@ function PassiveSpecClass:BuildClusterJewelGraphs()
 		end
 	end
 	wipeTable(self.allocSubgraphNodes)
+
 	-- Rebuild paths to account for new/removed nodes
 	self:BuildAllDependsAndPaths()
 
@@ -1171,7 +1095,6 @@ function PassiveSpecClass:BuildClusterJewelGraphs()
 end
 
 function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importedNodes, importedGroups)
-
 	local expansionJewel = parentSocket.expansionJewel
 	local clusterJewel = jewel.clusterJewel
 	local jewelData = jewel.jewelData
@@ -1197,7 +1120,9 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 		id = id + b_lshift(expansionJewel.index, 9)
 	end
 	local nodeId = id + b_lshift(clusterJewel.sizeIndex, 4)
+
 	self.subGraphs[nodeId] = subGraph
+
 	-- Locate the proxy group
 	local proxyNode = self.tree.nodes[tonumber(expansionJewel.proxy)]
 	assert(proxyNode, "代理节点未找到")
@@ -1227,6 +1152,7 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 			t_insert(subGraph.connectors, connectors[2])
 		end
 	end
+
 	local function matchGroup(proxyId)
 		for groupId, groupData in pairs(importedGroups) do
 			if groupData.proxy == proxyId then
@@ -1295,6 +1221,7 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 		end
 		return
 	end
+
 	local function findSocket(group, index)
 		-- Find the given socket index in the group
 		for _, nodeId in ipairs(group.n) do
@@ -1387,14 +1314,13 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 		t_insert(subGraph.nodes, node)
 		indicies[nodeIndex] = node
 	end
-	
+
 	-- First pass: sockets
 	if clusterJewel.size == "Large" and socketCount == 1 then
 		-- Large clusters always have the single jewel at index 6
 		makeJewel(6, 1)
 	else
 		assert(socketCount <= #clusterJewel.socketIndicies, "珠宝插槽过多!")
-		 
 		local getJewels = { 0, 2, 1 }
 		for i = 1, socketCount do
 			makeJewel(clusterJewel.socketIndicies[i], getJewels[i])
@@ -1402,6 +1328,7 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 	end
 
 	-- Second pass: notables
+
 	-- Gather notable indicies
 	local notableIndexList = { }
 	for _, nodeIndex in ipairs(clusterJewel.notableIndicies) do
@@ -1439,7 +1366,7 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 			-- Silently fail to handle cases of jewels with more notables than should be allowed
 			break
 		end
-		
+
 		-- Construct the new node
 		local node = {
 			type = "Notable",
@@ -1510,7 +1437,7 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 
 	assert(indicies[0], "没有子天赋群的入口点")
 	subGraph.entranceNode = indicies[0]
-	
+
 	-- The nodes' oidx values we just calculated are all relative to the totalIndicies properties of Data/ClusterJewels,
 	-- but the PassiveTree rendering logic treats node.oidx as relative to the tree.skillsPerOrbit constants. Those used
 	-- to be the same, but as of 3.17 they can differ, so we need to translate the ClusterJewels-relative indices into
@@ -1547,7 +1474,7 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 		node.power = { }
 		self.tree:ProcessNode(node)
 		--增加的小天赋效果提高 #% 只对小天赋
-		if node and node.type == "Normal" and  node.modList and jewelData.clusterJewelIncEffect then
+		if node.modList and jewelData.clusterJewelIncEffect and node.type == "Normal" then
 			node.modList:NewMod("PassiveSkillEffect", "INC", jewelData.clusterJewelIncEffect)
 		end
 	end
@@ -1573,7 +1500,7 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 	linkNodes(subGraph.entranceNode, parentSocket)
 
 	-- Add synthetic nodes to the main node list
-	for _, node in ipairs(subGraph.nodes) do		
+	for _, node in ipairs(subGraph.nodes) do
 		self.nodes[node.id] = node
 		if addToAllocatedSubgraphNodes(node) then
 			t_insert(self.allocSubgraphNodes, node.id)
@@ -1589,8 +1516,6 @@ function PassiveSpecClass:BuildSubgraph(jewel, parentSocket, id, upSize, importe
 
 	--ConPrintTable(subGraph)
 end
-
-
 
 function PassiveSpecClass:CreateUndoState()
 	local allocNodeIdList = { }
@@ -1613,57 +1538,9 @@ function PassiveSpecClass:RestoreUndoState(state)
 	self:ImportFromNodeList(state.classId, state.ascendClassId, state.hashList, state.masteryEffects)
 	self:SetWindowTitleWithBuildClass()
 end
- 
-function table.shallow_copy(t)
-
-	if t==nil then
-		return nil;
-	end 
-  local t2 = {}
-  for k,v in pairs(t) do
-    t2[k] = v
-  end
-  return t2
-end
-
-function PassiveSpecClass:hasDiyMod(theModList)
-
-if  theModList then
-	for i = 1, #theModList do
-		local  themod=theModList[i]
-		if themod and  themod.isDIY and themod.isDIY==1 then 		
-			return true
-		end 
-		 
-	end
-end 
-return false
-
-end
-
-function PassiveSpecClass:hasDiyModItem(theModItem)
-if  theModItem then 		 
-		if   theModItem.isDIY and theModItem.isDIY==1 then 		 
-			return true
-		end 
-end 
-return false
-end
-
-
-
-
-
-local PathJewelList={"Split Personality"}
-
-
-
-
 
 function PassiveSpecClass:SetWindowTitleWithBuildClass()
-
 	main:SetWindowTitleSubtext(string.format("%s (%s)", self.build.buildName, self.curAscendClassId == 0 and self.curClassName or self.curAscendClassName))
-	
 end
 
 --- Adds a line to or replaces a node given a line to add/replace with

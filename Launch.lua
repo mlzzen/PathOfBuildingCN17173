@@ -81,7 +81,7 @@ function launch:OnInit()
 
 	if not self.devMode and not firstRunFile then
 		-- Run a background update check if developer mode is off
-		self:CheckForUpdate(true)
+		-- self:CheckForUpdate(true)
 	end
 end
 
@@ -130,7 +130,7 @@ function launch:OnFrame()
 	end
 	if not self.devMode and (GetTime() - self.lastUpdateCheck) > 1000*60*60*12 then
 		-- Do an update check every 12 hours if the user keeps the program open
-		self:CheckForUpdate(true)
+		-- self:CheckForUpdate(true)
 	end
 end
 
@@ -143,7 +143,7 @@ function launch:OnKeyDown(key, doubleClick)
 		ConPrintf("%dkB => %dkB", before, collectgarbage("count"))
 	elseif key == "u" and IsKeyDown("CTRL") then
 		if not self.devMode then
-			self:CheckForUpdate()
+			-- self:CheckForUpdate()
 		end
 	elseif self.promptMsg then
 		self:RunPromptFunc(key)

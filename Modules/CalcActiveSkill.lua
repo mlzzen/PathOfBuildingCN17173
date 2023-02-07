@@ -47,12 +47,12 @@ local function mergeLevelMod(modList, mod, value)
 		modList:AddMod(mod)
 	end
 end
- 
+
 -- Merge skill modifiers with given mod list
 function calcs.mergeSkillInstanceMods(env, modList, skillEffect, extraStats)
 	calcLib.validateGemLevel(skillEffect)
 	local grantedEffect = skillEffect.grantedEffect	
-	local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect,false)
+	local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect)
 	if extraStats and extraStats[1] then
 		for _, stat in pairs(extraStats) do
 			stats[stat.key] = (stats[stat.key] or 0) + stat.value
@@ -62,7 +62,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, extraStats)
 		local map = grantedEffect.statMap[stat]
 		if map then
 			for _, mod in ipairs(map) do
-				mergeLevelMod(modList, mod, map.value or statValue * (map.mult or 1) / (map.div or 1))
+				mergeLevelMod(modList, mod, map.value or statValue * (map.mult or 1) / (map.div or 1) + (map.base or 0))
 			end
 		end
 	end
@@ -97,14 +97,36 @@ function calcs.createActiveSkill(activeEffect, supportList, actor, socketGroup, 
 
 	-- Process support skills
 	activeSkill.effectList = { activeEffect }
-	for _, supportEffect in ipairs(supportList) do
+	local rejectedSupportsIndices = {}
+
+	for index, supportEffect in ipairs(supportList) do
 		-- Pass 1: Add skill types from compatible supports
 		if calcLib.canGrantedEffectSupportActiveSkill(supportEffect.grantedEffect, activeSkill) then
 			for _, skillType in pairs(supportEffect.grantedEffect.addSkillTypes) do
 				activeSkill.skillTypes[skillType] = true
 			end
+		else
+			t_insert(rejectedSupportsIndices, index)
 		end
 	end
+
+	-- loop over rejected supports until none are added.
+	-- Makes sure that all skillType flags that should be added are added regardless of support gem order in group
+	local notAddedNewSupport = true
+	repeat
+		notAddedNewSupport = true
+		for index, supportEffectIndex in ipairs(rejectedSupportsIndices) do
+			local supportEffect = supportList[supportEffectIndex]
+			if calcLib.canGrantedEffectSupportActiveSkill(supportEffect.grantedEffect, activeSkill) then
+				notAddedNewSupport = false
+				rejectedSupportsIndices[index] = nil
+				for _, skillType in pairs(supportEffect.grantedEffect.addSkillTypes) do
+					activeSkill.skillTypes[skillType] = true
+				end
+			end
+		end
+	until (notAddedNewSupport)
+	
 	for _, supportEffect in ipairs(supportList) do
 		-- Pass 2: Add all compatible supports
 		if calcLib.canGrantedEffectSupportActiveSkill(supportEffect.grantedEffect, activeSkill) then
@@ -127,7 +149,7 @@ end
 -- Copy an Active Skill
 function calcs.copyActiveSkill(env, mode, skill)
 	local newSkill = calcs.createActiveSkill(skill.activeEffect, skill.supportList, skill.actor, skill.socketGroup, skill.summonSkill)
-	local newEnv, _, _, _ = calcs.initEnv(env.build, mode)
+	local newEnv, _, _, _ = calcs.initEnv(env.build, mode, env.override)
 	calcs.buildActiveSkillModList(newEnv, newSkill)
 	newSkill.skillModList = new("ModList", newSkill.baseSkillModList)
 	if newSkill.minion then
@@ -138,15 +160,20 @@ function calcs.copyActiveSkill(env, mode, skill)
 	end
 	return newSkill, newEnv
 end
+
 -- Get weapon flags and info for given weapon
 local function getWeaponFlags(env, weaponData, weaponTypes)
 	local info = env.data.weaponTypeInfo[weaponData.type]
 	if not info then
 		return
 	end
-	if weaponTypes and not weaponTypes[weaponData.type] and 
-		(not weaponData.countsAsAll1H or not (weaponTypes["Claw"] or weaponTypes["Dagger"] or weaponTypes["One Handed Axe"] or weaponTypes["One Handed Mace"] or weaponTypes["One Handed Sword"])) then
-		return nil, info
+	if weaponTypes then
+		for _, types in ipairs(weaponTypes) do
+			if not types[weaponData.type] and
+			(not weaponData.countsAsAll1H or not (types["Claw"] or types["Dagger"] or types["One Handed Axe"] or types["One Handed Mace"] or types["One Handed Sword"])) then
+				return nil, info
+			end
+		end
 	end
 	local flags = ModFlag[info.flag]
 	if weaponData.countsAsAll1H then
@@ -174,7 +201,8 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	local skillFlags = activeSkill.skillFlags
 	local activeEffect = activeSkill.activeEffect
 	local activeGrantedEffect = activeEffect.grantedEffect
-	 
+	local effectiveRange = 0
+
 	-- Set mode flags
 	if env.mode_buffs then
 		skillFlags.buffs = true
@@ -211,50 +239,60 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	if (skillTypes[SkillType.RequiresShield] or skillFlags.shieldAttack) and not activeSkill.summonSkill and (not activeSkill.actor.itemList["Weapon 2"] or activeSkill.actor.itemList["Weapon 2"].type ~= "Shield") then
 		-- Skill requires a shield to be equipped
 		skillFlags.disable = true
-activeSkill.disableReason = "这个技能需要装备盾牌"
+		activeSkill.disableReason = "这个技能需要装备盾牌"
 	end
 
 	if skillFlags.shieldAttack then
 		-- Special handling for Spectral Shield Throw
 		skillFlags.weapon2Attack = true
 		activeSkill.weapon2Flags = 0
-	elseif skillFlags.attack then
+	else
 		-- Set weapon flags
-		local weaponTypes = activeGrantedEffect.weaponTypes
+		local weaponTypes = { activeGrantedEffect.weaponTypes }
+		for _, skillEffect in pairs(activeSkill.effectList) do
+			if skillEffect.grantedEffect.support and skillEffect.grantedEffect.weaponTypes then
+				t_insert(weaponTypes, skillEffect.grantedEffect.weaponTypes)
+			end
+		end
 		local weapon1Flags, weapon1Info = getWeaponFlags(env, activeSkill.actor.weaponData1, weaponTypes)
 		if not weapon1Flags and activeSkill.summonSkill then
 			-- Minion skills seem to ignore weapon types
 			weapon1Flags, weapon1Info = ModFlag[env.data.weaponTypeInfo["None"].flag], env.data.weaponTypeInfo["None"]
 		end
 		if weapon1Flags then
-			activeSkill.weapon1Flags = weapon1Flags
-			skillFlags.weapon1Attack = true
-			if weapon1Info.melee and skillFlags.melee then
-				skillFlags.projectile = nil
-			elseif not weapon1Info.melee and skillFlags.projectile then
-				skillFlags.melee = nil
+			if skillFlags.attack then
+				activeSkill.weapon1Flags = weapon1Flags
+				skillFlags.weapon1Attack = true
+				if weapon1Info.melee and skillFlags.melee then
+					skillFlags.projectile = nil
+				elseif not weapon1Info.melee and skillFlags.projectile then
+					skillFlags.melee = nil
+				end
 			end
 		elseif skillTypes[SkillType.DualWieldOnly] or skillTypes[SkillType.MainHandOnly] or skillFlags.forceMainHand or weapon1Info then
 			-- Skill requires a compatible main hand weapon
 			skillFlags.disable = true
-activeSkill.disableReason = "主手武器不适合这个技能"
+			activeSkill.disableReason = "主手武器不适合这个技能"
 		end
 		if not skillTypes[SkillType.MainHandOnly] and not skillFlags.forceMainHand then
 			local weapon2Flags, weapon2Info = getWeaponFlags(env, activeSkill.actor.weaponData2, weaponTypes)
 			if weapon2Flags then
-				activeSkill.weapon2Flags = weapon2Flags
-				skillFlags.weapon2Attack = true
+				if skillFlags.attack then
+					activeSkill.weapon2Flags = weapon2Flags
+					skillFlags.weapon2Attack = true
+				end
 			elseif skillTypes[SkillType.DualWieldOnly] or weapon2Info then
 				-- Skill requires a compatible off hand weapon
 				skillFlags.disable = true
-activeSkill.disableReason = activeSkill.disableReason or "副手武器不支持这个技能"
-			elseif not skillFlags.weapon1Attack then
+				activeSkill.disableReason = activeSkill.disableReason or "副手武器不支持这个技能"
+			elseif skillFlags.disable then
 				-- Neither weapon is compatible
-				skillFlags.disable = true
-activeSkill.disableReason = "没有可用武器"
+				activeSkill.disableReason = "没有可用武器"
 			end
 		end
-		skillFlags.bothWeaponAttack = skillFlags.weapon1Attack and skillFlags.weapon2Attack
+		if skillFlags.attack then
+			skillFlags.bothWeaponAttack = skillFlags.weapon1Attack and skillFlags.weapon2Attack
+		end
 	end
 
 	-- Build skill mod flag set
@@ -288,7 +326,7 @@ activeSkill.disableReason = "没有可用武器"
 	if skillTypes[SkillType.Aura] then
 		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Aura)
 	end
-	if skillTypes[SkillType.Hex] or skillTypes[SkillType.Mark] then
+	if skillTypes[SkillType.AppliesCurse] then
 		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Curse)
 	end
 	if skillTypes[SkillType.Warcry] then
@@ -312,6 +350,9 @@ activeSkill.disableReason = "没有可用武器"
 	if skillTypes[SkillType.Chaos] then
 		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Chaos)
 	end
+	if skillTypes[SkillType.Physical] then
+		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Physical)
+	end
 	if skillFlags.weapon1Attack and band(activeSkill.weapon1Flags, ModFlag.Bow) ~= 0 then
 		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Bow)
 	end
@@ -323,7 +364,7 @@ activeSkill.disableReason = "没有可用武器"
 	elseif skillFlags.trap then
 		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Trap)
 	elseif skillFlags.mine then
-		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Mine)	
+		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Mine)
 	else
 		skillFlags.selfCast = true
 	end
@@ -349,22 +390,27 @@ activeSkill.disableReason = "没有可用武器"
 		end
 	end
 
+	-- Calculate Distance for meleeDistance or projectileDistance (for melee proximity, e.g. Impact)
+	if skillFlags.melee then
+		effectiveRange = env.configInput.meleeDistance
+	else
+		effectiveRange = env.configInput.projectileDistance
+	end
+	
 	-- Build config structure for modifier searches
 	activeSkill.skillCfg = {
 		flags = bor(skillModFlags, activeSkill.weapon1Flags or activeSkill.weapon2Flags or 0),
 		keywordFlags = skillKeywordFlags,
-skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","召唤魔侍"), 
+		skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","召唤魔侍"), -- This allows modifiers that target specific skills to also apply to their Vaal counterpart
 		summonSkillName = activeSkill.summonSkill and activeSkill.summonSkill.activeEffect.grantedEffect.name,
 		skillGem = activeEffect.gemData,
 		skillGrantedEffect = activeGrantedEffect,
 		skillPart = activeSkill.skillPart,
 		skillTypes = activeSkill.skillTypes,
 		skillCond = { },
-		skillDist = env.mode_effective and (env.configInput.projectileDistance or env.configInput.meleeDistanceWithEnemy),
-		
+		skillDist = env.mode_effective and effectiveRange,
 		slotName = activeSkill.slotName,
 	}
-
 	if skillFlags.weapon1Attack then
 		activeSkill.weapon1Cfg = copyTable(activeSkill.skillCfg, true)
 		activeSkill.weapon1Cfg.skillCond = setmetatable({ ["MainHandAttack"] = true }, { __index = activeSkill.skillCfg.skillCond })
@@ -426,7 +472,6 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 	-- Add extra modifiers from granted effect level
 	local level = activeEffect.grantedEffectLevel
 	activeSkill.skillData.CritChance = level.critChance
-	activeSkill.skillData.duration = level.duration
 	if level.damageMultiplier then
 		skillModList:NewMod("Damage", "MORE", level.damageMultiplier, activeEffect.grantedEffect.modSource, ModFlag.Attack)
 	end
@@ -446,7 +491,13 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 		skillModList:AddMod(value.mod)
 		t_insert(activeSkill.extraSkillModList, value.mod)
 	end
--- Add active mine multiplier
+
+	-- Find totem level
+	if skillFlags.totem then
+		activeSkill.skillData.totemLevel = activeEffect.grantedEffectLevel.levelRequirement
+	end
+
+	-- Add active mine multiplier
 	if skillFlags.mine then
 		activeSkill.activeMineCount = (env.mode == "CALCS" and activeEffect.srcInstance.skillMineCountCalcs) or (env.mode ~= "CALCS" and activeEffect.srcInstance.skillMineCount)
 		if activeSkill.activeMineCount and activeSkill.activeMineCount > 0 then
@@ -455,26 +506,18 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 		end
 	end
 	
-	-- Find totem level
-	if skillFlags.totem then
-		activeSkill.skillData.totemLevel = activeEffect.grantedEffectLevel.levelRequirement
-	end
-	
-	
-	if skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."MaxStages", "Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."MaxStagesAfterFirst") > 0 then
+	if skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."MaxStages") > 0 then
 		skillFlags.multiStage = true
 		activeSkill.activeStageCount = (env.mode == "CALCS" and activeEffect.srcInstance.skillStageCountCalcs) or (env.mode ~= "CALCS" and activeEffect.srcInstance.skillStageCount)
-		local limit = skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."MaxStages", "Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."MaxStagesAfterFirst")
-		if skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."MaxStagesAfterFirst") > 0 then
-			activeSkill.activeStageCount = (activeSkill.activeStageCount or 0) - 1
+		local limit = skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."MaxStages")
+		if limit > 0 then
 			if activeSkill.activeStageCount and activeSkill.activeStageCount > 0 then
-				skillModList:NewMod("Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."StageAfterFirst", "BASE", m_min(limit, activeSkill.activeStageCount), "Base")
+				skillModList:NewMod("Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."Stage", "BASE", m_min(limit, activeSkill.activeStageCount), "Base")
+				activeSkill.activeStageCount = (activeSkill.activeStageCount or 0) - 1
+				skillModList:NewMod("Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."StageAfterFirst", "BASE", m_min(limit - 1, activeSkill.activeStageCount), "Base")
 			end
-		elseif activeSkill.activeStageCount and activeSkill.activeStageCount > 0 then
-			skillModList:NewMod("Multiplier:"..activeGrantedEffect.name:gsub("%s+", "").."Stage", "BASE", m_min(limit, activeSkill.activeStageCount), "Base")
 		end
 	end
-
 
 	-- Extract skill data
 	for _, value in ipairs(env.modDB:List(activeSkill.skillCfg, "SkillData")) do
@@ -516,7 +559,6 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 			activeEffect.srcInstance.skillMinion = minionType
 		end
 		if minionType then
-			--print('minionType='..minionType)
 			local minion = { }
 			activeSkill.minion = minion
 			skillFlags.haveMinion = true
@@ -528,15 +570,7 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 			-- fix minion level between 1 and 100
 			minion.level = m_min(m_max(minion.level,1),100) 
 			minion.itemList = { }
-			
-			
-			if activeSkill.skillData and activeSkill.skillData.minionUses == "Weapon 1" then 
-				minion.uses = { ["Weapon 1"] =true}
-			else
-				minion.uses = activeGrantedEffect.minionUses
-			end 
-			
-			
+			minion.uses = activeGrantedEffect.minionUses
 			minion.lifeTable = isSpectre and env.data.monsterLifeTable or env.data.monsterAllyLifeTable
 			local attackTime = minion.minionData.attackTime * (1 - (minion.minionData.damageFixup or 0))
 			local damage = env.data.monsterDamageTable[minion.level] * minion.minionData.damage * attackTime
@@ -554,6 +588,8 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 				end
 			end
 			if activeSkill.skillData.minionUseBowAndQuiver and env.player.weaponData1.type == "Bow" then
+				minion.weaponData1 = env.player.weaponData1
+			elseif env.theIronMass and minionType == "RaisedSkeleton" then
 				minion.weaponData1 = env.player.weaponData1
 			else
 				minion.weaponData1 = {
@@ -594,7 +630,6 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 	-- Separate global effect modifiers (mods that can affect defensive stats or other skills)
 	local i = 1
 	while skillModList[i] do
-		
 		local effectType, effectName, effectTag
 		for _, tag in ipairs(skillModList[i]) do
 			if tag.type == "GlobalEffect" then
@@ -607,12 +642,9 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 		if effectTag and effectTag.modCond and not skillModList:GetCondition(effectTag.modCond, activeSkill.skillCfg) then
 			t_remove(skillModList, i)
 		elseif effectType then
-		
-			
 			local buff
 			for _, skillBuff in ipairs(activeSkill.buffList) do
 				if skillBuff.type == effectType and skillBuff.name == effectName then
-					
 					buff = skillBuff
 					break
 				end
@@ -627,36 +659,33 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 					stackVar = effectTag.effectStackVar,
 					stackLimit = effectTag.effectStackLimit,
 					stackLimitVar = effectTag.effectStackLimitVar,
+					applyNotPlayer = effectTag.applyNotPlayer,
+					applyMinions = effectTag.applyMinions,
 					modList = { },
-					unscalableModList = { },
 				}
 				if skillModList[i].source == activeGrantedEffect.modSource then
 					-- Inherit buff configuration from the active skill
 					buff.activeSkillBuff = true
-					buff.applyNotPlayer = activeSkill.skillData.buffNotPlayer
-					buff.applyMinions = activeSkill.skillData.buffMinions
+					buff.applyNotPlayer = buff.applyNotPlayer or activeSkill.skillData.buffNotPlayer
+					buff.applyMinions = buff.applyMinions or activeSkill.skillData.buffMinions
 					buff.applyAllies = activeSkill.skillData.buffAllies
 					buff.allowTotemBuff = activeSkill.skillData.allowTotemBuff
 				end
 				t_insert(activeSkill.buffList, buff)
 			end
 			local match = false
-			local modList = effectTag.unscalable and buff.unscalableModList or buff.modList
+			local modList = buff.modList
 			for d = 1, #modList do
 				local destMod = modList[d]
-				 				
-				
-				if modLib.compareModParams(skillModList[i], destMod) and (destMod.type == "BASE" or destMod.type == "INC" ) then
+				if modLib.compareModParams(skillModList[i], destMod) and (destMod.type == "BASE" or destMod.type == "INC") then
 					destMod = copyTable(destMod)
 					destMod.value = destMod.value + skillModList[i].value
 					modList[d] = destMod
 					match = true
-					
 					break
 				end
 			end
-			if not match then			
-		 
+			if not match then
 				t_insert(modList, skillModList[i])
 			end
 			t_remove(skillModList, i)
@@ -666,12 +695,10 @@ skillName = activeGrantedEffect.name:gsub("^瓦尔.",""):gsub("召唤魔侍","�
 	end
 
 	if activeSkill.buffList[1] then
-		-- Add to auxillary skill list
+		-- Add to auxiliary skill list
 		t_insert(env.auxSkillList, activeSkill)
 	end
-	
 end
-
 
 -- Initialise the active skill's minion skills
 function calcs.createMinionSkills(env, activeSkill)
@@ -701,9 +728,8 @@ function calcs.createMinionSkills(env, activeSkill)
 			level = 1,
 			quality = 0,
 		}
-		if activeEffect.grantedEffect and  activeEffect.grantedEffect.levels   and #activeEffect.grantedEffect.levels > 1 then
+		if #activeEffect.grantedEffect.levels > 1 then
 			for level, levelData in ipairs(activeEffect.grantedEffect.levels) do
-			--The first element of skill level data was historically used to store the actor level requirement for a skill before the introduction of the dedicated `levelRequirement` field. This use site still reads from the first elemement and as such, compares against an unrelated value.
 				if levelData.levelRequirement > minion.level then
 					break
 				else
@@ -717,9 +743,7 @@ function calcs.createMinionSkills(env, activeSkill)
 		minionSkill.skillFlags.minionSkill = true
 		minionSkill.skillFlags.haveMinion = true
 		minionSkill.skillFlags.spectre = activeSkill.skillFlags.spectre
-		if not minionSkill.skillData.damageEffectiveness then
-			minionSkill.skillData.damageEffectiveness = 1 + (activeSkill.skillData.minionDamageEffectiveness or 0) / 100
-		end
+		minionSkill.skillData.damageEffectiveness = 1 + (activeSkill.skillData.minionDamageEffectiveness or 0) / 100
 		t_insert(minion.activeSkillList, minionSkill)
 	end
 	local skillIndex 

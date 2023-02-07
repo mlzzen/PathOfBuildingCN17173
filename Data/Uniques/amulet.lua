@@ -100,7 +100,7 @@ replica: true
 {tags:jewellery_attribute}+(16-24) 力量和智慧
 {tags:mana}+(40-70) to 最大魔力
 {tags:jewellery_resistance}+(-13-13)% 混沌抗性
-{tags:jewellery_resistance}-5% 所有元素抗性
+{tags:jewellery_resistance}-5% 全部抗性上限
 获得等于你混沌抗性一半的额外元素伤害减免
 ]],
 [[

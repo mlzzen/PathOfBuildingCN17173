@@ -40,6 +40,7 @@ local tempTable2 = { }
 main = new("ControlHost")
 
 function main:Init()
+	self.POESESSID = ""
 	self.modes = { }
 	self.modes["LIST"] = LoadModule("Modules/BuildList")
 	self.modes["BUILD"] = LoadModule("Modules/Build")
@@ -564,6 +565,9 @@ launch:ShowErrMsg("^1文件解析失败 'Settings.xml':  'Mode' 节点错误")
 				if node.attrib.decimalSeparator then
 					self.decimalSeparator = node.attrib.decimalSeparator
 				end
+				if node.attrib.POESESSID then
+					self.POESESSID = node.attrib.POESESSID or ""
+				end
 				if node.attrib.showTitlebarName then
 					self.showTitlebarName = node.attrib.showTitlebarName == "true"
 				end				
@@ -613,6 +617,7 @@ function main:SaveSettings()
 		showThousandsSeparators = tostring(self.showThousandsSeparators),
 		thousandsSeparator = self.thousandsSeparator,
 		decimalSeparator = self.decimalSeparator,
+		POESESSID = self.POESESSID,
 	} })
 	local res, errMsg = common.xml.SaveXMLFile(setXML, self.userPath.."Settings.xml")
 	if not res then
