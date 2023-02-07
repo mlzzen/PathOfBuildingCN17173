@@ -6913,7 +6913,7 @@ skills["VaalLightningTrap"] = {
 	castTime = 1,
 	statMap = {
 		["shocked_ground_base_magnitude_override"] = {
-			mod("ShockedGroundBase", "BASE", nil)
+			mod("ShockedGroundEffect", "BASE", nil)
 		},
 	},
 	baseFlags = {
