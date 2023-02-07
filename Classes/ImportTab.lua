@@ -265,7 +265,7 @@ self.controls.importCodeMode = new("DropDownControl", {"TOPLEFT",self.controls.i
 	end
 self.controls.importCodeGo = new("ButtonControl", {"TOPLEFT",self.controls.importCodeMode,"BOTTOMLEFT"}, 0, 8, 60, 20, "导入", function()
 		if self.controls.importCodeMode.selIndex == 1 then
-main:OpenConfirmPopup("Build Import", colorCodes.WARNING.."警告:^7 导入到当前build会删除原有build信息", "导入", function()
+main:OpenConfirmPopup("导入Build", colorCodes.WARNING.."警告:^7 导入到当前build会删除原有build信息", "导入", function()
 				self.build:Shutdown()
 				self.build:Init(self.build.dbFileName, self.build.buildName, self.importCodeXML)
 				self.build.viewMode = "TREE"
