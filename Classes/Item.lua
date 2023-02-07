@@ -904,9 +904,6 @@ t_insert(rawLines, "后缀: "..(affix.range and ("{range:"..round(affix.range,3)
 	if self.quality then
 		t_insert(rawLines, "品质: "..self.quality)
 	end
-	if self.qualityTitle then
-		t_insert(rawLines, "品质说明: "..self.qualityTitle)
-	end
 	if self.sockets and #self.sockets > 0 then
 		local line = "插槽: "
 		for i, socket in pairs(self.sockets) do
