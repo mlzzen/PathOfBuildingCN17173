@@ -241,19 +241,19 @@ self.controls.slotHeader = new("LabelControl", {"BOTTOMLEFT",self.slotAnchor,"TO
 	self.controls.weaponSwap2.locked = function()
 		return self.activeItemSet.useSecondWeaponSet
 	end
-self.controls.weaponSwapLabel = new("LabelControl", {"RIGHT",self.controls.weaponSwap1,"LEFT"}, -4, 0, 0, 14, "^7武器列表:")
+	self.controls.weaponSwapLabel = new("LabelControl", {"RIGHT",self.controls.weaponSwap1,"LEFT"}, -4, 0, 0, 14, "^7武器列表:")
 	-- All items list
 	if main.portraitMode then
-		self.controls.itemList = new("ItemListControl", {"TOPRIGHT",self.lastSlot,"BOTTOMRIGHT"}, 0, 0, 360, 308, self)
+		self.controls.itemList = new("ItemListControl", {"TOPRIGHT",self.controls.specButton,"BOTTOMRIGHT"}, 0, 20, 360, 308, self)
 	else
-		self.controls.itemList = new("ItemListControl", {"TOPLEFT",self.slotAnchor,"TOPRIGHT"}, 20, -20, 360, 308, self)
+		self.controls.itemList = new("ItemListControl", {"TOPLEFT",self.controls.setManage,"TOPRIGHT"}, 20, 20, 360, 308, self)
 	end
 	-- Database selector
-self.controls.selectDBLabel = new("LabelControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, 0, 14, 0, 16, "^7导入目标:")
+	self.controls.selectDBLabel = new("LabelControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, 0, 14, 0, 16, "^7导入目标:")
 	self.controls.selectDBLabel.shown = function()
 		return self.height < 980
 	end
-self.controls.selectDB = new("DropDownControl", {"LEFT",self.controls.selectDBLabel,"RIGHT"}, 4, 0, 150, 18, { "内置传奇", "金装模板"  })
+	self.controls.selectDB = new("DropDownControl", {"LEFT",self.controls.selectDBLabel,"RIGHT"}, 4, 0, 150, 18, { "内置传奇", "金装模板"  })
 
 	-- Unique database
 	self.controls.uniqueDB = new("ItemDBControl", {"TOPLEFT",self.controls.itemList,"BOTTOMLEFT"}, 0, 76, 360, function(c) return m_min(244, self.maxY - select(2, c:GetPos())) end, self, main.uniqueDB, "UNIQUE")
@@ -274,14 +274,14 @@ self.controls.selectDB = new("DropDownControl", {"LEFT",self.controls.selectDBLa
 	end
 
 	-- Create/import item
-self.controls.craftDisplayItem = new("ButtonControl", {"TOPLEFT",main.portraitMode and self.slotAnchor or self.controls.itemList,"TOPRIGHT"}, 20, main.portraitMode and -20 or 0, 120, 20, "创建装备...", function()
+	self.controls.craftDisplayItem = new("ButtonControl", {"TOPLEFT",main.portraitMode and self.controls.setManage or self.controls.itemList,"TOPRIGHT"}, 20, main.portraitMode and 0 or -20, 120, 20, "创建装备...", function()
 
 		self:CraftItem()
 	end)
 	self.controls.craftDisplayItem.shown = function()
 		return self.displayItem == nil 
 	end
-self.controls.newDisplayItem = new("ButtonControl", {"TOPLEFT",self.controls.craftDisplayItem,"TOPRIGHT"}, 8, 0, 120, 20, "自定义装备...", function()
+	self.controls.newDisplayItem = new("ButtonControl", {"TOPLEFT",self.controls.craftDisplayItem,"TOPRIGHT"}, 8, 0, 120, 20, "自定义装备...", function()
 		self:EditDisplayItemText()
 	end)
 	self.controls.displayItemTip = new("LabelControl", {"TOPLEFT",self.controls.craftDisplayItem,"BOTTOMLEFT"}, 0, 8, 100, 16, 
@@ -296,7 +296,7 @@ self.controls.newDisplayItem = new("ButtonControl", {"TOPLEFT",self.controls.cra
 	-- Display item
 	self.displayItemTooltip = new("Tooltip")
 	self.displayItemTooltip.maxWidth = 458
-	self.anchorDisplayItem = new("Control", {"TOPLEFT",main.portraitMode and self.slotAnchor or self.controls.itemList,"TOPRIGHT"}, 20, main.portraitMode and -20 or 0, 0, 0)
+	self.anchorDisplayItem = new("Control", {"TOPLEFT",main.portraitMode and self.controls.setManage or self.controls.itemList,"TOPRIGHT"}, 20, main.portraitMode and 0 or -20, 0, 0)
 
 	self.anchorDisplayItem.shown = function()
 		return self.displayItem ~= nil
@@ -305,12 +305,12 @@ self.controls.newDisplayItem = new("ButtonControl", {"TOPLEFT",self.controls.cra
 		self:AddDisplayItem()
 	end)
 	self.controls.addDisplayItem.label = function()
-return self.items[self.displayItem.id] and "保存" or "加入 build"
+		return self.items[self.displayItem.id] and "保存" or "加入 build"
 	end
-self.controls.editDisplayItem = new("ButtonControl", {"LEFT",self.controls.addDisplayItem,"RIGHT"}, 8, 0, 60, 20, "编辑", function()
+	self.controls.editDisplayItem = new("ButtonControl", {"LEFT",self.controls.addDisplayItem,"RIGHT"}, 8, 0, 60, 20, "编辑", function()
 		self:EditDisplayItemText()
 	end)
-self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.editDisplayItem,"RIGHT"}, 8, 0, 60, 20, "取消", function()
+	self.controls.removeDisplayItem = new("ButtonControl", {"LEFT",self.controls.editDisplayItem,"RIGHT"}, 8, 0, 60, 20, "取消", function()
 		self:SetDisplayItem()
 	end)
 
@@ -1304,7 +1304,7 @@ function ItemsTabClass:UpdateSockets()
 		self.lastSlot = self.sockets[nodeId]
 	end
 	if main.portraitMode then
-		self.controls.itemList:SetAnchor("TOPRIGHT",self.lastSlot,"BOTTOMRIGHT", 0, 40)
+		self.controls.itemList:SetAnchor("TOPRIGHT",self.controls.specButton,"BOTTOMRIGHT", 0, 40)
 	end
 end
 
