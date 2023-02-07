@@ -278,8 +278,8 @@ return {
 	{ var = "harbingerOfTimeSlipstream", type = "check", label = "开启时空先驱者光环?:", ifSkill =  "召唤时空先驱者", tooltip = "【召唤时空先驱者】增益效果:\n动作速度提高 10%\n增益影响小范围内的友军，玩家和敌人\n增益效果持续 8 秒，并且有 20 秒冷却时间", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HarbingerOfTime", "FLAG", true, "Config")
 	end },
-	{ label = "【魔蛊】:", ifSkillFlag = "hex" },
-	{ var = "multiplierHexDoom", type = "count", label = "末日之力层数:", ifSkillFlag = "hex", apply = function(val, modList, enemyModList)
+	{ label = "【魔蛊】:", ifSkillFlag = "hex", ifMult = "MaxDoom" },
+	{ var = "multiplierHexDoom", type = "count", label = "末日之力层数:", ifSkillFlag = "hex", ifMult = "MaxDoom", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:HexDoomStack", "BASE", val, "Config")
 	end },
 	{ label = "【苦痛之捷】:", ifSkill = "苦痛之捷" },
@@ -1295,6 +1295,9 @@ return {
 	end },
 	{ var = "multiplierCurseExpiredOnEnemy", type = "count", label = "敌人的诅咒时间已过 #%:", ifEnemyMult = "CurseExpired", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:CurseExpired", "BASE", val, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "multiplierCurseDurationExpiredOnEnemy", type = "count", label = "敌人的诅咒时间已持续:", ifEnemyMult = "CurseDurationExpired", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Multiplier:CurseDurationExpired", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "multiplierWitheredStackCount", type = "count", label = "凋零层数:", ifFlag = "Condition:CanWither", tooltip = "每层凋零提高 6% 承受的^xD02090混沌^7伤害，最高15层.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:WitheredStack", "BASE", val, "Config", { type = "Condition", var = "Effective" })
