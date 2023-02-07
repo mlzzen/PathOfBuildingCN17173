@@ -98,6 +98,7 @@ local formList = {
 	["减慢 (%d+)%%"] = "RED",
 	--【中文化程序额外添加结束】
 	["提高 (%d+)%%"] = "INC", --备注：^(%d+)%% increased
+	["增强 (%d+)%%"] = "INC", --备注：^(%d+)%% increased
 	["比平常快 (%d+)%%"] = "INC", --备注：^(%d+)%% faster
 	["降低 (%d+)%%"] = "RED", --备注：^(%d+)%% reduced
 	["延后 (%d+)%%"] = "RED", --备注：^(%d+)%% slower
@@ -707,6 +708,7 @@ local modNameList = {
 	["to deal double damage"] = "DoubleDamageChance",
 	-- Buffs
 	["【猛攻】效果"] = "OnslaughtEffect", --备注：onslaught effect
+	["你受到的猛攻效果"] = "OnslaughtEffect",
 	["护体效果持续时间"] = "FortifyDuration", --备注：fortify duration
 	["护体持续时间"] = "FortifyDuration", --备注：fortify duration
 	["你身上的护体效果"] = "FortifyEffectOnSelf", --备注：effect of fortify on you
