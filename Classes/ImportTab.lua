@@ -811,6 +811,8 @@ function ImportTabClass:ImportItem(itemData, slotName)
 		for _, req in ipairs(itemData.requirements) do
 			if req.name == "Level" then
 				item.requirements.level = req.values[1][1]
+			elseif req.name == "职业：" then
+				item.classRestriction = req.values[1][1]
 			end
 		end
 	end
