@@ -18,10 +18,10 @@ local band = bit.band
 
 
 local buffModeDropList = {
-{ label = "无buff", buffMode = "UNBUFFED" },
-{ label = "Buff", buffMode = "BUFFED" },
-{ label = "战斗模式", buffMode = "COMBAT" },
-{ label = "有效 DPS", buffMode = "EFFECTIVE" } 
+	{ label = "无buff", buffMode = "UNBUFFED" },
+	{ label = "Buff", buffMode = "BUFFED" },
+	{ label = "战斗模式", buffMode = "COMBAT" },
+	{ label = "有效 DPS", buffMode = "EFFECTIVE" } 
 }
 
 local SkillTypeCNMap = { 
@@ -588,8 +588,8 @@ function CalcsTabClass:PowerBuilder()
 								(output.Armour - calcBase.Armour) / m_max(10000, calcBase.Armour) +
 								((output.EnergyShieldRecoveryCap or output.EnergyShield) - (calcBase.EnergyShieldRecoveryCap or calcBase.EnergyShield)) / m_max(3000, (calcBase.EnergyShieldRecoveryCap or calcBase.EnergyShield)) +
 								(output.Evasion - calcBase.Evasion) / m_max(10000, calcBase.Evasion) +
-								(output.LifeRegen - calcBase.LifeRegen) / 500 +
-								(output.EnergyShieldRegen - calcBase.EnergyShieldRegen) / 1000
+								(output.LifeRegenRecovery - calcBase.LifeRegenRecovery) / 500 +
+								(output.EnergyShieldRegenRecovery - calcBase.EnergyShieldRegenRecovery) / 1000
 				if node.path and not node.ascendancyName then
 					newPowerMax.offence = m_max(newPowerMax.offence, node.power.offence)
 					newPowerMax.defence = m_max(newPowerMax.defence, node.power.defence)

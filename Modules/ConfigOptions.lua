@@ -136,10 +136,6 @@ return {
 			modList:NewMod("Condition:ArmourAvg", "FLAG", true, "Config")
 		end
 	end },
-
-
-
-
 	{ var = "warcryMode", type = "list", label = "战吼计算模式:", ifSkillList = { "炼狱呼嚎", "先祖战吼", "坚决战吼", "将军之吼", "威吓战吼", "激励战吼", "震地战吼" }, tooltip = "控制战吼的增助攻击的计算模式：\n平均：根据施法/攻击/战吼冷却速度来计算\n最大击中：所有战吼按照最大击中计算", list = {{val="AVERAGE",label="平均"},{val="MAX",label="最大击中"}}, apply = function(val, modList, enemyModList)
 		if val == "MAX" then
 			modList:NewMod("Condition:WarcryMaxHit", "FLAG", true, "Config")

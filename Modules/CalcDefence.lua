@@ -1908,7 +1908,6 @@ function calcs.defence(env, actor)
 		output["NumberOfDamagingHits"] = numberOfHitsToDie(DamageIn)
 	end
 
-	
 	do
 		local DamageIn = { }
 		local BlockChance = 0
@@ -1940,19 +1939,6 @@ function calcs.defence(env, actor)
 				DamageIn.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit + output.EnergyShieldOnSpellBlock * BlockChance
 			elseif damageCategoryConfig == "Average" then
 				DamageIn.EnergyShieldWhenHit = DamageIn.EnergyShieldWhenHit + output.EnergyShieldOnSpellBlock / 2 * BlockChance
-			end
-		end
-		-- suppression
-		if damageCategoryConfig == "Spell" or damageCategoryConfig == "SpellProjectile" or damageCategoryConfig == "Average" then
-			suppressChance = output.SpellSuppressionChance / 100
-		end
-		-- We include suppression in damage reduction if it is 100% otherwise we handle it here.
-		if suppressChance < 1 then
-			-- unlucky config to lower the value of block, dodge, evade etc for ehp
-		if worstOf > 1 then
-			suppressChance = suppressChance * suppressChance
-			if worstOf == 4 then
-				suppressChance = suppressChance * suppressChance
 			end
 		end
 		-- suppression
@@ -2270,7 +2256,6 @@ function calcs.defence(env, actor)
 				s_format("(%.1f + %.1f) * %.1f", portionNonElemental, portionElemental, PvpMultiplier),
 				s_format("= %.1f", output.PvPTotalTakenHit)
 			}
-			end
 		end
 	end
 
@@ -2420,6 +2405,7 @@ function calcs.defence(env, actor)
 			}
 		end
 	end
+	
 	
 	-- maximum hit taken
 	-- fix total pools, as they aren't used anymore

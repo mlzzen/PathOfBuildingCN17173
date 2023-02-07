@@ -3,7 +3,6 @@
 -- Module: Tree Tab
 -- Passive skill tree tab for the current build.
 --
---local launch, main = ...
 
 local ipairs = ipairs
 local next = next
@@ -13,7 +12,11 @@ local t_concat = table.concat
 local m_max = math.max
 local m_min = math.min
 local m_floor = math.floor
+local m_abs = math.abs
 local s_format = string.format
+local s_gsub = string.gsub
+local s_byte = string.byte
+local dkjson = require "dkjson"
 
 local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	self.ControlHost()
@@ -105,7 +108,6 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		main:OpenConfirmPopup("Reset Tree", "确定要重置天赋树吗?", "重置", function()
 			self.build.spec:ResetNodes()
 			self.build.spec:BuildAllDependsAndPaths()
-			--self.build.spec:resetAllocTimeJew(); 
 			self.build.spec:AddUndoState()
 			self.build.buildFlag = true
 		end)
@@ -121,8 +123,8 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	end)
 
 	self.controls.treeSearch.tooltipText = "可以使用 Lua 支持的正则表达式进行复杂搜索"
-	self.controls.findTimelessJewel = new("ButtonControl", { "LEFT", self.controls.treeSearch, "RIGHT" }, 8, 0, 150, 20, "搜索永恒珠宝 调试中", function()
-		-- self:FindTimelessJewel()
+	self.controls.findTimelessJewel = new("ButtonControl", { "LEFT", self.controls.treeSearch, "RIGHT" }, 8, 0, 150, 20, "搜索永恒珠宝", function()
+		self:FindTimelessJewel()
 	end)
 	self.controls.treeHeatMap = new("CheckBoxControl", { "LEFT", self.controls.findTimelessJewel, "RIGHT" }, 130, 0, 20, "显示高亮节点:", function(state)
 		self.viewer.showHeatMap = state
@@ -174,6 +176,9 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		self.modFlag = true
 main:OpenMessagePopup("天赋树转换完成", "天赋树转化为 "..treeVersions[latestTreeVersion].display..".\n注意，游戏天赋树的版本变动可能回导致一些天赋点在转化后会被取消.\n\n你可以使用左下方的天赋树切换来切换到旧版本的.")
 	end)
+	self.jumpToNode = false
+	self.jumpToX = 0
+	self.jumpToY = 0
 end)
 
 function TreeTabClass:Draw(viewPort, inputEvents)
@@ -1053,7 +1058,7 @@ function TreeTabClass:FindTimelessJewel()
 	controls.socketFilterLabel = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 100, 0, 16, "^7过滤节点:")
 	controls.socketFilter = new("CheckBoxControl", { "LEFT", controls.socketFilterLabel, "RIGHT" }, 10, 0, 18, nil, function(value)
 		timelessData.socketFilter = value
-		self.build.modFlag = true
+		self.build.modFlag = false
 	end)
 	controls.socketFilter.tooltipFunc = function(tooltip, mode, index, value)
 		tooltip:Clear()
@@ -1066,7 +1071,7 @@ function TreeTabClass:FindTimelessJewel()
 	local scrollWheelSpeedTbl2 = { ["SHIFT"] = 0.2, ["CTRL"] = 0.002, ["DEFAULT"] = 0.02 }
 
 	local nodeSliderStatLabel = "None"
-	controls.nodeSliderLabel = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 125, 0, 16, "^7Primary Node Weight:")
+	controls.nodeSliderLabel = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 125, 0, 16, "^7主要词缀权重:")
 	controls.nodeSlider = new("SliderControl", { "LEFT", controls.nodeSliderLabel, "RIGHT" }, 10, 0, 200, 16, function(value)
 		controls.nodeSliderValue.label = s_format("^7%.3f", value * 10)
 		parseSearchList(1, controls.searchListFallback and controls.searchListFallback.shown or false)
@@ -1075,9 +1080,9 @@ function TreeTabClass:FindTimelessJewel()
 		tooltip:Clear()
 		if not controls.nodeSlider.dragging then
 			if nodeSliderStatLabel == "None" then
-				tooltip:AddLine(16, "^7For nodes with multiple stats this slider controls the weight of the first stat listed.")
+				tooltip:AddLine(16, "^7对于具有多条词缀的天赋点，该选项控制第一条词缀的权重.")
 			else
-				tooltip:AddLine(16, "^7This slider controls the weight of the following stat:")
+				tooltip:AddLine(16, "^7该选项控制以下词缀的权重:")
 				tooltip:AddLine(16, "^7        " .. nodeSliderStatLabel)
 			end
 		end
@@ -1095,7 +1100,7 @@ function TreeTabClass:FindTimelessJewel()
 	controls.nodeSlider:SetVal(0.1)
 
 	local nodeSlider2StatLabel = "None"
-	controls.nodeSlider2Label = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 150, 0, 16, "^7Secondary Node Weight:")
+	controls.nodeSlider2Label = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 150, 0, 16, "^7次要词缀权重:")
 	controls.nodeSlider2 = new("SliderControl", { "LEFT", controls.nodeSlider2Label, "RIGHT" }, 10, 0, 200, 16, function(value)
 		controls.nodeSlider2Value.label = s_format("^7%.3f", value * 10)
 		parseSearchList(1, controls.searchListFallback and controls.searchListFallback.shown or false)
@@ -1104,9 +1109,9 @@ function TreeTabClass:FindTimelessJewel()
 		tooltip:Clear()
 		if not controls.nodeSlider2.dragging then
 			if nodeSlider2StatLabel == "None" then
-				tooltip:AddLine(16, "^7For nodes with multiple stats this slider controls the weight of the second stat listed.")
+				tooltip:AddLine(16, "^7对于具有多条词缀的天赋点，该选项控制第二条词缀的权重.")
 			else
-				tooltip:AddLine(16, "^7This slider controls the weight of the following stat:")
+				tooltip:AddLine(16, "^7该选项控制以下词缀的权重:")
 				tooltip:AddLine(16, "^7        " .. nodeSlider2StatLabel)
 			end
 		end
@@ -1123,10 +1128,10 @@ function TreeTabClass:FindTimelessJewel()
 	end
 	controls.nodeSlider2:SetVal(0.1)
 
-	controls.nodeSlider3Label = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 175, 0, 16, "^7Minimum Node Weight:")
+	controls.nodeSlider3Label = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 175, 0, 16, "^7最低节点权重:")
 	controls.nodeSlider3 = new("SliderControl", { "LEFT", controls.nodeSlider3Label, "RIGHT" }, 10, 0, 200, 16, function(value)
 		if value == 1 then
-			controls.nodeSlider3Value.label = "^7Required"
+			controls.nodeSlider3Value.label = "^7需求"
 		else
 			controls.nodeSlider3Value.label = s_format("^7%.f", value * 500)
 		end
@@ -1135,7 +1140,7 @@ function TreeTabClass:FindTimelessJewel()
 	controls.nodeSlider3.tooltipFunc = function(tooltip, mode, index, value)
 		tooltip:Clear()
 		if not controls.nodeSlider3.dragging then
-			tooltip:AddLine(16, "^7Seeds that do not meet the minimum weight threshold for a desired node are excluded from the search results.")
+			tooltip:AddLine(16, "^7对于需求的天赋点，不满足最低权重阈值的珠宝编号将从搜索结果中被排除.")
 		end
 	end
 	controls.nodeSlider3Value = new("LabelControl", { "LEFT", controls.nodeSlider3, "RIGHT" }, 5, 0, 0, 16, "^70")
@@ -1177,7 +1182,7 @@ function TreeTabClass:FindTimelessJewel()
 	end
 
 	buildMods()
-	controls.nodeSelectLabel = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 200, 0, 16, "^7Search for Node:")
+	controls.nodeSelectLabel = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 200, 0, 16, "^7搜索指定天赋点:")
 	controls.nodeSelect = new("DropDownControl", { "LEFT", controls.nodeSelectLabel, "RIGHT" }, 10, 0, 200, 18, modData, function(index, value)
 		nodeSliderStatLabel = "None"
 		nodeSlider2StatLabel = "None"
@@ -1202,11 +1207,11 @@ function TreeTabClass:FindTimelessJewel()
 				end
 			end
 			if statCount <= 1 then
-				controls.nodeSlider2Label.label = "^9Secondary Node Weight:"
+				controls.nodeSlider2Label.label = "^9次要词缀权重:"
 				controls.nodeSlider2.val = 0
 				controls.nodeSlider2Value.label = s_format("^9%.3f", 0)
 			else
-				controls.nodeSlider2Label.label = "^7Secondary Node Weight:"
+				controls.nodeSlider2Label.label = "^7次要词缀权重:"
 				controls.nodeSlider2Value.label = s_format("^7%.3f", controls.nodeSlider2.val * 10)
 			end
 			controls.nodeSlider2.enabled = statCount > 1
@@ -1411,12 +1416,12 @@ function TreeTabClass:FindTimelessJewel()
 		updateSearchList(newList, true)
 	end
 
-	controls.fallbackWeightsLabel = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 225, 0, 16, "^7Fallback Weight Mode:")
+	controls.fallbackWeightsLabel = new("LabelControl", { "TOPRIGHT", nil, "TOPLEFT" }, 405, 225, 0, 16, "^7备选点权重模式:")
 	local fallbackWeightsList = { }
 	for id, stat in pairs(data.powerStatList) do
 		if not stat.ignoreForItems and stat.label ~= "Name" then
 			t_insert(fallbackWeightsList, {
-				label = "Sort by " .. stat.label,
+				label = "根据 " .. stat.label .. " 排序",
 				stat = stat.stat,
 				transform = stat.transform,
 			})
@@ -1426,13 +1431,13 @@ function TreeTabClass:FindTimelessJewel()
 		timelessData.fallbackWeightMode.idx = index
 	end)
 	controls.fallbackWeightsList.selIndex = timelessData.fallbackWeightMode.idx or 1
-	controls.fallbackWeightsButton = new("ButtonControl", { "LEFT", controls.fallbackWeightsList, "RIGHT" }, 5, 0, 66, 18, "Generate", setupFallbackWeights)
+	controls.fallbackWeightsButton = new("ButtonControl", { "LEFT", controls.fallbackWeightsList, "RIGHT" }, 5, 0, 66, 18, "生成", setupFallbackWeights)
 	controls.fallbackWeightsButton.tooltipFunc = function(tooltip, mode, index, value)
 		tooltip:Clear()
-		tooltip:AddLine(16, "^7Click this button to generate new fallback node weights, replacing your old ones.")
+		tooltip:AddLine(16, "^7点击该按钮将自动生成备选节点权重，替换之前的备选节点列表.")
 	end
 
-	controls.searchListButton = new("ButtonControl", { "TOPLEFT", nil, "TOPLEFT" }, 12, 250, 106, 20, "Desired Nodes", function()
+	controls.searchListButton = new("ButtonControl", { "TOPLEFT", nil, "TOPLEFT" }, 12, 250, 106, 20, "需求节点", function()
 		controls.searchListFallback.shown = false
 		controls.searchListFallback.enabled = false
 		controls.searchList.shown = true
@@ -1440,10 +1445,10 @@ function TreeTabClass:FindTimelessJewel()
 	end)
 	controls.searchListButton.tooltipFunc = function(tooltip, mode, index, value)
 		tooltip:Clear()
-		tooltip:AddLine(16, "^7This contains a list of your desired nodes along with their primary, secondary, and minimum weights.")
-		tooltip:AddLine(16, "^7This list can be updated manually or by selecting the node you want to update via the search dropdown list and then moving the node weight sliders.")
+		tooltip:AddLine(16, "^7包括了你需要的大点，以及主要、次要和最小权重.")
+		tooltip:AddLine(16, "^7可以手动修改列表，或通过搜索下拉框添加节点和权重滑动条更新权重.")
 	end
-	controls.searchListFallbackButton = new("ButtonControl", { "LEFT", controls.searchListButton, "RIGHT" }, 5, 0, 110, 20, "Fallback Nodes", function()
+	controls.searchListFallbackButton = new("ButtonControl", { "LEFT", controls.searchListButton, "RIGHT" }, 5, 0, 110, 20, "备选节点", function()
 		controls.searchList.shown = false
 		controls.searchList.enabled = false
 		controls.searchListFallback.shown = true
@@ -1451,11 +1456,11 @@ function TreeTabClass:FindTimelessJewel()
 	end)
 	controls.searchListFallbackButton.tooltipFunc = function(tooltip, mode, index, value)
 		tooltip:Clear()
-		tooltip:AddLine(16, "^7This contains a list of your fallback nodes along with their primary, secondary, and minimum weights.")
-		tooltip:AddLine(16, "^7This list can be updated manually or by selecting the node you want to update via the search dropdown list and then moving the node weight sliders.")
-		tooltip:AddLine(16, "^7Fallback node weights are only used when no matching entry exists in the desired nodes list, allowing you to override or disable specific automatic weights.")
-		tooltip:AddLine(16, "^7Fallback node weights typically contain automatically generated stat weights based on your current build.")
-		tooltip:AddLine(16, "^7Any manual changes made to your fallback nodes are lost when you click the generate button, as it completely replaces them.")
+		tooltip:AddLine(16, "^7包括了你指定的备选点，以及主要、次要和最小权重.")
+		tooltip:AddLine(16, "^7可以手动修改列表，或通过搜索下拉框添加节点和权重滑动条更新权重.")
+		tooltip:AddLine(16, "^7备选点权重只在没有符合需求节点时使用，使你可以重新设置或者删除某些点的权重.")
+		tooltip:AddLine(16, "^7备选点权重可以根据你的当前BD的状态自动生成.")
+		tooltip:AddLine(16, "^7在点击了“生成”按钮后，对于备选点权重的任何手动修改都会被覆盖并丢失.")
 	end
 	controls.searchList = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, 12, 275, 438, 200, timelessData.searchList, nil, "^%C\t\n", nil, function(value)
 		timelessData.searchList = value
@@ -1474,10 +1479,10 @@ function TreeTabClass:FindTimelessJewel()
 	controls.searchListFallback.enabled = false
 	controls.searchListFallback:SetText(timelessData.searchListFallback and timelessData.searchListFallback or "")
 
-	controls.searchResultsLabel = new("LabelControl", { "TOPLEFT", nil, "TOPRIGHT" }, -450, 250, 0, 16, "^7Search Results:")
+	controls.searchResultsLabel = new("LabelControl", { "TOPLEFT", nil, "TOPRIGHT" }, -450, 250, 0, 16, "^7搜索结果:")
 	controls.searchResults = new("TimelessJewelListControl", { "TOPLEFT", nil, "TOPRIGHT" }, -450, 275, 438, 200, self.build)
 
-	controls.searchButton = new("ButtonControl", nil, -90, 485, 80, 20, "Search", function()
+	controls.searchButton = new("ButtonControl", nil, -90, 485, 80, 20, "搜索", function()
 		if treeData.nodes[timelessData.jewelSocket.id] and treeData.nodes[timelessData.jewelSocket.id].isJewelSocket then
 			local radiusNodes = treeData.nodes[timelessData.jewelSocket.id].nodesInRadius[3] -- large radius around timelessData.jewelSocket.id
 			local allocatedNodes = { }
@@ -1678,7 +1683,7 @@ function TreeTabClass:FindTimelessJewel()
 			wipeTable(timelessData.searchResults)
 			wipeTable(timelessData.sharedResults)
 			timelessData.sharedResults.type = timelessData.jewelType
-			timelessData.sharedResults.conqueror = timelessData.conquerorType.id
+			timelessData.sharedResults.conqueror = timelessData.conquerorType
 			timelessData.sharedResults.socket = timelessData.jewelSocket
 			timelessData.sharedResults.desiredNodes = desiredNodes
 			local function formatSearchValue(input)
@@ -1741,12 +1746,12 @@ function TreeTabClass:FindTimelessJewel()
 			t_sort(timelessData.searchResults, function(a, b) return a.total > b.total end)
 		end
 	end)
-	controls.resetButton = new("ButtonControl", nil, 0, 485, 80, 20, "Reset", function()
+	controls.resetButton = new("ButtonControl", nil, 0, 485, 80, 20, "重置", function()
 		updateSearchList("", true)
 		updateSearchList("", false)
 		wipeTable(timelessData.searchResults)
 	end)
-	controls.closeButton = new("ButtonControl", nil, 90, 485, 80, 20, "Cancel", function()
+	controls.closeButton = new("ButtonControl", nil, 90, 485, 80, 20, "取消", function()
 		main:ClosePopup()
 	end)
 	main:OpenPopup(910, 517, "搜索永恒珠宝编号", controls)
