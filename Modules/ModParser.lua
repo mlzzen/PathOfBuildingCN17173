@@ -8045,7 +8045,13 @@ local function parseMod(line, order)
 		elseif misc.addToMinion then
 			-- Minion modifiers
 			for i, effectMod in ipairs(modList) do
-				modList[i] = mod("MinionModifier", "LIST", { mod = effectMod }, misc.addToMinionTag)
+				local tagList = { misc.playerTag }
+				if misc.playerTagList then
+					for i, tag in ipairs(misc.playerTagList) do
+						tagList[i] = tag
+					end
+				end
+				modList[i] = mod("MinionModifier", "LIST", { mod = effectMod }, unpack(tagList), misc.addToMinionTag)
 			end
 		elseif misc.addToSkill then
 			-- Skill enchants or socketed gem modifiers that add additional effects
