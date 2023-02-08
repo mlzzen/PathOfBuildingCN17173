@@ -3772,6 +3772,7 @@ local specialModList = {
 	["生效期间，闪避值提高 (%d+)%%"] = function(num) return { mod("Evasion", "INC", num, { type = "Condition", var = "UsingFlask" })  } end,
 	["生效期间，攻击速度提高 (%d+)%%"] = function(num) return { mod("Speed", "INC", num, nil, ModFlag.Attack, { type = "Condition", var = "UsingFlask" }) } end,
 	["生效期间，移动速度提高 (%d+)%%"] = function(num) return { mod("MovementSpeed", "INC", num, { type = "Condition", var = "UsingFlask" } ) } end,
+	["生效期间，技能魔力消耗降低 (%d+)%%"] = function(num) return { mod("ManaCost", "INC", -num, { type = "Condition", var = "UsingFlask" } ) } end,
 	["效果期间，你创造的【奉献地面】可以使敌人承受的伤害提高 (%d+)%%"]= function(num) return { mod("EnemyModifier", "LIST", { mod =  mod("DamageTakenConsecratedGround", "INC", num)},{ type = "Condition", var = "UsingFlask" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" }) } end,
 	["药剂持续时间内奉献地面上的敌人所受伤害提高 (%d+)%%"]= function(num) return { mod("EnemyModifier", "LIST", { mod =  mod("DamageTakenConsecratedGround", "INC", num)},{ type = "Condition", var = "UsingFlask" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" }) } end,
 	["生效期间产生的奉献地面使敌人承受的伤害提高 (%d+)%%"]= function(num) return { mod("EnemyModifier", "LIST", { mod =  mod("DamageTakenConsecratedGround", "INC", num)},{ type = "Condition", var = "UsingFlask" },{ type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" }) } end,
