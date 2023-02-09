@@ -321,7 +321,7 @@ elseif processInfluenceLine(line) then
 				elseif specName == "范围" and self.type == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^.+")
 					
-					if specVal:match("^.+") == "Variable" or specVal:match("^.+") == "变量"  then
+					if specVal:match("^.+") == "Variable" or specVal:match("^变量")  then
 					 -- Jewel radius is variable and must be read from it's mods instead after they are parsed
 					   deferJewelRadiusIndexAssignment = true
 					else
