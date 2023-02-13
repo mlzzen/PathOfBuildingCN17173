@@ -173,23 +173,23 @@ self.controls.charClose = new("ButtonControl", {"TOPLEFT",self.controls.charImpo
 	end)
 
 	-- Build import/export
-self.controls.sectionBuild = new("SectionControl", {"TOPLEFT",self.controls.sectionCharImport,"BOTTOMLEFT"}, 0, 18, 600, 200, "Build分享")
-self.controls.generateCodeLabel = new("LabelControl", {"TOPLEFT",self.controls.sectionBuild,"TOPLEFT"}, 6, 14, 0, 16, "^7生成代码给其他POB用户（仅限POB国服版）:")
-self.controls.generateCode = new("ButtonControl", {"LEFT",self.controls.generateCodeLabel,"RIGHT"}, 4, 0, 80, 20, "生成", function()
+	self.controls.sectionBuild = new("SectionControl", {"TOPLEFT",self.controls.sectionCharImport,"BOTTOMLEFT"}, 0, 18, 600, 200, "Build分享")
+	self.controls.generateCodeLabel = new("LabelControl", {"TOPLEFT",self.controls.sectionBuild,"TOPLEFT"}, 6, 14, 0, 16, "^7生成代码给其他POB用户（仅限POB国服版）:")
+	self.controls.generateCode = new("ButtonControl", {"LEFT",self.controls.generateCodeLabel,"RIGHT"}, 4, 0, 80, 20, "生成", function()
 		self.controls.generateCodeOut:SetText(common.base64.encode(Deflate(self.build:SaveDB("code"))):gsub("+","-"):gsub("/","_"))
 	end)
-self.controls.generateCodeOut = new("EditControl", {"TOPLEFT",self.controls.generateCodeLabel,"BOTTOMLEFT"}, 0, 8, 250, 20, "", "代码", "%Z")
+	self.controls.generateCodeOut = new("EditControl", {"TOPLEFT",self.controls.generateCodeLabel,"BOTTOMLEFT"}, 0, 8, 250, 20, "", "代码", "%Z")
 	self.controls.generateCodeOut.enabled = function()
 		return #self.controls.generateCodeOut.buf > 0
 	end
-self.controls.generateCodeCopy = new("ButtonControl", {"LEFT",self.controls.generateCodeOut,"RIGHT"}, 8, 0, 60, 20, "复制", function()
+	self.controls.generateCodeCopy = new("ButtonControl", {"LEFT",self.controls.generateCodeOut,"RIGHT"}, 8, 0, 60, 20, "复制", function()
 		Copy(self.controls.generateCodeOut.buf)
 		self.controls.generateCodeOut:SetText("")
 	end)
 	self.controls.generateCodeCopy.enabled = function()
 		return #self.controls.generateCodeOut.buf > 0
 	end
-self.controls.generateCodePastebin = new("ButtonControl", {"LEFT",self.controls.generateCodeCopy,"RIGHT"}, 8, 0, 140, 20, "生成Pastebin链接", function()
+	self.controls.generateCodePastebin = new("ButtonControl", {"LEFT",self.controls.generateCodeCopy,"RIGHT"}, 8, 0, 140, 20, "生成Pastebin链接", function()
 		local id = LaunchSubScript([[
 			local code, proxyURL = ...
 			local curl = require("lcurl.safe")
@@ -216,9 +216,9 @@ self.controls.generateCodePastebin = new("ButtonControl", {"LEFT",self.controls.
 		]], "", "", self.controls.generateCodeOut.buf, launch.proxyURL)
 		if id then
 			self.controls.generateCodeOut:SetText("")
-self.controls.generateCodePastebin.label = "生成中..."
+			self.controls.generateCodePastebin.label = "生成中..."
 			launch:RegisterSubScript(id, function(pasteLink, errMsg)
-self.controls.generateCodePastebin.label = "生成Pastebin地址"
+				self.controls.generateCodePastebin.label = "生成Pastebin地址"
 				if errMsg then
 					main:OpenMessagePopup("Pastebin.com", "Error creating paste:\n"..errMsg)
 				else
@@ -231,9 +231,9 @@ self.controls.generateCodePastebin.label = "生成Pastebin地址"
 	self.controls.generateCodePastebin.enabled = function()
 		return #self.controls.generateCodeOut.buf > 0 and not self.controls.generateCodeOut.buf:match("pastebin%.com")
 	end
-self.controls.generateCodeNote = new("LabelControl", {"TOPLEFT",self.controls.generateCodeOut,"BOTTOMLEFT"}, 0, 4, 0, 14, "^7注意: 这个代码很长，你可以用【生成Pastebin链接】来简化.")
-self.controls.importCodeHeader = new("LabelControl", {"TOPLEFT",self.controls.generateCodeNote,"BOTTOMLEFT"}, 0, 26, 0, 16, "^7从代码中导入（仅限POB国服版代码）:")
-self.controls.importCodeIn = new("EditControl", {"TOPLEFT",self.controls.importCodeHeader,"BOTTOMLEFT"}, 0, 4, 250, 20, "", nil, nil, nil, function(buf)
+	self.controls.generateCodeNote = new("LabelControl", {"TOPLEFT",self.controls.generateCodeOut,"BOTTOMLEFT"}, 0, 4, 0, 14, "^7注意: 这个代码很长，你可以用【生成Pastebin链接】来简化.")
+	self.controls.importCodeHeader = new("LabelControl", {"TOPLEFT",self.controls.generateCodeNote,"BOTTOMLEFT"}, 0, 26, 0, 16, "^7从代码中导入（仅限POB国服版代码）:")
+	self.controls.importCodeIn = new("EditControl", {"TOPLEFT",self.controls.importCodeHeader,"BOTTOMLEFT"}, 0, 4, 250, 20, "", nil, nil, nil, function(buf)
 		if #buf == 0 then
 			self.importCodeState = nil
 			return

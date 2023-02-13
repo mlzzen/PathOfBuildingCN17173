@@ -596,7 +596,7 @@ return {
 	{ label = "穿刺伤害", flag = "impale", flag = "showAverage", { format = "{1:output:ImpaleDPS}", { breakdown = "ImpaleDPS" }, }, },
 } }
 } },
-{ 1, "SkillTypeStats", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "技能类型-特殊状态", data = {
+{ 1, "SkillTypeStats", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "-特殊状态", data = {
 	{ label = "魔力消耗", color = colorCodes.MANA, haveOutput = "ManaHasCost", { format = "{0:output:ManaCost}", { breakdown = "ManaCost" }, { modName = { "ManaCost", "Cost" }, cfg = "skill" }, }, },
 	{ label = "魔力百分比消耗", color = colorCodes.MANA, haveOutput = "ManaPercentHasCost", { format = "{0:output:ManaPercentCost}", { breakdown = "ManaPercentCost" }, { modName = { "ManaCost", "Cost" }, cfg = "skill" }, }, },
 	{ label = "魔力每秒消耗", color = colorCodes.MANA, haveOutput = "ManaPerSecondHasCost", { format = "{2:output:ManaPerSecondCost}", { breakdown = "ManaPerSecondCost" }, { modName = { "ManaCost", "Cost" }, cfg = "skill" }, }, },
@@ -775,11 +775,11 @@ return {
 { 1, "HitChance", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "命中率", data = {
 	extra = "{0:output:HitChance}%",
 	flag = "attack",
-	{ label = "主手命中率", bgCol = colorCodes.MAINHANDBG, flag = "weapon1Attack", { format = "{0:output:MainHand.Accuracy}", 
+	{ label = "主手命中值", bgCol = colorCodes.MAINHANDBG, flag = "weapon1Attack", { format = "{0:output:MainHand.Accuracy}", 
 		{ breakdown = "MainHand.Accuracy" }, 
 		{ modName = "Accuracy", cfg = "weapon1" }, 
 	}, },
-	{ label = "主手击中几率", bgCol = colorCodes.MAINHANDBG, flag = "weapon1Attack", { format = "{0:output:MainHand.AccuracyHitChance}%",
+	{ label = "主手命中率", bgCol = colorCodes.MAINHANDBG, flag = "weapon1Attack", { format = "{0:output:MainHand.AccuracyHitChance}%",
 		{ breakdown = "MainHand.AccuracyHitChance" }, 
 		{ label = "敌人闪避加成", modName = { "Evasion", "CannotEvade" }, enemy = true },
 		{ label = "玩家加成", modName = { "HitChance", "CannotBeEvaded", "IgnoreBlindHitChance" } },

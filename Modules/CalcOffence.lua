@@ -914,7 +914,7 @@ function calcs.offence(env, actor, activeSkill)
 				breakdown.TrapCooldown = {
 					s_format("%.2fs ^8(基础)", skillData.trapCooldown or skillData.cooldown or 4),
 					s_format("/ %.2f ^8(提高/降低 冷却回复速度)", 1 + skillModList:Sum("INC", skillCfg, "CooldownRecovery") / 100),
-					s_format("rounded up to nearest server tick"),
+					s_format("向上取整至最近的服务器tick"),
 					s_format("= %.3fs", output.TrapCooldown)
 				}
 			end
@@ -1479,7 +1479,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown[stat], s_format("%.1f", output.OffHand[stat]))
 					t_insert(breakdown[stat], s_format("x %.3f ^8(副手创建的实例部分)", offPortion))
 					t_insert(breakdown[stat], s_format("= %.1f", output.OffHand[stat] * offPortion))
-					t_insert(breakdown[stat], "Total:")
+					t_insert(breakdown[stat], "合计:")
 					t_insert(breakdown[stat], s_format("%.1f + %.1f", output.MainHand[stat] * mainPortion, output.OffHand[stat] * offPortion))
 					t_insert(breakdown[stat], s_format("= %.1f", output[stat]))
 				end
@@ -1562,9 +1562,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.AccuracyHitChance = calcs.hitChance(enemyEvasion, output.Accuracy) * calcLib.mod(skillModList, cfg, "HitChance")
 			if breakdown then
 				breakdown.AccuracyHitChance = {
-					"Enemy level: "..env.enemyLevel..(env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
-					"Average enemy evasion: "..enemyEvasion,
-					"Approximate hit chance: "..output.AccuracyHitChance.."%",
+					"敌人等级: "..env.enemyLevel..(env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
+					"敌人平均闪避值: "..enemyEvasion,
+					"估计命中率: "..output.AccuracyHitChance.."%",
 				}
 			end
 		end
@@ -2375,14 +2375,14 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown[damageType], "基础伤害:")
 					local plus = ""
 					if (source[damageTypeMin] or 0) ~= 0 or (source[damageTypeMax] or 0) ~= 0 then
-						t_insert(breakdown[damageType], s_format("%d to %d ^8(基础伤害来自 %s)", source[damageTypeMin], source[damageTypeMax], source.type and "weapon" or "skill"))
+						t_insert(breakdown[damageType], s_format("%d 至 %d ^8(基础伤害来自 %s)", source[damageTypeMin], source[damageTypeMax], source.type and "weapon" or "skill"))
 						if baseMultiplier ~= 1 then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(基础伤害加成)", baseMultiplier))
 						end
 						plus = "+ "
 					end
 					if addedMin ~= 0 or addedMax ~= 0 then
-						t_insert(breakdown[damageType], s_format("%s%d to %d ^8(附加伤害)", plus, addedMin, addedMax))
+						t_insert(breakdown[damageType], s_format("%s%d 至 %d ^8(附加伤害)", plus, addedMin, addedMax))
 						if damageEffectiveness ~= 1 then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(伤害效用)", damageEffectiveness))
 						end
@@ -2390,7 +2390,7 @@ function calcs.offence(env, actor, activeSkill)
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(附加伤害加成)", addedMult))
 						end
 					end
-					t_insert(breakdown[damageType], s_format("= %.1f to %.1f", baseMin, baseMax))
+					t_insert(breakdown[damageType], s_format("= %.1f 至 %.1f", baseMin, baseMax))
 				end
 			end
 		end
@@ -2675,7 +2675,7 @@ function calcs.offence(env, actor, activeSkill)
 					highestType = damageType
 				end
 				if breakdown then
-					t_insert(breakdown[damageType], s_format("Portion of total damage: %d%%", portion))
+					t_insert(breakdown[damageType], s_format("占总伤害的比例: %d%%", portion))
 				end
 			end
 		end

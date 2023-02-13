@@ -2485,6 +2485,7 @@ local specialModList = {
 	["持长杖时 ([%+%-]?%d+)%% 攻击和法术暴击伤害加成"] = function(num) return {  mod("CritMultiplier", "BASE", num, { type = "Global" } , { type = "Condition", var = "UsingStaff" })  } end,
 	["你的攻击击中每个敌人会回复 ([%+%-]?%d+) 生命"] = function(num) return {  mod("LifeOnHit", "BASE", num,nil, ModFlag.Attack)  } end,
 	["你的法术击中每个敌人会回复 ([%+%-]?%d+) 生命"] = function(num) return {  mod("LifeOnHit", "BASE", num,nil, ModFlag.Spell)  } end,
+	["生命在你每次用法术击中敌人时 ([%+%-]?%d+)"] = function(num) return {  mod("LifeOnHit", "BASE", num,nil, ModFlag.Spell)  } end,
 	["你的攻击击中每个敌人会回复 ([%+%-]?%d+) 能量护盾"] = function(num) return {  mod("EnergyShieldOnHit" , "BASE", num,nil, ModFlag.Attack)  } end,
 	["你的法术击中每个敌人会回复 ([%+%-]?%d+) 能量护盾"] = function(num) return {  mod("EnergyShieldOnHit" , "BASE", num,nil, ModFlag.Spell)  } end,
 	["攻击击中每个敌人会回复 ([%+%-]?%d+) 生命"] = function(num) return {  mod("LifeOnHit", "BASE", num,nil, ModFlag.Attack)  } end,
@@ -5333,6 +5334,9 @@ local specialModList = {
 	mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill], level = 1, noSupports = true, triggered = true  }),
 	mod("CurseEffect", "INC", tonumber(num), { type = "SkillName", skillName = gemIdLookup[skill] }),
 	} end,
+	["击中时对敌人附加(.+)诅咒。"] = function(_, skill) return {
+		mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill], level = 1, noSupports = true, triggered = true  }),
+		} end,
 	["击中时用(%D+)诅咒敌人，它的效果提高 (%d+)%%"] = function(_, skill, num) return {
 	mod("ExtraSkill", "LIST", { skillId = gemIdLookup[skill], level = 1, noSupports = true, triggered = true  }),
 	mod("CurseEffect", "INC", tonumber(num), { type = "SkillName", skillName = gemIdLookup[skill] }),
