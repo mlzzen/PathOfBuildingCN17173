@@ -4024,7 +4024,7 @@ c["击败敌人时有 10% 几率给予周围友军 1 个暴击球"]={{},"击败�
 c["持续时间降低 30%"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-30}},nil}
 c["最多 5 次【脆弱重生】 每次【脆弱重生】都每秒回复 0.7% 生命"]={{},"最多 5 次【脆弱重生】 每次【脆弱重生】都"}
 c["单手武器攻击造成的异常状态伤害提高 20%"]={{[1]={flags=134217728,keywordFlags=524288,name="Damage",type="INC",value=20}},nil}
-c["获得【召唤不屈先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfFocus"}}},nil}
+c["获得【召唤不屈先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonHarbingerOfFocus"}}},nil}
 c["+125 最大生命"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=125}},nil}
 c["每秒再生 40 生命"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=40}},nil}
 c["低血时每秒回复 100 生命"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=100}},nil}
@@ -4271,7 +4271,7 @@ c["你偷取生命，数值等同于你的图腾造成伤害的 0.5%"]={{[1]={fl
 c["当你可能获得狂怒球时，有 45% 的几率直接获得最大数量的狂怒球 狂怒球持续时间延长 120%"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesDuration",type="BASE",value=45}},"当你可能获得狂怒球时，直接获得最大数量的狂怒球 延长 120% "}
 c["图腾使用技能造成伤害的 1% 转化为生命偷取 你偷取生命，数值等同于你的图腾造成伤害的 0.5%"]={nil,"图腾使用技能造成伤害的 1% 转化为生命偷取 你偷取生命，数值等同于你的图腾造成伤害的 0.5% "}
 c["图腾使用技能的范围效果扩大 15%"]={{[1]={flags=0,keywordFlags=16384,name="AreaOfEffect",type="INC",value=15}},nil}
-c["获得【召唤时空先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfTime"}}},nil}
+c["获得【召唤时空先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonHarbingerOfTime"}}},nil}
 c["每拥有一个图腾可让你和图腾每秒回复 0.5% 生命 图腾使用技能的范围效果扩大 15%"]={{},"每拥有一个可让你和图腾15% "}
 c["物品掉落数量提高 25%"]={{[1]={flags=0,keywordFlags=0,name="LootQuantity",type="INC",value=25}},nil}
 c["Adds 1 to 4 Physical Damage to Bow Attacks"]={nil,"Adds 1 to 4 Physical Damage to Bow Attacks "}
@@ -5137,7 +5137,7 @@ c["反射 10 冰霜伤害给近战攻击者 反射 100 冰霜伤害给近战攻�
 c["法术使你获得魔力，等于其每五次预支消耗魔力时的消耗"]={nil,"Spells cause you to gain Mana equal to their Upfront Cost every fifth time you Pay it "}
 c["你的闪电伤害可以冰冻但无法感电"]={{[1]={flags=0,keywordFlags=0,name="LightningCanFreeze",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="LightningCannotShock",type="FLAG",value=true}},nil}
 c["满血时移动速度提高 20%"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=20}},nil}
-c["获得【召唤冰雷先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfStorms"}}},nil}
+c["获得【召唤冰雷先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonHarbingerOfStorms"}}},nil}
 c["攻击技能附加闪电伤害，等于最大魔力的 6%"]={nil,"攻击技能附加闪电伤害，等于最大魔力的 6% "}
 c["其中 1 个增加的天赋为【梳洗之刑】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="梳洗之刑"}},nil}
 c["低魔时受到的法术伤害提高 100%"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=100}},"低魔时受到的 "}
@@ -7793,7 +7793,7 @@ c["其中 1 个增加的天赋为【非凡瞩目】"]={{[1]={flags=0,keywordFlag
 c["其中 1 个增加的天赋为【非凡才能】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="非凡才能"}},nil}
 c["每装备 1 个【裂界之器】，最大生命提高 +6"]={{[1]={[1]={type="Multiplier",var="ElderItem"},flags=0,keywordFlags=0,name="Life",type="BASE",value=6}},nil}
 c["其中 1 个增加的天赋为【霹雳雷震】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="霹雳雷震"}},nil}
-c["获得【召唤秘法先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfTheArcane"}}},nil}
+c["获得【召唤秘法先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonHarbingerOfTheArcane"}}},nil}
 c["其中 1 个增加的天赋为【降蛊】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="降蛊"}},nil}
 c["其中 1 个增加的天赋为【阴冷誓言】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="阴冷誓言"}},nil}
 c["其中 1 个增加的天赋为【防护毒素】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="防护毒素"}},nil}
@@ -8887,7 +8887,7 @@ c["武器攻击的闪电伤害提高 40% 攻击技能的闪电伤害提高 40%"]
 c["攻击附加 10 - 20 基础冰霜伤害"]={{[1]={flags=0,keywordFlags=65536,name="ColdMin",type="BASE",value=10},[2]={flags=0,keywordFlags=65536,name="ColdMax",type="BASE",value=20}},nil}
 c["偷取的每秒最大生命总恢复量翻倍"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="MORE",value=100}},nil}
 c["你造成中毒的敌人若没有冰缓，则受到冰缓"]={nil,"你造成中毒的敌人若没有冰缓，则受到冰缓 "}
-c["获得【召唤射术先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfDirections"}}},nil}
+c["获得【召唤射术先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonHarbingerOfDirections"}}},nil}
 c["不能造成非混沌伤害"]={{[1]={flags=0,keywordFlags=0,name="DealNoPhysical",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="DealNoLightning",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="DealNoCold",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="DealNoFire",type="FLAG",value=true}},nil}
 c["投射物可以连锁弹射 +2 次"]={{[1]={flags=0,keywordFlags=0,name="ChainCountMax",type="BASE",value=2}},nil}
 c["你使用防卫技能时移除流血效果"]={nil,"Remove Bleeding when you use a Guard Skill "}
@@ -11233,7 +11233,7 @@ c["此物品上的技能石受到 10 级的 生命偷取 辅助"]={{[1]={[1]={sl
 c["物品掉落数量提高 0%"]={{[1]={flags=0,keywordFlags=0,name="LootQuantity",type="INC",value=0}},nil}
 c["此物品上的技能石受到 1 级的 几率流血 辅助"]={{[1]={[1]={slotName="{SlotName}",type="SocketedIn"},flags=0,keywordFlags=0,name="ExtraSupport",type="LIST",value={level=1,skillId="SupportChanceToBleed"}}},nil}
 c["暴击时，+40% 流血持续伤害加成"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=4194304,name="DotMultiplier",type="BASE",value=40}},nil}
-c["获得【召唤残暴先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={skillId="SummonHarbingerOfBrutality"}}},nil}
+c["获得【召唤残暴先驱者】"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonHarbingerOfBrutality"}}},nil}
 c["当受到【奋锐光环】影响时，你创造奉献地面会获得【秘术增强】，持续 4 秒 在奋锐光环影响下，偷取的每秒最大能量护盾总恢复量提高 30%"]={{[1]={[1]={type="Condition",var="AffectedBy奋锐光环"},flags=0,keywordFlags=0,name="MaxEnergyShieldLeechRate",type="INC",value=30}},"当你创造奉献地面会获得【秘术增强】，持续 4 秒 在奋锐光环影响下， "}
 c["附加 70 - 350 基础物理伤害"]={{[1]={flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=70},[2]={flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=350}},nil}
 c["你每拥有一个灵体，召唤生物伤害提高 12%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}}}},"你每拥有一个灵体， "}

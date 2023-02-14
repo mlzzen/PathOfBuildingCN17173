@@ -2883,7 +2883,7 @@ local specialModList = {
 	["每个暴击球会提供攻击伤害 ([%d%.]+)%% 的魔力偷取"]= function(num) return {  mod("DamageManaLeech", "BASE", num,nil, ModFlag.Attack,{ type = "Multiplier", var = "PowerCharge" })  } end,
 	["对被冰缓敌人所造成的攻击伤害的 ([%d%.]+)%% 转化为生命偷取"]= function(num) return {  mod("DamageLifeLeech", "BASE", num,nil, ModFlag.Attack,{ type = "ActorCondition", actor = "enemy", var = "Chilled" })  } end,
 	["获得等同 ([%d%.]+)%% 最大生命的额外能量护盾"]= function(num) return {  mod("LifeGainAsEnergyShield", "BASE", num)  } end,
-	["获得【(.+)】"] = function(_,skill) return grantedExtraSkill(skill) end,
+	["获得【(.+)】"] = function(_,skill) return grantedExtraSkill(skill, 1) end,
 	["暴走时触发 (%d+) 级的【(.+)】"]= function(num, _, skill) return triggerExtraSkill(skill, num) end,
 	["暴击时触发 (%d+) 级的【(.+)】"]= function(num, _, skill) return triggerExtraSkill(skill, num) end,
 	["插槽内的的近战技能石范围扩大 (%d+)%%"]= function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("AreaOfEffect", "INC", num) },{ type = "SocketedIn", slotName = "{SlotName}", keyword = "melee" } ) } end,
