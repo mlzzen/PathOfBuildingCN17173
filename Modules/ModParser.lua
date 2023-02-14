@@ -4653,12 +4653,12 @@ local specialModList = {
 	mod("Evasion", "BASE", num, { type = "Condition", var = "SandStance" } )  } end,
 	["沙姿态下，范围效果扩大 (%d+)%%"]= function(num) return {
 	mod("AreaOfEffect", "INC", num, { type = "Condition", var = "SandStance" } )  } end,
-	["获得【召唤高等不屈先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId ="SummonHarbingerOfFocusUber"})   } end,
-	["获得【召唤高等射术先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId ="SummonHarbingerOfDirectionsUber"})   } end,
-	["获得【召唤高等秘法先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId ="SummonHarbingerOfTheArcaneUber"})   } end,
-	["获得【召唤高等冰雷先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId ="SummonHarbingerOfStormsUber"})   } end,
-	["获得【召唤高等时空先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId ="SummonHarbingerOfTimeUber"})   } end,
-	["获得【召唤高等残暴先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId ="SummonHarbingerOfBrutalityUber"})   } end,
+	["获得【召唤高等不屈先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId = "SummonHarbingerOfFocusUber", level = 1})   } end,
+	["获得【召唤高等射术先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId = "SummonHarbingerOfDirectionsUber", level = 1})   } end,
+	["获得【召唤高等秘法先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId = "SummonHarbingerOfTheArcaneUber", level = 1})   } end,
+	["获得【召唤高等冰雷先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId = "SummonHarbingerOfStormsUber", level = 1})   } end,
+	["获得【召唤高等时空先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId = "SummonHarbingerOfTimeUber", level = 1})   } end,
+	["获得【召唤高等残暴先驱者】"]= function(num) return {  mod("ExtraSkill", "LIST", { skillId = "SummonHarbingerOfBrutalityUber", level = 1})   } end,
 	["你在【护体】状态下 %+(%d+) 护甲"]= function(num) return {
 	mod("Armour", "BASE", num, { type = "Condition", var = "Fortify" } )  } end,
 	["你在【迷踪】状态下 %+(%d+) 闪避值"]= function(num) return {
