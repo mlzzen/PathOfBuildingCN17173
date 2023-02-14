@@ -53,7 +53,7 @@ function SkillListClass:GetRowValue(column, index, socketGroup)
 			label = "^x7F7F7F" .. label .. " (已禁用)"
 		end
 		if self.skillsTab.build.mainSocketGroup == index then 
-			label = label .. colorCodes.RELIC .. " (激活)"
+			label = label .. colorCodes.RELIC .. " (主技能)"
 		end
 		if socketGroup.includeInFullDPS then 
 			label = label .. colorCodes.CUSTOM .. " (全部DPS)"

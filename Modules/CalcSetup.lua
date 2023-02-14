@@ -1208,7 +1208,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 							socketGroup.displayLabel = (socketGroup.displayLabel and socketGroup.displayLabel..", " or "") .. grantedEffect.name
 						end
 					end
-					socketGroup.displayLabel = socketGroup.displayLabel or "<No active skills>"
+					socketGroup.displayLabel = socketGroup.displayLabel or "<没有主动技能>"
 				end
 
 				-- Save the active skill list for display in the socket group tooltip
