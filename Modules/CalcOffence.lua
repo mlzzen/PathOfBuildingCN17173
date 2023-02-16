@@ -22,6 +22,8 @@ local band = bit.band
 local bnot = bit.bnot
 local s_format = string.format
 
+local breakdown_translator = LoadModule("Data/Translations/Breakdown")
+
 local tempTable1 = { }
 local tempTable2 = { }
 local tempTable3 = { }
@@ -93,7 +95,7 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 		-- No base damage for this type, don't need to calculate modifiers
 		if breakdown and (addMin ~= 0 or addMax ~= 0) then
 			t_insert(breakdown.damageTypes, {
-				source = damageType,
+				source = breakdown_translator.Translate(damageType),
 				convSrc = (addMin ~= 0 or addMax ~= 0) and (addMin .. " 至 " .. addMax),
 				total = addMin .. " 至 " .. addMax,
 				convDst = convDst and s_format("%d%% 至 %s", conversionTable[damageType][convDst] * 100, convDst),
@@ -111,13 +113,13 @@ local function calcDamage(activeSkill, output, cfg, breakdown, damageType, typeF
 
 	if breakdown then
 		t_insert(breakdown.damageTypes, {
-			source = damageType,
+			source = breakdown_translator.Translate(damageType),
 			base = baseMin .. " 至 " .. baseMax,
 			inc = (inc ~= 1 and "x "..inc),
 			more = (more ~= 1 and "x "..more),
 			convSrc = (addMin ~= 0 or addMax ~= 0) and (addMin .. " 至 " .. addMax),
 			total = (round(baseMin * inc * more) + addMin) .. " 至 " .. (round(baseMax * inc * more) + addMax),
-			convDst = convDst and conversionTable[damageType][convDst] > 0 and s_format("%d%% 至 %s", conversionTable[damageType][convDst] * 100, convDst),
+			convDst = convDst and conversionTable[damageType][convDst] > 0 and s_format("%d%% 至 %s", conversionTable[damageType][convDst] * 100, breakdown_translator.Translate(convDst)),
 		})
 	end
 
@@ -1302,23 +1304,24 @@ function calcs.offence(env, actor, activeSkill)
 		output[costName] = m_max(0, more * output[costName])
 		output[costName] = m_max(0, round(output[costName] + val.totalCost, dec)) -- There are some weird rounding issues producing off by one in here.
 		if breakdown and hasCost then
+			local textCn = breakdown_translator.Translate(val.text)
 			breakdown[costName] = {
-				s_format("%.2f"..(val.percent and "%%" or "").." ^8(基础 "..val.text.." 消耗)", val.baseCost)
+				s_format("%.2f"..(val.percent and "%%" or "").." ^8(基础 "..textCn.." 消耗)", val.baseCost)
 			}
 			if mult ~= 1 then
 				t_insert(breakdown[costName], s_format("x %.2f ^8(消耗加成)", mult))
 			end
 			if val.baseCostNoMult ~= 0 then
-				t_insert(breakdown[costName], s_format("+ %d ^8(额外 "..val.text.." 消耗)", val.baseCostNoMult))
+				t_insert(breakdown[costName], s_format("+ %d ^8(额外 "..textCn.." 消耗)", val.baseCostNoMult))
 			end
 			if inc ~= 0 then
-				t_insert(breakdown[costName], s_format("x %.2f ^8(提高/降低 "..val.text.." 消耗)", 1 + inc/100))
+				t_insert(breakdown[costName], s_format("x %.2f ^8(提高/降低 "..textCn.." 消耗)", 1 + inc/100))
 			end
 			if more ~= 1 then
-				t_insert(breakdown[costName], s_format("x %.2f ^8(总增/总降 "..val.text.." 消耗)", more))
+				t_insert(breakdown[costName], s_format("x %.2f ^8(总增/总降 "..textCnt.." 消耗)", more))
 			end
 			if val.totalCost ~= 0 then
-				t_insert(breakdown[costName], s_format("%+d ^8(总 "..val.text.." 消耗)", val.totalCost))
+				t_insert(breakdown[costName], s_format("%+d ^8(总 "..textCn.." 消耗)", val.totalCost))
 			end
 			t_insert(breakdown[costName], s_format("= %"..(val.upfront and "d" or ".2f")..(val.percent and "%%" or ""), output[costName]))
 		end
@@ -1562,7 +1565,7 @@ function calcs.offence(env, actor, activeSkill)
 			output.AccuracyHitChance = calcs.hitChance(enemyEvasion, output.Accuracy) * calcLib.mod(skillModList, cfg, "HitChance")
 			if breakdown then
 				breakdown.AccuracyHitChance = {
-					"敌人等级: "..env.enemyLevel..(env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
+					"敌人等级: "..env.enemyLevel..(env.configInput.enemyLevel and " ^8(从配置界面配置)" or " ^8(可以从配置界面配置)"),
 					"敌人平均闪避值: "..enemyEvasion,
 					"估计命中率: "..output.AccuracyHitChance.."%",
 				}
@@ -2612,7 +2615,7 @@ function calcs.offence(env, actor, activeSkill)
 				else
 					if breakdown then
 						breakdown[damageType] = {
-							"你无法造成 "..damageType.." 伤害"
+							"你无法造成 "..breakdown_translator.Translate(damageType).." 伤害"
 						}
 					end
 				end
@@ -3496,7 +3499,7 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if globalBreakdown then
 				globalBreakdown.PoisonDPS = {
-					s_format("异常计算模式: %s ^8(可以在配置界面修改)", igniteMode == "CRIT" and "Crits Only" or "Average Damage")
+					s_format("异常计算模式: %s ^8(可以在配置界面修改)", igniteMode == "CRIT" and "仅暴击" or "平均伤害")
 				}
 			end
 			local baseVal = calcAilmentDamage("Poison", output.CritChance, sourceHitDmg, sourceCritDmg) * data.misc.PoisonPercentBase * output.FistOfWarAilmentEffect * globalOutput.AilmentWarcryEffect
@@ -3816,7 +3819,7 @@ function calcs.offence(env, actor, activeSkill)
 				end
 
 				if breakdown then
-					t_insert(breakdown.IgniteDPS, "x 0.9 ^8(ignite deals 90% per second)")
+					t_insert(breakdown.IgniteDPS, "x 0.9 ^8(点燃每秒造成 90% 伤害)")
 					t_insert(breakdown.IgniteDPS, s_format("= %.1f", baseVal, 1))
 					if baseVal ~= output.IgniteDPS then
 						t_insert(breakdown.IgniteDPS, "")
@@ -3942,7 +3945,7 @@ function calcs.offence(env, actor, activeSkill)
 		if (output.FreezeChanceOnHit + output.FreezeChanceOnCrit) > 0 then
 			if globalBreakdown then
 				globalBreakdown.FreezeDurationMod = {
-					s_format("异常计算模式: %s ^8(可以从配置界面修改)", igniteMode == "CRIT" and "Crits Only" or "Average Damage")
+					s_format("异常计算模式: %s ^8(可以从配置界面修改)", igniteMode == "CRIT" and "仅暴击" or "平均伤害")
 				}
 			end
 			local baseVal = calcAilmentDamage("Freeze", output.CritChance, calcAverageSourceDamage("Freeze")) * skillModList:More(cfg, "FreezeAsThoughDealing")
@@ -3959,7 +3962,7 @@ function calcs.offence(env, actor, activeSkill)
 			if (output[ailment.."ChanceOnHit"] + output[ailment.."ChanceOnCrit"]) > 0 then
 				if globalBreakdown then
 					globalBreakdown[ailment.."EffectMod"] = {
-						s_format("Ailment mode: %s ^8(可以在配置界面修改)", igniteMode == "CRIT" and "Crits Only" or "Average Damage")
+						s_format("异常计算模式: %s ^8(可以在配置界面修改)", igniteMode == "CRIT" and "仅暴击" or "平均伤害")
 					}
 				end
 				local damage = calcAilmentDamage(ailment, output.CritChance, calcAverageSourceDamage(ailment)) * skillModList:More(cfg, ailment.."AsThoughDealing")
@@ -4029,15 +4032,15 @@ function calcs.offence(env, actor, activeSkill)
 						if isAttack then
 							t_insert(breakdown[ailment.."Duration"], pass.label..":")
 						end
-						t_insert(breakdown[ailment.."Duration"], s_format("%.2fs ^8(base duration)", ailmentData[ailment].duration))
+						t_insert(breakdown[ailment.."Duration"], s_format("%.2fs ^8(基础持续时间)", ailmentData[ailment].duration))
 						if incDur ~= 0 then
-							t_insert(breakdown[ailment.."Duration"], s_format("x %.2f ^8(increased/reduced duration)", 1 + incDur / 100))
+							t_insert(breakdown[ailment.."Duration"], s_format("x %.2f ^8(提高/降低持续时间)", 1 + incDur / 100))
 						end
 						if moreDur ~= 1 then
-							t_insert(breakdown[ailment.."Duration"], s_format("x %.2f ^8(more/less duration)", moreDur))
+							t_insert(breakdown[ailment.."Duration"], s_format("x %.2f ^8(额外提高/降低持续时间)", moreDur))
 						end
 						if debuffDurationMult ~= 1 then
-							t_insert(breakdown[ailment.."Duration"], s_format("/ %.2f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
+							t_insert(breakdown[ailment.."Duration"], s_format("/ %.2f ^8(减益状态消散更慢/更快)", 1 / debuffDurationMult))
 						end
 						t_insert(breakdown[ailment.."Duration"], s_format("= %.2fs", output[ailment.."Duration"]))
 					end

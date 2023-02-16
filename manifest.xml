@@ -197,6 +197,7 @@
 	<File name="Data/StatDescriptions/single_minion_spell_skill_stat_descriptions.lua" part="program" sha1="ccc61b21587b36ee8ea3a76d7ba1477e522fedfd" />
 	<File name="Data/StatDescriptions/stat_descriptions.lua" part="program" sha1="b568f0536a8c7de28ed28041b1cfc673b34a2cb4" />
 	<File name="Data/StatDescriptions/variable_duration_skill_stat_descriptions.lua" part="program" sha1="d48251cc1f5c9b3286b86c2d1bb68bcbfe298bca" />
+	<File name="Data/Translations/Breakdown.lua" part="program" sha1="d48251cc1f5c9b3286b86c2d1bb68bcbfe298bca" />
 	<File name="Modules/Build.lua" part="program" sha1="a3bd86f4915d68a9bdacf47b561d42dbc526282f" />
 	<File name="Modules/BuildList.lua" part="program" sha1="a6741edaafc6672ffff80ec222353e6d5709a193" />
 	<File name="Modules/CalcActiveSkill.lua" part="program" sha1="bbf7fe21a676b8487b3ec8101e1d11820d6750b9" />

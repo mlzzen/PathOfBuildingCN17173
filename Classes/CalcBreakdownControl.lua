@@ -15,6 +15,8 @@ local m_cos = math.cos
 local m_pi = math.pi
 local band = bit.band
 
+local breakdown_translator = LoadModule("Data/Translations/Breakdown")
+
 local CalcBreakdownClass = newClass("CalcBreakdownControl", "Control", "ControlHost", function(self, calcsTab)
 	self.Control()
 	self.ControlHost()
@@ -281,7 +283,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			{ label = "【值】", key = "displayValue" },
 			{ label = "【状态】", key = "name" },
 			{ label = "【技能类型】", key = "flags" },
-			{ label = "【注意】", key = "tags" },
+			{ label = "【说明】", key = "tags" },
 			{ label = "【来源】", key = "source" },
 			{ label = "【来源名称】", key = "sourceName" },
 		},
@@ -364,7 +366,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 		local sourceType = row.mod.source:match("[^:]+")
 		if not modList and not sectionData.modSource then
 			-- No modifier source specified, add the source type to the table
-			row.source = sourceType
+			row.source = breakdown_translator.Translate(sourceType)
 			row.sourceTooltip = function(tooltip)
 				tooltip:AddLine(16, "来自 "..sourceType..":")
 				for _, line in ipairs(sourceTotals[sourceType]) do
@@ -411,7 +413,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			for flags, src in pairs({[row.mod.flags] = ModFlag, [row.mod.keywordFlags] = KeywordFlag}) do
 				for name, val in pairs(src) do
 					if band(flags, val) == val then
-						t_insert(flagNames, name)
+						t_insert(flagNames, breakdown_translator.Translate(name))
 					end
 				end
 			end
@@ -430,14 +432,16 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			for _, tag in ipairs(row.mod) do
 				local desc
 				if tag.type == "Condition" or tag.type == "ActorCondition" then
-					desc = (tag.actor and (tag.actor:sub(1,1):upper()..tag.actor:sub(2).." ") or "").."状态处于: "..(tag.neg and "Not " or "")..self:FormatVarNameOrList(tag.var, tag.varList)
+					local actor = tag.actor and (tag.actor:sub(1,1):upper()..tag.actor:sub(2)) or ""
+					local stat = (tag.neg and "Not " or "")..self:FormatVarNameOrList(tag.var, tag.varList)
+					desc = breakdown_translator.Translate(actor).."状态处于: "..breakdown_translator.Translate(stat)
 				elseif tag.type == "Multiplier" then
 					local base = tag.base and (self:FormatModBase(row.mod, tag.base).."+ "..math.abs(row.mod.value).." ") or baseVal
-					desc = base.."per "..(tag.div and (tag.div.." ") or "")..self:FormatVarNameOrList(tag.var, tag.varList)
+					desc = base.."每 "..(tag.div and (tag.div.." ") or "")..self:FormatVarNameOrList(tag.var, tag.varList)
 					baseVal = ""
 				elseif tag.type == "PerStat" then
 					local base = tag.base and (self:FormatModBase(row.mod, tag.base).."+ "..math.abs(row.mod.value).." ") or baseVal or ""
-					desc = base.."per "..(tag.div or 1).." "..self:FormatVarNameOrList(tag.stat, tag.statList)
+					desc = base.."每 "..(tag.div or 1).." "..self:FormatVarNameOrList(tag.stat, tag.statList)
 					baseVal = ""
 				elseif tag.type == "PercentStat" then
 					local finalPercent = (row.mod.value * (tag.percent / 100)) * 100
@@ -453,7 +457,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 				elseif tag.type == "SkillType" then
 					for name, type in pairs(SkillType) do
 						if type == tag.skillType then
-							desc = "技能类型: "..(tag.neg and "Not " or "")..self:FormatModName(name)
+							local skillTypeCn = breakdown_translator.Translate((tag.neg and "Not " or "")..self:FormatModName(name))
+							desc = "技能类型: "..skillTypeCn
 							break
 						end
 					end
@@ -470,7 +475,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 					desc = self:FormatModName(tag.type)
 				end
 				if desc then
-					row.tags = (row.tags and row.tags .. ", " or "") .. desc
+					row.tags = (row.tags and row.tags .. ", " or "") .. breakdown_translator.Translate(desc)
 				end
 			end
 		end
@@ -481,11 +486,25 @@ function CalcBreakdownClass:FormatModName(modName)
 	if not modName then
 		return ""
 	end
-	return modName:gsub("([%l%d]:?)(%u)","%1 %2"):gsub("(%l)(%d)","%1 %2")
+	-- return modName:gsub("([%l%d]:?)(%u)","%1 %2"):gsub("(%l)(%d)","%1 %2")
+	local output = modName:gsub("([%l%d]:?)(%u)","%1 %2"):gsub("(%l)(%d)","%1 %2")
+	local old = output
+	output = breakdown_translator.Translate(output)
+	if old == output then
+		ConPrintf("(FormatModName)"..old)
+	end
+	return output
 end
 
 function CalcBreakdownClass:FormatVarNameOrList(var, varList)
-	return var and self:FormatModName(var) or table.concat(varList, "/")
+	-- return var and self:FormatModName(var) or table.concat(varList, "/")
+	local output = var and self:FormatModName(var) or table.concat(varList, "/")
+	local old = output
+	output = breakdown_translator.Translate(output)
+	if old == output then
+		-- ConPrintf("(FormatVarNameOrList)"..old)
+	end
+	return output
 end
 
 function CalcBreakdownClass:FormatModBase(mod, base)
@@ -494,18 +513,18 @@ end
 
 function CalcBreakdownClass:FormatModValue(value, modType)
 	if modType == "BASE" then
-		return string.format("%+g base", value)
+		return string.format("%+g 基础值", value)
 	elseif modType == "INC" then
 		if value >= 0 then
-			return value.."% increased"
+			return value.."% 提高"
 		else
-			return -value.."% reduced"
+			return -value.."% 降低"
 		end
 	elseif modType == "MORE" then
 		if value >= 0 then
-			return value.."% more"
+			return value.."% 额外提高"
 		else
-			return -value.."% less"
+			return -value.."% 额外降低"
 		end
 	elseif modType == "OVERRIDE" then
 		return "Override: "..value

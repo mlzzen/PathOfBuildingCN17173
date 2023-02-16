@@ -16,6 +16,8 @@ local m_modf = math.modf
 local m_huge = math.huge
 local s_format = string.format
 
+local breakdown_translator = LoadModule("Data/Translations/Breakdown")
+
 local tempTable1 = { }
 
 local isElemental = { Fire = true, Cold = true, Lightning = true }
@@ -492,18 +494,18 @@ function calcs.defence(env, actor)
 			end
 			if breakdown then
 				breakdown.EvadeChance = {
-					s_format("敌人等级: %d ^8(%s 配置界面)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
+					s_format("敌人等级: %d ^8(%s配置界面配置)", env.enemyLevel, env.configInput.enemyLevel and "从" or "可以从"),
 					s_format("平均敌人命中: %d", enemyAccuracy),
 					s_format("近似闪避率: %d%%", output.EvadeChance),
 				}
 				breakdown.MeleeEvadeChance = {
-					s_format("敌人等级: %d ^8(%s 配置界面配置)", env.enemyLevel, env.configInput.enemyLevel and "覆盖了" or "可以从"),
+					s_format("敌人等级: %d ^8(%s配置界面配置)", env.enemyLevel, env.configInput.enemyLevel and "从" or "可以从"),
 					s_format("平均敌人命中: %d", enemyAccuracy),
 					s_format("有效闪避: %d", output.MeleeEvasion),
 					s_format("近似近战闪避率: %d%%", output.MeleeEvadeChance),
 				}
 				breakdown.ProjectileEvadeChance = {
-					s_format("敌人等级: %d ^8(%s 配置界面)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
+					s_format("敌人等级: %d ^8(%s配置界面配置)", env.enemyLevel, env.configInput.enemyLevel and "从" or "可以从"),
 					s_format("平均敌人命中: %d", enemyAccuracy),
 					s_format("有效闪避: %d", output.ProjectileEvasion),
 					s_format("近似投射物闪避率: %d%%", output.ProjectileEvadeChance),
@@ -598,14 +600,14 @@ function calcs.defence(env, actor)
 
 	if breakdown then
 		breakdown.AttackDodgeChance = {
-			"Base: "..baseDodgeChance.."%",
-			"Max: "..attackDodgeChanceMax.."%",
-			"Total: "..output.AttackDodgeChance+output.AttackDodgeChanceOverCap.."%",
+			"基础: "..baseDodgeChance.."%",
+			"最大: "..attackDodgeChanceMax.."%",
+			"总和: "..output.AttackDodgeChance+output.AttackDodgeChanceOverCap.."%",
 		}
 		breakdown.SpellDodgeChance = {
-			"Base: "..baseDodgeChance.."%",
-			"Max: "..spellDodgeChanceMax.."%",
-			"Total: "..output.SpellDodgeChance+output.SpellDodgeChanceOverCap.."%",
+			"基础: "..baseDodgeChance.."%",
+			"最大: "..spellDodgeChanceMax.."%",
+			"总和: "..output.SpellDodgeChance+output.SpellDodgeChanceOverCap.."%",
 		}
 	end
 
@@ -702,7 +704,7 @@ function calcs.defence(env, actor)
 		if breakdown then
 			breakdown[resource.."RegenRecovery"] = { }
 			breakdown.multiChain(breakdown[resource.."RegenRecovery"], {
-				label = resourceName.." Regeneration:",
+				label = breakdown_translator.Translate(resourceName).." 回复:",
 				base = { "%.1f ^8(基础)", baseRegen },
 				{ "%.2f ^8(提高/降低)", 1 + inc/100 },
 				{ "%.2f ^8(额外提高/降低)", more },
@@ -959,12 +961,12 @@ function calcs.defence(env, actor)
 				label = "来自敌人的总伤害",
 				rowList = { },
 				colList = {
-					{ label = "类型", key = "type" },
-					{ label = "伤害", key = "value" },
-					{ label = "加成", key = "mult" },
-					{ label = "暴击", key = "crit" },
-					{ label = "最终", key = "final" },
-					{ label = "来源", key = "from" },
+					{ label = "【类型】", key = "type" },
+					{ label = "【伤害】", key = "value" },
+					{ label = "【加成】", key = "mult" },
+					{ label = "【暴击】", key = "crit" },
+					{ label = "【最终】", key = "final" },
+					{ label = "【来源】", key = "from" },
 				},
 			}
 		end
@@ -977,7 +979,7 @@ function calcs.defence(env, actor)
 			local enemyDamage = tonumber(env.configInput["enemy"..damageType.."Damage"])
 			local enemyPen = tonumber(env.configInput["enemy"..damageType.."Pen"])
 			local enemyOverwhelm = tonumber(env.configInput["enemy"..damageType.."Overwhelm"])
-			local sourceStr = enemyDamage == nil and "Default" or "Config"
+			local sourceStr = enemyDamage == nil and "默认" or "配置"
 
 			if enemyDamage == nil then
 				enemyDamage = tonumber(env.configPlaceholder["enemy"..damageType.."Damage"]) or 0
@@ -1005,7 +1007,7 @@ function calcs.defence(env, actor)
 				s_format("= %d", output[damageType.."EnemyDamage"]),
 				}
 				t_insert(breakdown["totalEnemyDamage"].rowList, {
-					type = s_format("%s", damageType),
+					type = s_format("%s", breakdown_translator.Translate(damageType)),
 					value = s_format("%d", enemyDamage),
 					mult = s_format("%.2f", enemyDamageMult),
 					crit = s_format("%.2f", output["EnemyCritEffect"]),
@@ -1046,12 +1048,12 @@ function calcs.defence(env, actor)
 					label = "承受",
 					rowList = { },
 					colList = {
-						{ label = "类型", key = "type" },
-						{ label = "伤害", key = "value" },
+						{ label = "【类型】", key = "type" },
+						{ label = "【伤害】", key = "value" },
 					},
 				}
 				t_insert(breakdown[damageType.."TakenDamage"].rowList, {
-					type = s_format("%s", damageType),
+					type = s_format("%s", breakdown_translator.Translate(damageType)),
 					value = s_format("%d", output[damageType.."TakenDamage"]),
 				})
 			end
@@ -1064,7 +1066,7 @@ function calcs.defence(env, actor)
 					output[damageConvertedType.."TakenDamage"] = output[damageConvertedType.."TakenDamage"] + damage
 					if breakdown and damage > 0 then
 						t_insert(breakdown[damageConvertedType.."TakenDamage"].rowList, {
-							type = s_format("%s", damageType),
+							type = s_format("%s", breakdown_translator.Translate(damageType)),
 							value = s_format("%d", damage),
 						})
 					end
@@ -1078,8 +1080,8 @@ function calcs.defence(env, actor)
 				label = "转伤后承受的伤害",
 				rowList = { },
 				colList = {
-					{ label = "类型", key = "type" },
-					{ label = "伤害", key = "value" },
+					{ label = "【类型】", key = "type" },
+					{ label = "【伤害】", key = "value" },
 				},
 			}
 		end
@@ -1087,7 +1089,7 @@ function calcs.defence(env, actor)
 			output["totalTakenDamage"] = output["totalTakenDamage"] + output[damageType.."TakenDamage"]
 			if breakdown then
 				t_insert(breakdown["totalTakenDamage"].rowList, {
-					type = s_format("%s", damageType),
+					type = s_format("%s", breakdown_translator.Translate(damageType)),
 					value = s_format("%d", output[damageType.."TakenDamage"]),
 				})
 			end
@@ -1164,10 +1166,10 @@ function calcs.defence(env, actor)
 			label = "免伤计算后承受的伤害",
 			rowList = { },
 			colList = {
-				{ label = "类型", key = "type" },
-				{ label = "即将承受", key = "incoming" },
-				{ label = "加成", key = "mult" },
-				{ label = "实际伤害", key = "value" },
+				{ label = "【类型】", key = "type" },
+				{ label = "【即将承受】", key = "incoming" },
+				{ label = "【加成】", key = "mult" },
+				{ label = "【实际伤害】", key = "value" },
 			},
 		}
 	end
@@ -1217,15 +1219,6 @@ function calcs.defence(env, actor)
 			end
 			if (armourReduct ~= 0 and 1 or 0) + (reduction ~= 0 and 1 or 0) + (enemyOverwhelm ~= 0 and 1 or 0) >= 2 then
 				t_insert(breakdown[damageType.."DamageReduction"], s_format("总 %s 伤害减免: %d%%", damageType, 100 - reductMult * 100))
-			end
-			if reduction ~= 0 then
-				t_insert(breakdown[damageType.."DamageReduction"], s_format("Base %s Damage Reduction: %d%%", damageType, reduction))
-			end
-			if enemyOverwhelm ~= 0 then
-				t_insert(breakdown[damageType.."DamageReduction"], s_format("Enemy Overwhelm %s Damage: %d%%", damageType, enemyOverwhelm))
-			end
-			if (armourReduct ~= 0 and 1 or 0) + (reduction ~= 0 and 1 or 0) + (enemyOverwhelm ~= 0 and 1 or 0) >= 2 then
-				t_insert(breakdown[damageType.."DamageReduction"], s_format("Total %s Damage Reduction: %d%%", damageType, 100 - reductMult * 100))
 			end
 		end
 		local takenMult = output[damageType.."TakenHitMult"]
@@ -1300,20 +1293,20 @@ function calcs.defence(env, actor)
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("= %.3f", output[damageType.."TakenHitMult"]))
 			end
 			breakdown[damageType.."TakenHit"] = {
-				s_format("Final %s Damage taken:", damageType),
-				s_format("%.1f incoming damage", damage),
-				s_format("x %.3f damage mult", output[damageType.."TakenHitMult"]),
+				s_format("最终承受的%s伤害:", breakdown_translator.Translate(damageType)),
+				s_format("%.1f 即将承受的伤害", damage),
+				s_format("x %.3f 受到伤害加成", output[damageType.."TakenHitMult"]),
 				s_format("= %.1f", output[damageType.."TakenHit"]),
 			}
 			t_insert(breakdown["totalTakenHit"].rowList, {
-				type = s_format("%s", damageType),
-				incoming = s_format("%.1f incoming damage", damage),
-				mult = s_format("x %.3f damage mult", output[damageType.."TakenHitMult"] ),
+				type = s_format("%s", breakdown_translator.Translate(damageType)),
+				incoming = s_format("%.1f 即将承受的伤害", damage),
+				mult = s_format("x %.3f 受到伤害加成", output[damageType.."TakenHitMult"] ),
 				value = s_format("%d", output[damageType.."TakenHit"]),
 			})
 			if output.AnyTakenReflect then
 				breakdown[damageType.."TakenReflectMult"] = {
-					s_format("Resistance: %.3f", 1 - resist / 100),
+					s_format("抗性: %.3f", 1 - resist / 100),
 				}
 				if enemyPen > 0 then
 					t_insert(breakdown[damageType.."TakenReflectMult"], s_format("Enemy Pen: %.2f", enemyPen))
@@ -1346,9 +1339,9 @@ function calcs.defence(env, actor)
 		local StunThresholdMod = (1 + modDB:Sum("INC", nil, "StunThreshold") / 100)
 		output.StunThreshold = stunThresholdBase * StunThresholdMod
 		if breakdown then
-			breakdown.StunThreshold = { s_format("%d ^8(base from %s)", stunThresholdBase, stunThresholdSource) }
+			breakdown.StunThreshold = { s_format("%d ^8(基于 %s)", stunThresholdBase, breakdown_translator.Translate(stunThresholdSource)) }
 			if StunThresholdMod ~= 1 then
-				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(increased threshold)", StunThresholdMod))
+				t_insert(breakdown.StunThreshold, s_format("* %.2f ^8(提高门槛)", StunThresholdMod))
 				t_insert(breakdown.StunThreshold, s_format("= %d", output.StunThreshold))
 			end
 		end
@@ -1681,9 +1674,9 @@ function calcs.defence(env, actor)
 				t_insert(breakdown[damageType.."TotalPool"], s_format("%s 穿透心灵升华: %d", manatext, output[damageType.."ManaEffectiveLife"] - output.LifeRecoverable))
 			end
 			if (not modDB:Flag(nil, "EnergyShieldProtectsMana")) and output[damageType.."EnergyShieldBypass"] < 100 then
-				t_insert(breakdown[damageType.."TotalPool"], s_format("Non-bypassed Energy Shield: %d", output[damageType.."TotalPool"] - output[damageType.."ManaEffectiveLife"]))
+				t_insert(breakdown[damageType.."TotalPool"], s_format("未穿透能量护盾: %d", output[damageType.."TotalPool"] - output[damageType.."ManaEffectiveLife"]))
 			end
-			t_insert(breakdown[damageType.."TotalPool"], s_format("TotalPool: %d", output[damageType.."TotalPool"]))
+			t_insert(breakdown[damageType.."TotalPool"], s_format("总血池: %d", output[damageType.."TotalPool"]))
 		end
 	end
 				
@@ -2020,15 +2013,15 @@ function calcs.defence(env, actor)
 				s_format("%.2f ^8(格挡失败的几率)", 1 - BlockChance)
 			}	
 			if output.ShowBlockEffect then
-				t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.2f ^8(block effect)", output.BlockEffect / 100))
+				t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.2f ^8(格挡效用)", output.BlockEffect / 100))
 			end
 			if suppressionEffect ~= 1 then
 				t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.3f ^8(压制效用)", suppressionEffect))
 			end
 			if averageAvoidChance > 0 then
-				t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - averageAvoidChance / 100))
+				t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.2f ^8(免伤失败的几率)", 1 - averageAvoidChance / 100))
 			end
-			t_insert(breakdown["ConfiguredDamageChance"], s_format("= %.1f%% ^8(of damage taken from a%s hit)", output["ConfiguredDamageChance"], (damageCategoryConfig == "Average" and "n " or " ")..damageCategoryConfig))
+			t_insert(breakdown["ConfiguredDamageChance"], s_format("= %.1f%% ^8(承受伤害比例，计算 %s 类型击中)", output["ConfiguredDamageChance"], breakdown_translator.Translate(damageCategoryConfig)))
 		end
 	end
 	
@@ -2085,7 +2078,7 @@ function calcs.defence(env, actor)
 			if worstOf > 1 then
 				t_insert(breakdown["ConfiguredNotHitChance"], s_format("unlucky worst of %d", worstOf))
 			end
-			t_insert(breakdown["ConfiguredNotHitChance"], s_format("= %d%% ^8(chance to be hit by a%s hit)", 100 - output.ConfiguredNotHitChance, (damageCategoryConfig == "Average" and "n " or " ")..damageCategoryConfig))
+			t_insert(breakdown["ConfiguredNotHitChance"], s_format("= %d%% ^8(受到 %s 类型击中的几率)", 100 - output.ConfiguredNotHitChance, breakdown_translator.Translate(damageCategoryConfig)))
 			breakdown["TotalNumberOfHits"] = {
 				s_format("%.2f ^8(未免伤次数)", output["NumberOfMitigatedDamagingHits"]),
 				s_format("/ %.2f ^8(平均被击中几率)", 1 - output["ConfiguredNotHitChance"] / 100),
@@ -2264,9 +2257,9 @@ function calcs.defence(env, actor)
 		output[damageType.."DotEHP"] = output[damageType.."TotalPool"] / output[damageType.."TakenDotMult"]
 		if breakdown then
 			breakdown[damageType.."DotEHP"] = {
-				s_format("Total Pool: %d", output[damageType.."TotalPool"]),
-				s_format("Dot Damage Taken modifier: %.2f", output[damageType.."TakenDotMult"]),
-				s_format("Total Effective Dot Pool: %d", output[damageType.."DotEHP"]),
+				s_format("总血池: %d", output[damageType.."TotalPool"]),
+				s_format("承受持续伤害加成: %.2f", output[damageType.."TakenDotMult"]),
+				s_format("总等效持续伤害血池: %d", output[damageType.."DotEHP"]),
 			}
 		end
 	end
@@ -2289,7 +2282,7 @@ function calcs.defence(env, actor)
 					}
 				}
 				t_insert(breakdown.TotalDegen.rowList, {
-					type = damageType,
+					type = breakdown_translator.Translate(damageType),
 					base = s_format("%.1f", baseVal),
 					mult = s_format("x %.2f", output[damageType.."TakenDotMult"]),
 					total = s_format("%.1f", total),
@@ -2304,7 +2297,7 @@ function calcs.defence(env, actor)
 					}
 				}
 				t_insert(breakdown[damageType.."Degen"].rowList, {
-					type = damageType,
+					type = breakdown_translator.Translate(damageType),
 					base = s_format("%.1f", baseVal),
 					mult = s_format("x %.2f", output[damageType.."TakenDotMult"]),
 					total = s_format("%.1f", total),
@@ -2388,20 +2381,20 @@ function calcs.defence(env, actor)
 		output.NetEnergyShieldRegen = output.NetEnergyShieldRegen - totalEnergyShieldDegen
 		output.TotalNetRegen = output.NetLifeRegen + output.NetManaRegen + output.NetEnergyShieldRegen
 		if breakdown then
-			t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(最终生命回复)", output.LifeRegenRecovery))
-			t_insert(breakdown.NetLifeRegen, s_format("- %.1f ^8(总生命消减)", totalLifeDegen))
+			t_insert(breakdown.NetLifeRegen, s_format("%.1f ^8(实际生命回复)", output.LifeRegenRecovery))
+			t_insert(breakdown.NetLifeRegen, s_format("- %.1f ^8(总生命回复消减)", totalLifeDegen))
 			t_insert(breakdown.NetLifeRegen, s_format("= %.1f", output.NetLifeRegen))
-			t_insert(breakdown.NetManaRegen, s_format("%.1f ^8(最终魔力回复)", output.ManaRegenRecovery))
-			t_insert(breakdown.NetManaRegen, s_format("- %.1f ^8(总魔力消减)", totalManaDegen))
+			t_insert(breakdown.NetManaRegen, s_format("%.1f ^8(实际魔力回复)", output.ManaRegenRecovery))
+			t_insert(breakdown.NetManaRegen, s_format("- %.1f ^8(总魔力回复消减)", totalManaDegen))
 			t_insert(breakdown.NetManaRegen, s_format("= %.1f", output.NetManaRegen))
-			t_insert(breakdown.NetEnergyShieldRegen, s_format("%.1f ^8(最终能量护盾回复)", output.EnergyShieldRegenRecovery))
-			t_insert(breakdown.NetEnergyShieldRegen, s_format("- %.1f ^8(总能量护盾消减)", totalEnergyShieldDegen))
+			t_insert(breakdown.NetEnergyShieldRegen, s_format("%.1f ^8(实际能量护盾回复)", output.EnergyShieldRegenRecovery))
+			t_insert(breakdown.NetEnergyShieldRegen, s_format("- %.1f ^8(总能量护盾回复消减)", totalEnergyShieldDegen))
 			t_insert(breakdown.NetEnergyShieldRegen, s_format("= %.1f", output.NetEnergyShieldRegen))
 			breakdown.TotalNetRegen = {
-				s_format("Net Life Regen: %.1f", output.NetLifeRegen),
-				s_format("+ Net Mana Regen: %.1f", output.NetManaRegen),
-				s_format("+ Net Energy Shield Regen: %.1f", output.NetEnergyShieldRegen),
-				s_format("= Total Net Regen: %.1f", output.TotalNetRegen)
+				s_format("实际生命回复: %.1f", output.NetLifeRegen),
+				s_format("+ 实际魔力回复: %.1f", output.NetManaRegen),
+				s_format("+ 实际能量护盾回复: %.1f", output.NetEnergyShieldRegen),
+				s_format("= 总实际回复: %.1f", output.TotalNetRegen)
 			}
 		end
 	end
@@ -2546,14 +2539,14 @@ function calcs.defence(env, actor)
 
 		if breakdown then
 			breakdown[damageType.."MaximumHitTaken"] = {
-				label = "Maximum hit damage breakdown",
+				label = "最大承受击中伤害",
 				rowList = {},
 				colList = {
-					{ label = "Type", key = "type" },
-					{ label = "TotalPool", key = "pool" },
-					{ label = "Incoming", key = "incoming" },
-					{ label = "Multi", key = "multi" },
-					{ label = "Taken", key = "taken" },
+					{ label = "【类型】", key = "type" },
+					{ label = "【血池】", key = "pool" },
+					{ label = "【需承受】", key = "incoming" },
+					{ label = "【加成】", key = "multi" },
+					{ label = "【减伤】", key = "taken" },
 				},
 			}
 			for damageConvertedType, convertPercent in pairs(actor.damageShiftTable[damageType]) do
@@ -2561,7 +2554,7 @@ function calcs.defence(env, actor)
 					local convertedDamage = output[damageType.."MaximumHitTaken"] * convertPercent / 100
 					local multi = damageMultiplierForType(convertedDamage, damageConvertedType) * enemyDamageMult
 					t_insert(breakdown[damageType.."MaximumHitTaken"].rowList, {
-						type = s_format("%d%% 转为 %s", convertPercent, damageConvertedType),
+						type = s_format("%d%% 转为 %s", convertPercent, breakdown_translator.Translate(damageConvertedType)),
 						pool = s_format("%d", output[damageConvertedType.."TotalHitPool"]),
 						initial = s_format("%d", convertedDamage),
 						taken = s_format("x%.3f", multi),

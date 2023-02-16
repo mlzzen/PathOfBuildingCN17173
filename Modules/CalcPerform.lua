@@ -17,6 +17,7 @@ local s_format = string.format
 local bor = bit.bor
 local band = bit.band
 
+local breakdown_translator = LoadModule("Data/Translations/Breakdown")
 
 -- Identify the trigger action skill for trigger conditions, take highest Attack Per Second
 local function findTriggerSkill(env, skill, source, triggerRate, reqManaCost)
@@ -1702,9 +1703,9 @@ function calcs.perform(env, avoidCache)
 				breakdown["Req"..attr] = {
 					rowList = { },
 					colList = {
-						{ label = attr, key = "req" },
-						{ label = "Source", key = "source" },
-						{ label = "Source Name", key = "sourceName" },
+						{ label = string.format("【%s】", breakdown_translator.Translate(attr)), key = "req" },
+						{ label = "【来源】", key = "source" },
+						{ label = "【来源名称】", key = "sourceName" },
 					}
 				}
 			end
@@ -1722,7 +1723,7 @@ function calcs.perform(env, avoidCache)
 						local row = {
 							req = req > output[breakdownAttr] and colorCodes.NEGATIVE..req or req,
 							reqNum = req,
-							source = reqSource.source,
+							source = breakdown_translator.Translate(reqSource.source),
 						}
 						if reqSource.source == "Item" then
 							local item = reqSource.sourceItem
