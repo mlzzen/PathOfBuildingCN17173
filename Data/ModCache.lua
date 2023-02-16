@@ -3031,7 +3031,7 @@ c["你创造的渎神地面效果延续 4 秒"]={nil,"你创造的渎神地面�
 c["【迷踪】状态时移动速度提高 15%"]={{[1]={[1]={type="Condition",var="Phasing"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=15}},nil}
 c["生命每秒再生 2"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=2}},nil}
 c["蓝色插槽内的技能石额外获得 25% 经验 蓝色插槽内的技能石额外获得 100% 经验"]={{},"蓝色插槽内的技能石"}
-c["若诅咒持续时间耗减了 30%，则被你诅咒的敌人也被【缓速】，移动速度减慢 25% 若诅咒持续时间耗减了 50%，你的诅咒效果提高 25%"]={{[1]={[1]={skillName="若诅咒持续时间耗减了 30%，则被你诅咒的敌人也被【缓速】，移动速度减慢 25% 若诅咒持续时间耗减了 50%，你",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value="25"}},nil}
+c["若诅咒持续时间耗减了 30%，则被你诅咒的敌人也被【缓速】，移动速度减慢 25% 若诅咒持续时间耗减了 50%，你的诅咒效果提高 25%"]={{[1]={[1]={skillName="若诅咒持续时间耗减了 30%，则被你诅咒的敌人也被【缓速】，移动速度减慢 25% 若诅咒持续时间耗减了 50%，你",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=25}},nil}
 c["受到【憎恨】影响时，+1.8% 攻击和法术基础暴击率"]={{[1]={[1]={type="Condition",var="AffectedBy憎恨"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=1.8}},nil}
 c["每秒消耗一具附近的灵枢，恢复 5% 生命和魔力"]={nil,"每秒消耗一具附近的灵枢，恢复 5% 生命和魔力 "}
 c["护甲提高 140%"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=140}},nil}
@@ -4264,7 +4264,7 @@ c["受到诅咒的持续时间缩短 50%"]={{[1]={flags=0,keywordFlags=2,name="D
 c["图腾伤害提高 40%"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=40}},nil}
 c["其中 1 个增加的天赋为【焚化炉】"]={{[1]={flags=0,keywordFlags=0,name="ClusterJewelNotable",type="LIST",value="焚化炉"}},nil}
 c["击中时有 20% 的几率使敌人致盲"]={{},"时使敌人致盲 "}
-c["若持续时间耗减了 50%，你的诅咒效果提高 20%"]={{[1]={[1]={skillName="若持续时间耗减了 50%，你",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value="20"}},nil}
+c["若持续时间耗减了 50%，你的诅咒效果提高 20%"]={{[1]={[1]={skillName="若持续时间耗减了 50%，你",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=20}},nil}
 c["该装备的能量护盾提高 120%"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=120}},nil}
 c["锤类或短杖的攻击速度加快 3%"]={{[1]={flags=1048577,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["你偷取生命，数值等同于你的图腾造成伤害的 0.5%"]={{[1]={flags=0,keywordFlags=16384,name="DamageLifeLeechToPlayer",type="BASE",value=0.5}},nil}
@@ -5851,7 +5851,7 @@ c["+23% 火焰与混沌抗性"]={{[1]={flags=0,keywordFlags=0,name="FireResist",
 c["范围内配置的智慧和敏捷总计 40 点时，虹光技能不能选择火焰效果"]={nil,"范围内配置的智慧和敏捷总计 40 点时，虹光技能不能选择火焰效果 "}
 c["暴击球达到最大数量时，失去所有的暴击球 暴击球达到最大数量时，获得 1 个狂怒球"]={nil,"暴击球达到最大数量时，失去所有的暴击球 暴击球达到最大数量时，获得 1 个狂怒球 "}
 c["暴击球达到最大数量时，失去所有的暴击球"]={nil,"暴击球达到最大数量时，失去所有的暴击球 "}
-c["你受到的诅咒效果提高 50%"]={{[1]={[1]={skillName="你受到",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value="50"}},nil}
+c["你受到的诅咒效果提高 50%"]={{[1]={[1]={skillName="你受到",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=50}},nil}
 c["你被脆弱诅咒，其效果提高 40%"]={{[1]={flags=0,keywordFlags=0,name="ExtraCurse",type="LIST",value={applyToPlayer=true,level=1,skillId="Vulnerability"}},[2]={[1]={skillName="Vulnerability",type="SkillName"},flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=40}},nil}
 c["受到【脆弱】诅咒时，敌人攻击你会特别不幸"]={nil,"受到【脆弱】诅咒时，敌人攻击你会特别不幸 "}
 c["+3% 全部抗性上限"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=3},[2]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=3},[3]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=3},[4]={flags=0,keywordFlags=0,name="ChaosResistMax",type="BASE",value=3}},nil}
