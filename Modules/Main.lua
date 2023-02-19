@@ -145,23 +145,23 @@ function main:Init()
 	if self.rebuildModCache then
 		-- Update mod caches
 		local out = io.open("Data/ModCache.lua", "w")
-			out:write('local c=...')
-			for line, dat in pairs(modLib.parseModCache) do
-				if not dat[1] or not dat[1][1] or dat[1][1].name ~= "JewelFunc" then
-					out:write('c["', line:gsub("\n","\\n"), '"]={')
-					if dat[1] then
-						writeLuaTable(out, dat[1])
-					else
-						out:write('nil')
-					end
-					if dat[2] then
-						out:write(',"', dat[2]:gsub("\n","\\n"), '"}\n')
-					else
-						out:write(',nil}\n')
-					end
+		out:write('local c=...')
+		for line, dat in pairs(modLib.parseModCache) do
+			if not dat[1] or not dat[1][1] or dat[1][1].name ~= "JewelFunc" then
+				out:write('c["', line:gsub("\n","\\n"), '"]={')
+				if dat[1] then
+					writeLuaTable(out, dat[1])
+				else
+					out:write('nil')
+				end
+				if dat[2] then
+					out:write(',"', dat[2]:gsub("\n","\\n"), '"}\n')
+				else
+					out:write(',nil}\n')
 				end
 			end
-			out:close()
+		end
+		out:close()
 	end
 
 	self.sharedItemList = { }
@@ -251,9 +251,8 @@ the "Releases" section of the GitHub page.]])
 	if not ignoreBuild then
 		self:SetMode("BUILD", false, "Unnamed build")
 	end
-	self:LoadSettings(ignoreBuild)
- 
-	
+
+	self:LoadSharedItems()
 end
 
 function main:LoadTree(treeVersion)
@@ -504,40 +503,6 @@ launch:ShowErrMsg("^1文件解析失败 'Settings.xml':  'Mode' 节点错误")
 						}
 					end
 				end
-			elseif node.elem == "SharedItems" then
-				for _, child in ipairs(node) do
-					if child.elem == "Item" then
-						local rawItem = { raw = "" }
-						for _, subChild in ipairs(child) do
-							if type(subChild) == "string" then
-								rawItem.raw = subChild
-							end
-						end
-						if rawItem.raw and utf8.len(rawItem.raw) >0 then
-							local newItem = new("Item", rawItem.raw)
-							t_insert(self.sharedItemList, newItem)
-						end 
-					elseif child.elem == "ItemSet" then
-						local sharedItemSet = { title = child.attrib.title, slots = { } }
-						for _, grandChild in ipairs(child) do
-							if grandChild.elem == "Item" then
-								local rawItem = { raw = "" }
-								for _, subChild in ipairs(grandChild) do
-									if type(subChild) == "string" then
-										rawItem.raw = subChild
-									end
-								end
-								if rawItem.raw and utf8.len(rawItem.raw) >0 then
-									local newItem = new("Item", rawItem.raw)
-									sharedItemSet.slots[grandChild.attrib.slotName] = newItem
-								end 						
-								
-							end
-						end
-						t_insert(self.sharedItemSetList, sharedItemSet)
-					end
-				end
-				
 			elseif node.elem == "Misc" then
 				if node.attrib.buildSortMode then
 					self.buildSortMode = node.attrib.buildSortMode
@@ -572,6 +537,49 @@ launch:ShowErrMsg("^1文件解析失败 'Settings.xml':  'Mode' 节点错误")
 					self.showTitlebarName = node.attrib.showTitlebarName == "true"
 				end				
 				
+			end
+		end
+	end
+end
+
+function main:LoadSharedItems()
+	local setXML, errMsg = common.xml.LoadXMLFile(self.userPath.."Settings.xml")
+	if not setXML then
+		return true
+	elseif setXML[1].elem ~= "PathOfBuilding" then
+		launch:ShowErrMsg("^1Error parsing 'Settings.xml': 'PathOfBuilding' root element missing")
+		return true
+	end
+	for _, node in ipairs(setXML[1]) do
+		if type(node) == "table" then
+			if node.elem == "SharedItems" then
+				for _, child in ipairs(node) do
+					if child.elem == "Item" then
+						local rawItem = { raw = "" }
+						for _, subChild in ipairs(child) do
+							if type(subChild) == "string" then
+								rawItem.raw = subChild
+							end
+						end
+						local newItem = new("Item", rawItem.raw)
+						t_insert(self.sharedItemList, newItem)
+					elseif child.elem == "ItemSet" then
+						local sharedItemSet = { title = child.attrib.title, slots = { } }
+						for _, grandChild in ipairs(child) do
+							if grandChild.elem == "Item" then
+								local rawItem = { raw = "" }
+								for _, subChild in ipairs(grandChild) do
+									if type(subChild) == "string" then
+										rawItem.raw = subChild
+									end
+								end
+								local newItem = new("Item", rawItem.raw)
+								sharedItemSet.slots[grandChild.attrib.slotName] = newItem
+							end
+						end
+						t_insert(self.sharedItemSetList, sharedItemSet)
+					end
+				end
 			end
 		end
 	end
