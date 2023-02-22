@@ -219,12 +219,12 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		local source = self.displayGroup.sourceItem or (self.displayGroup.sourceNode and { rarity = "NORMAL", name = self.displayGroup.sourceNode.name }) or { rarity = "NORMAL", name = "?" }
 		local sourceName = colorCodes[source.rarity] .. source.name .. "^7"
 		local activeGem = self.displayGroup.gemList[1]
-		local label = [[^7这个特殊的技能组 ']] .. activeGem.color .. (activeGem.grantedEffect and activeGem.grantedEffect.name or activeGem.nameSpec) .. [[^7' skill,
-是由物品【']] .. sourceName .. [['】自带的。
-你不能手动删除它.但是你可以取消该装备，它就会自动消失]] .. (self.displayGroup.sourceNode and [[un-allocate the node.]] or [[un-equip the item.]])
+		local label = [[^7这个特殊的技能组 【]] .. activeGem.color .. (activeGem.grantedEffect and activeGem.grantedEffect.name or activeGem.nameSpec) .. [[^7】 ,
+是由【]] .. sourceName .. [[】自带的。
+你不能手动删除它.但是你可以取消该]] .. (self.displayGroup.sourceNode and [[天赋]] or [[装备]]) .. [[，它就会自动消失]]
 		if not self.displayGroup.noSupports then
 			label = label .. "\n\n" .. [[你不能为这组技能增加辅助技能，
-但是其他任意插入这个物品：【 ']] .. sourceName .. [['
+但是其他任意插入这个物品：【]] .. sourceName .. [[】
 的辅助技能都会自动辅助这一组.]]
 		end
 		return label
