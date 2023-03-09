@@ -1318,7 +1318,7 @@ function calcs.offence(env, actor, activeSkill)
 				t_insert(breakdown[costName], s_format("x %.2f ^8(提高/降低 "..textCn.." 消耗)", 1 + inc/100))
 			end
 			if more ~= 1 then
-				t_insert(breakdown[costName], s_format("x %.2f ^8(总增/总降 "..textCnt.." 消耗)", more))
+				t_insert(breakdown[costName], s_format("x %.2f ^8(总增/总降 "..textCn.." 消耗)", more))
 			end
 			if val.totalCost ~= 0 then
 				t_insert(breakdown[costName], s_format("%+d ^8(总 "..textCn.." 消耗)", val.totalCost))
