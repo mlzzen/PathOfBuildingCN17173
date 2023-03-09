@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <PoBVersion>
-	<Version branch="main" number="S21.0.5" platform="win32" />
+	<Version branch="main" number="S21.0.6" platform="win32" />
 	<Source part="program" url="https://ghproxy.com/https://raw.githubusercontent.com/tzw28/PathOfBuildingCN17173/{branch}/" />
 	<Source part="default" url="https://ghproxy.com/https://raw.githubusercontent.com/tzw28/PathOfBuildingCN17173/{branch}/" />
 	<Source part="tree" url="https://ghproxy.com/https://raw.githubusercontent.com/tzw28/PathOfBuildingCN17173/{branch}/" />
@@ -11,7 +11,7 @@
 	<File name="UpdateCheck.lua" part="program" sha1="f6c60cb8210d110c03fbd51cba5179e87b46a495" />
 	<File name="UpdateApply.lua" part="program" sha1="4f17937f2b37784e169a3792b235f2a0a3961e61" />
 	<File name="GameVersions.lua" part="program" sha1="01c719ba32908142e3048d0cff284d2a412b9ae7" />
-	<File name="changelog.txt" part="default" sha1="fcea5df4f119ec72ad53d97092750133442887bf" />
+	<File name="changelog.txt" part="default" sha1="548dd1cf791ef53599cd22ebfdea05d3fe3b02fe" />
 	<File name="Path of Building.exe" part="runtime" platform="win32" sha1="b3de03cdcf6392afd369bc6f2d1655bc658d6e65" />
 	<File name="lua51.dll" part="runtime" platform="win32" sha1="ca6594eed95b4751f0406c50c12b3f5d3b92d6a0" />
 	<File name="SimpleGraphic.dll" part="runtime" platform="win32" sha1="f15dace08fd590512362956916f7fd293c5860ac" />
@@ -203,7 +203,7 @@
 	<File name="Modules/CalcActiveSkill.lua" part="program" sha1="bbf7fe21a676b8487b3ec8101e1d11820d6750b9" />
 	<File name="Modules/CalcBreakdown.lua" part="program" sha1="4eadd5cd7d41dffe97cdd64f6f2b87852fd801a9" />
 	<File name="Modules/CalcDefence.lua" part="program" sha1="8e1416e3c88da5d664047ef80052814877be33bd" />
-	<File name="Modules/CalcOffence.lua" part="program" sha1="f9c4108b0bd0986a01f32a45a132fefed244233d" />
+	<File name="Modules/CalcOffence.lua" part="program" sha1="515b99948d1e696576de9099ca04347c1b4f14de" />
 	<File name="Modules/CalcPerform.lua" part="program" sha1="7fde5ade6c598ef7ac2e89e9ec564ce7a5fe960d" />
 	<File name="Modules/Calcs.lua" part="program" sha1="83afc2da61f1a692abbbeb2ff8598a1678ae5013" />
 	<File name="Modules/CalcSections.lua" part="program" sha1="45c7a54f2717e1bc9cb1fd0b6512814da24bb8a3" />
