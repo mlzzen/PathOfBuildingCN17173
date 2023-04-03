@@ -18,11 +18,11 @@ local m_floor = math.floor
 local m_modf = math.modf
 
 local rarityDropList = { 
-{ label = colorCodes.NORMAL.."普通", rarity = "普通" },
-{ label = colorCodes.MAGIC.."魔法", rarity = "魔法" },
-{ label = colorCodes.RARE.."稀有", rarity = "稀有" },
-{ label = colorCodes.UNIQUE.."传奇", rarity = "传奇" },
-{ label = colorCodes.RELIC.."遗产", rarity = "遗产" }
+	{ label = colorCodes.NORMAL.."普通", rarity = "普通" },
+	{ label = colorCodes.MAGIC.."魔法", rarity = "魔法" },
+	{ label = colorCodes.RARE.."稀有", rarity = "稀有" },
+	{ label = colorCodes.UNIQUE.."传奇", rarity = "传奇" },
+	{ label = colorCodes.RELIC.."遗产", rarity = "遗产" }
 }
 
 local socketDropList = {
@@ -59,9 +59,6 @@ local tagsLabel = {
 	{en="lightning",cn="闪电"},
 	{en="cold",cn="冰霜"},
 	{en="caster",cn="施法"},
-	
-	
-	
 }
 
 local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Flask 3", "Flask 4", "Flask 5" }
@@ -93,8 +90,11 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 	self.items = { }
 	self.itemOrderList = { }
 
+	-- PoB Trader class initialization
+	self.tradeQuery = new("TradeQuery", self)
+
 	-- Set selector
-	self.controls.setSelect = new("DropDownControl", {"TOPLEFT",self,"TOPLEFT"}, 96, 8, 200, 20, nil, function(index, value)
+	self.controls.setSelect = new("DropDownControl", {"TOPLEFT",self,"TOPLEFT"}, 96, 8, 216, 20, nil, function(index, value)
 		self:SetActiveItemSet(self.itemSetOrderList[index])
 		self:AddUndoState()
 	end)
@@ -113,11 +113,21 @@ self.controls.setManage = new("ButtonControl", {"LEFT",self.controls.setSelect,"
 		self:OpenItemSetManagePopup()
 	end)
 
+	-- Price Items
+	self.controls.priceDisplayItem = new("ButtonControl", {"TOPLEFT",self,"TOPLEFT"}, 96, 32, 310, 20, "市集搜索这些物品", function()
+		self.tradeQuery:PriceItem()
+	end)
+	self.controls.priceDisplayItem.tooltipFunc = function(tooltip)
+		tooltip:Clear()
+		tooltip:AddLine(16, "^7包含来自官方交易站点的搜索，以帮助为此构建找到")
+		tooltip:AddLine(16, "^7类似或更好的项目")
+	end
+
 	-- Item slots
 	self.slots = { }
 	self.orderedSlots = { }
 	self.slotOrder = { }
-	self.slotAnchor = new("Control", {"TOPLEFT",self,"TOPLEFT"}, 96, 54, 310, 0)
+	self.slotAnchor = new("Control", {"TOPLEFT",self,"TOPLEFT"}, 96, 76, 310, 0)
 	local prevSlot = self.slotAnchor
 	local function addSlot(slot)
 		prevSlot = slot
@@ -170,7 +180,7 @@ self.controls.setManage = new("ButtonControl", {"LEFT",self.controls.setSelect,"
 	end
 
 	-- Passive tree dropdown controls
-	self.controls.specSelect = new("DropDownControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 8, 200, 20, nil, function(index, value)
+	self.controls.specSelect = new("DropDownControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 8, 216, 20, nil, function(index, value)
 		if self.build.treeTab.specList[index] then
 			self.build.modFlag = true
 			self.build.treeTab:SetActiveSpec(index)
@@ -180,7 +190,7 @@ self.controls.setManage = new("ButtonControl", {"LEFT",self.controls.setSelect,"
 		return #self.controls.specSelect.list > 1
 	end
 	prevSlot = self.controls.specSelect
-	self.controls.specButton = new("ButtonControl", {"LEFT",prevSlot,"RIGHT"}, 2, 0, 90, 20, "管理...", function()
+	self.controls.specButton = new("ButtonControl", {"LEFT",prevSlot,"RIGHT"}, 4, 0, 90, 20, "管理...", function()
 		self.build.treeTab:OpenSpecManagePopup()
 	end)
 	self.controls.specLabel = new("LabelControl", {"RIGHT",prevSlot,"LEFT"}, -2, 0, 0, 16, "^7天赋树:")
@@ -980,6 +990,7 @@ function ItemsTabClass:Load(xml, dbFileName)
 				self.items[item.id] = item
 				t_insert(self.itemOrderList, item.id)
 			end
+		-- Below is OBE and left for legacy compatibility (all Slots are part of ItemSets now)
 		elseif node.elem == "Slot" then
 			local slot = self.slots[node.attrib.name or ""]
 			if slot then
@@ -1000,6 +1011,9 @@ function ItemsTabClass:Load(xml, dbFileName)
 						itemSet[slotName].selItemId = tonumber(child.attrib.itemId)
 						itemSet[slotName].active = child.attrib.active == "true"
 					end
+				elseif child.elem == "SocketIdURL" then
+					local id = tonumber(child.attrib.nodeId)
+					itemSet[id] = { pbURL = child.attrib.itemPbURL or "" }
 				end
 			end
 			t_insert(self.itemSetOrderList, itemSet.id)
@@ -1072,7 +1086,11 @@ function ItemsTabClass:Save(xml)
 		local child = { elem = "ItemSet", attrib = { id = tostring(itemSetId), title = itemSet.title, useSecondWeaponSet = tostring(itemSet.useSecondWeaponSet) } }
 		for slotName, slot in pairs(self.slots) do
 			if not slot.nodeId then
-				t_insert(child, { elem = "Slot", attrib = { name = slotName, itemId = tostring(itemSet[slotName].selItemId), active = itemSet[slotName].active and "true" }})
+				t_insert(child, { elem = "Slot", attrib = { name = slotName, itemId = tostring(itemSet[slotName].selItemId), itemPbURL = itemSet[slotName].pbURL or "", active = itemSet[slotName].active and "true" }})
+			else
+				if self.build.spec.allocNodes[slot.nodeId] then
+					t_insert(child, { elem = "SocketIdURL", attrib = { name = slotName, nodeId = tostring(slot.nodeId), itemPbURL = itemSet[slot.nodeId] and itemSet[slot.nodeId].pbURL or ""}})
+				end
 			end
 		end
 		t_insert(xml, child)
@@ -1943,7 +1961,7 @@ function ItemsTabClass:CraftItem()
 end
 
 -- Opens the item text editor popup
-function ItemsTabClass:EditDisplayItemText()
+function ItemsTabClass:EditDisplayItemText(alsoAddItem)
 	local controls = { }
 	local function buildRaw()
 		local editBuf = controls.edit.buf
@@ -1969,6 +1987,9 @@ controls.save = new("ButtonControl", nil, -45, 470, 80, 20, self.displayItem and
 		local id = self.displayItem and self.displayItem.id
 		self:CreateDisplayItemFromRaw(buildRaw(), not self.displayItem)
 		self.displayItem.id = id
+		if alsoAddItem then
+			self:AddDisplayItem()
+		end
 		main:ClosePopup()
 	end)
 	controls.save.enabled = function()
@@ -3448,11 +3469,19 @@ tooltip:AddLine(16, "^x7F7F7F插槽: "..line)
 				 
 
 	-- Corrupted item label
-	if item.corrupted then
+	if item.corrupted or item.split or item.mirrored then
 		if #item.explicitModLines == 0 then
 			tooltip:AddSeparator(10)
 		end
-		tooltip:AddLine(16, "^1Corrupted")
+		if item.split then
+			tooltip:AddLine(16, "^1Split")
+		end
+		if item.mirrored then
+			tooltip:AddLine(16, "^1Mirrored")
+		end
+		if item.corrupted then
+			tooltip:AddLine(16, "^1Corrupted")
+		end
 	end
 	tooltip:AddSeparator(14)
 

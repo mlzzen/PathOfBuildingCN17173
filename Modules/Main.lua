@@ -253,6 +253,8 @@ the "Releases" section of the GitHub page.]])
 	end
 
 	self:LoadSharedItems()
+
+	self.onFrameFuncs = { }
 end
 
 function main:LoadTree(treeVersion)
