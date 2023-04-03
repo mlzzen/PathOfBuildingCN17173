@@ -237,8 +237,6 @@ the "Releases" section of the GitHub page.]])
 	self.popups = { }
 	self.tooltipLines = { }
 
-	self.gameAccounts = { }
-
 	self.buildSortMode = "NAME"
 	self.nodePowerTheme = "RED/BLUE"
 	self.showThousandsSeparators = true
@@ -282,7 +280,6 @@ end
 
 function main:Shutdown()
 	self:CallMode("Shutdown")
-
 	self:SaveSettings()
 end
 
@@ -724,6 +721,7 @@ function main:OpenOptionsPopup()
 			self.modes.LIST:BuildList()
 		end
 		main:ClosePopup()
+		main:SaveSettings()
 	end)
 controls.cancel = new("ButtonControl", nil, 45, 182, 80, 20, "取消", function()
 		self.nodePowerTheme = initialNodePowerTheme

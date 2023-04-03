@@ -403,8 +403,8 @@ function ImportTabClass:DownloadCharacterList()
 
 			-- We only get here if the accountname was correct, found, and not private, so add it to the account history.
 			self:SaveAccountHistory()
-		end, sessionID and { header = "Cookie: POESESSID="..sessionID })
-	end, sessionID and { header = "Cookie: POESESSID="..sessionID })
+		end, sessionID and { header = "Cookie: POESESSID=" .. sessionID })
+	end, sessionID and { header = "Cookie: POESESSID=" .. sessionID })
 end
 
 function ImportTabClass:BuildCharacterList(league)

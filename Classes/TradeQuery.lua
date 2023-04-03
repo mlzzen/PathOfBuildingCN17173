@@ -371,7 +371,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		else
 			self.tradeQueryRequests:FetchLeagues(self.pbRealm, function(leagues, errMsg)
 				if errMsg then
-					self:SetNotice("Error while fetching league list: "..errMsg)
+					self:SetNotice(self.controls.pbNotice, "Error while fetching league list: "..errMsg)
 					return
 				end
 				local sorted_leagues = { }
@@ -565,6 +565,7 @@ end
 
 -- Method to set the notice message in upper right of PoB Trader pane
 function TradeQueryClass:SetNotice(notice_control, msg)
+	msg = msg or ""
 	if msg:find("No Matching Results") then
 		msg = colorCodes.WARNING .. msg
 	elseif msg:find("Error:") then

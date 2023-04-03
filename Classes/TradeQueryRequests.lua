@@ -409,6 +409,7 @@ end
 ---@param realm string
 ---@param callback fun(query:table, errMsg:string)
 function TradeQueryRequestsClass:FetchLeagues(realm, callback)
+	realm = realm or "PC"
 	launch:DownloadPage(
 		"https://poe.game.qq.com/api/leagues?compact=1&realm=" .. realm,
 		function(response, errMsg)
@@ -426,7 +427,7 @@ function TradeQueryRequestsClass:FetchLeagues(realm, callback)
 					end
 				end
 			callback(leagues, errMsg)
-		end
+		end, main.POESESSID and { header = "Cookie: POESESSID=" .. main.POESESSID }
 	)
 end
 
