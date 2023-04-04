@@ -84,7 +84,6 @@ function main:Init()
 	self.showTitlebarName = true
 	self.showWarnings = true
 	self.slotOnlyTooltips = true
-	self.POESESSID = ""
 
 	local ignoreBuild
 	if arg[1] then
@@ -500,6 +499,7 @@ launch:ShowErrMsg("^1文件解析失败 'Settings.xml':  'Mode' 节点错误")
 						self.gameAccounts[child.attrib.accountName] = {
 							sessionID = child.attrib.sessionID,
 						}
+						self.POESESSID = child.attrib.sessionID
 					end
 				end
 			elseif node.elem == "Misc" then
@@ -529,9 +529,9 @@ launch:ShowErrMsg("^1文件解析失败 'Settings.xml':  'Mode' 节点错误")
 				if node.attrib.decimalSeparator then
 					self.decimalSeparator = node.attrib.decimalSeparator
 				end
-				if node.attrib.POESESSID then
-					self.POESESSID = node.attrib.POESESSID or ""
-				end
+				-- if node.attrib.POESESSID then
+				-- 	self.POESESSID = node.attrib.POESESSID or ""
+				-- end
 				if node.attrib.showTitlebarName then
 					self.showTitlebarName = node.attrib.showTitlebarName == "true"
 				end				
