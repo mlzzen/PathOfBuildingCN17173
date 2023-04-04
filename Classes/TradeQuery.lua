@@ -116,7 +116,7 @@ function TradeQueryClass:PullLeagueList()
 				self.pbLeague = self.itemsTab.leagueDropList[self.controls.league.selIndex]
 				self:SetCurrencyConversionButton()
 			end
-		end)
+		end, main.POESESSID and { header = "Cookie: POESESSID=" .. main.POESESSID})
 end
 
 -- Method to convert currency to chaos equivalent
@@ -356,6 +356,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	-- Realm selection
 	self.controls.realmLabel = new("LabelControl", {"TOPLEFT", self.controls.setSelect, "TOPRIGHT"}, 18, 0, 20, 16, "^7Realm:")
 	self.controls.realm = new("DropDownControl", {"TOPLEFT", self.controls.realmLabel, "TOPRIGHT"}, 6, 0, 150, 18, self.realmDropList, function(index, value)
+		value = value or "pc"
 		self.pbRealmIndex = index
 		self.pbRealm = self.realmIds[value]
 		local function setLeagueDropList()
@@ -928,7 +929,12 @@ function TradeQueryClass:UpdateRealms()
 				t_insert(self.allLeagues[value.realm], value.id)
 			end
 			self.realmIds = {}
-			for _, value in pairs(data.realms) do
+			local realms = {
+				{ text = "PC", id = "pc" },
+				{ text = "PS4", id = "sony" },
+				{ text = "Xbox", id = "xbox" },
+			}
+			for _, value in pairs(realms) do
 				self.realmIds[value.text] = value.id
 			end
 			setRealmDropList()

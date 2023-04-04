@@ -409,7 +409,7 @@ end
 ---@param realm string
 ---@param callback fun(query:table, errMsg:string)
 function TradeQueryRequestsClass:FetchLeagues(realm, callback)
-	realm = realm or "PC"
+	realm = realm or "pc"
 	launch:DownloadPage(
 		"https://poe.game.qq.com/api/leagues?compact=1&realm=" .. realm,
 		function(response, errMsg)
