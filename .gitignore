@@ -11,4 +11,8 @@ Settings.xml
 
 Update/*
 
+# Timeless Jewels
 Data/TimelessJewelData/*.bin
+
+# PoB Trader
+*_currency_values.json

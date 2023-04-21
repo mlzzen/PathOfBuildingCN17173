@@ -5,8 +5,6 @@
 -- Responsible for downloading and loading the passive tree data and assets
 -- Also pre-calculates and pre-parses most of the data need to use the passive tree, including the node modifiers
 --
---local launch, main = ...
-
 local pairs = pairs
 local ipairs = ipairs
 local t_insert = table.insert
@@ -19,7 +17,6 @@ local m_sin = math.sin
 local m_cos = math.cos
 local m_tan = math.tan
 local m_sqrt = math.sqrt
-
 
 
 local classArt = {
@@ -52,14 +49,13 @@ end
 
 local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	self.treeVersion = treeVersion
-	
 	local versionNum = treeVersions[treeVersion].num
+
 	self.legion = LoadModule("Data/LegionPassives")
+
 	MakeDir("TreeData")
 
 	ConPrintf("Loading passive tree data for version '%s'...", treeVersions[treeVersion].display)
-	ConPrintf("versionNum :"..versionNum)
-	
 	local treeText
 	local treeFile = io.open("TreeData/"..treeVersion.."/tree.lua", "r")
 	if treeFile then
@@ -68,24 +64,20 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	else
 		ConPrintf("Downloading passive tree data...")
 		local page
-		local pageFile = io.open("TreeData/"..treeVersion.."/tree.txt", "r")
+		local pageFile = io.open("TreeData/"..treeVersion.."/data.json", "r")
 		if pageFile then
 			page = pageFile:read("*a")
 			pageFile:close()
 		else
-page = getFile("https://poe.game.qq.com/passive-skill-tree/")
+			page = getFile("https://poe.game.qq.com/passive-skill-tree/")
 		end
 		local treeData = page:match("var passiveSkillTreeData = (%b{})")
 		if treeData then
 			treeText = "local tree=" .. jsonToLua(page:match("var passiveSkillTreeData = (%b{})"))
-			treeText = treeText .. "tree.classes=" .. jsonToLua(page:match("ascClasses: (%b{})"))
-			treeText = "return tree"
+			treeText = treeText .. "return tree"
 		else
 			treeText = "return " .. jsonToLua(page)
 		end
-		
-		treeText = treeText .. "tree.classes=" .. jsonToLua(page:match("ascClasses: (%b{})"))
-		treeText = treeText .. "return tree"		
 		treeFile = io.open("TreeData/"..treeVersion.."/tree.lua", "w")
 		treeFile:write(treeText)
 		treeFile:close()
@@ -93,14 +85,11 @@ page = getFile("https://poe.game.qq.com/passive-skill-tree/")
 	for k, v in pairs(assert(loadstring(treeText))()) do
 		self[k] = v
 	end
-	
-	
-	
-	
-	
-local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecdn.com" or ""
+
+	local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecdn.com" or ""
 
 	self.size = m_min(self.max_x - self.min_x, self.max_y - self.min_y) * 1.1
+
 	if versionNum >= 3.10 then
 		-- Migrate to old format
 		for i = 0, 6 do
@@ -108,10 +97,12 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			self.classes[i + 1] = nil
 		end
 	end
+
 	-- Build maps of class name -> class table
 	self.classNameMap = { }
 	self.ascendNameMap = { }
 	self.classNotables = { }
+
 	for classId, class in pairs(self.classes) do
 		if versionNum >= 3.10 then
 			-- Migrate to old format
@@ -152,8 +143,7 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 	end
 	ConPrintf("Loading passive tree assets...")
 	for name, data in pairs(self.assets) do
-	self:LoadImage(name..".png", cdnRoot..(data[0.3835] or data[1]), data, not name:match("[OL][ri][bn][ie][tC]") and "ASYNC" or nil)--, not name:match("[OL][ri][bn][ie][tC]") and "MIPMAP" or nil)
-		--self:LoadImage(name..".png", data[0.3835] or data[1], data, not name:match("[OL][ri][bn][ie][tC]") and "ASYNC" or nil)--, not name:match("[OL][ri][bn][ie][tC]") and "MIPMAP" or nil)
+		self:LoadImage(name..".png", cdnRoot..(data[0.3835] or data[1]), data, not name:match("[OL][ri][bn][ie][tC]") and "ASYNC" or nil)--, not name:match("[OL][ri][bn][ie][tC]") and "MIPMAP" or nil)
 	end
 
 	-- Load sprite sheets and build sprite map
@@ -185,7 +175,7 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			}
 		end
 	end
-	
+
 	-- Load legion sprite sheets and build sprite map
 	local legionSprites = LoadModule("TreeData/legion/tree-legion.lua")
 	for type, data in pairs(legionSprites) do
@@ -223,7 +213,6 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 		[5] = "centertemplar",
 		[6] = "centershadow"
 	}
-	
 	self.nodeOverlay = {
 		Normal = {
 			artWidth = 40,
@@ -246,14 +235,14 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			pathBlighted = "BlightedNotableFrameCanAllocate",
 			unallocBlighted = "BlightedNotableFrameUnallocated",
 		},
-		Keystone = { 
+		Keystone = {
 			artWidth = 84,
 			alloc = "KeystoneFrameAllocated",
 			path = "KeystoneFrameCanAllocate",
 			unalloc = "KeystoneFrameUnallocated"
 		},
 		Socket = {
-			artWidth = 58, 
+			artWidth = 58,
 			alloc = "JewelFrameAllocated",
 			path = "JewelFrameCanAllocate",
 			unalloc = "JewelFrameUnallocated",
@@ -274,16 +263,13 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 		data.rsq = size * size
 	end
 
-	
-	if versionNum >= 3.10  then
+	if versionNum >= 3.10 then
 		-- Migrate groups to old format
 		for _, group in pairs(self.groups) do
-			if group and  group.orbits then 
-				group.n = group.nodes
-				group.oo = { }
-				for _, orbit in ipairs(group.orbits) do
-					group.oo[orbit] = true
-				end
+			group.n = group.nodes
+			group.oo = { }
+			for _, orbit in ipairs(group.orbits) do
+				group.oo[orbit] = true
 			end
 		end
 
@@ -294,19 +280,15 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 	ConPrintf("Processing tree...")
 	self.ascendancyMap = { }
 	self.keystoneMap = { }
-	self.notableMap  = { }
-	self.notableAscendancyNameMap  = { }
+	self.notableMap = { }
 	self.clusterNodeMap = { }
 	self.sockets = { }
 	self.masteryEffects = { }
 	local nodeMap = { }
-
 	for _, node in pairs(self.nodes) do
-		 
 		-- Migration...
-		
 		if versionNum < 3.10 then
-			-- To new format			
+			-- To new format
 			node.classStartIndex = node.spc[0] and node.spc[0]
 		else
 			-- To old format
@@ -326,8 +308,8 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 		node.alternative = {}
 		node.__index = node
 		node.linkedId = { }
-		 
 		nodeMap[node.id] = node	
+
 		-- Determine node type
 		if node.classStartIndex then
 			node.type = "ClassStart"
@@ -335,8 +317,7 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			class.startNodeId = node.id
 			node.startArt = classArt[node.classStartIndex]
 		elseif node.isAscendancyStart then
-		
-			node.type = "AscendClassStart"			
+			node.type = "AscendClassStart"
 			local ascendClass = self.ascendNameMap[node.ascendancyName].ascendClass
 			ascendClass.startNodeId = node.id
 		elseif node.m or node.isMastery then
@@ -346,6 +327,9 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 					if not self.masteryEffects[effect.effect] then
 						self.masteryEffects[effect.effect] = { id = effect.effect, sd = effect.stats }
 						self:ProcessStats(self.masteryEffects[effect.effect])
+					else
+						-- Copy multiline stats from an earlier ProcessStats call
+						effect.stats = self.masteryEffects[effect.effect].sd
 					end
 				end
 			end
@@ -379,7 +363,7 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 		else
 			node.type = "Normal"
 			if node.ascendancyName == "Ascendant" and not node.dn:find("敏捷") and not node.dn:find("智慧") and
-			not node.dn:find("力量") and not node.dn:find("天赋点数") then
+				not node.dn:find("力量") and not node.dn:find("天赋点数") then
 				self.ascendancyMap[node.dn:lower()] = node
 				if not self.classNotables[self.ascendNameMap[node.ascendancyName].class.name] then
 					self.classNotables[self.ascendNameMap[node.ascendancyName].class.name] = { }
@@ -388,13 +372,8 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			end
 		end
 
-		 
-
-		
 		-- Find the node group
 		local group = self.groups[node.g]
-		
-		 
 		if group then
 			node.group = group
 			group.ascendancyName = node.ascendancyName
@@ -404,11 +383,10 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 		elseif node.type == "Notable" or node.type == "Keystone" then
 			self.clusterNodeMap[node.dn] = node
 		end
+		
 		self:ProcessNode(node)
 	end
 
-	
- 
 	-- Pregenerate the polygons for the node connector lines
 	self.connectors = { }
 	for _, node in pairs(self.nodes) do
@@ -416,31 +394,27 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			if type(otherId) == "string" then
 				otherId = tonumber(otherId)
 			end
-			
 			local other = nodeMap[otherId]
-			if other then 
-				t_insert(node.linkedId, otherId)
-				t_insert(other.linkedId, node.id)
-				if node.type ~= "ClassStart" and other.type ~= "ClassStart" 
-					and node.type ~= "Mastery" and other.type ~= "Mastery" 
-					and node.ascendancyName == other.ascendancyName
-					and not node.isProxy and not other.isProxy
-					and not node.group.isProxy and not node.group.isProxy then
-						local connectors = self:BuildConnector(node, other)
-						t_insert(self.connectors, connectors[1])
-						if connectors[2] then
-							t_insert(self.connectors, connectors[2])
-						end
-				end
-			end
-			for _, otherId in pairs(node["in"] or {}) do
-				if type(otherId) == "string" then
-					otherId = tonumber(otherId)
-				end
-				t_insert(node.linkedId, otherId)
+			t_insert(node.linkedId, otherId)
+			if node.type ~= "ClassStart" and other.type ~= "ClassStart"
+				and node.type ~= "Mastery" and other.type ~= "Mastery"
+				and node.ascendancyName == other.ascendancyName
+				and not node.isProxy and not other.isProxy
+				and not node.group.isProxy and not node.group.isProxy then
+					local connectors = self:BuildConnector(node, other)
+					t_insert(self.connectors, connectors[1])
+					if connectors[2] then
+						t_insert(self.connectors, connectors[2])
+					end
 			end
 		end
-	end	
+		for _, otherId in pairs(node["in"] or {}) do
+			if type(otherId) == "string" then
+				otherId = tonumber(otherId)
+			end
+			t_insert(node.linkedId, otherId)
+		end
+	end
 	-- Precalculate the lists of nodes that are within each radius of each socket
 	for nodeId, socket in pairs(self.sockets) do
 		socket.nodesInRadius = { }
@@ -451,22 +425,19 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			local outerRadiusSquared = radiusInfo.outer * radiusInfo.outer
 			local innerRadiusSquared = radiusInfo.inner * radiusInfo.inner
 			for _, node in pairs(self.nodes) do
-				 
-				if node ~= socket and not node.isBlighted and node.group and not node.isProxy and not node.group.isProxy and not node.isMastery then				
+				if node ~= socket and not node.isBlighted and node.group and not node.isProxy and not node.group.isProxy and not node.isMastery then
 					local vX, vY = node.x - socket.x, node.y - socket.y
 					local euclideanDistanceSquared = vX * vX + vY * vY
-					
 					if innerRadiusSquared <= euclideanDistanceSquared then
 						if euclideanDistanceSquared <= outerRadiusSquared then
 							socket.nodesInRadius[radiusIndex][node.id] = node
-						 
 						end
 					end
 				end
 			end
 		end
 	end
-	
+
 	for name, keystone in pairs(self.keystoneMap) do
 		keystone.nodesInRadius = { }
 		for radiusIndex, radiusInfo in ipairs(data.jewelRadius) do
@@ -498,7 +469,7 @@ local cdnRoot = versionNum >= 3.08 and versionNum <= 3.09 and "https://web.poecd
 			end
 		end
 	end
-	
+
 	-- Build ModList for legion jewels
 	for _, node in pairs(self.legion.nodes) do
 		-- Determine node type
@@ -537,7 +508,6 @@ function PassiveTreeClass:ProcessStats(node)
 
 	-- Parse node modifier lines
 	node.mods = { }
-	
 	local i = 1
 	while node.sd[i] do
 		if node.sd[i]:match("\n") then
@@ -594,22 +564,13 @@ function PassiveTreeClass:ProcessStats(node)
 	for _, mod in pairs(node.mods) do
 		if mod.list and not mod.extra then
 			for i, mod in ipairs(mod.list) do
-				mod.source = "Tree:"..node.id
-				if type(mod.value) == "table" and mod.value.mod then
-					mod.value.mod.source = mod.source
-				end
+				mod = modLib.setSource(mod, "Tree:"..node.id)
 				node.modList:AddMod(mod)
 			end
 		end
 	end
-	 
 	if node.type == "Keystone" then
 		node.keystoneMod = modLib.createMod("Keystone", "LIST", node.dn, "Tree"..node.id)
-		node.modList:NewMod("Condition:Have"..node.dn.."Keystone", "FLAG", true, "Tree:"..node.id)
-	end
-	if node.type == "Notable" then
-		node.NotableMod = modLib.createMod("Notable", "LIST", node.dn, "Tree"..node.id)
-		
 	end
 end
 
@@ -653,27 +614,12 @@ function PassiveTreeClass:LoadImage(imgName, url, data, ...)
 			imgFile:close()
 			imgName = self.treeVersion.."/"..imgName
 		elseif main.allowTreeDownload then -- Enable downloading with Ctrl+Shift+F5
-		
-		 
-
 			ConPrintf("Downloading '%s'...", imgName)
-			if  not string.find(url,"http",0) then 
-				url="http://www.pathofexile.com"..url
-			end 
 			local data = getFile(url)
-			--print("url="..url)
-	
-			if data and  type(data) ~= "boolean" and not data:match("<!DOCTYPE html>") then			
+			if data and not data:match("<!DOCTYPE html>") then
 				imgFile = io.open("TreeData/"..imgName, "wb")
-				if imgFile ==nil then
-				ConPrintf("imgFile is  nil: %s", "TreeData/"..imgName)
- 
-				else 				 
-					imgFile:write(data)
-					imgFile:close()
-				end
-				
-				
+				imgFile:write(data)
+				imgFile:close()
 			else
 				ConPrintf("Failed to download: %s", url)
 			end

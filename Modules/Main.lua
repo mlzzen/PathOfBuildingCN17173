@@ -84,7 +84,6 @@ function main:Init()
 	self.showTitlebarName = true
 	self.showWarnings = true
 	self.slotOnlyTooltips = true
-	self.POESESSID = ""
 
 	local ignoreBuild
 	if arg[1] then
@@ -237,8 +236,6 @@ the "Releases" section of the GitHub page.]])
 	self.popups = { }
 	self.tooltipLines = { }
 
-	self.gameAccounts = { }
-
 	self.buildSortMode = "NAME"
 	self.nodePowerTheme = "RED/BLUE"
 	self.showThousandsSeparators = true
@@ -253,6 +250,8 @@ the "Releases" section of the GitHub page.]])
 	end
 
 	self:LoadSharedItems()
+
+	self.onFrameFuncs = { }
 end
 
 function main:LoadTree(treeVersion)
@@ -280,7 +279,6 @@ end
 
 function main:Shutdown()
 	self:CallMode("Shutdown")
-
 	self:SaveSettings()
 end
 
@@ -501,6 +499,7 @@ launch:ShowErrMsg("^1文件解析失败 'Settings.xml':  'Mode' 节点错误")
 						self.gameAccounts[child.attrib.accountName] = {
 							sessionID = child.attrib.sessionID,
 						}
+						self.POESESSID = child.attrib.sessionID
 					end
 				end
 			elseif node.elem == "Misc" then
@@ -530,9 +529,9 @@ launch:ShowErrMsg("^1文件解析失败 'Settings.xml':  'Mode' 节点错误")
 				if node.attrib.decimalSeparator then
 					self.decimalSeparator = node.attrib.decimalSeparator
 				end
-				if node.attrib.POESESSID then
-					self.POESESSID = node.attrib.POESESSID or ""
-				end
+				-- if node.attrib.POESESSID then
+				-- 	self.POESESSID = node.attrib.POESESSID or ""
+				-- end
 				if node.attrib.showTitlebarName then
 					self.showTitlebarName = node.attrib.showTitlebarName == "true"
 				end				
@@ -722,6 +721,7 @@ function main:OpenOptionsPopup()
 			self.modes.LIST:BuildList()
 		end
 		main:ClosePopup()
+		main:SaveSettings()
 	end)
 controls.cancel = new("ButtonControl", nil, 45, 182, 80, 20, "取消", function()
 		self.nodePowerTheme = initialNodePowerTheme

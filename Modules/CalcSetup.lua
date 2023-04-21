@@ -767,7 +767,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						-- Add all the stats to player as well
 						env.itemModDB:ScaleAddMod(mod, scale)
 					end
-				elseif slotName == "Weapon 1" and item.grantedSkills[1] and item.grantedSkills[1].skillId == "UniqueAnimateWeapon" then
+				elseif slotName == "Weapon 1" and item and item.grantedSkills and item.grantedSkills[1] and item.grantedSkills[1].skillId == "UniqueAnimateWeapon" then
 					-- Special handling for The Dancing Dervish
 					env.weaponModList1 = new("ModList")
 					for _, mod in ipairs(srcList) do

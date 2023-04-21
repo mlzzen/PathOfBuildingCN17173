@@ -323,7 +323,7 @@ function ImportTabClass:DownloadCharacterList()
 	local accountName = urlEncode(self.controls.accountName.buf)
 	local realm = realmList[self.controls.accountRealm.selIndex]
 	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[accountName] and main.gameAccounts[accountName].sessionID)
-	launch:DownloadPage("https://poe.game.qq.com/character-window/get-characters?accountName="..accountName.."&realm="..realm.realmCode, function(page, errMsg)
+	launch:DownloadPage("https://poe.game.qq.com/character-window/get-characters?accountName="..accountName.."&realm="..realm.realmCode, function(response, errMsg)
 		if errMsg == "Response code: 403" then
 			self.charImportStatus = colorCodes.NEGATIVE.."角色没有公开."
 			self.charImportMode = "GETSESSIONID"
@@ -345,7 +345,7 @@ function ImportTabClass:DownloadCharacterList()
 			self.charImportMode = "GETACCOUNTNAME"
 			return
 		end
-		local charList, errMsg = self:ProcessJSON(page)
+		local charList, errMsg = self:ProcessJSON(response.body)
 		if errMsg then
 			self.charImportStatus = colorCodes.NEGATIVE.."获取角色列表失败，请稍后重试"
 			self.charImportMode = "GETACCOUNTNAME"
@@ -359,13 +359,13 @@ function ImportTabClass:DownloadCharacterList()
 		end
 		-- GGG's character API has an issue where for /get-characters the account name is not case-sensitive, but for /get-passive-skills and /get-items it is.
 		-- This workaround grabs the profile page and extracts the correct account name from one of the URLs.
-		launch:DownloadPage(realm.profileURL..accountName, function(page, errMsg)
+		launch:DownloadPage(realm.profileURL..accountName, function(response, errMsg)
 			if errMsg then
 				self.charImportStatus = colorCodes.NEGATIVE.."获取角色列表失败，请重试 ("..errMsg:gsub("\n"," ")..")"
 				self.charImportMode = "GETACCOUNTNAME"
 				return
 			end
-			local realAccountName = page:match("/view%-profile/([^/]+)/characters"):gsub(".", function(c) if c:byte(1) > 127 then return string.format("%%%2X",c:byte(1)) else return c end end)
+			local realAccountName = response.body:match("/view%-profile/([^/]+)/characters"):gsub(".", function(c) if c:byte(1) > 127 then return string.format("%%%2X",c:byte(1)) else return c end end)
 			if not realAccountName then
 				self.charImportStatus = colorCodes.NEGATIVE.."接收角色列表失败."
 				self.charImportMode = "GETSESSIONID"
@@ -403,8 +403,8 @@ function ImportTabClass:DownloadCharacterList()
 
 			-- We only get here if the accountname was correct, found, and not private, so add it to the account history.
 			self:SaveAccountHistory()
-		end, sessionID and "POESESSID="..sessionID)
-	end, sessionID and "POESESSID="..sessionID)
+		end, sessionID and { header = "Cookie: POESESSID=" .. sessionID })
+	end, sessionID and { header = "Cookie: POESESSID=" .. sessionID })
 end
 
 function ImportTabClass:BuildCharacterList(league)
@@ -452,7 +452,7 @@ function ImportTabClass:DownloadPassiveTree()
 	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[encodeName] and main.gameAccounts[encodeName].sessionID)
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
-	launch:DownloadPage("https://poe.game.qq.com/character-window/get-passive-skills?accountName="..accountName.."&character="..charData.name.."&realm="..realm.realmCode, function(page, errMsg)
+	launch:DownloadPage("https://poe.game.qq.com/character-window/get-passive-skills?accountName="..accountName.."&character="..charData.name.."&realm="..realm.realmCode, function(response, errMsg)
 		self.charImportMode = "SELECTCHAR"
 		if errMsg then
 			if errMsg == "Response code: 401" then
@@ -467,8 +467,8 @@ function ImportTabClass:DownloadPassiveTree()
 			return
 		end
 		self.lastCharacterHash = common.sha1(charData.name)
-		self:ImportPassiveTreeAndJewels(page, charData)
-	end, sessionID and "POESESSID="..sessionID)
+		self:ImportPassiveTreeAndJewels(response.body, charData)
+	end, sessionID and { header = "Cookie: POESESSID="..sessionID })
 end
 
 function ImportTabClass:DownloadItems()
@@ -480,7 +480,7 @@ function ImportTabClass:DownloadItems()
 	local sessionID = #self.controls.sessionInput.buf == 32 and self.controls.sessionInput.buf or (main.gameAccounts[encodeName] and main.gameAccounts[encodeName].sessionID)
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
-	launch:DownloadPage("https://poe.game.qq.com/character-window/get-items?accountName="..accountName.."&character="..charData.name.."&realm="..realm.realmCode, function(page, errMsg)
+	launch:DownloadPage("https://poe.game.qq.com/character-window/get-items?accountName="..accountName.."&character="..charData.name.."&realm="..realm.realmCode, function(response, errMsg)
 		self.charImportMode = "SELECTCHAR"
 		if errMsg then
 			if errMsg == "Response code: 401" then
@@ -490,13 +490,13 @@ function ImportTabClass:DownloadItems()
 				self.charImportStatus = colorCodes.NEGATIVE.."导入角色装备失败，请重试 ("..errMsg:gsub("\n"," ")..")"
 			end
 			return
-		elseif page == "false" then
+		elseif response.body == "false" then
 			self.charImportStatus = colorCodes.NEGATIVE.."导入角色装备失败，请重试."
 			return
 		end
 		self.lastCharacterHash = common.sha1(charData.name)
-		self:ImportItemsAndSkills(page)
-	end, sessionID and "POESESSID="..sessionID)
+		self:ImportItemsAndSkills(response.body)
+	end, sessionID and { header = "Cookie: POESESSID="..sessionID })
 end
 
 function ImportTabClass:ImportPassiveTreeAndJewels(json, charData)
