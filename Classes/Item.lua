@@ -405,7 +405,7 @@ function ItemClass:ParseRaw(raw)
 				self.namePrefix = self.namePrefix or ""
 				self.nameSuffix = self.nameSuffix or ""
 				local baseName
-				if self.rarity == "NORMAL" or self.rarity == "MAGIC" then
+				if self.rarity == "普通" or self.rarity == "魔法" then
 					-- Exact match (affix-less magic and normal items)
 					if data.itemBases[self.name] then
 						baseName = self.name
@@ -447,7 +447,7 @@ function ItemClass:ParseRaw(raw)
 				end
 				if baseName and data.itemBases[baseName] then
 					self.baseName = baseName
-					if not (self.rarity == "NORMAL" or self.rarity == "MAGIC") then
+					if not (self.rarity == "普通" or self.rarity == "魔法") then
 						self.title = self.name
 					end
 					self.type = data.itemBases[baseName].type
@@ -605,9 +605,9 @@ function ItemClass:ParseRaw(raw)
 	if self.crafted then
 		if not self.affixes then 
 			self.crafted = false
-		elseif self.rarity == "MAGIC" then
+		elseif self.rarity == "魔法" then
 			self.affixLimit = 2
-		elseif self.rarity == "RARE" then
+		elseif self.rarity == "稀有" then
 			self.affixLimit = ((self.type == "Jewel" and not (self.base.subType == "Abyss" and self.corrupted)) and 4 or 6)
 		else
 			self.crafted = false
