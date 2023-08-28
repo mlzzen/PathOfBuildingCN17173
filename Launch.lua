@@ -17,7 +17,7 @@ SetMainObject(launch)
 
 function launch:OnInit()
 	-- This is the path to emmy_core.dll. The ?.dll at the end is intentional.
-	-- package.cpath = package.cpath .. ";C:/Users/echo/.vscode/extensions/tangzx.emmylua-0.5.13/debugger/emmy/windows/x86/?.dll"
+	-- package.cpath = package.cpath .. ";C:/Users/echo/.vscode/extensions/tangzx.emmylua-0.5.17/debugger/emmy/windows/x86/?.dll"
 	-- local dbg = require("emmy_core")
 	-- This port must match the Visual Studio Code configuration. Default is 9966.
 	-- dbg.tcpListen("localhost", 9966)
