@@ -26,6 +26,38 @@ local classesCn = {
 	Scion = "贵族", Ascendant = "升华使徒"
 }
 
+local classMap = {
+	Scion = 0,
+	Marauder = 1,
+	Ranger = 2,
+	Witch = 3,
+	Duelist = 4,
+	Templar = 5,
+	Shadow = 6
+}
+
+local ascendClassMap = {
+	Scion = { [0] = 0, [1] = 1},
+	Juggernaut = { [0] = 1, [1] = 1},
+	Berserker = { [0] = 1, [1] = 2},
+	Chieftain = { [0] = 1, [1] = 3},
+	Raider = { [0] = 2, [1] = 1},
+	Deadeye = { [0] = 2, [1] = 2},
+	Pathfinder = { [0] = 2, [1] = 3},
+	Occultist  = { [0] = 3, [1] = 1},
+	Elementalist = { [0] = 3, [1] = 2},
+	Necromancer = { [0] = 3, [1] = 3},
+	Slayer = { [0] = 4, [1] = 1},
+	Gladiator = { [0] = 4, [1] = 2},
+	Champion = { [0] = 4, [1] = 3},
+	Inquisitor = { [0] = 5, [1] = 1},
+	Hierophant = { [0] = 5, [1] = 2},
+	Guardian = { [0] = 5, [1] = 3},
+	Assassin = { [0] = 6, [1] = 1},
+	Trickster = { [0] = 6, [1] = 1},
+	Saboteur = { [0] = 6, [1] = 1},
+}
+
 local influenceInfo = itemLib.influenceInfo
 
 local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(self, build)
@@ -538,6 +570,15 @@ self.charImportStatus = colorCodes.POSITIVE.."天赋树和珠宝导入成功."
 				self:ImportItem(itemData)
 		end
 	end
+
+	if ascendClassMap[charData.class] then
+		charData.classId = ascendClassMap[charData.class][0]
+		charData.ascendancyClass = ascendClassMap[charData.class][1]
+	else 
+		charData.classId = classMap[charData.class] 
+		charData.ascendancyClass = 0;
+	end
+	
 	self.build.itemsTab:PopulateSlots()
 	self.build.itemsTab:AddUndoState()
 	self.build.spec:ImportFromNodeList(charData.classId, charData.ascendancyClass, charPassiveData.hashes, charPassiveData.mastery_effects or {})
