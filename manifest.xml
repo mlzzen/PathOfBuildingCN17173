@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <PoBVersion>
-	<Version branch="main" number="S23.0.1" platform="win32" />
+	<Version branch="main" number="s23.0.2" platform="win32" />
 	<Source part="program" url="https://ghproxy.com/https://raw.githubusercontent.com/tzw28/PathOfBuildingCN17173/{branch}/" />
 	<Source part="default" url="https://ghproxy.com/https://raw.githubusercontent.com/tzw28/PathOfBuildingCN17173/{branch}/" />
 	<Source part="tree" url="https://ghproxy.com/https://raw.githubusercontent.com/tzw28/PathOfBuildingCN17173/{branch}/" />
@@ -214,7 +214,7 @@
 	<File name="Modules/Data.lua" part="program" sha1="721c6b3079b41c3abd8c813f43616da2406e0870" />
 	<File name="Modules/ItemTools.lua" part="program" sha1="3ffa54f35038c133d715c6eabcd01d11b3d08ee6" />
 	<File name="Modules/Main.lua" part="program" sha1="26b5a656ba6abf052baeb59e3e3c6b99151301ce" />
-	<File name="Modules/ModParser.lua" part="program" sha1="a31526f73fe6ecb703e593480e6ce0aa0ddce382" />
+	<File name="Modules/ModParser.lua" part="program" sha1="8402cd1a26399a6e3fe85b72817f16c580e4c377" />
 	<File name="Modules/ModParserEn.lua" part="program" sha1="0e332d0b5a84c8e1871436ef85aabfcad1e0e0ff" />
 	<File name="Modules/ModTools.lua" part="program" sha1="6b6ebeccf7d13593546f5408096187e0afa0ecbf" />
 	<File name="Modules/StatDescriber.lua" part="program" sha1="fbb800943c7937df5e3bbac6a19a2bbcb963b806" />
