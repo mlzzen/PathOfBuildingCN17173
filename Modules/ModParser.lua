@@ -2575,7 +2575,7 @@ local specialModList = {
 	["暴击后的 8 秒内，火焰、冰霜和闪电总伤害额外提高 (%d+)%%"]= function(num) return {  mod("ElementalDamage", "MORE", num,{ type = "Condition", var = "CritInPast8Sec" })  } end,
 	["过去 8 秒你若有造成暴击，火焰、冰霜和闪电总伤害额外提高 (%d+)%%"]= function(num) return {  mod("ElementalDamage", "MORE", num,{ type = "Condition", var = "CritInPast8Sec" })  } end,
 	["若你过去 8 秒内造成暴击，则总元素伤害总增 (%d+)%%"]= function(num) return {  mod("ElementalDamage", "MORE", num,{ type = "Condition", var = "CritInPast8Sec" })  } end,
-	["在过去 8 秒内造成暴击的技能使击中和异常状态伤害总增 (%d+)%%"]= function(num) return {  mod("ElementalDamage", "MORE", num, nil,nil, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Condition", var = "CritInPast8Sec" })  } end,
+	["在过去 8 秒内造成暴击的技能造成的击中和异常状态伤害总增 (%d+)%%"]= function(num) return {  mod("ElementalDamage", "MORE", num, nil,nil, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "Condition", var = "CritInPast8Sec" })  } end,
 	["暴击造成的异常状态不在其内"] = { flag("AilmentsAreNeverFromCrit") },
 	["没有暴击伤害加成"] = { flag("NoCritMultiplier") },
 	["所承受伤害的前 (%d+)%% 会扣除魔力，而非生命"]= function(num) return {  mod("DamageTakenFromManaBeforeLife", "BASE", num)  } end,
