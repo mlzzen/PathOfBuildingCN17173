@@ -37,6 +37,7 @@ local classMap = {
 }
 
 local ascendClassMap = {
+	Ascendant = { [0] = 0, [1] = 1 },
 	Scion = { [0] = 0, [1] = 1},
 	Juggernaut = { [0] = 1, [1] = 1},
 	Berserker = { [0] = 1, [1] = 2},
