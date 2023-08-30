@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <PoBVersion>
-	<Version branch="main" number="s23.0.2" platform="win32" />
+	<Version branch="main" number="S23.0.3" platform="win32" />
 	<Source part="program" url="https://ghproxy.com/https://raw.githubusercontent.com/tzw28/PathOfBuildingCN17173/{branch}/" />
 	<Source part="default" url="https://ghproxy.com/https://raw.githubusercontent.com/tzw28/PathOfBuildingCN17173/{branch}/" />
 	<Source part="tree" url="https://ghproxy.com/https://raw.githubusercontent.com/tzw28/PathOfBuildingCN17173/{branch}/" />
@@ -45,7 +45,7 @@
 	<File name="Classes/FolderListControl.lua" part="program" sha1="2f023f5bff3e83bff534c14ae394dd08f143a512" />
 	<File name="Classes/GemSelectControl.lua" part="program" sha1="fd4206b837312164487c3b884bd5869087ab2dee" />
 	<File name="Classes/HorizontalLineControl.lua" part="program" sha1="ac90bf59c48bc7b2d2e487141fa58e6f1f71c15a" />
-	<File name="Classes/ImportTab.lua" part="program" sha1="d5be98a07e6245273c08c2f0e1976b2f7b4ce5a3" />
+	<File name="Classes/ImportTab.lua" part="program" sha1="bced0398469f26a11d51d87d913e36b3ddc49f3a" />
 	<File name="Classes/Item.lua" part="program" sha1="10e9fac5097df377b60b5be050bd8b9120f5e31c" />
 	<File name="Classes/ItemDBControl.lua" part="program" sha1="077415a894d85f2931d8f717ebdb4e5c9c234d74" />
 	<File name="Classes/ItemListControl.lua" part="program" sha1="c29b51ce17d9c9afff0c6f4b2fd7cfbf75580e7a" />
