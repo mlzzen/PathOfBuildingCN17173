@@ -3973,7 +3973,7 @@ local specialModList = {
 	mod("EnergyShieldRegen", "MORE", -num)
 	}end,
 	["Base Spell Critical Strike Chance of Spells is equal to that of Main Hand Weapon"] = { flag("BaseCritFromMainHand", nil, ModFlag.Spell) },
-	["法术的基础暴击率等於主手武器的暴击率"] = { flag("BaseCritFromMainHand", nil, ModFlag.Spell) },
+	["法术的基础法术暴击几率等于主手武器的暴击几率"] = { flag("BaseCritFromMainHand", nil, ModFlag.Spell) },
 	["武器攻击的基础暴击几率为 ([%d%.]+)%%"]= function(num) return { mod("WeaponBaseCritChance", "OVERRIDE", num) } end,
 	["基础武器暴击率为 ([%d%.]+)%%"]= function(num) return { mod("WeaponBaseCritChance", "OVERRIDE", num) } end,
 	["每次击中获得 %d+ 层怒火，最多每 [%d%.]+ 秒获得一次"] = {
